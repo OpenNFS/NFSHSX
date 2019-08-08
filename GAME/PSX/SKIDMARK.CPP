@@ -1,0 +1,538 @@
+#include "NFS4.H"
+#include "SKIDMARK.H"
+
+// decompiled code
+// original method signature: 
+// void /*$ra*/ CalcStartSegment__FP16Skidmark_SegmentT0P8coorddefN22i(struct Skidmark_Segment *r1 /*$s5*/, struct Skidmark_Segment *r2 /*$s6*/, struct coorddef *cp /*$s2*/, struct coorddef *pt1 /*$s0*/, struct coorddef *pt2 /*stack 16*/, int tireWidth /*stack 20*/)
+ // line 48, offset 0x800de6f4
+	/* begin block 1 */
+		// Start line: 49
+		// Start offset: 0x800DE6F4
+		// Variables:
+	// 		int pxp; // $s1
+	// 		int pzp; // $v0
+
+		/* begin block 1.1 */
+			// Start line: 49
+			// Start offset: 0x800DE6F4
+			// Variables:
+		// 		int angle; // $s1
+		/* end block 1.1 */
+		// End offset: 0x800DE6F4
+		// End Line: 49
+	/* end block 1 */
+	// End offset: 0x800DE6F4
+	// End Line: 49
+
+void CalcStartSegment__FP16Skidmark_SegmentT0P8coorddefN22i( (Skidmark_Segment *r1,Skidmark_Segment *r2,coorddef *cp,coorddef *pt1,coorddef *pt2, int tireWidth)
+{
+  undefined4 uVar1;
+  int iVar2;
+  int iVar3;
+  
+  uVar1 = intatan(pt2->x - pt1->x,pt2->z - pt1->z);
+  iVar2 = fastintcos(uVar1);
+  iVar2 = fixedmult(tireWidth,-iVar2);
+  iVar2 = iVar2 >> 1;
+  uVar1 = fastintsin(uVar1);
+  iVar3 = fixedmult(tireWidth,uVar1);
+  r1->svx[0].vx = (short)((pt1->x + iVar2) - cp->x >> 6);
+  iVar3 = iVar3 >> 1;
+  r1->svx[0].vy = (short)(pt1->y - cp->y >> 6);
+  r1->svx[0].vz = (short)((pt1->z + iVar3) - cp->z >> 6);
+  r1->svx[1].vx = (short)((pt1->x - iVar2) - cp->x >> 6);
+  r1->svx[1].vy = (short)(pt1->y - cp->y >> 6);
+  r1->svx[1].vz = (short)((pt1->z - iVar3) - cp->z >> 6);
+  r2->svx[1].vx = (short)((pt2->x - iVar2) - cp->x >> 6);
+  r2->svx[1].vy = (short)(pt2->y - cp->y >> 6);
+  r2->svx[1].vz = (short)((pt2->z - iVar3) - cp->z >> 6);
+  r2->svx[0].vx = (short)((pt2->x + iVar2) - cp->x >> 6);
+  r2->svx[0].vy = (short)(pt2->y - cp->y >> 6);
+  r2->svx[0].vz = (short)((pt2->z + iVar3) - cp->z >> 6);
+  return;
+
+
+}
+
+
+
+
+// decompiled code
+// original method signature: 
+// void /*$ra*/ CalcOneSegment__FP16Skidmark_SegmentP8coorddefN21i(struct Skidmark_Segment *r1 /*$s4*/, struct coorddef *cp /*$s3*/, struct coorddef *pt1 /*$a2*/, struct coorddef *pt2 /*$s0*/, int tireWidth /*stack 16*/)
+ // line 81, offset 0x800de8c4
+	/* begin block 1 */
+		// Start line: 82
+		// Start offset: 0x800DE8C4
+		// Variables:
+	// 		int pxp; // $s1
+	// 		int pzp; // $v0
+
+		/* begin block 1.1 */
+			// Start line: 82
+			// Start offset: 0x800DE8C4
+			// Variables:
+		// 		int angle; // $s1
+		/* end block 1.1 */
+		// End offset: 0x800DE8C4
+		// End Line: 82
+	/* end block 1 */
+	// End offset: 0x800DE8C4
+	// End Line: 82
+
+void CalcOneSegment__FP16Skidmark_SegmentP8coorddefN21i( (Skidmark_Segment *r1,coorddef *cp,coorddef *pt1,coorddef *pt2,int tireWidth)
+{
+  undefined4 uVar1;
+  int iVar2;
+  int iVar3;
+  
+  uVar1 = intatan(pt2->x - pt1->x,pt2->z - pt1->z);
+  iVar2 = fastintcos(uVar1);
+  iVar2 = fixedmult(tireWidth,-iVar2);
+  uVar1 = fastintsin(uVar1);
+  iVar3 = fixedmult(tireWidth,uVar1);
+  r1->svx[0].vx = (short)((pt2->x + (iVar2 >> 1)) - cp->x >> 6);
+  r1->svx[0].vy = (short)(pt2->y - cp->y >> 6);
+  r1->svx[0].vz = (short)((pt2->z + (iVar3 >> 1)) - cp->z >> 6);
+  r1->svx[1].vx = (short)((pt2->x - (iVar2 >> 1)) - cp->x >> 6);
+  r1->svx[1].vy = (short)(pt2->y - cp->y >> 6);
+  r1->svx[1].vz = (short)((pt2->z - (iVar3 >> 1)) - cp->z >> 6);
+  return;
+
+
+}
+
+
+
+
+// decompiled code
+// original method signature: 
+// struct Skidmark_Chunk * /*$ra*/ Skidmark_CheckChunk__FP8coorddefii(struct coorddef *skidpt /*$a0*/, int newsegs /*$a1*/, int slice /*$a2*/)
+ // line 115, offset 0x800de9ec
+	/* begin block 1 */
+		// Start line: 116
+		// Start offset: 0x800DE9EC
+		// Variables:
+	// 		struct Skidmark_Chunk *returnsm; // $a3
+	// 		int NewChunk; // $t1
+	/* end block 1 */
+	// End offset: 0x800DEB90
+	// End Line: 152
+
+Skidmark_Chunk * Skidmark_CheckChunk__FP8coorddefii(coorddef *skidpt,int newsegs,int slice)
+{
+  bool bVar1;
+  int iVar2;
+  Skidmark_Chunk *pSVar3;
+  int iVar4;
+  
+  pSVar3 = (Skidmark_Chunk *)(iGp0000157c + iGp00001584 * 0x2b0);
+  iVar4 = (pSVar3->cp).x;
+  bVar1 = 0x18 < (int)pSVar3->n + newsegs;
+  iVar2 = iVar4 - skidpt->x;
+  if (iVar2 < 1) {
+    iVar2 = skidpt->x - iVar4;
+  }
+  if (iVar2 < 0x100000) {
+    iVar4 = (pSVar3->cp).y;
+    iVar2 = iVar4 - skidpt->y;
+    if (iVar2 < 1) {
+      iVar2 = skidpt->y - iVar4;
+    }
+    if (iVar2 < 0x100000) {
+      iVar4 = (pSVar3->cp).z;
+      iVar2 = iVar4 - skidpt->z;
+      if (0 < iVar2) {
+        if (0xfffff < iVar2) {
+          bVar1 = true;
+        }
+        goto LAB_800deae0;
+      }
+      if (skidpt->z - iVar4 < 0x100000) goto LAB_800deae0;
+    }
+  }
+  bVar1 = true;
+LAB_800deae0:
+  if (bVar1) {
+    if (iGp00001580 < iGp00001588) {
+      iGp00001584 = iGp00001580;
+      iGp00001580 = iGp00001580 + 1;
+    }
+    else {
+      bVar1 = iGp00001588 + -1 <= iGp00001584;
+      iGp00001584 = iGp00001584 + 1;
+      if (bVar1) {
+        iGp00001584 = 0;
+      }
+    }
+    pSVar3 = (Skidmark_Chunk *)(iGp0000157c + iGp00001584 * 0x2b0);
+    pSVar3->n = 0;
+  }
+  if (pSVar3->n == 0) {
+    iVar2 = skidpt->y;
+    iVar4 = skidpt->z;
+    (pSVar3->cp).x = skidpt->x;
+    (pSVar3->cp).y = iVar2;
+    (pSVar3->cp).z = iVar4;
+    pSVar3->slice = (short)slice;
+  }
+  return pSVar3;
+
+
+}
+
+
+
+
+// decompiled code
+// original method signature: 
+// void /*$ra*/ Skidmark_Add__FP5tSkidP8coorddefP7CVECTORiii(struct tSkid *prevskid /*$s1*/, struct coorddef *skidpt /*$s3*/, struct CVECTOR *color /*$s5*/, int tireWidth /*$s2*/, int type /*stack 16*/, int slice /*stack 20*/)
+ // line 159, offset 0x800deb98
+	/* begin block 1 */
+		// Start line: 160
+		// Start offset: 0x800DEB98
+		// Variables:
+	// 		struct Skidmark_Chunk *sm; // $s0
+	/* end block 1 */
+	// End offset: 0x800DEF48
+	// End Line: 240
+
+void Skidmark_Add__FP5tSkidP8coorddefP7CVECTORiii( (tSkid *prevskid,coorddef *skidpt,CVECTOR *color,int tireWidth,int type,int slice)
+{
+  short sVar1;
+  Skidmark_Chunk *cp;
+  coorddef *pcVar2;
+  int iVar3;
+  int iVar4;
+  
+  if (prevskid->nseg == (Skidmark_Segment *)0x0) {
+    cp = Skidmark_CheckChunk__FP8coorddefii(skidpt,2,slice);
+    CalcStartSegment__FP16Skidmark_SegmentT0P8coorddefN22i
+              (cp->seg + (int)cp->n,cp->seg + (int)cp->n + 1,(coorddef *)cp,(coorddef *)prevskid,
+               skidpt,tireWidth);
+    sVar1 = cp->n;
+    pcVar2 = (coorddef *)((int)&cp->cp + ((int)sVar1 + 1) * 0x1c);
+    *(CVECTOR *)&pcVar2[2].z = *color;
+    cp->seg[(int)sVar1].rgb = *(CVECTOR *)&pcVar2[2].z;
+    iVar3 = (int)cp->n;
+    cp->seg[iVar3 + 1].type = type;
+  }
+  else {
+    cp = Skidmark_CheckChunk__FP8coorddefii(skidpt,2,slice);
+    if (prevskid->chunk == iGp00001584) {
+      CalcOneSegment__FP16Skidmark_SegmentP8coorddefN21i
+                (cp->seg + (int)cp->n,(coorddef *)cp,(coorddef *)prevskid,skidpt,tireWidth);
+      cp->seg[(int)cp->n].rgb = *color;
+      cp->seg[(int)cp->n].type = type;
+      prevskid->nseg->next = cp->seg + (int)cp->n;
+      cp->seg[(int)cp->n].next = (Skidmark_Segment *)0x0;
+      prevskid->clr = *color;
+      prevskid->type = type;
+      iVar3 = skidpt->y;
+      iVar4 = skidpt->z;
+      (prevskid->pt).x = skidpt->x;
+      (prevskid->pt).y = iVar3;
+      (prevskid->pt).z = iVar4;
+      sVar1 = cp->n;
+      prevskid->chunk = iGp00001584;
+      prevskid->nseg = cp->seg + (int)sVar1;
+      sVar1 = cp->n + 1;
+      goto LAB_800def44;
+    }
+    CalcStartSegment__FP16Skidmark_SegmentT0P8coorddefN22i
+              (cp->seg + (int)cp->n,cp->seg + (int)cp->n + 1,(coorddef *)cp,(coorddef *)prevskid,
+               skidpt,tireWidth);
+    cp->seg[(int)cp->n].rgb = prevskid->clr;
+    cp->seg[(int)cp->n].type = prevskid->type;
+    cp->seg[(int)cp->n + 1].rgb = *color;
+    iVar3 = (int)cp->n + 1;
+  }
+  cp->seg[iVar3].type = type;
+  cp->seg[(int)cp->n].next = cp->seg + (int)cp->n + 1;
+  cp->seg[(int)cp->n + 1].next = (Skidmark_Segment *)0x0;
+  prevskid->clr = *color;
+  prevskid->type = type;
+  iVar3 = skidpt->y;
+  iVar4 = skidpt->z;
+  (prevskid->pt).x = skidpt->x;
+  (prevskid->pt).y = iVar3;
+  (prevskid->pt).z = iVar4;
+  sVar1 = cp->n;
+  prevskid->chunk = iGp00001584;
+  prevskid->nseg = cp->seg + (int)sVar1 + 1;
+  sVar1 = cp->n + 2;
+LAB_800def44:
+  cp->n = sVar1;
+  return;
+
+
+}
+
+
+
+
+// decompiled code
+// original method signature: 
+// void /*$ra*/ Skidmark_AddStretch__FPP16Skidmark_SegmentPiP5tSkidP8coorddefP7CVECTORiii(struct Skidmark_Segment **save /*$s6*/, int *savechunk /*$s7*/, struct tSkid *prevskid /*$s2*/, struct coorddef *skidpt /*$s1*/, struct CVECTOR *color /*stack 16*/, int tireWidth /*stack 20*/, int type /*stack 24*/, int slice /*stack 28*/)
+ // line 264, offset 0x800def6c
+	/* begin block 1 */
+		// Start line: 265
+		// Start offset: 0x800DEF6C
+		// Variables:
+	// 		struct Skidmark_Chunk *sm; // $s0
+	/* end block 1 */
+	// End offset: 0x800DF2DC
+	// End Line: 327
+
+void Skidmark_AddStretch__FPP16Skidmark_SegmentPiP5tSkidP8coorddefP7CVECTORiii( (Skidmark_Segment **save,int *savechunk,tSkid *prevskid,coorddef *skidpt, CVECTOR *color,int tireWidth,int type,int slice)
+{
+  short sVar1;
+  Skidmark_Chunk *cp;
+  coorddef *pcVar2;
+  int iVar3;
+  
+  if (prevskid->nseg == (Skidmark_Segment *)0x0) {
+    cp = Skidmark_CheckChunk__FP8coorddefii(skidpt,2,slice);
+    CalcStartSegment__FP16Skidmark_SegmentT0P8coorddefN22i
+              (cp->seg + (int)cp->n,cp->seg + (int)cp->n + 1,(coorddef *)cp,(coorddef *)prevskid,
+               skidpt,tireWidth);
+    sVar1 = cp->n;
+    pcVar2 = (coorddef *)((int)&cp->cp + ((int)sVar1 + 1) * 0x1c);
+    *(CVECTOR *)&pcVar2[2].z = *color;
+    cp->seg[(int)sVar1].rgb = *(CVECTOR *)&pcVar2[2].z;
+    iVar3 = (int)cp->n;
+    cp->seg[iVar3 + 1].type = type;
+  }
+  else {
+    cp = Skidmark_CheckChunk__FP8coorddefii(skidpt,2,slice);
+    if (prevskid->chunk == iGp00001584) {
+      CalcOneSegment__FP16Skidmark_SegmentP8coorddefN21i
+                (cp->seg + (int)cp->n,(coorddef *)cp,(coorddef *)prevskid,skidpt,tireWidth);
+      cp->seg[(int)cp->n].rgb = *color;
+      cp->seg[(int)cp->n].type = type;
+      prevskid->nseg->next = cp->seg + (int)cp->n;
+      cp->seg[(int)cp->n].next = (Skidmark_Segment *)0x0;
+      *save = cp->seg + (int)cp->n;
+      *savechunk = iGp00001584;
+      sVar1 = cp->n + 1;
+      goto LAB_800df2d8;
+    }
+    CalcStartSegment__FP16Skidmark_SegmentT0P8coorddefN22i
+              (cp->seg + (int)cp->n,cp->seg + (int)cp->n + 1,(coorddef *)cp,(coorddef *)prevskid,
+               skidpt,tireWidth);
+    cp->seg[(int)cp->n].rgb = prevskid->clr;
+    cp->seg[(int)cp->n].type = prevskid->type;
+    cp->seg[(int)cp->n + 1].rgb = *color;
+    iVar3 = (int)cp->n + 1;
+  }
+  cp->seg[iVar3].type = type;
+  cp->seg[(int)cp->n].next = cp->seg + (int)cp->n + 1;
+  cp->seg[(int)cp->n + 1].next = (Skidmark_Segment *)0x0;
+  *save = cp->seg + (int)cp->n + 1;
+  *savechunk = iGp00001584;
+  sVar1 = cp->n + 2;
+LAB_800df2d8:
+  cp->n = sVar1;
+  return;
+
+
+}
+
+
+
+
+// decompiled code
+// original method signature: 
+// void /*$ra*/ Skidmark_Stretch__FP16Skidmark_SegmentiP5tSkidP8coorddefP7CVECTORii(struct Skidmark_Segment *save /*$s0*/, int savechunk /*$a1*/, struct tSkid *prevskid /*$a2*/, struct coorddef *skidpt /*$a3*/, struct CVECTOR *color /*stack 16*/, int tireWidth /*stack 20*/, int type /*stack 24*/)
+ // line 336, offset 0x800df308
+	/* begin block 1 */
+		// Start line: 337
+		// Start offset: 0x800DF308
+	/* end block 1 */
+	// End offset: 0x800DF308
+	// End Line: 337
+
+void Skidmark_Stretch__FP16Skidmark_SegmentiP5tSkidP8coorddefP7CVECTORii( (Skidmark_Segment *save,int savechunk,tSkid *prevskid,coorddef *skidpt,CVECTOR *color ,int tireWidth,int type)
+{
+  CalcOneSegment__FP16Skidmark_SegmentP8coorddefN21i
+            (save,(coorddef *)(iGp0000157c + savechunk * 0x2b0),(coorddef *)prevskid,skidpt,
+             tireWidth);
+  save->rgb = *color;
+  save->type = type;
+  return;
+
+
+}
+
+
+
+
+// decompiled code
+// original method signature: 
+// void /*$ra*/ Skidmark_EndStretch__FP16Skidmark_SegmentiP5tSkidP8coorddefP7CVECTORii(struct Skidmark_Segment *save /*$s2*/, int savechunk /*$s1*/, struct tSkid *prevskid /*$s0*/, struct coorddef *skidpt /*$s5*/, struct CVECTOR *color /*stack 16*/, int tireWidth /*stack 20*/, int type /*stack 24*/)
+ // line 350, offset 0x800df388
+	/* begin block 1 */
+		// Start line: 351
+		// Start offset: 0x800DF388
+	/* end block 1 */
+	// End offset: 0x800DF388
+	// End Line: 351
+
+void Skidmark_EndStretch__FP16Skidmark_SegmentiP5tSkidP8coorddefP7CVECTORii( (Skidmark_Segment *save,int savechunk,tSkid *prevskid,coorddef *skidpt,CVECTOR *color ,int tireWidth,int type)
+{
+  int iVar1;
+  int iVar2;
+  
+  CalcOneSegment__FP16Skidmark_SegmentP8coorddefN21i
+            (save,(coorddef *)(iGp0000157c + savechunk * 0x2b0),(coorddef *)prevskid,skidpt,
+             tireWidth);
+  save->rgb = *color;
+  save->type = type;
+  prevskid->clr = *color;
+  prevskid->type = type;
+  iVar1 = skidpt->y;
+  iVar2 = skidpt->z;
+  (prevskid->pt).x = skidpt->x;
+  (prevskid->pt).y = iVar1;
+  (prevskid->pt).z = iVar2;
+  prevskid->nseg = save;
+  prevskid->chunk = savechunk;
+  return;
+
+
+}
+
+
+
+
+// decompiled code
+// original method signature: 
+// void /*$ra*/ Skidmark_OnyxBuildFacets__FP13DRender_tView(struct DRender_tView *Vi /*$v1*/)
+ // line 365, offset 0x800df464
+	/* begin block 1 */
+		// Start line: 366
+		// Start offset: 0x800DF464
+		// Variables:
+	// 		struct Draw_tCtrlSkidmark *fskid; // $a0
+	// 		struct Draw_tCtrlSkidmark fskidspace; // stack offset -64
+
+		/* begin block 1.1 */
+			// Start line: 366
+			// Start offset: 0x800DF464
+			// Variables:
+		// 		int t1; // $a1
+		// 		int t2; // $v0
+		// 		int t3; // $a2
+		/* end block 1.1 */
+		// End offset: 0x800DF464
+		// End Line: 366
+	/* end block 1 */
+	// End offset: 0x800DF464
+	// End Line: 366
+
+void Skidmark_OnyxBuildFacets__FP13DRender_tView(DRender_tView *Vi)
+{
+  Draw_tCtrlSkidmark local_40;
+  
+  local_40.t.x = (Vi->cview).translation.x;
+  local_40.t.y = (Vi->cview).translation.y;
+  local_40.t.z = (Vi->cview).translation.z;
+  local_40.count = iGp00001580;
+  local_40.smp = pSGp0000157c;
+  local_40.m.m[0] = (Vi->cview).mrotationInv.m[0];
+  local_40.m.m[2] = (Vi->cview).mrotationInv.m[2];
+  local_40.m.m[1] = -(Vi->cview).mrotationInv.m[1];
+  local_40.m.m[3] = (Vi->cview).mrotationInv.m[3];
+  local_40.m.m[5] = (Vi->cview).mrotationInv.m[5];
+  local_40.m.m[4] = -(Vi->cview).mrotationInv.m[4];
+  local_40.m.m[6] = (Vi->cview).mrotationInv.m[6];
+  local_40.m.m[8] = (Vi->cview).mrotationInv.m[8];
+  local_40.m.m[7] = -(Vi->cview).mrotationInv.m[7];
+  Draw_kCtrlSkidmark__FP18Draw_tCtrlSkidmark(&local_40);
+  return;
+
+
+}
+
+
+
+
+// decompiled code
+// original method signature: 
+// void /*$ra*/ Skidmark_InitSkidmark__Fv()
+ // line 419, offset 0x800df504
+	/* begin block 1 */
+		// Start line: 420
+		// Start offset: 0x800DF504
+	/* end block 1 */
+	// End offset: 0x800DF52C
+	// End Line: 425
+
+void Skidmark_InitSkidmark__Fv(void)
+{
+  iGp00001588 = 0x10;
+  if (DAT_801131f8 == 1) {
+    iGp00001588 = 8;
+  }
+  iGp0000157c = reservememadr("SkidMark",iGp00001588 * 0x2b0,0);
+  *(undefined2 *)(iGp0000157c + 0xc) = 0;
+  uGp00001580 = 0;
+  uGp00001584 = 0;
+  return;
+
+
+}
+
+
+
+
+// decompiled code
+// original method signature: 
+// void /*$ra*/ Skidmark_RestartSkidmark__Fv()
+ // line 433, offset 0x800df578
+	/* begin block 1 */
+		// Start line: 434
+		// Start offset: 0x800DF578
+	/* end block 1 */
+	// End offset: 0x800DF578
+	// End Line: 438
+
+void Skidmark_RestartSkidmark__Fv(void)
+{
+  *(undefined2 *)(iGp0000157c + 0xc) = 0;
+  uGp00001580 = 0;
+  uGp00001584 = 0;
+  return;
+
+
+}
+
+
+
+
+// decompiled code
+// original method signature: 
+// void /*$ra*/ Skidmark_KillSkidmark__Fv()
+ // line 441, offset 0x800df58c
+	/* begin block 1 */
+		// Start line: 442
+		// Start offset: 0x800DF58C
+	/* end block 1 */
+	// End offset: 0x800DF5A4
+	// End Line: 444
+
+void Skidmark_KillSkidmark__Fv(void)
+{
+  if (iGp0000157c != 0) {
+    purgememadr();
+  }
+  iGp0000157c = 0;
+  return;
+
+
+}
+
+
+
+
+

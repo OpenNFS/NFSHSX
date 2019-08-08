@@ -1,0 +1,274 @@
+#include "NFS4.H"
+#include "AUDIO.H"
+
+// decompiled code
+// original method signature: 
+// void /*$ra*/ Audio_InitDriver__Fii(int buffersize /*$s0*/, int spusize /*$s1*/)
+ // line 58, offset 0x800bbb84
+	/* begin block 1 */
+		// Start line: 59
+		// Start offset: 0x800BBB84
+
+		/* begin block 1.1 */
+			// Start line: 59
+			// Start offset: 0x800BBB84
+			// Variables:
+		// 		int i; // $a0
+		/* end block 1.1 */
+		// End offset: 0x800BBBC0
+		// End Line: 64
+
+		/* begin block 1.2 */
+			// Start line: 65
+			// Start offset: 0x800BBBC0
+
+			/* begin block 1.2.1 */
+				// Start line: 66
+				// Start offset: 0x800BBBE8
+				// Variables:
+			// 		struct SNDSYSOPTS opts; // stack offset -80
+			/* end block 1.2.1 */
+			// End offset: 0x800BBC34
+			// End Line: 74
+		/* end block 1.2 */
+		// End offset: 0x800BBC34
+		// End Line: 74
+	/* end block 1 */
+	// End offset: 0x800BBC4C
+	// End Line: 79
+
+void Audio_InitDriver__Fii(int buffersize,int spusize)
+{
+  int *piVar1;
+  int iVar2;
+  undefined auStack80 [12];
+  undefined2 local_44;
+  
+  iVar2 = 0;
+  piVar1 = &gSndBnk;
+  do {
+    *piVar1 = iVar2;
+    piVar1[2] = 0;
+    iVar2 = iVar2 + 1;
+    piVar1 = piVar1 + 3;
+  } while (iVar2 < 7);
+  if ((true) || (true)) {
+    SNDSYS_getopts(auStack80);
+    local_44 = 0x30;
+    SNDSYS_setopts(auStack80);
+    SNDSYS_vectortoreal();
+    uGp00000fb4 = reservememadr("audio heap",0x1000,0);
+    SNDSYS_init(uGp00000fb4,0x1000);
+    AudioCmn_InitReverb__Fv();
+  }
+  if (0 < buffersize) {
+    AudioMus_SysStartUp__FiiPc(buffersize,spusize,"amus");
+  }
+  uGp00000fb0 = 0;
+  return;
+
+
+}
+
+
+
+
+// decompiled code
+// original method signature: 
+// void /*$ra*/ Audio_DeInitDriver__Fv()
+ // line 84, offset 0x800bbc64
+	/* begin block 1 */
+		// Start line: 85
+		// Start offset: 0x800BBC64
+
+		/* begin block 1.1 */
+			// Start line: 85
+			// Start offset: 0x800BBC64
+
+			/* begin block 1.1.1 */
+				// Start line: 89
+				// Start offset: 0x800BBC9C
+			/* end block 1.1.1 */
+			// End offset: 0x800BBCB0
+			// End Line: 92
+		/* end block 1.1 */
+		// End offset: 0x800BBCB0
+		// End Line: 92
+	/* end block 1 */
+	// End offset: 0x800BBCB0
+	// End Line: 92
+
+void Audio_DeInitDriver__Fv(void)
+{
+  AudioMus_SysCleanUp__Fv();
+  if ((true) || (true)) {
+    SNDSYS_restore();
+    purgememadr(uGp00000fb4);
+  }
+  return;
+
+
+}
+
+
+
+
+// decompiled code
+// original method signature: 
+// void /*$ra*/ Audio_CleanUp__Fv()
+ // line 133, offset 0x800bbcc0
+	/* begin block 1 */
+		// Start line: 134
+		// Start offset: 0x800BBCC0
+		// Variables:
+	// 		int i; // $s1
+	/* end block 1 */
+	// End offset: 0x800BBD08
+	// End Line: 145
+
+void Audio_CleanUp__Fv(void)
+{
+  undefined4 *puVar1;
+  int iVar2;
+  
+  iVar2 = 0;
+  puVar1 = &gSndBnk;
+  do {
+    if (puVar1[2] != 0) {
+      purgememadr();
+      puVar1[2] = 0;
+    }
+    iVar2 = iVar2 + 1;
+    puVar1 = puVar1 + 3;
+  } while (iVar2 < 7);
+  return;
+
+
+}
+
+
+
+
+// decompiled code
+// original method signature: 
+// void /*$ra*/ Audio_FECleanUp__Fv()
+ // line 151, offset 0x800bbd1c
+	/* begin block 1 */
+		// Start line: 152
+		// Start offset: 0x800BBD1C
+	/* end block 1 */
+	// End offset: 0x800BBD54
+	// End Line: 159
+
+void Audio_FECleanUp__Fv(void)
+{
+  SNDbankremove(0xffffffff);
+  if (DAT_8010e8b0 != 0) {
+    purgememadr();
+    DAT_8010e8b0 = 0;
+  }
+  return;
+
+
+}
+
+
+
+
+// decompiled code
+// original method signature: 
+// int /*$ra*/ AudioCmn_AddBank__FPciT0i(char *filename /*$s0*/, int size /*$s2*/, char *pdata /*$s3*/, int BankNum /*$s4*/)
+ // line 167, offset 0x800bbd64
+	/* begin block 1 */
+		// Start line: 168
+		// Start offset: 0x800BBD64
+		// Variables:
+	// 		int bhandle; // stack offset -32
+	// 		int check; // $a0
+	// 		char *p; // $v1
+	// 		char *ptemp; // $s1
+	/* end block 1 */
+	// End offset: 0x800BBE3C
+	// End Line: 201
+
+int AudioCmn_AddBank__FPciT0i(char *filename,int size,char *pdata,int BankNum)
+{
+  char cVar1;
+  int shandle;
+  char *pcVar2;
+  undefined4 uVar3;
+  undefined4 local_20 [2];
+  
+  local_20[0] = 0xffffffff;
+  uVar3 = 0;
+  pcVar2 = filename;
+  if (*filename != '\0') {
+    cVar1 = *filename;
+    pcVar2 = filename;
+    do {
+      if (cVar1 == '\\') {
+        pcVar2 = filename + 1;
+      }
+      filename = filename + 1;
+      cVar1 = *filename;
+    } while (cVar1 != '\0');
+  }
+  shandle = SNDbankadd(local_20,pdata);
+  if (shandle == 7) {
+    uVar3 = SNDbankheadersize(local_20[0]);
+    uVar3 = reservememadr(pcVar2,uVar3,0);
+    SNDbankheadercopy(uVar3,local_20[0]);
+    shandle = SNDbankheadersize(local_20[0]);
+    size = size - shandle;
+  }
+  else {
+    AudioClc_SndError__Fi(shandle);
+  }
+  purgememadr(pdata);
+  (&DAT_8010e8b0)[BankNum * 3] = uVar3;
+  (&gSndBnk)[BankNum * 3] = local_20[0];
+  return size;
+
+
+}
+
+
+
+
+// decompiled code
+// original method signature: 
+// int /*$ra*/ AudioCmn_LoadBank__FPci(char *filename /*$s1*/, int BankNum /*$s2*/)
+ // line 217, offset 0x800bbe8c
+	/* begin block 1 */
+		// Start line: 218
+		// Start offset: 0x800BBE8C
+		// Variables:
+	// 		char bankdata[80]; // stack offset -96
+	// 		char *pdata; // $s0
+	/* end block 1 */
+	// End offset: 0x800BBEF8
+	// End Line: 231
+
+int AudioCmn_LoadBank__FPci(char *filename,int BankNum)
+{
+  char *pdata;
+  int size;
+  char acStack96 [80];
+  
+  strcpy(acStack96,filename);
+  strcat(acStack96,".bnk");
+  pdata = (char *)loadfileadrz(acStack96,0x10);
+  size = 0;
+  if (pdata != (char *)0x0) {
+    size = filesize(acStack96);
+    size = AudioCmn_AddBank__FPciT0i(filename,size,pdata,BankNum);
+  }
+  return size;
+
+
+}
+
+
+
+
+

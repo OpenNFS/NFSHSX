@@ -1,0 +1,932 @@
+#include "NFS4.H"
+#include "ANIM.H"
+
+// decompiled code
+// original method signature: 
+// void /*$ra*/ Anim_Restart__Fv()
+ // line 83, offset 0x80073a94
+	/* begin block 1 */
+		// Start line: 84
+		// Start offset: 0x80073A94
+
+		/* begin block 1.1 */
+			// Start line: 84
+			// Start offset: 0x80073A94
+
+			/* begin block 1.1.1 */
+				// Start line: 87
+				// Start offset: 0x80073AB4
+
+				/* begin block 1.1.1.1 */
+					// Start line: 89
+					// Start offset: 0x80073AC0
+
+					/* begin block 1.1.1.1.1 */
+						// Start line: 90
+						// Start offset: 0x80073AD0
+
+						/* begin block 1.1.1.1.1.1 */
+							// Start line: 90
+							// Start offset: 0x80073AD0
+
+							/* begin block 1.1.1.1.1.1.1 */
+								// Start line: 90
+								// Start offset: 0x80073AD0
+							/* end block 1.1.1.1.1.1.1 */
+							// End offset: 0x80073AE8
+							// End Line: 90
+						/* end block 1.1.1.1.1.1 */
+						// End offset: 0x80073AF0
+						// End Line: 90
+					/* end block 1.1.1.1.1 */
+					// End offset: 0x80073AF0
+					// End Line: 90
+				/* end block 1.1.1.1 */
+				// End offset: 0x80073AF0
+				// End Line: 90
+			/* end block 1.1.1 */
+			// End offset: 0x80073AF0
+			// End Line: 91
+		/* end block 1.1 */
+		// End offset: 0x80073AFC
+		// End Line: 92
+	/* end block 1 */
+	// End offset: 0x80073AFC
+	// End Line: 95
+
+void Anim_Restart__Fv(void)
+{
+  void *deleteMe;
+  void **ppvVar1;
+  
+  ppvVar1 = (void **)&_animSlots;
+  while ((int)ppvVar1 < -0x7fef1e34) {
+    deleteMe = *ppvVar1;
+    if (deleteMe != (void *)0x0) {
+      if (*(void **)((int)deleteMe + 0x10) != (void *)0x0) {
+        __builtin_vec_delete(*(void **)((int)deleteMe + 0x10));
+      }
+      __builtin_delete(deleteMe);
+    }
+    *ppvVar1 = (void *)0x0;
+    ppvVar1 = ppvVar1 + 1;
+  }
+  DrawW_ResetAnimationTimer__Fv();
+  return;
+
+
+}
+
+
+
+
+// decompiled code
+// original method signature: 
+// int /*$ra*/ Anim_InitSystem__FPc(char *trackName /*$s3*/)
+ // line 107, offset 0x80073b1c
+	/* begin block 1 */
+		// Start line: 108
+		// Start offset: 0x80073B1C
+		// Variables:
+	// 		int i; // $s0
+	// 		char fname[80]; // stack offset -104
+	// 		char *bigFile; // $s1
+
+		/* begin block 1.1 */
+			// Start line: 108
+			// Start offset: 0x80073B1C
+
+			/* begin block 1.1.1 */
+				// Start line: 120
+				// Start offset: 0x80073B68
+				// Variables:
+			// 		char *mem; // $s2
+			// 		int size; // $s0
+			/* end block 1.1.1 */
+			// End offset: 0x80073BF0
+			// End Line: 141
+		/* end block 1.1 */
+		// End offset: 0x80073C14
+		// End Line: 147
+
+		/* begin block 1.2 */
+			// Start line: 185
+			// Start offset: 0x80073C14
+
+			/* begin block 1.2.1 */
+				// Start line: 186
+				// Start offset: 0x80073C28
+				// Variables:
+			// 		int numParts; // $a0
+			// 		struct Trk_AnimateInst *objInstance; // $v1
+			/* end block 1.2.1 */
+			// End offset: 0x80073C90
+			// End Line: 197
+		/* end block 1.2 */
+		// End offset: 0x80073C90
+		// End Line: 197
+	/* end block 1 */
+	// End offset: 0x80073C90
+	// End Line: 201
+
+int Anim_InitSystem__FPc(char *trackName)
+{
+  int iVar1;
+  char *pcVar2;
+  undefined4 uVar3;
+  undefined4 *puVar4;
+  int *piVar5;
+  int size;
+  char acStack104 [80];
+  
+  Anim_Restart__Fv();
+  sprintf(acStack104,"%sA.viv",trackName);
+  iVar1 = loadfileadrz(acStack104,0);
+  size = 9;
+  if (iVar1 == 0) {
+    puVar4 = &DAT_8010e270;
+    do {
+      *puVar4 = 0;
+      size = size + -1;
+      puVar4 = puVar4 + -1;
+    } while (-1 < size);
+  }
+  else {
+    size = filesize(acStack104);
+    pcVar2 = Platform_GetDCTBuffer__FiPc(size,"animScripts");
+    blockmove(iVar1,pcVar2,size);
+    purgememadr(iVar1);
+    strstr(trackName,"Tr");
+    iVar1 = 0;
+    puVar4 = &_animScripts;
+    do {
+      sprintf(acStack104,"tr00a%02d.can",iVar1);
+      uVar3 = locatebig(pcVar2,acStack104);
+      *puVar4 = uVar3;
+      iVar1 = iVar1 + 1;
+      puVar4 = puVar4 + 1;
+    } while (iVar1 < 10);
+  }
+  if (_gPersistObjInst != (int *)0x0) {
+    iVar1 = *_gPersistObjInst;
+    piVar5 = _gPersistObjInst + 1;
+    while (iVar1 = iVar1 + -1, iVar1 != -1) {
+      if (((*(char *)((int)piVar5 + 2) == '\x03') || (*(char *)((int)piVar5 + 2) == '\a')) &&
+         (*(byte *)((int)piVar5 + 3) != 0)) {
+        *(int **)(&_Anim_gInstanceFromIndex + (uint)*(byte *)((int)piVar5 + 3)) = piVar5;
+      }
+      piVar5 = (int *)((int)piVar5 + (int)*(short *)piVar5);
+    }
+  }
+  return 0;
+
+
+}
+
+
+
+
+// decompiled code
+// original method signature: 
+// void /*$ra*/ Anim_DeInitSystem__Fv()
+ // line 211, offset 0x80073cb0
+	/* begin block 1 */
+		// Start line: 212
+		// Start offset: 0x80073CB0
+		// Variables:
+	// 		int i; // $v1
+	/* end block 1 */
+	// End offset: 0x80073CE0
+	// End Line: 222
+
+void Anim_DeInitSystem__Fv(void)
+{
+  bool bVar1;
+  undefined4 *puVar2;
+  int iVar3;
+  
+  iVar3 = 8;
+  do {
+    bVar1 = -1 < iVar3;
+    iVar3 = iVar3 + -1;
+  } while (bVar1);
+  iVar3 = 0x1f;
+  puVar2 = &DAT_8010e248;
+  do {
+    *puVar2 = 0;
+    iVar3 = iVar3 + -1;
+    puVar2 = puVar2 + -1;
+  } while (-1 < iVar3);
+  return;
+
+
+}
+
+
+
+
+// decompiled code
+// original method signature: 
+// int /*$ra*/ Anim_Handle__Fi(int num /*$s2*/)
+ // line 231, offset 0x80073ce8
+	/* begin block 1 */
+		// Start line: 232
+		// Start offset: 0x80073CE8
+		// Variables:
+	// 		int handle; // $s0
+	/* end block 1 */
+	// End offset: 0x80073D30
+	// End Line: 239
+
+int Anim_Handle__Fi(int num)
+{
+  AnimScript *this;
+  int *piVar1;
+  int iVar2;
+  
+  iVar2 = 0;
+  piVar1 = &_animSlots;
+  do {
+    if (*piVar1 == 0) break;
+    iVar2 = iVar2 + 1;
+    piVar1 = piVar1 + 1;
+  } while (iVar2 < 0x20);
+  this = (AnimScript *)__builtin_new(0x14);
+  this = __10AnimScripti(this,num);
+  *(AnimScript **)(&_animSlots + iVar2) = this;
+  return iVar2;
+
+
+}
+
+
+
+
+// decompiled code
+// original method signature: 
+// int /*$ra*/ Anim_FreeHandle__Fi(int handle /*$s1*/)
+ // line 244, offset 0x80073d6c
+	/* begin block 1 */
+		// Start line: 245
+		// Start offset: 0x80073D6C
+
+		/* begin block 1.1 */
+			// Start line: 246
+			// Start offset: 0x80073DA0
+
+			/* begin block 1.1.1 */
+				// Start line: 246
+				// Start offset: 0x80073DA0
+			/* end block 1.1.1 */
+			// End offset: 0x80073DB8
+			// End Line: 246
+		/* end block 1.1 */
+		// End offset: 0x80073DC0
+		// End Line: 246
+	/* end block 1 */
+	// End offset: 0x80073DC0
+	// End Line: 247
+
+int Anim_FreeHandle__Fi(int handle)
+{
+  void *deleteMe;
+  
+  deleteMe = (void *)(&_animSlots)[handle];
+  if (deleteMe != (void *)0x0) {
+    if (*(void **)((int)deleteMe + 0x10) != (void *)0x0) {
+      __builtin_vec_delete(*(void **)((int)deleteMe + 0x10));
+    }
+    __builtin_delete(deleteMe);
+  }
+  (&_animSlots)[handle] = 0;
+  return 0;
+
+
+}
+
+
+
+
+// decompiled code
+// original method signature: 
+// struct AnimScript * /*$ra*/ Anim_GetAnim__Fi(int handle /*$a0*/)
+ // line 251, offset 0x80073dec
+	/* begin block 1 */
+		// Start line: 252
+		// Start offset: 0x80073DEC
+	/* end block 1 */
+	// End offset: 0x80073DEC
+	// End Line: 253
+
+AnimScript * Anim_GetAnim__Fi(int handle)
+{
+  return (AnimScript *)(&_animSlots)[handle];
+
+
+}
+
+
+
+
+// decompiled code
+// original method signature: 
+// void /*$ra*/ Anim_GetLastRotPos__FP15Trk_AnimateInstP8coorddefP10matrixtdef(struct Trk_AnimateInst *animInst /*$a0*/, struct coorddef *pt /*$a1*/, struct matrixtdef *mat /*$a2*/)
+ // line 261, offset 0x80073e08
+	/* begin block 1 */
+		// Start line: 262
+		// Start offset: 0x80073E08
+		// Variables:
+	// 		struct Anim_tFrame *animFrames; // $a0
+	// 		int animInd; // $v1
+	// 		struct tQuat q; // stack offset -16
+	/* end block 1 */
+	// End offset: 0x80073E08
+	// End Line: 262
+
+void Anim_GetLastRotPos__FP15Trk_AnimateInstP8coorddefP10matrixtdef( (Trk_AnimateInst *animInst,coorddef *pt,matrixtdef *mat)
+{
+  int *piVar1;
+  int iVar2;
+  int iVar3;
+  int local_10;
+  int local_c;
+  
+  piVar1 = (int *)((int)animInst + ((int)animInst->count + -1) * 0x14 + 0xc);
+  local_10 = piVar1[3];
+  local_c = piVar1[4];
+  iVar2 = piVar1[1];
+  iVar3 = piVar1[2];
+  pt->x = *piVar1;
+  pt->y = iVar2;
+  pt->z = iVar3;
+  Quatern_QuatToMat__FP5tQuatP10matrixtdef((tQuat *)&local_10,mat);
+  return;
+
+
+}
+
+
+
+
+// decompiled code
+// original method signature: 
+// int /*$ra*/ Anim_GetLastAnimPosRot__FiiP8coorddefP10matrixtdef(int animNum /*$a0*/, int flags /*$s0*/, struct coorddef *pt /*$a2*/, struct matrixtdef *mat /*$s1*/)
+ // line 284, offset 0x80073e80
+	/* begin block 1 */
+		// Start line: 285
+		// Start offset: 0x80073E80
+
+		/* begin block 1.1 */
+			// Start line: 285
+			// Start offset: 0x80073E80
+
+			/* begin block 1.1.1 */
+				// Start line: 289
+				// Start offset: 0x80073EC4
+				// Variables:
+			// 		int tmp; // $a3
+			/* end block 1.1.1 */
+			// End offset: 0x80073F00
+			// End Line: 293
+		/* end block 1.1 */
+		// End offset: 0x80073F00
+		// End Line: 293
+	/* end block 1 */
+	// End offset: 0x80073F00
+	// End Line: 296
+
+int Anim_GetLastAnimPosRot__FiiP8coorddefP10matrixtdef( (int animNum,int flags,coorddef *pt,matrixtdef *mat)
+{
+  int iVar1;
+  int iVar2;
+  int iVar3;
+  
+  Anim_GetLastRotPos__FP15Trk_AnimateInstP8coorddefP10matrixtdef
+            ((Trk_AnimateInst *)(&_animScripts)[animNum],pt,mat);
+  if ((flags & 4U) != 0) {
+    iVar1 = mat->m[3];
+    iVar2 = mat->m[4];
+    iVar3 = mat->m[5];
+    mat->m[3] = mat->m[6];
+    mat->m[6] = -iVar1;
+    mat->m[4] = mat->m[7];
+    mat->m[7] = -iVar2;
+    mat->m[5] = mat->m[8];
+    mat->m[8] = -iVar3;
+  }
+  return 1;
+
+
+}
+
+
+
+
+// decompiled code
+// original method signature: 
+// int /*$ra*/ Anim_GetRotPos__FP15Trk_AnimateInstiiP8coorddefP10matrixtdef(struct Trk_AnimateInst *animInst /*$a0*/, int flags /*$a1*/, int ticks /*$t1*/, struct coorddef *pt /*$t2*/, struct matrixtdef *mat /*stack 16*/)
+ // line 304, offset 0x80073f18
+	/* begin block 1 */
+		// Start line: 305
+		// Start offset: 0x80073F18
+		// Variables:
+	// 		struct Anim_tFrame *animFrames; // $t0
+	// 		int animInd0; // $a2
+	// 		int animInd1; // $a2
+	// 		struct coorddef objcp0; // stack offset -64
+	// 		struct coorddef objcp1; // stack offset -48
+	// 		struct tQuat q; // stack offset -32
+	// 		struct tQuat q0; // stack offset -24
+	// 		struct tQuat q1; // stack offset -16
+	// 		int interval; // $v1
+	/* end block 1 */
+	// End offset: 0x8007411C
+	// End Line: 360
+
+int Anim_GetRotPos__FP15Trk_AnimateInstiiP8coorddefP10matrixtdef( (Trk_AnimateInst *animInst,int flags,int ticks,coorddef *pt,matrixtdef *mat)
+{
+  int iVar1;
+  int iVar2;
+  Trk_AnimateInst *pTVar3;
+  int iVar4;
+  Trk_AnimateInst *pTVar5;
+  int iVar6;
+  coorddef local_40;
+  coorddef local_30;
+  tQuat tStack32;
+  undefined4 local_18;
+  undefined4 local_14;
+  undefined4 local_10;
+  undefined4 local_c;
+  
+  if ((animInst->type == '\x03') ||
+     (pTVar5 = (Trk_AnimateInst *)&animInst[1].zoffset, animInst->type == '\a')) {
+    pTVar5 = animInst + 1;
+  }
+  if ((uint)(ushort)animInst->interval - 1 < 400) {
+    iVar2 = (int)animInst->interval;
+  }
+  else {
+    iVar2 = 6;
+  }
+  iVar6 = ticks / iVar2;
+  if (iVar2 == 0) {
+    trap(0x1c00);
+  }
+  if ((iVar2 == -1) && (ticks == -0x80000000)) {
+    trap(0x1800);
+  }
+  if (((flags & 2U) == 0) || (iVar1 = 0, iVar6 < (int)animInst->count + -1)) {
+    if (iVar2 == 0) {
+      trap(0x1c00);
+    }
+    if ((iVar2 == -1) && (ticks == -0x80000000)) {
+      trap(0x1800);
+    }
+    iVar1 = (int)animInst->count + -1;
+    if (iVar1 == 0) {
+      trap(0x1c00);
+    }
+    if ((iVar1 == -1) && (iVar6 == -0x80000000)) {
+      trap(0x1800);
+    }
+    iVar4 = ticks % iVar2 << 0x10;
+    if (iVar2 == 0) {
+      trap(0x1c00);
+    }
+    if ((iVar2 == -1) && (iVar4 == -0x80000000)) {
+      trap(0x1800);
+    }
+    pTVar3 = (Trk_AnimateInst *)((iVar6 % iVar1) * 0x14 + (int)pTVar5);
+    pTVar5 = (Trk_AnimateInst *)((iVar6 % iVar1 + 1) * 0x14 + (int)pTVar5);
+    local_18 = *(undefined4 *)(pTVar3 + 1);
+    local_14 = *(undefined4 *)&pTVar3[1].zoffset;
+    local_10 = *(undefined4 *)(pTVar5 + 1);
+    local_c = *(undefined4 *)&pTVar5[1].zoffset;
+    local_40.x = *(int *)pTVar3;
+    local_40.y = *(int *)&pTVar3->zoffset;
+    local_40.z = *(int *)&pTVar3->count;
+    local_30.x = *(int *)pTVar5;
+    local_30.y = *(int *)&pTVar5->zoffset;
+    local_30.z = *(int *)&pTVar5->count;
+    Quatern_Interpolate__FP5tQuatT0P8coorddefT2iT0T2
+              ((tQuat *)&local_18,(tQuat *)&local_10,&local_40,&local_30,iVar4 / iVar2,&tStack32,pt)
+    ;
+    Quatern_QuatToMat__FP5tQuatP10matrixtdef(&tStack32,mat);
+    iVar1 = 1;
+  }
+  return iVar1;
+
+
+}
+
+
+
+
+// decompiled code
+// original method signature: 
+// int /*$ra*/ Anim_GetPos__FP15Trk_AnimateInstiiP8coorddefPiT4(struct Trk_AnimateInst *animInst /*$s2*/, int flags /*$a1*/, int ticks /*$s1*/, struct coorddef *pt /*$a3*/, int *animTicks /*stack 16*/, int *animLength /*stack 20*/)
+ // line 368, offset 0x8007412c
+	/* begin block 1 */
+		// Start line: 369
+		// Start offset: 0x8007412C
+		// Variables:
+	// 		struct Anim_tFrame *animFrames; // $a0
+	// 		int animInd0; // $v1
+	// 		int animInd1; // $v1
+	// 		struct coorddef objcp0; // stack offset -56
+	// 		struct coorddef objcp1; // stack offset -40
+	// 		int interval; // $s0
+	/* end block 1 */
+	// End offset: 0x80074340
+	// End Line: 409
+
+int Anim_GetPos__FP15Trk_AnimateInstiiP8coorddefPiT4( (Trk_AnimateInst *animInst,int flags,int ticks,coorddef *pt,int *animTicks, int *animLength)
+{
+  int iVar1;
+  Trk_AnimateInst *pTVar2;
+  int iVar3;
+  int iVar4;
+  int iVar5;
+  coorddef local_38;
+  coorddef local_28;
+  
+  if ((uint)(ushort)animInst->interval - 1 < 400) {
+    iVar4 = (int)animInst->interval;
+  }
+  else {
+    iVar4 = 6;
+  }
+  iVar5 = ticks / iVar4;
+  if (iVar4 == 0) {
+    trap(0x1c00);
+  }
+  if ((iVar4 == -1) && (ticks == -0x80000000)) {
+    trap(0x1800);
+  }
+  if (((flags & 2U) == 0) || (iVar1 = 0, iVar5 < (int)animInst->count + -1)) {
+    if (iVar4 == 0) {
+      trap(0x1c00);
+    }
+    if ((iVar4 == -1) && (ticks == -0x80000000)) {
+      trap(0x1800);
+    }
+    iVar1 = (int)animInst->count + -1;
+    if (iVar1 == 0) {
+      trap(0x1c00);
+    }
+    if ((iVar1 == -1) && (iVar5 == -0x80000000)) {
+      trap(0x1800);
+    }
+    iVar3 = ticks % iVar4 << 0x10;
+    if (iVar4 == 0) {
+      trap(0x1c00);
+    }
+    if ((iVar4 == -1) && (iVar3 == -0x80000000)) {
+      trap(0x1800);
+    }
+    pTVar2 = (Trk_AnimateInst *)((iVar5 % iVar1) * 0x14 + (int)(animInst + 1));
+    local_38.x = *(int *)pTVar2;
+    local_38.y = *(int *)&pTVar2->zoffset;
+    local_38.z = *(int *)&pTVar2->count;
+    pTVar2 = (Trk_AnimateInst *)((iVar5 % iVar1 + 1) * 0x14 + (int)(animInst + 1));
+    local_28.x = *(int *)pTVar2;
+    local_28.y = *(int *)&pTVar2->zoffset;
+    local_28.z = *(int *)&pTVar2->count;
+    Quatern_VecInterpolate__FP8coorddefT0iT0(&local_38,&local_28,iVar3 / iVar4,pt);
+    if (animTicks != (int *)0x0) {
+      iVar5 = ((int)animInst->count + -1) * iVar4;
+      if (iVar5 == 0) {
+        trap(0x1c00);
+      }
+      if ((iVar5 == -1) && (ticks == -0x80000000)) {
+        trap(0x1800);
+      }
+      *animTicks = ticks % iVar5;
+    }
+    iVar1 = 1;
+    if (animLength != (int *)0x0) {
+      *animLength = ((int)animInst->count + -1) * iVar4;
+      iVar1 = 1;
+    }
+  }
+  return iVar1;
+
+
+}
+
+
+
+
+// decompiled code
+// original method signature: 
+// struct AnimScript * /*$ra*/ __10AnimScripti(struct AnimScript *this /*$s1*/, int num /*$s0*/)
+ // line 460, offset 0x80074360
+	/* begin block 1 */
+		// Start line: 461
+		// Start offset: 0x80074360
+	/* end block 1 */
+	// End offset: 0x80074360
+	// End Line: 461
+
+AnimScript * __10AnimScripti(AnimScript *this,int num)
+{
+  Trk_AnimateInst **ppTVar1;
+  
+  ppTVar1 = (Trk_AnimateInst **)__builtin_vec_new(4);
+  this->inst = ppTVar1;
+  *ppTVar1 = (Trk_AnimateInst *)(&_animScripts)[num];
+  this->flags = 6;
+  this->baseTicks = 0;
+  return this;
+
+
+}
+
+
+
+
+// decompiled code
+// original method signature: 
+// struct AnimScript * /*$ra*/ __10AnimScriptii(struct AnimScript *this /*$s1*/, int num /*$s2*/, int numParts /*$s0*/)
+ // line 472, offset 0x800743cc
+	/* begin block 1 */
+		// Start line: 473
+		// Start offset: 0x800743CC
+
+		/* begin block 1.1 */
+			// Start line: 473
+			// Start offset: 0x800743CC
+			// Variables:
+		// 		int i; // $a1
+		/* end block 1.1 */
+		// End offset: 0x80074438
+		// End Line: 477
+	/* end block 1 */
+	// End offset: 0x80074438
+	// End Line: 479
+
+AnimScript * __10AnimScriptii(AnimScript *this,int num,int numParts)
+{
+  Trk_AnimateInst **ppTVar1;
+  int iVar2;
+  int iVar3;
+  int iVar4;
+  
+  ppTVar1 = (Trk_AnimateInst **)__builtin_vec_new(numParts << 2);
+  iVar4 = 0;
+  this->inst = ppTVar1;
+  if (0 < numParts) {
+    iVar3 = 0;
+    do {
+      iVar2 = num + iVar4;
+      iVar4 = iVar4 + 1;
+      *(undefined4 *)(iVar3 + (int)this->inst) = (&_animScripts)[iVar2];
+      iVar3 = iVar4 * 4;
+    } while (iVar4 < numParts);
+  }
+  this->flags = 6;
+  this->baseTicks = 0;
+  return this;
+
+
+}
+
+
+
+
+// decompiled code
+// original method signature: 
+// struct AnimScript * /*$ra*/ __10AnimScriptP5Groupiii(struct AnimScript *this /*$s2*/, struct Group *instanceGroup /*$a1*/, int type /*$s3*/, int boomIndex /*$s4*/, int numParts /*stack 16*/)
+ // line 485, offset 0x80074468
+	/* begin block 1 */
+		// Start line: 486
+		// Start offset: 0x80074468
+		// Variables:
+	// 		int numElems; // $s1
+	// 		struct Trk_AnimateBoomInst *objInstance; // $s0
+	// 		int i; // $a0
+	/* end block 1 */
+	// End offset: 0x800744FC
+	// End Line: 501
+
+AnimScript * __10AnimScriptP5Groupiii(AnimScript *this,Group *instanceGroup,int type,int boomIndex,int numParts)
+{
+  int iVar1;
+  Trk_AnimateInst **ppTVar2;
+  int iVar3;
+  Trk_AnimateInst *pTVar4;
+  int iVar5;
+  
+  pTVar4 = (Trk_AnimateInst *)(instanceGroup + 1);
+  iVar5 = instanceGroup->m_num_elements;
+  ppTVar2 = (Trk_AnimateInst **)__builtin_vec_new(numParts << 2);
+  this->inst = ppTVar2;
+  iVar1 = 0;
+  while (iVar5 = iVar5 + -1, iVar5 != -1) {
+    iVar3 = iVar1;
+    if (((uint)pTVar4->type == type) &&
+       (iVar3 = iVar1, (uint)*(byte *)((int)&pTVar4[1].size + 1) == boomIndex)) {
+      iVar3 = iVar1 + 1;
+      this->inst[iVar1] = pTVar4;
+    }
+    pTVar4 = (Trk_AnimateInst *)((int)&pTVar4->size + (int)pTVar4->size);
+    iVar1 = iVar3;
+  }
+  this->flags = 6;
+  this->baseTicks = 0;
+  return this;
+
+
+}
+
+
+
+
+// decompiled code
+// original method signature: 
+// void /*$ra*/ SetAnimAttrib__10AnimScripti(struct AnimScript *this /*$a0*/, int flags /*$a1*/)
+ // line 513, offset 0x80074534
+	/* begin block 1 */
+		// Start line: 514
+		// Start offset: 0x80074534
+	/* end block 1 */
+	// End offset: 0x80074534
+	// End Line: 515
+
+void SetAnimAttrib__10AnimScripti(AnimScript *this,int flags)
+{
+  this->flags = flags;
+  return;
+
+
+}
+
+
+
+
+// decompiled code
+// original method signature: 
+// void /*$ra*/ GetAnimFrameInfo__10AnimScriptPiT1(struct AnimScript *this /*$a0*/, int *frame /*$t0*/, int *numFrames /*$a2*/)
+ // line 523, offset 0x8007453c
+	/* begin block 1 */
+		// Start line: 524
+		// Start offset: 0x8007453C
+		// Variables:
+	// 		struct Trk_AnimateInst *animInst; // $a3
+	// 		int interval; // $v0
+	// 		int ticks; // $v1
+	/* end block 1 */
+	// End offset: 0x80074578
+	// End Line: 539
+
+void GetAnimFrameInfo__10AnimScriptPiT1(AnimScript *this,int *frame,int *numFrames)
+{
+  int iVar1;
+  Trk_AnimateInst *pTVar2;
+  int iVar3;
+  
+  pTVar2 = *this->inst;
+  if ((uint)(ushort)pTVar2->interval - 1 < 400) {
+    iVar1 = (int)pTVar2->interval;
+  }
+  else {
+    iVar1 = 6;
+  }
+  iVar3 = -this->baseTicks / iVar1;
+  if (iVar1 == 0) {
+    trap(0x1c00);
+  }
+  if ((iVar1 == -1) && (-this->baseTicks == -0x80000000)) {
+    trap(0x1800);
+  }
+  iVar1 = (int)pTVar2->count + -1;
+  if (iVar1 == 0) {
+    trap(0x1c00);
+  }
+  if ((iVar1 == -1) && (iVar3 == -0x80000000)) {
+    trap(0x1800);
+  }
+  *frame = iVar3 % iVar1;
+  *numFrames = (int)pTVar2->count + -1;
+  return;
+
+
+}
+
+
+
+
+// decompiled code
+// original method signature: 
+// int /*$ra*/ GetTimedAnimPosRot__10AnimScriptP8coorddefP10matrixtdef(struct AnimScript *this /*$a0*/, struct coorddef *pt /*$v0*/, struct matrixtdef *mat /*$a3*/)
+ // line 553, offset 0x800745f8
+	/* begin block 1 */
+		// Start line: 554
+		// Start offset: 0x800745F8
+	/* end block 1 */
+	// End offset: 0x800745F8
+	// End Line: 554
+
+int GetTimedAnimPosRot__10AnimScriptP8coorddefP10matrixtdef( (AnimScript *this,coorddef *pt,matrixtdef *mat)
+{
+  int iVar1;
+  
+  iVar1 = GetTimedAnimPosRot__10AnimScriptiP8coorddefP10matrixtdef(this,0,pt,mat);
+  return iVar1;
+
+
+}
+
+
+
+
+// decompiled code
+// original method signature: 
+// int /*$ra*/ GetTimedAnimPosRot__10AnimScriptiP8coorddefP10matrixtdef(struct AnimScript *this /*$s1*/, int index /*$s2*/, struct coorddef *pt /*$s3*/, struct matrixtdef *mat /*$s0*/)
+ // line 564, offset 0x80074624
+	/* begin block 1 */
+		// Start line: 565
+		// Start offset: 0x80074624
+
+		/* begin block 1.1 */
+			// Start line: 581
+			// Start offset: 0x800746AC
+
+			/* begin block 1.1.1 */
+				// Start line: 582
+				// Start offset: 0x800746C0
+				// Variables:
+			// 		int tmp; // $a3
+			/* end block 1.1.1 */
+			// End offset: 0x800746FC
+			// End Line: 586
+		/* end block 1.1 */
+		// End offset: 0x800746FC
+		// End Line: 586
+	/* end block 1 */
+	// End offset: 0x80074700
+	// End Line: 589
+
+int GetTimedAnimPosRot__10AnimScriptiP8coorddefP10matrixtdef( (AnimScript *this,int index,coorddef *pt,matrixtdef *mat)
+{
+  int iVar1;
+  int iVar2;
+  int iVar3;
+  
+  iVar1 = GetStatus__10AnimScript(this);
+  iVar2 = -1;
+  if (iVar1 == 1) {
+    iVar1 = Anim_GetRotPos__FP15Trk_AnimateInstiiP8coorddefP10matrixtdef
+                      (this->inst[index],this->flags,-this->baseTicks,pt,mat);
+    iVar2 = 0;
+    if (iVar1 == 0) {
+      this->baseTicks = -1;
+      this->inst[index] = (Trk_AnimateInst *)0x0;
+    }
+    else {
+      iVar2 = 1;
+      if ((this->flags & 4U) != 0) {
+        iVar1 = mat->m[3];
+        iVar2 = mat->m[4];
+        iVar3 = mat->m[5];
+        mat->m[3] = mat->m[6];
+        mat->m[6] = -iVar1;
+        mat->m[4] = mat->m[7];
+        mat->m[7] = -iVar2;
+        mat->m[5] = mat->m[8];
+        mat->m[8] = -iVar3;
+        iVar2 = 1;
+      }
+    }
+  }
+  return iVar2;
+
+
+}
+
+
+
+
+// decompiled code
+// original method signature: 
+// int /*$ra*/ GetStatus__10AnimScript(struct AnimScript *this /*$a0*/)
+ // line 599, offset 0x8007471c
+	/* begin block 1 */
+		// Start line: 600
+		// Start offset: 0x8007471C
+	/* end block 1 */
+	// End offset: 0x8007471C
+	// End Line: 601
+
+int GetStatus__10AnimScript(AnimScript *this)
+{
+  return (uint)(*this->inst != (Trk_AnimateInst *)0x0);
+
+
+}
+
+
+
+
+
