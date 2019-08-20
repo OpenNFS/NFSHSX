@@ -13,20 +13,18 @@
 	// End Line: 60
 
 void Quatern_VecInterpolate__FP8coorddefT0iT0(coorddef *cp0,coorddef *cp1,int weight,coorddef *cp)
+
 {
-  int iVar1;
+  uint uVar1;
   
-  iVar1 = fixedmult(cp1->x - cp0->x,weight);
-  cp->x = cp0->x + iVar1;
-  iVar1 = fixedmult(cp1->y - cp0->y,weight);
-  cp->y = cp0->y + iVar1;
-  iVar1 = fixedmult(cp1->z - cp0->z,weight);
-  cp->z = cp0->z + iVar1;
+  uVar1 = fixedmult(cp1->x - cp0->x,weight);
+  cp->x = cp0->x + uVar1;
+  uVar1 = fixedmult(cp1->y - cp0->y,weight);
+  cp->y = cp0->y + uVar1;
+  uVar1 = fixedmult(cp1->z - cp0->z,weight);
+  cp->z = cp0->z + uVar1;
   return;
-
-
 }
-
 
 
 
@@ -41,24 +39,23 @@ void Quatern_VecInterpolate__FP8coorddefT0iT0(coorddef *cp0,coorddef *cp1,int we
 	// End offset: 0x800AD678
 	// End Line: 68
 
-void Quatern_Interpolate__FP5tQuatT0P8coorddefT2iT0T2( (tQuat *q0,tQuat *q1,coorddef *cp0,coorddef *cp1,int weight,tQuat *q,coorddef *cp)
+void Quatern_Interpolate__FP5tQuatT0P8coorddefT2iT0T2
+               (tQuat *q0,tQuat *q1,coorddef *cp0,coorddef *cp1,int weight,tQuat *q,coorddef *cp)
+
 {
-  short sVar1;
+  uint uVar1;
   
-  sVar1 = fixedmult((int)q1->x - (int)q0->x,weight);
-  q->x = q0->x + sVar1;
-  sVar1 = fixedmult((int)q1->y - (int)q0->y,weight);
-  q->y = q0->y + sVar1;
-  sVar1 = fixedmult((int)q1->z - (int)q0->z,weight);
-  q->z = q0->z + sVar1;
-  sVar1 = fixedmult((int)q1->w - (int)q0->w,weight);
-  q->w = q0->w + sVar1;
+  uVar1 = fixedmult((int)q1->x - (int)q0->x,weight);
+  q->x = q0->x + (short)uVar1;
+  uVar1 = fixedmult((int)q1->y - (int)q0->y,weight);
+  q->y = q0->y + (short)uVar1;
+  uVar1 = fixedmult((int)q1->z - (int)q0->z,weight);
+  q->z = q0->z + (short)uVar1;
+  uVar1 = fixedmult((int)q1->w - (int)q0->w,weight);
+  q->w = q0->w + (short)uVar1;
   Quatern_VecInterpolate__FP8coorddefT0iT0(cp0,cp1,weight,cp);
   return;
-
-
 }
-
 
 
 
@@ -88,6 +85,7 @@ void Quatern_Interpolate__FP5tQuatT0P8coorddefT2iT0T2( (tQuat *q0,tQuat *q1,coor
 	// End Line: 167
 
 void Quatern_QuatToMat__FP5tQuatP10matrixtdef(tQuat *q,matrixtdef *matrix)
+
 {
   int iVar1;
   int iVar2;
@@ -116,10 +114,7 @@ void Quatern_QuatToMat__FP5tQuatP10matrixtdef(tQuat *q,matrixtdef *matrix)
   matrix->m[5] = iVar3 * iVar4 + iVar7 >> 0xc;
   matrix->m[7] = iVar3 * iVar4 - iVar7 >> 0xc;
   return;
-
-
 }
-
 
 
 
@@ -139,10 +134,12 @@ void Quatern_QuatToMat__FP5tQuatP10matrixtdef(tQuat *q,matrixtdef *matrix)
 	// End Line: 276
 
 void Quatern_MatToQuat__FP10matrixtdefP5tQuat(matrixtdef *matrix,tQuat *q)
+
 {
   int iVar1;
   uint uVar2;
-  int iVar3;
+  uint uVar3;
+  int iVar4;
   
   if ((((((matrix->m[0] == 0x10000) && (matrix->m[1] == 0)) && (matrix->m[2] == 0)) &&
        ((matrix->m[3] == 0 && (matrix->m[4] == 0x10000)))) &&
@@ -154,80 +151,77 @@ void Quatern_MatToQuat__FP10matrixtdefP5tQuat(matrixtdef *matrix,tQuat *q)
     q->z = 0;
     return;
   }
-  iVar3 = matrix->m[4];
-  iVar1 = matrix->m[0] + iVar3 + matrix->m[8];
+  iVar4 = matrix->m[4];
+  iVar1 = matrix->m[0] + iVar4 + matrix->m[8];
   if (iVar1 < 1) {
     uVar2 = 0;
-    if ((matrix->m[0] < iVar3) && (uVar2 = 1, iVar3 < matrix->m[8])) {
+    if ((matrix->m[0] < iVar4) && (uVar2 = 1, iVar4 < matrix->m[8])) {
       uVar2 = 2;
     }
-    iVar3 = matrix->m[8];
+    iVar4 = matrix->m[8];
     iVar1 = matrix->m[0];
-    if (iVar1 < iVar3) {
+    if (iVar1 < iVar4) {
       uVar2 = 2;
     }
     if (uVar2 == 1) {
-      uVar2 = fixedsqrt((matrix->m[4] - (iVar3 + iVar1)) + 0x10000);
+      uVar2 = fixedsqrt((matrix->m[4] - (iVar4 + iVar1)) + 0x10000);
       q->y = (short)((int)(uVar2 + (uVar2 >> 0x1f)) >> 3);
       if (uVar2 != 0) {
         uVar2 = fixeddiv(0x8000,uVar2);
       }
-      iVar1 = fixedmult(matrix->m[2] - matrix->m[6],uVar2);
-      q->w = (short)(iVar1 >> 2);
-      iVar1 = fixedmult(matrix->m[7] + matrix->m[5],uVar2);
-      q->z = (short)(iVar1 >> 2);
-      iVar1 = fixedmult(matrix->m[3] + matrix->m[1],uVar2);
-      q->x = (short)(iVar1 >> 2);
+      uVar3 = fixedmult(matrix->m[2] - matrix->m[6],uVar2);
+      q->w = (short)((int)uVar3 >> 2);
+      uVar3 = fixedmult(matrix->m[7] + matrix->m[5],uVar2);
+      q->z = (short)((int)uVar3 >> 2);
+      uVar2 = fixedmult(matrix->m[3] + matrix->m[1],uVar2);
+      q->x = (short)((int)uVar2 >> 2);
       return;
     }
     if (1 < uVar2) {
       if (uVar2 != 2) {
         return;
       }
-      uVar2 = fixedsqrt((iVar3 - (iVar1 + matrix->m[4])) + 0x10000);
+      uVar2 = fixedsqrt((iVar4 - (iVar1 + matrix->m[4])) + 0x10000);
       q->z = (short)((int)(uVar2 + (uVar2 >> 0x1f)) >> 3);
       if (uVar2 != 0) {
         uVar2 = fixeddiv(0x8000,uVar2);
       }
-      iVar1 = fixedmult(matrix->m[3] - matrix->m[1],uVar2);
-      q->w = (short)(iVar1 >> 2);
-      iVar1 = fixedmult(matrix->m[2] + matrix->m[6],uVar2);
-      q->x = (short)(iVar1 >> 2);
-      iVar1 = fixedmult(matrix->m[5] + matrix->m[7],uVar2);
-      q->y = (short)(iVar1 >> 2);
+      uVar3 = fixedmult(matrix->m[3] - matrix->m[1],uVar2);
+      q->w = (short)((int)uVar3 >> 2);
+      uVar3 = fixedmult(matrix->m[2] + matrix->m[6],uVar2);
+      q->x = (short)((int)uVar3 >> 2);
+      uVar2 = fixedmult(matrix->m[5] + matrix->m[7],uVar2);
+      q->y = (short)((int)uVar2 >> 2);
       return;
     }
     if (uVar2 != 0) {
       return;
     }
-    uVar2 = fixedsqrt((iVar1 - (matrix->m[4] + iVar3)) + 0x10000);
+    uVar2 = fixedsqrt((iVar1 - (matrix->m[4] + iVar4)) + 0x10000);
     q->x = (short)((int)(uVar2 + (uVar2 >> 0x1f)) >> 3);
     if (uVar2 != 0) {
       uVar2 = fixeddiv(0x8000,uVar2);
     }
-    iVar1 = fixedmult(matrix->m[7] - matrix->m[5],uVar2);
-    q->w = (short)(iVar1 >> 2);
-    iVar1 = fixedmult(matrix->m[3] + matrix->m[1],uVar2);
-    q->y = (short)(iVar1 >> 2);
+    uVar3 = fixedmult(matrix->m[7] - matrix->m[5],uVar2);
+    q->w = (short)((int)uVar3 >> 2);
+    uVar3 = fixedmult(matrix->m[3] + matrix->m[1],uVar2);
+    q->y = (short)((int)uVar3 >> 2);
     iVar1 = matrix->m[2] + matrix->m[6];
   }
   else {
     uVar2 = fixedsqrt(iVar1 + 0x10000);
     q->w = (short)((int)(uVar2 + (uVar2 >> 0x1f)) >> 3);
-    uVar2 = fixeddiv(0x8000);
-    iVar1 = fixedmult(matrix->m[7] - matrix->m[5],uVar2);
-    q->x = (short)(iVar1 >> 2);
-    iVar1 = fixedmult(matrix->m[2] - matrix->m[6],uVar2);
-    q->y = (short)(iVar1 >> 2);
+    uVar2 = fixeddiv(0x8000,uVar2);
+    uVar3 = fixedmult(matrix->m[7] - matrix->m[5],uVar2);
+    q->x = (short)((int)uVar3 >> 2);
+    uVar3 = fixedmult(matrix->m[2] - matrix->m[6],uVar2);
+    q->y = (short)((int)uVar3 >> 2);
     iVar1 = matrix->m[3] - matrix->m[1];
   }
-  iVar1 = fixedmult(iVar1,uVar2);
-  q->z = (short)(iVar1 >> 2);
+  uVar2 = fixedmult(iVar1,uVar2);
+  q->z = (short)((int)uVar2 >> 2);
   return;
-
-
 }
-
 
 
 

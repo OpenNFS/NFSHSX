@@ -15,18 +15,18 @@
 	// End offset: 0x80016244
 	// End Line: 95
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void Initialize__11tCarManager(tCarManager *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -43,18 +43,18 @@ void Initialize__11tCarManager(tCarManager *this)
 	// End offset: 0x80016294
 	// End Line: 110
 
+/* WARNING: Control flow encountered bad instruction data */
+
 tCarInfo * GetCarFromID__11tCarManagers(tCarManager *this,short carID)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -71,18 +71,18 @@ tCarInfo * GetCarFromID__11tCarManagers(tCarManager *this,short carID)
 	// End offset: 0x800162E4
 	// End Line: 125
 
+/* WARNING: Control flow encountered bad instruction data */
+
 tCarInfo * GetCarFromSimID__11tCarManagers(tCarManager *this,short carID)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -101,18 +101,18 @@ tCarInfo * GetCarFromSimID__11tCarManagers(tCarManager *this,short carID)
 	// End offset: 0x8001633C
 	// End Line: 176
 
+/* WARNING: Control flow encountered bad instruction data */
+
 long CheapestCarStockPrice__11tCarManager(tCarManager *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -130,18 +130,18 @@ long CheapestCarStockPrice__11tCarManager(tCarManager *this)
 	// End offset: 0x80016438
 	// End Line: 224
 
+/* WARNING: Control flow encountered bad instruction data */
+
 long CalcUsedPrice__11tCarManagers(tCarManager *this,short garageNumber)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -159,18 +159,18 @@ long CalcUsedPrice__11tCarManagers(tCarManager *this,short garageNumber)
 	// End offset: 0x80016510
 	// End Line: 256
 
+/* WARNING: Control flow encountered bad instruction data */
+
 long PurchaseCar__11tCarManagersss(tCarManager *this,short carModel,short color,short playerNum)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -188,18 +188,18 @@ long PurchaseCar__11tCarManagersss(tCarManager *this,short carModel,short color,
 	// End offset: 0x8001668C
 	// End Line: 291
 
+/* WARNING: Control flow encountered bad instruction data */
+
 long SellCar__11tCarManagerss(tCarManager *this,short garageNumber,short playerNum)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -219,18 +219,19 @@ long SellCar__11tCarManagerss(tCarManager *this,short garageNumber,short playerN
 	// End offset: 0x80016794
 	// End Line: 328
 
-long PurchaseUpgrade__11tCarManagersss( (tCarManager *this,short garageNumber,short upgradeFlags,short playerNum)
+/* WARNING: Control flow encountered bad instruction data */
+
+long PurchaseUpgrade__11tCarManagersss
+               (tCarManager *this,short garageNumber,short upgradeFlags,short playerNum)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -247,18 +248,18 @@ long PurchaseUpgrade__11tCarManagersss( (tCarManager *this,short garageNumber,sh
 	// End offset: 0x800168F8
 	// End Line: 358
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void RemoveFromPinkSlipsList__11tCarManagerss(tCarManager *this,short garageNumber,short playerNum)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -275,18 +276,19 @@ void RemoveFromPinkSlipsList__11tCarManagerss(tCarManager *this,short garageNumb
 	// End offset: 0x80016974
 	// End Line: 383
 
-void AddToPinkSlipsList__11tCarManagersss( (tCarManager *this,short carModel,short color,short playerNum)
+/* WARNING: Control flow encountered bad instruction data */
+
+void AddToPinkSlipsList__11tCarManagersss
+               (tCarManager *this,short carModel,short color,short playerNum)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -304,18 +306,19 @@ void AddToPinkSlipsList__11tCarManagersss( (tCarManager *this,short carModel,sho
 	// End offset: 0x80016A38
 	// End Line: 413
 
-void AddUpgradesToPinkSlipsList__11tCarManagersss( (tCarManager *this,short garageNumber,short upgradeFlags,short playerNum)
+/* WARNING: Control flow encountered bad instruction data */
+
+void AddUpgradesToPinkSlipsList__11tCarManagersss
+               (tCarManager *this,short garageNumber,short upgradeFlags,short playerNum)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -332,18 +335,18 @@ void AddUpgradesToPinkSlipsList__11tCarManagersss( (tCarManager *this,short gara
 	// End offset: 0x80016AD8
 	// End Line: 439
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void LoadCars__11tCarManagerR12tSaveCarInfos(tCarManager *this,tSaveCarInfo *load,short playerNum)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -360,18 +363,18 @@ void LoadCars__11tCarManagerR12tSaveCarInfos(tCarManager *this,tSaveCarInfo *loa
 	// End offset: 0x80016B54
 	// End Line: 460
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void SaveCars__11tCarManagerR12tSaveCarInfo(tCarManager *this,tSaveCarInfo *save)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -395,18 +398,19 @@ void SaveCars__11tCarManagerR12tSaveCarInfo(tCarManager *this,tSaveCarInfo *save
 	// End offset: 0x80016BF4
 	// End Line: 478
 
-void LoadPinkSlipsCars__11tCarManagerR12tSaveCarInfos( (tCarManager *this,tSaveCarInfo *load,short playerNum)
+/* WARNING: Control flow encountered bad instruction data */
+
+void LoadPinkSlipsCars__11tCarManagerR12tSaveCarInfos
+               (tCarManager *this,tSaveCarInfo *load,short playerNum)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -432,24 +436,25 @@ void LoadPinkSlipsCars__11tCarManagerR12tSaveCarInfos( (tCarManager *this,tSaveC
 	// End offset: 0x80016D40
 	// End Line: 508
 
-void SavePinkSlipsCars__11tCarManagerR12tSaveCarInfoss( (tCarManager *this,tSaveCarInfo *save,short playerNum,short withoutCarInGarageNumber)
+/* WARNING: Control flow encountered bad instruction data */
+
+void SavePinkSlipsCars__11tCarManagerR12tSaveCarInfoss
+               (tCarManager *this,tSaveCarInfo *save,short playerNum,short withoutCarInGarageNumber)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// void /*$ra*/ SetClassAvailable__11tCarManager13tCarClassTypeb(struct tCarManager *this /*$a0*/, enum tCarClassType carClass /*$a1*/, unsigned int avail /*$a2*/)
+// void /*$ra*/ SetClassAvailable__11tCarManager13tCarClassTypeb(struct tCarManager *this /*$a0*/, enum tCarClassType carClass /*$a1*/, void * avail /*$a2*/)
  // line 514, offset 0x80016d68
 	/* begin block 1 */
 		// Start line: 515
@@ -460,24 +465,25 @@ void SavePinkSlipsCars__11tCarManagerR12tSaveCarInfoss( (tCarManager *this,tSave
 	// End offset: 0x80016DE4
 	// End Line: 529
 
-void SetClassAvailable__11tCarManager13tCarClassTypeb( (tCarManager *this,tCarClassType carClass,uint avail)
+/* WARNING: Control flow encountered bad instruction data */
+
+void SetClassAvailable__11tCarManager13tCarClassTypeb
+               (tCarManager *this,tCarClassType carClass,void *avail)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// void /*$ra*/ SetCarAvailable__11tCarManager10tCarModelsb(struct tCarManager *this /*$a0*/, enum tCarModels carModel /*$a1*/, unsigned int avail /*$a2*/)
+// void /*$ra*/ SetCarAvailable__11tCarManager10tCarModelsb(struct tCarManager *this /*$a0*/, enum tCarModels carModel /*$a1*/, void * avail /*$a2*/)
  // line 534, offset 0x80016dec
 	/* begin block 1 */
 		// Start line: 535
@@ -486,24 +492,24 @@ void SetClassAvailable__11tCarManager13tCarClassTypeb( (tCarManager *this,tCarCl
 	// End offset: 0x80016E00
 	// End Line: 538
 
-void SetCarAvailable__11tCarManager10tCarModelsb(tCarManager *this,tCarModels carModel,uint avail)
+/* WARNING: Control flow encountered bad instruction data */
+
+void SetCarAvailable__11tCarManager10tCarModelsb(tCarManager *this,tCarModels carModel,void *avail)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// void /*$ra*/ SetClassViewable__11tCarManager13tCarClassTypeb(struct tCarManager *this /*$a0*/, enum tCarClassType carClass /*$a1*/, unsigned int view /*$a2*/)
+// void /*$ra*/ SetClassViewable__11tCarManager13tCarClassTypeb(struct tCarManager *this /*$a0*/, enum tCarClassType carClass /*$a1*/, void * view /*$a2*/)
  // line 543, offset 0x80016e08
 	/* begin block 1 */
 		// Start line: 544
@@ -514,24 +520,25 @@ void SetCarAvailable__11tCarManager10tCarModelsb(tCarManager *this,tCarModels ca
 	// End offset: 0x80016E6C
 	// End Line: 558
 
-void SetClassViewable__11tCarManager13tCarClassTypeb( (tCarManager *this,tCarClassType carClass,uint view)
+/* WARNING: Control flow encountered bad instruction data */
+
+void SetClassViewable__11tCarManager13tCarClassTypeb
+               (tCarManager *this,tCarClassType carClass,void *view)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// void /*$ra*/ SetCarViewable__11tCarManager10tCarModelsb(struct tCarManager *this /*$a0*/, enum tCarModels carModel /*$a1*/, unsigned int view /*$a2*/)
+// void /*$ra*/ SetCarViewable__11tCarManager10tCarModelsb(struct tCarManager *this /*$a0*/, enum tCarModels carModel /*$a1*/, void * view /*$a2*/)
  // line 563, offset 0x80016e74
 	/* begin block 1 */
 		// Start line: 564
@@ -540,18 +547,18 @@ void SetClassViewable__11tCarManager13tCarClassTypeb( (tCarManager *this,tCarCla
 	// End offset: 0x80016E88
 	// End Line: 567
 
-void SetCarViewable__11tCarManager10tCarModelsb(tCarManager *this,tCarModels carModel,uint view)
+/* WARNING: Control flow encountered bad instruction data */
+
+void SetCarViewable__11tCarManager10tCarModelsb(tCarManager *this,tCarModels carModel,void *view)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -566,18 +573,18 @@ void SetCarViewable__11tCarManager10tCarModelsb(tCarManager *this,tCarModels car
 	// End offset: 0x80016F30
 	// End Line: 585
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void GetStockCar__11tCarManagersR8tCarInfo(tCarManager *this,short carNumber,tCarInfo *carInfo)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -592,18 +599,19 @@ void GetStockCar__11tCarManagersR8tCarInfo(tCarManager *this,short carNumber,tCa
 	// End offset: 0x80016FA0
 	// End Line: 598
 
-void GetGarageCar__11tCarManagersR8tCarInfos( (tCarManager *this,short garageNumber,tCarInfo *carInfo,short playerNum)
+/* WARNING: Control flow encountered bad instruction data */
+
+void GetGarageCar__11tCarManagersR8tCarInfos
+               (tCarManager *this,short garageNumber,tCarInfo *carInfo,short playerNum)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -618,18 +626,19 @@ void GetGarageCar__11tCarManagersR8tCarInfos( (tCarManager *this,short garageNum
 	// End offset: 0x80017058
 	// End Line: 614
 
-void GetPinkSlipsCar__11tCarManagersR8tCarInfos( (tCarManager *this,short garageNumber,tCarInfo *carInfo,short playerNum)
+/* WARNING: Control flow encountered bad instruction data */
+
+void GetPinkSlipsCar__11tCarManagersR8tCarInfos
+               (tCarManager *this,short garageNumber,tCarInfo *carInfo,short playerNum)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -650,18 +659,18 @@ void GetPinkSlipsCar__11tCarManagersR8tCarInfos( (tCarManager *this,short garage
 	// End offset: 0x800172D8
 	// End Line: 703
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void LoadDescription__11tCarManager(tCarManager *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -676,18 +685,18 @@ void LoadDescription__11tCarManager(tCarManager *this)
 	// End offset: 0x8001731C
 	// End Line: 717
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void ReleaseDescription__11tCarManager(tCarManager *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -705,18 +714,18 @@ void ReleaseDescription__11tCarManager(tCarManager *this)
 	// End offset: 0x8001736C
 	// End Line: 736
 
+/* WARNING: Control flow encountered bad instruction data */
+
 short GetNumOwnedCars__11tCarManagers(tCarManager *this,short playerNum)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -735,18 +744,18 @@ short GetNumOwnedCars__11tCarManagers(tCarManager *this,short playerNum)
 	// End offset: 0x800173FC
 	// End Line: 762
 
+/* WARNING: Control flow encountered bad instruction data */
+
 short GetNumTourneyCars__11tCarManagers(tCarManager *this,short playerNum)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -764,18 +773,18 @@ short GetNumTourneyCars__11tCarManagers(tCarManager *this,short playerNum)
 	// End offset: 0x80017458
 	// End Line: 779
 
+/* WARNING: Control flow encountered bad instruction data */
+
 short GetNumPinkSlipsCars__11tCarManagers(tCarManager *this,short playerNum)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -793,18 +802,19 @@ short GetNumPinkSlipsCars__11tCarManagers(tCarManager *this,short playerNum)
 	// End offset: 0x8001756C
 	// End Line: 810
 
-short GetClassList__11tCarManager13tCarClassTypesP10tCarModels( (tCarManager *this,tCarClassType carClass,short numElements,tCarModels *models)
+/* WARNING: Control flow encountered bad instruction data */
+
+short GetClassList__11tCarManager13tCarClassTypesP10tCarModels
+                (tCarManager *this,tCarClassType carClass,short numElements,tCarModels *models)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -822,24 +832,24 @@ short GetClassList__11tCarManager13tCarClassTypesP10tCarModels( (tCarManager *th
 	// End offset: 0x800175F0
 	// End Line: 822
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void InitializeIngameCarList__11tCarManager(tCarManager *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// unsigned int /*$ra*/ IsCarAnAddedModel__11tCarManagerR10tCarModelsRc(struct tCarManager *this /*$a0*/, enum tCarModels *model /*$s1*/, char *color /*$s0*/)
+// void * /*$ra*/ IsCarAnAddedModel__11tCarManagerR10tCarModelsRc(struct tCarManager *this /*$a0*/, enum tCarModels *model /*$s1*/, char *color /*$s0*/)
  // line 827, offset 0x800175f8
 	/* begin block 1 */
 		// Start line: 828
@@ -848,18 +858,19 @@ void InitializeIngameCarList__11tCarManager(tCarManager *this)
 	// End offset: 0x80017638
 	// End Line: 833
 
-uint IsCarAnAddedModel__11tCarManagerR10tCarModelsRc( (tCarManager *this,tCarModels *model,char *color)
+/* WARNING: Control flow encountered bad instruction data */
+
+void * IsCarAnAddedModel__11tCarManagerR10tCarModelsRc
+                 (tCarManager *this,tCarModels *model,char *color)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -876,24 +887,25 @@ uint IsCarAnAddedModel__11tCarManagerR10tCarModelsRc( (tCarManager *this,tCarMod
 	// End offset: 0x800176C8
 	// End Line: 844
 
-void AddCarToIngameList__11tCarManagerR10tCarModelsRc( (tCarManager *this,tCarModels *model,char *color)
+/* WARNING: Control flow encountered bad instruction data */
+
+void AddCarToIngameList__11tCarManagerR10tCarModelsRc
+               (tCarManager *this,tCarModels *model,char *color)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// unsigned int /*$ra*/ FindSimilarCar__11tCarManagerR10tCarModelsRcsP10tCarModels(struct tCarManager *this /*$a0*/, enum tCarModels *model /*$s1*/, char *color /*$s0*/)
+// void * /*$ra*/ FindSimilarCar__11tCarManagerR10tCarModelsRcsP10tCarModels(struct tCarManager *this /*$a0*/, enum tCarModels *model /*$s1*/, char *color /*$s0*/)
  // line 851, offset 0x80017718
 	/* begin block 1 */
 		// Start line: 852
@@ -909,18 +921,19 @@ void AddCarToIngameList__11tCarManagerR10tCarModelsRc( (tCarManager *this,tCarMo
 	// End offset: 0x800178B8
 	// End Line: 884
 
-uint FindSimilarCar__11tCarManagerR10tCarModelsRcsP10tCarModels( (tCarManager *this,tCarModels *model,char *color)
+/* WARNING: Control flow encountered bad instruction data */
+
+void * FindSimilarCar__11tCarManagerR10tCarModelsRcsP10tCarModels
+                 (tCarManager *this,tCarModels *model,char *color)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -935,25 +948,26 @@ uint FindSimilarCar__11tCarManagerR10tCarModelsRcsP10tCarModels( (tCarManager *t
 	// End offset: 0x800178CC
 	// End Line: 891
 
-tListIteratorCar * __16tListIteratorCarPcP11tCarManager(tListIteratorCar *this,char *valPtr,tCarManager *carManager)
+/* WARNING: Control flow encountered bad instruction data */
+
+tListIteratorCar *
+__16tListIteratorCarPcP11tCarManager(tListIteratorCar *this,char *valPtr,tCarManager *carManager)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
 
 
 
-
-// autogenerated function stub: 
+// decompiled code
+// original method signature: 
 // void /*$ra*/ _._16tListIteratorCar(struct tListIteratorCar *this /*$a0*/, int __in_chrg /*$a1*/)
-void _._16tListIteratorCar _._16tListIteratorCar(tListIteratorCar *this /*$a0*/this, int __in_chrg /*$a1*/ __in_chrg)
-{ // line 898, offset 0x80017928
+ // line 898, offset 0x80017928
 	/* begin block 1 */
 		// Start line: 899
 		// Start offset: 0x80017928
@@ -961,7 +975,19 @@ void _._16tListIteratorCar _._16tListIteratorCar(tListIteratorCar *this /*$a0*/t
 	// End offset: 0x80017928
 	// End Line: 899
 
+/* WARNING: Control flow encountered bad instruction data */
+
+void ___16tListIteratorCar(tListIteratorCar *this,int __in_chrg)
+
+{
+  undefined4 in_v1;
+  undefined4 in_t5;
+  
+  special2(in_v1,in_t5,5,0x13);
+                    /* WARNING: Bad instruction - Truncating control flow here */
+  halt_baddata();
 }
+
 
 
 // decompiled code
@@ -977,18 +1003,18 @@ void _._16tListIteratorCar _._16tListIteratorCar(tListIteratorCar *this /*$a0*/t
 	// End offset: 0x80017960
 	// End Line: 906
 
+/* WARNING: Control flow encountered bad instruction data */
+
 char Value__16tListIteratorCar7tPlayer(tListIteratorCar *this,tPlayer atIndex)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -1006,18 +1032,18 @@ char Value__16tListIteratorCar7tPlayer(tListIteratorCar *this,tPlayer atIndex)
 	// End offset: 0x80017A94
 	// End Line: 922
 
+/* WARNING: Control flow encountered bad instruction data */
+
 short TextValue__16tListIteratorCar7tPlayer(tListIteratorCar *this,tPlayer atIndex)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -1040,18 +1066,19 @@ short TextValue__16tListIteratorCar7tPlayer(tListIteratorCar *this,tPlayer atInd
 	// End offset: 0x80018064
 	// End Line: 1059
 
-void AdjustPosition__16tListIteratorCar7tPlayers( (tListIteratorCar *this,tPlayer atIndex,short direction)
+/* WARNING: Control flow encountered bad instruction data */
+
+void AdjustPosition__16tListIteratorCar7tPlayers
+               (tListIteratorCar *this,tPlayer atIndex,short direction)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -1066,18 +1093,18 @@ void AdjustPosition__16tListIteratorCar7tPlayers( (tListIteratorCar *this,tPlaye
 	// End offset: 0x80018094
 	// End Line: 1063
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void Increment__16tListIteratorCar7tPlayer(tListIteratorCar *this,tPlayer atIndex)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -1092,24 +1119,24 @@ void Increment__16tListIteratorCar7tPlayer(tListIteratorCar *this,tPlayer atInde
 	// End offset: 0x800180B4
 	// End Line: 1068
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void Decrement__16tListIteratorCar7tPlayer(tListIteratorCar *this,tPlayer atIndex)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// unsigned int /*$ra*/ ValidCar__16tListIteratorCar7tPlayerc(struct tListIteratorCar *this /*$s4*/, enum tPlayer atIndex /*$a1*/, char carNumber /*$s2*/)
+// void * /*$ra*/ ValidCar__16tListIteratorCar7tPlayerc(struct tListIteratorCar *this /*$s4*/, enum tPlayer atIndex /*$a1*/, char carNumber /*$s2*/)
  // line 1072, offset 0x800180d4
 	/* begin block 1 */
 		// Start line: 1073
@@ -1117,7 +1144,7 @@ void Decrement__16tListIteratorCar7tPlayer(tListIteratorCar *this,tPlayer atInde
 		// Variables:
 	// 		short i; // $s1
 	// 		short k; // $s3
-	// 		unsigned int result; // $s0
+	// 		void * result; // $s0
 	// 		short carID; // $a1
 	// 		struct tCarInfo *carInfo; // $a0
 	// 		struct tCarInfo garageCar; // stack offset -280
@@ -1197,18 +1224,18 @@ void Decrement__16tListIteratorCar7tPlayer(tListIteratorCar *this,tPlayer atInde
 	// End offset: 0x80018480
 	// End Line: 1169
 
-uint ValidCar__16tListIteratorCar7tPlayerc(tListIteratorCar *this,tPlayer atIndex,char carNumber)
+/* WARNING: Control flow encountered bad instruction data */
+
+void * ValidCar__16tListIteratorCar7tPlayerc(tListIteratorCar *this,tPlayer atIndex,char carNumber)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -1223,25 +1250,28 @@ uint ValidCar__16tListIteratorCar7tPlayerc(tListIteratorCar *this,tPlayer atInde
 	// End offset: 0x800184A0
 	// End Line: 1177
 
-tListIteratorCarColor * __21tListIteratorCarColorPcN21iP11tCarManager( (tListIteratorCarColor *this,char *value,char *player,char *playerCar,int indexSize, tCarManager *carManager)
+/* WARNING: Control flow encountered bad instruction data */
+
+tListIteratorCarColor *
+__21tListIteratorCarColorPcN21iP11tCarManager
+          (tListIteratorCarColor *this,char *value,char *player,char *playerCar,int indexSize,
+          tCarManager *carManager)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
 
 
 
-
-// autogenerated function stub: 
+// decompiled code
+// original method signature: 
 // void /*$ra*/ _._21tListIteratorCarColor(struct tListIteratorCarColor *this /*$a0*/, int __in_chrg /*$a1*/)
-void _._21tListIteratorCarColor _._21tListIteratorCarColor(tListIteratorCarColor *this /*$a0*/this, int __in_chrg /*$a1*/ __in_chrg)
-{ // line 1185, offset 0x80018520
+ // line 1185, offset 0x80018520
 	/* begin block 1 */
 		// Start line: 1186
 		// Start offset: 0x80018520
@@ -1249,7 +1279,19 @@ void _._21tListIteratorCarColor _._21tListIteratorCarColor(tListIteratorCarColor
 	// End offset: 0x80018520
 	// End Line: 1186
 
+/* WARNING: Control flow encountered bad instruction data */
+
+void ___21tListIteratorCarColor(tListIteratorCarColor *this,int __in_chrg)
+
+{
+  undefined4 in_v1;
+  undefined4 in_t5;
+  
+  special2(in_v1,in_t5,5,0x13);
+                    /* WARNING: Bad instruction - Truncating control flow here */
+  halt_baddata();
 }
+
 
 
 // decompiled code
@@ -1266,18 +1308,18 @@ void _._21tListIteratorCarColor _._21tListIteratorCarColor(tListIteratorCarColor
 	// End offset: 0x80018548
 	// End Line: 1194
 
+/* WARNING: Control flow encountered bad instruction data */
+
 char Value__21tListIteratorCarColor7tPlayer(tListIteratorCarColor *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -1292,18 +1334,18 @@ char Value__21tListIteratorCarColor7tPlayer(tListIteratorCarColor *this)
 	// End offset: 0x800185A8
 	// End Line: 1202
 
+/* WARNING: Control flow encountered bad instruction data */
+
 short TextValue__21tListIteratorCarColor7tPlayer(tListIteratorCarColor *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -1321,18 +1363,18 @@ short TextValue__21tListIteratorCarColor7tPlayer(tListIteratorCarColor *this)
 	// End offset: 0x80018640
 	// End Line: 1215
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void Increment__21tListIteratorCarColor7tPlayer(tListIteratorCarColor *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -1350,18 +1392,18 @@ void Increment__21tListIteratorCarColor7tPlayer(tListIteratorCarColor *this)
 	// End offset: 0x800186C0
 	// End Line: 1229
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void Decrement__21tListIteratorCarColor7tPlayer(tListIteratorCarColor *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 

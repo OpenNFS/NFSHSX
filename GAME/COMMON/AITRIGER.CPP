@@ -17,35 +17,36 @@
 	// End Line: 65
 
 void Init__24AITrigger_TriggerManagerPc(AITrigger_TriggerManager *this,char *rawTriggers)
+
 {
   int iVar1;
-  trigger_t **ppabVar2;
+  _func_19 **pp_Var2;
   int iVar3;
-  char *pcVar4;
+  trigger_t *trigger;
   
   iVar3 = 99;
-  ppabVar2 = this->triggers_ + 0x61;
+  pp_Var2 = this->triggers_ + 0x61;
   this->numTriggers_ = 0;
   this->invNumTriggers_ = 0;
   do {
-    ppabVar2[0x66] = (trigger_t *)0xfffff600;
+    pp_Var2[0x66] = (_func_19 *)0xfffff600;
     iVar3 = iVar3 + -1;
-    ppabVar2 = ppabVar2 + -1;
+    pp_Var2 = pp_Var2 + -1;
   } while (-1 < iVar3);
   iVar3 = 8;
-  ppabVar2 = this->triggers_ + 6;
+  pp_Var2 = this->triggers_ + 6;
   do {
-    ppabVar2[0xca] = (trigger_t *)0x0;
+    pp_Var2[0xca] = (_func_19 *)0x0;
     iVar3 = iVar3 + -1;
-    ppabVar2 = ppabVar2 + -1;
+    pp_Var2 = pp_Var2 + -1;
   } while (-1 < iVar3);
   if (rawTriggers != (char *)0x0) {
-    pcVar4 = rawTriggers + 4;
+    trigger = (trigger_t *)(rawTriggers + 4);
     iVar3 = 0;
     if (0 < *(int *)rawTriggers) {
       do {
-        iVar1 = InsertTrigger__24AITrigger_TriggerManagerP9trigger_tb(this,(char)pcVar4,1);
-        pcVar4 = pcVar4 + iVar1;
+        iVar1 = InsertTrigger__24AITrigger_TriggerManagerP9trigger_tb(this,trigger,&DAT_00000001);
+        trigger = (trigger_t *)(*trigger + iVar1);
         iVar3 = iVar3 + 1;
       } while (iVar3 < *(int *)rawTriggers);
     }
@@ -56,16 +57,13 @@ void Init__24AITrigger_TriggerManagerPc(AITrigger_TriggerManager *this,char *raw
     }
   }
   return;
-
-
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// int /*$ra*/ InsertTrigger__24AITrigger_TriggerManagerP9trigger_tb(struct AITrigger_TriggerManager *this /*$s2*/, union trigger_t *trigger /*$s1*/, unsigned int fromFile /*$s3*/)
+// int /*$ra*/ InsertTrigger__24AITrigger_TriggerManagerP9trigger_tb(struct AITrigger_TriggerManager *this /*$s2*/, union trigger_t *trigger /*$s1*/, void * fromFile /*$s3*/)
  // line 73, offset 0x80072948
 	/* begin block 1 */
 		// Start line: 74
@@ -76,28 +74,27 @@ void Init__24AITrigger_TriggerManagerPc(AITrigger_TriggerManager *this,char *raw
 	// End offset: 0x80072A14
 	// End Line: 122
 
-int InsertTrigger__24AITrigger_TriggerManagerP9trigger_tb( (AITrigger_TriggerManager *this,undefined trigger_t,uint fromFile)
+int InsertTrigger__24AITrigger_TriggerManagerP9trigger_tb
+              (AITrigger_TriggerManager *this,trigger_t *trigger,void *fromFile)
+
 {
   int iVar1;
-  undefined3 in_register_00000015;
-  trigger_t *pabVar2;
-  int iVar3;
+  int iVar2;
   
-  pabVar2 = (trigger_t *)CONCAT31(in_register_00000015,trigger_t);
-  iVar3 = 0;
-  DescribeTrigger__24AITrigger_TriggerManagerP9trigger_t(this,trigger_t);
-  iVar1 = *(int *)*pabVar2;
+  iVar2 = 0;
+  DescribeTrigger__24AITrigger_TriggerManagerP9trigger_t(this,trigger);
+  iVar1 = *(int *)*trigger;
   if (iVar1 == 5) {
-    if (fromFile != 0) {
-      *(byte **)(*pabVar2 + 0x3c) = *pabVar2 + 0x40;
+    if (fromFile != (void *)0x0) {
+      *(byte **)(*trigger + 0x3c) = *trigger + 0x40;
     }
-    this->triggers_[this->numTriggers_] = pabVar2;
-    iVar3 = *(int *)(*pabVar2 + 0x38) * 0x14 + 0x40;
+    *(trigger_t **)(this->triggers_ + this->numTriggers_) = trigger;
+    iVar2 = *(int *)(*trigger + 0x38) * 0x14 + 0x40;
     goto LAB_80072a14;
   }
   if (iVar1 == 2) {
 LAB_800729f4:
-    iVar3 = 0x14;
+    iVar2 = 0x14;
   }
   else {
     if (iVar1 < 3) {
@@ -105,18 +102,15 @@ LAB_800729f4:
     }
     else {
       if (iVar1 == 3) {
-        iVar3 = 0x48;
+        iVar2 = 0x48;
       }
     }
   }
-  this->triggers_[this->numTriggers_] = pabVar2;
+  *(trigger_t **)(this->triggers_ + this->numTriggers_) = trigger;
 LAB_80072a14:
   this->numTriggers_ = this->numTriggers_ + 1;
-  return iVar3;
-
-
+  return iVar2;
 }
-
 
 
 
@@ -149,6 +143,7 @@ LAB_80072a14:
 	// End Line: 136
 
 trigger_t * GetNextTrigger__24AITrigger_TriggerManageri(AITrigger_TriggerManager *this,int car)
+
 {
   int iVar1;
   int *piVar2;
@@ -163,13 +158,10 @@ trigger_t * GetNextTrigger__24AITrigger_TriggerManageri(AITrigger_TriggerManager
     piVar2[0xca] = 0;
   }
   if (piVar2[0xca] < this->numTriggers_) {
-    return this->triggers_[piVar2[0xca]];
+    return (trigger_t *)this->triggers_[piVar2[0xca]];
   }
   return (trigger_t *)0x0;
-
-
 }
-
 
 
 
@@ -202,6 +194,7 @@ trigger_t * GetNextTrigger__24AITrigger_TriggerManageri(AITrigger_TriggerManager
 	// End Line: 146
 
 trigger_t * GetPrevTrigger__24AITrigger_TriggerManageri(AITrigger_TriggerManager *this,int car)
+
 {
   int iVar1;
   int *piVar2;
@@ -216,13 +209,10 @@ trigger_t * GetPrevTrigger__24AITrigger_TriggerManageri(AITrigger_TriggerManager
     piVar2[0xca] = this->numTriggers_ + -1;
   }
   if (piVar2[0xca] < this->numTriggers_) {
-    return this->triggers_[piVar2[0xca]];
+    return (trigger_t *)this->triggers_[piVar2[0xca]];
   }
   return (trigger_t *)0x0;
-
-
 }
-
 
 
 
@@ -239,7 +229,9 @@ trigger_t * GetPrevTrigger__24AITrigger_TriggerManageri(AITrigger_TriggerManager
 	// End offset: 0x80072CBC
 	// End Line: 188
 
-int CheckForTriggerAtSlice__24AITrigger_TriggerManagerii( (AITrigger_TriggerManager *this,int car,int slice)
+int CheckForTriggerAtSlice__24AITrigger_TriggerManagerii
+              (AITrigger_TriggerManager *this,int car,int slice)
+
 {
   int iVar1;
   int *piVar2;
@@ -248,34 +240,31 @@ int CheckForTriggerAtSlice__24AITrigger_TriggerManagerii( (AITrigger_TriggerMana
   iVar1 = -1;
   if (this->numTriggers_ != 0) {
     piVar3 = this->lastTriggerChecked_ + car;
-    if ((*(int *)(*this->triggers_[*piVar3] + 4) < slice) && (1 < this->numTriggers_)) {
+    if ((*(int *)(this->triggers_[*piVar3] + 4) < slice) && (1 < this->numTriggers_)) {
       do {
         if (*piVar3 == this->numTriggers_ + -1) break;
         GetNextTrigger__24AITrigger_TriggerManageri(this,car);
-      } while (*(int *)(*this->triggers_[*piVar3] + 4) < slice);
+      } while (*(int *)(this->triggers_[*piVar3] + 4) < slice);
     }
     else {
       iVar1 = *piVar3;
-      if ((slice < *(int *)(*this->triggers_[iVar1] + 4)) && (1 < this->numTriggers_)) {
+      if ((slice < *(int *)(this->triggers_[iVar1] + 4)) && (1 < this->numTriggers_)) {
         do {
           if (iVar1 == 0) break;
           GetPrevTrigger__24AITrigger_TriggerManageri(this,car);
           iVar1 = *piVar3;
-        } while (slice < *(int *)(*this->triggers_[iVar1] + 4));
+        } while (slice < *(int *)(this->triggers_[iVar1] + 4));
       }
     }
     piVar2 = (int *)(&this->numTriggers_ + *piVar3)[2];
     iVar1 = -1;
-    if (((piVar2[1] == slice) && (0xa00 < -(&this->numTriggers_ + *piVar3)[0x66])) && (*piVar2 != 2)
-       ) {
+    if (((piVar2[1] == slice) &&
+        (0xa00 < simGlobal.gameTicks - (&this->numTriggers_ + *piVar3)[0x66])) && (*piVar2 != 2)) {
       iVar1 = *piVar3;
     }
   }
   return iVar1;
-
-
 }
-
 
 
 
@@ -307,26 +296,25 @@ int CheckForTriggerAtSlice__24AITrigger_TriggerManagerii( (AITrigger_TriggerMana
 	// End offset: 0x80072D38
 	// End Line: 203
 
-trigger_t * GetTrigger__24AITrigger_TriggerManageriPi(AITrigger_TriggerManager *this,int trigger,int *used)
+trigger_t *
+GetTrigger__24AITrigger_TriggerManageriPi(AITrigger_TriggerManager *this,int trigger,int *used)
+
 {
   trigger_t *pabVar1;
   
-  if (-this->checkTime_[trigger] < 0xa01) {
+  if (simGlobal.gameTicks - this->checkTime_[trigger] < 0xa01) {
     *used = 1;
   }
   else {
     *used = 0;
   }
-  (&this->numTriggers_ + trigger)[0x66] = 0;
+  (&this->numTriggers_ + trigger)[0x66] = simGlobal.gameTicks;
   pabVar1 = (trigger_t *)0x0;
   if (trigger < this->numTriggers_) {
     pabVar1 = (trigger_t *)(&this->numTriggers_ + trigger)[2];
   }
   return pabVar1;
-
-
 }
-
 
 
 
@@ -363,67 +351,66 @@ trigger_t * GetTrigger__24AITrigger_TriggerManageriPi(AITrigger_TriggerManager *
 	// End offset: 0x80072E08
 	// End Line: 274
 
-int CheckForClosestTriggerOfType__24AITrigger_TriggerManageri11triggerTypei( (AITrigger_TriggerManager *this,int slice,triggerType type,int direction)
+int CheckForClosestTriggerOfType__24AITrigger_TriggerManageri11triggerTypei
+              (AITrigger_TriggerManager *this,int slice,triggerType type,int direction)
+
 {
   int *piVar1;
   int iVar2;
-  trigger_t *pabVar3;
+  triggerType *ptVar3;
   int iVar4;
-  trigger_t *pabVar5;
-  trigger_t *pabVar6;
-  trigger_t *pabVar7;
+  triggerType *ptVar5;
+  triggerType *ptVar6;
+  triggerType *ptVar7;
   int iVar8;
   int iVar9;
   
-  pabVar7 = (trigger_t *)0x0;
+  ptVar7 = (triggerType *)0x0;
   piVar1 = &this->numTriggers_;
   iVar9 = -1;
   if (*piVar1 == 0) {
     return -1;
   }
   iVar4 = 0;
-  pabVar5 = (trigger_t *)0x0;
+  ptVar5 = (triggerType *)0x0;
   iVar2 = -1;
   do {
     if (*piVar1 <= iVar4) {
-      if (((pabVar5 == (trigger_t *)0x0) || (-1 < direction)) && (iVar2 = iVar9, direction < 1)) {
+      if (((ptVar5 == (triggerType *)0x0) || (-1 < direction)) && (iVar2 = iVar9, direction < 1)) {
         iVar2 = -1;
       }
       return iVar2;
     }
-    pabVar3 = this->triggers_[0];
-    pabVar6 = pabVar5;
+    ptVar3 = (triggerType *)this->triggers_[0];
+    ptVar6 = ptVar5;
     iVar8 = iVar2;
-    if (*(triggerType *)*pabVar3 == type) {
-      if (pabVar7 == (trigger_t *)0x0) {
-        pabVar7 = pabVar3;
+    if (*ptVar3 == type) {
+      if (ptVar7 == (triggerType *)0x0) {
+        ptVar7 = ptVar3;
         iVar9 = iVar4;
       }
-      if (*(int *)(*pabVar3 + 4) == slice) {
+      if (ptVar3[1] == slice) {
         return iVar4;
       }
-      pabVar6 = pabVar3;
+      ptVar6 = ptVar3;
       iVar8 = iVar4;
-      if (slice < *(int *)(*pabVar3 + 4)) {
+      if (slice < (int)ptVar3[1]) {
         if (0 < direction) {
           return iVar4;
         }
-        pabVar6 = pabVar3;
+        ptVar6 = ptVar3;
         iVar8 = iVar4;
-        if ((direction < 0) && (pabVar6 = pabVar3, iVar8 = iVar4, pabVar5 != (trigger_t *)0x0)) {
+        if ((direction < 0) && (ptVar6 = ptVar3, iVar8 = iVar4, ptVar5 != (triggerType *)0x0)) {
           return iVar2;
         }
       }
     }
     this = (AITrigger_TriggerManager *)&this->invNumTriggers_;
     iVar4 = iVar4 + 1;
-    pabVar5 = pabVar6;
+    ptVar5 = ptVar6;
     iVar2 = iVar8;
   } while( true );
-
-
 }
-
 
 
 
@@ -438,13 +425,12 @@ int CheckForClosestTriggerOfType__24AITrigger_TriggerManageri11triggerTypei( (AI
 	// End offset: 0x80072E10
 	// End Line: 285
 
-void DescribeTrigger__24AITrigger_TriggerManagerP9trigger_t( (AITrigger_TriggerManager *this,undefined1 trigger_t)
+void DescribeTrigger__24AITrigger_TriggerManagerP9trigger_t
+               (AITrigger_TriggerManager *this,trigger_t *trigger)
+
 {
   return;
-
-
 }
-
 
 
 
@@ -463,12 +449,10 @@ void DescribeTrigger__24AITrigger_TriggerManagerP9trigger_t( (AITrigger_TriggerM
 	// End Line: 293
 
 int AITrigger_Compare__FPCvT0(void *op1,void *op2)
+
 {
   return *(int *)(*(int *)op1 + 4) - *(int *)(*(int *)op2 + 4);
-
-
 }
-
 
 
 
@@ -484,15 +468,13 @@ int AITrigger_Compare__FPCvT0(void *op1,void *op2)
 	// End Line: 304
 
 void Sort__24AITrigger_TriggerManager(AITrigger_TriggerManager *this)
+
 {
   if (this->numTriggers_ != 0) {
     qsort(this->triggers_,this->numTriggers_,4,AITrigger_Compare__FPCvT0);
   }
   return;
-
-
 }
-
 
 
 

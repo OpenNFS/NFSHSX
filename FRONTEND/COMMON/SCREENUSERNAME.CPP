@@ -14,18 +14,18 @@
 	// End offset: 0x8004B024
 	// End Line: 50
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void Initialize__15tScreenUserName(tScreenUserName *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -40,18 +40,20 @@ void Initialize__15tScreenUserName(tScreenUserName *this)
 	// End offset: 0x8004B048
 	// End Line: 55
 
-void GetShapeInfo__15tScreenUserNameRsT1PPcT3( (tScreenUserName *this,short *numPermShapes,short *numSwapShapes,char **permFileName, char **swapFileName)
+/* WARNING: Control flow encountered bad instruction data */
+
+void GetShapeInfo__15tScreenUserNameRsT1PPcT3
+               (tScreenUserName *this,short *numPermShapes,short *numSwapShapes,char **permFileName,
+               char **swapFileName)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -66,18 +68,18 @@ void GetShapeInfo__15tScreenUserNameRsT1PPcT3( (tScreenUserName *this,short *num
 	// End offset: 0x8004B0DC
 	// End Line: 70
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void DrawVerticalLine__15tScreenUserNamesss(tScreenUserName *this,short x,short y,short gridpos)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -92,18 +94,18 @@ void DrawVerticalLine__15tScreenUserNamesss(tScreenUserName *this,short x,short 
 	// End offset: 0x8004B15C
 	// End Line: 77
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void DrawHorizontalLine__15tScreenUserNamesss(tScreenUserName *this,short x,short y,short gridpos)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -176,18 +178,18 @@ void DrawHorizontalLine__15tScreenUserNamesss(tScreenUserName *this,short x,shor
 	// End offset: 0x8004B7A4
 	// End Line: 234
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void DrawBackground__15tScreenUserName(tScreenUserName *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 

@@ -14,17 +14,17 @@
 	// End offset: 0x800DC2B8
 	// End Line: 129
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Platform_InitMemory__Fv(void)
+
 {
-  gLowMemory = &DAT_80010080;
-  gHighMemory = &DAT_80054d10;
-  gCurrentMemory = &DAT_80010080;
-  gTotalMemory = 0x44c90;
+  puGp00001564 = &DAT_80010080;
+  puGp00001568 = &DAT_80054d10;
+  puGp0000156c = &DAT_80010080;
+  puGp00001570 = &DAT_00044c90;
   return;
-
-
 }
-
 
 
 
@@ -54,6 +54,7 @@ void Platform_InitMemory__Fv(void)
 	// End Line: 157
 
 char * Platform_ReserveMemory__FiPc(int size,char *string)
+
 {
   int iVar1;
   char *pcVar2;
@@ -62,16 +63,13 @@ char * Platform_ReserveMemory__FiPc(int size,char *string)
   if (iVar1 < 0) {
     iVar1 = size + 6;
   }
-  pcVar2 = gCurrentMemory;
-  if ((int)(gCurrentMemory + (iVar1 >> 2) * 4 + -gLowMemory) <= gTotalMemory) {
-    gCurrentMemory = gCurrentMemory + (iVar1 >> 2) * 4;
+  pcVar2 = pcGp0000156c;
+  if ((int)(pcGp0000156c + (iVar1 >> 2) * 4 + -iGp00001564) <= iGp00001570) {
+    pcGp0000156c = pcGp0000156c + (iVar1 >> 2) * 4;
     return pcVar2;
   }
   return (char *)0x0;
-
-
 }
-
 
 
 
@@ -101,6 +99,7 @@ char * Platform_ReserveMemory__FiPc(int size,char *string)
 	// End Line: 179
 
 char * Platform_TempReserveMemory__FiPc(int size,char *string)
+
 {
   char *pcVar1;
   int iVar2;
@@ -110,14 +109,11 @@ char * Platform_TempReserveMemory__FiPc(int size,char *string)
     iVar2 = size + 6;
   }
   pcVar1 = (char *)0x0;
-  if ((int)(gCurrentMemory + ((iVar2 >> 2) * 4 - gLowMemory)) <= gTotalMemory) {
-    pcVar1 = gCurrentMemory;
+  if ((int)(pcGp0000156c + ((iVar2 >> 2) * 4 - iGp00001564)) <= iGp00001570) {
+    pcVar1 = pcGp0000156c;
   }
   return pcVar1;
-
-
 }
-
 
 
 
@@ -134,26 +130,26 @@ char * Platform_TempReserveMemory__FiPc(int size,char *string)
 	// End offset: 0x800DC378
 	// End Line: 208
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Platform_SysStartUp__Fv(void)
+
 {
-  disablecd = 0;
-  nfs_sysInfo = 0xb34f4;
-  initmemadr();
+  disablecd = (uchar *)0x0;
+  nfs_sysInfo = (int)&LAB_000b34f4;
+  initmemadr((undefined2 *)&DAT_80148b0c,(int)&LAB_000b34f4);
   nfs2eacinit__Fv();
   Draw_SetEnvironment__Fiiiiiiii(0x200,0xf0,1,0,1,0,0,0);
   initlinkmode(0,1,1);
-  setdirectory("cdrom:");
+  setdirectory((char *)&PTR_DAT_8013daa0);
   initlinkmode(0,1000,1);
   initlinkmode(0,1000,1);
-  gSysStartUp = 1;
-  inittimer(0x80);
+  uGp00001550 = 1;
+  inittimer((undefined4 *)0x80);
   Paths_StartUp__Fv();
   initasync(0x1e,0x2000,0);
   return;
-
-
 }
-
 
 
 
@@ -168,13 +164,13 @@ void Platform_SysStartUp__Fv(void)
 	// End offset: 0x800DC450
 	// End Line: 327
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Platform_DebuggerPollHost__Fv(void)
+
 {
   return;
-
-
 }
-
 
 
 
@@ -189,18 +185,18 @@ void Platform_DebuggerPollHost__Fv(void)
 	// End offset: 0x800DC458
 	// End Line: 370
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void nfs2eacinit__Fv(void)
+
 {
   FlushCache();
   ResetCallback();
   ResetGraph(3);
-  initjoy(2);
+  initjoy((uchar *)0x2);
   FILE_init(10,800,0x30);
   return;
-
-
 }
-
 
 
 
@@ -215,14 +211,14 @@ void nfs2eacinit__Fv(void)
 	// End offset: 0x800DC4A0
 	// End Line: 441
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Platform_ResetDCTBuffer__Fv(void)
+
 {
-  _gDctXtraMem = &CF_DVLC;
+  puGp00001560 = &CF_DVLC;
   return;
-
-
 }
-
 
 
 
@@ -240,16 +236,14 @@ void Platform_ResetDCTBuffer__Fv(void)
 	// End Line: 447
 
 char * Platform_GetDCTBuffer__FiPc(int size,char *string)
+
 {
   char *pcVar1;
   
-  pcVar1 = _gDctXtraMem;
-  _gDctXtraMem = _gDctXtraMem + size;
+  pcVar1 = pcGp00001560;
+  pcGp00001560 = pcGp00001560 + size;
   return pcVar1;
-
-
 }
-
 
 
 

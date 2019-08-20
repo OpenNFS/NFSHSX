@@ -16,6 +16,7 @@
 	// End Line: 89
 
 void TrackSpec_SetDefault__FP10CTrackSpec(CTrackSpec *spec)
+
 {
   bool bVar1;
   short sVar2;
@@ -27,11 +28,11 @@ void TrackSpec_SetDefault__FP10CTrackSpec(CTrackSpec *spec)
   
   iVar6 = 0;
   spec->fogstate = 0;
-  sVar2 = (short)DAT_80113234;
+  sVar2 = (short)GameSetup_gData.Weather;
   spec->horizonstate = 1;
   spec->skystate = 1;
   spec->weatherstate = sVar2;
-  sVar2 = (short)DAT_80113240;
+  sVar2 = (short)GameSetup_gData.Time;
   (spec->fogspec).contrast = 0x10000;
   spec->depthcuestate = 1;
   (spec->fogspec).start = 200;
@@ -133,10 +134,7 @@ void TrackSpec_SetDefault__FP10CTrackSpec(CTrackSpec *spec)
   (spec->worldcolorspec).contrast_color.g = -0x80;
   (spec->worldcolorspec).contrast_color.b = -0x80;
   return;
-
-
 }
-
 
 
 
@@ -151,15 +149,15 @@ void TrackSpec_SetDefault__FP10CTrackSpec(CTrackSpec *spec)
 	// End offset: 0x800E177C
 	// End Line: 121
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void TrackSpec_SetUp__Fv(void)
+
 {
-  DAT_80113234 = 0;
-  DAT_80113240 = 0;
+  GameSetup_gData.Weather = (int)TrackSpec_gSpec.weatherstate;
+  GameSetup_gData.Time = (int)TrackSpec_gSpec.nightstate;
   return;
-
-
 }
-
 
 
 
@@ -187,6 +185,7 @@ void TrackSpec_SetUp__Fv(void)
 	// End Line: 140
 
 void read__FPPcPvi(char **handle,void *buf,int bytes)
+
 {
   char cVar1;
   int iVar2;
@@ -205,10 +204,7 @@ void read__FPPcPvi(char **handle,void *buf,int bytes)
   }
   *handle = pcVar3;
   return;
-
-
 }
-
 
 
 
@@ -244,6 +240,7 @@ void read__FPPcPvi(char **handle,void *buf,int bytes)
 	// End Line: 185
 
 void TrackSpec_Read__Fi(int spec_num)
+
 {
   char *pcVar1;
   char acStack104 [64];
@@ -251,29 +248,26 @@ void TrackSpec_Read__Fi(int spec_num)
   int local_24;
   char *local_20 [2];
   
-  sprintf(acStack104,"%sTr%02d.bin",0,0);
+  sprintf(acStack104,s__sTr_02d_bin_80056ac4,PTR_80116480,GameSetup_gData.track);
   pcVar1 = (char *)loadfileadr(acStack104,0);
   if (pcVar1 != (char *)0x0) {
+    DAT_00001644 = spec_num;
+    DAT_00001648 = spec_num;
     local_20[0] = pcVar1;
-    iGp00001644 = spec_num;
-    iGp00001648 = spec_num;
     read__FPPcPvi(local_20,auStack40,8);
     if (spec_num < local_24) {
-      iGp0000164c = local_24 + 1;
+      DAT_0000164c = local_24 + 1;
       local_20[0] = local_20[0] + spec_num * 0x108;
       read__FPPcPvi(local_20,&TrackSpec_gSpec,0x108);
       TrackSpec_SetUp__Fv();
     }
     else {
-      TrackSpec_SetDefault__FP10CTrackSpec((CTrackSpec *)&TrackSpec_gSpec);
+      TrackSpec_SetDefault__FP10CTrackSpec(&TrackSpec_gSpec);
     }
-    purgememadr(pcVar1);
+    purgememadr((int)pcVar1);
   }
   return;
-
-
 }
-
 
 
 
@@ -291,19 +285,17 @@ void TrackSpec_Read__Fi(int spec_num)
 	// End Line: 206
 
 void TrackSpec_Load__Fii(int weather,int night)
+
 {
   int local_18 [4];
   
-  local_18[0] = 0;
-  local_18[1] = 1;
-  local_18[2] = 2;
-  local_18[3] = 3;
+  local_18[0] = DAT_80056ad4;
+  local_18[1] = DAT_80056ad8;
+  local_18[2] = DAT_80056adc;
+  local_18[3] = DAT_80056ae0;
   TrackSpec_Read__Fi(local_18[weather * 2 + night]);
   return;
-
-
 }
-
 
 
 

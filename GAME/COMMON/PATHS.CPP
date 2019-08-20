@@ -15,25 +15,25 @@
 	// End offset: 0x800A6E58
 	// End Line: 99
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Paths_StartUp__Fv(void)
+
 {
-  undefined4 *puVar1;
+  char **ppcVar1;
   int iVar2;
   
   iVar2 = 0x31;
-  puVar1 = &DAT_8011652c;
+  ppcVar1 = &PTR_8011652c;
   do {
-    *puVar1 = 0x8013d2e0;
+    *ppcVar1 = (char *)0x8013d2e0;
     iVar2 = iVar2 + -1;
-    puVar1 = puVar1 + -1;
+    ppcVar1 = ppcVar1 + -1;
   } while (-1 < iVar2);
-  DAT_801164e8 = &fePath;
-  DAT_801164f8 = &fePath;
+  PTR_801164e8 = &fePath;
+  PTR_801164f8 = &fePath;
   return;
-
-
 }
-
 
 
 

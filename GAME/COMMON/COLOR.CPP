@@ -13,6 +13,7 @@
 	// End Line: 459
 
 char IsNumChar__Fc(char c)
+
 {
   if ((byte)(c - 0x30U) < 10) {
     return '\x01';
@@ -21,10 +22,7 @@ char IsNumChar__Fc(char c)
     return (char)(c == '+');
   }
   return '\x01';
-
-
 }
-
 
 
 
@@ -44,6 +42,7 @@ char IsNumChar__Fc(char c)
 	// End Line: 481
 
 int Risk_ReadNextValue__FPPc(char **aScript)
+
 {
   char cVar1;
   char *pcVar2;
@@ -77,10 +76,7 @@ int Risk_ReadNextValue__FPPc(char **aScript)
   iVar4 = atoi(local_118);
   *aScript = pcVar3;
   return iVar4;
-
-
 }
-
 
 
 

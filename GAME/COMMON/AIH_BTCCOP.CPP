@@ -13,17 +13,15 @@
 	// End Line: 108
 
 AIHigh_BTC_Cop * __14AIHigh_BTC_CopP8Car_tObji(AIHigh_BTC_Cop *this,Car_tObj *carObj,int copIndex)
+
 {
   __15AIHigh_BasicCopP8Car_tObji((AIHigh_BasicCop *)this,carObj,copIndex);
-  (this->AIHigh_BasicCop).AIHigh_Base._vf[0] = (__vtbl_ptr_type *)&table;
+  (this->AIHigh_BasicCop).AIHigh_Base._vf[0].value = 0x80054f04;
   *(undefined4 *)&(this->AIHigh_BasicCop).blockade_.blockadeSpeechFlags = 0;
   (this->AIHigh_BasicCop).driveAway_ = DRIVEAWAY_NONE;
   this->perpTarget_ = (AIHigh_BTC_Perp *)0x0;
   return this;
-
-
 }
-
 
 
 
@@ -38,29 +36,28 @@ AIHigh_BTC_Cop * __14AIHigh_BTC_CopP8Car_tObji(AIHigh_BTC_Cop *this,Car_tObj *ca
 	// End offset: 0x8005CC08
 	// End Line: 127
 
-void AssignToPlayer__14AIHigh_BTC_CopP15AIHigh_BTC_Perp( (AIHigh_BTC_Cop *this,AIHigh_BTC_Perp *target)
+void AssignToPlayer__14AIHigh_BTC_CopP15AIHigh_BTC_Perp
+               (AIHigh_BTC_Cop *this,AIHigh_BTC_Perp *target)
+
 {
   AIHigh_BasicPerp *this_00;
   
   this_00 = *(AIHigh_BasicPerp **)&(this->AIHigh_BasicCop).blockade_.blockadeSpeechFlags;
   if (this_00 != (AIHigh_BasicPerp *)0x0) {
     RemoveChaser__16AIHigh_BasicPerpii7copType
-              (this_00,(int)(this->AIHigh_BasicCop).AIHigh_Base._vf[2],
+              (this_00,(this->AIHigh_BasicCop).AIHigh_Base._vf[2].value,
                ((this->AIHigh_BasicCop).AIHigh_Base.carObj_)->carIndex,
-               (copType)(this->AIHigh_BasicCop).AIHigh_Base._vf[1]);
+               (this->AIHigh_BasicCop).AIHigh_Base._vf[1].value);
   }
   *(AIHigh_BTC_Perp **)&(this->AIHigh_BasicCop).blockade_.blockadeSpeechFlags = target;
   if (target != (AIHigh_BTC_Perp *)0x0) {
     AddChaser__16AIHigh_BasicPerpii7copType
-              ((AIHigh_BasicPerp *)target,(int)(this->AIHigh_BasicCop).AIHigh_Base._vf[2],
+              ((AIHigh_BasicPerp *)target,(this->AIHigh_BasicCop).AIHigh_Base._vf[2].value,
                ((this->AIHigh_BasicCop).AIHigh_Base.carObj_)->carIndex,
-               (copType)(this->AIHigh_BasicCop).AIHigh_Base._vf[1]);
+               (this->AIHigh_BasicCop).AIHigh_Base._vf[1].value);
   }
   return;
-
-
 }
-
 
 
 
@@ -79,32 +76,29 @@ void AssignToPlayer__14AIHigh_BTC_CopP15AIHigh_BTC_Perp( (AIHigh_BTC_Cop *this,A
 	// End Line: 149
 
 int GetCheckChasePosition__14AIHigh_BTC_CopP8coorddef(AIHigh_BTC_Cop *this,coorddef *pos)
+
 {
   bool bVar1;
   AIHigh_tDriveAwayMode AVar2;
   int iVar3;
   int iVar4;
-  int iVar5;
   
   AVar2 = CheckChaserPosition__16AIHigh_BasicPerpii
                     (*(AIHigh_BasicPerp **)&(this->AIHigh_BasicCop).blockade_.blockadeSpeechFlags,
-                     (int)(this->AIHigh_BasicCop).AIHigh_Base._vf[2],
+                     (this->AIHigh_BasicCop).AIHigh_Base._vf[2].value,
                      ((this->AIHigh_BasicCop).AIHigh_Base.carObj_)->carIndex);
   bVar1 = AVar2 != (this->AIHigh_BasicCop).driveAway_;
   if (bVar1) {
     (this->AIHigh_BasicCop).driveAway_ = AVar2;
   }
-  iVar3 = (this->AIHigh_BasicCop).driveAway_ * 0xc;
-  iVar4 = *(int *)(&DAT_8010cda8 + iVar3);
-  iVar5 = *(int *)(&DAT_8010cdac + iVar3);
-  pos->x = *(int *)(&AIH_BTCCop_chasePositions + iVar3);
-  pos->y = iVar4;
-  pos->z = iVar5;
+  AVar2 = (this->AIHigh_BasicCop).driveAway_;
+  iVar3 = (&AIH_BTCCop_chasePositions)[AVar2].y;
+  iVar4 = (&AIH_BTCCop_chasePositions)[AVar2].z;
+  pos->x = (&AIH_BTCCop_chasePositions)[AVar2].x;
+  pos->y = iVar3;
+  pos->z = iVar4;
   return (uint)bVar1;
-
-
 }
-
 
 
 
@@ -173,6 +167,7 @@ int GetCheckChasePosition__14AIHigh_BTC_CopP8coorddef(AIHigh_BTC_Cop *this,coord
 	// End Line: 207
 
 int CheckForNewTarget__14AIHigh_BTC_Cop(AIHigh_BTC_Cop *this)
+
 {
   int iVar1;
   Car_tObj *otherCarObj;
@@ -186,12 +181,12 @@ int CheckForNewTarget__14AIHigh_BTC_Cop(AIHigh_BTC_Cop *this)
   target = (AIHigh_BTC_Perp *)0x0;
   iVar5 = 0x27100000;
   iVar4 = 0;
-  ppCVar3 = (Car_tObj **)&_Cars_gRaceCarList;
+  ppCVar3 = &__Cars_gRaceCarList_9__;
   pAVar6 = *(AIHigh_BTC_Perp **)&(this->AIHigh_BasicCop).blockade_.blockadeSpeechFlags;
   while (iVar4 < Cars_gNumRaceCars) {
     otherCarObj = *ppCVar3;
     if ((((otherCarObj->N).active != '\0') && ((otherCarObj->carFlags & 0x200U) == 0)) &&
-       (pAVar2 = (AIHigh_BTC_Perp *)(&_highLevelAIObjs)[otherCarObj->carIndex],
+       (pAVar2 = (AIHigh_BTC_Perp *)(&__highLevelAIObjs_9__)[otherCarObj->carIndex],
        (pAVar2->AIHigh_BasicPerp).basicPerpInfo_.copsAssigned_[0] != 0)) {
       iVar1 = AIWorld_ApxSplineDistance__FP8Car_tObjT0
                         ((this->AIHigh_BasicCop).AIHigh_Base.carObj_,otherCarObj);
@@ -218,10 +213,7 @@ int CheckForNewTarget__14AIHigh_BTC_Cop(AIHigh_BTC_Cop *this)
     iVar5 = 1;
   }
   return iVar5;
-
-
 }
-
 
 
 
@@ -237,24 +229,24 @@ int CheckForNewTarget__14AIHigh_BTC_Cop(AIHigh_BTC_Cop *this)
 	// End Line: 248
 
 void StartArrest__14AIHigh_BTC_CopP15AIHigh_BTC_Perp(AIHigh_BTC_Cop *this,AIHigh_BTC_Perp *arrestMe)
+
 {
   Speaker *pSVar1;
   Car_tObj *carObj;
+  uint uVar2;
   
   if (this->perpTarget_ == (AIHigh_BTC_Perp *)0x0) {
     carObj = (this->AIHigh_BasicCop).AIHigh_Base.carObj_;
     this->perpTarget_ = (AIHigh_BTC_Perp *)0x3;
     if ((carObj->carFlags & 0x200U) != 0) {
       pSVar1 = Mobile__6SpeechP8Car_tObj(carObj);
-      (**(code **)(pSVar1->_vf[0] + 0x4c))
-                ((int)&(pSVar1->fPosition).flags + (int)*(short *)(pSVar1->_vf[0] + 0x48),1);
+      uVar2 = pSVar1->_vf[0].value;
+      (**(code **)(uVar2 + 0x4c))((int)&(pSVar1->fPosition).flags + (int)*(short *)(uVar2 + 0x48),1)
+      ;
     }
   }
   return;
-
-
 }
-
 
 
 
@@ -269,23 +261,22 @@ void StartArrest__14AIHigh_BTC_CopP15AIHigh_BTC_Perp(AIHigh_BTC_Cop *this,AIHigh
 	// End offset: 0x8005CED0
 	// End Line: 274
 
-void FinishArrest__14AIHigh_BTC_CopP15AIHigh_BTC_Perp( (AIHigh_BTC_Cop *this,AIHigh_BTC_Perp *arrestMe)
+void FinishArrest__14AIHigh_BTC_CopP15AIHigh_BTC_Perp
+               (AIHigh_BTC_Cop *this,AIHigh_BTC_Perp *arrestMe)
+
 {
-  __vtbl_ptr_type *p_Var1;
+  uint uVar1;
   
   if ((this->perpTarget_ == (AIHigh_BTC_Perp *)0x3) || (this->perpTarget_ == (AIHigh_BTC_Perp *)0x0)
      ) {
-    p_Var1 = (this->AIHigh_BasicCop).AIHigh_Base._vf[0];
-    this->perpTarget_ = (AIHigh_BTC_Perp *)0x4;
-    (**(code **)(p_Var1 + 0x1c))
-              ((int)&(this->AIHigh_BasicCop).AIHigh_Base.carObj_ + (int)*(short *)(p_Var1 + 0x18));
+    uVar1 = (this->AIHigh_BasicCop).AIHigh_Base._vf[0].value;
+    this->perpTarget_ = (AIHigh_BTC_Perp *)&DAT_00000004;
+    (**(code **)(uVar1 + 0x1c))
+              ((int)&(this->AIHigh_BasicCop).AIHigh_Base.carObj_ + (int)*(short *)(uVar1 + 0x18));
     HudOff__14AIHigh_BTC_Cop(this);
   }
   return;
-
-
 }
-
 
 
 
@@ -300,16 +291,15 @@ void FinishArrest__14AIHigh_BTC_CopP15AIHigh_BTC_Perp( (AIHigh_BTC_Cop *this,AIH
 	// End offset: 0x8005CEF4
 	// End Line: 293
 
-void FalseArrest__14AIHigh_BTC_CopP15AIHigh_BTC_Perp( (AIHigh_BTC_Cop *this,AIHigh_BTC_Perp *cantArrestMe)
+void FalseArrest__14AIHigh_BTC_CopP15AIHigh_BTC_Perp
+               (AIHigh_BTC_Cop *this,AIHigh_BTC_Perp *cantArrestMe)
+
 {
   if (*(AIHigh_BTC_Perp **)&(this->AIHigh_BasicCop).blockade_.blockadeSpeechFlags == cantArrestMe) {
     this->perpTarget_ = (AIHigh_BTC_Perp *)0x2;
   }
   return;
-
-
 }
-
 
 
 
@@ -325,12 +315,10 @@ void FalseArrest__14AIHigh_BTC_CopP15AIHigh_BTC_Perp( (AIHigh_BTC_Cop *this,AIHi
 	// End Line: 297
 
 void FreezeAndEndChase__14AIHigh_BTC_Cop(AIHigh_BTC_Cop *this)
+
 {
   return;
-
-
 }
-
 
 
 
@@ -346,15 +334,13 @@ void FreezeAndEndChase__14AIHigh_BTC_Cop(AIHigh_BTC_Cop *this)
 	// End Line: 312
 
 void HudOff__14AIHigh_BTC_Cop(AIHigh_BTC_Cop *this)
+
 {
-  if ((this->AIHigh_BasicCop).AIHigh_Base._vf[2] == (__vtbl_ptr_type *)0x0) {
+  if ((this->AIHigh_BasicCop).AIHigh_Base._vf[2].value == 0) {
     Hud_BustedOverlayOff__Fv();
   }
   return;
-
-
 }
-
 
 
 
@@ -437,7 +423,11 @@ void HudOff__14AIHigh_BTC_Cop(AIHigh_BTC_Cop *this)
 	// End offset: 0x8005D134
 	// End Line: 370
 
-AIHigh_BTC_HumanCop * __19AIHigh_BTC_HumanCopP8Car_tObji(AIHigh_BTC_HumanCop *this,Car_tObj *carObj,int copIndex)
+/* WARNING: Type propagation algorithm not settling */
+
+AIHigh_BTC_HumanCop *
+__19AIHigh_BTC_HumanCopP8Car_tObji(AIHigh_BTC_HumanCop *this,Car_tObj *carObj,int copIndex)
+
 {
   int iVar1;
   Car_tObj *pCVar2;
@@ -445,35 +435,38 @@ AIHigh_BTC_HumanCop * __19AIHigh_BTC_HumanCopP8Car_tObji(AIHigh_BTC_HumanCop *th
   uint movement;
   
   __14AIHigh_BTC_CopP8Car_tObji((AIHigh_BTC_Cop *)this,carObj,copIndex);
-  (this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base._vf[0] = (__vtbl_ptr_type *)&table;
-  this->needPerp_ = 1;
+  (this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base._vf[0].value = 0x80054ee4;
+  *(undefined4 *)((int)&this->wingmanStatus_ + 4) = 1;
   (this->AIHigh_BTC_Cop).chaseIndex_ = -1;
   this->currentStage_ = 0x10000;
   this->chaseStartTime_ = 0;
-  this->wingmanStatus_ = WINGMAN_NONE;
-  this->initialDirection_ = 0;
+  *(undefined4 *)&this->wingmanStatus_ = 0;
+  this->needPerp_ = 0;
   (this->AIHigh_BTC_Cop).freezeMode_ = FREEZE_NONE;
   pCVar2 = (this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_;
-  this->stageRepeatCount_ = (&DAT_8010de20)[DAT_801131f4 * 7];
+  this->stageRepeatCount_ = (&AITune_BTC)[GameSetup_gData.skill].baseChaseTime;
   pCVar2->unlap = 0;
-  uGp00000014 = 0;
+  DAT_00000014 = 0;
   AILife_PlaceCarAtLocation__FP8Car_tObjiiiii
             ((this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_,0,0,1,0,0);
   if (copIndex == 0) {
-    randtemp = fastRandom & 0xffff;
     direction = -1;
-    if (((fastRandom & 0xffff00) >> 8) * 1000 >> 0x10 < 500) {
+    if (((fastRandom * randSeed & 0xffff00) >> 8) * 1000 >> 0x10 < 500) {
       direction = 1;
     }
-    movement = (uint)((randtemp >> 8) * 1000 >> 0x10 < 0x2ee);
-    fastRandom = randtemp;
+    randtemp = (fastRandom * randSeed & 0xffff) * randSeed;
+    fastRandom = randtemp & 0xffff;
+    movement = 0;
+    if (((randtemp & 0xffff00) >> 8) * 1000 >> 0x10 < 0x2ee) {
+      movement = (uint)(AIHigh_CopGameType != COP_GAME_BTC_1HC1HP);
+    }
     FindRandomBarrierFreeArea__19AIHigh_BTC_HumanCopiii(this,0,100,500);
     iVar1 = AIWorld_CalcRoadBend__FP8Car_tObji
                       ((this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_,3);
     if (iVar1 < 0) {
       iVar1 = -iVar1;
     }
-    if ((0x5eb8 < iVar1) && (true)) {
+    if ((0x5eb8 < iVar1) && (AIHigh_CopGameType != COP_GAME_BTC_1HC1HP)) {
       movement = 1;
     }
     NewStage__19AIHigh_BTC_HumanCopiii
@@ -481,10 +474,7 @@ AIHigh_BTC_HumanCop * __19AIHigh_BTC_HumanCopP8Car_tObji(AIHigh_BTC_HumanCop *th
                          simRoadInfo.slice,direction,movement);
   }
   return this;
-
-
 }
-
 
 
 
@@ -522,33 +512,66 @@ AIHigh_BTC_HumanCop * __19AIHigh_BTC_HumanCopP8Car_tObji(AIHigh_BTC_HumanCop *th
 	// End offset: 0x8005D2F8
 	// End Line: 393
 
-int FindRandomBarrierFreeArea__19AIHigh_BTC_HumanCopiii( (AIHigh_BTC_HumanCop *this,int startSlice,int safetyZone,int randomDistance)
+int FindRandomBarrierFreeArea__19AIHigh_BTC_HumanCopiii
+              (AIHigh_BTC_HumanCop *this,int startSlice,int safetyZone,int randomDistance)
+
 {
-  uint uVar1;
+  int iVar1;
+  int startSlice_00;
   int iVar2;
-  int iVar3;
-  int iVar4;
   
-  randtemp = fastRandom;
-  uVar1 = fastRandom >> 8;
-  fastRandom = fastRandom & 0xffff;
-  startSlice = startSlice + ((randomDistance * (uVar1 & 0xffff) * 2 >> 0x10) - randomDistance);
-  iVar4 = 0;
-  while( true ) {
-    if (0x1d < iVar4) {
+  randtemp = fastRandom * randSeed;
+  fastRandom = randtemp & 0xffff;
+  randomDistance = (randomDistance * (randtemp >> 8 & 0xffff) * 2 >> 0x10) - randomDistance;
+  if (randomDistance < 0) {
+    startSlice = startSlice + randomDistance;
+    if (startSlice < 0) {
+      startSlice = startSlice + gNumSlices;
+    }
+  }
+  else {
+    startSlice = startSlice + randomDistance;
+    if (gNumSlices <= startSlice) {
+      startSlice = startSlice - gNumSlices;
+    }
+  }
+  iVar2 = 0;
+  do {
+    if (0x1d < iVar2) {
       return startSlice;
     }
-    iVar2 = AIWorld_IsDriveableLaneInSliceRange__Fiiii(startSlice - safetyZone,safetyZone << 1,1,6);
-    iVar3 = AIWorld_IsDriveableLaneInSliceRange__Fiiii(startSlice - safetyZone,safetyZone << 1,1,7);
-    if ((iVar2 != 0) && (iVar3 != 0)) break;
+    startSlice_00 = startSlice - safetyZone;
+    if (safetyZone < 1) {
+      if (gNumSlices <= startSlice_00) {
+        iVar1 = -gNumSlices;
+LAB_8005d270:
+        startSlice_00 = startSlice_00 + iVar1;
+      }
+    }
+    else {
+      iVar1 = gNumSlices;
+      if (startSlice_00 < 0) goto LAB_8005d270;
+    }
+    iVar1 = AIWorld_IsDriveableLaneInSliceRange__Fiiii(startSlice_00,safetyZone << 1,1,6);
+    startSlice_00 = AIWorld_IsDriveableLaneInSliceRange__Fiiii(startSlice_00,safetyZone << 1,1,7);
+    if ((iVar1 != 0) && (startSlice_00 != 0)) {
+      return startSlice;
+    }
     startSlice = startSlice + safetyZone / 5;
-    iVar4 = iVar4 + 1;
-  }
-  return startSlice;
-
-
+    if (safetyZone / 5 < 0) {
+      startSlice_00 = gNumSlices;
+      if (startSlice < 0) goto LAB_8005d2ec;
+    }
+    else {
+      if (gNumSlices <= startSlice) {
+        startSlice_00 = -gNumSlices;
+LAB_8005d2ec:
+        startSlice = startSlice + startSlice_00;
+      }
+    }
+    iVar2 = iVar2 + 1;
+  } while( true );
 }
-
 
 
 
@@ -563,24 +586,25 @@ int FindRandomBarrierFreeArea__19AIHigh_BTC_HumanCopiii( (AIHigh_BTC_HumanCop *t
 	// End offset: 0x8005D374
 	// End Line: 420
 
-void ReleaseAndStartChase__19AIHigh_BTC_HumanCopP15AIHigh_BTC_Perp( (AIHigh_BTC_HumanCop *this,AIHigh_BTC_Perp *newPerp)
+/* WARNING: Type propagation algorithm not settling */
+
+void ReleaseAndStartChase__19AIHigh_BTC_HumanCopP15AIHigh_BTC_Perp
+               (AIHigh_BTC_HumanCop *this,AIHigh_BTC_Perp *newPerp)
+
 {
   Car_tObj *pCVar1;
   
   pCVar1 = (this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_;
-  pCVar1->desiredLatPos = pCVar1->desiredLatPos | 2;
+  (pCVar1->speechInfo).speechSource = (pCVar1->speechInfo).speechSource | 2;
   CheckForNewTarget__14AIHigh_BTC_Cop((AIHigh_BTC_Cop *)this);
   if (*(AIHigh_BTC_Perp **)&(this->AIHigh_BTC_Cop).AIHigh_BasicCop.blockade_.blockadeSpeechFlags ==
       newPerp) {
     (this->AIHigh_BTC_Cop).perpTarget_ = (AIHigh_BTC_Perp *)0x2;
-    this->stageTimeMultiplier_ = 0;
+    this->stageTimeMultiplier_ = simGlobal.gameTicks;
   }
   ResetClearTrafficToPurgatory__19AIHigh_BTC_HumanCop(this);
   return;
-
-
 }
-
 
 
 
@@ -614,46 +638,61 @@ void ReleaseAndStartChase__19AIHigh_BTC_HumanCopP15AIHigh_BTC_Perp( (AIHigh_BTC_
 	// End offset: 0x8005D54C
 	// End Line: 457
 
+/* WARNING: Type propagation algorithm not settling */
+
 void FreezeAndEndChase__19AIHigh_BTC_HumanCop(AIHigh_BTC_HumanCop *this)
+
 {
+  int copSlice;
   int iVar1;
-  int iVar2;
   int direction;
   uint movement;
   
-  if ((this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base._vf[2] == (__vtbl_ptr_type *)0x0) {
-    randtemp = fastRandom & 0xffff;
+  if ((this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base._vf[2].value == 0) {
     direction = -1;
-    if (((fastRandom & 0xffff00) >> 8) * 1000 >> 0x10 < 500) {
+    if (((fastRandom * randSeed & 0xffff00) >> 8) * 1000 >> 0x10 < 500) {
       direction = 1;
     }
-    movement = (uint)((randtemp >> 8) * 1000 >> 0x10 < 0x2ee);
-    fastRandom = randtemp;
-    iVar1 = Get__25AIDataRecord_TrackCurve_ti
-                      ((AIDataRecord_TrackCurve_t *)0x0,
-                       (int)(((this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_)->N).
-                            simRoadInfo.slice);
-    if ((0x41 < iVar1) && (true)) {
+    randtemp = (fastRandom * randSeed & 0xffff) * randSeed;
+    fastRandom = randtemp & 0xffff;
+    movement = 0;
+    if (((randtemp & 0xffff00) >> 8) * 1000 >> 0x10 < 0x2ee) {
+      movement = (uint)(AIHigh_CopGameType != COP_GAME_BTC_1HC1HP);
+    }
+    copSlice = Get__25AIDataRecord_TrackCurve_ti
+                         (AIDataRecord_TrackCurve,
+                          (int)(((this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_)->N).
+                               simRoadInfo.slice);
+    if ((0x41 < copSlice) && (AIHigh_CopGameType != COP_GAME_BTC_1HC1HP)) {
       movement = 1;
     }
-    iVar1 = FindRandomBarrierFreeArea__19AIHigh_BTC_HumanCopiii
-                      (this,(int)(((this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_)->N).
-                                 simRoadInfo.slice,100,1);
+    copSlice = FindRandomBarrierFreeArea__19AIHigh_BTC_HumanCopiii
+                         (this,(int)(((this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_)->N
+                                    ).simRoadInfo.slice,100,1);
     if (((this->AIHigh_BTC_Cop).chaseIndex_ + 1U & 1) == 0) {
-      iVar2 = direction * 7;
+      iVar1 = direction * 7;
     }
     else {
-      iVar2 = direction * -7;
+      iVar1 = direction * -7;
+    }
+    if (iVar1 < 0) {
+      copSlice = copSlice + iVar1;
+      if (copSlice < 0) {
+        copSlice = copSlice + gNumSlices;
+      }
+    }
+    else {
+      copSlice = copSlice + iVar1;
+      if (gNumSlices <= copSlice) {
+        copSlice = copSlice - gNumSlices;
+      }
     }
     (((this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_)->N).simRoadInfo.slice =
-         (short)(iVar1 + iVar2);
-    NewStage__19AIHigh_BTC_HumanCopiii(this,iVar1 + iVar2,direction,movement);
+         (short)copSlice;
+    NewStage__19AIHigh_BTC_HumanCopiii(this,copSlice,direction,movement);
   }
   return;
-
-
 }
-
 
 
 
@@ -799,35 +838,48 @@ void FreezeAndEndChase__19AIHigh_BTC_HumanCop(AIHigh_BTC_HumanCop *this)
 	// End offset: 0x8005D63C
 	// End Line: 486
 
+/* WARNING: Type propagation algorithm not settling */
+
 void CheckConditionWithCop0__19AIHigh_BTC_HumanCop(AIHigh_BTC_HumanCop *this)
+
 {
-  int *piVar1;
+  AIHigh_Base *pAVar1;
   int iVar2;
-  int direction;
+  int copSlice;
+  Car_tObj *direction;
   
-  piVar1 = _highLevelAIObjs;
-  if ((this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base._vf[2] != (__vtbl_ptr_type *)0x0) {
+  pAVar1 = __highLevelAIObjs_9__;
+  if ((this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base._vf[2].value != 0) {
     iVar2 = (this->AIHigh_BTC_Cop).chaseIndex_;
-    if (iVar2 < _highLevelAIObjs[0x19]) {
-      direction = _highLevelAIObjs[0x20];
+    if (iVar2 < (int)__highLevelAIObjs_9__[3].state_) {
+      direction = __highLevelAIObjs_9__[4].carObj_;
+      copSlice = (int)(__highLevelAIObjs_9__->carObj_->N).simRoadInfo.slice;
       if ((iVar2 + 1U & 1) == 0) {
-        iVar2 = direction * -0xe;
+        iVar2 = (int)direction * -0xe;
       }
       else {
-        iVar2 = direction * 0xe;
+        iVar2 = (int)direction * 0xe;
+      }
+      if (iVar2 < 0) {
+        copSlice = copSlice + iVar2;
+        if (copSlice < 0) {
+          copSlice = copSlice + gNumSlices;
+        }
+      }
+      else {
+        copSlice = copSlice + iVar2;
+        if (gNumSlices <= copSlice) {
+          copSlice = copSlice - gNumSlices;
+        }
       }
       NewStage__19AIHigh_BTC_HumanCopiii
-                (this,(int)*(short *)(*_highLevelAIObjs + 8) + iVar2,direction,
-                 _highLevelAIObjs[0x21]);
+                (this,copSlice,(int)direction,(int)__highLevelAIObjs_9__[4].state_);
     }
-    (((this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_)->speechInfo).copCarIndex =
-         *(int *)(*piVar1 + 0x55c);
+    (((this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_)->script).lastReactionIndex[5] =
+         (pAVar1->carObj_->script).lastReactionIndex[5];
   }
   return;
-
-
 }
-
 
 
 
@@ -925,39 +977,44 @@ void CheckConditionWithCop0__19AIHigh_BTC_HumanCop(AIHigh_BTC_HumanCop *this)
 	// End offset: 0x8005D99C
 	// End Line: 618
 
-void NewStage__19AIHigh_BTC_HumanCopiii( (AIHigh_BTC_HumanCop *this,int copSlice,int direction,int movement)
+/* WARNING: Type propagation algorithm not settling */
+
+void NewStage__19AIHigh_BTC_HumanCopiii
+               (AIHigh_BTC_HumanCop *this,int copSlice,int direction,int movement)
+
 {
   Car_tObj *pCVar1;
   int desiredLatPos;
-  uint uVar2;
-  int iVar3;
+  Trk_NewSlice *pTVar2;
+  uint uVar3;
   int local_30;
   int local_2c;
   int local_28;
   int local_24;
   
   (this->AIHigh_BTC_Cop).chaseIndex_ = (this->AIHigh_BTC_Cop).chaseIndex_ + 1;
-  DAT_801133a0 = DAT_801133a0 + 1;
-  if (((false) && (-1 < (this->AIHigh_BTC_Cop).chaseIndex_)) ||
-     ((false && (2 < (this->AIHigh_BTC_Cop).chaseIndex_)))) {
-    DAT_8011e0c8 = 1;
+  GameSetup_gData.perpArrests = GameSetup_gData.perpArrests + 1;
+  if (((AIHigh_CopGameType + ~COP_GAME_PURSUIT < 2) &&
+      (GameSetup_gData.numPerps <= (this->AIHigh_BTC_Cop).chaseIndex_)) ||
+     ((AIHigh_CopGameType == COP_GAME_BTC_1HC1HP && (2 < (this->AIHigh_BTC_Cop).chaseIndex_)))) {
+    simVar.endSimGame = 1;
     return;
   }
   BWorld_InitSpikeBelt__Fv();
-  AICop_spikeBelt = 0;
+  AICop_spikeBelt.active_ = 0;
   Object_ClearCustomObjects__Fv();
   pCVar1 = (this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_;
-  this->wingmanStatus_ = direction;
-  this->needPerp_ = movement;
+  *(int *)&this->wingmanStatus_ = direction;
+  *(int *)((int)&this->wingmanStatus_ + 4) = movement;
   (pCVar1->N).simRoadInfo.slice = (short)copSlice;
-  (((this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_)->speechInfo).speechSource =
+  (((this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_)->script).lastReactionIndex[3] =
        direction;
-  AICop_gRoadBlockState = 0;
+  AICop_gRoadBlockState = kAICop_RoadBlockState_None;
   local_24 = 0;
   local_28 = 0;
   AIWorld_FindBarrierLessLaneAndPosition__FP8Car_tObjPiT1
             ((this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_,&local_28,&local_24);
-  if (false) {
+  if (AIHigh_CopGameType == COP_GAME_BTC_1HC1HP) {
     local_30 = 0;
     local_2c = 0;
     desiredLatPos = local_24;
@@ -969,35 +1026,36 @@ void NewStage__19AIHigh_BTC_HumanCopiii( (AIHigh_BTC_HumanCop *this,int copSlice
     desiredLatPos = local_24;
     goto LAB_8005d8cc;
   }
-  local_2c = copSlice * 0x20;
-  local_30 = (uint)*(byte *)(local_2c + 0x1f) * 0x8000 * ((uint)*(byte *)(local_2c + 0x1d) & 0xf);
-  uVar2 = (uint)(*(byte *)(local_2c + 0x1d) >> 4);
-  iVar3 = (uint)*(byte *)(local_2c + 0x1e) * 0x8000 * uVar2;
-  desiredLatPos = (int)*(short *)(local_2c + 0x1a) * 0x100 + -0x8000;
-  if (local_30 < desiredLatPos) {
-    desiredLatPos = local_30;
+  pTVar2 = BWorldSm_slices + copSlice;
+  local_2c = (uint)pTVar2->avgPavedWidthRt * 0x8000 * ((uint)pTVar2->laneCount & 0xf);
+  uVar3 = (uint)(pTVar2->laneCount >> 4);
+  local_30 = (uint)pTVar2->avgPavedWidthLf * 0x8000 * uVar3;
+  desiredLatPos = (int)pTVar2->rightDrive * 0x100 + -0x8000;
+  if (local_2c < desiredLatPos) {
+    desiredLatPos = local_2c;
   }
-  local_30 = (int)*(short *)(local_2c + 0x18) * 0x100 + -0x8000;
-  if (iVar3 < local_30) {
-    local_30 = iVar3;
+  local_2c = (int)pTVar2->leftDrive * 0x100 + -0x8000;
+  if (local_30 < local_2c) {
+    local_2c = local_30;
   }
-  iVar3 = AIWorld_IsDriveableLane__Fii(copSlice,6 - uVar2);
-  if (iVar3 == 0) {
-    local_30 = local_30 + -0x20000;
+  local_30 = AIWorld_IsDriveableLane__Fii(copSlice,6 - uVar3);
+  if (local_30 == 0) {
+    local_2c = local_2c + -0x20000;
   }
-  local_2c = AIWorld_IsDriveableLane__Fii(copSlice,((uint)*(byte *)(local_2c + 0x1d) & 0xf) + 7);
-  if (local_2c == 0) {
+  local_30 = AIWorld_IsDriveableLane__Fii
+                       (copSlice,((uint)BWorldSm_slices[copSlice].laneCount & 0xf) + 7);
+  if (local_30 == 0) {
     desiredLatPos = desiredLatPos + -0x20000;
   }
-  if ((this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base._vf[2] == (__vtbl_ptr_type *)0x0) {
-    if (true) goto LAB_8005d8b8;
+  if ((this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base._vf[2].value == 0) {
+    if (AITune_driveSide != 1) goto LAB_8005d8b8;
 LAB_8005d8a0:
     local_2c = direction * 0x100;
   }
   else {
-    if (false) goto LAB_8005d8a0;
+    if (AITune_driveSide == -1) goto LAB_8005d8a0;
 LAB_8005d8b8:
-    desiredLatPos = -local_30;
+    desiredLatPos = -local_2c;
     local_2c = direction * -0x100;
   }
   local_2c = local_2c + 0x200;
@@ -1006,12 +1064,11 @@ LAB_8005d8cc:
   AILife_PlaceCarAtLocation__FP8Car_tObjiiiii
             ((this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_,copSlice,desiredLatPos,
              direction,local_30,local_2c);
-  if (true) {
-    desiredLatPos = (&DAT_801133bc)[(this->AIHigh_BTC_Cop).chaseIndex_ * 0xd];
+  if (AIHigh_CopGameType == COP_GAME_BTC_1HC1HP) {
+    desiredLatPos = (&AIH_BTC_Cop_1HC1HP_StageTimes)[(this->AIHigh_BTC_Cop).chaseIndex_];
   }
   else {
-    desiredLatPos =
-         *(int *)(&AIH_BTC_Cop_1HC1HP_StageTimes + (this->AIHigh_BTC_Cop).chaseIndex_ * 4);
+    desiredLatPos = GameSetup_gData.perpInfo[(this->AIHigh_BTC_Cop).chaseIndex_].TimeLimit;
   }
   desiredLatPos = desiredLatPos << 5;
   if (desiredLatPos < 0) {
@@ -1021,21 +1078,18 @@ LAB_8005d8cc:
   if (desiredLatPos < 0) {
     desiredLatPos = desiredLatPos + 0xffff;
   }
-  if ((this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base._vf[2] == (__vtbl_ptr_type *)0x0) {
+  if ((this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base._vf[2].value == 0) {
     Hud_BTC_BonusTime__Fl((desiredLatPos >> 0x10) << 1);
   }
   local_2c = this->stageRepeatCount_;
   this->chaseStartTime_ = 1;
   this->stageTimeMultiplier_ = 0;
   this->timeLeft_ = 0;
-  (this->AIHigh_BTC_Cop).perpTarget_ = (AIHigh_BTC_Perp *)0x1;
+  (this->AIHigh_BTC_Cop).perpTarget_ = (AIHigh_BTC_Perp *)&DAT_00000001;
   this->stageRepeatCount_ = local_2c + (desiredLatPos >> 0x10);
   TrgSfx_RestartTrgSfx__Fv();
   return;
-
-
 }
-
 
 
 
@@ -1047,7 +1101,7 @@ LAB_8005d8cc:
 		// Start line: 625
 		// Start offset: 0x8005D9C0
 		// Variables:
-	// 		static unsigned int sayLose; // offset 0x4
+	// 		static void * sayLose; // offset 0x4
 
 		/* begin block 1.1 */
 			// Start line: 633
@@ -1081,41 +1135,43 @@ LAB_8005d8cc:
 	// End Line: 651
 
 void UpdateAndCheckTimeLeft__19AIHigh_BTC_HumanCop(AIHigh_BTC_HumanCop *this)
+
 {
   int *piVar1;
   Speaker *pSVar2;
   AIHigh_BTC_Perp *pAVar3;
+  uint uVar4;
   char *perpname;
   int timeleft;
-  int iVar4;
+  int iVar5;
   
   pAVar3 = (this->AIHigh_BTC_Cop).perpTarget_;
-  if ((pAVar3 != (AIHigh_BTC_Perp *)0x3) && (pAVar3 != (AIHigh_BTC_Perp *)0x1)) {
-    this->stageRepeatCount_ = this->stageRepeatCount_;
+  if ((pAVar3 != (AIHigh_BTC_Perp *)0x3) && (pAVar3 != (AIHigh_BTC_Perp *)&DAT_00000001)) {
+    this->stageRepeatCount_ = this->stageRepeatCount_ - AI_elapsedTime;
   }
   piVar1 = *(int **)&(this->AIHigh_BTC_Cop).AIHigh_BasicCop.blockade_.blockadeSpeechFlags;
   if (piVar1 == (int *)0x0) {
     perpname = (char *)0x0;
-    iVar4 = ((this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_)->RSControl;
+    iVar5 = ((this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_)->RSControl;
     timeleft = 0;
   }
   else {
     timeleft = this->stageRepeatCount_;
-    iVar4 = ((this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_)->RSControl;
+    iVar5 = ((this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_)->RSControl;
     perpname = (char *)(*(int *)(*piVar1 + 0x288) + 0x5c);
   }
-  Hud_BTC_Update__FPcib(perpname,timeleft,(uint)(iVar4 == 0));
+  Hud_BTC_Update__FPcib(perpname,timeleft,(void *)(uint)(iVar5 == 0));
   if (this->stageRepeatCount_ < 0) {
-    if (iGp00000018 != 0) {
+    if (DAT_00000018 != 0) {
       pSVar2 = Mobile__6SpeechP8Car_tObj((this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_)
       ;
-      (**(code **)(pSVar2->_vf[0] + 0x3c))
-                ((int)&(pSVar2->fPosition).flags + (int)*(short *)(pSVar2->_vf[0] + 0x38));
-      iGp00000018 = 0;
+      uVar4 = pSVar2->_vf[0].value;
+      (**(code **)(uVar4 + 0x3c))((int)&(pSVar2->fPosition).flags + (int)*(short *)(uVar4 + 0x38));
+      DAT_00000018 = 0;
     }
     if (this->stageRepeatCount_ < -0xa0) {
-      DAT_8011e0c8 = 1;
-      iGp00000018 = 1;
+      simVar.endSimGame = 1;
+      DAT_00000018 = 1;
       HudOn__19AIHigh_BTC_HumanCopP15AIHigh_BTC_PerpiP8Car_tObj
                 (this,*(AIHigh_BTC_Perp **)
                        &(this->AIHigh_BTC_Cop).AIHigh_BasicCop.blockade_.blockadeSpeechFlags,1,
@@ -1123,10 +1179,7 @@ void UpdateAndCheckTimeLeft__19AIHigh_BTC_HumanCop(AIHigh_BTC_HumanCop *this)
     }
   }
   return;
-
-
 }
-
 
 
 
@@ -1314,7 +1367,10 @@ void UpdateAndCheckTimeLeft__19AIHigh_BTC_HumanCop(AIHigh_BTC_HumanCop *this)
 	// End offset: 0x8005DBF0
 	// End Line: 723
 
+/* WARNING: Type propagation algorithm not settling */
+
 void UpdateFreezeModeAndPullOverMode__19AIHigh_BTC_HumanCop(AIHigh_BTC_HumanCop *this)
+
 {
   Car_tObj *pCVar1;
   AIHigh_BTC_Perp *pAVar2;
@@ -1322,44 +1378,42 @@ void UpdateFreezeModeAndPullOverMode__19AIHigh_BTC_HumanCop(AIHigh_BTC_HumanCop 
   if (this->stageRepeatCount_ < 0) {
     pCVar1 = (this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_;
     AIInit_forceHumanHandBrake = 1;
-    pCVar1->RSControl = (pCVar1->speechInfo).speechSource;
-    this->initialDirection_ = 0;
+    pCVar1->RSControl = (pCVar1->script).lastReactionIndex[3];
+    this->needPerp_ = 0;
     return;
   }
   pAVar2 = (this->AIHigh_BTC_Cop).perpTarget_;
   if (pAVar2 == (AIHigh_BTC_Perp *)0x3) {
     ((this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_)->RSControl = 0;
     ((this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_)->pullOver = 1;
-    this->initialDirection_ = 0;
+    this->needPerp_ = 0;
     return;
   }
-  if (pAVar2 == (AIHigh_BTC_Perp *)0x1) {
+  if (pAVar2 == (AIHigh_BTC_Perp *)&DAT_00000001) {
     pCVar1 = (this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_;
-    pCVar1->desiredLatPos = pCVar1->desiredLatPos & 0xfffffffd;
-    ((this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_)->RSControl = this->wingmanStatus_;
+    (pCVar1->speechInfo).speechSource = (pCVar1->speechInfo).speechSource & 0xfffffffd;
+    ((this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_)->RSControl =
+         *(int *)&this->wingmanStatus_;
     ((this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_)->pullOver =
-         (uint)(this->needPerp_ == 0);
+         (uint)(*(int *)((int)&this->wingmanStatus_ + 4) == 0);
     if (((this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_)->pullOver != 0) {
-      this->initialDirection_ = 0;
+      this->needPerp_ = 0;
       return;
     }
   }
   else {
     pCVar1 = (this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_;
     if ((pCVar1->pullOver == 1) || (pCVar1->RSControl != 0)) {
-      pCVar1->desiredLatPos = pCVar1->desiredLatPos | 2;
+      (pCVar1->speechInfo).speechSource = (pCVar1->speechInfo).speechSource | 2;
     }
     pCVar1 = (this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_;
-    this->initialDirection_ = 0;
+    this->needPerp_ = 0;
     (this->AIHigh_BTC_Cop).perpTarget_ = (AIHigh_BTC_Perp *)0x0;
     pCVar1->RSControl = 0;
     ((this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_)->pullOver = 0;
   }
   return;
-
-
 }
-
 
 
 
@@ -1377,31 +1431,30 @@ void UpdateFreezeModeAndPullOverMode__19AIHigh_BTC_HumanCop(AIHigh_BTC_HumanCop 
 	// End Line: 745
 
 void RequestWingman__19AIHigh_BTC_HumanCop(AIHigh_BTC_HumanCop *this)
+
 {
   Speaker *pSVar1;
-  int iVar2;
+  uint uVar2;
+  int iVar3;
   
   if (1 < (int)&(((this->AIHigh_BTC_Cop).perpTarget_)->AIHigh_BasicPerp).beatingTicksLeft_ + 1U) {
-    iVar2 = (&DAT_801133c0)[(this->AIHigh_BTC_Cop).chaseIndex_ * 0xd] * 0x40 +
-            (&DAT_8010de24)[DAT_801131f4 * 7];
+    iVar3 = GameSetup_gData.perpInfo[(this->AIHigh_BTC_Cop).chaseIndex_].WingmanTime * 0x40 +
+            (&AITune_BTC)[GameSetup_gData.skill].wingmanTime;
     pSVar1 = Mobile__6SpeechP8Car_tObj((this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_);
-    (**(code **)(pSVar1->_vf[0] + 100))
-              ((int)&(pSVar1->fPosition).flags + (int)*(short *)(pSVar1->_vf[0] + 0x60));
-    if ((((this->stageTimeMultiplier_ == 0) || (iVar2 == 0)) ||
-        (-this->stageTimeMultiplier_ <= iVar2)) || (this->timeLeft_ == 4)) {
+    uVar2 = pSVar1->_vf[0].value;
+    (**(code **)(uVar2 + 100))((int)&(pSVar1->fPosition).flags + (int)*(short *)(uVar2 + 0x60));
+    if ((((this->stageTimeMultiplier_ == 0) || (iVar3 == 0)) ||
+        (simGlobal.gameTicks - this->stageTimeMultiplier_ <= iVar3)) || (this->timeLeft_ == 4)) {
       pSVar1 = Dispatch__6Speech();
-      (**(code **)(pSVar1->_vf[0] + 0x1c))
-                ((int)&(pSVar1->fPosition).flags + (int)*(short *)(pSVar1->_vf[0] + 0x18));
+      uVar2 = pSVar1->_vf[0].value;
+      (**(code **)(uVar2 + 0x1c))((int)&(pSVar1->fPosition).flags + (int)*(short *)(uVar2 + 0x18));
     }
     else {
       this->timeLeft_ = 1;
     }
   }
   return;
-
-
 }
-
 
 
 
@@ -1419,39 +1472,41 @@ void RequestWingman__19AIHigh_BTC_HumanCop(AIHigh_BTC_HumanCop *this)
 	// End Line: 780
 
 void RequestBlockader__19AIHigh_BTC_HumanCopi(AIHigh_BTC_HumanCop *this,int spikeBeltRequest)
+
 {
   Speaker *pSVar1;
   int iVar2;
-  int iVar3;
+  uint uVar3;
+  int iVar4;
   
   if (1 < (int)&(((this->AIHigh_BTC_Cop).perpTarget_)->AIHigh_BasicPerp).beatingTicksLeft_ + 1U) {
     if (spikeBeltRequest == 0) {
       pSVar1 = Mobile__6SpeechP8Car_tObj((this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_)
       ;
-      (**(code **)(pSVar1->_vf[0] + 0x54))
-                ((int)&(pSVar1->fPosition).flags + (int)*(short *)(pSVar1->_vf[0] + 0x50));
-      iVar3 = (&DAT_801133c8)[(this->AIHigh_BTC_Cop).chaseIndex_ * 0xd];
-      iVar2 = (&DAT_8010de28)[DAT_801131f4 * 7];
+      uVar3 = pSVar1->_vf[0].value;
+      (**(code **)(uVar3 + 0x54))((int)&(pSVar1->fPosition).flags + (int)*(short *)(uVar3 + 0x50));
+      iVar4 = GameSetup_gData.perpInfo[(this->AIHigh_BTC_Cop).chaseIndex_].BlockadeCopTime;
+      iVar2 = (&AITune_BTC)[GameSetup_gData.skill].blockaderTime;
     }
     else {
       pSVar1 = Mobile__6SpeechP8Car_tObj((this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_)
       ;
-      (**(code **)(pSVar1->_vf[0] + 0x5c))
-                ((int)&(pSVar1->fPosition).flags + (int)*(short *)(pSVar1->_vf[0] + 0x58));
-      iVar3 = (&DAT_801133c4)[(this->AIHigh_BTC_Cop).chaseIndex_ * 0xd];
-      iVar2 = (&DAT_8010de2c)[DAT_801131f4 * 7];
+      uVar3 = pSVar1->_vf[0].value;
+      (**(code **)(uVar3 + 0x5c))((int)&(pSVar1->fPosition).flags + (int)*(short *)(uVar3 + 0x58));
+      iVar4 = GameSetup_gData.perpInfo[(this->AIHigh_BTC_Cop).chaseIndex_].SpikeBeltTime;
+      iVar2 = (&AITune_BTC)[GameSetup_gData.skill].spikeBeltTime;
     }
-    iVar2 = iVar3 * 0x40 + iVar2;
+    iVar2 = iVar4 * 0x40 + iVar2;
     if ((((this->stageTimeMultiplier_ == 0) || (iVar2 < 1)) ||
-        (-this->stageTimeMultiplier_ <= iVar2)) || (this->timeLeft_ == 5)) {
+        (simGlobal.gameTicks - this->stageTimeMultiplier_ <= iVar2)) || (this->timeLeft_ == 5)) {
       pSVar1 = Dispatch__6Speech();
-      (**(code **)(pSVar1->_vf[0] + 0x1c))
-                ((int)&(pSVar1->fPosition).flags + (int)*(short *)(pSVar1->_vf[0] + 0x18));
+      uVar3 = pSVar1->_vf[0].value;
+      (**(code **)(uVar3 + 0x1c))((int)&(pSVar1->fPosition).flags + (int)*(short *)(uVar3 + 0x18));
     }
     else {
       pSVar1 = Dispatch__6Speech();
-      (**(code **)(pSVar1->_vf[0] + 0x24))
-                ((int)&(pSVar1->fPosition).flags + (int)*(short *)(pSVar1->_vf[0] + 0x20));
+      uVar3 = pSVar1->_vf[0].value;
+      (**(code **)(uVar3 + 0x24))((int)&(pSVar1->fPosition).flags + (int)*(short *)(uVar3 + 0x20));
       if (spikeBeltRequest == 0) {
         this->timeLeft_ = 2;
       }
@@ -1461,10 +1516,7 @@ void RequestBlockader__19AIHigh_BTC_HumanCopi(AIHigh_BTC_HumanCop *this,int spik
     }
   }
   return;
-
-
 }
-
 
 
 
@@ -1480,16 +1532,14 @@ void RequestBlockader__19AIHigh_BTC_HumanCopi(AIHigh_BTC_HumanCop *this,int spik
 	// End Line: 791
 
 int CheckForWingmanRequest__19AIHigh_BTC_HumanCop(AIHigh_BTC_HumanCop *this)
+
 {
   if (this->timeLeft_ == 1) {
     this->timeLeft_ = 4;
     return 1;
   }
   return 0;
-
-
 }
-
 
 
 
@@ -1504,7 +1554,9 @@ int CheckForWingmanRequest__19AIHigh_BTC_HumanCop(AIHigh_BTC_HumanCop *this)
 	// End offset: 0x8005DF4C
 	// End Line: 809
 
-int CheckForBlockaderRequest__19AIHigh_BTC_HumanCopPi( (AIHigh_BTC_HumanCop *this,int *spikeBeltRequest)
+int CheckForBlockaderRequest__19AIHigh_BTC_HumanCopPi
+              (AIHigh_BTC_HumanCop *this,int *spikeBeltRequest)
+
 {
   *spikeBeltRequest = 0;
   if (this->timeLeft_ - 2U < 2) {
@@ -1515,10 +1567,7 @@ int CheckForBlockaderRequest__19AIHigh_BTC_HumanCopPi( (AIHigh_BTC_HumanCop *thi
     return 1;
   }
   return 0;
-
-
 }
-
 
 
 
@@ -1533,7 +1582,9 @@ int CheckForBlockaderRequest__19AIHigh_BTC_HumanCopPi( (AIHigh_BTC_HumanCop *thi
 	// End offset: 0x8005DFA0
 	// End Line: 827
 
-void UpdateWingmanRole__19AIHigh_BTC_HumanCop12Wingman_Role( (AIHigh_BTC_HumanCop *this,Wingman_Role currentRole)
+void UpdateWingmanRole__19AIHigh_BTC_HumanCop12Wingman_Role
+               (AIHigh_BTC_HumanCop *this,Wingman_Role currentRole)
+
 {
   if (currentRole == ROLE_WINGMAN) {
     this->timeLeft_ = 4;
@@ -1552,10 +1603,7 @@ void UpdateWingmanRole__19AIHigh_BTC_HumanCop12Wingman_Role( (AIHigh_BTC_HumanCo
     }
   }
   return;
-
-
 }
-
 
 
 
@@ -1606,26 +1654,24 @@ void UpdateWingmanRole__19AIHigh_BTC_HumanCop12Wingman_Role( (AIHigh_BTC_HumanCo
 	// End Line: 839
 
 void ClearTrafficToPurgatory__19AIHigh_BTC_HumanCop(AIHigh_BTC_HumanCop *this)
+
 {
   bool bVar1;
   int iVar2;
-  int iVar3;
-  int *piVar4;
+  Car_tObj *pCVar3;
+  Car_tObj **ppCVar4;
   int iVar5;
   
   iVar2 = Cars_gNumTrafficCars;
   iVar5 = 0;
-  piVar4 = &_Cars_gTrafficCarList;
+  ppCVar4 = &__Cars_gTrafficCarList_9__;
   while (bVar1 = iVar5 < iVar2, iVar5 = iVar5 + 1, bVar1) {
-    iVar3 = *piVar4;
-    piVar4 = piVar4 + 1;
-    *(undefined4 *)((&_highLevelAIObjs)[*(int *)(iVar3 + 0x254)] + 0x1c) = 1;
+    pCVar3 = *ppCVar4;
+    ppCVar4 = ppCVar4 + 1;
+    (&__highLevelAIObjs_9__)[pCVar3->carIndex]->_vf[2].value = 1;
   }
   return;
-
-
 }
-
 
 
 
@@ -1676,26 +1722,24 @@ void ClearTrafficToPurgatory__19AIHigh_BTC_HumanCop(AIHigh_BTC_HumanCop *this)
 	// End Line: 849
 
 void ResetClearTrafficToPurgatory__19AIHigh_BTC_HumanCop(AIHigh_BTC_HumanCop *this)
+
 {
   bool bVar1;
   int iVar2;
-  int iVar3;
-  int *piVar4;
+  Car_tObj *pCVar3;
+  Car_tObj **ppCVar4;
   int iVar5;
   
   iVar2 = Cars_gNumTrafficCars;
   iVar5 = 0;
-  piVar4 = &_Cars_gTrafficCarList;
+  ppCVar4 = &__Cars_gTrafficCarList_9__;
   while (bVar1 = iVar5 < iVar2, iVar5 = iVar5 + 1, bVar1) {
-    iVar3 = *piVar4;
-    piVar4 = piVar4 + 1;
-    *(undefined4 *)((&_highLevelAIObjs)[*(int *)(iVar3 + 0x254)] + 0x1c) = 0;
+    pCVar3 = *ppCVar4;
+    ppCVar4 = ppCVar4 + 1;
+    (&__highLevelAIObjs_9__)[pCVar3->carIndex]->_vf[2].value = 0;
   }
   return;
-
-
 }
-
 
 
 
@@ -1758,7 +1802,10 @@ void ResetClearTrafficToPurgatory__19AIHigh_BTC_HumanCop(AIHigh_BTC_HumanCop *th
 	// End offset: 0x8005E09C
 	// End Line: 859
 
+/* WARNING: Type propagation algorithm not settling */
+
 void SetDesiredSpeed__19AIHigh_BTC_HumanCop(AIHigh_BTC_HumanCop *this)
+
 {
   int iVar1;
   Car_tObj *carObj;
@@ -1766,16 +1813,14 @@ void SetDesiredSpeed__19AIHigh_BTC_HumanCop(AIHigh_BTC_HumanCop *this)
   carObj = (this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_;
   if (carObj->RSControl != 0) {
     iVar1 = AISpeeds_CalcHumanTopSpeed__FP8Car_tObj(carObj);
-    if (this->initialDirection_ < iVar1) {
-      iVar1 = this->initialDirection_;
+    if (this->needPerp_ < iVar1) {
+      iVar1 = this->needPerp_;
     }
-    (((this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_)->speechInfo).copCarIndex = iVar1;
+    (((this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_)->script).lastReactionIndex[5] =
+         iVar1;
   }
   return;
-
-
 }
-
 
 
 
@@ -1834,20 +1879,24 @@ void SetDesiredSpeed__19AIHigh_BTC_HumanCop(AIHigh_BTC_HumanCop *this)
 	// End offset: 0x8005E264
 	// End Line: 932
 
+/* WARNING: Type propagation algorithm not settling */
+
 void HighExecute__19AIHigh_BTC_HumanCop(AIHigh_BTC_HumanCop *this)
+
 {
   Car_tObj *pCVar1;
   int *piVar2;
   coorddef cStack32;
   
-  if (((this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base._vf[2] == (__vtbl_ptr_type *)0x0) &&
-     ((this->AIHigh_BTC_Cop).perpTarget_ == (AIHigh_BTC_Perp *)0x1)) {
+  if (((this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base._vf[2].value == 0) &&
+     ((this->AIHigh_BTC_Cop).perpTarget_ == (AIHigh_BTC_Perp *)&DAT_00000001)) {
     ClearTrafficToPurgatory__19AIHigh_BTC_HumanCop(this);
   }
   piVar2 = *(int **)&(this->AIHigh_BTC_Cop).AIHigh_BasicCop.blockade_.blockadeSpeechFlags;
-  if ((piVar2 != (int *)0x0) && ((this->AIHigh_BTC_Cop).perpTarget_ != (AIHigh_BTC_Perp *)0x1)) {
-    (((this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_)->speechInfo).speechIntensity =
-         *(speechIntensityType *)(*piVar2 + 0x554);
+  if ((piVar2 != (int *)0x0) &&
+     ((this->AIHigh_BTC_Cop).perpTarget_ != (AIHigh_BTC_Perp *)&DAT_00000001)) {
+    (((this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_)->script).lastReactionIndex[2] =
+         *(undefined4 *)(*piVar2 + 0x554);
   }
   SetDesiredSpeed__19AIHigh_BTC_HumanCop(this);
   CheckConditionWithCop0__19AIHigh_BTC_HumanCop(this);
@@ -1857,8 +1906,8 @@ void HighExecute__19AIHigh_BTC_HumanCop(AIHigh_BTC_HumanCop *this)
   if (*(int *)&(this->AIHigh_BTC_Cop).AIHigh_BasicCop.blockade_.blockadeSpeechFlags != 0) {
     GetCheckChasePosition__14AIHigh_BTC_CopP8coorddef((AIHigh_BTC_Cop *)this,&cStack32);
   }
-  if (false) {
-    if (-lastInputRequestTick_ < 0x281) {
+  if (AIHigh_CopGameType == COP_GAME_BTC_1HC) {
+    if (simGlobal.gameTicks - iGp00000014 < 0x281) {
       pCVar1 = (this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_;
       if ((uint)(byte)(pCVar1->control).queuedEvent - 4 < 3) {
         (pCVar1->control).queuedEvent = '\0';
@@ -1869,28 +1918,25 @@ void HighExecute__19AIHigh_BTC_HumanCop(AIHigh_BTC_HumanCop *this)
           '\x04') {
         RequestWingman__19AIHigh_BTC_HumanCop(this);
         (((this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_)->control).queuedEvent = '\0';
-        lastInputRequestTick_ = 0;
+        iGp00000014 = simGlobal.gameTicks;
       }
       if ((((this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_)->control).queuedEvent ==
           '\x05') {
         RequestBlockader__19AIHigh_BTC_HumanCopi(this,0);
         (((this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_)->control).queuedEvent = '\0';
-        lastInputRequestTick_ = 0;
+        iGp00000014 = simGlobal.gameTicks;
       }
       if ((((this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_)->control).queuedEvent ==
           '\x06') {
         RequestBlockader__19AIHigh_BTC_HumanCopi(this,1);
         (((this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_)->control).queuedEvent = '\0';
-        lastInputRequestTick_ = 0;
+        iGp00000014 = simGlobal.gameTicks;
       }
     }
   }
   StateExecute__12AIState_Base((this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.state_);
   return;
-
-
 }
-
 
 
 
@@ -1937,23 +1983,24 @@ void HighExecute__19AIHigh_BTC_HumanCop(AIHigh_BTC_HumanCop *this)
 	// End offset: 0x8005E2E0
 	// End Line: 948
 
-void HudOn__19AIHigh_BTC_HumanCopP15AIHigh_BTC_PerpiP8Car_tObj( (AIHigh_BTC_HumanCop *this,AIHigh_BTC_Perp *arrestMe,int gameOver, Car_tObj *arrestingCop)
+/* WARNING: Type propagation algorithm not settling */
+
+void HudOn__19AIHigh_BTC_HumanCopP15AIHigh_BTC_PerpiP8Car_tObj
+               (AIHigh_BTC_HumanCop *this,AIHigh_BTC_Perp *arrestMe,int gameOver,
+               Car_tObj *arrestingCop)
+
 {
   if ((arrestingCop->carFlags & 2U) != 0) {
-    arrestingCop = (Car_tObj *)0x0;
+    arrestingCop = __Cars_gHumanRaceCarList_9__;
   }
-  if (((this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base._vf[2] == (__vtbl_ptr_type *)0x0) ||
-     (gameOver != 0)) {
+  if (((this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base._vf[2].value == 0) || (gameOver != 0)) {
     Hud_BustedOverlayOn__FiPcbs
-              (-this->stageTimeMultiplier_,
+              (simGlobal.gameTicks - this->stageTimeMultiplier_,
                ((arrestMe->AIHigh_BasicPerp).AIHigh_Base.carObj_)->carInfo->driver,
-               (uint)(gameOver == 0),*(short *)&arrestingCop->carIndex);
+               (void *)(uint)(gameOver == 0),*(short *)&arrestingCop->carIndex);
   }
   return;
-
-
 }
-
 
 
 
@@ -1968,10 +2015,12 @@ void HudOn__19AIHigh_BTC_HumanCopP15AIHigh_BTC_PerpiP8Car_tObj( (AIHigh_BTC_Huma
 	// End offset: 0x8005E2F0
 	// End Line: 965
 
-AIHigh_BTC_Wingman * __18AIHigh_BTC_WingmanP8Car_tObji(AIHigh_BTC_Wingman *this,Car_tObj *carObj,int copIndex)
+AIHigh_BTC_Wingman *
+__18AIHigh_BTC_WingmanP8Car_tObji(AIHigh_BTC_Wingman *this,Car_tObj *carObj,int copIndex)
+
 {
   __14AIHigh_BTC_CopP8Car_tObji((AIHigh_BTC_Cop *)this,carObj,copIndex);
-  (this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base._vf[0] = (__vtbl_ptr_type *)&table;
+  (this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base._vf[0].value = 0x80054ec4;
   this->newRole_ = ROLE_IDLE;
   this->newHumanBoss_ = (AIHigh_BTC_HumanCop *)0x0;
   this->spikeBeltPlaced_ = 0;
@@ -1979,10 +2028,7 @@ AIHigh_BTC_Wingman * __18AIHigh_BTC_WingmanP8Car_tObji(AIHigh_BTC_Wingman *this,
   (this->AIHigh_BTC_Cop).freezeMode_ = FREEZE_NONE;
   this->currentRole_ = ROLE_IDLE;
   return this;
-
-
 }
-
 
 
 
@@ -3007,19 +3053,23 @@ AIHigh_BTC_Wingman * __18AIHigh_BTC_WingmanP8Car_tObji(AIHigh_BTC_Wingman *this,
 	// End offset: 0x8005EDB0
 	// End Line: 1266
 
+/* WARNING: Type propagation algorithm not settling */
+
 void HighExecute__18AIHigh_BTC_Wingman(AIHigh_BTC_Wingman *this)
+
 {
   bool bVar1;
   AIState_GotoSlice *this_00;
   Speaker *pSVar2;
-  int iVar3;
+  uint uVar3;
   AIState_Chase *this_01;
   int targetSlice;
   AIState_Normal *this_02;
-  stateType_t sVar4;
+  uint uVar4;
+  stateType_t sVar5;
   AIState_Base *this_03;
-  Freeze_Mode FVar5;
-  AIState_Base *pAVar6;
+  __98 _Var6;
+  AIState_Base *pAVar7;
   Car_tObj *carObj;
   AIHigh_BTC_HumanCop *humanCop;
   coorddef *offset;
@@ -3029,35 +3079,34 @@ void HighExecute__18AIHigh_BTC_Wingman(AIHigh_BTC_Wingman *this)
   
   CheckSpikeBelt__15AIHigh_BasicCop((AIHigh_BasicCop *)this);
   CheckForActivation__18AIHigh_BTC_Wingman(this);
-  if (false) goto switchD_8005e388_caseD_1;
   switch((this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.stateType_) {
   case STATE_NONE:
     carObj = (this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_;
-    carObj->desiredLatPos = carObj->desiredLatPos & 0xfffffffd;
+    (carObj->speechInfo).speechSource = (carObj->speechInfo).speechSource & 0xfffffffd;
     this_03 = (AIState_Base *)__builtin_new(8);
     carObj = (this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_;
     __12AIState_BaseP8Car_tObj(this_03,carObj);
-    this_03->_vf[0] = (__vtbl_ptr_type *)&DAT_80054f24;
+    this_03->_vf[0].value = 0x80054f24;
     memset(&cStack64,0,0xc);
     cStack64.y = carObj->carIndex * 0xa0000;
     Newton_SetInitialSlicePositionOrientationEtc__FP13BO_tNewtonObjiP8coorddefi
               ((BO_tNewtonObj *)this_03->carObj_,0,&cStack64,1);
     (this_03->carObj_->N).active = '\0';
-    pAVar6 = (this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.state_;
-    if (pAVar6 != (AIState_Base *)0x0) {
-      (**(code **)(pAVar6->_vf[0] + 0x14))
-                ((int)&pAVar6->carObj_ + (int)*(short *)(pAVar6->_vf[0] + 0x10),3);
+    pAVar7 = (this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.state_;
+    if (pAVar7 != (AIState_Base *)0x0) {
+      uVar4 = pAVar7->_vf[0].value;
+      (**(code **)(uVar4 + 0x14))((int)&pAVar7->carObj_ + (int)*(short *)(uVar4 + 0x10),3);
     }
-    sVar4 = STATE_NONACTIVE;
+    sVar5 = STATE_NONACTIVE;
     (this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.state_ = this_03;
     goto LAB_8005eda0;
   default:
     goto switchD_8005e388_caseD_1;
   case STATE_NORMAL:
     carObj = (this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_;
-    carObj->desiredLatPos = carObj->desiredLatPos & 0xfffffffd;
-    FVar5 = (this->AIHigh_BTC_Cop).freezeMode_;
-    if ((FVar5 == (this->AIHigh_BTC_Cop).chaseIndex_) || (1 < FVar5 + ~FREEZE_NEWPERP_ROVE)) {
+    (carObj->speechInfo).speechSource = (carObj->speechInfo).speechSource & 0xfffffffd;
+    _Var6 = (this->AIHigh_BTC_Cop).freezeMode_;
+    if ((_Var6 == (this->AIHigh_BTC_Cop).chaseIndex_) || (1 < _Var6 + ~FREEZE_NEWPERP_ROVE)) {
       CheckForNewTarget__14AIHigh_BTC_Cop((AIHigh_BTC_Cop *)this);
       if (*(int *)&(this->AIHigh_BTC_Cop).AIHigh_BasicCop.blockade_.blockadeSpeechFlags != 0) {
         GetCheckChasePosition__14AIHigh_BTC_CopP8coorddef((AIHigh_BTC_Cop *)this,&cStack64);
@@ -3067,14 +3116,14 @@ void HighExecute__18AIHigh_BTC_Wingman(AIHigh_BTC_Wingman *this)
                              *(Car_tObj **)
                               &(*(Car_tObj **)
                                  &(this->AIHigh_BTC_Cop).AIHigh_BasicCop.blockade_.
-                                  blockadeSpeechFlags)->N,&cStack64,0x200,0x3c0000,0x190000,2,
-                             0x10000);
+                                  blockadeSpeechFlags)->N,&cStack64,0x200,0x3c0000,
+                             (int)&DAT_00190000,2,0x10000);
         this_03 = (this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.state_;
         if (this_03 != (AIState_Base *)0x0) {
-          (**(code **)(this_03->_vf[0] + 0x14))
-                    ((int)&this_03->carObj_ + (int)*(short *)(this_03->_vf[0] + 0x10),3);
+          uVar4 = this_03->_vf[0].value;
+          (**(code **)(uVar4 + 0x14))((int)&this_03->carObj_ + (int)*(short *)(uVar4 + 0x10),3);
         }
-        sVar4 = STATE_CHASE;
+        sVar5 = STATE_CHASE;
         goto LAB_8005e5d8;
       }
     }
@@ -3084,8 +3133,9 @@ void HighExecute__18AIHigh_BTC_Wingman(AIHigh_BTC_Wingman *this)
       if (carObj == (Car_tObj *)0x0) {
         pSVar2 = Mobile__6SpeechP8Car_tObj
                            ((this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_);
-        (**(code **)(pSVar2->_vf[0] + 0x84))
-                  ((int)&(pSVar2->fPosition).flags + (int)*(short *)(pSVar2->_vf[0] + 0x80));
+        uVar4 = pSVar2->_vf[0].value;
+        (**(code **)(uVar4 + 0x84))((int)&(pSVar2->fPosition).flags + (int)*(short *)(uVar4 + 0x80))
+        ;
         humanCop = (AIHigh_BTC_HumanCop *)this->currentRole_;
         (this->AIHigh_BTC_Cop).chaseIndex_ = (this->AIHigh_BTC_Cop).freezeMode_;
         SetupBlockader__18AIHigh_BTC_WingmanP19AIHigh_BTC_HumanCopi
@@ -3094,17 +3144,17 @@ void HighExecute__18AIHigh_BTC_Wingman(AIHigh_BTC_Wingman *this)
         __12AIState_BaseP8Car_tObj
                   ((AIState_Base *)this_01,
                    (this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_);
-        (this_01->AIState_Base)._vf[0] = (__vtbl_ptr_type *)&table;
-        (this_01->AIState_Base)._vf[2] = (__vtbl_ptr_type *)0x1;
+        (this_01->AIState_Base)._vf[0].value = 0x80055600;
+        (this_01->AIState_Base)._vf[2].value = 1;
         this_03 = (this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.state_;
         if (this_03 != (AIState_Base *)0x0) {
-          (**(code **)(this_03->_vf[0] + 0x14))
-                    ((int)&this_03->carObj_ + (int)*(short *)(this_03->_vf[0] + 0x10),3);
+          uVar4 = this_03->_vf[0].value;
+          (**(code **)(uVar4 + 0x14))((int)&this_03->carObj_ + (int)*(short *)(uVar4 + 0x10),3);
         }
-        sVar4 = STATE_IDLE;
+        sVar5 = STATE_IDLE;
 LAB_8005e5d8:
         *(AIState_Chase **)&(this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.state_ = this_01;
-        (this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.stateType_ = sVar4;
+        (this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.stateType_ = sVar5;
       }
     }
     targetSlice = UpdateFreezeModeAndPullOverMode__18AIHigh_BTC_Wingman(this);
@@ -3114,14 +3164,14 @@ LAB_8005e5d8:
     this_03 = (AIState_Base *)__builtin_new(8);
     carObj = (this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_;
     __12AIState_BaseP8Car_tObj(this_03,carObj);
-    this_03->_vf[0] = (__vtbl_ptr_type *)&DAT_80054f24;
+    this_03->_vf[0].value = 0x80054f24;
     memset(&cStack64,0,0xc);
     offset = &cStack64;
     cStack64.y = carObj->carIndex * 0xa0000;
     break;
   case STATE_IDLE:
     carObj = (this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_;
-    carObj->desiredLatPos = carObj->desiredLatPos | 2;
+    (carObj->speechInfo).speechSource = (carObj->speechInfo).speechSource | 2;
     CheckForNewTarget__14AIHigh_BTC_Cop((AIHigh_BTC_Cop *)this);
     bVar1 = false;
     if (*(int *)&(this->AIHigh_BTC_Cop).AIHigh_BasicCop.blockade_.blockadeSpeechFlags == 0) {
@@ -3131,44 +3181,45 @@ LAB_8005e5d8:
       this_03 = (AIState_Base *)
                 __14AIState_NormalP8Car_tObj
                           (this_02,(this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_);
-      pAVar6 = (this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.state_;
-      if (pAVar6 != (AIState_Base *)0x0) {
-        (**(code **)(pAVar6->_vf[0] + 0x14))
-                  ((int)&pAVar6->carObj_ + (int)*(short *)(pAVar6->_vf[0] + 0x10),3);
+      pAVar7 = (this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.state_;
+      if (pAVar7 != (AIState_Base *)0x0) {
+        uVar4 = pAVar7->_vf[0].value;
+        (**(code **)(uVar4 + 0x14))((int)&pAVar7->carObj_ + (int)*(short *)(uVar4 + 0x10),3);
       }
       (this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.state_ = this_03;
       (this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.stateType_ = STATE_NORMAL;
       return;
     }
     GetCheckChasePosition__14AIHigh_BTC_CopP8coorddef((AIHigh_BTC_Cop *)this,&cStack64);
-    if ((this->newRole_ != ROLE_IDLE) && (DAT_8010d550 == this->newHumanBoss_)) {
-      DAT_8010d55c = 0;
+    if ((this->newRole_ != ROLE_IDLE) &&
+       ((AIHigh_BTC_HumanCop *)AICop_spikeBelt.slice_ == this->newHumanBoss_)) {
+      AICop_spikeBelt.freshenTime_ = simGlobal.gameTicks;
     }
-    iVar3 = AIWorld_ApxSplineDistance__FP8Car_tObjT0
+    uVar3 = AIWorld_ApxSplineDistance__FP8Car_tObjT0
                       ((this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_,
                        *(Car_tObj **)
                         &(*(Car_tObj **)
                            &(this->AIHigh_BTC_Cop).AIHigh_BasicCop.blockade_.blockadeSpeechFlags)->N
                       );
-    targetSlice = iVar3;
-    if (iVar3 < 0) {
-      targetSlice = -iVar3;
+    uVar4 = uVar3;
+    if ((int)uVar3 < 0) {
+      uVar4 = -uVar3;
     }
-    if (targetSlice < 0x320000) {
+    if ((int)uVar4 < 0x320000) {
 LAB_8005ea9c:
       bVar1 = true;
     }
     else {
-      if (targetSlice < 0x12c0000) {
+      if ((int)uVar4 < 0x12c0000) {
         targetSlice = *(int *)(**(int **)&(this->AIHigh_BTC_Cop).AIHigh_BasicCop.blockade_.
                                           blockadeSpeechFlags + 0x564);
         if (targetSlice < 1) {
           targetSlice = -targetSlice;
         }
         if (((0x471c7 < targetSlice) &&
-            (targetSlice = fixeddiv(iVar3,*(undefined4 *)
-                                           (**(int **)&(this->AIHigh_BTC_Cop).AIHigh_BasicCop.
-                                                       blockade_.blockadeSpeechFlags + 0x564)),
+            (targetSlice = fixeddiv(uVar3,*(uint *)(**(int **)&(this->AIHigh_BTC_Cop).
+                                                               AIHigh_BasicCop.blockade_.
+                                                               blockadeSpeechFlags + 0x564)),
             0 < targetSlice)) && (targetSlice < this->spikeBeltPlaced_)) goto LAB_8005ea9c;
       }
     }
@@ -3182,26 +3233,26 @@ LAB_8005ea9c:
                            *(Car_tObj **)
                             &(*(Car_tObj **)
                                &(this->AIHigh_BTC_Cop).AIHigh_BasicCop.blockade_.blockadeSpeechFlags
-                             )->N,&cStack64,0x200,0x3c0000,0x190000,2,0x10000);
+                             )->N,&cStack64,0x200,0x3c0000,(int)&DAT_00190000,2,0x10000);
       this_03 = (this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.state_;
       if (this_03 != (AIState_Base *)0x0) {
-        (**(code **)(this_03->_vf[0] + 0x14))
-                  ((int)&this_03->carObj_ + (int)*(short *)(this_03->_vf[0] + 0x10),3);
+        uVar4 = this_03->_vf[0].value;
+        (**(code **)(uVar4 + 0x14))((int)&this_03->carObj_ + (int)*(short *)(uVar4 + 0x10),3);
       }
       *(AIState_Chase **)&(this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.state_ = this_01;
       (this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.stateType_ = STATE_CHASE;
     }
-    FVar5 = (this->AIHigh_BTC_Cop).freezeMode_;
-    if ((FVar5 != (this->AIHigh_BTC_Cop).chaseIndex_) && (FVar5 == FREEZE_NEWPERP_ROVE)) {
+    _Var6 = (this->AIHigh_BTC_Cop).freezeMode_;
+    if ((_Var6 != (this->AIHigh_BTC_Cop).chaseIndex_) && (_Var6 == FREEZE_NEWPERP_ROVE)) {
       (this->AIHigh_BTC_Cop).chaseIndex_ = 1;
       this_02 = (AIState_Normal *)__builtin_new(8);
       this_03 = (AIState_Base *)
                 __14AIState_NormalP8Car_tObj
                           (this_02,(this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_);
-      pAVar6 = (this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.state_;
-      if (pAVar6 != (AIState_Base *)0x0) {
-        (**(code **)(pAVar6->_vf[0] + 0x14))
-                  ((int)&pAVar6->carObj_ + (int)*(short *)(pAVar6->_vf[0] + 0x10),3);
+      pAVar7 = (this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.state_;
+      if (pAVar7 != (AIState_Base *)0x0) {
+        uVar4 = pAVar7->_vf[0].value;
+        (**(code **)(uVar4 + 0x14))((int)&pAVar7->carObj_ + (int)*(short *)(uVar4 + 0x10),3);
       }
       (this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.state_ = this_03;
       (this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.stateType_ = STATE_NORMAL;
@@ -3213,7 +3264,7 @@ LAB_8005ea9c:
     this_03 = (AIState_Base *)__builtin_new(8);
     carObj = (this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_;
     __12AIState_BaseP8Car_tObj(this_03,carObj);
-    this_03->_vf[0] = (__vtbl_ptr_type *)&DAT_80054f24;
+    this_03->_vf[0].value = 0x80054f24;
     memset(&cStack48,0,0xc);
     offset = &cStack48;
     cStack48.y = carObj->carIndex * 0xa0000;
@@ -3221,7 +3272,7 @@ LAB_8005ea9c:
   case STATE_CHASE:
     carObj = (this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_;
     this_01 = (AIState_Chase *)(this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.state_;
-    carObj->desiredLatPos = carObj->desiredLatPos | 2;
+    (carObj->speechInfo).speechSource = (carObj->speechInfo).speechSource | 2;
     HandleBlockadeSpeech__15AIHigh_BasicCop((AIHigh_BasicCop *)this);
     targetSlice = GetCheckChasePosition__14AIHigh_BTC_CopP8coorddef
                             ((AIHigh_BTC_Cop *)this,&cStack64);
@@ -3240,8 +3291,8 @@ LAB_8005ea9c:
                            targetSlice,0);
       this_03 = (this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.state_;
       if (this_03 != (AIState_Base *)0x0) {
-        (**(code **)(this_03->_vf[0] + 0x14))
-                  ((int)&this_03->carObj_ + (int)*(short *)(this_03->_vf[0] + 0x10),3);
+        uVar4 = this_03->_vf[0].value;
+        (**(code **)(uVar4 + 0x14))((int)&this_03->carObj_ + (int)*(short *)(uVar4 + 0x10),3);
       }
       *(AIState_GotoSlice **)&(this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.state_ = this_00;
       (this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.stateType_ = STATE_GOTOSLICE;
@@ -3279,35 +3330,35 @@ LAB_8005ea9c:
       this_03 = (AIState_Base *)
                 __14AIState_NormalP8Car_tObj
                           (this_02,(this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_);
-      pAVar6 = (this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.state_;
-      if (pAVar6 != (AIState_Base *)0x0) {
-        (**(code **)(pAVar6->_vf[0] + 0x14))
-                  ((int)&pAVar6->carObj_ + (int)*(short *)(pAVar6->_vf[0] + 0x10),3);
+      pAVar7 = (this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.state_;
+      if (pAVar7 != (AIState_Base *)0x0) {
+        uVar4 = pAVar7->_vf[0].value;
+        (**(code **)(uVar4 + 0x14))((int)&pAVar7->carObj_ + (int)*(short *)(uVar4 + 0x10),3);
       }
       (this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.state_ = this_03;
       (this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.stateType_ = STATE_NORMAL;
     }
-    FVar5 = (this->AIHigh_BTC_Cop).freezeMode_;
-    if ((FVar5 != (this->AIHigh_BTC_Cop).chaseIndex_) && (FVar5 + ~FREEZE_NEWPERP_ROVE < 2)) {
+    _Var6 = (this->AIHigh_BTC_Cop).freezeMode_;
+    if ((_Var6 != (this->AIHigh_BTC_Cop).chaseIndex_) && (_Var6 + ~FREEZE_NEWPERP_ROVE < 2)) {
       carObj = (this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_;
-      (carObj->speechInfo).speechIntensity = -(carObj->speechInfo).speechIntensity;
+      (carObj->script).lastReactionIndex[2] = -(carObj->script).lastReactionIndex[2];
       AssignToPlayer__14AIHigh_BTC_CopP15AIHigh_BTC_Perp
                 ((AIHigh_BTC_Cop *)this,(AIHigh_BTC_Perp *)0x0);
       this_02 = (AIState_Normal *)__builtin_new(8);
       this_03 = (AIState_Base *)
                 __14AIState_NormalP8Car_tObj
                           (this_02,(this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_);
-      pAVar6 = (this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.state_;
-      if (pAVar6 != (AIState_Base *)0x0) {
-        (**(code **)(pAVar6->_vf[0] + 0x14))
-                  ((int)&pAVar6->carObj_ + (int)*(short *)(pAVar6->_vf[0] + 0x10),3);
+      pAVar7 = (this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.state_;
+      if (pAVar7 != (AIState_Base *)0x0) {
+        uVar4 = pAVar7->_vf[0].value;
+        (**(code **)(uVar4 + 0x14))((int)&pAVar7->carObj_ + (int)*(short *)(uVar4 + 0x10),3);
       }
       carObj = (this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_;
       (this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.state_ = this_03;
       (this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.stateType_ = STATE_NORMAL;
       pSVar2 = Mobile__6SpeechP8Car_tObj(carObj);
-      (**(code **)(pSVar2->_vf[0] + 0x3c))
-                ((int)&(pSVar2->fPosition).flags + (int)*(short *)(pSVar2->_vf[0] + 0x38));
+      uVar4 = pSVar2->_vf[0].value;
+      (**(code **)(uVar4 + 0x3c))((int)&(pSVar2->fPosition).flags + (int)*(short *)(uVar4 + 0x38));
     }
     targetSlice = UpdateFreezeModeAndPullOverMode__18AIHigh_BTC_Wingman(this);
     if (targetSlice == 0) goto switchD_8005e388_caseD_1;
@@ -3316,68 +3367,68 @@ LAB_8005ea9c:
     this_03 = (AIState_Base *)__builtin_new(8);
     carObj = (this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_;
     __12AIState_BaseP8Car_tObj(this_03,carObj);
-    this_03->_vf[0] = (__vtbl_ptr_type *)&DAT_80054f24;
+    this_03->_vf[0].value = 0x80054f24;
     memset(&cStack32,0,0xc);
     offset = &cStack32;
     cStack32.y = carObj->carIndex * 0xa0000;
     break;
   case STATE_NONACTIVE:
     carObj = (this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_;
-    carObj->desiredLatPos = carObj->desiredLatPos & 0xfffffffd;
-    FVar5 = (this->AIHigh_BTC_Cop).freezeMode_;
-    if ((this->AIHigh_BTC_Cop).chaseIndex_ == FVar5) goto switchD_8005e388_caseD_1;
-    if (FVar5 == FREEZE_NEWPERP_ROVE) {
+    (carObj->speechInfo).speechSource = (carObj->speechInfo).speechSource & 0xfffffffd;
+    _Var6 = (this->AIHigh_BTC_Cop).freezeMode_;
+    if ((this->AIHigh_BTC_Cop).chaseIndex_ == _Var6) goto switchD_8005e388_caseD_1;
+    if (_Var6 == FREEZE_NEWPERP_ROVE) {
       humanCop = (AIHigh_BTC_HumanCop *)this->currentRole_;
       (this->AIHigh_BTC_Cop).chaseIndex_ = 1;
       SetupWingman__18AIHigh_BTC_WingmanP19AIHigh_BTC_HumanCop(this,humanCop);
       goto LAB_8005ed58;
     }
-    if (1 < FVar5 + ~FREEZE_NEWPERP_ROVE) goto switchD_8005e388_caseD_1;
+    if (1 < _Var6 + ~FREEZE_NEWPERP_ROVE) goto switchD_8005e388_caseD_1;
     humanCop = (AIHigh_BTC_HumanCop *)this->currentRole_;
-    (this->AIHigh_BTC_Cop).chaseIndex_ = FVar5;
+    (this->AIHigh_BTC_Cop).chaseIndex_ = _Var6;
     SetupBlockader__18AIHigh_BTC_WingmanP19AIHigh_BTC_HumanCopi
               (this,humanCop,(uint)((this->AIHigh_BTC_Cop).freezeMode_ == FREEZE_ARREST));
     this_03 = (AIState_Base *)__builtin_new(0x10);
     __12AIState_BaseP8Car_tObj(this_03,(this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_);
-    this_03->_vf[0] = (__vtbl_ptr_type *)&table;
-    this_03->_vf[2] = (__vtbl_ptr_type *)0x1;
-    pAVar6 = (this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.state_;
-    if (pAVar6 != (AIState_Base *)0x0) {
-      (**(code **)(pAVar6->_vf[0] + 0x14))
-                ((int)&pAVar6->carObj_ + (int)*(short *)(pAVar6->_vf[0] + 0x10),3);
+    this_03->_vf[0].value = 0x80055600;
+    this_03->_vf[2].value = 1;
+    pAVar7 = (this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.state_;
+    if (pAVar7 != (AIState_Base *)0x0) {
+      uVar4 = pAVar7->_vf[0].value;
+      (**(code **)(uVar4 + 0x14))((int)&pAVar7->carObj_ + (int)*(short *)(uVar4 + 0x10),3);
     }
-    sVar4 = STATE_IDLE;
+    sVar5 = STATE_IDLE;
     goto LAB_8005ed9c;
   case STATE_GOTOSLICE:
     this_00 = (AIState_GotoSlice *)(this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.state_;
     AssignToPlayer__14AIHigh_BTC_CopP15AIHigh_BTC_Perp
               ((AIHigh_BTC_Cop *)this,(AIHigh_BTC_Perp *)0x0);
-    targetSlice = InTargetSliceRange__17AIState_GotoSlicei(this_00,0xa0000);
+    targetSlice = InTargetSliceRange__17AIState_GotoSlicei(this_00,(int)&LAB_000a0000);
     if (targetSlice == 0) goto switchD_8005e388_caseD_1;
 LAB_8005ed58:
     this_02 = (AIState_Normal *)__builtin_new(8);
     this_03 = (AIState_Base *)
               __14AIState_NormalP8Car_tObj
                         (this_02,(this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_);
-    pAVar6 = (this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.state_;
-    if (pAVar6 != (AIState_Base *)0x0) {
-      (**(code **)(pAVar6->_vf[0] + 0x14))
-                ((int)&pAVar6->carObj_ + (int)*(short *)(pAVar6->_vf[0] + 0x10),3);
+    pAVar7 = (this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.state_;
+    if (pAVar7 != (AIState_Base *)0x0) {
+      uVar4 = pAVar7->_vf[0].value;
+      (**(code **)(uVar4 + 0x14))((int)&pAVar7->carObj_ + (int)*(short *)(uVar4 + 0x10),3);
     }
-    sVar4 = STATE_NORMAL;
+    sVar5 = STATE_NORMAL;
 LAB_8005ed9c:
     (this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.state_ = this_03;
 LAB_8005eda0:
-    (this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.stateType_ = sVar4;
+    (this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.stateType_ = sVar5;
     goto switchD_8005e388_caseD_1;
   }
   Newton_SetInitialSlicePositionOrientationEtc__FP13BO_tNewtonObjiP8coorddefi
             ((BO_tNewtonObj *)this_03->carObj_,0,offset,1);
   (this_03->carObj_->N).active = '\0';
-  pAVar6 = (this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.state_;
-  if (pAVar6 != (AIState_Base *)0x0) {
-    (**(code **)(pAVar6->_vf[0] + 0x14))
-              ((int)&pAVar6->carObj_ + (int)*(short *)(pAVar6->_vf[0] + 0x10),3);
+  pAVar7 = (this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.state_;
+  if (pAVar7 != (AIState_Base *)0x0) {
+    uVar4 = pAVar7->_vf[0].value;
+    (**(code **)(uVar4 + 0x14))((int)&pAVar7->carObj_ + (int)*(short *)(uVar4 + 0x10),3);
   }
   (this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.state_ = this_03;
   (this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.stateType_ = STATE_NONACTIVE;
@@ -3386,10 +3437,7 @@ LAB_8005eda0:
 switchD_8005e388_caseD_1:
   StateExecute__12AIState_Base((this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.state_);
   return;
-
-
 }
-
 
 
 
@@ -3441,21 +3489,23 @@ switchD_8005e388_caseD_1:
 	// End Line: 1303
 
 int CheckForActivation__18AIHigh_BTC_Wingman(AIHigh_BTC_Wingman *this)
+
 {
   int iVar1;
-  Freeze_Mode FVar2;
+  Car_tObj *pCVar2;
+  __98 _Var3;
   AIHigh_BTC_HumanCop *this_00;
-  int *piVar3;
-  int iVar4;
+  Car_tObj **ppCVar4;
+  int iVar5;
   int local_20 [2];
   
-  iVar4 = 0;
-  piVar3 = &_Cars_gList;
+  iVar5 = 0;
+  ppCVar4 = &__Cars_gList_9__;
   local_20[0] = 0;
-  while (iVar4 < Cars_gNumCars) {
-    iVar1 = *piVar3;
-    if (((*(uint *)(iVar1 + 0x260) & 0x200) != 0) && (*(char *)(iVar1 + 0x91) != '\0')) {
-      this_00 = (AIHigh_BTC_HumanCop *)(&_highLevelAIObjs)[*(int *)(iVar1 + 0x254)];
+  while (iVar5 < Cars_gNumCars) {
+    pCVar2 = *ppCVar4;
+    if (((pCVar2->carFlags & 0x200U) != 0) && ((pCVar2->N).active != '\0')) {
+      this_00 = (AIHigh_BTC_HumanCop *)(&__highLevelAIObjs_9__)[pCVar2->carIndex];
       iVar1 = CheckForWingmanRequest__19AIHigh_BTC_HumanCop(this_00);
       if (iVar1 != 0) {
         (this->AIHigh_BTC_Cop).freezeMode_ = FREEZE_NEWPERP_ROVE;
@@ -3463,26 +3513,23 @@ int CheckForActivation__18AIHigh_BTC_Wingman(AIHigh_BTC_Wingman *this)
       }
       iVar1 = CheckForBlockaderRequest__19AIHigh_BTC_HumanCopPi(this_00,local_20);
       if (iVar1 != 0) {
-        FVar2 = FREEZE_NEWPERP_DONE;
+        _Var3 = FREEZE_NEWPERP_DONE;
         if (local_20[0] != 0) {
-          FVar2 = FREEZE_ARREST;
+          _Var3 = FREEZE_ARREST;
         }
-        (this->AIHigh_BTC_Cop).freezeMode_ = FVar2;
+        (this->AIHigh_BTC_Cop).freezeMode_ = _Var3;
         *(AIHigh_BTC_HumanCop **)&this->currentRole_ = this_00;
       }
     }
-    piVar3 = piVar3 + 1;
-    iVar4 = iVar4 + 1;
+    ppCVar4 = ppCVar4 + 1;
+    iVar5 = iVar5 + 1;
   }
   if ((AIHigh_BTC_HumanCop *)this->currentRole_ != (AIHigh_BTC_HumanCop *)0x0) {
     UpdateWingmanRole__19AIHigh_BTC_HumanCop12Wingman_Role
               ((AIHigh_BTC_HumanCop *)this->currentRole_,(this->AIHigh_BTC_Cop).chaseIndex_);
   }
   return (uint)((this->AIHigh_BTC_Cop).chaseIndex_ != (this->AIHigh_BTC_Cop).freezeMode_);
-
-
 }
-
 
 
 
@@ -3512,6 +3559,7 @@ int CheckForActivation__18AIHigh_BTC_Wingman(AIHigh_BTC_Wingman *this)
 	// End Line: 1330
 
 int UpdateFreezeModeAndPullOverMode__18AIHigh_BTC_Wingman(AIHigh_BTC_Wingman *this)
+
 {
   AIHigh_BTC_Perp *pAVar1;
   
@@ -3519,14 +3567,11 @@ int UpdateFreezeModeAndPullOverMode__18AIHigh_BTC_Wingman(AIHigh_BTC_Wingman *th
     ((this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_)->pullOver = 0;
     pAVar1 = (this->AIHigh_BTC_Cop).perpTarget_;
     (this->AIHigh_BTC_Cop).perpTarget_ = (AIHigh_BTC_Perp *)0x0;
-    return (uint)(pAVar1 == (AIHigh_BTC_Perp *)0x4);
+    return (uint)(pAVar1 == (AIHigh_BTC_Perp *)&DAT_00000004);
   }
   ((this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_)->pullOver = 1;
   return 0;
-
-
 }
-
 
 
 
@@ -3559,44 +3604,52 @@ int UpdateFreezeModeAndPullOverMode__18AIHigh_BTC_Wingman(AIHigh_BTC_Wingman *th
 	// End offset: 0x8005F028
 	// End Line: 1346
 
-void SetupWingman__18AIHigh_BTC_WingmanP19AIHigh_BTC_HumanCop( (AIHigh_BTC_Wingman *this,AIHigh_BTC_HumanCop *humanCop)
+/* WARNING: Type propagation algorithm not settling */
+
+void SetupWingman__18AIHigh_BTC_WingmanP19AIHigh_BTC_HumanCop
+               (AIHigh_BTC_Wingman *this,AIHigh_BTC_HumanCop *humanCop)
+
 {
-  short sVar1;
-  Speaker *pSVar2;
+  Speaker *pSVar1;
+  uint uVar2;
   Car_tObj *pCVar3;
-  int iVar4;
+  int slice;
   int direction;
   
   pCVar3 = (humanCop->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_;
   direction = -1;
-  if (-1 < pCVar3->carInLane) {
+  if (-1 < (pCVar3->script).lastActionTime) {
     direction = 1;
   }
-  randtemp = fastRandom;
-  iVar4 = -1;
-  if ((fastRandom >> 8 & 0xffff) * 1000 >> 0x10 < 500) {
-    iVar4 = 1;
+  randtemp = fastRandom * randSeed;
+  fastRandom = randtemp & 0xffff;
+  slice = -1;
+  if ((randtemp >> 8 & 0xffff) * 1000 >> 0x10 < 500) {
+    slice = 1;
   }
-  iVar4 = iVar4 * direction * 0x1c;
-  if (iVar4 < 0) {
-    sVar1 = (pCVar3->N).simRoadInfo.slice;
+  slice = slice * direction * 0x1c;
+  if (slice < 0) {
+    slice = (int)(pCVar3->N).simRoadInfo.slice + slice;
+    if (slice < 0) {
+      slice = slice + gNumSlices;
+    }
   }
   else {
-    sVar1 = (pCVar3->N).simRoadInfo.slice;
+    slice = (int)(pCVar3->N).simRoadInfo.slice + slice;
+    if (gNumSlices <= slice) {
+      slice = slice - gNumSlices;
+    }
   }
-  fastRandom = fastRandom & 0xffff;
   AILife_PlaceCarAtLocation__FP8Car_tObjiiiii
-            ((this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_,(int)sVar1 + iVar4,0,
-             direction,pCVar3->carInLane,0);
-  pSVar2 = Dispatch__6Speech();
-  (**(code **)(pSVar2->_vf[0] + 0x2c))
-            ((int)&(pSVar2->fPosition).flags + (int)*(short *)(pSVar2->_vf[0] + 0x28),
+            ((this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_,slice,0,direction,
+             (pCVar3->script).lastActionTime,0);
+  pSVar1 = Dispatch__6Speech();
+  uVar2 = pSVar1->_vf[0].value;
+  (**(code **)(uVar2 + 0x2c))
+            ((int)&(pSVar1->fPosition).flags + (int)*(short *)(uVar2 + 0x28),
              (this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_);
   return;
-
-
 }
-
 
 
 
@@ -3923,15 +3976,19 @@ void SetupWingman__18AIHigh_BTC_WingmanP19AIHigh_BTC_HumanCop( (AIHigh_BTC_Wingm
 	// End offset: 0x8005F578
 	// End Line: 1485
 
-void SetupBlockader__18AIHigh_BTC_WingmanP19AIHigh_BTC_HumanCopi( (AIHigh_BTC_Wingman *this,AIHigh_BTC_HumanCop *humanCop,int spikeBeltRequest)
+/* WARNING: Type propagation algorithm not settling */
+
+void SetupBlockader__18AIHigh_BTC_WingmanP19AIHigh_BTC_HumanCopi
+               (AIHigh_BTC_Wingman *this,AIHigh_BTC_HumanCop *humanCop,int spikeBeltRequest)
+
 {
   byte bVar1;
   short sVar2;
   int iVar3;
   Speaker *pSVar4;
   int iVar5;
-  speechSourceType sVar6;
-  int iVar7;
+  int iVar6;
+  AIHigh_BTC_HumanCop *pAVar7;
   Car_tObj *carObj;
   uint uVar8;
   int slice;
@@ -3941,69 +3998,93 @@ void SetupBlockader__18AIHigh_BTC_WingmanP19AIHigh_BTC_HumanCopi( (AIHigh_BTC_Wi
   otherCarObj = (humanCop->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_;
   if (carObj == (Car_tObj *)0x0) {
     slice = -1;
-    if (-1 < otherCarObj->carInLane) {
+    if (-1 < (otherCarObj->script).lastActionTime) {
       slice = 1;
     }
-    if (slice * 0x53 < 0) {
-      sVar2 = (otherCarObj->N).simRoadInfo.slice;
+    slice = slice * 0x53;
+    if (slice < 0) {
+      slice = (int)(otherCarObj->N).simRoadInfo.slice + slice;
+      if (slice < 0) {
+        slice = slice + gNumSlices;
+      }
     }
     else {
-      sVar2 = (otherCarObj->N).simRoadInfo.slice;
+      slice = (int)(otherCarObj->N).simRoadInfo.slice + slice;
+      if (gNumSlices <= slice) {
+        slice = slice - gNumSlices;
+      }
     }
-    slice = (int)sVar2 + slice * 0x53;
     *(undefined2 *)&(this->AIHigh_BTC_Cop).AIHigh_BasicCop.blockade_.releaseTime = 0;
     (this->AIHigh_BTC_Cop).AIHigh_BasicCop.copIndex_ = 0;
     goto LAB_8005f268;
   }
   carObj = *(Car_tObj **)&carObj->N;
   slice = -1;
-  if (-1 < carObj->carInLane) {
+  if (-1 < (carObj->script).lastActionTime) {
     slice = 1;
   }
   iVar3 = AIWorld_ApxSplineDistance__FP8Car_tObjT0(carObj,otherCarObj);
-  iVar7 = iVar3;
+  iVar6 = iVar3;
   if (iVar3 < 0) {
-    iVar7 = -iVar3;
+    iVar6 = -iVar3;
   }
   iVar5 = 0x1f40000;
-  if (0x1f40000 < iVar7) {
-    iVar5 = iVar7;
+  if (0x1f40000 < iVar6) {
+    iVar5 = iVar6;
   }
-  iVar7 = 0x5dc0000;
+  iVar6 = 0x5dc0000;
   if (iVar5 < 0x5dc0000) {
-    iVar7 = iVar5;
+    iVar6 = iVar5;
   }
-  iVar5 = iVar7 >> 0x1f;
+  iVar5 = iVar6 >> 0x1f;
   if (iVar3 * slice < 0) {
-    slice = ((iVar7 / 6 + iVar5 >> 0x10) - iVar5) * slice;
+    slice = ((iVar6 / 6 + iVar5 >> 0x10) - iVar5) * slice;
     if (slice < 0) {
       slice = (int)(otherCarObj->N).simRoadInfo.slice + slice;
+      goto LAB_8005f1bc;
     }
-    else {
-      sVar2 = (otherCarObj->N).simRoadInfo.slice;
+    sVar2 = (otherCarObj->N).simRoadInfo.slice;
 LAB_8005f190:
-      slice = (int)sVar2 + slice;
+    slice = (int)sVar2 + slice;
+    if (gNumSlices <= slice) {
+      slice = slice - gNumSlices;
     }
   }
   else {
-    slice = ((iVar7 / 6 + iVar5 >> 0x10) - iVar5) * slice;
+    slice = ((iVar6 / 6 + iVar5 >> 0x10) - iVar5) * slice;
     if (-1 < slice) {
       sVar2 = (carObj->N).simRoadInfo.slice;
       goto LAB_8005f190;
     }
     slice = (int)(carObj->N).simRoadInfo.slice + slice;
+LAB_8005f1bc:
+    if (slice < 0) {
+      slice = slice + gNumSlices;
+    }
   }
   *(undefined2 *)&(this->AIHigh_BTC_Cop).AIHigh_BasicCop.blockade_.releaseTime = 1;
   (this->AIHigh_BTC_Cop).AIHigh_BasicCop.copIndex_ =
        *(int *)&(humanCop->AIHigh_BTC_Cop).AIHigh_BasicCop.blockade_.blockadeSpeechFlags;
 LAB_8005f268:
-  sVar6 = (otherCarObj->speechInfo).speechSource;
-  (this->AIHigh_BTC_Cop).AIHigh_BasicCop.blockade_.requestSpikeBeltAtSlice = sVar6;
-  randtemp = fastRandom;
-  uVar8 = fastRandom >> 8 & 0xffff;
-  (this->AIHigh_BTC_Cop).AIHigh_BasicCop.blockade_.chaseLevel = slice - sVar6;
-  AICop_gRoadBlockState = 1;
-  fastRandom = fastRandom & 0xffff;
+  iVar6 = (otherCarObj->script).lastReactionIndex[3];
+  (this->AIHigh_BTC_Cop).AIHigh_BasicCop.blockade_.requestSpikeBeltAtSlice = iVar6;
+  if (iVar6 < 1) {
+    iVar6 = slice - iVar6;
+    if (gNumSlices <= iVar6) {
+      iVar6 = iVar6 - gNumSlices;
+    }
+  }
+  else {
+    iVar6 = slice - iVar6;
+    if (iVar6 < 0) {
+      iVar6 = iVar6 + gNumSlices;
+    }
+  }
+  randtemp = fastRandom * randSeed;
+  uVar8 = randtemp >> 8 & 0xffff;
+  (this->AIHigh_BTC_Cop).AIHigh_BasicCop.blockade_.chaseLevel = iVar6;
+  AICop_gRoadBlockState = kAICop_RoadBlockState_WaitingForPerp;
+  fastRandom = randtemp & 0xffff;
   bVar1 = (&gBlockadeTypes)
           [uVar8 - (((uint)((ulonglong)uVar8 * 0xcccccccd >> 0x20) & 0xfffffffc) + uVar8 / 5)];
   (this->AIHigh_BTC_Cop).AIHigh_BasicCop.blockade_.mode = (uint)bVar1;
@@ -4014,59 +4095,72 @@ LAB_8005f268:
                 );
     }
     else {
-      gWSavePtr = SetSp(gWSavePtr);
+      gWSavePtr = SetSp();
       stackSpeedUpEnbabledFlag = 0;
       SetupBlockadeElements__15AIHigh_BasicCopP10blockade_t
                 ((AIHigh_BasicCop *)this,(blockade_t *)&(this->AIHigh_BTC_Cop).AIHigh_BasicCop.type_
                 );
-      gWSavePtr = SetSp(gWSavePtr);
+      gWSavePtr = SetSp();
       stackSpeedUpEnbabledFlag = 1;
     }
   }
   AILife_ReencarnateCopByLatPosAndRotation__FP8Car_tObjiiii
             ((this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_,slice,
-             (((humanCop->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_)->speechInfo).
-             speechSource,0,0x100);
+             (((humanCop->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_)->script).
+             lastReactionIndex[3],0,0x100);
   if (spikeBeltRequest != 0) {
     slice = AIWorld_ApxSplineDistance__FP8Car_tObjT0
                       ((this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_,otherCarObj);
-    iVar7 = -1;
+    iVar6 = -1;
     if (-1 < slice) {
-      iVar7 = 1;
+      iVar6 = 1;
     }
-    if (iVar7 * 6 < 0) {
-      sVar2 = (((this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_)->N).simRoadInfo.slice;
+    iVar6 = iVar6 * 6;
+    if (iVar6 < 0) {
+      pAVar7 = (AIHigh_BTC_HumanCop *)
+               ((int)(((this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_)->N).simRoadInfo.
+                     slice + iVar6);
+      if ((int)pAVar7 < 0) {
+        pAVar7 = (AIHigh_BTC_HumanCop *)
+                 ((int)&(pAVar7->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_ + gNumSlices);
+      }
     }
     else {
-      sVar2 = (((this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_)->N).simRoadInfo.slice;
+      pAVar7 = (AIHigh_BTC_HumanCop *)
+               ((int)(((this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_)->N).simRoadInfo.
+                     slice + iVar6);
+      if (gNumSlices <= (int)pAVar7) {
+        pAVar7 = (AIHigh_BTC_HumanCop *)((int)pAVar7 - gNumSlices);
+      }
     }
-    this->newHumanBoss_ = (AIHigh_BTC_HumanCop *)((int)sVar2 + iVar7 * 6);
-    randtemp = fastRandom;
-    uVar8 = fastRandom >> 8;
-    fastRandom = fastRandom & 0xffff;
-    this->spikeBeltPlaced_ = ((uVar8 & 0xffff) * 0x14ccd >> 0x10) + 0xd999;
-    slice = (int)this->newHumanBoss_ * 0x20;
-    slice = fixedmult((uint)*(byte *)(slice + 0x1e) * 0x8000 * (uint)(*(byte *)(slice + 0x1d) >> 4),
-                      0xcccc);
-    iVar7 = (int)this->newHumanBoss_ * 0x20;
-    DAT_8010d558 = fixedmult((uint)*(byte *)(iVar7 + 0x1f) * 0x8000 *
-                             ((uint)*(byte *)(iVar7 + 0x1d) & 0xf),0xcccc);
-    DAT_8010d554 = -slice;
-    DAT_8010d550 = this->newHumanBoss_;
-    AICop_spikeBelt = 1;
-    DAT_8010d55c = 0;
-    BWorld_SetSpikeBelt__Fiii((int)this->newHumanBoss_,DAT_8010d554,slice + DAT_8010d558);
+    this->newHumanBoss_ = pAVar7;
+    randtemp = fastRandom * randSeed;
+    fastRandom = randtemp & 0xffff;
+    *(undefined **)&this->spikeBeltPlaced_ =
+         &DAT_0000d999 + ((randtemp >> 8 & 0xffff) * 0x14ccd >> 0x10);
+    uVar8 = fixedmult((uint)BWorldSm_slices[(int)this->newHumanBoss_].avgPavedWidthLf * 0x8000 *
+                      (uint)(BWorldSm_slices[(int)this->newHumanBoss_].laneCount >> 4),
+                      (int)&DAT_0000cccc);
+    AICop_spikeBelt.rightLatPos_ =
+         fixedmult((uint)BWorldSm_slices[(int)this->newHumanBoss_].avgPavedWidthRt * 0x8000 *
+                   ((uint)BWorldSm_slices[(int)this->newHumanBoss_].laneCount & 0xf),
+                   (int)&DAT_0000cccc);
+    AICop_spikeBelt.leftLatPos_ = -uVar8;
+    AICop_spikeBelt.slice_ = (int)this->newHumanBoss_;
+    AICop_spikeBelt.active_ = 1;
+    AICop_spikeBelt.freshenTime_ = simGlobal.gameTicks;
+    BWorld_SetSpikeBelt__Fiii
+              ((int)this->newHumanBoss_,AICop_spikeBelt.leftLatPos_,
+               uVar8 + AICop_spikeBelt.rightLatPos_);
     this->newRole_ = ROLE_WINGMAN;
   }
   pSVar4 = Dispatch__6Speech();
-  (**(code **)(pSVar4->_vf[0] + 0x2c))
-            ((int)&(pSVar4->fPosition).flags + (int)*(short *)(pSVar4->_vf[0] + 0x28),
+  uVar8 = pSVar4->_vf[0].value;
+  (**(code **)(uVar8 + 0x2c))
+            ((int)&(pSVar4->fPosition).flags + (int)*(short *)(uVar8 + 0x28),
              (this->AIHigh_BTC_Cop).AIHigh_BasicCop.AIHigh_Base.carObj_);
   return;
-
-
 }
-
 
 
 

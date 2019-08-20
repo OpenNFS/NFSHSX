@@ -15,7 +15,7 @@ extern void Movie_DownloadFrame__Fv(); // 0x8004CC64
 
 extern void Movie_Stop__Fv(); // 0x8004CC74
 
-extern unsigned int Movie_Finished__Fv(); // 0x8004CC84
+extern void * Movie_Finished__Fv(); // 0x8004CC84
 
 extern int Movie_Play__Fc(char movie); // 0x8004CCE4
 

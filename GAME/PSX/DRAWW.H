@@ -51,7 +51,7 @@ extern int DrawObjectSimple__FP13DRender_tViewP11Draw_DCacheP13Trk_ObjectDefP8co
 
 extern int DrawW_BuildChunkObjectFacets__FP13DRender_tViewP15ChunkObjectInfo(struct DRender_tView *Vi, struct ChunkObjectInfo *gObjInfo); // 0x800C8508
 
-extern unsigned int ObjectClipped__FP13DRender_tViewiP8coorddefP25Draw_tGiveShelbyMoreCache(struct DRender_tView *Vi, int ind, struct coorddef *pCp, struct Draw_tGiveShelbyMoreCache *sd); // 0x800C8BD0
+extern void * ObjectClipped__FP13DRender_tViewiP8coorddefP25Draw_tGiveShelbyMoreCache(struct DRender_tView *Vi, int ind, struct coorddef *pCp, struct Draw_tGiveShelbyMoreCache *sd); // 0x800C8BD0
 
 extern void DrawW_DoObjects__FP13DRender_tViewP11tBuildEntry(struct DRender_tView *Vi, struct tBuildEntry *buildList); // 0x800C8CC4
 

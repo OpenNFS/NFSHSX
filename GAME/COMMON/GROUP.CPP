@@ -15,6 +15,7 @@
 	// End Line: 59
 
 SerializedGroup * LocateNextGroupType__15SerializedGroupi(SerializedGroup *this,int type)
+
 {
   SerializedGroup *pSVar1;
   SerializedGroup *pSVar2;
@@ -25,10 +26,7 @@ SerializedGroup * LocateNextGroupType__15SerializedGroupi(SerializedGroup *this,
     pSVar1 = pSVar2;
   }
   return pSVar1;
-
-
 }
-
 
 
 
@@ -64,6 +62,7 @@ SerializedGroup * LocateNextGroupType__15SerializedGroupi(SerializedGroup *this,
 	// End Line: 100
 
 SerializedGroup * LocateGroupType__15SerializedGroupii(SerializedGroup *this,int type,int index)
+
 {
   bool bVar1;
   uint uVar2;
@@ -86,10 +85,7 @@ SerializedGroup * LocateGroupType__15SerializedGroupii(SerializedGroup *this,int
     this = (SerializedGroup *)((int)&this->m_type + this->m_length);
   }
   return this;
-
-
 }
-
 
 
 
@@ -133,6 +129,7 @@ SerializedGroup * LocateGroupType__15SerializedGroupii(SerializedGroup *this,int
 	// End Line: 117
 
 SerializedGroup * LocateGroupNum__15SerializedGroupi(SerializedGroup *this,int index)
+
 {
   int iVar1;
   SerializedGroup *pSVar2;
@@ -149,10 +146,7 @@ SerializedGroup * LocateGroupNum__15SerializedGroupi(SerializedGroup *this,int i
     } while (iVar1 < index);
   }
   return pSVar2;
-
-
 }
-
 
 
 
@@ -167,7 +161,9 @@ SerializedGroup * LocateGroupNum__15SerializedGroupi(SerializedGroup *this,int i
 	// End offset: 0x8009C260
 	// End Line: 135
 
-Group * LocateCreateGroupType__15SerializedGroupiP9SimpleMemi( (SerializedGroup *this,int type,SimpleMem *mem,int index)
+Group * LocateCreateGroupType__15SerializedGroupiP9SimpleMemi
+                  (SerializedGroup *this,int type,SimpleMem *mem,int index)
+
 {
   SerializedGroup *source;
   Group *pGVar1;
@@ -181,10 +177,7 @@ Group * LocateCreateGroupType__15SerializedGroupiP9SimpleMemi( (SerializedGroup 
     pGVar1 = CreateLiteGroup__15SerializedGroupP15SerializedGroupP9SimpleMem(this,source,mem);
   }
   return pGVar1;
-
-
 }
-
 
 
 
@@ -250,7 +243,9 @@ Group * LocateCreateGroupType__15SerializedGroupiP9SimpleMemi( (SerializedGroup 
 	// End offset: 0x8009C27C
 	// End Line: 169
 
-Group * CreateLiteGroup__15SerializedGroupP15SerializedGroupP9SimpleMem( (SerializedGroup *this,SerializedGroup *source,SimpleMem *mem)
+Group * CreateLiteGroup__15SerializedGroupP15SerializedGroupP9SimpleMem
+                  (SerializedGroup *this,SerializedGroup *source,SimpleMem *mem)
+
 {
   Group *pGVar1;
   int len;
@@ -258,12 +253,9 @@ Group * CreateLiteGroup__15SerializedGroupP15SerializedGroupP9SimpleMem( (Serial
   len = source->m_length + -0xc;
   pGVar1 = (Group *)Alloc__9SimpleMemii(mem,len,0);
   pGVar1->m_num_elements = source->m_num_elements;
-  blockmove(source + 1,pGVar1 + 1,len);
+  blockmove((undefined4 *)(source + 1),pGVar1 + 1,len);
   return pGVar1;
-
-
 }
-
 
 
 
@@ -313,18 +305,17 @@ Group * CreateLiteGroup__15SerializedGroupP15SerializedGroupP9SimpleMem( (Serial
 	// End offset: 0x8009C2E4
 	// End Line: 187
 
-Group * CreateLiteGroupDataSize__15SerializedGroupP15SerializedGroupP9SimpleMemi( (SerializedGroup *this,SerializedGroup *source,SimpleMem *mem,int dataSize)
+Group * CreateLiteGroupDataSize__15SerializedGroupP15SerializedGroupP9SimpleMemi
+                  (SerializedGroup *this,SerializedGroup *source,SimpleMem *mem,int dataSize)
+
 {
   Group *pGVar1;
   
   pGVar1 = (Group *)Alloc__9SimpleMemii(mem,dataSize + 4,0);
   pGVar1->m_num_elements = 0;
-  blockmove(source + 1,pGVar1 + 1,dataSize + 4);
+  blockmove((undefined4 *)(source + 1),pGVar1 + 1,dataSize + 4);
   return pGVar1;
-
-
 }
-
 
 
 

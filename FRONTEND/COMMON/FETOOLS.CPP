@@ -15,18 +15,18 @@
 	// End offset: 0x80026940
 	// End Line: 96
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void s_upper__FPc(char *string)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -44,18 +44,18 @@ void s_upper__FPc(char *string)
 	// End offset: 0x800269A0
 	// End Line: 104
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void s_lower__FPc(char *string)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -73,18 +73,18 @@ void s_lower__FPc(char *string)
 	// End offset: 0x80026B90
 	// End Line: 279
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void FeTools_DrawPSXButton__FUcUsii(uchar padType,ushort button,int x,int y)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -101,18 +101,19 @@ void FeTools_DrawPSXButton__FUcUsii(uchar padType,ushort button,int x,int y)
 	// End offset: 0x80026BA8
 	// End Line: 288
 
+/* WARNING: Control flow encountered bad instruction data */
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void FeTools_init__Fv(void)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -127,18 +128,19 @@ void FeTools_init__Fv(void)
 	// End offset: 0x80026C90
 	// End Line: 338
 
+/* WARNING: Control flow encountered bad instruction data */
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void FeTools_deinit__Fv(void)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -156,18 +158,18 @@ void FeTools_deinit__Fv(void)
 	// End offset: 0x80026E3C
 	// End Line: 378
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void FeTools_FormatMoney__FPcl(char *string,long amount)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 

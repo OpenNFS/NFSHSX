@@ -15,21 +15,19 @@
 	// End Line: 52
 
 void TextSys_LoadWordsGeneric__FiPc(int language,char *path)
+
 {
   char acStack272 [256];
   
   if (language < 7) {
-    if (iGp00000f0c != 0) {
-      purgememadr();
+    if (DAT_00000f0c != 0) {
+      purgememadr(DAT_00000f0c);
     }
-    sprintf(acStack272,"%s%s",path,(&_langFileName)[language]);
-    iGp00000f0c = loadfileadr(acStack272,0);
+    sprintf(acStack272,&DAT_8013d45c,path,(&__langFileName_6__)[language]);
+    DAT_00000f0c = loadfileadr(acStack272,0);
   }
   return;
-
-
 }
-
 
 
 
@@ -47,16 +45,14 @@ void TextSys_LoadWordsGeneric__FiPc(int language,char *path)
 	// End Line: 56
 
 void TextSys_LoadInGame__Fi(int language)
+
 {
   char acStack88 [80];
   
-  sprintf(acStack88,"%s%s",0,&DAT_8013d464);
+  sprintf(acStack88,&DAT_8013d45c,PTR_801164d0,&DAT_8013d464);
   TextSys_LoadWordsGeneric__FiPc(language,acStack88);
   return;
-
-
 }
-
 
 
 
@@ -72,13 +68,11 @@ void TextSys_LoadInGame__Fi(int language)
 	// End Line: 63
 
 void TextSys_LoadWords__Fi(int language)
+
 {
-  TextSys_LoadWordsGeneric__FiPc(language,(char *)0x0);
+  TextSys_LoadWordsGeneric__FiPc(language,PTR_801164f0);
   return;
-
-
 }
-
 
 
 
@@ -94,12 +88,10 @@ void TextSys_LoadWords__Fi(int language)
 	// End Line: 74
 
 char * TextSys_Word__Fi(int wordnum)
+
 {
-  return (char *)(iGp00000f0c + *(int *)(iGp00000f0c + wordnum * 0xc + 8));
-
-
+  return (char *)(DAT_00000f0c + *(int *)(DAT_00000f0c + wordnum * 0xc + 8));
 }
-
 
 
 
@@ -115,12 +107,10 @@ char * TextSys_Word__Fi(int wordnum)
 	// End Line: 125
 
 int TextSys_WordFlags__Fi(int wordnum)
+
 {
-  return (uint)*(byte *)(iGp00000f0c + wordnum * 0xc + 3);
-
-
+  return (uint)*(byte *)(DAT_00000f0c + wordnum * 0xc + 3);
 }
-
 
 
 
@@ -136,12 +126,10 @@ int TextSys_WordFlags__Fi(int wordnum)
 	// End Line: 137
 
 int TextSys_WordX__Fi(int wordnum)
+
 {
-  return (int)*(short *)(iGp00000f0c + wordnum * 0xc + 4);
-
-
+  return (int)*(short *)(DAT_00000f0c + wordnum * 0xc + 4);
 }
-
 
 
 
@@ -157,12 +145,10 @@ int TextSys_WordX__Fi(int wordnum)
 	// End Line: 152
 
 int TextSys_WordY__Fi(int wordnum)
+
 {
-  return (int)*(short *)(iGp00000f0c + wordnum * 0xc + 6);
-
-
+  return (int)*(short *)(DAT_00000f0c + wordnum * 0xc + 6);
 }
-
 
 
 
@@ -177,17 +163,17 @@ int TextSys_WordY__Fi(int wordnum)
 	// End offset: 0x800B92E8
 	// End Line: 166
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void TextSys_UnloadWords__Fv(void)
+
 {
-  if (iGp00000f0c != 0) {
-    purgememadr();
+  if (DAT_00000f0c != 0) {
+    purgememadr(DAT_00000f0c);
   }
-  iGp00000f0c = 0;
+  DAT_00000f0c = 0;
   return;
-
-
 }
-
 
 
 

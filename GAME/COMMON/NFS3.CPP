@@ -61,7 +61,10 @@
 	// End offset: 0x800A3E38
 	// End Line: 136
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Nfs2_SystemNLibStartUp__Fv(void)
+
 {
   Platform_SysStartUp__Fv();
   Loading_GetInitialMemory__Fv();
@@ -72,10 +75,7 @@ void Nfs2_SystemNLibStartUp__Fv(void)
   }
   Render_InitLibRender__Fv();
   return;
-
-
 }
-
 
 
 
@@ -92,23 +92,23 @@ void Nfs2_SystemNLibStartUp__Fv(void)
 	// End offset: 0x800A3E90
 	// End Line: 182
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Nfs2_BefuddleCode__Fv(void)
+
 {
   char *__src;
   int iVar1;
   
   iVar1 = 0;
-  __src = "qpl";
+  __src = &befuddleExtensions;
   do {
-    strcpy("",__src);
+    strcpy(&befuddleTemp,__src);
     iVar1 = iVar1 + 1;
     __src = __src + 4;
   } while (iVar1 < 0xe);
   return;
-
-
 }
-
 
 
 
@@ -123,7 +123,10 @@ void Nfs2_BefuddleCode__Fv(void)
 	// End offset: 0x800A3EA8
 	// End Line: 187
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Nfs2_ResetGame__Fv(void)
+
 {
   Replay_ResetReplay__Fv();
   BWorld_Restart__Fv();
@@ -135,10 +138,7 @@ void Nfs2_ResetGame__Fv(void)
   AudioClc_StartUp__Fv();
   DashHUD_ResetHUD__Fv();
   return;
-
-
 }
-
 
 
 
@@ -165,7 +165,10 @@ void Nfs2_ResetGame__Fv(void)
 	// End offset: 0x800A4194
 	// End Line: 349
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void NFS4_LoadPerps__Fv(void)
+
 {
   byte bVar1;
   int *piVar2;
@@ -179,28 +182,28 @@ void NFS4_LoadPerps__Fv(void)
   int *piVar10;
   uint uVar11;
   uint *puVar12;
-  uint *puVar13;
+  GameSetup_tPerpData *pGVar13;
   int iVar14;
   char acStack80 [64];
   
-  if (false) {
-    if (DAT_801131f8 == 1) {
-      pcVar8 = "zHPurs2.mis";
+  if (0 < GameSetup_gData.numPerps) {
+    if (GameSetup_gData.commMode == 1) {
+      pcVar8 = s_zHPurs2_mis_8005600c;
     }
     else {
-      pcVar8 = "zHPurs.mis";
+      pcVar8 = s_zHPurs_mis_80056000;
     }
-    sprintf(acStack80,"%s%s",0,pcVar8);
+    sprintf(acStack80,&DAT_8013d294,PTR_801164fc,pcVar8);
     piVar2 = (int *)loadfileadr(acStack80,0x10);
-    sprintf(acStack80,"%s%s",0,"fecars.car");
+    sprintf(acStack80,&DAT_8013d294,PTR_801164fc,s_fecars_car_80056018);
     puVar3 = (uint *)loadfileadr(acStack80,0x10);
-    puVar13 = &DAT_801133a8;
+    pGVar13 = GameSetup_gData.perpInfo;
     iVar14 = 0;
     uVar11 = *puVar3;
-    piVar10 = piVar2 + *piVar2 + piVar2[1] * 5 + 3;
-    if (false) {
+    piVar10 = piVar2 + *piVar2 + piVar2[1] * 5 + GameSetup_gData.stageOffset * 0xb + 3;
+    if (0 < GameSetup_gData.numPerps) {
       puVar12 = puVar3 + 1;
-      puVar7 = &DAT_801133b4;
+      puVar7 = (uint *)&GameSetup_gData.perpInfo[0].HudColour;
       pbVar9 = (byte *)((int)piVar10 + 1);
       do {
         uVar6 = 0;
@@ -219,11 +222,11 @@ LAB_800a4054:
           iVar4 = uVar6 << 1;
           if (uVar11 <= uVar6) goto LAB_800a4054;
         }
-        *puVar13 = (uint)*(byte *)((int)puVar12 + (iVar4 + uVar6) * 0x44 + 1);
+        pGVar13->CarType = (uint)*(byte *)((int)puVar12 + (iVar4 + uVar6) * 0x44 + 1);
         puVar7[-2] = (uint)*pbVar9;
         puVar7[1] = (uint)pbVar9[1];
         puVar7[2] = (int)*(short *)(pbVar9 + 3);
-        if (DAT_801131f8 == 1) {
+        if (GameSetup_gData.commMode == 1) {
           puVar7[3] = 0xffffffff;
           puVar7[4] = 0xffffffff;
           puVar7[5] = 0xffffffff;
@@ -234,7 +237,7 @@ LAB_800a4054:
           puVar7[5] = (int)*(short *)(pbVar9 + 9);
         }
         piVar10 = piVar10 + 0xb;
-        puVar13 = puVar13 + 0xd;
+        pGVar13 = pGVar13 + 1;
         puVar7[6] = (uint)*(ushort *)(pbVar9 + 0xd);
         iVar14 = iVar14 + 1;
         puVar7[7] = *(uint *)(pbVar9 + 0xf);
@@ -248,16 +251,13 @@ LAB_800a4054:
         *puVar7 = (uint)*(byte *)((int)(puVar5 + (uint)bVar1) + 0x46) | uVar6 & 0xff00 |
                   (uVar6 & 0xff) << 0x10;
         puVar7 = puVar7 + 0xd;
-      } while (iVar14 * 0x10000 >> 0x10 < 0);
+      } while (iVar14 * 0x10000 >> 0x10 < GameSetup_gData.numPerps);
     }
-    purgememadr(piVar2);
-    purgememadr(puVar3);
+    purgememadr((int)piVar2);
+    purgememadr((int)puVar3);
   }
   return;
-
-
 }
-
 
 
 
@@ -301,6 +301,7 @@ LAB_800a4054:
 	// End Line: 459
 
 void Nfs2_GameModuleStartUp__FPi(int *FrontEndDataStream)
+
 {
   Speech *this;
   int iVar1;
@@ -321,7 +322,7 @@ void Nfs2_GameModuleStartUp__FPi(int *FrontEndDataStream)
   Clock_SystemStartUp__Fv();
   AudioCmn_LoadGameSamples__Fv();
   CopSpeak_StartUp__Fv();
-  if ((GameSetup_gData == 1) && (fgSpeech == (Speech *)0x0)) {
+  if ((GameSetup_gData.raceType == 1) && (fgSpeech == (Speech *)0x0)) {
     this = (Speech *)__builtin_new(0x3a4);
     fgSpeech = __6Speech(this);
   }
@@ -339,22 +340,20 @@ void Nfs2_GameModuleStartUp__FPi(int *FrontEndDataStream)
   Hud_InitMap__Fv();
   SimQueue_StartUp__Fv();
   iVar1 = largestunused();
-  if (DAT_801131f8 == 1) {
+  if (GameSetup_gData.commMode == 1) {
     iVar2 = 0x13000;
   }
   else {
     iVar2 = 0xb000;
   }
   if (iVar2 < iVar1) {
-    AudioMus_SysStartUp__FiiPc(0x6000,0x14000,"ymus");
+    AudioMus_SysStartUp__FiiPc(0x6000,(int)&DAT_00014000,&DAT_8013d29c);
   }
-  AudioMus_BuildPlayList__FiPi(0,(int *)&DAT_801132f8);
+  AudioMus_BuildPlayList__FiPi
+            (GameSetup_gData.userSetting.numplaylistsongs,GameSetup_gData.userSetting.playlist);
   largestunused();
   return;
-
-
 }
-
 
 
 
@@ -385,46 +384,48 @@ void Nfs2_GameModuleStartUp__FPi(int *FrontEndDataStream)
 	// End offset: 0x800A44A0
 	// End Line: 531
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Nfs2_CleanUpGameModule__Fv(void)
+
 {
-  int iVar1;
-  undefined4 *puVar2;
-  undefined4 *puVar3;
-  int *piVar4;
+  Car_tObj *pCVar1;
+  Car_tStats *pCVar2;
+  Car_tStats *pCVar3;
+  Car_tObj **ppCVar4;
   int iVar5;
   int iVar6;
-  undefined4 uVar7;
-  undefined4 uVar8;
-  undefined4 uVar9;
+  int iVar7;
+  int iVar8;
   
   Render_KillTrackRender__Fv();
   Render_KillPauseMenu__Fv();
   iVar6 = 0;
-  if (false) {
+  if (0 < GameSetup_gData.numCars) {
     iVar5 = 0;
     do {
-      piVar4 = &_Cars_gList + (iVar5 >> 0x10);
-      *(undefined4 *)(*piVar4 + 0x3ac) = **(undefined4 **)(*piVar4 + 0x288);
-      *(undefined4 *)(*piVar4 + 0x3b0) = *(undefined4 *)(*(int *)(*piVar4 + 0x288) + 4);
-      *(undefined4 *)(*piVar4 + 0x3b4) = *(undefined4 *)(*(int *)(*piVar4 + 0x288) + 0x58);
-      *(undefined4 *)(*piVar4 + 0x3b8) = *(undefined4 *)(*piVar4 + 0x260);
-      iVar1 = *piVar4;
-      puVar3 = &Cars_gNewCarStatsList + (iVar5 >> 0x10) * 0x28;
-      puVar2 = (undefined4 *)(iVar1 + 0x34c);
+      ppCVar4 = &__Cars_gList_9__ + (iVar5 >> 0x10);
+      ((*ppCVar4)->stats).carType = (*ppCVar4)->carInfo->carType;
+      ((*ppCVar4)->stats).carClass = (*ppCVar4)->carInfo->carClass;
+      ((*ppCVar4)->stats).carNameIndex = (*ppCVar4)->carInfo->carNameIndex;
+      ((*ppCVar4)->stats).carFlags = (*ppCVar4)->carFlags;
+      pCVar1 = *ppCVar4;
+      pCVar3 = &Cars_gNewCarStatsList + (iVar5 >> 0x10);
+      pCVar2 = &pCVar1->stats;
       do {
-        uVar7 = puVar2[1];
-        uVar8 = puVar2[2];
-        uVar9 = puVar2[3];
-        *puVar3 = *puVar2;
-        puVar3[1] = uVar7;
-        puVar3[2] = uVar8;
-        puVar3[3] = uVar9;
-        puVar2 = puVar2 + 4;
-        puVar3 = puVar3 + 4;
-      } while (puVar2 != (undefined4 *)(iVar1 + 0x3ec));
+        iVar5 = pCVar2->sliceTotal;
+        iVar7 = pCVar2->sliceTime;
+        iVar8 = pCVar2->slice;
+        pCVar3->extractSlice = pCVar2->extractSlice;
+        pCVar3->sliceTotal = iVar5;
+        pCVar3->sliceTime = iVar7;
+        pCVar3->slice = iVar8;
+        pCVar2 = (Car_tStats *)&pCVar2->lastSlice;
+        pCVar3 = (Car_tStats *)&pCVar3->lastSlice;
+      } while (pCVar2 != (Car_tStats *)&pCVar1->crash);
       iVar6 = iVar6 + 1;
       iVar5 = iVar6 * 0x10000;
-    } while (iVar6 * 0x10000 >> 0x10 < 0);
+    } while (iVar6 * 0x10000 >> 0x10 < GameSetup_gData.numCars);
   }
   Replay_StoringReplay__Fv();
   AudioCmn_DeInit__Fv();
@@ -442,10 +443,7 @@ void Nfs2_CleanUpGameModule__Fv(void)
   Weather_DeInit__Fv();
   Audio_DeInitDriver__Fv();
   return;
-
-
 }
-
 
 
 
@@ -462,20 +460,20 @@ void Nfs2_CleanUpGameModule__Fv(void)
 	// End offset: 0x800A453C
 	// End Line: 581
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void LoadFrontendOverlay__Fv(void)
+
 {
-  undefined4 uVar1;
-  int iVar2;
+  uint uVar1;
+  uint uVar2;
   
-  uVar1 = asyncloadfileat("front.bin",&bigBuf);
-  while (iVar2 = getasyncreadstatus(uVar1), iVar2 == 0) {
+  uVar1 = asyncloadfileat(s_front_bin_80056024,(uint)&bigBuf);
+  while (uVar2 = getasyncreadstatus(uVar1), uVar2 == 0) {
     systemtask(0);
   }
   return;
-
-
 }
-
 
 
 
@@ -493,23 +491,23 @@ void LoadFrontendOverlay__Fv(void)
 	// End offset: 0x800A45A8
 	// End Line: 597
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void LoadOverlay__Fv(void)
+
 {
-  undefined4 uVar1;
-  int iVar2;
+  uint uVar1;
+  uint uVar2;
   char acStack72 [64];
   
   LoadFrontendOverlay__Fv();
-  sprintf(acStack72,"%sDCT.BIN",DAT_801164e8);
-  uVar1 = asyncloadfileat(acStack72,&CF_DVLC);
-  while (iVar2 = getasyncreadstatus(uVar1), iVar2 == 0) {
+  sprintf(acStack72,s__sDCT_BIN_80056030,PTR_801164e8);
+  uVar1 = asyncloadfileat(acStack72,(uint)&CF_DVLC);
+  while (uVar2 = getasyncreadstatus(uVar1), uVar2 == 0) {
     systemtask(0);
   }
   return;
-
-
 }
-
 
 
 
@@ -538,24 +536,27 @@ void LoadOverlay__Fv(void)
 	// End offset: 0x800A4608
 	// End Line: 639
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void NFS4_LoadingIcon__Fv(void)
+
 {
-  undefined4 uVar1;
+  int iVar1;
   int iVar2;
   uint uVar3;
   char acStack104 [80];
-  undefined2 local_18;
+  short local_18;
   undefined2 local_16;
   undefined2 local_14;
   undefined2 local_12;
   
-  sprintf(acStack104,"%sldic.psh",0);
-  uVar1 = loadfileadr(acStack104,0);
-  uVar3 = (uint)DAT_80114940;
-  if (5 < DAT_80114940) {
+  sprintf(acStack104,s__sldic_psh_8005603c,PTR_801164fc);
+  iVar1 = loadfileadr(acStack104,0);
+  uVar3 = (uint)(byte)frontEnd.language;
+  if (5 < (byte)frontEnd.language) {
     uVar3 = 0;
   }
-  iVar2 = shapepointer(uVar1,uVar3);
+  iVar2 = shapepointer(iVar1,uVar3);
   local_14 = 0x400;
   local_18 = 0;
   local_16 = 0;
@@ -567,13 +568,10 @@ void NFS4_LoadingIcon__Fv(void)
   settrans(0);
   movfxya(iVar2,0x1e2 - (int)*(short *)(iVar2 + 4),0xd2);
   DrawSync(0);
-  purgememadr(uVar1);
+  purgememadr(iVar1);
   initlinkmode(0,1,1);
   return;
-
-
 }
-
 
 
 
@@ -597,24 +595,24 @@ void NFS4_LoadingIcon__Fv(void)
 	// End offset: 0x800A4728
 	// End Line: 695
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void NFS3_CheckForFileOperations__Fv(void)
+
 {
   int *piVar1;
   
-  piVar1 = _DAT_8013eaa0;
-  if (_DAT_8013eaa0 < _DAT_8013eaa4) {
+  piVar1 = DAT_8013eaa0;
+  if (DAT_8013eaa0 < DAT_8013eaa4) {
     do {
       if (*piVar1 != 0) {
         trap(0x666);
       }
       piVar1 = piVar1 + 1;
-    } while (piVar1 < _DAT_8013eaa4);
+    } while (piVar1 < DAT_8013eaa4);
   }
   return;
-
-
 }
-
 
 
 
@@ -646,7 +644,10 @@ void NFS3_CheckForFileOperations__Fv(void)
 	// End offset: 0x800A4AE4
 	// End Line: 955
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 int main(void)
+
 {
   int *stream;
   int iVar1;
@@ -654,78 +655,78 @@ int main(void)
   tFront_ProcessingType role;
   
   __main();
-  DAT_80113210._0_2_ = 0;
+  GameSetup_gData.replayMode._0_2_ = 0;
   Platform_DebuggerPollHost__Fv();
   Nfs2_SystemNLibStartUp__Fv();
   Audio_InitDriver__Fii(0,0);
   Audio_DeInitDriver__Fv();
   SetVideoMode(0);
-  DAT_80114940 = 0xff;
+  frontEnd.language = -1;
   LoadFrontendOverlay__Fv();
   ComingIntoTheFrontEndTheVeryFirstTime = 1;
-  Initialize__11tCarManager((tCarManager *)&carManager);
-  LoadDescription__11tCarManager((tCarManager *)&carManager);
+  Initialize__11tCarManager(&carManager);
+  LoadDescription__11tCarManager(&carManager);
   FECheat_ActivateBonus__F10tCheatCode(cheat_Roadster);
-  SetClassViewable__11tCarManager13tCarClassTypeb((tCarManager *)&carManager,cct_Roadster,1);
-  SetClassViewable__11tCarManager13tCarClassTypeb((tCarManager *)&carManager,cct_PonyCar,1);
-  SetClassViewable__11tCarManager13tCarClassTypeb((tCarManager *)&carManager,cct_SaloonCar,1);
-  SetClassViewable__11tCarManager13tCarClassTypeb((tCarManager *)&carManager,cct_SportsCar,1);
-  SetClassViewable__11tCarManager13tCarClassTypeb((tCarManager *)&carManager,cct_SuperCar,1);
-  SetClassViewable__11tCarManager13tCarClassTypeb((tCarManager *)&carManager,cct_GTRCar,1);
-  Initialize__18tTournamentManager((tTournamentManager *)&tournamentManager);
-  Initialize__15tMissionManager((tMissionManager *)&missionManager);
-  Initialize__13tTrackManager((tTrackManager *)&trackManager);
-  LoadDescription__18tTournamentManager((tTournamentManager *)&tournamentManager);
-  LoadDescription__13tTrackManager((tTrackManager *)&trackManager);
+  SetClassViewable__11tCarManager13tCarClassTypeb(&carManager,cct_Roadster,&DAT_00000001);
+  SetClassViewable__11tCarManager13tCarClassTypeb(&carManager,cct_PonyCar,&DAT_00000001);
+  SetClassViewable__11tCarManager13tCarClassTypeb(&carManager,cct_SaloonCar,&DAT_00000001);
+  SetClassViewable__11tCarManager13tCarClassTypeb(&carManager,cct_SportsCar,&DAT_00000001);
+  SetClassViewable__11tCarManager13tCarClassTypeb(&carManager,cct_SuperCar,&DAT_00000001);
+  SetClassViewable__11tCarManager13tCarClassTypeb(&carManager,cct_GTRCar,&DAT_00000001);
+  Initialize__18tTournamentManager(&tournamentManager);
+  Initialize__15tMissionManager(&missionManager);
+  Initialize__13tTrackManager(&trackManager);
+  LoadDescription__18tTournamentManager(&tournamentManager);
+  LoadDescription__13tTrackManager(&trackManager);
   Front_InitGraphics__Fv();
   Front_Menu__F21tFront_ProcessingType(kFront_InitialLoad);
   do {
     NFS3_CheckForFileOperations__Fv();
     stream = MinFront_ParseOptions__Fv();
-    if (true) {
+    if (iGp00000d28 != 0) {
       stream = Front_BuildStream__FPi(stream);
     }
-    ReleaseDescription__13tTrackManager((tTrackManager *)&trackManager);
-    ReleaseDescription__15tMissionManager((tMissionManager *)&missionManager);
-    ReleaseDescription__18tTournamentManager((tTournamentManager *)&tournamentManager);
-    ReleaseDescription__11tCarManager((tCarManager *)&carManager);
+    ReleaseDescription__13tTrackManager(&trackManager);
+    ReleaseDescription__15tMissionManager(&missionManager);
+    ReleaseDescription__18tTournamentManager(&tournamentManager);
+    ReleaseDescription__11tCarManager(&carManager);
     initlinkmode(0,1,1);
     NFS3_CheckForFileOperations__Fv();
     Nfs2_GameModuleStartUp__FPi(stream);
     NFS3_CheckForFileOperations__Fv();
-    while (simVar != 0) {
-      simVar = 0;
+    while (simVar.restartGame != 0) {
+      simVar.restartGame = 0;
       Nfs2_ResetGame__Fv();
       Sim_MainGameLoop__Fv();
-      if ((DAT_80113210 < 2) || (DAT_80113214 != 0)) {
-        if ((simVar == 0) || (DAT_80113214 != 0)) {
-          DAT_80113210 = 2;
-          if (DAT_80113214 == 0) {
-            DAT_80117048 = 1;
+      if ((GameSetup_gData.replayMode < 2) || (GameSetup_gData.instantReplay != 0)) {
+        if ((simVar.restartGame == 0) || (GameSetup_gData.instantReplay != 0)) {
+          GameSetup_gData.replayMode = 2;
+          if (GameSetup_gData.instantReplay == 0) {
+            Replay_ReplayInterface.statsScreen = 1;
             iVar1 = Stats_GetNumOpponents__Fv();
             if ((1 < iVar1) &&
-               (((GameSetup_gData != 1 && (GameSetup_gData != 5)) ||
-                (((uRam00000260 & 0x200) == 0 &&
-                 ((Cars_gNumHumanRaceCars != 2 || ((uRam00000260 & 0x200) == 0)))))))) {
-              if (iRam000003d0 == 1) {
-                pattern = "win*";
+               (((GameSetup_gData.raceType != 1 && (GameSetup_gData.raceType != 5)) ||
+                (((__Cars_gHumanRaceCarList_9__->carFlags & 0x200U) == 0 &&
+                 ((Cars_gNumHumanRaceCars != 2 || ((PTR_8010fa4c->carFlags & 0x200U) == 0)))))))) {
+              if ((__Cars_gHumanRaceCarList_9__->stats).finalPosition == 1) {
+                pattern = &DAT_8013d2a4;
               }
               else {
-                pattern = "lose*";
+                pattern = s_lose__8013d2ac;
               }
               AudioMus_PlaySong__FPc(pattern);
             }
           }
           else {
-            DAT_80117048 = 0;
+            Replay_ReplayInterface.statsScreen = 0;
           }
           Replay_ReplayMode = 2;
-          simVar = 1;
-          DAT_80113214 = 0;
+          simVar.restartGame = 1;
+          GameSetup_gData.instantReplay = 0;
         }
       }
       else {
-        DAT_80117048 = 0;
+        Replay_ReplayInterface.statsScreen = 0;
       }
     }
     Nfs2_CleanUpGameModule__Fv();
@@ -733,11 +734,11 @@ int main(void)
     LoadOverlay__Fv();
     NFS3_CheckForFileOperations__Fv();
     Front_InitGraphicsAndDisplayLoading__Fv();
-    DAT_80113210 = (int)(short)DAT_80113210;
+    GameSetup_gData.replayMode = (int)(short)GameSetup_gData.replayMode;
     Front_GetInGameVars__Fv();
-    LoadDescription__11tCarManager((tCarManager *)&carManager);
-    LoadDescription__18tTournamentManager((tTournamentManager *)&tournamentManager);
-    LoadDescription__13tTrackManager((tTrackManager *)&trackManager);
+    LoadDescription__11tCarManager(&carManager);
+    LoadDescription__18tTournamentManager(&tournamentManager);
+    LoadDescription__13tTrackManager(&trackManager);
     role = kFront_QuitToGameSetup;
     if (quitType == 1) {
       role = kFront_QuitToPostGame;
@@ -745,10 +746,7 @@ int main(void)
     Front_Menu__F21tFront_ProcessingType(role);
     NFS3_CheckForFileOperations__Fv();
   } while( true );
-
-
 }
-
 
 
 

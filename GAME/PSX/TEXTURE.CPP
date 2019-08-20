@@ -12,19 +12,19 @@
 	// End offset: 0x800DF5B4
 	// End Line: 65
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Texture_InitPaletteSharing__Fv(void)
+
 {
-  uGp000015c8 = 0;
-  uGp000015cc = 0;
-  uGp000015d0 = reservememadr("pshare 4",0x800,0x10);
-  uGp000015d4 = reservememadr("pshare 8",0x100,0x10);
-  uGp000015d8 = reservememadr("pal 4bit",0x800,0x10);
-  uGp000015dc = reservememadr("pal 8bit",0x100,0x10);
+  DAT_000015c8 = 0;
+  DAT_000015cc = 0;
+  DAT_000015d0 = reservememadr(s_pshare_4_80056a20,0x800,0x10);
+  DAT_000015d4 = reservememadr(s_pshare_8_80056a2c,0x100,0x10);
+  DAT_000015d8 = reservememadr(s_pal_4bit_80056a38,0x800,0x10);
+  DAT_000015dc = reservememadr(s_pal_8bit_80056a44,0x100,0x10);
   return;
-
-
 }
-
 
 
 
@@ -39,17 +39,17 @@ void Texture_InitPaletteSharing__Fv(void)
 	// End offset: 0x800DF630
 	// End Line: 75
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Texture_DeInitPaletteSharing__Fv(void)
+
 {
-  purgememadr(uGp000015d0);
-  purgememadr(uGp000015d4);
-  purgememadr(uGp000015d8);
-  purgememadr(uGp000015dc);
+  purgememadr(DAT_000015d0);
+  purgememadr(DAT_000015d4);
+  purgememadr(DAT_000015d8);
+  purgememadr(DAT_000015dc);
   return;
-
-
 }
-
 
 
 
@@ -64,15 +64,15 @@ void Texture_DeInitPaletteSharing__Fv(void)
 	// End offset: 0x800DF678
 	// End Line: 86
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Texture_ResetPaletteSharing__Fv(void)
+
 {
-  uGp000015c8 = 0;
-  uGp000015cc = 0;
+  DAT_000015c8 = 0;
+  DAT_000015cc = 0;
   return;
-
-
 }
-
 
 
 
@@ -148,7 +148,9 @@ void Texture_ResetPaletteSharing__Fv(void)
 	// End offset: 0x800DF7B4
 	// End Line: 140
 
-int Texture_CheckForSharedPalette__FiPcP12Draw_tPixMapi( (int test,char *data,Draw_tPixMap *pmx,int bpp)
+int Texture_CheckForSharedPalette__FiPcP12Draw_tPixMapi
+              (int test,char *data,Draw_tPixMap *pmx,int bpp)
+
 {
   int iVar1;
   undefined4 *puVar2;
@@ -167,10 +169,10 @@ int Texture_CheckForSharedPalette__FiPcP12Draw_tPixMapi( (int test,char *data,Dr
     return 0;
   }
   iVar7 = 0;
-  ppiVar9 = ppiGp000015d8;
-  ppiVar8 = ppiGp000015dc;
+  ppiVar9 = DAT_000015d8;
+  ppiVar8 = DAT_000015dc;
   if (bpp == 0) {
-    while (iVar7 < iGp000015c8) {
+    while (iVar7 < DAT_000015c8) {
       piVar5 = *ppiVar9;
       iVar4 = 0;
       piVar6 = (int *)data;
@@ -182,14 +184,14 @@ int Texture_CheckForSharedPalette__FiPcP12Draw_tPixMapi( (int test,char *data,Dr
         if (iVar1 != iVar3) break;
         iVar4 = iVar4 + 1;
       } while (iVar4 < 8);
-      iVar1 = iGp000015d0;
+      iVar1 = DAT_000015d0;
       if (iVar4 == 8) goto LAB_800df6a0;
       iVar7 = iVar7 + 1;
       ppiVar9 = ppiVar9 + 1;
     }
   }
   else {
-    while (iVar7 < iGp000015cc) {
+    while (iVar7 < DAT_000015cc) {
       piVar5 = *ppiVar8;
       iVar4 = 0;
       piVar6 = (int *)data;
@@ -201,7 +203,7 @@ int Texture_CheckForSharedPalette__FiPcP12Draw_tPixMapi( (int test,char *data,Dr
         if (iVar1 != iVar3) break;
         iVar4 = iVar4 + 1;
       } while (iVar4 < 0x80);
-      iVar1 = iGp000015d4;
+      iVar1 = DAT_000015d4;
       if (iVar4 == 0x80) {
 LAB_800df6a0:
         puVar2 = *(undefined4 **)(iVar7 * 4 + iVar1);
@@ -219,10 +221,7 @@ LAB_800df6a0:
     }
   }
   return 0;
-
-
 }
-
 
 
 
@@ -237,27 +236,29 @@ LAB_800df6a0:
 	// End offset: 0x800DF82C
 	// End Line: 157
 
-void Texture_AddSharedPalette__FPcP12Draw_tPixMapi( (char *ptr_to_data,Draw_tPixMap *ptr_to_pmx,int bpp)
+void Texture_AddSharedPalette__FPcP12Draw_tPixMapi
+               (char *ptr_to_data,Draw_tPixMap *ptr_to_pmx,int bpp)
+
 {
   int iVar1;
+  Draw_tPixMap **ppDVar2;
   
   if (bpp == 0) {
-    *(char **)(iGp000015c8 * 4 + iGp000015d8) = ptr_to_data;
-    *(Draw_tPixMap **)(iGp000015c8 * 4 + iGp000015d0) = ptr_to_pmx;
-    iGp000015c8 = iGp000015c8 + 1;
+    ppDVar2 = (Draw_tPixMap **)(DAT_000015c8 * 4 + DAT_000015d0);
+    *(char **)(DAT_000015c8 * 4 + DAT_000015d8) = ptr_to_data;
+    *ppDVar2 = ptr_to_pmx;
+    DAT_000015c8 = DAT_000015c8 + 1;
     return;
   }
   if (bpp == 1) {
-    iVar1 = iGp000015cc * 4;
-    iGp000015cc = iGp000015cc + 1;
-    *(char **)(iVar1 + iGp000015dc) = ptr_to_data;
-    *(Draw_tPixMap **)(iVar1 + iGp000015d4) = ptr_to_pmx;
+    iVar1 = DAT_000015cc * 4;
+    ppDVar2 = (Draw_tPixMap **)(iVar1 + DAT_000015d4);
+    DAT_000015cc = DAT_000015cc + 1;
+    *(char **)(iVar1 + DAT_000015dc) = ptr_to_data;
+    *ppDVar2 = ptr_to_pmx;
   }
   return;
-
-
 }
-
 
 
 
@@ -275,60 +276,64 @@ void Texture_AddSharedPalette__FPcP12Draw_tPixMapi( (char *ptr_to_data,Draw_tPix
 	// End offset: 0x800DF930
 	// End Line: 216
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Texture_InitClut__Fv(void)
+
 {
   int iVar1;
   int iVar2;
   int iVar3;
   ushort uVar4;
   int iVar5;
+  int iVar6;
   
+  iVar6 = DAT_000015e0;
   iVar5 = 0;
-  iGp000015e4 = 0;
+  DAT_000015e4 = 0;
   do {
     iVar3 = 0;
     iVar2 = 0;
     do {
       iVar3 = iVar3 + 1;
-      iVar1 = iGp000015e4 * 2;
-      iGp000015e4 = iGp000015e4 + 1;
-      *(ushort *)(iVar1 + iGp000015e0) = (ushort)iVar2 | (ushort)(iVar5 >> 4) & 0x3f;
+      iVar1 = DAT_000015e4 * 2;
+      DAT_000015e4 = DAT_000015e4 + 1;
+      *(ushort *)(iVar1 + iVar6) = (ushort)iVar2 | (ushort)(iVar5 >> 4) & 0x3f;
+      iVar1 = DAT_000015e0;
       iVar2 = iVar3 * 0x40;
     } while (iVar3 < 0x78);
     iVar5 = iVar5 + 0x10;
   } while (iVar5 < 0x100);
-  iVar5 = 0;
+  iVar6 = 0;
   do {
-    iVar2 = 0;
+    iVar5 = 0;
     uVar4 = 0x2000;
     do {
-      iVar2 = iVar2 + 1;
-      iVar3 = iGp000015e4 * 2;
-      iGp000015e4 = iGp000015e4 + 1;
-      *(ushort *)(iVar3 + iGp000015e0) = uVar4 | (ushort)(iVar5 >> 4) & 0x3f;
+      iVar5 = iVar5 + 1;
+      iVar2 = DAT_000015e4 * 2;
+      DAT_000015e4 = DAT_000015e4 + 1;
+      *(ushort *)(iVar2 + iVar1) = uVar4 | (ushort)(iVar6 >> 4) & 0x3f;
+      iVar2 = DAT_000015e8;
       uVar4 = uVar4 + 0x40;
-    } while (iVar2 < 0x20);
-    iVar5 = iVar5 + 0x10;
-  } while (iVar5 < 0x80);
-  iVar5 = 0;
-  iGp000015ec = 0;
+    } while (iVar5 < 0x20);
+    iVar6 = iVar6 + 0x10;
+  } while (iVar6 < 0x80);
+  iVar6 = 0;
+  DAT_000015ec = 0;
   do {
-    iVar2 = 0;
+    iVar5 = 0;
     uVar4 = 0x1e00;
     do {
-      iVar2 = iVar2 + 1;
-      iVar3 = iGp000015ec * 2;
-      iGp000015ec = iGp000015ec + 1;
-      *(ushort *)(iVar3 + iGp000015e8) = uVar4 | (ushort)(iVar5 >> 4) & 0x3f;
+      iVar5 = iVar5 + 1;
+      iVar3 = DAT_000015ec * 2;
+      DAT_000015ec = DAT_000015ec + 1;
+      *(ushort *)(iVar3 + iVar2) = uVar4 | (ushort)(iVar6 >> 4) & 0x3f;
       uVar4 = uVar4 + 0x40;
-    } while (iVar2 < 8);
-    iVar5 = iVar5 + 0x100;
-  } while (iVar5 < 0x100);
+    } while (iVar5 < 8);
+    iVar6 = iVar6 + 0x100;
+  } while (iVar6 < 0x100);
   return;
-
-
 }
-
 
 
 
@@ -346,6 +351,7 @@ void Texture_InitClut__Fv(void)
 	// End Line: 254
 
 void Texture_GetClutId__FiPiT1(int bpp,int *xclut,int *yclut)
+
 {
   int iVar1;
   int iVar2;
@@ -355,30 +361,27 @@ void Texture_GetClutId__FiPiT1(int bpp,int *xclut,int *yclut)
   
   uVar4 = 0;
   if (bpp == 0) {
-    iVar3 = iGp000015e4 + -1;
-    iVar5 = iGp000015e0;
+    iVar3 = DAT_000015e4 + -1;
+    iVar5 = DAT_000015e0;
     iVar1 = iVar3;
-    iVar2 = iGp000015ec;
-    if (iGp000015e4 == 0) goto code_r0x800df988;
+    iVar2 = DAT_000015ec;
+    if (DAT_000015e4 == 0) goto code_r0x800df988;
   }
   else {
-    iVar3 = iGp000015ec + -1;
-    iVar5 = iGp000015e8;
-    iVar1 = iGp000015e4;
+    iVar3 = DAT_000015ec + -1;
+    iVar5 = DAT_000015e8;
+    iVar1 = DAT_000015e4;
     iVar2 = iVar3;
-    if (iGp000015ec == 0) goto code_r0x800df988;
+    if (DAT_000015ec == 0) goto code_r0x800df988;
   }
-  iGp000015ec = iVar2;
-  iGp000015e4 = iVar1;
+  DAT_000015ec = iVar2;
+  DAT_000015e4 = iVar1;
   uVar4 = (uint)*(ushort *)(iVar3 * 2 + iVar5);
 code_r0x800df988:
   *xclut = (uVar4 & 0x3f) << 4;
   *yclut = (int)(uVar4 << 0x10) >> 0x16;
   return;
-
-
 }
-
 
 
 
@@ -396,19 +399,17 @@ code_r0x800df988:
 	// End Line: 321
 
 void Texture_MenuReleaseClutId__Fs(short id)
+
 {
   if ((int)((uint)(ushort)id << 0x10) >> 0x16 < 0x1e8) {
-    *(short *)(iGp000015ec * 2 + iGp000015e8) = id;
-    iGp000015ec = iGp000015ec + 1;
+    *(short *)(DAT_000015ec * 2 + DAT_000015e8) = id;
+    DAT_000015ec = DAT_000015ec + 1;
     return;
   }
-  *(short *)(iGp000015e4 * 2 + iGp000015e0) = id;
-  iGp000015e4 = iGp000015e4 + 1;
+  *(short *)(DAT_000015e4 * 2 + DAT_000015e0) = id;
+  DAT_000015e4 = DAT_000015e4 + 1;
   return;
-
-
 }
-
 
 
 
@@ -424,13 +425,14 @@ void Texture_MenuReleaseClutId__Fs(short id)
 	// End Line: 335
 
 void Texture_ColorCarPalette__FPcT0i(char *from,char *to,int numentry)
+
 {
   undefined2 uVar1;
   int iVar2;
   undefined2 *puVar3;
   
   iVar2 = numentry + -1;
-  puVar3 = (undefined2 *)(from + iGp000015bc * 0x20);
+  puVar3 = (undefined2 *)(from + DAT_000015bc * 0x20);
   if (numentry != 0) {
     do {
       uVar1 = *puVar3;
@@ -441,10 +443,7 @@ void Texture_ColorCarPalette__FPcT0i(char *from,char *to,int numentry)
     } while (iVar2 != -1);
   }
   return;
-
-
 }
-
 
 
 
@@ -464,6 +463,7 @@ void Texture_ColorCarPalette__FPcT0i(char *from,char *to,int numentry)
 	// End Line: 353
 
 void Texture_CopyPalette__FPciii(char *data,int width,int x,int y)
+
 {
   undefined2 uVar1;
   int *piVar2;
@@ -471,7 +471,7 @@ void Texture_CopyPalette__FPciii(char *data,int width,int x,int y)
   int *piVar4;
   
   iVar3 = 0;
-  piVar2 = (int *)(iGp000015c4 * 0x208 + iGp000015c0);
+  piVar2 = (int *)(DAT_000015c4 * 0x208 + DAT_000015c0);
   piVar4 = piVar2 + 2;
   *piVar2 = x;
   piVar2[1] = y;
@@ -484,12 +484,9 @@ void Texture_CopyPalette__FPciii(char *data,int width,int x,int y)
       piVar4 = (int *)((int)piVar4 + 2);
     } while (iVar3 < width);
   }
-  iGp000015c4 = iGp000015c4 + 1;
+  DAT_000015c4 = DAT_000015c4 + 1;
   return;
-
-
 }
-
 
 
 
@@ -508,9 +505,11 @@ void Texture_CopyPalette__FPciii(char *data,int width,int x,int y)
 	// End offset: 0x800DFB2C
 	// End Line: 378
 
-void Texture_ProcessPaletteCopy__FP15Texture_pal8bitii( (Texture_pal8bit *palCopy,int palStart,int palNum)
+void Texture_ProcessPaletteCopy__FP15Texture_pal8bitii
+               (Texture_pal8bit *palCopy,int palStart,int palNum)
+
 {
-  undefined2 local_40;
+  short local_40;
   undefined2 local_3e;
   undefined2 local_3c;
   undefined2 local_3a;
@@ -523,7 +522,7 @@ void Texture_ProcessPaletteCopy__FP15Texture_pal8bitii( (Texture_pal8bit *palCop
       palCopy = palCopy + palStart;
       do {
         Texture_ColorCarPalette__FPcT0i((char *)palCopy->pal,acStack56,0x10);
-        local_40 = *(undefined2 *)&palCopy->x;
+        local_40 = *(short *)&palCopy->x;
         palStart = palStart + 1;
         local_3e = *(undefined2 *)&palCopy->y;
         palCopy = palCopy + 1;
@@ -532,10 +531,7 @@ void Texture_ProcessPaletteCopy__FP15Texture_pal8bitii( (Texture_pal8bit *palCop
     }
   }
   return;
-
-
 }
-
 
 
 
@@ -551,16 +547,14 @@ void Texture_ProcessPaletteCopy__FP15Texture_pal8bitii( (Texture_pal8bit *palCop
 	// End Line: 397
 
 void Texture_LoadImage__FP4RECTPUl(RECT *imgrect,ulong *p)
+
 {
   if ((imgrect->w & 1U) != 0) {
     imgrect->h = imgrect->h | 1;
   }
-  LoadImage();
+  LoadImage((short *)imgrect,p);
   return;
-
-
 }
-
 
 
 
@@ -578,6 +572,7 @@ void Texture_LoadImage__FP4RECTPUl(RECT *imgrect,ulong *p)
 	// End Line: 458
 
 void Texture_Vramf__FP8shapetbliiii(shapetbl *shp,int x,int y,int clutx,int cluty)
+
 {
   int iVar1;
   int iVar2;
@@ -606,7 +601,7 @@ void Texture_Vramf__FP8shapetbliiii(shapetbl *shp,int x,int y,int clutx,int clut
           *(byte *)&shp->field_0x0 = *(byte *)&shp->field_0x0 | 8;
           local_40[0].x = (short)x;
           local_40[0].y = (short)y;
-          iVar1 = shapedepth(shp);
+          iVar1 = shapedepth((byte *)shp);
           iVar1 = (int)*(short *)&shp->field_0x4 * iVar1;
           iVar2 = iVar1 + 0xf;
           if (iVar2 < 0) {
@@ -627,10 +622,7 @@ LAB_800dfcd8:
     } while (shp != (shapetbl *)0x0);
   }
   return;
-
-
 }
-
 
 
 
@@ -666,19 +658,20 @@ LAB_800dfcd8:
 	// End Line: 508
 
 void Texture_Vramcf__FP8shapetbliiii(shapetbl *shp,int x,int y,int clutx,int cluty)
+
 {
   ushort uVar1;
   short sVar2;
   int iVar3;
   uint uVar4;
-  anon__struct_37_bitfield_3 *paVar5;
+  anon__struct_38_bitfield_3 *paVar5;
   uint uVar6;
   short local_30;
   short local_2e;
   short local_2c;
   undefined2 local_2a;
   
-  iVar3 = shapedepth();
+  iVar3 = shapedepth((byte *)shp);
   uVar6 = (int)*(short *)&shp->field_0x4 * iVar3 + 0xfU & 0xfffffff0;
   uVar4 = (int)uVar6 >> 3;
   if (((uVar4 & 2) == 0) || (uVar1 = *(ushort *)((int)&shp->field_0x4 + 2), (uVar1 & 1) != 0)) {
@@ -689,7 +682,7 @@ void Texture_Vramcf__FP8shapetbliiii(shapetbl *shp,int x,int y,int clutx,int clu
     local_2e = sVar2 + -2;
     local_2c = 1;
     local_2a = 2;
-    paVar5 = (anon__struct_37_bitfield_3 *)
+    paVar5 = (anon__struct_38_bitfield_3 *)
              ((int)&shp->field_0x10 + ((int)(short)uVar1 + -1) * uVar4);
     local_30 = (short)x;
     LoadImage(&local_30,(int)paVar5 + -2);
@@ -703,10 +696,7 @@ void Texture_Vramcf__FP8shapetbliiii(shapetbl *shp,int x,int y,int clutx,int clu
     *(ushort *)((int)&shp->field_0x4 + 2) = uVar1;
   }
   return;
-
-
 }
-
 
 
 
@@ -745,6 +735,7 @@ void Texture_Vramcf__FP8shapetbliiii(shapetbl *shp,int x,int y,int clutx,int clu
 	// End Line: 533
 
 int Texture_GetTranslucencyMode__FP8shapetbl(shapetbl *shp)
+
 {
   uint uVar1;
   
@@ -765,10 +756,7 @@ int Texture_GetTranslucencyMode__FP8shapetbl(shapetbl *shp)
     return 2;
   }
   return uVar1;
-
-
 }
-
 
 
 
@@ -830,7 +818,9 @@ int Texture_GetTranslucencyMode__FP8shapetbl(shapetbl *shp)
 	// End offset: 0x800E0328
 	// End Line: 668
 
-void Texture_LoadPmx__FPcT0iiiiiP12Draw_tPixMap( (char *f,char *n,int ctrl,int rx,int ry,int cx,int cy,Draw_tPixMap *pmx)
+void Texture_LoadPmx__FPcT0iiiiiP12Draw_tPixMap
+               (char *f,char *n,int ctrl,int rx,int ry,int cx,int cy,Draw_tPixMap *pmx)
+
 {
   byte bVar1;
   undefined2 uVar2;
@@ -838,22 +828,24 @@ void Texture_LoadPmx__FPcT0iiiiiP12Draw_tPixMap( (char *f,char *n,int ctrl,int r
   short sVar4;
   uchar uVar5;
   undefined2 uVar6;
-  ushort uVar7;
-  int iVar8;
+  int iVar7;
   int clutx;
-  int iVar9;
-  uint uVar10;
-  uchar uVar11;
+  uint uVar8;
+  uint uVar9;
+  uchar uVar10;
+  int iVar11;
   uint bpp;
+  uint x;
+  uint y;
   char cVar12;
   int cluty;
   char local_48;
   
   if (f != (char *)0x0) {
-    n = (char *)locateshapez();
+    n = (char *)locateshapez((int)f,(int *)n);
   }
   if ((shapetbl *)n != (shapetbl *)0x0) {
-    iVar8 = *(int *)&((shapetbl *)n)->centerx;
+    iVar7 = *(int *)&((shapetbl *)n)->centerx;
     bVar1 = *(byte *)&((shapetbl *)n)->field_0x0;
     bpp = (uint)bVar1 & 3;
     uVar2 = *(undefined2 *)&((shapetbl *)n)->field_0x4;
@@ -861,16 +853,16 @@ void Texture_LoadPmx__FPcT0iiiiiP12Draw_tPixMap( (char *f,char *n,int ctrl,int r
     if (((ctrl & 8U) != 0) && ((bVar1 & 3) != 0)) {
       bpp = 0;
     }
-    uVar10 = *(uint *)&((shapetbl *)n)->centerx;
+    uVar9 = *(uint *)&((shapetbl *)n)->centerx;
     if (rx == -1) {
-      rx = 0;
-      ry = 0xa0;
+      x = 0;
+      y = 0xa0;
       *(undefined2 *)&((shapetbl *)n)->field_0x4 = 1;
       *(undefined2 *)((int)&((shapetbl *)n)->field_0x4 + 2) = 1;
     }
     else {
-      rx = ((int)(uVar10 << 0x14) >> 0x14) + rx;
-      ry = ((int)(uVar10 << 4) >> 0x14) + ry;
+      x = ((int)(uVar9 << 0x14) >> 0x14) + rx;
+      y = ((int)(uVar9 << 4) >> 0x14) + ry;
     }
     local_48 = (char)*(undefined2 *)&((shapetbl *)n)->field_0x4;
     cVar12 = (char)*(undefined2 *)((int)&((shapetbl *)n)->field_0x4 + 2);
@@ -879,20 +871,20 @@ void Texture_LoadPmx__FPcT0iiiiiP12Draw_tPixMap( (char *f,char *n,int ctrl,int r
       cVar12 = cVar12 + -1;
     }
     if (bpp == 2) {
-      Texture_Vramcf__FP8shapetbliiii((shapetbl *)n,rx,ry,0,0);
+      Texture_Vramcf__FP8shapetbliiii((shapetbl *)n,x,y,0,0);
     }
     else {
-      iVar9 = (int)&((shapetbl *)n)->field_0x0 + ((int)((shapetbl *)n)->field_0x0 >> 8);
-      sVar4 = *(short *)(iVar9 + 4);
+      iVar11 = (int)&((shapetbl *)n)->field_0x0 + ((int)((shapetbl *)n)->field_0x0 >> 8);
+      sVar4 = *(short *)(iVar11 + 4);
       if (bpp == 0) {
         uVar6 = 0x10;
       }
       else {
         uVar6 = 0x100;
       }
-      *(undefined2 *)(iVar9 + 4) = uVar6;
+      *(undefined2 *)(iVar11 + 4) = uVar6;
       clutx = Texture_CheckForSharedPalette__FiPcP12Draw_tPixMapi
-                        (ctrl & 0x40,(char *)(iVar9 + 0x10),pmx,bpp);
+                        (ctrl & 0x40,(char *)(iVar11 + 0x10),pmx,bpp);
       if (clutx == 0) {
         if (cx == -1) {
           Texture_GetClutId__FiPiT1(bpp,&cx,&cy);
@@ -900,39 +892,39 @@ void Texture_LoadPmx__FPcT0iiiiiP12Draw_tPixMap( (char *f,char *n,int ctrl,int r
         else {
           if (cx == -3) {
             clutx = TextureProcess_DepthColorCluts__FPci
-                              ((char *)(iVar9 + 0x10),(int)*(short *)(iVar9 + 4));
+                              ((char *)(iVar11 + 0x10),(int)*(short *)(iVar11 + 4));
             pmx->pad2 = (ushort)clutx;
           }
           else {
             if (cx == -2) {
               cy = 0xa0;
               cx = 0;
-              *(undefined2 *)(iVar9 + 4) = 1;
+              *(undefined2 *)(iVar11 + 4) = 1;
             }
           }
         }
         if ((ctrl & 2U) != 0) {
           clutx = TextureProcess_TransColorCheck__FPci
-                            ((char *)(iVar9 + 0x10),(int)*(short *)(iVar9 + 4));
+                            ((char *)(iVar11 + 0x10),(int)*(short *)(iVar11 + 4));
           pmx->flag = (ushort)(clutx << 1);
         }
         if (((ctrl & 8U) != 0) && ((bVar1 & 3) != 0)) {
-          if (iGp000015c0 != 0) {
-            Texture_CopyPalette__FPciii((char *)(iVar9 + 0x10),(int)sVar4,cx,cy);
+          if (DAT_000015c0 != 0) {
+            Texture_CopyPalette__FPciii((char *)(iVar11 + 0x10),(int)sVar4,cx,cy);
           }
           if ((ctrl & 0x10U) != 0) {
-            Texture_ColorCarPalette__FPcT0i((char *)(iVar9 + 0x10),(char *)(iVar9 + 0x10),0x10);
+            Texture_ColorCarPalette__FPcT0i((char *)(iVar11 + 0x10),(char *)(iVar11 + 0x10),0x10);
           }
         }
         if (cx < 0) {
           pmx->clut = 0xffff;
         }
         else {
-          uVar7 = GetClut(cx,cy);
-          pmx->clut = uVar7;
+          uVar8 = GetClut(cx,cy);
+          pmx->clut = (ushort)uVar8;
         }
         if ((ctrl & 0x40U) != 0) {
-          Texture_AddSharedPalette__FPcP12Draw_tPixMapi((char *)(iVar9 + 0x10),pmx,bpp);
+          Texture_AddSharedPalette__FPcP12Draw_tPixMapi((char *)(iVar11 + 0x10),pmx,bpp);
         }
       }
       clutx = cx;
@@ -941,57 +933,54 @@ void Texture_LoadPmx__FPcT0iiiiiP12Draw_tPixMap( (char *f,char *n,int ctrl,int r
         clutx = -1;
         cluty = -1;
       }
-      Texture_Vramcf__FP8shapetbliiii((shapetbl *)n,rx,ry,clutx,cluty);
-      *(short *)(iVar9 + 4) = sVar4;
+      Texture_Vramcf__FP8shapetbliiii((shapetbl *)n,x,y,clutx,cluty);
+      *(short *)(iVar11 + 4) = sVar4;
     }
-    iVar9 = Texture_GetTranslucencyMode__FP8shapetbl((shapetbl *)n);
-    uVar7 = GetTPage(bpp,iVar9,rx,ry);
-    pmx->tpage = uVar7;
-    iVar9 = rx;
-    if (rx < 0) {
-      iVar9 = rx + 0x3f;
+    uVar8 = Texture_GetTranslucencyMode__FP8shapetbl((shapetbl *)n);
+    uVar8 = GetTPage(bpp,uVar8,x,y);
+    pmx->tpage = (ushort)uVar8;
+    uVar8 = x;
+    if ((int)x < 0) {
+      uVar8 = x + 0x3f;
     }
-    rx = rx + (iVar9 >> 6) * -0x40;
+    iVar11 = x + ((int)uVar8 >> 6) * -0x40;
     if (bpp == 0) {
-      rx = rx * 4;
+      iVar11 = iVar11 * 4;
     }
-    uVar11 = (uchar)rx;
+    uVar10 = (uchar)iVar11;
     if (bpp == 1) {
-      uVar11 = (uchar)(rx << 1);
+      uVar10 = (uchar)(iVar11 << 1);
     }
-    uVar5 = (uchar)ry;
-    if ((uVar10 & 0x4000) == 0) {
-      pmx->u0 = uVar11;
+    uVar5 = (uchar)y;
+    if ((uVar9 & 0x4000) == 0) {
+      pmx->u0 = uVar10;
       pmx->v0 = uVar5;
-      pmx->u1 = uVar11 + local_48;
+      pmx->u1 = uVar10 + local_48;
       pmx->v1 = uVar5;
-      pmx->u2 = uVar11;
+      pmx->u2 = uVar10;
       pmx->v2 = uVar5 + cVar12;
-      pmx->u3 = uVar11 + local_48;
+      pmx->u3 = uVar10 + local_48;
       pmx->v3 = uVar5 + cVar12;
     }
     else {
-      pmx->u0 = uVar11;
+      pmx->u0 = uVar10;
       pmx->v0 = uVar5 + cVar12;
-      pmx->u1 = uVar11;
+      pmx->u1 = uVar10;
       pmx->v1 = uVar5;
-      pmx->u2 = uVar11 + local_48;
+      pmx->u2 = uVar10 + local_48;
       pmx->v2 = uVar5 + cVar12;
-      pmx->u3 = uVar11 + local_48;
+      pmx->u3 = uVar10 + local_48;
       pmx->v3 = uVar5;
     }
     bpp = *(uint *)&((shapetbl *)n)->centerx;
     *(undefined2 *)&((shapetbl *)n)->field_0x4 = uVar2;
     *(undefined2 *)((int)&((shapetbl *)n)->field_0x4 + 2) = uVar3;
     *(uint *)&((shapetbl *)n)->centerx =
-         bpp & 0xf000f000 | (iVar8 << 0x14) >> 0x14 & 0xfffU |
-         ((iVar8 << 4) >> 0x14 & 0xfffU) << 0x10;
+         bpp & 0xf000f000 | (iVar7 << 0x14) >> 0x14 & 0xfffU |
+         ((iVar7 << 4) >> 0x14 & 0xfffU) << 0x10;
   }
   return;
-
-
 }
-
 
 
 
@@ -1007,6 +996,7 @@ void Texture_LoadPmx__FPcT0iiiiiP12Draw_tPixMap( (char *f,char *n,int ctrl,int r
 	// End Line: 708
 
 void Texture_CloneUVPmx__FP12Draw_tPixMapiT0(Draw_tPixMap *pmx,int mode,Draw_tPixMap *rpmx)
+
 {
   undefined4 uVar1;
   undefined4 uVar2;
@@ -1051,10 +1041,7 @@ void Texture_CloneUVPmx__FP12Draw_tPixMapiT0(Draw_tPixMap *pmx,int mode,Draw_tPi
     *(undefined2 *)&rpmx->u2 = *(undefined2 *)pmx;
   }
   return;
-
-
 }
-
 
 
 
@@ -1069,18 +1056,18 @@ void Texture_CloneUVPmx__FP12Draw_tPixMapiT0(Draw_tPixMap *pmx,int mode,Draw_tPi
 	// End offset: 0x800E04B8
 	// End Line: 727
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Texture_InitTrackTexture__Fv(void)
+
 {
-  _gFreePal4 = Platform_GetDCTBuffer__FiPc(0x13f0,"4 bit Cluts");
-  _gFreePal8 = Platform_GetDCTBuffer__FiPc(0x10,"8 bit Cluts");
+  pcGp000015e0 = Platform_GetDCTBuffer__FiPc((int)&DAT_000013f0,s_4_bit_Cluts_80056a50);
+  pcGp000015e8 = Platform_GetDCTBuffer__FiPc(0x10,s_8_bit_Cluts_80056a5c);
   Texture_InitPaletteSharing__Fv();
   TextureProcess_Init__Fv();
   Texture_InitClut__Fv();
   return;
-
-
 }
-
 
 
 
@@ -1115,51 +1102,53 @@ void Texture_InitTrackTexture__Fv(void)
 	// End offset: 0x800E0600
 	// End Line: 777
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Texture_InitMenuClut__Fv(void)
+
 {
   int iVar1;
-  ushort uVar2;
-  int iVar3;
+  int iVar2;
+  ushort uVar3;
   int iVar4;
   int iVar5;
   
-  _gFreePal4 = reservememadr("4 bits cluts",0x300,0);
-  _gFreePal8 = reservememadr("8 bits cluts",0x1180,0);
-  iVar5 = _gFreePal4;
-  iVar4 = 0;
-  gNbFreePal4 = 0;
-  do {
-    iVar3 = 0;
-    uVar2 = 0x7a00;
-    do {
-      iVar3 = iVar3 + 1;
-      iVar1 = gNbFreePal4 * 2;
-      gNbFreePal4 = gNbFreePal4 + 1;
-      *(ushort *)(iVar1 + iVar5) = uVar2 | (ushort)(iVar4 + 0x200 >> 4) & 0x3f;
-      iVar1 = _gFreePal8;
-      uVar2 = uVar2 + 0x40;
-    } while (iVar3 < 0x18);
-    iVar4 = iVar4 + 0x10;
-  } while (iVar4 < 0x100);
+  psGp000015e0 = reservememadr(s_4_bits_cluts_80056a68,0x300,0);
+  psGp000015e8 = reservememadr(s_8_bits_cluts_80056a78,(int)&DAT_00001180,0);
   iVar5 = 0;
-  gNbFreePal8 = 0;
+  iGp000015e4 = 0;
   do {
     iVar4 = 0;
-    uVar2 = 0x5700;
+    uVar3 = 0x7a00;
     do {
       iVar4 = iVar4 + 1;
-      iVar3 = gNbFreePal8 * 2;
-      gNbFreePal8 = gNbFreePal8 + 1;
-      *(ushort *)(iVar3 + iVar1) = uVar2 | (ushort)(iVar5 + 0x200 >> 4) & 0x3f;
-      uVar2 = uVar2 + 0x40;
+      iVar1 = iGp000015e4 + 1;
+      psGp000015e0[iGp000015e4] = uVar3 | (ushort)(iVar5 + 0x200 >> 4) & 0x3f;
+      uVar3 = uVar3 + 0x40;
+      iGp000015e4 = iVar1;
+    } while (iVar4 < 0x18);
+    iVar5 = iVar5 + 0x10;
+    iGp000015e4 = iVar1;
+  } while (iVar5 < 0x100);
+  iVar5 = 0;
+  iGp000015ec = 0;
+  do {
+    iVar4 = 0;
+    uVar3 = 0x5700;
+    do {
+      iVar4 = iVar4 + 1;
+      iVar2 = iGp000015ec + 1;
+      psGp000015e8[iGp000015ec] = uVar3 | (ushort)(iVar5 + 0x200 >> 4) & 0x3f;
+      uVar3 = uVar3 + 0x40;
+      iGp000015ec = iVar2;
     } while (iVar4 < 0x8c);
     iVar5 = iVar5 + 0x100;
+    iGp000015ec = iVar2;
   } while (iVar5 < 0x100);
+  iGp000015e4 = iVar1;
+  iGp000015ec = iVar2;
   return;
-
-
 }
-
 
 
 
@@ -1176,23 +1165,23 @@ void Texture_InitMenuClut__Fv(void)
 	// End offset: 0x800E0630
 	// End Line: 796
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Texture_InitMenuTexture__Fv(void)
+
 {
-  undefined4 *puVar1;
+  Draw_tPixMap **ppDVar1;
   int iVar2;
   
   iVar2 = 7;
-  puVar1 = &DAT_80120fec;
+  ppDVar1 = &PTR_80120fec;
   do {
-    *puVar1 = 0;
+    *ppDVar1 = (Draw_tPixMap *)0x0;
     iVar2 = iVar2 + -1;
-    puVar1 = puVar1 + -1;
+    ppDVar1 = ppDVar1 + -1;
   } while (-1 < iVar2);
   return;
-
-
 }
-
 
 
 
@@ -1209,26 +1198,26 @@ void Texture_InitMenuTexture__Fv(void)
 	// End offset: 0x800E0684
 	// End Line: 808
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Texture_CleanupMenuTexture__Fv(void)
+
 {
-  int *piVar1;
+  Draw_tPixMap **ppDVar1;
   int iVar2;
   
   iVar2 = 0;
-  piVar1 = &_gMenuPixmap;
+  ppDVar1 = &__gMenuPixmap_8__;
   do {
-    if (*piVar1 != 0) {
-      Texture_MenuReleaseClutId__Fs(*(short *)(*piVar1 + 2));
+    if (*ppDVar1 != (Draw_tPixMap *)0x0) {
+      Texture_MenuReleaseClutId__Fs((*ppDVar1)->clut);
     }
-    *piVar1 = 0;
+    *ppDVar1 = (Draw_tPixMap *)0x0;
     iVar2 = iVar2 + 1;
-    piVar1 = piVar1 + 1;
+    ppDVar1 = ppDVar1 + 1;
   } while (iVar2 < 8);
   return;
-
-
 }
-
 
 
 
@@ -1298,40 +1287,40 @@ void Texture_CleanupMenuTexture__Fv(void)
 	// End offset: 0x800E0828
 	// End Line: 844
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Texture_LoadMenuTexture__Fv(void)
+
 {
   char *f;
   char acStack288 [256];
   
-  if (_gMenuPixmap == (undefined *)0x0) {
-    sprintf(acStack288,"%sshow.psh",0);
+  if (__gMenuPixmap_8__ == (Draw_tPixMap *)0x0) {
+    sprintf(acStack288,s__sshow_psh_80056a88,PTR_801164cc);
     f = (char *)loadfileadr(acStack288,0);
     Texture_ResetPaletteSharing__Fv();
     Texture_LoadPmx__FPcT0iiiiiP12Draw_tPixMap
-              (f,"show",0,0x380,0x180,-1,-1,(Draw_tPixMap *)&gMenuPixmapAlloc);
-    _gMenuPixmap = &gMenuPixmapAlloc;
+              (f,(char *)&PTR_DAT_8013dad8,0,0x380,0x180,-1,-1,&gMenuPixmapAlloc);
+    __gMenuPixmap_8__ = &gMenuPixmapAlloc;
     Texture_LoadPmx__FPcT0iiiiiP12Draw_tPixMap
-              (f,"shad",0,0x380,0x180,-1,-1,(Draw_tPixMap *)&DAT_80121000);
-    DAT_80120fd4 = &DAT_80121000;
+              (f,(char *)&PTR_DAT_8013dae0,0,0x380,0x180,-1,-1,&Draw_tPixMap_80121000);
+    PTR_80120fd4 = &Draw_tPixMap_80121000;
     Texture_LoadPmx__FPcT0iiiiiP12Draw_tPixMap
-              (f,"lgt3",0,0x380,0x180,-1,-1,(Draw_tPixMap *)&DAT_80121010);
-    DAT_80120fdc = &DAT_80121010;
+              (f,(char *)&PTR_DAT_8013dae8,0,0x380,0x180,-1,-1,&Draw_tPixMap_80121010);
+    PTR_80120fdc = &Draw_tPixMap_80121010;
     Texture_LoadPmx__FPcT0iiiiiP12Draw_tPixMap
-              (f,"lgta",0,0x380,0x180,-1,-1,(Draw_tPixMap *)&DAT_80121020);
-    DAT_80120fe0 = &DAT_80121020;
+              (f,(char *)&PTR_DAT_8013daf0,0,0x380,0x180,-1,-1,&Draw_tPixMap_80121020);
+    PTR_80120fe0 = &Draw_tPixMap_80121020;
     Texture_LoadPmx__FPcT0iiiiiP12Draw_tPixMap
-              (f,"lgtb",0,0x380,0x180,-1,-1,(Draw_tPixMap *)&DAT_80121030);
-    DAT_80120fe4 = &DAT_80121030;
+              (f,(char *)&PTR_DAT_8013daf8,0,0x380,0x180,-1,-1,&Draw_tPixMap_80121030);
+    PTR_80120fe4 = &Draw_tPixMap_80121030;
     Texture_LoadPmx__FPcT0iiiiiP12Draw_tPixMap
-              (f,"lgtc",0,0x380,0x180,-1,-1,(Draw_tPixMap *)&DAT_80121040);
-    DAT_80120fe8 = &DAT_80121040;
-    purgememadr(f);
+              (f,(char *)&PTR_DAT_8013db00,0,0x380,0x180,-1,-1,&Draw_tPixMap_80121040);
+    PTR_80120fe8 = &Draw_tPixMap_80121040;
+    purgememadr((int)f);
   }
   return;
-
-
 }
-
 
 
 
@@ -1346,13 +1335,13 @@ void Texture_LoadMenuTexture__Fv(void)
 	// End offset: 0x800E084C
 	// End Line: 848
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Texture_KillTrackTexture__Fv(void)
+
 {
   return;
-
-
 }
-
 
 
 
@@ -1367,15 +1356,15 @@ void Texture_KillTrackTexture__Fv(void)
 	// End offset: 0x800E0854
 	// End Line: 856
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Texture_KillMenuTexture__Fv(void)
+
 {
-  purgememadr(uGp000015e0);
-  purgememadr(uGp000015e8);
+  purgememadr(DAT_000015e0);
+  purgememadr(DAT_000015e8);
   return;
-
-
 }
-
 
 
 

@@ -3,7 +3,7 @@
 
 // decompiled code
 // original method signature: 
-// unsigned int /*$ra*/ StatChk_IsRecordLapTime__FP10Car_tStatssPs(struct Car_tStats *dummyCars /*$s7*/, short nNumCars /*stack -64*/, short *nBestCarIndex /*stack 8*/)
+// void * /*$ra*/ StatChk_IsRecordLapTime__FP10Car_tStatssPs(struct Car_tStats *dummyCars /*$s7*/, short nNumCars /*stack -64*/, short *nBestCarIndex /*stack 8*/)
  // line 50, offset 0x80049840
 	/* begin block 1 */
 		// Start line: 51
@@ -23,18 +23,19 @@
 	// End offset: 0x80049B4C
 	// End Line: 223
 
-uint StatChk_IsRecordLapTime__FP10Car_tStatssPs( (Car_tStats *dummyCars,short nNumCars,short *nBestCarIndex)
+/* WARNING: Control flow encountered bad instruction data */
+
+void * StatChk_IsRecordLapTime__FP10Car_tStatssPs
+                 (Car_tStats *dummyCars,short nNumCars,short *nBestCarIndex)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -54,18 +55,19 @@ uint StatChk_IsRecordLapTime__FP10Car_tStatssPs( (Car_tStats *dummyCars,short nN
 	// End offset: 0x80049CEC
 	// End Line: 276
 
-void StatChk_SaveRecordLapTime__FP10Car_tStatsss( (Car_tStats *dummyCars,short nNumCars,short nBestCarIndex)
+/* WARNING: Control flow encountered bad instruction data */
+
+void StatChk_SaveRecordLapTime__FP10Car_tStatsss
+               (Car_tStats *dummyCars,short nNumCars,short nBestCarIndex)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -110,18 +112,18 @@ void StatChk_SaveRecordLapTime__FP10Car_tStatsss( (Car_tStats *dummyCars,short n
 	// End offset: 0x8004A188
 	// End Line: 460
 
+/* WARNING: Control flow encountered bad instruction data */
+
 short StatChk_IsTopTime__FP10Car_tStatss(Car_tStats *dummyCars,short nNumCars)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -133,8 +135,8 @@ short StatChk_IsTopTime__FP10Car_tStatss(Car_tStats *dummyCars,short nNumCars)
 		// Start line: 465
 		// Start offset: 0x8004A1B8
 		// Variables:
-	// 		unsigned int bTopTenFlag; // stack offset -72
-	// 		unsigned int bDoRecordCheck; // $s7
+	// 		void * bTopTenFlag; // stack offset -72
+	// 		void * bDoRecordCheck; // $s7
 	// 		short nLapIndicator; // stack offset -64
 	// 		short nPlace; // stack offset -56
 	// 		int nTopTenSort[8]; // stack offset -160
@@ -153,18 +155,18 @@ short StatChk_IsTopTime__FP10Car_tStatss(Car_tStats *dummyCars,short nNumCars)
 	// End offset: 0x8004A7E0
 	// End Line: 652
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void StatChk_SaveTopTime__FP10Car_tStatss(Car_tStats *dummyCars,short nNumCars)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -181,18 +183,19 @@ void StatChk_SaveTopTime__FP10Car_tStatss(Car_tStats *dummyCars,short nNumCars)
 	// End offset: 0x8004A858
 	// End Line: 669
 
+/* WARNING: Control flow encountered bad instruction data */
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void StatChk_ClearNewRecords__Fv(void)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 

@@ -1,7 +1,7 @@
 #ifndef STATCHK_H
 #define STATCHK_H
 
-extern unsigned int StatChk_IsRecordLapTime__FP10Car_tStatssPs(struct Car_tStats *dummyCars, short nNumCars, short *nBestCarIndex); // 0x80049840
+extern void * StatChk_IsRecordLapTime__FP10Car_tStatssPs(struct Car_tStats *dummyCars, short nNumCars, short *nBestCarIndex); // 0x80049840
 
 extern void StatChk_SaveRecordLapTime__FP10Car_tStatsss(struct Car_tStats *dummyCars, short nNumCars, short nBestCarIndex); // 0x80049B7C
 

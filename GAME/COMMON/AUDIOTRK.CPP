@@ -72,41 +72,41 @@
 	// End offset: 0x8007C6DC
 	// End Line: 82
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void AudioTrk_Reset__Fv(void)
+
 {
-  undefined4 *puVar1;
+  CAudioList *pCVar1;
   undefined *puVar2;
   int iVar3;
   int iVar4;
   
-  if (_AudioTrk_g != 0) {
+  if (iGp00000208 != 0) {
     iVar4 = 0;
     do {
       iVar3 = iVar4 * 0x10;
-      if (*(int *)(_AudioTrk_g + iVar3 + 4) != -1) {
+      if (*(int *)(iGp00000208 + iVar3 + 4) != -1) {
         freeVoiceChannel__Fi(iVar4 + 0x37);
-        *(undefined4 *)(_AudioTrk_g + iVar3 + 4) = 0xffffffff;
+        *(undefined4 *)(iGp00000208 + iVar3 + 4) = 0xffffffff;
       }
       iVar4 = iVar4 + 1;
-      puVar1 = (undefined4 *)(_AudioTrk_g + iVar3);
-      *puVar1 = 0;
-      *(undefined2 *)(puVar1 + 3) = 0xffff;
+      *(undefined4 *)(iGp00000208 + iVar3) = 0;
+      *(undefined2 *)((undefined4 *)(iGp00000208 + iVar3) + 3) = 0xffff;
     } while (iVar4 < 0x10);
   }
-  if ((false) && (iVar4 = 0, 0 < iRam00000004)) {
-    puVar2 = (undefined *)0x25;
+  if ((gGameAudioList != (CAudioList *)0x0) && (iVar4 = 0, 0 < gGameAudioList->numElements_)) {
+    puVar2 = (undefined *)((int)&gGameAudioList[2].numElements_ + 1);
     do {
       *puVar2 = 0xff;
+      pCVar1 = gGameAudioList;
       *(undefined2 *)(puVar2 + -9) = 0;
       iVar4 = iVar4 + 1;
       puVar2 = puVar2 + 0x18;
-    } while (iVar4 < iRam00000004);
+    } while (iVar4 < pCVar1->numElements_);
   }
   return;
-
-
 }
-
 
 
 
@@ -144,27 +144,27 @@ void AudioTrk_Reset__Fv(void)
 	// End offset: 0x8007C738
 	// End Line: 96
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void AudioTrk_StartUp__Fv(void)
+
 {
-  int iVar1;
+  short *psVar1;
   int iVar2;
   
-  if (_AudioTrk_g == 0) {
-    _AudioTrk_g = reservememadr("trck globals",0x100,0);
+  if (psGp00000208 == (short *)0x0) {
+    psGp00000208 = reservememadr(s_trck_globals_80055864,0x100,0);
     iVar2 = 0xf;
-    iVar1 = _AudioTrk_g + 0xf0;
+    psVar1 = psGp00000208 + 0x78;
     do {
-      *(undefined4 *)(iVar1 + 4) = 0xffffffff;
+      *(undefined4 *)(psVar1 + 2) = 0xffffffff;
       iVar2 = iVar2 + -1;
-      iVar1 = iVar1 + -0x10;
+      psVar1 = psVar1 + -8;
     } while (-1 < iVar2);
   }
   AudioTrk_Reset__Fv();
   return;
-
-
 }
-
 
 
 
@@ -290,7 +290,7 @@ void AudioTrk_StartUp__Fv(void)
 				// Start line: 215
 				// Start offset: 0x8007C9E0
 				// Variables:
-			// 		unsigned int repeatnow; // $s1
+			// 		void * repeatnow; // $s1
 
 				/* begin block 1.4.1.1 */
 					// Start line: 245
@@ -418,170 +418,165 @@ void AudioTrk_StartUp__Fv(void)
 	// End offset: 0x8007CD94
 	// End Line: 303
 
-void AudioTrk_AddCustomObject__FP9AudioElemiP8coorddefiP8Car_tObji( (AudioElem *se,int tck,coorddef *vel,int fade,Car_tObj *car,int trkazi)
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+void AudioTrk_AddCustomObject__FP9AudioElemiP8coorddefiP8Car_tObji
+               (AudioElem *se,int tck,coorddef *vel,int fade,Car_tObj *car,int trkazi)
+
 {
   byte bVar1;
   bool bVar2;
   int iVar3;
   int iVar4;
   int iVar5;
-  int iVar6;
-  uint uVar7;
-  AudioElem *pAVar8;
-  AudioElem **ppAVar9;
-  uint uVar10;
-  ushort uVar11;
-  int *piVar12;
-  int iVar13;
-  AudioElem **ppAVar14;
+  uint uVar6;
+  AudioElem *pAVar7;
+  AudioElem **ppAVar8;
+  uint uVar9;
+  ushort uVar10;
+  int *piVar11;
+  int iVar12;
+  AudioElem **ppAVar13;
+  int iVar14;
+  undefined *iDopplerIn;
   int iVar15;
-  int iDopplerIn;
   uint uVar16;
   BWorldSm_Pos local_b0;
   
-  if (_AudioTrk_g != 0) {
+  if (iGp00000208 != 0) {
     iVar3 = Math_Dist3D__FP8coorddefT0((coorddef *)se,(coorddef *)&AudioClc_gRenderView);
-    if ((((int)se->range + 100) * 0x10000 <= iVar3) || (ppAVar14 = (AudioElem **)0x0, true)) {
-      iVar3 = (int)se->chan;
-      if (-1 < iVar3) {
-        piVar12 = (int *)(_AudioTrk_g + iVar3 * 0x10);
-        if (piVar12[1] != -1) {
-          freeVoiceChannel__Fi(iVar3 + 0x37);
-          piVar12[1] = -1;
-        }
-        *(undefined *)(*piVar12 + 0x15) = 0xff;
-        *piVar12 = 0;
-        *(undefined2 *)(piVar12 + 3) = 0xffff;
-      }
-    }
-    else {
+    if ((iVar3 < ((int)se->range + 100) * 0x10000) &&
+       (ppAVar13 = (AudioElem **)0x0, (int)(uint)(byte)se->patchID < CopSpeak_gNumTrackSfx)) {
       iVar4 = (int)se->chan;
       if (iVar4 < 0) {
-        iDopplerIn = 0;
+        iVar15 = 0;
         iVar4 = -1;
         if ((se->nextDelay != 0) && (iVar4 = -1, (uint)se->nextDelay != tck)) {
           return;
         }
         do {
-          if (0xf < iDopplerIn) break;
-          ppAVar9 = (AudioElem **)(_AudioTrk_g + iDopplerIn * 0x10);
-          if (*ppAVar9 == (AudioElem *)0x0) {
-            *ppAVar9 = se;
-            ppAVar9[2] = (AudioElem *)0xffffffff;
+          if (0xf < iVar15) break;
+          ppAVar8 = (AudioElem **)(iGp00000208 + iVar15 * 0x10);
+          if (*ppAVar8 == (AudioElem *)0x0) {
+            *ppAVar8 = se;
+            ppAVar8[2] = (AudioElem *)0xffffffff;
             bVar1 = se->minRepeat;
-            uVar11 = (ushort)bVar1;
+            uVar10 = (ushort)bVar1;
             if (se->randomRepeat != '\0') {
-              uVar7 = random();
-              uVar10 = (uint)(byte)se->randomRepeat + 1;
-              if (uVar10 == 0) {
+              uVar6 = random();
+              uVar9 = (uint)(byte)se->randomRepeat + 1;
+              if (uVar9 == 0) {
                 trap(0x1c00);
               }
-              uVar11 = (ushort)bVar1 + (short)(uVar7 % uVar10);
+              uVar10 = (ushort)bVar1 + (short)(uVar6 % uVar9);
             }
-            *(ushort *)((int)ppAVar9 + 0xe) = uVar11;
-            (*ppAVar9)->chan = (char)iDopplerIn;
-            ppAVar14 = ppAVar9;
-            iVar4 = iDopplerIn;
+            *(ushort *)((int)ppAVar8 + 0xe) = uVar10;
+            (*ppAVar8)->chan = (char)iVar15;
+            ppAVar13 = ppAVar8;
+            iVar4 = iVar15;
           }
-          iDopplerIn = iDopplerIn + 1;
-        } while (ppAVar14 == (AudioElem **)0x0);
+          iVar15 = iVar15 + 1;
+        } while (ppAVar13 == (AudioElem **)0x0);
       }
       else {
-        ppAVar14 = (AudioElem **)(_AudioTrk_g + iVar4 * 0x10);
+        ppAVar13 = (AudioElem **)(iGp00000208 + iVar4 * 0x10);
       }
-      iDopplerIn = 0;
-      if (ppAVar14 == (AudioElem **)0x0) {
-        iVar15 = 0;
-        iVar13 = 0;
-        while ((true && (iVar13 < 0x10))) {
+      iVar15 = 0;
+      if (ppAVar13 == (AudioElem **)0x0) {
+        iVar14 = 0;
+        iVar12 = 0;
+        while (iVar12 < 0x10) {
           iVar5 = Math_Dist3D__FP8coorddefT0
-                            (*(coorddef **)(_AudioTrk_g + iVar13 * 0x10),
+                            (*(coorddef **)(iGp00000208 + iVar12 * 0x10),
                              (coorddef *)&AudioClc_gRenderView);
-          if (iRam00000004 != -1) {
-            iVar6 = SNDover();
-            if ((iVar6 != 0) && (iVar15 < iVar5)) {
-              iVar15 = iVar5;
-              iDopplerIn = iVar13;
+          if (_DAT_00000004 != 0xffffffff) {
+            uVar6 = SNDover(_DAT_00000004);
+            if ((uVar6 != 0) && (iVar14 < iVar5)) {
+              iVar14 = iVar5;
+              iVar15 = iVar12;
             }
           }
-          iVar13 = iVar13 + 1;
+          iVar12 = iVar12 + 1;
         }
-        if (iVar3 < iVar15) {
-          ppAVar14 = (AudioElem **)(_AudioTrk_g + iDopplerIn * 0x10);
-          *ppAVar14 = se;
-          ppAVar14[2] = (AudioElem *)0xffffffff;
+        if (iVar3 < iVar14) {
+          ppAVar13 = (AudioElem **)(iGp00000208 + iVar15 * 0x10);
+          *ppAVar13 = se;
+          ppAVar13[2] = (AudioElem *)0xffffffff;
           bVar1 = se->minRepeat;
-          uVar11 = (ushort)bVar1;
+          uVar10 = (ushort)bVar1;
           if (se->randomRepeat != '\0') {
-            uVar7 = random();
-            uVar10 = (uint)(byte)se->randomRepeat + 1;
-            if (uVar10 == 0) {
+            uVar6 = random();
+            uVar9 = (uint)(byte)se->randomRepeat + 1;
+            if (uVar9 == 0) {
               trap(0x1c00);
             }
-            uVar11 = (ushort)bVar1 + (short)(uVar7 % uVar10);
+            uVar10 = (ushort)bVar1 + (short)(uVar6 % uVar9);
           }
-          *(ushort *)((int)ppAVar14 + 0xe) = uVar11;
-          (*ppAVar14)->chan = (char)iDopplerIn;
-          iVar4 = iDopplerIn;
+          *(ushort *)((int)ppAVar13 + 0xe) = uVar10;
+          (*ppAVar13)->chan = (char)iVar15;
+          iVar4 = iVar15;
         }
-        if (ppAVar14 == (AudioElem **)0x0) {
+        if (ppAVar13 == (AudioElem **)0x0) {
           return;
         }
       }
-      if ((int)*(short *)(ppAVar14 + 3) != (uint)(byte)se->patchID) {
-        if (ppAVar14[1] != (AudioElem *)0xffffffff) {
+      if ((int)*(short *)(ppAVar13 + 3) != (uint)(byte)se->patchID) {
+        if (ppAVar13[1] != (AudioElem *)0xffffffff) {
           freeVoiceChannel__Fi(iVar4 + 0x37);
-          ppAVar14[1] = (AudioElem *)0xffffffff;
+          ppAVar13[1] = (AudioElem *)0xffffffff;
         }
-        *(ushort *)(ppAVar14 + 3) = (ushort)(byte)se->patchID;
+        *(ushort *)(ppAVar13 + 3) = (ushort)(byte)se->patchID;
       }
       bVar2 = false;
-      if ((ppAVar14[1] != (AudioElem *)0xffffffff) && (iDopplerIn = SNDover(), iDopplerIn != 0)) {
-        if (*(short *)((int)ppAVar14 + 0xe) == 0) {
+      if ((ppAVar13[1] != (AudioElem *)0xffffffff) &&
+         (uVar6 = SNDover((uint)ppAVar13[1]), uVar6 != 0)) {
+        if (*(short *)((int)ppAVar13 + 0xe) == 0) {
           if ((se->type != '\x01') || ((int)se->range << 0x10 < iVar3)) {
             freeVoiceChannel__Fi(iVar4 + 0x37);
-            ppAVar14[1] = (AudioElem *)0xffffffff;
-            *(undefined2 *)(ppAVar14 + 3) = 0xffff;
-            (*ppAVar14)->chan = -1;
-            *ppAVar14 = (AudioElem *)0x0;
+            ppAVar13[1] = (AudioElem *)0xffffffff;
+            *(undefined2 *)(ppAVar13 + 3) = 0xffff;
+            (*ppAVar13)->chan = -1;
+            *ppAVar13 = (AudioElem *)0x0;
           }
         }
         else {
           bVar2 = true;
-          ppAVar14[1] = (AudioElem *)0xffffffff;
-          *(short *)((int)ppAVar14 + 0xe) = *(short *)((int)ppAVar14 + 0xe) + -1;
+          ppAVar13[1] = (AudioElem *)0xffffffff;
+          *(short *)((int)ppAVar13 + 0xe) = *(short *)((int)ppAVar13 + 0xe) + -1;
         }
       }
-      if (*ppAVar14 != (AudioElem *)0x0) {
-        iDopplerIn = 0x10000;
-        uVar7 = 0;
+      if (*ppAVar13 != (AudioElem *)0x0) {
+        iDopplerIn = (undefined *)0x10000;
+        uVar6 = 0;
         if ((se->type == '\x01') && (!bVar2)) {
-          if ((ppAVar14[1] != (AudioElem *)0xffffffff) && (iVar15 = SNDover(), iVar15 != 0)) {
+          if ((ppAVar13[1] != (AudioElem *)0xffffffff) &&
+             (uVar9 = SNDover((uint)ppAVar13[1]), uVar9 != 0)) {
             return;
           }
           if ((iVar3 < (int)((uint)(byte)se->fadeIn << 0x10)) &&
-             (ppAVar14[2] == (AudioElem *)0xffffffff)) {
+             (ppAVar13[2] == (AudioElem *)0xffffffff)) {
             BWorldSm_SetSlice__FiP12BWorldSm_Pos((int)(car->N).simRoadInfo.slice,&local_b0);
             BWorldSm_FindClosestSlice__FP8coorddefP12BWorldSm_Pos((coorddef *)se,&local_b0);
-            ppAVar14[2] = (AudioElem *)(int)local_b0.slice;
+            ppAVar13[2] = (AudioElem *)(int)local_b0.slice;
           }
-          if (((AudioElem *)(int)(car->N).simRoadInfo.slice != ppAVar14[2]) ||
+          if (((AudioElem *)(int)(car->N).simRoadInfo.slice != ppAVar13[2]) ||
              ((int)((uint)(byte)se->fadeIn << 0x10) < iVar3)) {
-            AudioCmn_GetAsyncSfx__Fiib(0,(int)*(short *)(ppAVar14 + 3),0);
+            AudioCmn_GetAsyncSfx__Fiib(0,(int)*(short *)(ppAVar13 + 3),(void *)0x0);
             return;
           }
         }
-        uVar10 = 0;
+        uVar9 = 0;
         if (iVar3 < (int)se->range << 0x10) {
           if ((se->type != '\x03') && (trkazi = 0, se->type != '\x02')) {
             trkazi = AudioClc_CalcAzimuth__FP17DRender_tCalcViewP8coorddef
-                               ((DRender_tCalcView *)&AudioClc_gRenderView,(coorddef *)se);
-            iDopplerIn = AudioClc_CalcDopplerShiftRatio__FP8coorddefT0((coorddef *)se,vel);
+                               (&AudioClc_gRenderView,(coorddef *)se);
+            iDopplerIn = (undefined *)
+                         AudioClc_CalcDopplerShiftRatio__FP8coorddefT0((coorddef *)se,vel);
           }
           if (((uint)(byte)se->type - 4 < 0x20) || (se->type == 1)) {
             iVar15 = (int)se->range * (int)se->range;
-            iVar3 = fixedmult(iVar3 >> 2,iVar3 >> 2);
-            iVar3 = (iVar15 >> 4) * 0x10000 - iVar3;
+            uVar6 = fixedmult(iVar3 >> 2,iVar3 >> 2);
+            iVar3 = (iVar15 >> 4) * 0x10000 - uVar6;
             if (iVar15 == 0) {
               trap(0x1c00);
             }
@@ -589,23 +584,23 @@ void AudioTrk_AddCustomObject__FP9AudioElemiP8coorddefiP8Car_tObji( (AudioElem *
               trap(0x1800);
             }
             uVar16 = (iVar3 / iVar15) * fade * 0x7f;
-            uVar7 = uVar16 >> 0x13;
-            uVar10 = trkazi;
+            uVar6 = uVar16 >> 0x13;
+            uVar9 = trkazi;
             if ((int)uVar16 < 0) {
-              uVar7 = uVar16 + 0xffff >> 0x13;
-              uVar10 = trkazi;
+              uVar6 = uVar16 + 0xffff >> 0x13;
+              uVar9 = trkazi;
             }
           }
           else {
             uVar16 = (uint)(byte)se->fadeIn;
-            uVar7 = 0x7f;
-            uVar10 = trkazi;
+            uVar6 = 0x7f;
+            uVar9 = trkazi;
             if ((int)(uVar16 * 0x10000) <= iVar3) {
               iVar15 = (int)se->range - uVar16;
               iVar15 = iVar15 * iVar15;
               iVar3 = (int)(iVar3 + uVar16 * -0x10000) >> 2;
-              iVar3 = fixedmult(iVar3,iVar3);
-              iVar3 = (iVar15 >> 4) * 0x10000 - iVar3;
+              uVar6 = fixedmult(iVar3,iVar3);
+              iVar3 = (iVar15 >> 4) * 0x10000 - uVar6;
               if (iVar15 == 0) {
                 trap(0x1c00);
               }
@@ -613,37 +608,47 @@ void AudioTrk_AddCustomObject__FP9AudioElemiP8coorddefiP8Car_tObji( (AudioElem *
                 trap(0x1800);
               }
               uVar16 = (iVar3 / iVar15) * 0x7f0;
-              uVar7 = uVar16 >> 0x10;
-              uVar10 = trkazi;
+              uVar6 = uVar16 >> 0x10;
+              uVar9 = trkazi;
               if ((int)uVar16 < 0) {
-                uVar7 = uVar16 + 0xffff >> 0x10;
-                uVar10 = trkazi;
+                uVar6 = uVar16 + 0xffff >> 0x10;
+                uVar9 = trkazi;
               }
             }
           }
         }
-        if (0xa0000 < iDopplerIn) {
-          iDopplerIn = 0xa0000;
+        if (0xa0000 < (int)iDopplerIn) {
+          iDopplerIn = &LAB_000a0000;
         }
-        if (iDopplerIn < 1) {
-          iDopplerIn = 1;
+        if ((int)iDopplerIn < 1) {
+          iDopplerIn = (undefined *)0x1;
         }
-        uVar11 = PAD_state(4);
-        if ((uVar11 & 0x400) == 0) {
-          pAVar8 = (AudioElem *)
+        uVar10 = PAD_state(4);
+        if ((uVar10 & 0x400) == 0) {
+          pAVar7 = (AudioElem *)
                    AudioCmn_PlaySFX__Fiiiiii
-                             (iVar4 + 0x37,(int)*(short *)(ppAVar14 + 3),0x40,iDopplerIn,
-                              uVar7 & 0xff,uVar10 & 0xffff);
-          ppAVar14[1] = pAVar8;
+                             (iVar4 + 0x37,(int)*(short *)(ppAVar13 + 3),0x40,(int)iDopplerIn,
+                              uVar6 & 0xff,uVar9 & 0xffff);
+          ppAVar13[1] = pAVar7;
         }
+      }
+    }
+    else {
+      iVar3 = (int)se->chan;
+      if (-1 < iVar3) {
+        piVar11 = (int *)(iGp00000208 + iVar3 * 0x10);
+        if (piVar11[1] != -1) {
+          freeVoiceChannel__Fi(iVar3 + 0x37);
+          piVar11[1] = -1;
+        }
+        *(undefined *)(*piVar11 + 0x15) = 0xff;
+        *piVar11 = 0;
+        *(undefined2 *)(piVar11 + 3) = 0xffff;
       }
     }
   }
   return;
-
-
 }
-
 
 
 
@@ -831,19 +836,20 @@ void AudioTrk_AddCustomObject__FP9AudioElemiP8coorddefiP8Car_tObji( (AudioElem *
 	// End Line: 471
 
 void AudioTrk_SoundTrack__FP8Car_tObji(Car_tObj *car,int trkazi)
+
 {
   uint uVar1;
-  int fade;
   int iVar2;
   short sVar3;
+  int iVar4;
   int ticks;
+  int fade;
   int ticks_00;
-  byte *pbVar4;
+  int iVar5;
+  byte *pbVar6;
   Trk_AnimateInst *animInst;
   AudioElem *se;
   coorddef *vel;
-  int iVar5;
-  int iVar6;
   coorddef local_60;
   coorddef local_50;
   int local_40;
@@ -852,29 +858,36 @@ void AudioTrk_SoundTrack__FP8Car_tObji(Car_tObj *car,int trkazi)
   int local_34;
   int local_30;
   
-  if ((((DAT_801131f8 != 1) && (gMasterAmbientLevel != 0)) && (iGp00000208 != 0)) && (false)) {
-    ticks_00 = (iRam00000004 >> 2) + 1;
-    local_38 = 0;
-    local_34 = 0;
-    local_30 = 0;
-    iVar5 = 0;
-    iVar6 = iRam00000004;
-    if (ticks_00 <= iRam00000004) {
-      iVar6 = ticks_00;
+  if ((((GameSetup_gData.commMode != 1) && (gMasterAmbientLevel != 0)) && (DAT_00000208 != 0)) &&
+     (gGameAudioList != (CAudioList *)0x0)) {
+    iVar5 = gGameAudioList->numElements_;
+    fade = simGlobal.gameTicks >> 1;
+    ticks_00 = (iVar5 >> 2) + 1;
+    local_38 = simGlobal.gameTicks >> 3;
+    local_34 = AudioClc_gRenderView.translation.x;
+    local_30 = AudioClc_gRenderView.translation.z;
+    iVar4 = fade;
+    if (fade < 0) {
+      iVar4 = fade + 3;
     }
-    se = (AudioElem *)&DAT_00000010;
-    pbVar4 = (byte *)0x24;
-    while (ticks_00 = local_38, iVar5 < iVar6) {
-      if (((int)(char)pbVar4[1] != -1) &&
-         (*(AudioElem **)(iGp00000208 + (int)(char)pbVar4[1] * 0x10) != se)) {
-        pbVar4[1] = 0xff;
+    iVar4 = (fade + (iVar4 >> 2) * -4) * ticks_00;
+    ticks_00 = iVar4 + ticks_00;
+    if (ticks_00 <= iVar5) {
+      iVar5 = ticks_00;
+    }
+    se = (AudioElem *)((int)gGameAudioList + iVar4 * 0x18 + 0x10);
+    pbVar6 = (byte *)&se->type;
+    while (ticks_00 = local_38, iVar4 < iVar5) {
+      if (((int)(char)pbVar6[1] != -1) &&
+         (*(AudioElem **)(DAT_00000208 + (int)(char)pbVar6[1] * 0x10) != se)) {
+        pbVar6[1] = 0xff;
       }
       animInst = (Trk_AnimateInst *)0x0;
-      if ((uint)*pbVar4 - 4 < 0x20) {
+      if ((uint)*pbVar6 - 4 < 0x20) {
         local_60.z = 0;
         local_60.y = 0;
         local_60.x = 0;
-        animInst = (Trk_AnimateInst *)(&_Anim_gInstanceFromIndex)[(uint)*pbVar4 - 4];
+        animInst = (&__Anim_gInstanceFromIndex_32__)[(uint)*pbVar6 - 4];
         if (animInst != (Trk_AnimateInst *)0x0) {
           ticks_00 = DrawW_GetAnimationTime__FP15Trk_AnimateInst(animInst);
           Anim_GetPos__FP15Trk_AnimateInstiiP8coorddefPiT4
@@ -882,17 +895,17 @@ void AudioTrk_SoundTrack__FP8Car_tObji(Car_tObj *car,int trkazi)
         }
       }
       else {
-        if ((((*(uint *)(pbVar4 + -4) & 0xffff0000) != 0) &&
-            ((int)(uint)*(ushort *)(pbVar4 + -8) < local_38)) && (pbVar4[1] == 0xff)) {
+        if ((((*(uint *)(pbVar6 + -4) & 0xffff0000) != 0) &&
+            ((int)(uint)*(ushort *)(pbVar6 + -8) < local_38)) && (pbVar6[1] == 0xff)) {
           sVar3 = 0;
-          if (1 < pbVar4[-1]) {
+          if (1 < pbVar6[-1]) {
             uVar1 = random();
-            sVar3 = (short)(uVar1 % (uint)pbVar4[-1]);
-            if (pbVar4[-1] == 0) {
+            sVar3 = (short)(uVar1 % (uint)pbVar6[-1]);
+            if (pbVar6[-1] == 0) {
               trap(0x1c00);
             }
           }
-          *(ushort *)(pbVar4 + -8) = (ushort)pbVar4[-2] + (short)ticks_00 + sVar3;
+          *(ushort *)(pbVar6 + -8) = (ushort)pbVar6[-2] + (short)ticks_00 + sVar3;
         }
       }
       fade = (se->cp).x;
@@ -900,9 +913,9 @@ void AudioTrk_SoundTrack__FP8Car_tObji(Car_tObj *car,int trkazi)
       if (ticks < 1) {
         ticks = local_34 - fade;
       }
-      fade = *(int *)(pbVar4 + -0xc) - local_30;
+      fade = *(int *)(pbVar6 + -0xc) - local_30;
       if (fade < 1) {
-        fade = local_30 - *(int *)(pbVar4 + -0xc);
+        fade = local_30 - *(int *)(pbVar6 + -0xc);
       }
       if (fade < ticks) {
         ticks = ticks + (fade >> 2);
@@ -911,22 +924,22 @@ void AudioTrk_SoundTrack__FP8Car_tObji(Car_tObj *car,int trkazi)
         ticks = fade + (ticks >> 2);
       }
       vel = (coorddef *)0x0;
-      if ((ticks < ((int)*(short *)(pbVar4 + -4) + 100) * 0x10000) || (-1 < (char)pbVar4[1])) {
+      if ((ticks < ((int)*(short *)(pbVar6 + -4) + 100) * 0x10000) || (-1 < (char)pbVar6[1])) {
         fade = 0x80;
-        if ((uint)*pbVar4 - 4 < 0x20) {
+        if ((uint)*pbVar6 - 4 < 0x20) {
           if (animInst != (Trk_AnimateInst *)0x0) {
-            *(ushort *)(pbVar4 + -8) = (ushort)pbVar4[-2];
-            ticks = (uint)pbVar4[-5] * 8;
+            *(ushort *)(pbVar6 + -8) = (ushort)pbVar6[-2];
+            ticks = (uint)pbVar6[-5] * 8;
             if (local_40 < ticks) {
               fade = 0;
             }
             else {
               if (local_40 < ticks + 0x80) {
-                fade = local_40 + (uint)pbVar4[-5] * -8;
+                fade = local_40 + (uint)pbVar6[-5] * -8;
               }
             }
-            ticks = (uint)pbVar4[-1] * 8;
-            if (pbVar4[-1] != 0) {
+            ticks = (uint)pbVar6[-1] * 8;
+            if (pbVar6[-1] != 0) {
               if (ticks + 0x80 < local_40) {
                 fade = 0;
               }
@@ -946,8 +959,8 @@ void AudioTrk_SoundTrack__FP8Car_tObji(Car_tObj *car,int trkazi)
               ticks = ticks - ticks_00;
               if (ticks == 0x20) {
                 local_60.x = (local_50.x - (se->cp).x) * 2;
-                local_60.y = (local_50.y - *(int *)(pbVar4 + -0x10)) * 2;
-                local_60.z = (local_50.z - *(int *)(pbVar4 + -0xc)) * 2;
+                local_60.y = (local_50.y - *(int *)(pbVar6 + -0x10)) * 2;
+                local_60.z = (local_50.z - *(int *)(pbVar6 + -0xc)) * 2;
               }
               else {
                 if (ticks == 0) goto LAB_8007d294;
@@ -959,7 +972,7 @@ void AudioTrk_SoundTrack__FP8Car_tObji(Car_tObj *car,int trkazi)
                 if ((ticks == -1) && (iVar2 == -0x80000000)) {
                   trap(0x1800);
                 }
-                iVar2 = (local_50.y - *(int *)(pbVar4 + -0x10)) * 0x40;
+                iVar2 = (local_50.y - *(int *)(pbVar6 + -0x10)) * 0x40;
                 local_60.y = iVar2 / ticks;
                 if (ticks == 0) {
                   trap(0x1c00);
@@ -967,7 +980,7 @@ void AudioTrk_SoundTrack__FP8Car_tObji(Car_tObj *car,int trkazi)
                 if ((ticks == -1) && (iVar2 == -0x80000000)) {
                   trap(0x1800);
                 }
-                iVar2 = (local_50.z - *(int *)(pbVar4 + -0xc)) * 0x40;
+                iVar2 = (local_50.z - *(int *)(pbVar6 + -0xc)) * 0x40;
                 local_60.z = iVar2 / ticks;
                 if (ticks == 0) {
                   trap(0x1c00);
@@ -991,22 +1004,19 @@ LAB_8007d294:
             }
             ticks_00 = ticks >> 3;
           }
-          if (((uint)*pbVar4 - 4 < 0x20) && (animInst == (Trk_AnimateInst *)0x0)) goto LAB_8007d31c;
+          if (((uint)*pbVar6 - 4 < 0x20) && (animInst == (Trk_AnimateInst *)0x0)) goto LAB_8007d31c;
         }
         AudioTrk_AddCustomObject__FP9AudioElemiP8coorddefiP8Car_tObji
                   (se,ticks_00,vel,fade,car,trkazi);
       }
 LAB_8007d31c:
-      pbVar4 = pbVar4 + 0x18;
+      pbVar6 = pbVar6 + 0x18;
       se = se + 1;
-      iVar5 = iVar5 + 1;
+      iVar4 = iVar4 + 1;
     }
   }
   return;
-
-
 }
-
 
 
 
@@ -1021,7 +1031,7 @@ LAB_8007d31c:
 	// 		int vx; // $s5
 	// 		int vz; // $s4
 	// 		int tick; // $s7
-	// 		unsigned int loaded; // $s3
+	// 		void * loaded; // $s3
 	// 		int check; // stack offset -48
 	// 		int numelems; // $s6
 
@@ -1073,76 +1083,78 @@ LAB_8007d31c:
 	// End offset: 0x8007D500
 	// End Line: 528
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 int AudioTrk_PreLoad__Fv(void)
+
 {
   bool bVar1;
   bool bVar2;
-  int iVar3;
-  int iVar4;
-  uint uVar5;
+  uint uVar3;
+  uchar *puVar4;
+  uchar *puVar5;
   int iVar6;
   int iVar7;
   int iVar8;
-  int iVar9;
-  int iVar10;
-  byte *pbVar11;
-  int *piVar12;
-  undefined auStack48 [8];
+  byte *pbVar9;
+  CAudioList *pCVar10;
+  int iVar11;
+  int iVar12;
+  int iVar13;
+  int aiStack48 [2];
   
-  iVar4 = iRam00000008;
-  iVar8 = __front_dtors_size;
-  if ((true) || (gMasterAmbientLevel == 0)) {
-    uVar5 = 1;
+  if ((gGameAudioList == (CAudioList *)0x0) || (gMasterAmbientLevel == 0)) {
+    uVar3 = 1;
   }
   else {
+    iVar12 = BWorldSm_slices->center[0];
+    iVar11 = BWorldSm_slices->center[2];
     bVar2 = false;
-    iVar6 = gettick();
-    iVar3 = iRam00000004;
+    puVar4 = gettick();
+    iVar13 = gGameAudioList->numElements_;
     while( true ) {
       bVar1 = false;
-      if ((!bVar2) && (iVar7 = gettick(), iVar7 < iVar6 + 0x280)) {
-        iVar7 = SNDmemlargestunused(auStack48);
-        bVar1 = 0x8000 < iVar7;
+      if ((!bVar2) && (puVar5 = gettick(), (int)puVar5 < (int)(puVar4 + 0x280))) {
+        iVar6 = SNDmemlargestunused(aiStack48);
+        bVar1 = 0x8000 < iVar6;
       }
       bVar2 = true;
       if (!bVar1) break;
-      iVar7 = 0;
-      piVar12 = (int *)&DAT_00000010;
-      pbVar11 = (byte *)0x1e;
-      while (iVar7 < iVar3) {
-        iVar10 = *piVar12 - iVar8;
-        if (iVar10 < 1) {
-          iVar10 = iVar8 - *piVar12;
+      iVar6 = 0;
+      pCVar10 = gGameAudioList + 1;
+      pbVar9 = (byte *)((int)&gGameAudioList[1].versionNumber_ + 2);
+      while (iVar6 < iVar13) {
+        iVar8 = pCVar10->id_ - iVar12;
+        if (iVar8 < 1) {
+          iVar8 = iVar12 - pCVar10->id_;
         }
-        iVar9 = *(int *)(pbVar11 + -6) - iVar4;
-        if (iVar9 < 1) {
-          iVar9 = iVar4 - *(int *)(pbVar11 + -6);
+        iVar7 = *(int *)(pbVar9 + -6) - iVar11;
+        if (iVar7 < 1) {
+          iVar7 = iVar11 - *(int *)(pbVar9 + -6);
         }
-        if (iVar9 < iVar10) {
-          iVar10 = iVar10 + (iVar9 >> 2);
+        if (iVar7 < iVar8) {
+          iVar8 = iVar8 + (iVar7 >> 2);
         }
         else {
-          iVar10 = iVar9 + (iVar10 >> 2);
+          iVar8 = iVar7 + (iVar8 >> 2);
         }
-        if (((iVar10 < ((int)*(short *)(pbVar11 + 2) + 100) * 0x10000) && (false)) &&
-           (iVar10 = AudioCmn_GetAsyncSfx__Fiib(0,(uint)*pbVar11,0), iVar10 == -1)) {
+        if (((iVar8 < ((int)*(short *)(pbVar9 + 2) + 100) * 0x10000) &&
+            ((int)(uint)*pbVar9 < CopSpeak_gNumTrackSfx)) &&
+           (iVar8 = AudioCmn_GetAsyncSfx__Fiib(0,(uint)*pbVar9,(void *)0x0), iVar8 == -1)) {
           bVar2 = false;
         }
-        pbVar11 = pbVar11 + 0x18;
-        piVar12 = piVar12 + 6;
-        iVar7 = iVar7 + 1;
+        pbVar9 = pbVar9 + 0x18;
+        pCVar10 = (CAudioList *)&pCVar10[1].slice_;
+        iVar6 = iVar6 + 1;
       }
       CopSpeak_Server__Fv();
       systemtask(0);
     }
-    iVar8 = gettick();
-    uVar5 = (uint)(iVar8 < iVar6 + 0x280);
+    puVar5 = gettick();
+    uVar3 = (uint)((int)puVar5 < (int)(puVar4 + 0x280));
   }
-  return uVar5;
-
-
+  return uVar3;
 }
-
 
 
 
@@ -1180,28 +1192,28 @@ int AudioTrk_PreLoad__Fv(void)
 	// End offset: 0x8007D5AC
 	// End Line: 549
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void AudioTrk_CleanUp__Fv(void)
+
 {
   int iVar1;
   
   AudioTrk_Reset__Fv();
   iVar1 = 0;
-  if (iGp00000208 != 0) {
+  if (DAT_00000208 != 0) {
     do {
-      if (*(int *)(iGp00000208 + iVar1 * 0x10 + 4) != -1) {
+      if (*(int *)(DAT_00000208 + iVar1 * 0x10 + 4) != -1) {
         freeVoiceChannel__Fi(iVar1 + 0x37);
-        *(undefined4 *)(iGp00000208 + iVar1 * 0x10 + 4) = 0xffffffff;
+        *(undefined4 *)(DAT_00000208 + iVar1 * 0x10 + 4) = 0xffffffff;
       }
       iVar1 = iVar1 + 1;
     } while (iVar1 < 0x10);
-    purgememadr(iGp00000208);
-    iGp00000208 = 0;
+    purgememadr(DAT_00000208);
+    DAT_00000208 = 0;
   }
   return;
-
-
 }
-
 
 
 

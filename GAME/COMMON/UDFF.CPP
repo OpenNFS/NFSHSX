@@ -15,11 +15,12 @@
 	// End Line: 77
 
 Udff_tInfo * Udff_Opena__FPcT0i(char *name,char *mem,int abortFlag)
+
 {
   Udff_tInfo *pUVar1;
   char *pcVar2;
   
-  pUVar1 = (Udff_tInfo *)reservememadr("udffhandle",0xc,0x10);
+  pUVar1 = (Udff_tInfo *)reservememadr(s_udffhandle_80056730,0xc,0x10);
   if (pUVar1 != (Udff_tInfo *)0x0) {
     if (name == (char *)0x0) {
       if (mem != (char *)0x0) {
@@ -38,19 +39,16 @@ Udff_tInfo * Udff_Opena__FPcT0i(char *name,char *mem,int abortFlag)
         if (pcVar2 != (char *)0x0) {
           return pUVar1;
         }
-        purgememadr(pUVar1);
+        purgememadr((int)pUVar1);
         return (Udff_tInfo *)0x0;
       }
     }
     if (pUVar1 != (Udff_tInfo *)0x0) {
-      purgememadr(pUVar1);
+      purgememadr((int)pUVar1);
     }
   }
   return (Udff_tInfo *)0x0;
-
-
 }
-
 
 
 
@@ -66,18 +64,16 @@ Udff_tInfo * Udff_Opena__FPcT0i(char *name,char *mem,int abortFlag)
 	// End Line: 100
 
 void Udff_Close__FP10Udff_tInfo(Udff_tInfo *handle)
+
 {
   if (handle != (Udff_tInfo *)0x0) {
     if ((handle->type == UDFF_FILE) && (handle->handle != 0)) {
-      purgememadr();
+      purgememadr(handle->handle);
     }
-    purgememadr(handle);
+    purgememadr((int)handle);
   }
   return;
-
-
 }
-
 
 
 
@@ -95,16 +91,14 @@ void Udff_Close__FP10Udff_tInfo(Udff_tInfo *handle)
 	// End Line: 121
 
 int Udff_GetInt__FP10Udff_tInfo(Udff_tInfo *handle)
+
 {
   int iVar1;
   
   iVar1 = *(int *)handle->memPtr;
   handle->memPtr = handle->memPtr + 1;
   return iVar1;
-
-
 }
-
 
 
 
@@ -120,14 +114,12 @@ int Udff_GetInt__FP10Udff_tInfo(Udff_tInfo *handle)
 	// End Line: 204
 
 void Udff_GetBuffer__FP10Udff_tInfoPci(Udff_tInfo *handle,char *mem,int size)
+
 {
   memcpy(mem,handle->memPtr,size);
   handle->memPtr = handle->memPtr + size;
   return;
-
-
 }
-
 
 
 

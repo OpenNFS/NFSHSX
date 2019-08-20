@@ -9,16 +9,16 @@ extern void FECheat_EncodeString2__FPcT0(char *input, char *output); // 0x800234
 
 extern void FECheat_ActivateBonus__F10tCheatCode(enum tCheatCode cheat); // 0x800235D8
 
-extern unsigned int FECheat_ActivateCheat__FPc(char *cheat); // 0x80023614
+extern void * FECheat_ActivateCheat__FPc(char *cheat); // 0x80023614
 
-extern unsigned int FECheat_IsCheatEnabled__F10tCheatCode(enum tCheatCode cheat); // 0x8002371C
+extern void * FECheat_IsCheatEnabled__F10tCheatCode(enum tCheatCode cheat); // 0x8002371C
 
 extern void FECheat_SaveBonus__FRUl(unsigned long *cheat); // 0x80023748
 
 extern void FECheat_LoadBonus__FRUl(unsigned long *cheat); // 0x80023758
 
-extern unsigned int FECheat_IsTheUserACryBabyCheater__Fv(); // 0x800237D0
+extern void * FECheat_IsTheUserACryBabyCheater__Fv(); // 0x800237D0
 
-extern unsigned int FECheat_ActivateBonusByCode__FPc(char *code); // 0x800237E0
+extern void * FECheat_ActivateBonusByCode__FPc(char *code); // 0x800237E0
 
 #endif

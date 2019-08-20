@@ -24,7 +24,10 @@
 	// End offset: 0x800DD050
 	// End Line: 41
 
+/* WARNING: Could not reconcile some variable overlaps */
+
 void Sfx_Transform__FP8coorddefP7SVECTORT0(coorddef *worldpt,SVECTOR *campt,coorddef *t)
+
 {
   undefined4 uVar1;
   undefined4 uVar2;
@@ -37,7 +40,7 @@ void Sfx_Transform__FP8coorddefP7SVECTORT0(coorddef *worldpt,SVECTOR *campt,coor
   short local_38;
   undefined4 local_20;
   
-  TrsProj_SetPsxMatrix__FP10matrixtdefP8coorddef((matrixtdef *)&gWorldMat,(coorddef *)0x0);
+  TrsProj_SetPsxMatrix__FP10matrixtdefP8coorddef(&gWorldMat,(coorddef *)0x0);
   local_44 = local_44 & 0xffff0000 | worldpt->z - t->z >> 10 & 0xffffU;
   setCopReg(2,in_zero,worldpt->x - t->x >> 10 & 0xffffU | (worldpt->y - t->y >> 10) << 0x10);
   setCopReg(2,in_at,local_44);
@@ -61,10 +64,7 @@ void Sfx_Transform__FP8coorddefP7SVECTORT0(coorddef *worldpt,SVECTOR *campt,coor
   setCopControlWord(2,0x3000,0);
   setCopControlWord(2,0x3800,0);
   return;
-
-
 }
-
 
 
 
@@ -109,52 +109,56 @@ void Sfx_Transform__FP8coorddefP7SVECTORT0(coorddef *worldpt,SVECTOR *campt,coor
 	// End offset: 0x800DD2E0
 	// End Line: 114
 
-void Sfx_BuildSmokeFacet__FP17Souffle_tISouffleP10sfxsouffleP12Draw_tPixMap( (Souffle_tISouffle *is,sfxsouffle *dSouffle,Draw_tPixMap *cpixmap)
+void Sfx_BuildSmokeFacet__FP17Souffle_tISouffleP10sfxsouffleP12Draw_tPixMap
+               (Souffle_tISouffle *is,sfxsouffle *dSouffle,Draw_tPixMap *cpixmap)
+
 {
   short sVar1;
-  short sVar2;
-  undefined4 uVar3;
-  undefined4 *puVar4;
-  undefined4 uVar5;
+  undefined *puVar2;
+  uint uVar3;
+  uint uVar4;
+  Draw_tPixMap *pDVar5;
   undefined4 uVar6;
-  int iVar7;
+  undefined4 uVar7;
+  undefined4 uVar8;
+  int iVar9;
+  short sVar10;
   
-  iVar7 = (0x1f - (uint)(byte)is->cycle) * 4 + 0x26;
-  uVar3 = fastintcos(is->angle);
-  sVar1 = fixedmult(uVar3,iVar7);
-  uVar3 = fastintsin(is->angle);
-  sVar2 = fixedmult(uVar3,iVar7);
-  (dSouffle->v0).vx = (is->trans).vx - sVar2;
+  iVar9 = (0x1f - (uint)(byte)is->cycle) * 4 + 0x26;
+  puVar2 = fastintcos(is->angle);
+  uVar3 = fixedmult((int)puVar2,iVar9);
+  puVar2 = fastintsin(is->angle);
+  uVar4 = fixedmult((int)puVar2,iVar9);
+  sVar10 = (short)uVar4;
+  (dSouffle->v0).vx = (is->trans).vx - sVar10;
+  sVar1 = (short)uVar3;
   (dSouffle->v0).vy = (is->trans).vy + sVar1;
   (dSouffle->v0).vz = (is->trans).vz;
   (dSouffle->v1).vx = (is->trans).vx + sVar1;
-  (dSouffle->v1).vy = (is->trans).vy + sVar2;
+  (dSouffle->v1).vy = (is->trans).vy + sVar10;
   (dSouffle->v1).vz = (is->trans).vz;
-  (dSouffle->v2).vx = (is->trans).vx + sVar2;
+  (dSouffle->v2).vx = (is->trans).vx + sVar10;
   (dSouffle->v2).vy = (is->trans).vy - sVar1;
   (dSouffle->v2).vz = (is->trans).vz;
   (dSouffle->v3).vx = (is->trans).vx - sVar1;
-  (dSouffle->v3).vy = (is->trans).vy - sVar2;
+  (dSouffle->v3).vy = (is->trans).vy - sVar10;
   (dSouffle->v3).vz = (is->trans).vz;
-  iVar7 = (int)(0x1f - (uint)(byte)is->cycle) >> 1;
-  sVar1 = (short)iVar7;
-  if (0xf < iVar7) {
-    sVar1 = 0xf;
+  iVar9 = (int)(0x1f - (uint)(byte)is->cycle) >> 1;
+  sVar10 = (short)iVar9;
+  if (0xf < iVar9) {
+    sVar10 = 0xf;
   }
-  puVar4 = *(undefined4 **)(&_gSMokePixmap + is->rndpixmap * 4);
-  uVar3 = puVar4[1];
-  uVar5 = puVar4[2];
-  uVar6 = puVar4[3];
-  *(undefined4 *)&dSouffle->pmx = *puVar4;
-  *(undefined4 *)&(dSouffle->pmx).u1 = uVar3;
-  *(undefined4 *)&(dSouffle->pmx).u2 = uVar5;
-  *(undefined4 *)&(dSouffle->pmx).u3 = uVar6;
-  (dSouffle->pmx).clut = cpixmap->clut + sVar1;
+  pDVar5 = (&__gSMokePixmap_2__)[is->rndpixmap];
+  uVar6 = *(undefined4 *)&pDVar5->u1;
+  uVar7 = *(undefined4 *)&pDVar5->u2;
+  uVar8 = *(undefined4 *)&pDVar5->u3;
+  *(undefined4 *)&dSouffle->pmx = *(undefined4 *)pDVar5;
+  *(undefined4 *)&(dSouffle->pmx).u1 = uVar6;
+  *(undefined4 *)&(dSouffle->pmx).u2 = uVar7;
+  *(undefined4 *)&(dSouffle->pmx).u3 = uVar8;
+  (dSouffle->pmx).clut = cpixmap->clut + sVar10;
   return;
-
-
 }
-
 
 
 
@@ -182,35 +186,35 @@ void Sfx_BuildSmokeFacet__FP17Souffle_tISouffleP10sfxsouffleP12Draw_tPixMap( (So
 	// End Line: 164
 
 void Sfx_ThickenXZ__FP7SVECTORP8coorddefN21(SVECTOR *d,coorddef *pt1,coorddef *pt2,coorddef *cp)
+
 {
-  undefined4 uVar1;
-  int iVar2;
-  int iVar3;
+  uint uVar1;
+  undefined *puVar2;
+  uint uVar3;
+  int iVar4;
+  int iVar5;
   
   uVar1 = intatan(pt2->x - pt1->x,pt2->z - pt1->z);
-  iVar2 = fastintcos(uVar1);
-  iVar2 = fixedmult(0xe666,-iVar2);
-  iVar2 = iVar2 >> 1;
-  uVar1 = fastintsin(uVar1);
-  iVar3 = fixedmult(0xe666,uVar1);
-  d[1].vx = (short)((pt1->x + iVar2) - cp->x >> 10);
-  iVar3 = iVar3 >> 1;
+  puVar2 = fastintcos(uVar1);
+  uVar3 = fixedmult((int)&DAT_0000e666,-(int)puVar2);
+  iVar5 = (int)uVar3 >> 1;
+  puVar2 = fastintsin(uVar1);
+  uVar1 = fixedmult((int)&DAT_0000e666,(int)puVar2);
+  d[1].vx = (short)((pt1->x + iVar5) - cp->x >> 10);
+  iVar4 = (int)uVar1 >> 1;
   d[1].vy = (short)(pt1->y - cp->y >> 10);
-  d[1].vz = (short)((pt1->z + iVar3) - cp->z >> 10);
-  d[2].vx = (short)((pt1->x - iVar2) - cp->x >> 10);
+  d[1].vz = (short)((pt1->z + iVar4) - cp->z >> 10);
+  d[2].vx = (short)((pt1->x - iVar5) - cp->x >> 10);
   d[2].vy = (short)(pt1->y - cp->y >> 10);
-  d[2].vz = (short)((pt1->z - iVar3) - cp->z >> 10);
-  d->vx = (short)((pt2->x + iVar2) - cp->x >> 10);
+  d[2].vz = (short)((pt1->z - iVar4) - cp->z >> 10);
+  d->vx = (short)((pt2->x + iVar5) - cp->x >> 10);
   d->vy = (short)(pt2->y - cp->y >> 10);
-  d->vz = (short)((pt2->z + iVar3) - cp->z >> 10);
-  d[3].vx = (short)((pt2->x - iVar2) - cp->x >> 10);
+  d->vz = (short)((pt2->z + iVar4) - cp->z >> 10);
+  d[3].vx = (short)((pt2->x - iVar5) - cp->x >> 10);
   d[3].vy = (short)(pt2->y - cp->y >> 10);
-  d[3].vz = (short)((pt2->z - iVar3) - cp->z >> 10);
+  d[3].vz = (short)((pt2->z - iVar4) - cp->z >> 10);
   return;
-
-
 }
-
 
 
 
@@ -227,7 +231,9 @@ void Sfx_ThickenXZ__FP7SVECTORP8coorddefN21(SVECTOR *d,coorddef *pt1,coorddef *p
 	// End offset: 0x800DD544
 	// End Line: 295
 
-void Sfx_BuildFastDisolveFacet__FP17Souffle_tISouffleP10sfxsouffleP12Draw_tPixMapT2( (Souffle_tISouffle *is,sfxsouffle *dSouffle,Draw_tPixMap *t,Draw_tPixMap *c)
+void Sfx_BuildFastDisolveFacet__FP17Souffle_tISouffleP10sfxsouffleP12Draw_tPixMapT2
+               (Souffle_tISouffle *is,sfxsouffle *dSouffle,Draw_tPixMap *t,Draw_tPixMap *c)
+
 {
   short sVar1;
   undefined4 uVar2;
@@ -248,10 +254,7 @@ void Sfx_BuildFastDisolveFacet__FP17Souffle_tISouffleP10sfxsouffleP12Draw_tPixMa
   *(undefined4 *)&(dSouffle->pmx).u3 = uVar4;
   (dSouffle->pmx).clut = c->clut + sVar1;
   return;
-
-
 }
-
 
 
 
@@ -289,7 +292,9 @@ void Sfx_BuildFastDisolveFacet__FP17Souffle_tISouffleP10sfxsouffleP12Draw_tPixMa
 	// End offset: 0x800DD77C
 	// End Line: 363
 
-void Sfx_AdditivePrim__FP12Draw_tPixMapP7SVECTORiiP10Sfx_tCache( (Draw_tPixMap *pmx,SVECTOR *pt,int mode,int offset,Sfx_tCache *sd)
+void Sfx_AdditivePrim__FP12Draw_tPixMapP7SVECTORiiP10Sfx_tCache
+               (Draw_tPixMap *pmx,SVECTOR *pt,int mode,int offset,Sfx_tCache *sd)
+
 {
   undefined4 in_zero;
   undefined4 in_at;
@@ -300,13 +305,13 @@ void Sfx_AdditivePrim__FP12Draw_tPixMapP7SVECTORiiP10Sfx_tCache( (Draw_tPixMap *
   int nabr;
   ushort local_18 [4];
   
-  puVar3 = _DAT_1f800004;
+  puVar3 = DAT_1f800004;
   if ((sd->head).cprim.PrimPtr < (sd->head).cprim.MPrimPtr) {
     setCopReg(2,in_zero,*(undefined4 *)pt);
     setCopReg(2,in_at,*(undefined4 *)&pt->vz);
     copFunction(2,0x180001);
     uVar1 = getCopReg(2,0xe);
-    _DAT_1f800004[2] = uVar1;
+    DAT_1f800004[2] = uVar1;
     setCopReg(2,in_zero,*(undefined4 *)(pt + 1));
     setCopReg(2,in_at,*(undefined4 *)&pt[1].vz);
     setCopReg(2,pt + 3,*(undefined4 *)(pt + 2));
@@ -315,7 +320,7 @@ void Sfx_AdditivePrim__FP12Draw_tPixMapP7SVECTORiiP10Sfx_tCache( (Draw_tPixMap *
     setCopReg(2,pt,*(undefined4 *)&pt[3].vz);
     copFunction(2,0x280030);
     if ((mode & 2U) == 0) {
-      if (DAT_80113240 == 0) {
+      if (GameSetup_gData.Time == 0) {
         uVar1 = 0x2e181818;
       }
       else {
@@ -354,20 +359,17 @@ void Sfx_AdditivePrim__FP12Draw_tPixMapP7SVECTORiiP10Sfx_tCache( (Draw_tPixMap *
         nabr = 2;
       }
       ChangeTPage__FPUsi(local_18,nabr);
-      nabr = _DAT_1f800000;
+      nabr = DAT_1f800000;
       *(ushort *)((int)puVar3 + 0x16) = local_18[0];
-      *_DAT_1f800004 = *_DAT_1f800004 & 0xff000000 | *(uint *)(sd->otz * 4 + nabr) & 0xffffff;
+      *DAT_1f800004 = *DAT_1f800004 & 0xff000000 | *(uint *)(sd->otz * 4 + nabr) & 0xffffff;
       puVar3 = (uint *)(sd->otz * 4 + nabr);
-      uVar1 = (uint)_DAT_1f800004 & 0xffffff;
-      _DAT_1f800004 = _DAT_1f800004 + 10;
+      uVar1 = (uint)DAT_1f800004 & 0xffffff;
+      DAT_1f800004 = DAT_1f800004 + 10;
       *puVar3 = *puVar3 & 0xff000000 | uVar1;
     }
   }
   return;
-
-
 }
-
 
 
 
@@ -666,22 +668,27 @@ void Sfx_AdditivePrim__FP12Draw_tPixMapP7SVECTORiiP10Sfx_tCache( (Draw_tPixMap *
 	// End offset: 0x800DE61C
 	// End Line: 524
 
-void Sfx_BuildSouffleFacet__FP13DRender_tViewP17Souffle_tISouffle( (DRender_tView *Vi,Souffle_tISouffle *is)
+/* WARNING: Could not reconcile some variable overlaps */
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+void Sfx_BuildSouffleFacet__FP13DRender_tViewP17Souffle_tISouffle
+               (DRender_tView *Vi,Souffle_tISouffle *is)
+
 {
   bool bVar1;
   undefined4 in_zero;
   undefined4 in_at;
-  short sVar2;
-  short sVar3;
-  uint *puVar4;
-  undefined4 uVar5;
-  uint uVar6;
-  undefined *puVar7;
-  undefined4 *puVar8;
+  Draw_tPixMap *c;
+  undefined *puVar2;
+  uint uVar3;
+  uint uVar4;
+  short sVar5;
+  short sVar6;
+  Draw_tPixMap **ppDVar7;
+  matrixtdef *pmVar8;
   uint *puVar9;
   undefined4 uVar10;
   uint uVar11;
-  uint uVar12;
   int offset;
   int mode;
   undefined4 local_c8;
@@ -722,17 +729,14 @@ void Sfx_BuildSouffleFacet__FP13DRender_tViewP17Souffle_tISouffle( (DRender_tVie
   ushort local_20;
   ushort local_1e [3];
   
-  if (false) {
-    return;
-  }
   switch(is->type) {
   case '\x01':
     Sfx_BuildSmokeFacet__FP17Souffle_tISouffleP10sfxsouffleP12Draw_tPixMap
-              (is,(sfxsouffle *)&local_c8,(Draw_tPixMap *)0x0);
+              (is,(sfxsouffle *)&local_c8,gSMokePalette);
     goto LAB_800de114;
   case '\x02':
     Sfx_BuildSmokeFacet__FP17Souffle_tISouffleP10sfxsouffleP12Draw_tPixMap
-              (is,(sfxsouffle *)&local_c8,(Draw_tPixMap *)0x0);
+              (is,(sfxsouffle *)&local_c8,gSMokePalette);
     if ((byte)is->cycle < 0x12) {
       is->type = '\x01';
     }
@@ -741,7 +745,7 @@ void Sfx_BuildSouffleFacet__FP13DRender_tViewP17Souffle_tISouffle( (DRender_tVie
     return;
   case '\x03':
     Sfx_BuildSmokeFacet__FP17Souffle_tISouffleP10sfxsouffleP12Draw_tPixMap
-              (is,(sfxsouffle *)&local_c8,(Draw_tPixMap *)0x0);
+              (is,(sfxsouffle *)&local_c8,gSMokePalette);
     mode = 1;
     goto LAB_800de11c;
   case '\x04':
@@ -764,10 +768,10 @@ void Sfx_BuildSouffleFacet__FP13DRender_tViewP17Souffle_tISouffle( (DRender_tVie
       }
       if (mode < 0x20) {
         bVar1 = local_88.vx <= (is->trans).vx;
-        sVar2 = (is->trans).vx;
-        local_88.vx = sVar2 + 0x20;
+        sVar6 = (is->trans).vx;
+        local_88.vx = sVar6 + 0x20;
         if (bVar1) {
-          local_88.vx = sVar2 + -0x20;
+          local_88.vx = sVar6 + -0x20;
         }
       }
       local_b8 = CONCAT22((is->trans).vy + 0x20,(is->trans).vx);
@@ -784,46 +788,52 @@ void Sfx_BuildSouffleFacet__FP13DRender_tViewP17Souffle_tISouffle( (DRender_tVie
       return;
     }
     mode = 2;
-    puVar8 = (undefined4 *)(&_gSparkHPixmap)[6 - (uint)(byte)is->cycle];
-    local_c8 = *puVar8;
-    local_c4 = puVar8[1];
-    local_c0 = puVar8[2];
-    local_bc = puVar8[3];
+    c = (&__gSparkHPixmap_6__)[6 - (uint)(byte)is->cycle];
+    local_c8 = *(undefined4 *)c;
+    local_c4 = *(undefined4 *)&c->u1;
+    local_c0 = *(undefined4 *)&c->u2;
+    local_bc = *(undefined4 *)&c->u3;
     offset = 0x28;
     goto LAB_800de120;
   default:
     goto switchD_800dd7e0_caseD_5;
   case '\x06':
     mode = 0x88 - (uint)(byte)is->cycle;
-    uVar5 = fastintcos(is->angle);
-    sVar2 = fixedmult(uVar5,mode);
-    uVar5 = fastintsin(is->angle);
-    sVar3 = fixedmult(uVar5,mode);
-    local_b8 = CONCAT22((is->trans).vy + sVar2,(is->trans).vx - sVar3);
+    puVar2 = fastintcos(is->angle);
+    uVar3 = fixedmult((int)puVar2,mode);
+    puVar2 = fastintsin(is->angle);
+    uVar4 = fixedmult((int)puVar2,mode);
+    sVar6 = (short)uVar4;
+    sVar5 = (short)uVar3;
+    local_b8 = CONCAT22((is->trans).vy + sVar5,(is->trans).vx - sVar6);
     local_b4 = CONCAT22(local_b4._2_2_,(is->trans).vz);
-    local_b0 = CONCAT22((is->trans).vy + sVar3,(is->trans).vx + sVar2);
+    local_b0 = CONCAT22((is->trans).vy + sVar6,(is->trans).vx + sVar5);
     local_ac = CONCAT22(local_ac._2_2_,(is->trans).vz);
-    local_a8 = CONCAT22((is->trans).vy - sVar2,(is->trans).vx + sVar3);
+    local_a8 = CONCAT22((is->trans).vy - sVar5,(is->trans).vx + sVar6);
     local_a4 = CONCAT22(local_a4._2_2_,(is->trans).vz);
-    sVar2 = (is->trans).vx - sVar2;
-    sVar3 = (is->trans).vy - sVar3;
+    sVar5 = (is->trans).vx - sVar5;
+    sVar6 = (is->trans).vy - sVar6;
+    c = gDirtPalette;
     goto LAB_800de0e0;
   case '\a':
     mode = (8 - (uint)(byte)is->cycle) * 4 + 0x19;
-    uVar5 = fastintcos(is->angle);
-    sVar2 = fixedmult(uVar5,mode);
-    uVar5 = fastintsin(is->angle);
-    sVar3 = fixedmult(uVar5,mode);
-    local_b8 = CONCAT22((is->trans).vy + sVar2,(is->trans).vx - sVar3);
+    puVar2 = fastintcos(is->angle);
+    uVar3 = fixedmult((int)puVar2,mode);
+    puVar2 = fastintsin(is->angle);
+    uVar4 = fixedmult((int)puVar2,mode);
+    sVar6 = (short)uVar4;
+    sVar5 = (short)uVar3;
+    local_b8 = CONCAT22((is->trans).vy + sVar5,(is->trans).vx - sVar6);
     local_b4 = CONCAT22(local_b4._2_2_,(is->trans).vz);
-    local_b0 = CONCAT22((is->trans).vy + sVar3,(is->trans).vx + sVar2);
+    local_b0 = CONCAT22((is->trans).vy + sVar6,(is->trans).vx + sVar5);
     local_ac = CONCAT22(local_ac._2_2_,(is->trans).vz);
-    local_a8 = CONCAT22((is->trans).vy - sVar2,(is->trans).vx + sVar3);
+    local_a8 = CONCAT22((is->trans).vy - sVar5,(is->trans).vx + sVar6);
     local_a4 = CONCAT22(local_a4._2_2_,(is->trans).vz);
-    local_a0 = CONCAT22((is->trans).vy - sVar3,(is->trans).vx - sVar2);
+    local_a0 = CONCAT22((is->trans).vy - sVar6,(is->trans).vx - sVar5);
     local_9c = CONCAT22(local_9c._2_2_,(is->trans).vz);
-    puVar7 = &_gGravelPixmap;
+    ppDVar7 = &__gGravelPixmap_2__;
     mode = is->rndpixmap << 2;
+    c = gGrassPalette;
     break;
   case '\b':
     local_98.z = 0x2e301818;
@@ -842,11 +852,11 @@ void Sfx_BuildSouffleFacet__FP13DRender_tViewP17Souffle_tISouffle( (DRender_tVie
     Sfx_ThickenXZ__FP7SVECTORP8coorddefN21
               ((SVECTOR *)&local_70,(coorddef *)&local_50,(coorddef *)(&local_50 + 0xc),
                (coorddef *)&Vi->cview);
-    puVar8 = &gWorldMat;
-    uVar5 = 0;
-    TrsProj_SetPsxMatrix__FP10matrixtdefP8coorddef((matrixtdef *)&gWorldMat,(coorddef *)0x0);
-    puVar9 = _DAT_1f800004;
-    if (_DAT_1f800008 <= _DAT_1f800004) {
+    pmVar8 = &gWorldMat;
+    uVar10 = 0;
+    TrsProj_SetPsxMatrix__FP10matrixtdefP8coorddef(&gWorldMat,(coorddef *)0x0);
+    puVar9 = DAT_1f800004;
+    if (DAT_1f800008 <= DAT_1f800004) {
       return;
     }
     setCopReg(2,in_zero,local_68);
@@ -858,22 +868,22 @@ void Sfx_BuildSouffleFacet__FP13DRender_tViewP17Souffle_tISouffle( (DRender_tVie
     if (local_30 < 0x20) {
       return;
     }
-    uVar6 = getCopReg(2,0xe);
-    _DAT_1f800004[4] = uVar6;
+    uVar3 = getCopReg(2,0xe);
+    DAT_1f800004[4] = uVar3;
     setCopReg(2,in_zero,local_70);
     setCopReg(2,in_at,local_6c);
     setCopReg(2,&local_58,local_60);
     setCopReg(2,&local_60,local_5c);
-    setCopReg(2,puVar8,local_58);
-    setCopReg(2,uVar5,local_54);
+    setCopReg(2,pmVar8,local_58);
+    setCopReg(2,uVar10,local_54);
     copFunction(2,0x280030);
     puVar9[1] = local_7c;
-    uVar6 = getCopReg(2,0xc);
-    puVar9[2] = uVar6;
-    uVar6 = getCopReg(2,0xd);
-    puVar9[8] = uVar6;
-    uVar6 = getCopReg(2,0xe);
-    puVar9[6] = uVar6;
+    uVar3 = getCopReg(2,0xc);
+    puVar9[2] = uVar3;
+    uVar3 = getCopReg(2,0xd);
+    puVar9[8] = uVar3;
+    uVar3 = getCopReg(2,0xe);
+    puVar9[6] = uVar3;
     copFunction(2,0x168002e);
     mode = getCopReg(2,7);
     _DAT_1f800014 = (mode >> 1) + 0x32;
@@ -884,40 +894,43 @@ void Sfx_BuildSouffleFacet__FP13DRender_tViewP17Souffle_tISouffle( (DRender_tVie
       return;
     }
     *(undefined *)((int)puVar9 + 3) = 9;
-    puVar4 = (uint *)(&_gSparkHPixmap)[6 - (uint)(byte)is->cycle];
-    uVar6 = puVar4[1];
-    uVar11 = puVar4[2];
-    uVar12 = puVar4[3];
-    puVar9[3] = *puVar4;
-    puVar9[5] = uVar6;
-    puVar9[7] = uVar11;
-    puVar9[9] = uVar12;
-    local_1e[0] = *(ushort *)((int)puVar4 + 6);
+    c = (&__gSparkHPixmap_6__)[6 - (uint)(byte)is->cycle];
+    uVar3 = *(uint *)&c->u1;
+    uVar4 = *(uint *)&c->u2;
+    uVar11 = *(uint *)&c->u3;
+    puVar9[3] = *(uint *)c;
+    puVar9[5] = uVar3;
+    puVar9[7] = uVar4;
+    puVar9[9] = uVar11;
+    local_1e[0] = c->tpage;
     ChangeTPage__FPUsi(local_1e,2);
-    mode = _DAT_1f800000;
+    mode = DAT_1f800000;
     *(ushort *)((int)puVar9 + 0x16) = local_1e[0];
-    *_DAT_1f800004 = *_DAT_1f800004 & 0xff000000 | *(uint *)(_DAT_1f800014 * 4 + mode) & 0xffffff;
+    *DAT_1f800004 = *DAT_1f800004 & 0xff000000 | *(uint *)(_DAT_1f800014 * 4 + mode) & 0xffffff;
     puVar9 = (uint *)(_DAT_1f800014 * 4 + mode);
-    uVar6 = *puVar9;
-    uVar11 = (uint)_DAT_1f800004 & 0xffffff;
-    _DAT_1f800004 = _DAT_1f800004 + 10;
+    uVar3 = *puVar9;
+    uVar4 = (uint)DAT_1f800004 & 0xffffff;
+    DAT_1f800004 = DAT_1f800004 + 10;
     goto LAB_800de610;
   case '\t':
     mode = (8 - (uint)(byte)is->cycle) * 4 + 0x19;
-    uVar5 = fastintcos(is->angle);
-    sVar2 = fixedmult(uVar5,mode);
-    uVar5 = fastintsin(is->angle);
-    sVar3 = fixedmult(uVar5,mode);
-    local_b8 = CONCAT22((is->trans).vy + sVar2,(is->trans).vx - sVar3);
+    puVar2 = fastintcos(is->angle);
+    uVar3 = fixedmult((int)puVar2,mode);
+    puVar2 = fastintsin(is->angle);
+    uVar4 = fixedmult((int)puVar2,mode);
+    sVar6 = (short)uVar4;
+    sVar5 = (short)uVar3;
+    local_b8 = CONCAT22((is->trans).vy + sVar5,(is->trans).vx - sVar6);
     local_b4 = CONCAT22(local_b4._2_2_,(is->trans).vz);
-    local_b0 = CONCAT22((is->trans).vy + sVar3,(is->trans).vx + sVar2);
+    local_b0 = CONCAT22((is->trans).vy + sVar6,(is->trans).vx + sVar5);
     local_ac = CONCAT22(local_ac._2_2_,(is->trans).vz);
-    local_a8 = CONCAT22((is->trans).vy - sVar2,(is->trans).vx + sVar3);
+    local_a8 = CONCAT22((is->trans).vy - sVar5,(is->trans).vx + sVar6);
     local_a4 = CONCAT22(local_a4._2_2_,(is->trans).vz);
-    local_a0 = CONCAT22((is->trans).vy - sVar3,(is->trans).vx - sVar2);
+    local_a0 = CONCAT22((is->trans).vy - sVar6,(is->trans).vx - sVar5);
     local_9c = CONCAT22(local_9c._2_2_,(is->trans).vz);
-    puVar7 = &_gGravelPixmap;
+    ppDVar7 = &__gGravelPixmap_2__;
     mode = is->rndpixmap << 2;
+    c = gSnowPalette;
     break;
   case '\n':
     local_98.x = 0x2e181010;
@@ -936,11 +949,11 @@ void Sfx_BuildSouffleFacet__FP13DRender_tViewP17Souffle_tISouffle( (DRender_tVie
     Sfx_ThickenXZ__FP7SVECTORP8coorddefN21
               ((SVECTOR *)&local_68,(coorddef *)(&local_50 + 8),(coorddef *)(&local_50 + 0x14),
                (coorddef *)&Vi->cview);
-    puVar8 = &gWorldMat;
-    uVar5 = 0;
-    TrsProj_SetPsxMatrix__FP10matrixtdefP8coorddef((matrixtdef *)&gWorldMat,(coorddef *)0x0);
-    puVar9 = _DAT_1f800004;
-    if (_DAT_1f800008 <= _DAT_1f800004) {
+    pmVar8 = &gWorldMat;
+    uVar10 = 0;
+    TrsProj_SetPsxMatrix__FP10matrixtdefP8coorddef(&gWorldMat,(coorddef *)0x0);
+    puVar9 = DAT_1f800004;
+    if (DAT_1f800008 <= DAT_1f800004) {
       return;
     }
     setCopReg(2,in_zero,local_60);
@@ -952,22 +965,22 @@ void Sfx_BuildSouffleFacet__FP13DRender_tViewP17Souffle_tISouffle( (DRender_tVie
     if (local_28 < 0x20) {
       return;
     }
-    uVar6 = getCopReg(2,0xe);
-    _DAT_1f800004[4] = uVar6;
+    uVar3 = getCopReg(2,0xe);
+    DAT_1f800004[4] = uVar3;
     setCopReg(2,in_zero,local_68);
     setCopReg(2,in_at,local_64);
     setCopReg(2,&local_50,local_58);
     setCopReg(2,&local_58,local_54);
-    setCopReg(2,puVar8,local_50);
-    setCopReg(2,uVar5,local_4c);
+    setCopReg(2,pmVar8,local_50);
+    setCopReg(2,uVar10,local_4c);
     copFunction(2,0x280030);
     puVar9[1] = local_74;
-    uVar6 = getCopReg(2,0xc);
-    puVar9[2] = uVar6;
-    uVar6 = getCopReg(2,0xd);
-    puVar9[8] = uVar6;
-    uVar6 = getCopReg(2,0xe);
-    puVar9[6] = uVar6;
+    uVar3 = getCopReg(2,0xc);
+    puVar9[2] = uVar3;
+    uVar3 = getCopReg(2,0xd);
+    puVar9[8] = uVar3;
+    uVar3 = getCopReg(2,0xe);
+    puVar9[6] = uVar3;
     copFunction(2,0x168002e);
     mode = getCopReg(2,7);
     _DAT_1f800014 = (mode >> 1) + 0x32;
@@ -978,68 +991,73 @@ void Sfx_BuildSouffleFacet__FP13DRender_tViewP17Souffle_tISouffle( (DRender_tVie
       return;
     }
     *(undefined *)((int)puVar9 + 3) = 9;
-    puVar4 = (uint *)(&_gSparkHPixmap)[6 - (uint)(byte)is->cycle];
-    uVar6 = puVar4[1];
-    uVar11 = puVar4[2];
-    uVar12 = puVar4[3];
-    puVar9[3] = *puVar4;
-    puVar9[5] = uVar6;
-    puVar9[7] = uVar11;
-    puVar9[9] = uVar12;
-    local_20 = *(ushort *)((int)puVar4 + 6);
+    c = (&__gSparkHPixmap_6__)[6 - (uint)(byte)is->cycle];
+    uVar3 = *(uint *)&c->u1;
+    uVar4 = *(uint *)&c->u2;
+    uVar11 = *(uint *)&c->u3;
+    puVar9[3] = *(uint *)c;
+    puVar9[5] = uVar3;
+    puVar9[7] = uVar4;
+    puVar9[9] = uVar11;
+    local_20 = c->tpage;
     ChangeTPage__FPUsi(&local_20,1);
-    mode = _DAT_1f800000;
+    mode = DAT_1f800000;
     *(ushort *)((int)puVar9 + 0x16) = local_20;
-    *_DAT_1f800004 = *_DAT_1f800004 & 0xff000000 | *(uint *)(_DAT_1f800014 * 4 + mode) & 0xffffff;
+    *DAT_1f800004 = *DAT_1f800004 & 0xff000000 | *(uint *)(_DAT_1f800014 * 4 + mode) & 0xffffff;
     puVar9 = (uint *)(_DAT_1f800014 * 4 + mode);
-    uVar6 = *puVar9;
-    uVar11 = (uint)_DAT_1f800004 & 0xffffff;
-    _DAT_1f800004 = _DAT_1f800004 + 10;
+    uVar3 = *puVar9;
+    uVar4 = (uint)DAT_1f800004 & 0xffffff;
+    DAT_1f800004 = DAT_1f800004 + 10;
     goto LAB_800de610;
   case '\v':
     mode = (8 - (uint)(byte)is->cycle) * 4 + 0xc;
-    uVar5 = fastintcos(is->angle);
-    sVar2 = fixedmult(uVar5,mode);
-    uVar5 = fastintsin(is->angle);
-    sVar3 = fixedmult(uVar5,mode);
-    local_b8 = CONCAT22((is->trans).vy + sVar2,(is->trans).vx - sVar3);
+    puVar2 = fastintcos(is->angle);
+    uVar3 = fixedmult((int)puVar2,mode);
+    puVar2 = fastintsin(is->angle);
+    uVar4 = fixedmult((int)puVar2,mode);
+    sVar6 = (short)uVar4;
+    sVar5 = (short)uVar3;
+    local_b8 = CONCAT22((is->trans).vy + sVar5,(is->trans).vx - sVar6);
     local_b4 = CONCAT22(local_b4._2_2_,(is->trans).vz);
-    local_b0 = CONCAT22((is->trans).vy + sVar3,(is->trans).vx + sVar2);
+    local_b0 = CONCAT22((is->trans).vy + sVar6,(is->trans).vx + sVar5);
     local_ac = CONCAT22(local_ac._2_2_,(is->trans).vz);
-    local_a8 = CONCAT22((is->trans).vy - sVar2,(is->trans).vx + sVar3);
+    local_a8 = CONCAT22((is->trans).vy - sVar5,(is->trans).vx + sVar6);
     local_a4 = CONCAT22(local_a4._2_2_,(is->trans).vz);
-    sVar2 = (is->trans).vx - sVar2;
-    sVar3 = (is->trans).vy - sVar3;
+    sVar5 = (is->trans).vx - sVar5;
+    sVar6 = (is->trans).vy - sVar6;
+    c = gSnowPalette;
 LAB_800de0e0:
-    local_a0 = CONCAT22(sVar3,sVar2);
+    local_a0 = CONCAT22(sVar6,sVar5);
     local_9c = CONCAT22(local_9c._2_2_,(is->trans).vz);
-    puVar7 = &_gSMokePixmap;
+    ppDVar7 = &__gSMokePixmap_2__;
     mode = is->rndpixmap << 2;
     break;
   case '\r':
   case '\x0e':
-    uVar5 = fastintcos(is->angle);
-    sVar2 = fixedmult(uVar5,6);
-    uVar5 = fastintsin(is->angle);
+    puVar2 = fastintcos(is->angle);
+    uVar3 = fixedmult((int)puVar2,6);
+    puVar2 = fastintsin(is->angle);
     uVar10 = 6;
-    sVar3 = fixedmult(uVar5,6);
-    puVar9 = _DAT_1f800004;
-    local_b8 = CONCAT22((is->trans).vy + sVar2,(is->trans).vx - sVar3);
+    uVar4 = fixedmult((int)puVar2,6);
+    puVar9 = DAT_1f800004;
+    sVar6 = (short)uVar4;
+    sVar5 = (short)uVar3;
+    local_b8 = CONCAT22((is->trans).vy + sVar5,(is->trans).vx - sVar6);
     local_b4 = CONCAT22(local_b4._2_2_,(is->trans).vz);
-    local_b0 = CONCAT22((is->trans).vy + sVar3,(is->trans).vx + sVar2);
+    local_b0 = CONCAT22((is->trans).vy + sVar6,(is->trans).vx + sVar5);
     local_ac = CONCAT22(local_ac._2_2_,(is->trans).vz);
-    local_a8 = CONCAT22((is->trans).vy - sVar2,(is->trans).vx + sVar3);
+    local_a8 = CONCAT22((is->trans).vy - sVar5,(is->trans).vx + sVar6);
     local_a4 = CONCAT22(local_a4._2_2_,(is->trans).vz);
-    local_a0 = CONCAT22((is->trans).vy - sVar3,(is->trans).vx - sVar2);
+    local_a0 = CONCAT22((is->trans).vy - sVar6,(is->trans).vx - sVar5);
     local_9c = CONCAT22(local_9c._2_2_,(is->trans).vz);
-    if (_DAT_1f800008 <= _DAT_1f800004) {
+    if (DAT_1f800008 <= DAT_1f800004) {
       return;
     }
     setCopReg(2,in_zero,local_b8);
     setCopReg(2,in_at,local_b4);
     copFunction(2,0x180001);
-    uVar6 = getCopReg(2,0xe);
-    _DAT_1f800004[2] = uVar6;
+    uVar3 = getCopReg(2,0xe);
+    DAT_1f800004[2] = uVar3;
     setCopReg(2,in_zero,local_b0);
     setCopReg(2,in_at,local_ac);
     setCopReg(2,&local_a0,local_a8);
@@ -1048,12 +1066,12 @@ LAB_800de0e0:
     setCopReg(2,uVar10,local_9c);
     copFunction(2,0x280030);
     puVar9[1] = is->colour | 0x2c000000;
-    uVar6 = getCopReg(2,0xc);
-    puVar9[4] = uVar6;
-    uVar6 = getCopReg(2,0xd);
-    puVar9[8] = uVar6;
-    uVar6 = getCopReg(2,0xe);
-    puVar9[6] = uVar6;
+    uVar3 = getCopReg(2,0xc);
+    puVar9[4] = uVar3;
+    uVar3 = getCopReg(2,0xd);
+    puVar9[8] = uVar3;
+    uVar3 = getCopReg(2,0xe);
+    puVar9[6] = uVar3;
     copFunction(2,0x168002e);
     mode = getCopReg(2,7);
     _DAT_1f800014 = (mode >> 1) + 0xf;
@@ -1064,26 +1082,26 @@ LAB_800de0e0:
       return;
     }
     *(undefined *)((int)puVar9 + 3) = 9;
-    uVar12 = uRam0000000c;
-    uVar11 = uRam00000008;
-    uVar6 = uRam00000004;
-    puVar9[3] = __front_dtors_size;
-    puVar9[5] = uVar6;
+    uVar4 = *(uint *)&gLeafPixmap->u1;
+    uVar11 = *(uint *)&gLeafPixmap->u2;
+    uVar3 = *(uint *)&gLeafPixmap->u3;
+    puVar9[3] = *(uint *)gLeafPixmap;
+    puVar9[5] = uVar4;
     puVar9[7] = uVar11;
-    puVar9[9] = uVar12;
-    mode = _DAT_1f800000;
-    *_DAT_1f800004 =
-         *_DAT_1f800004 & 0xff000000 | *(uint *)(_DAT_1f800014 * 4 + _DAT_1f800000) & 0xffffff;
+    puVar9[9] = uVar3;
+    mode = DAT_1f800000;
+    *DAT_1f800004 =
+         *DAT_1f800004 & 0xff000000 | *(uint *)(_DAT_1f800014 * 4 + DAT_1f800000) & 0xffffff;
     puVar9 = (uint *)(_DAT_1f800014 * 4 + mode);
-    uVar6 = *puVar9;
-    uVar11 = (uint)_DAT_1f800004 & 0xffffff;
-    _DAT_1f800004 = _DAT_1f800004 + 10;
+    uVar3 = *puVar9;
+    uVar4 = (uint)DAT_1f800004 & 0xffffff;
+    DAT_1f800004 = DAT_1f800004 + 10;
 LAB_800de610:
-    *puVar9 = uVar6 & 0xff000000 | uVar11;
+    *puVar9 = uVar3 & 0xff000000 | uVar4;
     goto switchD_800dd7e0_caseD_5;
   }
   Sfx_BuildFastDisolveFacet__FP17Souffle_tISouffleP10sfxsouffleP12Draw_tPixMapT2
-            (is,(sfxsouffle *)&local_c8,*(Draw_tPixMap **)(puVar7 + mode),(Draw_tPixMap *)0x0);
+            (is,(sfxsouffle *)&local_c8,*(Draw_tPixMap **)(mode + (int)ppDVar7),c);
 LAB_800de114:
   mode = 0;
 LAB_800de11c:
@@ -1094,10 +1112,7 @@ LAB_800de120:
   ;
 switchD_800dd7e0_caseD_5:
   return;
-
-
 }
-
 
 
 
@@ -1113,15 +1128,13 @@ switchD_800dd7e0_caseD_5:
 	// End Line: 578
 
 void Sfx_Add__FP17Souffle_tISouffle(Souffle_tISouffle *is)
+
 {
   char cVar1;
   uint uVar2;
   int iVar3;
   int iVar4;
   
-  if (false) {
-    return;
-  }
   switch(is->type) {
   case '\x01':
   case '\x02':
@@ -1156,10 +1169,7 @@ LAB_800de688:
     (is->extramotion).z = iVar4;
   }
   return;
-
-
 }
-
 
 
 

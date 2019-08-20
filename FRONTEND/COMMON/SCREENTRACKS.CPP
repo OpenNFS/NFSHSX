@@ -122,18 +122,18 @@
 	// End offset: 0x80041A74
 	// End Line: 178
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void DrawBackground__18tScreenTrackSelect(tScreenTrackSelect *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -150,18 +150,20 @@ void DrawBackground__18tScreenTrackSelect(tScreenTrackSelect *this)
 	// End offset: 0x80041AAC
 	// End Line: 184
 
-void GetShapeInfo__18tScreenTrackSelectRsT1PPcT3( (tScreenTrackSelect *this,short *numPermShapes,short *numSwapShapes, char **permFileName,char **swapFileName)
+/* WARNING: Control flow encountered bad instruction data */
+
+void GetShapeInfo__18tScreenTrackSelectRsT1PPcT3
+               (tScreenTrackSelect *this,short *numPermShapes,short *numSwapShapes,
+               char **permFileName,char **swapFileName)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -194,18 +196,18 @@ void GetShapeInfo__18tScreenTrackSelectRsT1PPcT3( (tScreenTrackSelect *this,shor
 	// End offset: 0x80041B6C
 	// End Line: 201
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void Initialize__18tScreenTrackSelect(tScreenTrackSelect *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -220,18 +222,18 @@ void Initialize__18tScreenTrackSelect(tScreenTrackSelect *this)
 	// End offset: 0x80041D28
 	// End Line: 252
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void Cleanup__18tScreenTrackSelect(tScreenTrackSelect *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -274,18 +276,18 @@ void Cleanup__18tScreenTrackSelect(tScreenTrackSelect *this)
 	// End offset: 0x80041D90
 	// End Line: 267
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void SetBrightness__18tScreenTrackSelects(tScreenTrackSelect *this,short bright)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -358,18 +360,19 @@ void SetBrightness__18tScreenTrackSelects(tScreenTrackSelect *this,short bright)
 	// End offset: 0x80041E74
 	// End Line: 298
 
-void UpdateBrightness__18tScreenTrackSelectR17tTrackInformation( (tScreenTrackSelect *this,tTrackInformation *trackInfo)
+/* WARNING: Control flow encountered bad instruction data */
+
+void UpdateBrightness__18tScreenTrackSelectR17tTrackInformation
+               (tScreenTrackSelect *this,tTrackInformation *trackInfo)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -384,18 +387,19 @@ void UpdateBrightness__18tScreenTrackSelectR17tTrackInformation( (tScreenTrackSe
 	// End offset: 0x80041EE8
 	// End Line: 315
 
-void UpdateVideoWall__18tScreenTrackSelectR17tTrackInformation( (tScreenTrackSelect *this,tTrackInformation *trackInfo)
+/* WARNING: Control flow encountered bad instruction data */
+
+void UpdateVideoWall__18tScreenTrackSelectR17tTrackInformation
+               (tScreenTrackSelect *this,tTrackInformation *trackInfo)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -412,18 +416,18 @@ void UpdateVideoWall__18tScreenTrackSelectR17tTrackInformation( (tScreenTrackSel
 	// End offset: 0x80041FE0
 	// End Line: 341
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void DrawVideoWall__18tScreenTrackSelect(tScreenTrackSelect *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -673,18 +677,19 @@ void DrawVideoWall__18tScreenTrackSelect(tScreenTrackSelect *this)
 	// End offset: 0x800421C4
 	// End Line: 371
 
-void ProcessInput__18tScreenTrackSelect7tPlayerR13tInputKeyTypeR12tMenuCommand( (tScreenTrackSelect *this,tInputKeyType *keyval)
+/* WARNING: Control flow encountered bad instruction data */
+
+void ProcessInput__18tScreenTrackSelect7tPlayerR13tInputKeyTypeR12tMenuCommand
+               (tScreenTrackSelect *this,tInputKeyType *keyval)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 

@@ -13,16 +13,14 @@
 	// End Line: 54
 
 void TrgSfx_AddEnviroEffect__FiiP8coorddefT2(int obj,int type,coorddef *emitterpt,coorddef *vec)
+
 {
-  if (10 < (int)-(&gTEnviroEffect)[obj & 7]) {
-    (&gTEnviroEffect)[obj & 7] = 0;
+  if (10 < simGlobal.gameTicks - (&gTEnviroEffect)[obj & 7]) {
+    (&gTEnviroEffect)[obj & 7] = simGlobal.gameTicks;
     Souffle_Add__FP8coorddefiT0iii(emitterpt,type,vec,0,0,0);
   }
   return;
-
-
 }
-
 
 
 
@@ -38,16 +36,14 @@ void TrgSfx_AddEnviroEffect__FiiP8coorddefT2(int obj,int type,coorddef *emitterp
 	// End Line: 73
 
 void TrgSfx_AddCarSfx__FiP8coorddefiT1(int car,coorddef *skidpt,int type,coorddef *vec)
+
 {
-  if (7 < (int)-(&gTAddCarSfx)[car & 7]) {
-    (&gTAddCarSfx)[car & 7] = 0;
+  if (7 < simGlobal.gameTicks - (&gTAddCarSfx)[car & 7]) {
+    (&gTAddCarSfx)[car & 7] = simGlobal.gameTicks;
     Souffle_Add__FP8coorddefiT0iii(skidpt,type,vec,0,0,0);
   }
   return;
-
-
 }
-
 
 
 
@@ -78,28 +74,27 @@ void TrgSfx_AddCarSfx__FiP8coorddefiT1(int car,coorddef *skidpt,int type,coordde
 	// End offset: 0x800BB1DC
 	// End Line: 89
 
-void TrgSfx_AddCarWheelSfx__FiiP8coorddefiT2i( (int car,int wheel,coorddef *skidpt,int type,coorddef *vec,int delay)
+void TrgSfx_AddCarWheelSfx__FiiP8coorddefiT2i
+               (int car,int wheel,coorddef *skidpt,int type,coorddef *vec,int delay)
+
 {
   coorddef local_18;
   
-  if (delay < (int)-(&gTAddCarWheelSfx)[(car & 7U) * 4 + wheel]) {
+  if (delay < simGlobal.gameTicks - (&gTAddCarWheelSfx)[(car & 7U) * 4 + wheel]) {
     local_18.y = vec->y;
     local_18.x = vec->x >> 1;
     local_18.z = vec->z >> 1;
-    (&gTAddCarWheelSfx)[(car & 7U) * 4 + wheel] = 0;
+    (&gTAddCarWheelSfx)[(car & 7U) * 4 + wheel] = simGlobal.gameTicks;
     Souffle_Add__FP8coorddefiT0iii(skidpt,type,&local_18,0,0,0);
   }
   return;
-
-
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// unsigned int /*$ra*/ TrgSfx_AddCarExtraCheck__Fii(int car /*$a0*/, int wheel /*$a1*/)
+// void * /*$ra*/ TrgSfx_AddCarExtraCheck__Fii(int car /*$a0*/, int wheel /*$a1*/)
  // line 93, offset 0x800bb1ec
 	/* begin block 1 */
 		// Start line: 94
@@ -108,13 +103,12 @@ void TrgSfx_AddCarWheelSfx__FiiP8coorddefiT2i( (int car,int wheel,coorddef *skid
 	// End offset: 0x800BB1EC
 	// End Line: 96
 
-uint TrgSfx_AddCarExtraCheck__Fii(int car,int wheel)
+void * TrgSfx_AddCarExtraCheck__Fii(int car,int wheel)
+
 {
-  return (uint)((int)-(&gTAddCarExtraSfx)[(car & 7U) * 4 + wheel] < 8) ^ 1;
-
-
+  return (void *)((uint)(simGlobal.gameTicks - (&gTAddCarExtraSfx)[(car & 7U) * 4 + wheel] < 8) ^ 1)
+  ;
 }
-
 
 
 
@@ -138,20 +132,20 @@ uint TrgSfx_AddCarExtraCheck__Fii(int car,int wheel)
 	// End offset: 0x800BB228
 	// End Line: 102
 
-void TrgSfx_AddCarExtraSfx__FiiP8coorddefiT2iii( (int car,int wheel,coorddef *skidpt,int type,coorddef *vec,int velY,int ground, int colour)
+void TrgSfx_AddCarExtraSfx__FiiP8coorddefiT2iii
+               (int car,int wheel,coorddef *skidpt,int type,coorddef *vec,int velY,int ground,
+               int colour)
+
 {
   coorddef local_18;
   
   local_18.x = vec->x;
   local_18.z = vec->z;
   local_18.y = vec->y + (velY >> 3);
-  (&gTAddCarExtraSfx)[(car & 7U) * 4 + wheel] = 0;
+  (&gTAddCarExtraSfx)[(car & 7U) * 4 + wheel] = simGlobal.gameTicks;
   Souffle_Add__FP8coorddefiT0iii(skidpt,type,&local_18,0,ground,colour);
   return;
-
-
 }
-
 
 
 
@@ -182,22 +176,21 @@ void TrgSfx_AddCarExtraSfx__FiiP8coorddefiT2iii( (int car,int wheel,coorddef *sk
 	// End offset: 0x800BB360
 	// End Line: 134
 
-void TrgSfx_AddCarSplash__FiiP8coorddefiT2ii( (int car,int wheel,coorddef *skidpt,int type,coorddef *vec,int delay,int velXZ)
+void TrgSfx_AddCarSplash__FiiP8coorddefiT2ii
+               (int car,int wheel,coorddef *skidpt,int type,coorddef *vec,int delay,int velXZ)
+
 {
   coorddef local_18;
   
-  if (delay < (int)-(&gTAddCarWheelSfx)[(car & 7U) * 4 + wheel]) {
+  if (delay < simGlobal.gameTicks - (&gTAddCarWheelSfx)[(car & 7U) * 4 + wheel]) {
     local_18.y = vec->y;
     local_18.x = vec->x >> 1;
     local_18.z = vec->z >> 1;
-    (&gTAddCarWheelSfx)[(car & 7U) * 4 + wheel] = 0;
+    (&gTAddCarWheelSfx)[(car & 7U) * 4 + wheel] = simGlobal.gameTicks;
     Souffle_Add__FP8coorddefiT0iii(skidpt,type,&local_18,velXZ,0,0);
   }
   return;
-
-
 }
-
 
 
 
@@ -215,12 +208,13 @@ void TrgSfx_AddCarSplash__FiiP8coorddefiT2ii( (int car,int wheel,coorddef *skidp
 	// End Line: 164
 
 void TrgSfx_CrashCar__FP8coorddef(coorddef *location)
+
 {
   uint uVar1;
   Souffle_tISouffle *pSVar2;
   
-  if (4 < -iGp00000fa8) {
-    iGp00000fa8 = 0;
+  if (4 < simGlobal.gameTicks - DAT_00000fa8) {
+    DAT_00000fa8 = simGlobal.gameTicks;
     uVar1 = random();
     if ((uVar1 & 0xf) != 0) {
       pSVar2 = Souffle_Add__FP8coorddefiT0iii(location,1,(coorddef *)0x0,0,0,0);
@@ -230,10 +224,7 @@ void TrgSfx_CrashCar__FP8coorddef(coorddef *location)
     (pSVar2->motion).y = (pSVar2->motion).y + 0xf5c;
   }
   return;
-
-
 }
-
 
 
 
@@ -328,20 +319,23 @@ void TrgSfx_CrashCar__FP8coorddef(coorddef *location)
 	// End offset: 0x800BB8EC
 	// End Line: 272
 
-void TrgSfx_AddSkidmark__FiiP8coorddefiiP8Car_tObji( (int car,int wheel,coorddef *skidpt,int end,int intensity,Car_tObj *carObj,int type)
+void TrgSfx_AddSkidmark__FiiP8coorddefiiP8Car_tObji
+               (int car,int wheel,coorddef *skidpt,int end,int intensity,Car_tObj *carObj,int type)
+
 {
   bool bVar1;
   int iVar2;
   undefined uVar3;
   int iVar4;
   int iVar5;
-  int tireWidth;
   int iVar6;
+  int tireWidth;
+  int iVar7;
   int slice;
-  uint uVar7;
+  uint uVar8;
   CVECTOR local_18 [2];
   
-  iVar6 = (carObj->N).speedXZ;
+  iVar7 = (carObj->N).speedXZ;
   slice = (int)(carObj->N).simRoadInfo.slice;
   if (wheel < 2) {
     tireWidth = (carObj->N).wheelWidthF;
@@ -349,7 +343,7 @@ void TrgSfx_AddSkidmark__FiiP8coorddefiiP8Car_tObji( (int car,int wheel,coorddef
   else {
     tireWidth = (carObj->N).wheelWidthB;
   }
-  uVar7 = car & 7;
+  uVar8 = car & 7;
   iVar2 = (intensity * 0xff) / 0x70000;
   uVar3 = 0xff;
   if (iVar2 < 0x100) {
@@ -358,105 +352,91 @@ void TrgSfx_AddSkidmark__FiiP8coorddefiiP8Car_tObji( (int car,int wheel,coorddef
   local_18[0] = (CVECTOR)CONCAT31(CONCAT21(CONCAT11(local_18[0].cd,uVar3),uVar3),uVar3);
   skidpt->x = skidpt->x + ((carObj->N).linearVel.x >> 6);
   skidpt->y = skidpt->y + ((carObj->N).linearVel.y >> 6);
-  iVar5 = skidpt->z + ((carObj->N).linearVel.z >> 6);
-  iVar4 = wheel * 4 + uVar7 * 0x10;
-  skidpt->z = iVar5;
-  iVar2 = (&gStatusSm)[uVar7 * 4 + wheel];
+  iVar6 = skidpt->z + ((carObj->N).linearVel.z >> 6);
+  skidpt->z = iVar6;
+  iVar2 = (&gStatusSm)[uVar8 * 4 + wheel];
   if (iVar2 == 0) {
     if (end == 0) {
-      (&gStatusSm)[uVar7 * 4 + wheel] = 1;
-      iVar6 = wheel * 0x1c + uVar7 * 0x70;
-      *(CVECTOR *)(&DAT_8011e2fc + iVar6) = local_18[0];
-      *(int *)(&DAT_8011e300 + iVar6) = type;
-      iVar6 = skidpt->y;
+      (&gStatusSm)[uVar8 * 4 + wheel] = 1;
+      (&gPrevSkidSm)[uVar8 * 4 + wheel].clr = local_18[0];
+      (&gPrevSkidSm)[uVar8 * 4 + wheel].type = type;
+      iVar7 = skidpt->y;
       slice = skidpt->z;
-      (&gPrevSkidSm)[uVar7 * 0x1c + wheel * 7] = skidpt->x;
-      (&DAT_8011e2f4)[uVar7 * 0x1c + wheel * 7] = iVar6;
-      (&DAT_8011e2f8)[uVar7 * 0x1c + wheel * 7] = slice;
-      (&DAT_8011e304)[uVar7 * 0x1c + wheel * 7] = 0;
+      (&gPrevSkidSm)[uVar8 * 4 + wheel].pt.x = skidpt->x;
+      (&gPrevSkidSm)[uVar8 * 4 + wheel].pt.y = iVar7;
+      (&gPrevSkidSm)[uVar8 * 4 + wheel].pt.z = slice;
+      (&gPrevSkidSm)[uVar8 * 4 + wheel].nseg = (Skidmark_Segment *)0x0;
     }
   }
   else {
     if (end == 0) {
       bVar1 = false;
-      if ((&DAT_8011e304)[uVar7 * 0x1c + wheel * 7] != 0) {
-        iVar2 = (&gPrevSkidSm)[uVar7 * 0x1c + wheel * 7] - skidpt->x;
+      if ((&gPrevSkidSm)[uVar8 * 4 + wheel].nseg != (Skidmark_Segment *)0x0) {
+        iVar4 = (&gPrevSkidSm)[uVar8 * 4 + wheel].pt.x;
+        iVar2 = iVar4 - skidpt->x;
         if (iVar2 < 1) {
-          iVar2 = skidpt->x - (&gPrevSkidSm)[uVar7 * 0x1c + wheel * 7];
+          iVar2 = skidpt->x - iVar4;
         }
-        iVar4 = (&DAT_8011e2f8)[uVar7 * 0x1c + wheel * 7] - iVar5;
-        if (iVar4 < 1) {
-          iVar4 = iVar5 - (&DAT_8011e2f8)[uVar7 * 0x1c + wheel * 7];
+        iVar4 = (&gPrevSkidSm)[uVar8 * 4 + wheel].pt.z;
+        iVar5 = iVar4 - iVar6;
+        if (iVar5 < 1) {
+          iVar5 = iVar6 - iVar4;
         }
-        iVar5 = 0xc000;
-        if (iVar6 < 0xa0000) {
-          iVar5 = 0x3000;
+        iVar6 = 0xc000;
+        if (iVar7 < 0xa0000) {
+          iVar6 = 0x3000;
         }
-        if (iVar4 < iVar2) {
-          iVar2 = iVar2 + (iVar4 >> 2);
+        if (iVar5 < iVar2) {
+          iVar2 = iVar2 + (iVar5 >> 2);
         }
         else {
-          iVar2 = iVar4 + (iVar2 >> 2);
+          iVar2 = iVar5 + (iVar2 >> 2);
         }
-        if (iVar2 < iVar5) {
+        if (iVar2 < iVar6) {
           bVar1 = true;
         }
       }
       if (bVar1) {
-        iVar6 = wheel * 4;
-        iVar2 = uVar7 * 0x10;
-        if ((&gStatusSm)[uVar7 * 4 + wheel] == 2) {
+        if ((&gStatusSm)[uVar8 * 4 + wheel] == 2) {
           Skidmark_Stretch__FP16Skidmark_SegmentiP5tSkidP8coorddefP7CVECTORii
-                    (*(Skidmark_Segment **)(&_gSaveSeg + iVar6 + iVar2),
-                     *(int *)(&gSaveChunk + iVar6 + iVar2),
-                     (tSkid *)(&gPrevSkidSm + wheel * 7 + uVar7 * 0x1c),skidpt,local_18,tireWidth,
-                     type);
+                    ((&__gSaveSeg_8__4__)[uVar8 * 4 + wheel],(&gSaveChunk)[uVar8 * 4 + wheel],
+                     &gPrevSkidSm + wheel + uVar8 * 4,skidpt,local_18,tireWidth,type);
         }
         else {
-          (&gStatusSm)[uVar7 * 4 + wheel] = 2;
+          (&gStatusSm)[uVar8 * 4 + wheel] = 2;
           Skidmark_AddStretch__FPP16Skidmark_SegmentPiP5tSkidP8coorddefP7CVECTORiii
-                    ((Skidmark_Segment **)(&_gSaveSeg + iVar2 + iVar6),
-                     (int *)(&gSaveChunk + iVar2 + iVar6),
-                     (tSkid *)(&gPrevSkidSm + wheel * 7 + uVar7 * 0x1c),skidpt,local_18,tireWidth,
-                     type,slice);
+                    (&__gSaveSeg_8__4__ + wheel + uVar8 * 4,&gSaveChunk + wheel + uVar8 * 4,
+                     &gPrevSkidSm + wheel + uVar8 * 4,skidpt,local_18,tireWidth,type,slice);
         }
       }
       else {
-        iVar6 = wheel * 4 + uVar7 * 0x10;
-        if ((&gStatusSm)[uVar7 * 4 + wheel] == 2) {
+        if ((&gStatusSm)[uVar8 * 4 + wheel] == 2) {
           Skidmark_EndStretch__FP16Skidmark_SegmentiP5tSkidP8coorddefP7CVECTORii
-                    (*(Skidmark_Segment **)(&_gSaveSeg + iVar6),*(int *)(&gSaveChunk + iVar6),
-                     (tSkid *)(&gPrevSkidSm + wheel * 7 + uVar7 * 0x1c),skidpt,local_18,tireWidth,
-                     type);
+                    ((&__gSaveSeg_8__4__)[uVar8 * 4 + wheel],(&gSaveChunk)[uVar8 * 4 + wheel],
+                     &gPrevSkidSm + wheel + uVar8 * 4,skidpt,local_18,tireWidth,type);
         }
         else {
           Skidmark_Add__FP5tSkidP8coorddefP7CVECTORiii
-                    ((tSkid *)(&gPrevSkidSm + wheel * 7 + uVar7 * 0x1c),skidpt,local_18,tireWidth,
-                     type,slice);
+                    (&gPrevSkidSm + wheel + uVar8 * 4,skidpt,local_18,tireWidth,type,slice);
         }
-        (&gStatusSm)[uVar7 * 4 + wheel] = 1;
+        (&gStatusSm)[uVar8 * 4 + wheel] = 1;
       }
     }
     else {
       if (iVar2 == 2) {
         Skidmark_Stretch__FP16Skidmark_SegmentiP5tSkidP8coorddefP7CVECTORii
-                  (*(Skidmark_Segment **)(&_gSaveSeg + iVar4),*(int *)(&gSaveChunk + iVar4),
-                   (tSkid *)(&gPrevSkidSm + wheel * 7 + uVar7 * 0x1c),skidpt,local_18,tireWidth,type
-                  );
+                  ((&__gSaveSeg_8__4__)[uVar8 * 4 + wheel],(&gSaveChunk)[uVar8 * 4 + wheel],
+                   &gPrevSkidSm + wheel + uVar8 * 4,skidpt,local_18,tireWidth,type);
       }
       else {
         Skidmark_Add__FP5tSkidP8coorddefP7CVECTORiii
-                  ((tSkid *)(&gPrevSkidSm + wheel * 7 + uVar7 * 0x1c),skidpt,local_18,tireWidth,type
-                   ,slice);
+                  (&gPrevSkidSm + wheel + uVar8 * 4,skidpt,local_18,tireWidth,type,slice);
       }
-      (&gStatusSm)[uVar7 * 4 + wheel] = 0;
+      (&gStatusSm)[uVar8 * 4 + wheel] = 0;
     }
   }
   return;
-
-
 }
-
 
 
 
@@ -475,53 +455,55 @@ void TrgSfx_AddSkidmark__FiiP8coorddefiiP8Car_tObji( (int car,int wheel,coorddef
 	// End offset: 0x800BB9D0
 	// End Line: 313
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void TrgSfx_InitTrgSfx__Fv(void)
+
 {
   int iVar1;
   int iVar2;
   int iVar3;
   int iVar4;
-  undefined4 *puVar5;
-  undefined4 *puVar6;
-  int iVar7;
+  int iVar5;
+  int *piVar6;
+  int *piVar7;
+  int iVar8;
   
-  iVar4 = 0;
-  iVar7 = 0;
-  puVar6 = &gTAddCarSfx;
-  puVar5 = &gTEnviroEffect;
+  iVar1 = simGlobal.gameTicks;
+  iVar5 = 0;
+  iVar8 = 0;
+  piVar7 = &gTAddCarSfx;
+  piVar6 = &gTEnviroEffect;
+  DAT_00000fa8 = simGlobal.gameTicks;
   do {
-    iVar3 = 0;
-    iVar1 = iVar4 << 4;
-    *puVar5 = 0;
-    *puVar6 = 0;
-    iVar2 = iVar7;
+    iVar4 = 0;
+    iVar2 = iVar5 << 4;
+    *piVar6 = iVar1;
+    *piVar7 = iVar1;
+    iVar3 = iVar8;
     do {
-      iVar3 = iVar3 + 1;
-      *(undefined4 *)((int)&gTAddCarWheelSfx + iVar1) = 0;
-      *(undefined4 *)((int)&gTAddCarExtraSfx + iVar1) = 0;
-      *(undefined4 *)((int)&gStatusSm + iVar1) = 0;
-      *(undefined4 *)((int)&gPrevSkidSm + iVar2) = 0;
-      *(undefined4 *)((int)&DAT_8011e2f4 + iVar2) = 0;
-      *(undefined4 *)((int)&DAT_8011e2f8 + iVar2) = 0;
-      *(undefined4 *)((int)&DAT_8011e304 + iVar2) = 0;
-      iVar1 = iVar1 + 4;
-      iVar2 = iVar2 + 0x1c;
-    } while (iVar3 < 4);
-    iVar7 = iVar7 + 0x70;
-    puVar6 = puVar6 + 1;
-    iVar4 = iVar4 + 1;
-    puVar5 = puVar5 + 1;
-  } while (iVar4 < 8);
-  uGp00000fa4 = 8;
-  if (DAT_801131f8 == 1) {
-    uGp00000fa4 = 0xc;
+      iVar4 = iVar4 + 1;
+      *(int *)((int)&gTAddCarWheelSfx + iVar2) = iVar1;
+      *(int *)((int)&gTAddCarExtraSfx + iVar2) = iVar1;
+      *(undefined4 *)((int)&gStatusSm + iVar2) = 0;
+      *(undefined4 *)((int)&gPrevSkidSm.pt.x + iVar3) = 0;
+      *(undefined4 *)((int)&gPrevSkidSm.pt.y + iVar3) = 0;
+      *(undefined4 *)((int)&gPrevSkidSm.pt.z + iVar3) = 0;
+      *(undefined4 *)((int)&gPrevSkidSm.nseg + iVar3) = 0;
+      iVar2 = iVar2 + 4;
+      iVar3 = iVar3 + 0x1c;
+    } while (iVar4 < 4);
+    iVar8 = iVar8 + 0x70;
+    piVar7 = piVar7 + 1;
+    iVar5 = iVar5 + 1;
+    piVar6 = piVar6 + 1;
+  } while (iVar5 < 8);
+  DAT_00000fa4 = 8;
+  if (GameSetup_gData.commMode == 1) {
+    DAT_00000fa4 = 0xc;
   }
-  uGp00000fa8 = 0;
   return;
-
-
 }
-
 
 
 
@@ -536,15 +518,15 @@ void TrgSfx_InitTrgSfx__Fv(void)
 	// End offset: 0x800BB9D8
 	// End Line: 317
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void TrgSfx_RestartTrgSfx__Fv(void)
+
 {
   TrgSfx_KillTrgSfx__Fv();
   TrgSfx_InitTrgSfx__Fv();
   return;
-
-
 }
-
 
 
 
@@ -559,13 +541,13 @@ void TrgSfx_RestartTrgSfx__Fv(void)
 	// End offset: 0x800BBA00
 	// End Line: 323
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void TrgSfx_KillTrgSfx__Fv(void)
+
 {
   return;
-
-
 }
-
 
 
 

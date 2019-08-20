@@ -12,18 +12,18 @@
 	// End offset: 0x800238E8
 	// End Line: 38
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void FEInput_VerifyControllerValues__Fi(int controller)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -40,18 +40,18 @@ void FEInput_VerifyControllerValues__Fi(int controller)
 	// End offset: 0x80023B54
 	// End Line: 143
 
+/* WARNING: Control flow encountered bad instruction data */
+
 int FEInput_GetNoDebounceKey__Fii(int key,int controller)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -110,18 +110,18 @@ int FEInput_GetNoDebounceKey__Fii(int key,int controller)
 	// End offset: 0x80023C74
 	// End Line: 180
 
+/* WARNING: Control flow encountered bad instruction data */
+
 int FEInput_GetDebounceKey__Fii(int key,int controller)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -138,18 +138,18 @@ int FEInput_GetDebounceKey__Fii(int key,int controller)
 	// End offset: 0x80023DAC
 	// End Line: 320
 
+/* WARNING: Control flow encountered bad instruction data */
+
 tInputKeyType FEInput_GetKeyFromPlayer__F7tPlayerl(tPlayer player,long debounce)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 

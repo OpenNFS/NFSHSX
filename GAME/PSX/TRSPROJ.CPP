@@ -13,13 +13,11 @@
 	// End Line: 31
 
 void TrsProj_SetTransPrecision__Fi(int val)
+
 {
-  iGp00001650 = val;
+  DAT_00001650 = val;
   return;
-
-
 }
-
 
 
 
@@ -34,14 +32,14 @@ void TrsProj_SetTransPrecision__Fi(int val)
 	// End offset: 0x800E1938
 	// End Line: 43
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void TrsProj_ResetTransPrecision__Fv(void)
+
 {
-  uGp00001650 = 10;
+  DAT_00001650 = 10;
   return;
-
-
 }
-
 
 
 
@@ -57,15 +55,13 @@ void TrsProj_ResetTransPrecision__Fv(void)
 	// End Line: 53
 
 void TrsProj_SetProjection__Fiiii(int cx,int cy,int w,int h)
+
 {
-  SetGeomScreen(0xbe);
+  SetGeomScreen(Camera_gGeomScreen);
   setCopControlWord(2,0xc000,(cx + ((int)(w + ((uint)w >> 0x1f)) >> 1)) * 0x10000);
   setCopControlWord(2,0xc800,(cy + ((int)(h + ((uint)h >> 0x1f)) >> 1)) * 0x10000);
   return;
-
-
 }
-
 
 
 
@@ -81,15 +77,13 @@ void TrsProj_SetProjection__Fiiii(int cx,int cy,int w,int h)
 	// End Line: 70
 
 void TrsProj_SetMenuProjection__Fiiii(int cx,int cy,int w,int h)
+
 {
   setCopControlWord(2,0xd000,0x200);
   setCopControlWord(2,0xc000,(cx + ((int)(w + ((uint)w >> 0x1f)) >> 1)) * 0x10000);
   setCopControlWord(2,0xc800,(cy + ((int)(h + ((uint)h >> 0x1f)) >> 1)) * 0x10000);
   return;
-
-
 }
-
 
 
 
@@ -105,10 +99,11 @@ void TrsProj_SetMenuProjection__Fiiii(int cx,int cy,int w,int h)
 	// End Line: 101
 
 void TrsProj_SetViewTrsProjEnviro__FP13DRender_tView(DRender_tView *Vi)
+
 {
   int h;
   
-  if (DAT_801131f8 == 1) {
+  if (GameSetup_gData.commMode == 1) {
     h = 0x78;
   }
   else {
@@ -116,10 +111,7 @@ void TrsProj_SetViewTrsProjEnviro__FP13DRender_tView(DRender_tView *Vi)
   }
   TrsProj_SetProjection__Fiiii(0,0,0x140,h);
   return;
-
-
 }
-
 
 
 
@@ -170,6 +162,7 @@ void TrsProj_SetViewTrsProjEnviro__FP13DRender_tView(DRender_tView *Vi)
 	// End Line: 152
 
 void TrsProj_SetPsxMatrix__FP10matrixtdefP8coorddef(matrixtdef *m,coorddef *t)
+
 {
   uint local_18;
   
@@ -188,10 +181,7 @@ void TrsProj_SetPsxMatrix__FP10matrixtdefP8coorddef(matrixtdef *m,coorddef *t)
     TrsProj_SetPsxTrans__FP8coorddef(t);
   }
   return;
-
-
 }
-
 
 
 
@@ -209,15 +199,13 @@ void TrsProj_SetPsxMatrix__FP10matrixtdefP8coorddef(matrixtdef *m,coorddef *t)
 	// End Line: 158
 
 void TrsProj_SetPsxTrans__FP8coorddef(coorddef *t)
+
 {
   setCopControlWord(2,0x2800,t->x >> 10);
   setCopControlWord(2,0x3000,t->y >> 10);
   setCopControlWord(2,0x3800,t->z >> 10);
   return;
-
-
 }
-
 
 
 
@@ -234,16 +222,16 @@ void TrsProj_SetPsxTrans__FP8coorddef(coorddef *t)
 	// End offset: 0x800E1B9C
 	// End Line: 169
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void TrsProj_SetPsxTransZero__Fv(void)
+
 {
   setCopControlWord(2,0x2800,0);
   setCopControlWord(2,0x3000,0);
   setCopControlWord(2,0x3800,0);
   return;
-
-
 }
-
 
 
 
@@ -262,6 +250,7 @@ void TrsProj_SetPsxTransZero__Fv(void)
 	// End Line: 178
 
 void TrsProj_TransPt__FP8coorddefT0(coorddef *s,coorddef *d)
+
 {
   int iVar1;
   int iVar2;
@@ -281,10 +270,7 @@ void TrsProj_TransPt__FP8coorddefT0(coorddef *s,coorddef *d)
   d->y = iVar2 << 10;
   d->z = iVar3 << 10;
   return;
-
-
 }
-
 
 
 
@@ -303,6 +289,7 @@ void TrsProj_TransPt__FP8coorddefT0(coorddef *s,coorddef *d)
 	// End Line: 244
 
 void TrsProj_TransPtN16__FP10RelCoord16P8coorddefi(RelCoord16 *s,coorddef *d,int n)
+
 {
   int iVar1;
   int iVar2;
@@ -336,10 +323,7 @@ void TrsProj_TransPtN16__FP10RelCoord16P8coorddefi(RelCoord16 *s,coorddef *d,int
     } while (iVar4 != -1);
   }
   return;
-
-
 }
-
 
 
 
@@ -357,7 +341,9 @@ void TrsProj_TransPtN16__FP10RelCoord16P8coorddefi(RelCoord16 *s,coorddef *d,int
 	// End offset: 0x800E1D94
 	// End Line: 265
 
-void TrsProj_TransformProjectVertex__FP10matrixtdefP8coorddefiT1P12Draw_tVertex( (matrixtdef *m,coorddef *t,int n,coorddef *s,Draw_tVertex *v)
+void TrsProj_TransformProjectVertex__FP10matrixtdefP8coorddefiT1P12Draw_tVertex
+               (matrixtdef *m,coorddef *t,int n,coorddef *s,Draw_tVertex *v)
+
 {
   int iVar1;
   short *psVar2;
@@ -370,7 +356,7 @@ void TrsProj_TransformProjectVertex__FP10matrixtdefP8coorddefiT1P12Draw_tVertex(
   if (0 < n) {
     psVar2 = &(v->sv).p;
     do {
-      transform(s,m,&local_38);
+      transform((int *)s,(int *)m,&local_38);
       s = s + 1;
       (v->sv).x = (short)(local_38 + t->x >> 10);
       iVar3 = iVar3 + 1;
@@ -383,10 +369,7 @@ void TrsProj_TransformProjectVertex__FP10matrixtdefP8coorddefiT1P12Draw_tVertex(
     } while (iVar3 < n);
   }
   return;
-
-
 }
-
 
 
 

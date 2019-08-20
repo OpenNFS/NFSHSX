@@ -29,16 +29,14 @@
 	// End Line: 85
 
 int BWorldSm_Init__FP5Group(Group *simGroup)
+
 {
-  iGp0000027c = simGroup->m_num_elements;
-  pGGp00000274 = simGroup + 1;
-  uGp00000288 = 5;
+  DAT_0000027c = simGroup->m_num_elements;
+  DAT_00000274 = simGroup + 1;
+  DAT_00000288 = 5;
   BWorldSm_Restart__Fv();
   return 1;
-
-
 }
-
 
 
 
@@ -53,14 +51,14 @@ int BWorldSm_Init__FP5Group(Group *simGroup)
 	// End offset: 0x8007E948
 	// End Line: 102
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void BWorldSm_Restart__Fv(void)
+
 {
   NormalCache_Init__Fv();
   return;
-
-
 }
-
 
 
 
@@ -75,13 +73,13 @@ void BWorldSm_Restart__Fv(void)
 	// End offset: 0x8007E968
 	// End Line: 114
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void BWorldSm_DeInit__Fv(void)
+
 {
   return;
-
-
 }
-
 
 
 
@@ -103,6 +101,7 @@ void BWorldSm_DeInit__Fv(void)
 	// End Line: 143
 
 void FindAbsClosestSliceCrude__FP8coorddefP12BWorldSm_Pos(coorddef *pt,BWorldSm_Pos *slicePos)
+
 {
   int iVar1;
   int iVar2;
@@ -110,14 +109,14 @@ void FindAbsClosestSliceCrude__FP8coorddefP12BWorldSm_Pos(coorddef *pt,BWorldSm_
   int iVar4;
   short sVar5;
   
-  iVar1 = iGp0000027c;
+  iVar1 = DAT_0000027c;
   iVar4 = 0x7fffffff;
   _sVar5 = -1;
   sVar5 = -1;
   iVar3 = 0;
-  if (0 < iGp0000027c) {
+  if (0 < DAT_0000027c) {
     do {
-      iVar2 = xzsquaredist32__FP8coorddefT0((coorddef *)(iGp00000274 + iVar3 * 0x20),pt);
+      iVar2 = xzsquaredist32__FP8coorddefT0((coorddef *)(DAT_00000274 + iVar3 * 0x20),pt);
       if (iVar2 < iVar4) {
         iVar4 = iVar2;
         _sVar5 = iVar3;
@@ -128,10 +127,7 @@ void FindAbsClosestSliceCrude__FP8coorddefP12BWorldSm_Pos(coorddef *pt,BWorldSm_
   }
   slicePos->slice = sVar5;
   return;
-
-
 }
-
 
 
 
@@ -149,6 +145,7 @@ void FindAbsClosestSliceCrude__FP8coorddefP12BWorldSm_Pos(coorddef *pt,BWorldSm_
 	// End Line: 164
 
 int BWorldSm_FindClosestSlice__FP8coorddefP12BWorldSm_Pos(coorddef *pt,BWorldSm_Pos *slicePos)
+
 {
   uchar uVar1;
   short sVar2;
@@ -156,21 +153,18 @@ int BWorldSm_FindClosestSlice__FP8coorddefP12BWorldSm_Pos(coorddef *pt,BWorldSm_
   int iVar4;
   
   sVar2 = slicePos->slice;
-  iVar4 = Math_DistXZ__FP8coorddefT0((coorddef *)(iGp00000274 + (int)sVar2 * 0x20),pt);
+  iVar4 = Math_DistXZ__FP8coorddefT0((coorddef *)(DAT_00000274 + (int)sVar2 * 0x20),pt);
   if (0x800000 < iVar4) {
     FindAbsClosestSliceCrude__FP8coorddefP12BWorldSm_Pos(pt,slicePos);
   }
   RawFindClosestSlice__FP8coorddefP12BWorldSm_Pos(pt,slicePos);
-  uVar1 = *(uchar *)((int)slicePos->slice * 0x20 + iGp00000274 + 0x1c);
+  uVar1 = *(uchar *)((int)slicePos->slice * 0x20 + DAT_00000274 + 0x1c);
   bVar3 = slicePos->slice != sVar2;
   *(bool *)&slicePos->quadChanged = bVar3;
   *(bool *)&slicePos->sliceChanged = bVar3;
   slicePos->chunk = uVar1;
   return (uint)bVar3;
-
-
 }
-
 
 
 
@@ -194,6 +188,7 @@ int BWorldSm_FindClosestSlice__FP8coorddefP12BWorldSm_Pos(coorddef *pt,BWorldSm_
 	// End Line: 250
 
 void RawFindClosestSlice__FP8coorddefP12BWorldSm_Pos(coorddef *pt,BWorldSm_Pos *slicePos)
+
 {
   bool bVar1;
   int iVar2;
@@ -208,7 +203,7 @@ void RawFindClosestSlice__FP8coorddefP12BWorldSm_Pos(coorddef *pt,BWorldSm_Pos *
   
   sVar8 = slicePos->slice;
   iVar9 = (int)sVar8;
-  iVar10 = iGp0000027c + -1;
+  iVar10 = DAT_0000027c + -1;
   if (iVar9 != -1) {
     do {
       if (iVar9 < iVar10) {
@@ -216,21 +211,21 @@ void RawFindClosestSlice__FP8coorddefP12BWorldSm_Pos(coorddef *pt,BWorldSm_Pos *
         iVar3 = iVar9;
       }
       else {
-        iVar3 = iVar9 % iGp0000027c;
-        if (iGp0000027c == 0) {
+        iVar3 = iVar9 % DAT_0000027c;
+        if (DAT_0000027c == 0) {
           trap(0x1c00);
         }
-        if ((iGp0000027c == -1) && (iVar9 == -0x80000000)) {
+        if ((DAT_0000027c == -1) && (iVar9 == -0x80000000)) {
           trap(0x1800);
         }
         iVar2 = pt->x;
       }
-      piVar6 = (int *)(iVar3 * 0x20 + iGp00000274);
+      piVar6 = (int *)(iVar3 * 0x20 + DAT_00000274);
       iVar3 = iVar2 - *piVar6 >> 9;
       iVar2 = pt->z - piVar6[2] >> 9;
       iVar3 = iVar3 * iVar3 + iVar2 * iVar2;
-      if (iVar9 < iGp0000027c + -2) {
-        iVar7 = iVar9 * 0x20 + iGp00000274;
+      if (iVar9 < DAT_0000027c + -2) {
+        iVar7 = iVar9 * 0x20 + DAT_00000274;
         iVar2 = pt->x - *(int *)(iVar7 + 0x20) >> 9;
         iVar7 = pt->z - *(int *)(iVar7 + 0x28) >> 9;
         if (iVar2 * iVar2 + iVar7 * iVar7 < iVar3) {
@@ -241,29 +236,29 @@ LAB_8007ec3c:
           if (iVar9 < 1) {
             iVar2 = iVar9 + 1 + iVar10;
             iVar7 = iVar2 + -1;
-            if (iGp0000027c == 0) {
+            if (DAT_0000027c == 0) {
               trap(0x1c00);
             }
-            if ((iGp0000027c == -1) && (iVar7 == -0x80000000)) {
+            if ((DAT_0000027c == -1) && (iVar7 == -0x80000000)) {
               trap(0x1800);
             }
-            piVar6 = (int *)((iVar7 % iGp0000027c) * 0x20 + iGp00000274);
+            piVar6 = (int *)((iVar7 % DAT_0000027c) * 0x20 + DAT_00000274);
             iVar4 = pt->x - *piVar6 >> 9;
             iVar5 = pt->z - piVar6[2] >> 9;
             if (iVar4 * iVar4 + iVar5 * iVar5 < iVar3) {
               iVar2 = iVar7;
             }
             iVar3 = iVar2 + 1 + iVar10;
-            iVar2 = iVar3 % iGp0000027c;
-            if (iGp0000027c == 0) {
+            iVar2 = iVar3 % DAT_0000027c;
+            if (DAT_0000027c == 0) {
               trap(0x1c00);
             }
-            if ((iGp0000027c == -1) && (iVar3 == -0x80000000)) {
+            if ((DAT_0000027c == -1) && (iVar3 == -0x80000000)) {
               trap(0x1800);
             }
           }
           else {
-            iVar2 = iVar9 * 0x20 + iGp00000274;
+            iVar2 = iVar9 * 0x20 + DAT_00000274;
             iVar7 = pt->x - *(int *)(iVar2 + -0x20) >> 9;
             iVar4 = pt->z - *(int *)(iVar2 + -0x18) >> 9;
             iVar2 = iVar9;
@@ -274,14 +269,14 @@ LAB_8007ec3c:
         }
       }
       else {
-        iVar2 = (iVar9 + 1) % iGp0000027c;
-        if (iGp0000027c == 0) {
+        iVar2 = (iVar9 + 1) % DAT_0000027c;
+        if (DAT_0000027c == 0) {
           trap(0x1c00);
         }
-        if ((iGp0000027c == -1) && (iVar9 + 1 == -0x80000000)) {
+        if ((DAT_0000027c == -1) && (iVar9 + 1 == -0x80000000)) {
           trap(0x1800);
         }
-        piVar6 = (int *)(iVar2 * 0x20 + iGp00000274);
+        piVar6 = (int *)(iVar2 * 0x20 + DAT_00000274);
         iVar7 = pt->x - *piVar6 >> 9;
         iVar4 = pt->z - piVar6[2] >> 9;
         if (iVar3 <= iVar7 * iVar7 + iVar4 * iVar4) goto LAB_8007ec3c;
@@ -293,10 +288,7 @@ LAB_8007ec3c:
   }
   slicePos->slice = sVar8;
   return;
-
-
 }
-
 
 
 
@@ -312,27 +304,27 @@ LAB_8007ec3c:
 	// End Line: 264
 
 void BWorldSm_SetSlice__FiP12BWorldSm_Pos(int slice,BWorldSm_Pos *slicePos)
+
 {
   uchar uVar1;
+  int iVar2;
   
   slicePos->slice = (short)slice;
   slicePos->sliceChanged = '\0';
   slicePos->quadChanged = '\0';
   slicePos->offEdge = '\0';
+  iVar2 = DAT_00000274;
   slicePos->simSlice = (Trk_NewSimSlice *)0x0;
   slicePos->simQuad = (Trk_NewSimQuad *)0x0;
   slicePos->simRotFlag = 0;
-  uVar1 = *(uchar *)((int)slicePos->slice * 0x20 + iGp00000274 + 0x1c);
+  uVar1 = *(uchar *)((int)slicePos->slice * 0x20 + iVar2 + 0x1c);
   slicePos->lastRezRequested = -2;
   slicePos->rez = '\x01';
   slicePos->triangleFlag = '\0';
   slicePos->quad = -1;
   slicePos->chunk = uVar1;
   return;
-
-
 }
-
 
 
 
@@ -375,47 +367,45 @@ void BWorldSm_SetSlice__FiP12BWorldSm_Pos(int slice,BWorldSm_Pos *slicePos)
 	// End Line: 331
 
 void GetStmQuadPts__FP12BWorldSm_PosP8coorddef(BWorldSm_Pos *slicePos,coorddef *cp)
+
 {
   short sVar1;
   short sVar2;
-  short *psVar3;
-  short *psVar4;
+  Group *pGVar3;
+  Group *pGVar4;
   int iVar5;
   int iVar6;
   int iVar7;
-  int iVar8;
   
-  iVar8 = cp->x;
-  iVar7 = cp->y;
-  iVar6 = cp->z;
-  iVar5 = *(int *)((uint)slicePos->chunk * 0x70 + 0x6c) + 4;
-  psVar3 = (short *)(((uint)slicePos->strip->topVert + (int)slicePos->stripQuadInd) * 8 + iVar5);
-  sVar1 = psVar3[5];
-  sVar2 = psVar3[6];
-  psVar4 = (short *)(((uint)slicePos->strip->botVert + (int)slicePos->stripQuadInd) * 8 + iVar5);
-  slicePos->quadPts[1].x = iVar8 + (int)psVar3[4] * 0x400;
-  slicePos->quadPts[1].y = iVar7 + (int)sVar1 * 0x400;
-  slicePos->quadPts[1].z = iVar6 + (int)sVar2 * 0x400;
-  sVar1 = psVar3[1];
-  sVar2 = psVar3[2];
-  slicePos->quadPts[2].x = iVar8 + (int)*psVar3 * 0x400;
-  slicePos->quadPts[2].y = iVar7 + (int)sVar1 * 0x400;
-  slicePos->quadPts[2].z = iVar6 + (int)sVar2 * 0x400;
-  sVar1 = psVar4[1];
-  sVar2 = psVar4[2];
-  slicePos->quadPts[3].x = iVar8 + (int)*psVar4 * 0x400;
-  slicePos->quadPts[3].y = iVar7 + (int)sVar1 * 0x400;
-  slicePos->quadPts[3].z = iVar6 + (int)sVar2 * 0x400;
-  sVar1 = psVar4[5];
-  sVar2 = psVar4[6];
-  slicePos->quadPts[0].x = iVar8 + (int)psVar4[4] * 0x400;
-  slicePos->quadPts[0].y = iVar7 + (int)sVar1 * 0x400;
-  slicePos->quadPts[0].z = iVar6 + (int)sVar2 * 0x400;
+  iVar7 = cp->x;
+  iVar6 = cp->y;
+  iVar5 = cp->z;
+  pGVar3 = Track_chunkList[(uint)slicePos->chunk].vertexBuf + 1 +
+           ((uint)slicePos->strip->topVert + (int)slicePos->stripQuadInd) * 2;
+  sVar1 = *(short *)((int)&pGVar3[2].m_num_elements + 2);
+  sVar2 = *(short *)&pGVar3[3].m_num_elements;
+  pGVar4 = Track_chunkList[(uint)slicePos->chunk].vertexBuf + 1 +
+           ((uint)slicePos->strip->botVert + (int)slicePos->stripQuadInd) * 2;
+  slicePos->quadPts[1].x = iVar7 + (int)*(short *)&pGVar3[2].m_num_elements * 0x400;
+  slicePos->quadPts[1].y = iVar6 + (int)sVar1 * 0x400;
+  slicePos->quadPts[1].z = iVar5 + (int)sVar2 * 0x400;
+  sVar1 = *(short *)((int)&pGVar3->m_num_elements + 2);
+  sVar2 = *(short *)&pGVar3[1].m_num_elements;
+  slicePos->quadPts[2].x = iVar7 + (int)*(short *)&pGVar3->m_num_elements * 0x400;
+  slicePos->quadPts[2].y = iVar6 + (int)sVar1 * 0x400;
+  slicePos->quadPts[2].z = iVar5 + (int)sVar2 * 0x400;
+  sVar1 = *(short *)((int)&pGVar4->m_num_elements + 2);
+  sVar2 = *(short *)&pGVar4[1].m_num_elements;
+  slicePos->quadPts[3].x = iVar7 + (int)*(short *)&pGVar4->m_num_elements * 0x400;
+  slicePos->quadPts[3].y = iVar6 + (int)sVar1 * 0x400;
+  slicePos->quadPts[3].z = iVar5 + (int)sVar2 * 0x400;
+  sVar1 = *(short *)((int)&pGVar4[2].m_num_elements + 2);
+  sVar2 = *(short *)&pGVar4[3].m_num_elements;
+  slicePos->quadPts[0].x = iVar7 + (int)*(short *)&pGVar4[2].m_num_elements * 0x400;
+  slicePos->quadPts[0].y = iVar6 + (int)sVar1 * 0x400;
+  slicePos->quadPts[0].z = iVar5 + (int)sVar2 * 0x400;
   return;
-
-
 }
-
 
 
 
@@ -451,6 +441,7 @@ void GetStmQuadPts__FP12BWorldSm_PosP8coorddef(BWorldSm_Pos *slicePos,coorddef *
 	// End Line: 404
 
 void SetStrip__FP12BWorldSm_Pos(BWorldSm_Pos *slicePos)
+
 {
   char cVar1;
   byte bVar2;
@@ -462,7 +453,7 @@ void SetStrip__FP12BWorldSm_Pos(BWorldSm_Pos *slicePos)
   
   iVar7 = 0;
   bVar2 = slicePos->simSlice->stripIndex;
-  slicePos->strip = (Trk_NewStrip *)(*(int *)((uint)slicePos->chunk * 0x70 + 0x38) + 4);
+  slicePos->strip = (Trk_NewStrip *)(Track_chunkList[(uint)slicePos->chunk].stripBuf + 1);
   if (bVar2 != 0) {
     do {
       iVar7 = iVar7 + 1;
@@ -488,10 +479,7 @@ void SetStrip__FP12BWorldSm_Pos(BWorldSm_Pos *slicePos)
   }
   slicePos->stripQuadInd = sVar6;
   return;
-
-
 }
-
 
 
 
@@ -514,6 +502,7 @@ void SetStrip__FP12BWorldSm_Pos(BWorldSm_Pos *slicePos)
 	// End Line: 416
 
 void GetFirstStmQuadPts__FP12BWorldSm_PosP8CCOORD16(BWorldSm_Pos *slicePos,CCOORD16 *vertices)
+
 {
   byte bVar1;
   short sVar2;
@@ -538,10 +527,7 @@ void GetFirstStmQuadPts__FP12BWorldSm_PosP8CCOORD16(BWorldSm_Pos *slicePos,CCOOR
   slicePos->quadPts16[0].x = vertices[1].x;
   slicePos->quadPts16[0].z = sVar2;
   return;
-
-
 }
-
 
 
 
@@ -560,21 +546,18 @@ void GetFirstStmQuadPts__FP12BWorldSm_PosP8CCOORD16(BWorldSm_Pos *slicePos,CCOOR
 	// End Line: 478
 
 void BWorld_SetSimSlice__FP12BWorldSm_Pos(BWorldSm_Pos *slicePos)
+
 {
   byte bVar1;
-  int iVar2;
   
-  bVar1 = *(byte *)((int)slicePos->slice * 0x20 + iGp00000274 + 0x1c);
+  bVar1 = *(byte *)((int)slicePos->slice * 0x20 + DAT_00000274 + 0x1c);
   slicePos->chunk = bVar1;
-  iVar2 = (uint)bVar1 * 0x70;
   slicePos->simSlice =
        (Trk_NewSimSlice *)
-       (*(int *)(iVar2 + 0x48) + 4 + ((int)slicePos->slice - (int)*(short *)(iVar2 + 0x68)) * 5);
+       ((int)Track_chunkList[(uint)bVar1].simSliceBuf +
+       ((int)slicePos->slice - (int)Track_chunkList[(uint)bVar1].firstSimSliceInd) * 5 + 4);
   return;
-
-
 }
-
 
 
 
@@ -608,25 +591,23 @@ void BWorld_SetSimSlice__FP12BWorldSm_Pos(BWorldSm_Pos *slicePos)
 	// End Line: 507
 
 void BworldSm_UpdateSimQuad__FP12BWorldSm_Pos(BWorldSm_Pos *slicePos)
+
 {
-  Trk_NewSimQuad *pTVar1;
+  Group *pGVar1;
   Trk_NewSimSlice *pTVar2;
   int iVar3;
   
   pTVar2 = slicePos->simSlice;
   iVar3 = (int)slicePos->quad - (uint)pTVar2->simquadStartIndex;
   if ((-1 < iVar3) && (iVar3 < (int)(uint)pTVar2->simquadCount)) {
-    pTVar1 = (Trk_NewSimQuad *)(*(int *)((uint)slicePos->chunk * 0x70 + 0x4c) + 4);
-    slicePos->simQuad = pTVar1;
-    slicePos->simQuad = pTVar1 + (uint)pTVar2->simquadIndex + iVar3;
+    pGVar1 = Track_chunkList[(uint)slicePos->chunk].simQuadBuf;
+    *(Group **)&slicePos->simQuad = pGVar1 + 1;
+    slicePos->simQuad = (Trk_NewSimQuad *)((int)(pGVar1 + 1) + (uint)pTVar2->simquadIndex + iVar3);
     return;
   }
-  slicePos->simQuad = (Trk_NewSimQuad *)&GlobalSimQuad;
+  slicePos->simQuad = &GlobalSimQuad;
   return;
-
-
 }
-
 
 
 
@@ -642,15 +623,13 @@ void BworldSm_UpdateSimQuad__FP12BWorldSm_Pos(BWorldSm_Pos *slicePos)
 	// End Line: 520
 
 int BworldSm_IsSimQuadValid__FP12BWorldSm_Pos(BWorldSm_Pos *slicePos)
+
 {
   if (slicePos->simQuad == (Trk_NewSimQuad *)0x0) {
     return 0;
   }
   return (uint)((slicePos->simQuad->surface & 0xf) != 0xe);
-
-
 }
-
 
 
 
@@ -720,6 +699,7 @@ int BworldSm_IsSimQuadValid__FP12BWorldSm_Pos(BWorldSm_Pos *slicePos)
 	// End Line: 742
 
 int RawFindClosestQuad__FP8coorddefP12BWorldSm_Pos(coorddef *pt,BWorldSm_Pos *slicePos)
+
 {
   byte bVar1;
   uchar uVar2;
@@ -764,14 +744,14 @@ int RawFindClosestQuad__FP8coorddefP12BWorldSm_Pos(coorddef *pt,BWorldSm_Pos *sl
   uVar21 = (uchar)iVar7;
   slicePos->quad = uVar21;
   do {
-    if (iGp00000288 <= iVar20) {
+    if (DAT_00000288 <= iVar20) {
       iVar22 = (int)slicePos->slice - iVar22;
-      if (iGp0000027c <= iVar22) {
-        iVar22 = iVar22 - iGp0000027c;
+      if (DAT_0000027c <= iVar22) {
+        iVar22 = iVar22 - DAT_0000027c;
       }
       sVar10 = (short)iVar22;
       if (iVar22 < 0) {
-        sVar10 = sVar10 + (short)iGp0000027c;
+        sVar10 = sVar10 + (short)DAT_0000027c;
       }
       slicePos->slice = sVar10;
       BWorld_SetSimSlice__FP12BWorldSm_Pos(slicePos);
@@ -786,10 +766,10 @@ int RawFindClosestQuad__FP8coorddefP12BWorldSm_Pos(coorddef *pt,BWorldSm_Pos *sl
     if ((int)((uint)bVar1 - 1) < iVar7) {
       slicePos->quad = bVar1 - 2;
     }
-    cp = (coorddef *)(_Chunk_chunkCenters + (uint)slicePos->chunk * 0xc);
+    cp = Chunk_chunkCenters + (uint)slicePos->chunk;
     sVar10 = (short)(pt->x - cp->x >> 10);
     sVar3 = (short)(pt->z - cp->z >> 10);
-    vertices = (CCOORD16 *)(*(int *)((uint)slicePos->chunk * 0x70 + 0x6c) + 4);
+    vertices = (CCOORD16 *)(Track_chunkList[(uint)slicePos->chunk].vertexBuf + 1);
     GetFirstStmQuadPts__FP12BWorldSm_PosP8CCOORD16(slicePos,vertices);
     BworldSm_UpdateSimQuad__FP12BWorldSm_Pos(slicePos);
     pTVar5 = slicePos->simSlice;
@@ -972,21 +952,18 @@ LAB_8007f1dc:
     }
     piVar9 = &DAT_8010f07c + iVar20;
     iVar12 = (int)slicePos->slice + *piVar9;
-    if (iGp0000027c <= iVar12) {
-      iVar12 = iVar12 - iGp0000027c;
+    if (DAT_0000027c <= iVar12) {
+      iVar12 = iVar12 - DAT_0000027c;
     }
     sVar10 = (short)iVar12;
     if (iVar12 < 0) {
-      sVar10 = sVar10 + (short)iGp0000027c;
+      sVar10 = sVar10 + (short)DAT_0000027c;
     }
     slicePos->slice = sVar10;
     iVar20 = iVar20 + 1;
     iVar22 = iVar22 + *piVar9;
   } while( true );
-
-
 }
-
 
 
 
@@ -1018,6 +995,7 @@ LAB_8007f1dc:
 	// End Line: 1129
 
 int FindClosestQuad__FP8coorddefP12BWorldSm_Pos(coorddef *pt,BWorldSm_Pos *slicePos)
+
 {
   char cVar1;
   short sVar2;
@@ -1046,8 +1024,8 @@ int FindClosestQuad__FP8coorddefP12BWorldSm_Pos(coorddef *pt,BWorldSm_Pos *slice
       BworldSm_UpdateSimQuad__FP12BWorldSm_Pos(slicePos);
       slicePos->rez = '\x02';
       SetStrip__FP12BWorldSm_Pos(slicePos);
-      GetStmQuadPts__FP12BWorldSm_PosP8coorddef
-                (slicePos,(coorddef *)(_Chunk_chunkCenters + (uint)slicePos->chunk * 0xc));
+      GetStmQuadPts__FP12BWorldSm_PosP8coorddef(slicePos,Chunk_chunkCenters + (uint)slicePos->chunk)
+      ;
     }
     corrPt_47 = pt->x;
     DAT_8013dfc8 = pt->y;
@@ -1055,10 +1033,10 @@ int FindClosestQuad__FP8coorddefP12BWorldSm_Pos(coorddef *pt,BWorldSm_Pos *slice
     pTVar7 = slicePos->simQuad;
     iVar6 = 0;
     while ((pTVar7 == (Trk_NewSimQuad *)0x0 && (iVar6 < 10))) {
-      corrPt_47 = corrPt_47 + (*(int *)((int)slicePos->slice * 0x20 + iGp00000274) - corrPt_47 >> 5)
-      ;
+      corrPt_47 = corrPt_47 +
+                  (*(int *)((int)slicePos->slice * 0x20 + DAT_00000274) - corrPt_47 >> 5);
       DAT_8013dfcc = DAT_8013dfcc +
-                     (*(int *)((int)slicePos->slice * 0x20 + iGp00000274 + 8) - DAT_8013dfcc >> 5);
+                     (*(int *)((int)slicePos->slice * 0x20 + DAT_00000274 + 8) - DAT_8013dfcc >> 5);
       RawFindClosestQuad__FP8coorddefP12BWorldSm_Pos((coorddef *)&corrPt_47,slicePos);
       pTVar7 = slicePos->simQuad;
       iVar6 = iVar6 + 1;
@@ -1072,10 +1050,7 @@ int FindClosestQuad__FP8coorddefP12BWorldSm_Pos(coorddef *pt,BWorldSm_Pos *slice
   }
   slicePos->quadChanged = cVar5;
   return (int)slicePos->sliceChanged;
-
-
 }
-
 
 
 
@@ -1111,11 +1086,14 @@ int FindClosestQuad__FP8coorddefP12BWorldSm_Pos(coorddef *pt,BWorldSm_Pos *slice
 	// End offset: 0x8007FC74
 	// End Line: 1188
 
-int BWorldSm_FindClosestQuadRez__FP8coorddefP12BWorldSm_Posi( (coorddef *pt,BWorldSm_Pos *slicePos,int hiRezFlag)
+int BWorldSm_FindClosestQuadRez__FP8coorddefP12BWorldSm_Posi
+              (coorddef *pt,BWorldSm_Pos *slicePos,int hiRezFlag)
+
 {
   bool bVar1;
-  int iVar2;
-  int iVar3;
+  uint uVar2;
+  uint uVar3;
+  int iVar4;
   
   slicePos->triangleFlag = '\x03';
   if (hiRezFlag == 0) {
@@ -1125,32 +1103,32 @@ int BWorldSm_FindClosestQuadRez__FP8coorddefP12BWorldSm_Posi( (coorddef *pt,BWor
     slicePos->simQuad = (Trk_NewSimQuad *)0x0;
     slicePos->quad = -1;
     slicePos->triangleFlag = '\0';
-    iVar2 = BWorldSm_FindClosestSlice__FP8coorddefP12BWorldSm_Pos(pt,slicePos);
+    iVar4 = BWorldSm_FindClosestSlice__FP8coorddefP12BWorldSm_Pos(pt,slicePos);
   }
   else {
     slicePos->lastRezRequested = '\x02';
     if (slicePos->simQuad != (Trk_NewSimQuad *)0x0) {
       bVar1 = false;
-      iVar2 = fixedmult(slicePos->quadPts[1].x - slicePos->quadPts[2].x,
+      uVar2 = fixedmult(slicePos->quadPts[1].x - slicePos->quadPts[2].x,
                         pt->z - slicePos->quadPts[2].z);
-      iVar3 = fixedmult(pt->x - slicePos->quadPts[2].x,
+      uVar3 = fixedmult(pt->x - slicePos->quadPts[2].x,
                         slicePos->quadPts[1].z - slicePos->quadPts[2].z);
-      if (iVar2 - iVar3 < 1) {
-        iVar2 = fixedmult(slicePos->quadPts[0].x - slicePos->quadPts[1].x,
+      if ((int)(uVar2 - uVar3) < 1) {
+        uVar2 = fixedmult(slicePos->quadPts[0].x - slicePos->quadPts[1].x,
                           pt->z - slicePos->quadPts[1].z);
-        iVar3 = fixedmult(pt->x - slicePos->quadPts[1].x,
+        uVar3 = fixedmult(pt->x - slicePos->quadPts[1].x,
                           slicePos->quadPts[0].z - slicePos->quadPts[1].z);
-        if (iVar2 - iVar3 < 1) {
-          iVar2 = fixedmult(slicePos->quadPts[2].x - slicePos->quadPts[3].x,
+        if ((int)(uVar2 - uVar3) < 1) {
+          uVar2 = fixedmult(slicePos->quadPts[2].x - slicePos->quadPts[3].x,
                             pt->z - slicePos->quadPts[3].z);
-          iVar3 = fixedmult(pt->x - slicePos->quadPts[3].x,
+          uVar3 = fixedmult(pt->x - slicePos->quadPts[3].x,
                             slicePos->quadPts[2].z - slicePos->quadPts[3].z);
-          if (iVar2 - iVar3 < 1) {
-            iVar2 = fixedmult(slicePos->quadPts[3].x - slicePos->quadPts[0].x,
+          if ((int)(uVar2 - uVar3) < 1) {
+            uVar2 = fixedmult(slicePos->quadPts[3].x - slicePos->quadPts[0].x,
                               pt->z - slicePos->quadPts[0].z);
-            iVar3 = fixedmult(pt->x - slicePos->quadPts[0].x,
+            uVar3 = fixedmult(pt->x - slicePos->quadPts[0].x,
                               slicePos->quadPts[3].z - slicePos->quadPts[0].z);
-            bVar1 = iVar2 - iVar3 < 1;
+            bVar1 = (int)(uVar2 - uVar3) < 1;
           }
         }
       }
@@ -1160,13 +1138,10 @@ int BWorldSm_FindClosestQuadRez__FP8coorddefP12BWorldSm_Posi( (coorddef *pt,BWor
         return 0;
       }
     }
-    iVar2 = FindClosestQuad__FP8coorddefP12BWorldSm_Pos(pt,slicePos);
+    iVar4 = FindClosestQuad__FP8coorddefP12BWorldSm_Pos(pt,slicePos);
   }
-  return iVar2;
-
-
+  return iVar4;
 }
-
 
 
 
@@ -1181,16 +1156,15 @@ int BWorldSm_FindClosestQuadRez__FP8coorddefP12BWorldSm_Posi( (coorddef *pt,BWor
 	// End offset: 0x8007FC90
 	// End Line: 1200
 
-int BWorldSm_FindClosestQuadMaxIterations__FP8coorddefP12BWorldSm_Posi( (coorddef *pt,BWorldSm_Pos *slicePos,int maxIterations)
+int BWorldSm_FindClosestQuadMaxIterations__FP8coorddefP12BWorldSm_Posi
+              (coorddef *pt,BWorldSm_Pos *slicePos,int maxIterations)
+
 {
   int iVar1;
   
   iVar1 = BWorldSm_FindClosestQuadRez__FP8coorddefP12BWorldSm_Posi(pt,slicePos,1);
   return iVar1;
-
-
 }
-
 
 
 
@@ -1206,17 +1180,15 @@ int BWorldSm_FindClosestQuadMaxIterations__FP8coorddefP12BWorldSm_Posi( (coordde
 	// End Line: 1213
 
 int PointDirection__FP8coorddefN20(coorddef *p1,coorddef *p2,coorddef *p3)
+
 {
-  int iVar1;
-  int iVar2;
+  uint uVar1;
+  uint uVar2;
   
-  iVar1 = fixedmult(p1->x - p2->x,p3->z - p2->z);
-  iVar2 = fixedmult(p3->x - p2->x,p1->z - p2->z);
-  return iVar1 - iVar2;
-
-
+  uVar1 = fixedmult(p1->x - p2->x,p3->z - p2->z);
+  uVar2 = fixedmult(p3->x - p2->x,p1->z - p2->z);
+  return uVar1 - uVar2;
 }
-
 
 
 
@@ -1243,7 +1215,9 @@ int PointDirection__FP8coorddefN20(coorddef *p1,coorddef *p2,coorddef *p3)
 	// End offset: 0x8007FDE4
 	// End Line: 1248
 
-int BWorldSm_FindEdgeOff__FP8coorddefP12BWorldSm_PosT1Pi( (coorddef *pt,BWorldSm_Pos *slicePos1,BWorldSm_Pos *slicePos2,int *heightDiff)
+int BWorldSm_FindEdgeOff__FP8coorddefP12BWorldSm_PosT1Pi
+              (coorddef *pt,BWorldSm_Pos *slicePos1,BWorldSm_Pos *slicePos2,int *heightDiff)
+
 {
   int iVar1;
   uint uVar2;
@@ -1265,10 +1239,7 @@ int BWorldSm_FindEdgeOff__FP8coorddefP12BWorldSm_PosT1Pi( (coorddef *pt,BWorldSm
   *heightDiff = (slicePos2->quadPts[0].y + slicePos2->quadPts[1].y + slicePos2->quadPts[2].y +
                  slicePos2->quadPts[3].y >> 2) - pt->y;
   return uVar2;
-
-
 }
-
 
 
 
@@ -1325,45 +1296,57 @@ int BWorldSm_FindEdgeOff__FP8coorddefP12BWorldSm_PosT1Pi( (coorddef *pt,BWorldSm
 	// End Line: 1290
 
 int BWorldSm_QuadLight__FP12BWorldSm_Pos(BWorldSm_Pos *slicePos)
+
 {
-  int iVar1;
-  int iVar2;
+  Group *pGVar1;
+  CVECTOR CVar2;
   uint uVar3;
   uint uVar4;
   uint uVar5;
-  uint uVar6;
-  uint local_28;
+  undefined *local_28;
   
   if (slicePos->rez == '\x02') {
-    iVar1 = *(int *)((uint)slicePos->chunk * 0x70 + 0x6c) + 4;
-    iVar2 = ((uint)slicePos->strip->topVert + (int)slicePos->stripQuadInd) * 8 + iVar1;
-    iVar1 = ((uint)slicePos->strip->botVert + (int)slicePos->stripQuadInd) * 8 + iVar1;
-    uVar3 = *(uint *)((int)*(short *)(iVar2 + 0xe) * 4 + _Chunk_lightTable);
-    uVar4 = *(uint *)(((int)((uint)*(ushort *)(iVar2 + 6) << 0x10) >> 0xe) + _Chunk_lightTable);
-    uVar5 = *(uint *)(((int)((uint)*(ushort *)(iVar1 + 6) << 0x10) >> 0xe) + _Chunk_lightTable);
-    uVar6 = *(uint *)(((int)((uint)*(ushort *)(iVar1 + 0xe) << 0x10) >> 0xe) + _Chunk_lightTable);
-    local_28 = local_28 & 0xff000000 |
-               (uint)CONCAT12((char)((int)((uVar3 >> 0x10 & 0xff) + (uVar4 >> 0x10 & 0xff) +
-                                           (uVar5 >> 0x10 & 0xff) + (uVar6 >> 0x10 & 0xff)) >> 2),
-                              CONCAT11((char)((int)((uVar3 >> 8 & 0xff) + (uVar4 >> 8 & 0xff) +
-                                                    (uVar5 >> 8 & 0xff) + (uVar6 >> 8 & 0xff)) >> 2)
-                                       ,(char)((int)((uVar3 & 0xff) + (uVar4 & 0xff) +
-                                                     (uVar5 & 0xff) + (uVar6 & 0xff)) >> 2)));
+    pGVar1 = Track_chunkList[(uint)slicePos->chunk].vertexBuf + 1;
+    CVar2 = Chunk_lightTable
+            [(int)*(short *)((int)&(pGVar1 + ((uint)slicePos->strip->topVert +
+                                             (int)slicePos->stripQuadInd) * 2)[3].m_num_elements + 2
+                            )];
+    uVar3 = *(uint *)(&Chunk_lightTable->r +
+                     ((int)((uint)*(ushort *)
+                                   ((int)&(pGVar1 + ((uint)slicePos->strip->topVert +
+                                                    (int)slicePos->stripQuadInd) * 2)[1].
+                                          m_num_elements + 2) << 0x10) >> 0xe));
+    uVar4 = *(uint *)(&Chunk_lightTable->r +
+                     ((int)((uint)*(ushort *)
+                                   ((int)&(pGVar1 + ((uint)slicePos->strip->botVert +
+                                                    (int)slicePos->stripQuadInd) * 2)[1].
+                                          m_num_elements + 2) << 0x10) >> 0xe));
+    uVar5 = *(uint *)(&Chunk_lightTable->r +
+                     ((int)((uint)*(ushort *)
+                                   ((int)&(pGVar1 + ((uint)slicePos->strip->botVert +
+                                                    (int)slicePos->stripQuadInd) * 2)[3].
+                                          m_num_elements + 2) << 0x10) >> 0xe));
+    local_28 = (undefined *)
+               ((uint)local_28 & 0xff000000 |
+               (uint)CONCAT12((char)((int)(((uint)CVar2 >> 0x10 & 0xff) + (uVar3 >> 0x10 & 0xff) +
+                                           (uVar4 >> 0x10 & 0xff) + (uVar5 >> 0x10 & 0xff)) >> 2),
+                              CONCAT11((char)((int)(((uint)CVar2 >> 8 & 0xff) + (uVar3 >> 8 & 0xff)
+                                                    + (uVar4 >> 8 & 0xff) + (uVar5 >> 8 & 0xff)) >>
+                                             2),(char)((int)(((uint)CVar2 & 0xff) + (uVar3 & 0xff) +
+                                                             (uVar4 & 0xff) + (uVar5 & 0xff)) >> 2))
+                             ));
   }
   else {
-    local_28 = 0x7f7f7f;
+    local_28 = &DAT_007f7f7f;
   }
-  return local_28;
-
-
+  return (int)local_28;
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// unsigned int /*$ra*/ BWorldSm_TunnelFlagSm__FP12BWorldSm_Pos(struct BWorldSm_Pos *slicePos /*$a0*/)
+// void * /*$ra*/ BWorldSm_TunnelFlagSm__FP12BWorldSm_Pos(struct BWorldSm_Pos *slicePos /*$a0*/)
  // line 1301, offset 0x8007ffd4
 	/* begin block 1 */
 		// Start line: 1302
@@ -1374,24 +1357,22 @@ int BWorldSm_QuadLight__FP12BWorldSm_Pos(BWorldSm_Pos *slicePos)
 	// End offset: 0x8008001C
 	// End Line: 1311
 
-uint BWorldSm_TunnelFlagSm__FP12BWorldSm_Pos(BWorldSm_Pos *slicePos)
+void * BWorldSm_TunnelFlagSm__FP12BWorldSm_Pos(BWorldSm_Pos *slicePos)
+
 {
   byte bVar1;
   
-  if ((*(byte *)((int)slicePos->slice * 0x20 + iGp00000274 + 0x15) & 0x44) == 0) {
+  if ((*(byte *)((int)slicePos->slice * 0x20 + DAT_00000274 + 0x15) & 0x44) == 0) {
     if (slicePos->simQuad == (Trk_NewSimQuad *)0x0) {
       bVar1 = 0xe;
     }
     else {
       bVar1 = slicePos->simQuad->surface & 0xf;
     }
-    return (uint)(bVar1 == 8);
+    return (void *)(uint)(bVar1 == 8);
   }
-  return 1;
-
-
+  return &DAT_00000001;
 }
-
 
 
 
@@ -1420,8 +1401,9 @@ uint BWorldSm_TunnelFlagSm__FP12BWorldSm_Pos(BWorldSm_Pos *slicePos)
 	// End Line: 1358
 
 void NormalCache_AddEntry__FP12BWorldSm_Pos(BWorldSm_Pos *slicePos)
+
 {
-  undefined2 *puVar1;
+  tNormalCacheEntry *ptVar1;
   int iVar2;
   uint uVar3;
   int iVar4;
@@ -1429,42 +1411,39 @@ void NormalCache_AddEntry__FP12BWorldSm_Pos(BWorldSm_Pos *slicePos)
   
   uVar3 = 0xffffffff;
   iVar4 = -1;
-  puVar1 = &BWSM_NormalCache;
+  ptVar1 = &BWSM_NormalCache;
   iVar2 = 0;
+  DAT_0000028c = DAT_0000028c + 1;
   do {
-    if (*(uint *)(puVar1 + 0xe) < uVar3) {
-      uVar3 = *(uint *)(puVar1 + 0xe);
+    if (ptVar1->accessTime < uVar3) {
+      uVar3 = ptVar1->accessTime;
       iVar4 = iVar2;
     }
     iVar2 = iVar2 + 1;
-    puVar1 = puVar1 + 0x10;
+    ptVar1 = ptVar1 + 1;
   } while (iVar2 < 0x10);
-  (&DAT_8010f0c8)[iVar4 * 8] = iGp0000028c + 1;
+  (&BWSM_NormalCache)[iVar4].accessTime = DAT_0000028c;
   iVar2 = (slicePos->forward).y;
   iVar5 = (slicePos->forward).z;
-  (&DAT_8010f0bc)[iVar4 * 8] = (slicePos->forward).x;
-  (&DAT_8010f0c0)[iVar4 * 8] = iVar2;
-  (&DAT_8010f0c4)[iVar4 * 8] = iVar5;
+  (&BWSM_NormalCache)[iVar4].forward.x = (slicePos->forward).x;
+  (&BWSM_NormalCache)[iVar4].forward.y = iVar2;
+  (&BWSM_NormalCache)[iVar4].forward.z = iVar5;
   iVar2 = (slicePos->normal).y;
   iVar5 = (slicePos->normal).z;
-  (&DAT_8010f0b0)[iVar4 * 8] = (slicePos->normal).x;
-  (&DAT_8010f0b4)[iVar4 * 8] = iVar2;
-  (&DAT_8010f0b8)[iVar4 * 8] = iVar5;
-  (&BWSM_NormalCache)[iVar4 * 0x10] = slicePos->slice;
-  (&DAT_8010f0af)[iVar4 * 0x20] = slicePos->quad;
-  (&DAT_8010f0ae)[iVar4 * 0x20] = slicePos->triangleFlag;
-  iGp0000028c = iGp0000028c + 1;
+  (&BWSM_NormalCache)[iVar4].normal.x = (slicePos->normal).x;
+  (&BWSM_NormalCache)[iVar4].normal.y = iVar2;
+  (&BWSM_NormalCache)[iVar4].normal.z = iVar5;
+  (&BWSM_NormalCache)[iVar4].sliceInd = slicePos->slice;
+  (&BWSM_NormalCache)[iVar4].quadInd = slicePos->quad;
+  (&BWSM_NormalCache)[iVar4].triangleFlag = slicePos->triangleFlag;
   return;
-
-
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// unsigned int /*$ra*/ NormalCache_FindEntry__FP12BWorldSm_Pos(struct BWorldSm_Pos *slicePos /*$a0*/)
+// void * /*$ra*/ NormalCache_FindEntry__FP12BWorldSm_Pos(struct BWorldSm_Pos *slicePos /*$a0*/)
  // line 1372, offset 0x800800e8
 	/* begin block 1 */
 		// Start line: 1373
@@ -1478,46 +1457,44 @@ void NormalCache_AddEntry__FP12BWorldSm_Pos(BWorldSm_Pos *slicePos)
 	// End offset: 0x800801A4
 	// End Line: 1406
 
-uint NormalCache_FindEntry__FP12BWorldSm_Pos(BWorldSm_Pos *slicePos)
+void * NormalCache_FindEntry__FP12BWorldSm_Pos(BWorldSm_Pos *slicePos)
+
 {
   byte *pbVar1;
-  short *psVar2;
+  tNormalCacheEntry *ptVar2;
   int iVar3;
   int iVar4;
   
-  psVar2 = &BWSM_NormalCache;
+  ptVar2 = &BWSM_NormalCache;
   iVar3 = 0;
-  pbVar1 = &DAT_8010f0ae;
-  BWSM_NormalCacheSysTime = BWSM_NormalCacheSysTime + 1;
-  while (((*psVar2 != slicePos->slice || (pbVar1[1] != slicePos->quad)) ||
+  pbVar1 = &BWSM_NormalCache.triangleFlag;
+  uGp0000028c = uGp0000028c + 1;
+  while (((ptVar2->sliceInd != slicePos->slice || (pbVar1[1] != slicePos->quad)) ||
          ((uint)*pbVar1 != (int)slicePos->triangleFlag))) {
     pbVar1 = pbVar1 + 0x20;
     iVar3 = iVar3 + 1;
-    psVar2 = psVar2 + 0x10;
+    ptVar2 = ptVar2 + 1;
     if (0xf < iVar3) {
 LAB_80080154:
       if (0xf < iVar3) {
-        return 0;
+        return (void *)0x0;
       }
-      iVar3 = *(int *)(psVar2 + 4);
-      iVar4 = *(int *)(psVar2 + 6);
-      (slicePos->normal).x = *(int *)(psVar2 + 2);
+      iVar3 = (ptVar2->normal).y;
+      iVar4 = (ptVar2->normal).z;
+      (slicePos->normal).x = (ptVar2->normal).x;
       (slicePos->normal).y = iVar3;
       (slicePos->normal).z = iVar4;
-      iVar3 = *(int *)(psVar2 + 10);
-      iVar4 = *(int *)(psVar2 + 0xc);
-      (slicePos->forward).x = *(int *)(psVar2 + 8);
+      iVar3 = (ptVar2->forward).y;
+      iVar4 = (ptVar2->forward).z;
+      (slicePos->forward).x = (ptVar2->forward).x;
       (slicePos->forward).y = iVar3;
       (slicePos->forward).z = iVar4;
-      return 1;
+      return &DAT_00000001;
     }
   }
-  *(int *)(psVar2 + 0xe) = BWSM_NormalCacheSysTime;
+  ptVar2->accessTime = uGp0000028c;
   goto LAB_80080154;
-
-
 }
-
 
 
 
@@ -1541,27 +1518,27 @@ LAB_80080154:
 	// End offset: 0x800801E0
 	// End Line: 1421
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void NormalCache_Init__Fv(void)
+
 {
-  undefined2 *puVar1;
+  tNormalCacheEntry *ptVar1;
   int iVar2;
   
-  BWSM_NormalCacheSysTime = 0;
   iVar2 = 0;
-  puVar1 = &BWSM_NormalCache;
+  ptVar1 = &BWSM_NormalCache;
   do {
-    *puVar1 = 0xffff;
-    *(undefined *)((int)puVar1 + 3) = 0xff;
-    *(undefined *)(puVar1 + 1) = 0;
-    *(undefined4 *)(puVar1 + 0xe) = 0;
+    ptVar1->sliceInd = -1;
+    ptVar1->quadInd = -1;
+    ptVar1->triangleFlag = '\0';
+    ptVar1->accessTime = 0;
     iVar2 = iVar2 + 1;
-    puVar1 = puVar1 + 0x10;
+    ptVar1 = ptVar1 + 1;
   } while (iVar2 < 0x10);
+  uGp0000028c = 0;
   return;
-
-
 }
-
 
 
 
@@ -1618,8 +1595,9 @@ void NormalCache_Init__Fv(void)
 	// End Line: 1496
 
 void Check_Rot__FP12BWorldSm_Pos(BWorldSm_Pos *slicePos)
+
 {
-  uint uVar1;
+  undefined *puVar1;
   int iVar2;
   int local_30;
   int local_2c;
@@ -1629,7 +1607,8 @@ void Check_Rot__FP12BWorldSm_Pos(BWorldSm_Pos *slicePos)
   int local_18;
   
   if (((int)slicePos->simRotFlag != (int)slicePos->triangleFlag) &&
-     (uVar1 = NormalCache_FindEntry__FP12BWorldSm_Pos(slicePos), uVar1 != 1)) {
+     (puVar1 = (undefined *)NormalCache_FindEntry__FP12BWorldSm_Pos(slicePos),
+     puVar1 != &DAT_00000001)) {
     if (slicePos->triangleFlag == '\x03') {
       iVar2 = slicePos->quadPts[1].x - slicePos->quadPts[0].x;
       if (iVar2 < 0) {
@@ -1683,7 +1662,7 @@ void Check_Rot__FP12BWorldSm_Pos(BWorldSm_Pos *slicePos)
     (slicePos->forward).x = local_20;
     (slicePos->forward).y = local_1c;
     (slicePos->forward).z = local_18;
-    crossproduct(&local_20,&local_30,&slicePos->normal);
+    crossproduct(&local_20,&local_30,(int *)&slicePos->normal);
     Math_NormalizeVector__FP8coorddef(&slicePos->normal);
     if (0xffff < (slicePos->normal).y) {
       (slicePos->normal).y = 0xfff9;
@@ -1693,10 +1672,7 @@ void Check_Rot__FP12BWorldSm_Pos(BWorldSm_Pos *slicePos)
   }
   slicePos->simRotFlag = (short)slicePos->triangleFlag;
   return;
-
-
 }
-
 
 
 
@@ -1712,13 +1688,11 @@ void Check_Rot__FP12BWorldSm_Pos(BWorldSm_Pos *slicePos)
 	// End Line: 1500
 
 coorddef * BWorldSm_UNormal__FP12BWorldSm_Pos(BWorldSm_Pos *slicePos)
+
 {
   Check_Rot__FP12BWorldSm_Pos(slicePos);
   return &slicePos->normal;
-
-
 }
-
 
 
 
@@ -1734,13 +1708,11 @@ coorddef * BWorldSm_UNormal__FP12BWorldSm_Pos(BWorldSm_Pos *slicePos)
 	// End Line: 1507
 
 coorddef * BWorldSm_UForward__FP12BWorldSm_Pos(BWorldSm_Pos *slicePos)
+
 {
   Check_Rot__FP12BWorldSm_Pos(slicePos);
   return &slicePos->forward;
-
-
 }
-
 
 
 
@@ -1757,30 +1729,29 @@ coorddef * BWorldSm_UForward__FP12BWorldSm_Pos(BWorldSm_Pos *slicePos)
 	// End offset: 0x800805F0
 	// End Line: 1537
 
-int BWorldSm_FindClosestTriangleRez__FP8coorddefP12BWorldSm_Posi( (coorddef *pt,BWorldSm_Pos *slicePos,int hiRezFlag)
+int BWorldSm_FindClosestTriangleRez__FP8coorddefP12BWorldSm_Posi
+              (coorddef *pt,BWorldSm_Pos *slicePos,int hiRezFlag)
+
 {
   char cVar1;
   int iVar2;
-  int iVar3;
-  int iVar4;
+  uint uVar3;
+  uint uVar4;
   
   iVar2 = BWorldSm_FindClosestQuadRez__FP8coorddefP12BWorldSm_Posi(pt,slicePos,hiRezFlag);
   if (slicePos->simQuad != (Trk_NewSimQuad *)0x0) {
-    iVar3 = fixedmult(slicePos->quadPts[2].x - slicePos->quadPts[0].x,pt->z - slicePos->quadPts[0].z
+    uVar3 = fixedmult(slicePos->quadPts[2].x - slicePos->quadPts[0].x,pt->z - slicePos->quadPts[0].z
                      );
-    iVar4 = fixedmult(pt->x - slicePos->quadPts[0].x,slicePos->quadPts[2].z - slicePos->quadPts[0].z
+    uVar4 = fixedmult(pt->x - slicePos->quadPts[0].x,slicePos->quadPts[2].z - slicePos->quadPts[0].z
                      );
     cVar1 = '\x02';
-    if (0 < iVar3 - iVar4) {
+    if (0 < (int)(uVar3 - uVar4)) {
       cVar1 = '\x01';
     }
     slicePos->triangleFlag = cVar1;
   }
   return iVar2;
-
-
 }
-
 
 
 

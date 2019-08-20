@@ -28,18 +28,19 @@
 	// End offset: 0x8001BF84
 	// End Line: 83
 
+/* WARNING: Control flow encountered bad instruction data */
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void CalcPulsateYellow__Fv(void)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -73,18 +74,18 @@ void CalcPulsateYellow__Fv(void)
 	// End offset: 0x8001C0DC
 	// End Line: 109
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void DrawLeftFlare__FiiiRi(int y,int fSelFade,int fFadeVal,int *flareextra)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -102,18 +103,18 @@ void DrawLeftFlare__FiiiRi(int y,int fSelFade,int fFadeVal,int *flareextra)
 	// End offset: 0x8001C0FC
 	// End Line: 116
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void SubtractiveBox__Fiiiiiiii(int x,int y,int w,int h,int col1,int col2,int col3,int col4)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -128,18 +129,18 @@ void SubtractiveBox__Fiiiiiiii(int x,int y,int w,int h,int col1,int col2,int col
 	// End offset: 0x8001C25C
 	// End Line: 170
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void TransitionOff__27tMenuItemGoToMenuButtonFade(tMenuItemGoToMenuButtonFade *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -154,24 +155,24 @@ void TransitionOff__27tMenuItemGoToMenuButtonFade(tMenuItemGoToMenuButtonFade *t
 	// End offset: 0x8001C268
 	// End Line: 176
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void TransitionOn__27tMenuItemGoToMenuButtonFade(tMenuItemGoToMenuButtonFade *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// unsigned int /*$ra*/ TransitionIsFinished__27tMenuItemGoToMenuButtonFade(struct tMenuItemGoToMenuButtonFade *this /*$a0*/)
+// void * /*$ra*/ TransitionIsFinished__27tMenuItemGoToMenuButtonFade(struct tMenuItemGoToMenuButtonFade *this /*$a0*/)
  // line 183, offset 0x8001c284
 	/* begin block 1 */
 		// Start line: 184
@@ -180,24 +181,24 @@ void TransitionOn__27tMenuItemGoToMenuButtonFade(tMenuItemGoToMenuButtonFade *th
 	// End offset: 0x8001C2D0
 	// End Line: 192
 
-uint TransitionIsFinished__27tMenuItemGoToMenuButtonFade(tMenuItemGoToMenuButtonFade *this)
+/* WARNING: Control flow encountered bad instruction data */
+
+void * TransitionIsFinished__27tMenuItemGoToMenuButtonFade(tMenuItemGoToMenuButtonFade *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// void /*$ra*/ UpdateTransition__27tMenuItemGoToMenuButtonFadeb(struct tMenuItemGoToMenuButtonFade *this /*$s0*/, unsigned int selected /*$s1*/)
+// void /*$ra*/ UpdateTransition__27tMenuItemGoToMenuButtonFadeb(struct tMenuItemGoToMenuButtonFade *this /*$s0*/, void * selected /*$s1*/)
  // line 195, offset 0x8001c2dc
 	/* begin block 1 */
 		// Start line: 196
@@ -206,18 +207,19 @@ uint TransitionIsFinished__27tMenuItemGoToMenuButtonFade(tMenuItemGoToMenuButton
 	// End offset: 0x8001C31C
 	// End Line: 198
 
-void UpdateTransition__27tMenuItemGoToMenuButtonFadeb( (tMenuItemGoToMenuButtonFade *this,uint selected)
+/* WARNING: Control flow encountered bad instruction data */
+
+void UpdateTransition__27tMenuItemGoToMenuButtonFadeb
+               (tMenuItemGoToMenuButtonFade *this,void *selected)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -232,18 +234,20 @@ void UpdateTransition__27tMenuItemGoToMenuButtonFadeb( (tMenuItemGoToMenuButtonF
 	// End offset: 0x8001C358
 	// End Line: 205
 
-tMenuItemLeftRightFade * __22tMenuItemLeftRightFadeUiP13tListIterator( (tMenuItemLeftRightFade *this,uint textDescription,tListIterator *dataPtr)
+/* WARNING: Control flow encountered bad instruction data */
+
+tMenuItemLeftRightFade *
+__22tMenuItemLeftRightFadeUiP13tListIterator
+          (tMenuItemLeftRightFade *this,uint textDescription,tListIterator *dataPtr)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -258,18 +262,18 @@ tMenuItemLeftRightFade * __22tMenuItemLeftRightFadeUiP13tListIterator( (tMenuIte
 	// End offset: 0x8001C394
 	// End Line: 217
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void TransitionOff__22tMenuItemLeftRightFade(tMenuItemLeftRightFade *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -284,24 +288,24 @@ void TransitionOff__22tMenuItemLeftRightFade(tMenuItemLeftRightFade *this)
 	// End offset: 0x8001C3AC
 	// End Line: 223
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void TransitionOn__22tMenuItemLeftRightFade(tMenuItemLeftRightFade *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// unsigned int /*$ra*/ TransitionIsFinished__22tMenuItemLeftRightFade(struct tMenuItemLeftRightFade *this /*$a0*/)
+// void * /*$ra*/ TransitionIsFinished__22tMenuItemLeftRightFade(struct tMenuItemLeftRightFade *this /*$a0*/)
  // line 231, offset 0x8001c3d0
 	/* begin block 1 */
 		// Start line: 232
@@ -310,24 +314,24 @@ void TransitionOn__22tMenuItemLeftRightFade(tMenuItemLeftRightFade *this)
 	// End offset: 0x8001C42C
 	// End Line: 242
 
-uint TransitionIsFinished__22tMenuItemLeftRightFade(tMenuItemLeftRightFade *this)
+/* WARNING: Control flow encountered bad instruction data */
+
+void * TransitionIsFinished__22tMenuItemLeftRightFade(tMenuItemLeftRightFade *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// void /*$ra*/ UpdateTransition__22tMenuItemLeftRightFadeb(struct tMenuItemLeftRightFade *this /*$s0*/, unsigned int selected /*$s1*/)
+// void /*$ra*/ UpdateTransition__22tMenuItemLeftRightFadeb(struct tMenuItemLeftRightFade *this /*$s0*/, void * selected /*$s1*/)
  // line 245, offset 0x8001c438
 	/* begin block 1 */
 		// Start line: 246
@@ -336,18 +340,18 @@ uint TransitionIsFinished__22tMenuItemLeftRightFade(tMenuItemLeftRightFade *this
 	// End offset: 0x8001C478
 	// End Line: 248
 
-void UpdateTransition__22tMenuItemLeftRightFadeb(tMenuItemLeftRightFade *this,uint selected)
+/* WARNING: Control flow encountered bad instruction data */
+
+void UpdateTransition__22tMenuItemLeftRightFadeb(tMenuItemLeftRightFade *this,void *selected)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -362,25 +366,30 @@ void UpdateTransition__22tMenuItemLeftRightFadeb(tMenuItemLeftRightFade *this,ui
 	// End offset: 0x8001C4B4
 	// End Line: 268
 
-tOptionsMenu * __12tOptionsMenuUiP7tScreenP5tMenuT3PFR12tMenuCommand_vsiiP9tMenuIteme( (tOptionsMenu *this,uint flags,tScreen *screenHandler,tMenu *nextMenu,tMenu *optionsMenu, OnButtonPress *OnButtonPress,int title,int firstframe,int numframes,tMenuItem *firstItem)
+/* WARNING: Control flow encountered bad instruction data */
+
+tOptionsMenu *
+__12tOptionsMenuUiP7tScreenP5tMenuT3PFR12tMenuCommand_vsiiP9tMenuIteme
+          (tOptionsMenu *this,uint flags,tScreen *screenHandler,tMenu *nextMenu,tMenu *optionsMenu,
+                    
+          TDRFuncPtr___12tOptionsMenuUiP7tScreenP5tMenuT3PFR12tMenuCommand_vsiiP9tMenuIteme5OnButtonPress
+          OnButtonPress,int title,int firstframe,int numframes,tMenuItem *firstItem)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
 
 
 
-
-// autogenerated function stub: 
+// decompiled code
+// original method signature: 
 // void /*$ra*/ _._12tOptionsMenu(struct tOptionsMenu *this /*$a0*/, int __in_chrg /*$a1*/)
-void _._12tOptionsMenu _._12tOptionsMenu(tOptionsMenu *this /*$a0*/this, int __in_chrg /*$a1*/ __in_chrg)
-{ // line 281, offset 0x8001c544
+ // line 281, offset 0x8001c544
 	/* begin block 1 */
 		// Start line: 282
 		// Start offset: 0x8001C544
@@ -388,7 +397,19 @@ void _._12tOptionsMenu _._12tOptionsMenu(tOptionsMenu *this /*$a0*/this, int __i
 	// End offset: 0x8001C544
 	// End Line: 282
 
+/* WARNING: Control flow encountered bad instruction data */
+
+void ___12tOptionsMenu(tOptionsMenu *this,int __in_chrg)
+
+{
+  undefined4 in_v1;
+  undefined4 in_t5;
+  
+  special2(in_v1,in_t5,5,0x13);
+                    /* WARNING: Bad instruction - Truncating control flow here */
+  halt_baddata();
 }
+
 
 
 // decompiled code
@@ -423,18 +444,18 @@ void _._12tOptionsMenu _._12tOptionsMenu(tOptionsMenu *this /*$a0*/this, int __i
 	// End offset: 0x8001C5C8
 	// End Line: 290
 
+/* WARNING: Control flow encountered bad instruction data */
+
 long DebounceKeys__12tOptionsMenu(tOptionsMenu *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -451,18 +472,18 @@ long DebounceKeys__12tOptionsMenu(tOptionsMenu *this)
 	// End offset: 0x8001C654
 	// End Line: 304
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void TransitionOff__12tOptionsMenu(tOptionsMenu *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -479,24 +500,24 @@ void TransitionOff__12tOptionsMenu(tOptionsMenu *this)
 	// End offset: 0x8001C6F8
 	// End Line: 321
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void TransitionOn__12tOptionsMenu(tOptionsMenu *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// unsigned int /*$ra*/ TransitionIsFinished__12tOptionsMenu(struct tOptionsMenu *this /*$s1*/)
+// void * /*$ra*/ TransitionIsFinished__12tOptionsMenu(struct tOptionsMenu *this /*$s1*/)
  // line 325, offset 0x8001c70c
 	/* begin block 1 */
 		// Start line: 326
@@ -523,18 +544,18 @@ void TransitionOn__12tOptionsMenu(tOptionsMenu *this)
 	// End offset: 0x8001C834
 	// End Line: 359
 
-uint TransitionIsFinished__12tOptionsMenu(tOptionsMenu *this)
+/* WARNING: Control flow encountered bad instruction data */
+
+void * TransitionIsFinished__12tOptionsMenu(tOptionsMenu *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -551,18 +572,18 @@ uint TransitionIsFinished__12tOptionsMenu(tOptionsMenu *this)
 	// End offset: 0x8001CAD0
 	// End Line: 423
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void UpdateTransition__12tOptionsMenu(tOptionsMenu *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -675,18 +696,18 @@ void UpdateTransition__12tOptionsMenu(tOptionsMenu *this)
 	// End offset: 0x8001CCF4
 	// End Line: 457
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void Draw__12tOptionsMenu(tOptionsMenu *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -701,18 +722,19 @@ void Draw__12tOptionsMenu(tOptionsMenu *this)
 	// End offset: 0x8001CD60
 	// End Line: 505
 
-void ProcessInput__12tOptionsMenu7tPlayerR13tInputKeyTypeR12tMenuCommand( (tOptionsMenu *this,tPlayer fromPlayer,tInputKeyType *keyval,tMenuCommand *command)
+/* WARNING: Control flow encountered bad instruction data */
+
+void ProcessInput__12tOptionsMenu7tPlayerR13tInputKeyTypeR12tMenuCommand
+               (tOptionsMenu *this,tPlayer fromPlayer,tInputKeyType *keyval,tMenuCommand *command)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -727,25 +749,30 @@ void ProcessInput__12tOptionsMenu7tPlayerR13tInputKeyTypeR12tMenuCommand( (tOpti
 	// End offset: 0x8001CD90
 	// End Line: 521
 
-tInsideBoxMenu * __14tInsideBoxMenuUiP7tScreenP5tMenuT3PFR12tMenuCommand_vsP9tMenuIteme( (tInsideBoxMenu *this,uint flags,tScreen *screenHandler,tMenu *nextMenu,tMenu *optionsMenu ,OnButtonPress *OnButtonPress,int title,tMenuItem *firstItem)
+/* WARNING: Control flow encountered bad instruction data */
+
+tInsideBoxMenu *
+__14tInsideBoxMenuUiP7tScreenP5tMenuT3PFR12tMenuCommand_vsP9tMenuIteme
+          (tInsideBoxMenu *this,uint flags,tScreen *screenHandler,tMenu *nextMenu,tMenu *optionsMenu
+          ,
+           TDRFuncPtr___14tInsideBoxMenuUiP7tScreenP5tMenuT3PFR12tMenuCommand_vsP9tMenuIteme5OnButtonPress
+           OnButtonPress,int title,tMenuItem *firstItem)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
 
 
 
-
-// autogenerated function stub: 
+// decompiled code
+// original method signature: 
 // void /*$ra*/ _._14tInsideBoxMenu(struct tInsideBoxMenu *this /*$a0*/, int __in_chrg /*$a1*/)
-void _._14tInsideBoxMenu _._14tInsideBoxMenu(tInsideBoxMenu *this /*$a0*/this, int __in_chrg /*$a1*/ __in_chrg)
-{ // line 532, offset 0x8001ce04
+ // line 532, offset 0x8001ce04
 	/* begin block 1 */
 		// Start line: 533
 		// Start offset: 0x8001CE04
@@ -753,7 +780,19 @@ void _._14tInsideBoxMenu _._14tInsideBoxMenu(tInsideBoxMenu *this /*$a0*/this, i
 	// End offset: 0x8001CE04
 	// End Line: 533
 
+/* WARNING: Control flow encountered bad instruction data */
+
+void ___14tInsideBoxMenu(tInsideBoxMenu *this,int __in_chrg)
+
+{
+  undefined4 in_v1;
+  undefined4 in_t5;
+  
+  special2(in_v1,in_t5,5,0x13);
+                    /* WARNING: Bad instruction - Truncating control flow here */
+  halt_baddata();
 }
+
 
 
 // decompiled code
@@ -767,18 +806,19 @@ void _._14tInsideBoxMenu _._14tInsideBoxMenu(tInsideBoxMenu *this /*$a0*/this, i
 	// End offset: 0x8001CEEC
 	// End Line: 554
 
-void ProcessInput__14tInsideBoxMenu7tPlayerR13tInputKeyTypeR12tMenuCommand( (tInsideBoxMenu *this,tPlayer fromPlayer,tInputKeyType *keyval,tMenuCommand *command)
+/* WARNING: Control flow encountered bad instruction data */
+
+void ProcessInput__14tInsideBoxMenu7tPlayerR13tInputKeyTypeR12tMenuCommand
+               (tInsideBoxMenu *this,tPlayer fromPlayer,tInputKeyType *keyval,tMenuCommand *command)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -796,24 +836,24 @@ void ProcessInput__14tInsideBoxMenu7tPlayerR13tInputKeyTypeR12tMenuCommand( (tIn
 	// End offset: 0x8001D138
 	// End Line: 603
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void Draw__14tInsideBoxMenusssss(tInsideBoxMenu *this,short x,short y,short w,int slideOffset)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// struct tMenuItemSlidingMenu * /*$ra*/ __20tMenuItemSlidingMenuUissssb(struct tMenuItemSlidingMenu *this /*$s0*/, unsigned int textDescription /*$a1*/, short width /*$a2*/, short height /*$a3*/, int diffx /*stack 16*/, int diffy /*stack 20*/, unsigned int fillback /*stack 24*/)
+// struct tMenuItemSlidingMenu * /*$ra*/ __20tMenuItemSlidingMenuUissssb(struct tMenuItemSlidingMenu *this /*$s0*/, unsigned int textDescription /*$a1*/, short width /*$a2*/, short height /*$a3*/, int diffx /*stack 16*/, int diffy /*stack 20*/, void * fillback /*stack 24*/)
  // line 612, offset 0x8001d160
 	/* begin block 1 */
 		// Start line: 613
@@ -822,25 +862,28 @@ void Draw__14tInsideBoxMenusssss(tInsideBoxMenu *this,short x,short y,short w,in
 	// End offset: 0x8001D160
 	// End Line: 613
 
-tMenuItemSlidingMenu * __20tMenuItemSlidingMenuUissssb( (tMenuItemSlidingMenu *this,uint textDescription,short width,short height,int diffx, int diffy,uint fillback)
+/* WARNING: Control flow encountered bad instruction data */
+
+tMenuItemSlidingMenu *
+__20tMenuItemSlidingMenuUissssb
+          (tMenuItemSlidingMenu *this,uint textDescription,short width,short height,int diffx,
+          int diffy,void *fillback)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
 
 
 
-
-// autogenerated function stub: 
+// decompiled code
+// original method signature: 
 // void /*$ra*/ _._20tMenuItemSlidingMenu(struct tMenuItemSlidingMenu *this /*$a0*/, int __in_chrg /*$a1*/)
-void _._20tMenuItemSlidingMenu _._20tMenuItemSlidingMenu(tMenuItemSlidingMenu *this /*$a0*/this, int __in_chrg /*$a1*/ __in_chrg)
-{ // line 628, offset 0x8001d208
+ // line 628, offset 0x8001d208
 	/* begin block 1 */
 		// Start line: 629
 		// Start offset: 0x8001D208
@@ -848,7 +891,19 @@ void _._20tMenuItemSlidingMenu _._20tMenuItemSlidingMenu(tMenuItemSlidingMenu *t
 	// End offset: 0x8001D208
 	// End Line: 629
 
+/* WARNING: Control flow encountered bad instruction data */
+
+void ___20tMenuItemSlidingMenu(tMenuItemSlidingMenu *this,int __in_chrg)
+
+{
+  undefined4 in_v1;
+  undefined4 in_t5;
+  
+  special2(in_v1,in_t5,5,0x13);
+                    /* WARNING: Bad instruction - Truncating control flow here */
+  halt_baddata();
 }
+
 
 
 // decompiled code
@@ -862,18 +917,18 @@ void _._20tMenuItemSlidingMenu _._20tMenuItemSlidingMenu(tMenuItemSlidingMenu *t
 	// End offset: 0x8001D254
 	// End Line: 642
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void TransitionOff__20tMenuItemSlidingMenu(tMenuItemSlidingMenu *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -888,24 +943,24 @@ void TransitionOff__20tMenuItemSlidingMenu(tMenuItemSlidingMenu *this)
 	// End offset: 0x8001D25C
 	// End Line: 651
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void TransitionOn__20tMenuItemSlidingMenu(tMenuItemSlidingMenu *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// unsigned int /*$ra*/ TransitionIsFinished__20tMenuItemSlidingMenu(struct tMenuItemSlidingMenu *this /*$a0*/)
+// void * /*$ra*/ TransitionIsFinished__20tMenuItemSlidingMenu(struct tMenuItemSlidingMenu *this /*$a0*/)
  // line 661, offset 0x8001d294
 	/* begin block 1 */
 		// Start line: 662
@@ -914,24 +969,24 @@ void TransitionOn__20tMenuItemSlidingMenu(tMenuItemSlidingMenu *this)
 	// End offset: 0x8001D310
 	// End Line: 677
 
-uint TransitionIsFinished__20tMenuItemSlidingMenu(tMenuItemSlidingMenu *this)
+/* WARNING: Control flow encountered bad instruction data */
+
+void * TransitionIsFinished__20tMenuItemSlidingMenu(tMenuItemSlidingMenu *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// void /*$ra*/ UpdateTransition__20tMenuItemSlidingMenub(struct tMenuItemSlidingMenu *this /*$s0*/, unsigned int selected /*$s1*/)
+// void /*$ra*/ UpdateTransition__20tMenuItemSlidingMenub(struct tMenuItemSlidingMenu *this /*$s0*/, void * selected /*$s1*/)
  // line 680, offset 0x8001d31c
 	/* begin block 1 */
 		// Start line: 681
@@ -940,18 +995,18 @@ uint TransitionIsFinished__20tMenuItemSlidingMenu(tMenuItemSlidingMenu *this)
 	// End offset: 0x8001D35C
 	// End Line: 690
 
-void UpdateTransition__20tMenuItemSlidingMenub(tMenuItemSlidingMenu *this,uint selected)
+/* WARNING: Control flow encountered bad instruction data */
+
+void UpdateTransition__20tMenuItemSlidingMenub(tMenuItemSlidingMenu *this,void *selected)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -966,24 +1021,24 @@ void UpdateTransition__20tMenuItemSlidingMenub(tMenuItemSlidingMenu *this,uint s
 	// End offset: 0x8001D3D0
 	// End Line: 699
 
+/* WARNING: Control flow encountered bad instruction data */
+
 long DebounceKeys__20tMenuItemSlidingMenu(tMenuItemSlidingMenu *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// void /*$ra*/ Draw__20tMenuItemSlidingMenub(struct tMenuItemSlidingMenu *this /*$a0*/, unsigned int selected /*$a3*/)
+// void /*$ra*/ Draw__20tMenuItemSlidingMenub(struct tMenuItemSlidingMenu *this /*$a0*/, void * selected /*$a3*/)
  // line 705, offset 0x8001d3e0
 	/* begin block 1 */
 		// Start line: 706
@@ -992,24 +1047,24 @@ long DebounceKeys__20tMenuItemSlidingMenu(tMenuItemSlidingMenu *this)
 	// End offset: 0x8001D3E0
 	// End Line: 706
 
-void Draw__20tMenuItemSlidingMenub(tMenuItemSlidingMenu *this,uint selected)
+/* WARNING: Control flow encountered bad instruction data */
+
+void Draw__20tMenuItemSlidingMenub(tMenuItemSlidingMenu *this,void *selected)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// void /*$ra*/ UpdatefOpenHeight__20tMenuItemSlidingMenub(struct tMenuItemSlidingMenu *this /*$a0*/, unsigned int selected /*$a1*/)
+// void /*$ra*/ UpdatefOpenHeight__20tMenuItemSlidingMenub(struct tMenuItemSlidingMenu *this /*$a0*/, void * selected /*$a1*/)
  // line 711, offset 0x8001d41c
 	/* begin block 1 */
 		// Start line: 712
@@ -1018,24 +1073,24 @@ void Draw__20tMenuItemSlidingMenub(tMenuItemSlidingMenu *this,uint selected)
 	// End offset: 0x8001D634
 	// End Line: 770
 
-void UpdatefOpenHeight__20tMenuItemSlidingMenub(tMenuItemSlidingMenu *this,uint selected)
+/* WARNING: Control flow encountered bad instruction data */
+
+void UpdatefOpenHeight__20tMenuItemSlidingMenub(tMenuItemSlidingMenu *this,void *selected)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// void /*$ra*/ Draw__20tMenuItemSlidingMenuiib(struct tMenuItemSlidingMenu *this /*$s6*/, int offx /*$s0*/, int offy /*$s1*/, unsigned int selected /*$a3*/)
+// void /*$ra*/ Draw__20tMenuItemSlidingMenuiib(struct tMenuItemSlidingMenu *this /*$s6*/, int offx /*$s0*/, int offy /*$s1*/, void * selected /*$a3*/)
  // line 777, offset 0x8001d63c
 	/* begin block 1 */
 		// Start line: 778
@@ -1046,7 +1101,7 @@ void UpdatefOpenHeight__20tMenuItemSlidingMenub(tMenuItemSlidingMenu *this,uint 
 	// 		int y; // stack offset -56
 	// 		struct tTexture_ShapeInfo *shape; // stack offset -52
 	// 		static int flareextra; // offset 0x0
-	// 		unsigned int fPlayList; // stack offset -48
+	// 		void * fPlayList; // stack offset -48
 
 		/* begin block 1.1 */
 			// Start line: 809
@@ -1094,18 +1149,18 @@ void UpdatefOpenHeight__20tMenuItemSlidingMenub(tMenuItemSlidingMenu *this,uint 
 	// End offset: 0x8001DC50
 	// End Line: 884
 
-void Draw__20tMenuItemSlidingMenuiib(tMenuItemSlidingMenu *this,int offx,int offy,uint selected)
+/* WARNING: Control flow encountered bad instruction data */
+
+void Draw__20tMenuItemSlidingMenuiib(tMenuItemSlidingMenu *this,int offx,int offy,void *selected)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -1120,24 +1175,26 @@ void Draw__20tMenuItemSlidingMenuiib(tMenuItemSlidingMenu *this,int offx,int off
 	// End offset: 0x8001DCFC
 	// End Line: 901
 
-void ProcessInput__20tMenuItemSlidingMenu7tPlayerR13tInputKeyTypeR12tMenuCommand( (tMenuItemSlidingMenu *this,tPlayer fromPlayer,tInputKeyType *keyval, tMenuCommand *command)
+/* WARNING: Control flow encountered bad instruction data */
+
+void ProcessInput__20tMenuItemSlidingMenu7tPlayerR13tInputKeyTypeR12tMenuCommand
+               (tMenuItemSlidingMenu *this,tPlayer fromPlayer,tInputKeyType *keyval,
+               tMenuCommand *command)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// void /*$ra*/ SetMenu__20tMenuItemSlidingMenubP14tInsideBoxMenu(struct tMenuItemSlidingMenu *this /*$a0*/, unsigned int bothmenus /*$a1*/, struct tInsideBoxMenu *menu /*$a2*/)
+// void /*$ra*/ SetMenu__20tMenuItemSlidingMenubP14tInsideBoxMenu(struct tMenuItemSlidingMenu *this /*$a0*/, void * bothmenus /*$a1*/, struct tInsideBoxMenu *menu /*$a2*/)
  // line 904, offset 0x8001dd28
 	/* begin block 1 */
 		// Start line: 905
@@ -1199,18 +1256,19 @@ void ProcessInput__20tMenuItemSlidingMenu7tPlayerR13tInputKeyTypeR12tMenuCommand
 	// End offset: 0x8001DD64
 	// End Line: 919
 
-void SetMenu__20tMenuItemSlidingMenubP14tInsideBoxMenu( (tMenuItemSlidingMenu *this,uint bothmenus,tInsideBoxMenu *menu)
+/* WARNING: Control flow encountered bad instruction data */
+
+void SetMenu__20tMenuItemSlidingMenubP14tInsideBoxMenu
+               (tMenuItemSlidingMenu *this,void *bothmenus,tInsideBoxMenu *menu)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -1225,18 +1283,18 @@ void SetMenu__20tMenuItemSlidingMenubP14tInsideBoxMenu( (tMenuItemSlidingMenu *t
 	// End offset: 0x8001DDCC
 	// End Line: 932
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void UpdatefOpenHeight__25tMenuItemSlidingActivatedb(tMenuItemSlidingActivated *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -1251,18 +1309,18 @@ void UpdatefOpenHeight__25tMenuItemSlidingActivatedb(tMenuItemSlidingActivated *
 	// End offset: 0x8001DDF8
 	// End Line: 945
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void TransitionOff__25tMenuItemSlidingActivated(tMenuItemSlidingActivated *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -1277,24 +1335,24 @@ void TransitionOff__25tMenuItemSlidingActivated(tMenuItemSlidingActivated *this)
 	// End offset: 0x8001DE00
 	// End Line: 951
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void TransitionOn__25tMenuItemSlidingActivated(tMenuItemSlidingActivated *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// unsigned int /*$ra*/ TransitionIsFinished__25tMenuItemSlidingActivated(struct tMenuItemSlidingActivated *this /*$a0*/)
+// void * /*$ra*/ TransitionIsFinished__25tMenuItemSlidingActivated(struct tMenuItemSlidingActivated *this /*$a0*/)
  // line 964, offset 0x8001de40
 	/* begin block 1 */
 		// Start line: 965
@@ -1303,24 +1361,24 @@ void TransitionOn__25tMenuItemSlidingActivated(tMenuItemSlidingActivated *this)
 	// End offset: 0x8001DEBC
 	// End Line: 980
 
-uint TransitionIsFinished__25tMenuItemSlidingActivated(tMenuItemSlidingActivated *this)
+/* WARNING: Control flow encountered bad instruction data */
+
+void * TransitionIsFinished__25tMenuItemSlidingActivated(tMenuItemSlidingActivated *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// void /*$ra*/ UpdateTransition__25tMenuItemSlidingActivatedb(struct tMenuItemSlidingActivated *this /*$s0*/, unsigned int selected /*$s1*/)
+// void /*$ra*/ UpdateTransition__25tMenuItemSlidingActivatedb(struct tMenuItemSlidingActivated *this /*$s0*/, void * selected /*$s1*/)
  // line 983, offset 0x8001dec8
 	/* begin block 1 */
 		// Start line: 984
@@ -1329,18 +1387,18 @@ uint TransitionIsFinished__25tMenuItemSlidingActivated(tMenuItemSlidingActivated
 	// End offset: 0x8001DF08
 	// End Line: 986
 
-void UpdateTransition__25tMenuItemSlidingActivatedb(tMenuItemSlidingActivated *this,uint selected)
+/* WARNING: Control flow encountered bad instruction data */
+
+void UpdateTransition__25tMenuItemSlidingActivatedb(tMenuItemSlidingActivated *this,void *selected)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -1355,18 +1413,20 @@ void UpdateTransition__25tMenuItemSlidingActivatedb(tMenuItemSlidingActivated *t
 	// End offset: 0x8001E108
 	// End Line: 1045
 
-void ProcessInput__25tMenuItemSlidingActivated7tPlayerR13tInputKeyTypeR12tMenuCommand( (tMenuItemSlidingActivated *this,tPlayer fromPlayer,tInputKeyType *keyval, tMenuCommand *command)
+/* WARNING: Control flow encountered bad instruction data */
+
+void ProcessInput__25tMenuItemSlidingActivated7tPlayerR13tInputKeyTypeR12tMenuCommand
+               (tMenuItemSlidingActivated *this,tPlayer fromPlayer,tInputKeyType *keyval,
+               tMenuCommand *command)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -1384,18 +1444,18 @@ void ProcessInput__25tMenuItemSlidingActivated7tPlayerR13tInputKeyTypeR12tMenuCo
 	// End offset: 0x8001E13C
 	// End Line: 1064
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void MyLeftRightDraw__22tMenuItemLeftRightFadeii(tMenuItemLeftRightFade *this,int x,int y)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -1412,18 +1472,19 @@ void MyLeftRightDraw__22tMenuItemLeftRightFadeii(tMenuItemLeftRightFade *this,in
 	// End offset: 0x8001E304
 	// End Line: 1100
 
-void Draw__31tMenuItemDisplayLeftRightChoiceiib( (tMenuItemDisplayLeftRightChoice *this,int offx,int offy)
+/* WARNING: Control flow encountered bad instruction data */
+
+void Draw__31tMenuItemDisplayLeftRightChoiceiib
+               (tMenuItemDisplayLeftRightChoice *this,int offx,int offy)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -1438,18 +1499,18 @@ void Draw__31tMenuItemDisplayLeftRightChoiceiib( (tMenuItemDisplayLeftRightChoic
 	// End offset: 0x8001E320
 	// End Line: 1106
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void TransitionOn__29tMenuItemOnOffLeftRightChoice(tMenuItemOnOffLeftRightChoice *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -1467,18 +1528,18 @@ void TransitionOn__29tMenuItemOnOffLeftRightChoice(tMenuItemOnOffLeftRightChoice
 	// End offset: 0x8001E4E0
 	// End Line: 1139
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void Draw__29tMenuItemOnOffLeftRightChoiceiib(tMenuItemOnOffLeftRightChoice *this,int offx,int offy)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -1493,25 +1554,28 @@ void Draw__29tMenuItemOnOffLeftRightChoiceiib(tMenuItemOnOffLeftRightChoice *thi
 	// End offset: 0x8001E4FC
 	// End Line: 1153
 
-tMenuItemLeftRightAudioSlider * __29tMenuItemLeftRightAudioSliderUiP13tListIteratori( (tMenuItemLeftRightAudioSlider *this,uint textDescription,tListIterator *dataPtr, int AudioArt)
+/* WARNING: Control flow encountered bad instruction data */
+
+tMenuItemLeftRightAudioSlider *
+__29tMenuItemLeftRightAudioSliderUiP13tListIteratori
+          (tMenuItemLeftRightAudioSlider *this,uint textDescription,tListIterator *dataPtr,
+          int AudioArt)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
 
 
 
-
-// autogenerated function stub: 
+// decompiled code
+// original method signature: 
 // void /*$ra*/ _._29tMenuItemLeftRightAudioSlider(struct tMenuItemLeftRightAudioSlider *this /*$a0*/, int __in_chrg /*$a1*/)
-void _._29tMenuItemLeftRightAudioSlider _._29tMenuItemLeftRightAudioSlider(tMenuItemLeftRightAudioSlider *this /*$a0*/this, int __in_chrg /*$a1*/ __in_chrg)
-{ // line 1160, offset 0x8001e548
+ // line 1160, offset 0x8001e548
 	/* begin block 1 */
 		// Start line: 1161
 		// Start offset: 0x8001E548
@@ -1519,7 +1583,19 @@ void _._29tMenuItemLeftRightAudioSlider _._29tMenuItemLeftRightAudioSlider(tMenu
 	// End offset: 0x8001E548
 	// End Line: 1161
 
+/* WARNING: Control flow encountered bad instruction data */
+
+void ___29tMenuItemLeftRightAudioSlider(tMenuItemLeftRightAudioSlider *this,int __in_chrg)
+
+{
+  undefined4 in_v1;
+  undefined4 in_t5;
+  
+  special2(in_v1,in_t5,5,0x13);
+                    /* WARNING: Bad instruction - Truncating control flow here */
+  halt_baddata();
 }
+
 
 
 // decompiled code
@@ -1594,18 +1670,18 @@ void _._29tMenuItemLeftRightAudioSlider _._29tMenuItemLeftRightAudioSlider(tMenu
 	// End offset: 0x8001E760
 	// End Line: 1200
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void Draw__29tMenuItemLeftRightAudioSlideriib(tMenuItemLeftRightAudioSlider *this,int ox,int oy)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -1666,18 +1742,18 @@ void Draw__29tMenuItemLeftRightAudioSlideriib(tMenuItemLeftRightAudioSlider *thi
 	// End offset: 0x8001E83C
 	// End Line: 1210
 
+/* WARNING: Control flow encountered bad instruction data */
+
 int Percentage__29tMenuItemLeftRightAudioSlider(tMenuItemLeftRightAudioSlider *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -1692,18 +1768,18 @@ int Percentage__29tMenuItemLeftRightAudioSlider(tMenuItemLeftRightAudioSlider *t
 	// End offset: 0x8001E850
 	// End Line: 1214
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void TransitionOff__29tMenuItemLeftRightAudioSlider(tMenuItemLeftRightAudioSlider *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -1718,24 +1794,24 @@ void TransitionOff__29tMenuItemLeftRightAudioSlider(tMenuItemLeftRightAudioSlide
 	// End offset: 0x8001E860
 	// End Line: 1219
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void TransitionOn__29tMenuItemLeftRightAudioSlider(tMenuItemLeftRightAudioSlider *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// unsigned int /*$ra*/ TransitionIsFinished__29tMenuItemLeftRightAudioSlider(struct tMenuItemLeftRightAudioSlider *this /*$a0*/)
+// void * /*$ra*/ TransitionIsFinished__29tMenuItemLeftRightAudioSlider(struct tMenuItemLeftRightAudioSlider *this /*$a0*/)
  // line 1223, offset 0x8001e878
 	/* begin block 1 */
 		// Start line: 1224
@@ -1744,24 +1820,24 @@ void TransitionOn__29tMenuItemLeftRightAudioSlider(tMenuItemLeftRightAudioSlider
 	// End offset: 0x8001E8C8
 	// End Line: 1232
 
-uint TransitionIsFinished__29tMenuItemLeftRightAudioSlider(tMenuItemLeftRightAudioSlider *this)
+/* WARNING: Control flow encountered bad instruction data */
+
+void * TransitionIsFinished__29tMenuItemLeftRightAudioSlider(tMenuItemLeftRightAudioSlider *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// void /*$ra*/ UpdateTransition__29tMenuItemLeftRightAudioSliderb(struct tMenuItemLeftRightAudioSlider *this /*$a0*/, unsigned int selected /*$a1*/)
+// void /*$ra*/ UpdateTransition__29tMenuItemLeftRightAudioSliderb(struct tMenuItemLeftRightAudioSlider *this /*$a0*/, void * selected /*$a1*/)
  // line 1234, offset 0x8001e8d4
 	/* begin block 1 */
 		// Start line: 1235
@@ -1770,18 +1846,19 @@ uint TransitionIsFinished__29tMenuItemLeftRightAudioSlider(tMenuItemLeftRightAud
 	// End offset: 0x8001E908
 	// End Line: 1236
 
-void UpdateTransition__29tMenuItemLeftRightAudioSliderb( (tMenuItemLeftRightAudioSlider *this,uint selected)
+/* WARNING: Control flow encountered bad instruction data */
+
+void UpdateTransition__29tMenuItemLeftRightAudioSliderb
+               (tMenuItemLeftRightAudioSlider *this,void *selected)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -1816,25 +1893,31 @@ void UpdateTransition__29tMenuItemLeftRightAudioSliderb( (tMenuItemLeftRightAudi
 	// End offset: 0x8001E984
 	// End Line: 1258
 
-tInsideBoxSongMenu * __18tInsideBoxSongMenuUiP7tScreenP5tMenuT3PFR12tMenuCommand_vsP9tMenuIteme( (tInsideBoxSongMenu *this,uint flags,tScreen *screenHandler,tMenu *nextMenu, tMenu *optionsMenu,OnButtonPress *OnButtonPress,int title,tMenuItem *firstItem)
+/* WARNING: Control flow encountered bad instruction data */
+
+tInsideBoxSongMenu *
+__18tInsideBoxSongMenuUiP7tScreenP5tMenuT3PFR12tMenuCommand_vsP9tMenuIteme
+          (tInsideBoxSongMenu *this,uint flags,tScreen *screenHandler,tMenu *nextMenu,
+          tMenu *optionsMenu,
+                    
+          TDRFuncPtr___18tInsideBoxSongMenuUiP7tScreenP5tMenuT3PFR12tMenuCommand_vsP9tMenuIteme5OnButtonPress
+          OnButtonPress,int title,tMenuItem *firstItem)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
 
 
 
-
-// autogenerated function stub: 
+// decompiled code
+// original method signature: 
 // void /*$ra*/ _._18tInsideBoxSongMenu(struct tInsideBoxSongMenu *this /*$a0*/, int __in_chrg /*$a1*/)
-void _._18tInsideBoxSongMenu _._18tInsideBoxSongMenu(tInsideBoxSongMenu *this /*$a0*/this, int __in_chrg /*$a1*/ __in_chrg)
-{ // line 1263, offset 0x8001e9b0
+ // line 1263, offset 0x8001e9b0
 	/* begin block 1 */
 		// Start line: 1264
 		// Start offset: 0x8001E9B0
@@ -1842,7 +1925,19 @@ void _._18tInsideBoxSongMenu _._18tInsideBoxSongMenu(tInsideBoxSongMenu *this /*
 	// End offset: 0x8001E9B0
 	// End Line: 1264
 
+/* WARNING: Control flow encountered bad instruction data */
+
+void ___18tInsideBoxSongMenu(tInsideBoxSongMenu *this,int __in_chrg)
+
+{
+  undefined4 in_v1;
+  undefined4 in_t5;
+  
+  special2(in_v1,in_t5,5,0x13);
+                    /* WARNING: Bad instruction - Truncating control flow here */
+  halt_baddata();
 }
+
 
 
 // decompiled code
@@ -1860,18 +1955,19 @@ void _._18tInsideBoxSongMenu _._18tInsideBoxSongMenu(tInsideBoxSongMenu *this /*
 	// End offset: 0x8001EC18
 	// End Line: 1313
 
-void Draw__18tInsideBoxSongMenusssss( (tInsideBoxSongMenu *this,short x,short y,short w,int slideOffset,int maxheight)
+/* WARNING: Control flow encountered bad instruction data */
+
+void Draw__18tInsideBoxSongMenusssss
+               (tInsideBoxSongMenu *this,short x,short y,short w,int slideOffset,int maxheight)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -1891,18 +1987,20 @@ void Draw__18tInsideBoxSongMenusssss( (tInsideBoxSongMenu *this,short x,short y,
 	// End offset: 0x8001EC48
 	// End Line: 1318
 
-void DrawOneSong__18tInsideBoxSongMenussssss( (tInsideBoxSongMenu *this,short songnum,short x,short y,int w,int fOnOffFade, int fSelFade)
+/* WARNING: Control flow encountered bad instruction data */
+
+void DrawOneSong__18tInsideBoxSongMenussssss
+               (tInsideBoxSongMenu *this,short songnum,short x,short y,int w,int fOnOffFade,
+               int fSelFade)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -1917,18 +2015,18 @@ void DrawOneSong__18tInsideBoxSongMenussssss( (tInsideBoxSongMenu *this,short so
 	// End offset: 0x8001EE74
 	// End Line: 1346
 
+/* WARNING: Control flow encountered bad instruction data */
+
 long DebounceKeys__18tInsideBoxSongMenu(tInsideBoxSongMenu *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -1945,18 +2043,19 @@ long DebounceKeys__18tInsideBoxSongMenu(tInsideBoxSongMenu *this)
 	// End offset: 0x8001F070
 	// End Line: 1409
 
-void ProcessInput__18tInsideBoxSongMenu7tPlayerR13tInputKeyTypeR12tMenuCommand( (tInsideBoxSongMenu *this,tInputKeyType *keyval)
+/* WARNING: Control flow encountered bad instruction data */
+
+void ProcessInput__18tInsideBoxSongMenu7tPlayerR13tInputKeyTypeR12tMenuCommand
+               (tInsideBoxSongMenu *this,tInputKeyType *keyval)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -1992,18 +2091,19 @@ void ProcessInput__18tInsideBoxSongMenu7tPlayerR13tInputKeyTypeR12tMenuCommand( 
 	// End offset: 0x8001F1A0
 	// End Line: 1453
 
-void Draw__34tMenuItemControllerLeftRightChoiceiib( (tMenuItemControllerLeftRightChoice *this,int ox,int oy)
+/* WARNING: Control flow encountered bad instruction data */
+
+void Draw__34tMenuItemControllerLeftRightChoiceiib
+               (tMenuItemControllerLeftRightChoice *this,int ox,int oy)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -2018,25 +2118,27 @@ void Draw__34tMenuItemControllerLeftRightChoiceiib( (tMenuItemControllerLeftRigh
 	// End offset: 0x8001F288
 	// End Line: 1466
 
-tInsideBoxLeftRightSlider * __25tInsideBoxLeftRightSliderUiP13tListIterator( (tInsideBoxLeftRightSlider *this,uint textDescription,tListIterator *dataPtr)
+/* WARNING: Control flow encountered bad instruction data */
+
+tInsideBoxLeftRightSlider *
+__25tInsideBoxLeftRightSliderUiP13tListIterator
+          (tInsideBoxLeftRightSlider *this,uint textDescription,tListIterator *dataPtr)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
 
 
 
-
-// autogenerated function stub: 
+// decompiled code
+// original method signature: 
 // void /*$ra*/ _._25tInsideBoxLeftRightSlider(struct tInsideBoxLeftRightSlider *this /*$a0*/, int __in_chrg /*$a1*/)
-void _._25tInsideBoxLeftRightSlider _._25tInsideBoxLeftRightSlider(tInsideBoxLeftRightSlider *this /*$a0*/this, int __in_chrg /*$a1*/ __in_chrg)
-{ // line 1473, offset 0x8001f2c8
+ // line 1473, offset 0x8001f2c8
 	/* begin block 1 */
 		// Start line: 1474
 		// Start offset: 0x8001F2C8
@@ -2044,7 +2146,19 @@ void _._25tInsideBoxLeftRightSlider _._25tInsideBoxLeftRightSlider(tInsideBoxLef
 	// End offset: 0x8001F2C8
 	// End Line: 1474
 
+/* WARNING: Control flow encountered bad instruction data */
+
+void ___25tInsideBoxLeftRightSlider(tInsideBoxLeftRightSlider *this,int __in_chrg)
+
+{
+  undefined4 in_v1;
+  undefined4 in_t5;
+  
+  special2(in_v1,in_t5,5,0x13);
+                    /* WARNING: Bad instruction - Truncating control flow here */
+  halt_baddata();
 }
+
 
 
 // decompiled code
@@ -2091,18 +2205,18 @@ void _._25tInsideBoxLeftRightSlider _._25tInsideBoxLeftRightSlider(tInsideBoxLef
 	// End offset: 0x8001F2F0
 	// End Line: 1481
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void Draw__25tInsideBoxLeftRightSlideriiib(tInsideBoxLeftRightSlider *this,int x,int y,int w)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -2117,25 +2231,27 @@ void Draw__25tInsideBoxLeftRightSlideriiib(tInsideBoxLeftRightSlider *this,int x
 	// End offset: 0x8001F474
 	// End Line: 1498
 
-tInsideBoxTwoWaySlider * __22tInsideBoxTwoWaySliderUiP13tListIteratori( (tInsideBoxTwoWaySlider *this,uint textDescription,tListIterator *dataPtr,int type)
+/* WARNING: Control flow encountered bad instruction data */
+
+tInsideBoxTwoWaySlider *
+__22tInsideBoxTwoWaySliderUiP13tListIteratori
+          (tInsideBoxTwoWaySlider *this,uint textDescription,tListIterator *dataPtr,int type)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
 
 
 
-
-// autogenerated function stub: 
+// decompiled code
+// original method signature: 
 // void /*$ra*/ _._22tInsideBoxTwoWaySlider(struct tInsideBoxTwoWaySlider *this /*$a0*/, int __in_chrg /*$a1*/)
-void _._22tInsideBoxTwoWaySlider _._22tInsideBoxTwoWaySlider(tInsideBoxTwoWaySlider *this /*$a0*/this, int __in_chrg /*$a1*/ __in_chrg)
-{ // line 1508, offset 0x8001f4c8
+ // line 1508, offset 0x8001f4c8
 	/* begin block 1 */
 		// Start line: 1509
 		// Start offset: 0x8001F4C8
@@ -2143,7 +2259,19 @@ void _._22tInsideBoxTwoWaySlider _._22tInsideBoxTwoWaySlider(tInsideBoxTwoWaySli
 	// End offset: 0x8001F4C8
 	// End Line: 1509
 
+/* WARNING: Control flow encountered bad instruction data */
+
+void ___22tInsideBoxTwoWaySlider(tInsideBoxTwoWaySlider *this,int __in_chrg)
+
+{
+  undefined4 in_v1;
+  undefined4 in_t5;
+  
+  special2(in_v1,in_t5,5,0x13);
+                    /* WARNING: Bad instruction - Truncating control flow here */
+  halt_baddata();
 }
+
 
 
 // decompiled code
@@ -2157,18 +2285,19 @@ void _._22tInsideBoxTwoWaySlider _._22tInsideBoxTwoWaySlider(tInsideBoxTwoWaySli
 	// End offset: 0x8001F58C
 	// End Line: 1537
 
-void ProcessInput__22tInsideBoxTwoWaySlider7tPlayerR13tInputKeyTypeR12tMenuCommand( (tInsideBoxTwoWaySlider *this,tInputKeyType *keyval)
+/* WARNING: Control flow encountered bad instruction data */
+
+void ProcessInput__22tInsideBoxTwoWaySlider7tPlayerR13tInputKeyTypeR12tMenuCommand
+               (tInsideBoxTwoWaySlider *this,tInputKeyType *keyval)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -2248,18 +2377,18 @@ void ProcessInput__22tInsideBoxTwoWaySlider7tPlayerR13tInputKeyTypeR12tMenuComma
 	// End offset: 0x8001F5E8
 	// End Line: 1556
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void Draw__22tInsideBoxTwoWaySlideriiib(tInsideBoxTwoWaySlider *this,int x,int y,int w)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -2277,18 +2406,18 @@ void Draw__22tInsideBoxTwoWaySlideriiib(tInsideBoxTwoWaySlider *this,int x,int y
 	// End offset: 0x8001F8B4
 	// End Line: 1583
 
+/* WARNING: Control flow encountered bad instruction data */
+
 char GetCurrentStickRange__Fi(int player)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -2306,18 +2435,18 @@ char GetCurrentStickRange__Fi(int player)
 	// End offset: 0x8001F910
 	// End Line: 1591
 
+/* WARNING: Control flow encountered bad instruction data */
+
 char GetCurrentStickRange2__Fi(int player)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -2335,18 +2464,18 @@ char GetCurrentStickRange2__Fi(int player)
 	// End offset: 0x8001FC20
 	// End Line: 1679
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void Calibrate__22tInsideBoxTwoWaySlider(tInsideBoxTwoWaySlider *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -2363,24 +2492,24 @@ void Calibrate__22tInsideBoxTwoWaySlider(tInsideBoxTwoWaySlider *this)
 	// End offset: 0x8001FC98
 	// End Line: 1698
 
+/* WARNING: Control flow encountered bad instruction data */
+
 tUserNameMenuItem * __17tUserNameMenuItemUi(tUserNameMenuItem *this,uint textDescription)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// unsigned int /*$ra*/ CheckForCheats__FPc(char *fData /*$s0*/)
+// void * /*$ra*/ CheckForCheats__FPc(char *fData /*$s0*/)
  // line 1701, offset 0x8001fcac
 	/* begin block 1 */
 		// Start line: 1702
@@ -2391,18 +2520,18 @@ tUserNameMenuItem * __17tUserNameMenuItemUi(tUserNameMenuItem *this,uint textDes
 	// End offset: 0x8001FD14
 	// End Line: 1709
 
-uint CheckForCheats__FPc(char *fData)
+/* WARNING: Control flow encountered bad instruction data */
+
+void * CheckForCheats__FPc(char *fData)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -2510,18 +2639,19 @@ uint CheckForCheats__FPc(char *fData)
 	// End offset: 0x800200CC
 	// End Line: 1850
 
-void ProcessInput__17tUserNameMenuItem7tPlayerR13tInputKeyTypeR12tMenuCommand( (tUserNameMenuItem *this,tInputKeyType *keyval)
+/* WARNING: Control flow encountered bad instruction data */
+
+void ProcessInput__17tUserNameMenuItem7tPlayerR13tInputKeyTypeR12tMenuCommand
+               (tUserNameMenuItem *this,tInputKeyType *keyval)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -2538,18 +2668,18 @@ void ProcessInput__17tUserNameMenuItem7tPlayerR13tInputKeyTypeR12tMenuCommand( (
 	// End offset: 0x80020174
 	// End Line: 1870
 
+/* WARNING: Control flow encountered bad instruction data */
+
 int SpecialCharacter__Fc(char current)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -2653,18 +2783,18 @@ int SpecialCharacter__Fc(char current)
 	// End offset: 0x80020490
 	// End Line: 1960
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void Draw__17tUserNameMenuItemb(tUserNameMenuItem *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -2679,18 +2809,18 @@ void Draw__17tUserNameMenuItemb(tUserNameMenuItem *this)
 	// End offset: 0x80020574
 	// End Line: 1975
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void TransitionOff__17tUserNameMenuItem(tUserNameMenuItem *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -2708,24 +2838,24 @@ void TransitionOff__17tUserNameMenuItem(tUserNameMenuItem *this)
 	// End offset: 0x80020798
 	// End Line: 2014
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void TransitionOn__17tUserNameMenuItem(tUserNameMenuItem *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// unsigned int /*$ra*/ TransitionIsFinished__17tUserNameMenuItem(struct tUserNameMenuItem *this /*$a0*/)
+// void * /*$ra*/ TransitionIsFinished__17tUserNameMenuItem(struct tUserNameMenuItem *this /*$a0*/)
  // line 2018, offset 0x800207b4
 	/* begin block 1 */
 		// Start line: 2019
@@ -2783,24 +2913,24 @@ void TransitionOn__17tUserNameMenuItem(tUserNameMenuItem *this)
 	// End offset: 0x80020814
 	// End Line: 2029
 
-uint TransitionIsFinished__17tUserNameMenuItem(tUserNameMenuItem *this)
+/* WARNING: Control flow encountered bad instruction data */
+
+void * TransitionIsFinished__17tUserNameMenuItem(tUserNameMenuItem *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// void /*$ra*/ UpdateTransition__17tUserNameMenuItemb(struct tUserNameMenuItem *this /*$s0*/, unsigned int selected /*$s1*/)
+// void /*$ra*/ UpdateTransition__17tUserNameMenuItemb(struct tUserNameMenuItem *this /*$s0*/, void * selected /*$s1*/)
  // line 2032, offset 0x80020820
 	/* begin block 1 */
 		// Start line: 2033
@@ -2809,18 +2939,18 @@ uint TransitionIsFinished__17tUserNameMenuItem(tUserNameMenuItem *this)
 	// End offset: 0x80020860
 	// End Line: 2037
 
-void UpdateTransition__17tUserNameMenuItemb(tUserNameMenuItem *this,uint selected)
+/* WARNING: Control flow encountered bad instruction data */
+
+void UpdateTransition__17tUserNameMenuItemb(tUserNameMenuItem *this,void *selected)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -2868,18 +2998,18 @@ void UpdateTransition__17tUserNameMenuItemb(tUserNameMenuItem *this,uint selecte
 	// End offset: 0x80020ACC
 	// End Line: 2082
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void Draw__19tMemoryCardMenuItemb(tMemoryCardMenuItem *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -2954,18 +3084,20 @@ void Draw__19tMemoryCardMenuItemb(tMemoryCardMenuItem *this)
 	// End offset: 0x80020B88
 	// End Line: 2095
 
-void ProcessInput__35tInsideBoxControllerLeftRightSlider7tPlayerR13tInputKeyTypeR12tMenuCommand( (tInsideBoxControllerLeftRightSlider *this,tPlayer fromPlayer,tInputKeyType *keyval, tMenuCommand *command)
+/* WARNING: Control flow encountered bad instruction data */
+
+void ProcessInput__35tInsideBoxControllerLeftRightSlider7tPlayerR13tInputKeyTypeR12tMenuCommand
+               (tInsideBoxControllerLeftRightSlider *this,tPlayer fromPlayer,tInputKeyType *keyval,
+               tMenuCommand *command)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 

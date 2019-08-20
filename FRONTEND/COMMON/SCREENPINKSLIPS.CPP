@@ -183,18 +183,18 @@
 	// End offset: 0x800390E8
 	// End Line: 195
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void DrawBackground__16tScreenPinkSlips(tScreenPinkSlips *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -211,18 +211,20 @@ void DrawBackground__16tScreenPinkSlips(tScreenPinkSlips *this)
 	// End offset: 0x80039118
 	// End Line: 203
 
-void GetShapeInfo__16tScreenPinkSlipsRsT1PPcT3( (tScreenPinkSlips *this,short *numPermShapes,short *numSwapShapes,char **permFileName ,char **swapFileName)
+/* WARNING: Control flow encountered bad instruction data */
+
+void GetShapeInfo__16tScreenPinkSlipsRsT1PPcT3
+               (tScreenPinkSlips *this,short *numPermShapes,short *numSwapShapes,char **permFileName
+               ,char **swapFileName)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -271,18 +273,18 @@ void GetShapeInfo__16tScreenPinkSlipsRsT1PPcT3( (tScreenPinkSlips *this,short *n
 	// End offset: 0x800391D8
 	// End Line: 220
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void Initialize__16tScreenPinkSlips(tScreenPinkSlips *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -297,18 +299,18 @@ void Initialize__16tScreenPinkSlips(tScreenPinkSlips *this)
 	// End offset: 0x80039320
 	// End Line: 264
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void Cleanup__16tScreenPinkSlips(tScreenPinkSlips *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -365,18 +367,19 @@ void Cleanup__16tScreenPinkSlips(tScreenPinkSlips *this)
 	// End offset: 0x800393FC
 	// End Line: 316
 
-void UpdateVideoWall__16tScreenPinkSlipsR17tTrackInformation( (tScreenPinkSlips *this,tTrackInformation *trackInfo)
+/* WARNING: Control flow encountered bad instruction data */
+
+void UpdateVideoWall__16tScreenPinkSlipsR17tTrackInformation
+               (tScreenPinkSlips *this,tTrackInformation *trackInfo)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -408,18 +411,18 @@ void UpdateVideoWall__16tScreenPinkSlipsR17tTrackInformation( (tScreenPinkSlips 
 	// End offset: 0x80039670
 	// End Line: 368
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void DrawVideoWall__16tScreenPinkSlips(tScreenPinkSlips *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -590,18 +593,19 @@ void DrawVideoWall__16tScreenPinkSlips(tScreenPinkSlips *this)
 	// End offset: 0x800397BC
 	// End Line: 390
 
-void ProcessInput__16tScreenPinkSlips7tPlayerR13tInputKeyTypeR12tMenuCommand( (tScreenPinkSlips *this,tInputKeyType *keyval)
+/* WARNING: Control flow encountered bad instruction data */
+
+void ProcessInput__16tScreenPinkSlips7tPlayerR13tInputKeyTypeR12tMenuCommand
+               (tScreenPinkSlips *this,tInputKeyType *keyval)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 

@@ -12,21 +12,21 @@
 	// End offset: 0x800B317C
 	// End Line: 125
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Render_CreatePlayerViews__Fv(void)
+
 {
-  if (DAT_801131f8 == 1) {
-    iGp00000e80 = Draw_SetView__Fiiiiiiiii(0,0x100,0x140,0x100,0x140,0x78,0,1,2000);
-    iGp00000e84 = Draw_SetView__Fiiiiiiiii(0,0x178,0x140,0x178,0x140,0x78,0,1,2000);
+  if (GameSetup_gData.commMode == 1) {
+    DAT_00000e80 = Draw_SetView__Fiiiiiiiii(0,0x100,0x140,0x100,0x140,0x78,0,1,2000);
+    DAT_00000e84 = Draw_SetView__Fiiiiiiiii(0,0x178,0x140,0x178,0x140,0x78,0,1,2000);
   }
   else {
-    iGp00000e80 = Draw_SetView__Fiiiiiiiii(0,0x100,0x140,0x100,0x140,0xf0,0,1,3000);
-    iGp00000e84 = -1;
+    DAT_00000e80 = Draw_SetView__Fiiiiiiiii(0,0x100,0x140,0x100,0x140,0xf0,0,1,3000);
+    DAT_00000e84 = -1;
   }
   return;
-
-
 }
-
 
 
 
@@ -41,14 +41,14 @@ void Render_CreatePlayerViews__Fv(void)
 	// End offset: 0x800B3198
 	// End Line: 141
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Render_CreatePauseMenuViews__Fv(void)
+
 {
-  iGp00000e9c = Draw_SetView__Fiiiiiiiii(0,0x100,0x140,0x100,0x140,0xf0,0,0,1);
+  DAT_00000e9c = Draw_SetView__Fiiiiiiiii(0,0x100,0x140,0x100,0x140,0xf0,0,0,1);
   return;
-
-
 }
-
 
 
 
@@ -63,17 +63,17 @@ void Render_CreatePauseMenuViews__Fv(void)
 	// End offset: 0x800B31E4
 	// End Line: 152
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Render_CreateViews__Fv(void)
+
 {
   Draw_InitViews__Fv();
   Render_CreatePlayerViews__Fv();
   Hud_CreateHudViews__Fv();
   Render_CreatePauseMenuViews__Fv();
   return;
-
-
 }
-
 
 
 
@@ -89,20 +89,18 @@ void Render_CreateViews__Fv(void)
 	// End Line: 170
 
 void Render_StartRenderingWorldView__Fi(int viewid)
+
 {
-  Camera_SetCamera__FP13DRender_tView((DRender_tView *)&gCView);
+  Camera_SetCamera__FP13DRender_tView(&gCView);
   Track_AnimateTrackLighting__Fv();
   Draw_StartRenderingView__Fi(viewid);
-  _DAT_1f80000c = 0;
-  Fog_Update__Fi(DAT_80116f80);
+  DAT_1f80000c = GameSetup_gData.mirrorTrack;
+  Fog_Update__Fi(gCView.player);
   DrawC_SetEnviroment__Fv();
   TrsProj_ResetTransPrecision__Fv();
-  Night_SetEnviroment__FP13DRender_tView((DRender_tView *)&gCView);
+  Night_SetEnviroment__FP13DRender_tView(&gCView);
   return;
-
-
 }
-
 
 
 
@@ -118,13 +116,11 @@ void Render_StartRenderingWorldView__Fi(int viewid)
 	// End Line: 216
 
 void Render_StopRenderingWorldView__Fi(int viewid)
+
 {
   Draw_StopRenderingView__Fi(viewid);
   return;
-
-
 }
-
 
 
 
@@ -142,27 +138,23 @@ void Render_StopRenderingWorldView__Fi(int viewid)
 	// End Line: 224
 
 void Render_RenderWorld__FP13DRender_tView(DRender_tView *Vi)
+
 {
-  undefined4 uVar1;
-  
   BWorld_OnyxBuildFacets__FP13DRender_tView(Vi);
-  uVar1 = SetSp(0x1f8003fc);
+  SetSp();
   Skidmark_OnyxBuildFacets__FP13DRender_tView(Vi);
-  SetSp(uVar1);
-  uVar1 = SetSp(0x1f8003fc);
+  SetSp();
+  SetSp();
   Souffle_InsertFacet__FP13DRender_tView(Vi);
-  SetSp(uVar1);
+  SetSp();
   R3DCar_InsertAllListFacet__FP13DRender_tView(Vi);
   Hrz_BuildHorizon__FP13DRender_tView(Vi);
-  uVar1 = SetSp(0x1f8003fc);
+  SetSp();
   Weather_BuildWeather__FP13DRender_tView(Vi);
-  SetSp(uVar1);
+  SetSp();
   Render_InsertDepthOfField__Fv();
   return;
-
-
 }
-
 
 
 
@@ -178,17 +170,15 @@ void Render_RenderWorld__FP13DRender_tView(DRender_tView *Vi)
 	// End Line: 271
 
 void Render_RenderPlayerView__Fii(int ViewID,int Player)
+
 {
-  gCView = ViewID;
-  DAT_80116f80 = Player;
+  gCView.id = ViewID;
+  gCView.player = Player;
   Render_StartRenderingWorldView__Fi(ViewID);
-  Render_RenderWorld__FP13DRender_tView((DRender_tView *)&gCView);
+  Render_RenderWorld__FP13DRender_tView(&gCView);
   Render_StopRenderingWorldView__Fi(ViewID);
   return;
-
-
 }
-
 
 
 
@@ -203,13 +193,13 @@ void Render_RenderPlayerView__Fii(int ViewID,int Player)
 	// End offset: 0x800B33A8
 	// End Line: 333
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Render_RenderDebugView__Fv(void)
+
 {
   return;
-
-
 }
-
 
 
 
@@ -224,7 +214,10 @@ void Render_RenderDebugView__Fv(void)
 	// End offset: 0x800B33B0
 	// End Line: 360
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Render_StartFrameRender__Fv(void)
+
 {
   BWorld_StartLoop__Fv();
   Track_AnimateTextures__Fv();
@@ -232,10 +225,7 @@ void Render_StartFrameRender__Fv(void)
   Draw_CheckFirstFrameRender__Fv();
   Draw_StartFrameRender__Fv();
   return;
-
-
 }
-
 
 
 
@@ -250,14 +240,14 @@ void Render_StartFrameRender__Fv(void)
 	// End offset: 0x800B33F0
 	// End Line: 376
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Render_StopFrameRender__Fv(void)
+
 {
   Draw_StopFrameRender__Fv();
   return;
-
-
 }
-
 
 
 
@@ -272,14 +262,14 @@ void Render_StopFrameRender__Fv(void)
 	// End offset: 0x800B3410
 	// End Line: 388
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Render_InitPauseMenu__Fv(void)
+
 {
   MPause_InitMPause__Fv();
   return;
-
-
 }
-
 
 
 
@@ -296,22 +286,22 @@ void Render_InitPauseMenu__Fv(void)
 	// End offset: 0x800B3430
 	// End Line: 394
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Render_RenderPauseMenuView__Fv(void)
+
 {
-  undefined4 uVar1;
+  int iVar1;
   
-  gCView = iGp00000e9c;
-  Draw_StartRenderingView__Fi(iGp00000e9c);
+  gCView.id = DAT_00000e9c;
+  Draw_StartRenderingView__Fi(DAT_00000e9c);
   MPause_Render__Fv();
-  uVar1 = gFlip;
+  iVar1 = gFlip;
   gFlip = 0;
-  Draw_StopRenderingView__Fi(iGp00000e9c);
-  gFlip = uVar1;
+  Draw_StopRenderingView__Fi(DAT_00000e9c);
+  gFlip = iVar1;
   return;
-
-
 }
-
 
 
 
@@ -326,14 +316,14 @@ void Render_RenderPauseMenuView__Fv(void)
 	// End offset: 0x800B3488
 	// End Line: 412
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Render_KillPauseMenu__Fv(void)
+
 {
   MPause_KillMPause__Fv();
   return;
-
-
 }
-
 
 
 
@@ -349,21 +339,22 @@ void Render_KillPauseMenu__Fv(void)
 	// End Line: 526
 
 void Render_Render__Fi(int pause)
+
 {
   bool bVar1;
   int ViewID;
   
   if (pause == 0) {
-    if (iGp00000e90 == 0) {
-      bVar1 = DAT_801131f8 != 1;
+    if (DAT_00000e90 == 0) {
+      bVar1 = GameSetup_gData.commMode != 1;
       if (bVar1) {
         Render_StartFrameRender__Fv();
-        ViewID = iGp00000e80;
+        ViewID = DAT_00000e80;
       }
       else {
         Render_StartFrameRender__Fv();
-        Render_RenderPlayerView__Fii(iGp00000e80,0);
-        ViewID = iGp00000e84;
+        Render_RenderPlayerView__Fii(DAT_00000e80,0);
+        ViewID = DAT_00000e84;
       }
       Render_RenderPlayerView__Fii(ViewID,(uint)!bVar1);
       Hud_Render__Fv();
@@ -371,37 +362,34 @@ void Render_Render__Fi(int pause)
       Render_StopFrameRender__Fv();
     }
     else {
-      iGp00000e90 = 0;
+      DAT_00000e90 = 0;
     }
   }
   else {
-    if (iGp00000e90 == 0) {
-      uGp00000e8c = 0x140;
-      iGp00000e90 = 1;
-      uGp00000e88 = 0;
-      uGp00000e8a = 0;
-      uGp00000e8e = 0xf0;
+    if (DAT_00000e90 == 0) {
+      DAT_00000e8c = 0x140;
+      DAT_00000e90 = 1;
+      DAT_00000e88 = 0;
+      DAT_00000e8a = 0;
+      DAT_00000e8e = 0xf0;
       DrawSync(0);
       RPause_CopyBackToFrontBuffer__Fv();
       MPause_StartPauseMenu__Fv();
-      gMPauseUpdate = 1;
-      gMPauseUpdateNextTime = 0;
+      gMPauseUpdate = &DAT_00000001;
+      gMPauseUpdateNextTime = (void *)0x0;
     }
-    uGp00000e88 = 0x4e;
-    uGp00000e8a = 0x62;
-    uGp00000e8c = 0xa4;
-    uGp00000e8e = 0x8b;
-    if (gMPauseUpdate != 0) {
+    DAT_00000e88 = 0x4e;
+    DAT_00000e8a = 0x62;
+    DAT_00000e8c = 0xa4;
+    DAT_00000e8e = 0x8b;
+    if (gMPauseUpdate != (void *)0x0) {
       RPause_StartPauseMenu__Fv();
       Render_RenderPauseMenuView__Fv();
       RPause_StopPauseMenu__Fv();
     }
   }
   return;
-
-
 }
-
 
 
 
@@ -450,11 +438,14 @@ void Render_Render__Fi(int pause)
 	// End offset: 0x800B36C8
 	// End Line: 556
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void FlareThing__Fv(void)
+
 {
-  undefined2 *puVar1;
+  FLARE_DEF *pFVar1;
   int iVar2;
-  undefined2 *puVar3;
+  int iVar3;
   int iVar4;
   short local_30;
   short local_2e;
@@ -462,30 +453,27 @@ void FlareThing__Fv(void)
   undefined2 local_2a;
   
   iVar4 = 1;
-  if (DAT_801131f8 == 1) {
+  if (GameSetup_gData.commMode == 1) {
     iVar4 = 2;
   }
   iVar2 = 0;
-  puVar1 = &gFlare_LensFlare;
-  puVar3 = &DAT_80120288;
+  pFVar1 = &gFlare_LensFlare;
+  iVar3 = -0x7fedfd78;
   while (iVar2 < iVar4) {
-    if ((&DAT_801202f4)[iVar2] != '\0') {
-      local_30 = *(short *)(&gEnviro + gFlip * 0x18) + puVar1[4] + -2;
+    if (gFlare_LensFlare.isDrawn[iVar2] != '\0') {
+      local_30 = (&gEnviro)[gFlip].disp.disp.x + pFVar1->oldpos[0].vx + -2;
       local_2c = 5;
       local_2a = 5;
-      local_2e = *(short *)(&DAT_8011f426 + gFlip * 0x18) + puVar1[5] + -2;
-      StoreImage(&local_30,puVar3);
-      (&DAT_801202f4)[iVar2] = 0;
+      local_2e = (&gEnviro)[gFlip].disp.disp.y + pFVar1->oldpos[0].vy + -2;
+      StoreImage(&local_30,iVar3);
+      gFlare_LensFlare.isDrawn[iVar2] = '\0';
     }
-    puVar3 = puVar3 + 0x19;
-    puVar1 = puVar1 + 2;
+    iVar3 = iVar3 + 0x32;
+    pFVar1 = (FLARE_DEF *)(pFVar1->pos + 1);
     iVar2 = iVar2 + 1;
   }
   return;
-
-
 }
-
 
 
 
@@ -500,9 +488,12 @@ void FlareThing__Fv(void)
 	// End offset: 0x800B36F4
 	// End Line: 564
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Render_InitTrackRender__Fv(void)
+
 {
-  TrackSpec_Load__Fii(DAT_80113234,DAT_80113240);
+  TrackSpec_Load__Fii(GameSetup_gData.Weather,GameSetup_gData.Time);
   Render_CreateViews__Fv();
   Draw_InitRenderEngine__Fiiiiii(0x140,0x100,0,0x100,0x140,0xf0);
   DrawC_BuildRenderingData__Fv();
@@ -517,10 +508,7 @@ void Render_InitTrackRender__Fv(void)
   Draw_SetDrawSyncCallback__FPFv_v(FlareThing__Fv);
   Render_InitBlurMode__Fv();
   return;
-
-
 }
-
 
 
 
@@ -535,7 +523,10 @@ void Render_InitTrackRender__Fv(void)
 	// End offset: 0x800B37AC
 	// End Line: 601
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Render_RestartTrackRender__Fv(void)
+
 {
   Draw_RestartRenderEngine__Fv();
   DepthCue_Init__Fv();
@@ -544,10 +535,7 @@ void Render_RestartTrackRender__Fv(void)
   Souffle_RestartTrackSouffle__Fv();
   TrgSfx_RestartTrgSfx__Fv();
   return;
-
-
 }
-
 
 
 
@@ -562,16 +550,16 @@ void Render_RestartTrackRender__Fv(void)
 	// End offset: 0x800B37F4
 	// End Line: 613
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Render_InitTrackRenderPostSim__Fv(void)
+
 {
-  uGp00000e90 = 0;
+  DAT_00000e90 = 0;
   Texture_DeInitPaletteSharing__Fv();
   CV_InitColorVertices__Fv();
   return;
-
-
 }
-
 
 
 
@@ -586,7 +574,10 @@ void Render_InitTrackRenderPostSim__Fv(void)
 	// End offset: 0x800B3820
 	// End Line: 625
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Render_KillTrackRender__Fv(void)
+
 {
   Draw_DeInitRenderEngine__Fv();
   DrawC_KillRenderingData__Fv();
@@ -596,13 +587,10 @@ void Render_KillTrackRender__Fv(void)
   Skidmark_KillSkidmark__Fv();
   TrgSfx_KillTrgSfx__Fv();
   DashHUD_KillHUD__Fv();
-  Draw_SetDrawSyncCallback__FPFv_v((p *)0x0);
+  Draw_SetDrawSyncCallback__FPFv_v((TDRFuncPtr_Draw_SetDrawSyncCallback__FPFv_v0p)0x0);
   Fog_DeInitFogTriggers__Fv();
   return;
-
-
 }
-
 
 
 
@@ -617,14 +605,14 @@ void Render_KillTrackRender__Fv(void)
 	// End offset: 0x800B3888
 	// End Line: 641
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Render_InitLibRender__Fv(void)
+
 {
   Draw_InitLibRender__Fv();
   return;
-
-
 }
-
 
 
 
@@ -652,6 +640,7 @@ void Render_InitLibRender__Fv(void)
 	// End Line: 770
 
 void StampImage__Fii(int xo,int depth)
+
 {
   short sVar1;
   uint *puVar2;
@@ -662,20 +651,20 @@ void StampImage__Fii(int xo,int depth)
   int iVar7;
   
   iVar7 = gFlip;
-  if ((uGp00000e7c & 2) == 0) {
+  if ((DAT_00000e7c & 2) == 0) {
     iVar7 = 1 - gFlip;
   }
   uVar5 = 0;
-  if ((uGp00000e7c & 4) == 0) {
+  if ((DAT_00000e7c & 4) == 0) {
     xo = 0;
   }
   uVar6 = 0x140;
   do {
-    puVar2 = _DAT_1f800004;
-    puVar4 = (uint *)(depth * 4 + _DAT_1f800000);
-    *_DAT_1f800004 = *_DAT_1f800004 & 0xff000000 | *puVar4 & 0xffffff;
-    uVar3 = (uint)_DAT_1f800004 & 0xffffff;
-    _DAT_1f800004 = _DAT_1f800004 + 10;
+    puVar2 = DAT_1f800004;
+    puVar4 = (uint *)(depth * 4 + DAT_1f800000);
+    *DAT_1f800004 = *DAT_1f800004 & 0xff000000 | *puVar4 & 0xffffff;
+    uVar3 = (uint)DAT_1f800004 & 0xffffff;
+    DAT_1f800004 = DAT_1f800004 + 10;
     *puVar4 = *puVar4 & 0xff000000 | uVar3;
     *(undefined *)((int)puVar2 + 3) = 9;
     *(undefined *)((int)puVar2 + 7) = 0x2e;
@@ -711,10 +700,7 @@ void StampImage__Fii(int xo,int depth)
     xo = xo + 0x40;
   } while ((int)uVar5 < 5);
   return;
-
-
 }
-
 
 
 
@@ -729,28 +715,28 @@ void StampImage__Fii(int xo,int depth)
 	// End offset: 0x800B3A64
 	// End Line: 786
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Render_InitBlurMode__Fv(void)
+
 {
-  if (DAT_80113224 == 0x20) {
-    uGp00000e7c = 0x1b;
+  if (GameSetup_gData.sgge == 0x20) {
+    DAT_00000e7c = 0x1b;
     return;
   }
-  if (DAT_80113224 < 0x21) {
-    if (DAT_80113224 != 0x10) {
+  if (GameSetup_gData.sgge < 0x21) {
+    if (GameSetup_gData.sgge != 0x10) {
       return;
     }
-    uGp00000e7c = 0xb;
+    DAT_00000e7c = 0xb;
     return;
   }
-  if (DAT_80113224 != 0x40) {
+  if (GameSetup_gData.sgge != 0x40) {
     return;
   }
-  uGp00000e7c = 0x1f;
+  DAT_00000e7c = 0x1f;
   return;
-
-
 }
-
 
 
 
@@ -792,24 +778,27 @@ void Render_InitBlurMode__Fv(void)
 	// End offset: 0x800B3C30
 	// End Line: 835
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Render_InsertDepthOfField__Fv(void)
+
 {
   uint uVar1;
   uint *puVar2;
   uint *puVar3;
   
-  if ((uGp00000e7c & 1) != 0) {
-    if ((uGp00000e7c & 8) != 0) {
-      StampImage__Fii(1,iGp00000e74);
+  if ((DAT_00000e7c & 1) != 0) {
+    if ((DAT_00000e7c & 8) != 0) {
+      StampImage__Fii(1,DAT_00000e74);
     }
-    if ((uGp00000e7c & 0x10) != 0) {
-      StampImage__Fii(2,iGp00000e78);
+    if ((DAT_00000e7c & 0x10) != 0) {
+      StampImage__Fii(2,DAT_00000e78);
     }
-    puVar3 = _DAT_1f800004;
-    puVar2 = (uint *)(iGp00000e74 * 4 + _DAT_1f800000);
-    *_DAT_1f800004 = *_DAT_1f800004 & 0xff000000 | *puVar2 & 0xffffff;
-    uVar1 = (uint)_DAT_1f800004 & 0xffffff;
-    _DAT_1f800004 = _DAT_1f800004 + 6;
+    puVar3 = DAT_1f800004;
+    puVar2 = (uint *)(DAT_00000e74 * 4 + DAT_1f800000);
+    *DAT_1f800004 = *DAT_1f800004 & 0xff000000 | *puVar2 & 0xffffff;
+    uVar1 = (uint)DAT_1f800004 & 0xffffff;
+    DAT_1f800004 = DAT_1f800004 + 6;
     *puVar2 = *puVar2 & 0xff000000 | uVar1;
     *(undefined *)((int)puVar3 + 3) = 5;
     *(undefined *)((int)puVar3 + 7) = 0x2a;
@@ -821,30 +810,27 @@ void Render_InsertDepthOfField__Fv(void)
     *(undefined *)(puVar3 + 1) = 0;
     *(undefined *)((int)puVar3 + 5) = 0;
     *(undefined *)((int)puVar3 + 6) = 0;
-    puVar2 = _DAT_1f800004;
+    puVar2 = DAT_1f800004;
     *(undefined2 *)((int)puVar3 + 0x12) = 0xf0;
     *(undefined2 *)(puVar3 + 5) = 0x140;
     *(undefined2 *)((int)puVar3 + 0x16) = 0xf0;
-    puVar3 = (uint *)(iGp00000e74 * 4 + _DAT_1f800000);
-    *_DAT_1f800004 = *_DAT_1f800004 & 0xff000000 | *puVar3 & 0xffffff;
-    uVar1 = (uint)_DAT_1f800004 & 0xffffff;
-    _DAT_1f800004 = _DAT_1f800004 + 3;
+    puVar3 = (uint *)(DAT_00000e74 * 4 + DAT_1f800000);
+    *DAT_1f800004 = *DAT_1f800004 & 0xff000000 | *puVar3 & 0xffffff;
+    uVar1 = (uint)DAT_1f800004 & 0xffffff;
+    DAT_1f800004 = DAT_1f800004 + 3;
     *puVar3 = *puVar3 & 0xff000000 | uVar1;
-    SetDrawStp(puVar2,1);
-    puVar3 = _DAT_1f800004;
-    puVar2 = (uint *)(iGp00000e74 * 4 + _DAT_1f800000);
-    *_DAT_1f800004 = *_DAT_1f800004 & 0xff000000 | *puVar2 & 0xffffff;
-    uVar1 = (uint)_DAT_1f800004 & 0xffffff;
-    _DAT_1f800004 = _DAT_1f800004 + 3;
+    SetDrawStp((int)puVar2,1);
+    puVar3 = DAT_1f800004;
+    puVar2 = (uint *)(DAT_00000e74 * 4 + DAT_1f800000);
+    *DAT_1f800004 = *DAT_1f800004 & 0xff000000 | *puVar2 & 0xffffff;
+    uVar1 = (uint)DAT_1f800004 & 0xffffff;
+    DAT_1f800004 = DAT_1f800004 + 3;
     *puVar2 = *puVar2 & 0xff000000 | uVar1;
     uVar1 = GetTPage(2,1,0,0x100);
-    SetDrawMode(puVar3,0,0,uVar1 & 0xffff,0);
+    SetDrawMode((int)puVar3,0,0,uVar1 & 0xffff,(byte *)0x0);
   }
   return;
-
-
 }
-
 
 
 

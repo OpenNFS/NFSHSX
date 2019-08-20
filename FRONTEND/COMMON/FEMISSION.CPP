@@ -12,24 +12,24 @@
 	// End offset: 0x80034060
 	// End Line: 63
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void Initialize__15tMissionManager(tMissionManager *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// void /*$ra*/ LoadDescription__15tMissionManagerb(struct tMissionManager *this /*$s4*/, unsigned int LoadHotPursuit /*$a1*/)
+// void /*$ra*/ LoadDescription__15tMissionManagerb(struct tMissionManager *this /*$s4*/, void * LoadHotPursuit /*$a1*/)
  // line 79, offset 0x8003407c
 	/* begin block 1 */
 		// Start line: 80
@@ -44,18 +44,18 @@ void Initialize__15tMissionManager(tMissionManager *this)
 	// End offset: 0x80034128
 	// End Line: 102
 
-void LoadDescription__15tMissionManagerb(tMissionManager *this,uint LoadHotPursuit)
+/* WARNING: Control flow encountered bad instruction data */
+
+void LoadDescription__15tMissionManagerb(tMissionManager *this,void *LoadHotPursuit)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -70,18 +70,18 @@ void LoadDescription__15tMissionManagerb(tMissionManager *this,uint LoadHotPursu
 	// End offset: 0x800341E4
 	// End Line: 144
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void ReleaseDescription__15tMissionManager(tMissionManager *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -98,18 +98,19 @@ void ReleaseDescription__15tMissionManager(tMissionManager *this)
 	// End offset: 0x800341F4
 	// End Line: 176
 
-short GetMissionStages__15tMissionManagerssPP10tStageInfo( (tMissionManager *this,short tier,short mission,tStageInfo **pStages)
+/* WARNING: Control flow encountered bad instruction data */
+
+short GetMissionStages__15tMissionManagerssPP10tStageInfo
+                (tMissionManager *this,short tier,short mission,tStageInfo **pStages)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -126,18 +127,19 @@ short GetMissionStages__15tMissionManagerssPP10tStageInfo( (tMissionManager *thi
 	// End offset: 0x8003425C
 	// End Line: 188
 
-void GetMissionToRace__15tMissionManagerPP12tMissionInfo( (tMissionManager *this,tMissionInfo **mission)
+/* WARNING: Control flow encountered bad instruction data */
+
+void GetMissionToRace__15tMissionManagerPP12tMissionInfo
+               (tMissionManager *this,tMissionInfo **mission)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 

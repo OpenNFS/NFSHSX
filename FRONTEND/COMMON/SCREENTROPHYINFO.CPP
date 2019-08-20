@@ -42,18 +42,20 @@
 	// End offset: 0x800410B8
 	// End Line: 55
 
-void GetShapeInfo__17tScreenTrophyInfoRsT1PPcT3( (tScreenTrophyInfo *this,short *numPermShapes,short *numSwapShapes, char **permFileName,char **swapFileName)
+/* WARNING: Control flow encountered bad instruction data */
+
+void GetShapeInfo__17tScreenTrophyInfoRsT1PPcT3
+               (tScreenTrophyInfo *this,short *numPermShapes,short *numSwapShapes,
+               char **permFileName,char **swapFileName)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -119,18 +121,18 @@ void GetShapeInfo__17tScreenTrophyInfoRsT1PPcT3( (tScreenTrophyInfo *this,short 
 	// End offset: 0x800415B8
 	// End Line: 154
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void DrawBackground__17tScreenTrophyInfo(tScreenTrophyInfo *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 

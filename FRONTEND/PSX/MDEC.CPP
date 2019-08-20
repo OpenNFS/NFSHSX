@@ -14,18 +14,18 @@
 	// End offset: 0x800509E4
 	// End Line: 142
 
+/* WARNING: Control flow encountered bad instruction data */
+
 int initmdec(int width,int height,int bpp,int memtype)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -42,18 +42,18 @@ int initmdec(int width,int height,int bpp,int memtype)
 	// End offset: 0x80050A80
 	// End Line: 204
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void restoremdec(int handle)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -68,18 +68,19 @@ void restoremdec(int handle)
 	// End offset: 0x80050AD8
 	// End Line: 246
 
+/* WARNING: Control flow encountered bad instruction data */
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void mdecreset__Fv(void)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -139,18 +140,18 @@ void mdecreset__Fv(void)
 	// End offset: 0x80050BBC
 	// End Line: 336
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void mdec(int handle,char *src,int x,int y)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -165,18 +166,18 @@ void mdec(int handle,char *src,int x,int y)
 	// End offset: 0x80050C04
 	// End Line: 383
 
+/* WARNING: Control flow encountered bad instruction data */
+
 int mdecdone(int handle)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -193,18 +194,19 @@ int mdecdone(int handle)
 	// End offset: 0x80050CB0
 	// End Line: 416
 
+/* WARNING: Control flow encountered bad instruction data */
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void MDECCompleteHandler__Fv(void)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 

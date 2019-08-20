@@ -23,7 +23,7 @@ extern void UpdateTournFinishMoney__18tTournamentManager(struct tTournamentManag
 
 extern void UpdateTrackFinishMoney__18tTournamentManager(struct tTournamentManager *this); // 0x80032C0C
 
-extern void CalcTrackFinishDamageBill__18tTournamentManagerbRlT2(struct tTournamentManager *this, unsigned int recalculate, long *bill, long *bonus); // 0x80032C6C
+extern void CalcTrackFinishDamageBill__18tTournamentManagerbRlT2(struct tTournamentManager *this, void * recalculate, long *bill, long *bonus); // 0x80032C6C
 
 extern void UpdateTrackFinishPoints__18tTournamentManager(struct tTournamentManager *this); // 0x80032E30
 
@@ -55,7 +55,7 @@ extern void CalcTierFinishPrize__18tTournamentManager(struct tTournamentManager 
 
 extern void GetTrophyName__18tTournamentManagerP12tTourneyInfo11tTrophySizePci(struct tTournamentManager *this, struct tTourneyInfo *tourn, enum tTrophySize size, char *buffer, int place); // 0x80033B64
 
-extern unsigned int ValidCar__18tTournamentManagerR8tCarInfo(struct tTournamentManager *this, struct tCarInfo *carInfo); // 0x80033C24
+extern void * ValidCar__18tTournamentManagerR8tCarInfo(struct tTournamentManager *this, struct tCarInfo *carInfo); // 0x80033C24
 
 extern struct tListIteratorTournament * __23tListIteratorTournamentPcP18tTournamentManager(struct tListIteratorTournament *this, char *valPtr, struct tTournamentManager *tournManager); // 0x80033D9C
 
@@ -69,6 +69,6 @@ extern void Increment__23tListIteratorTournament7tPlayer(struct tListIteratorTou
 
 extern void Decrement__23tListIteratorTournament7tPlayer(struct tListIteratorTournament *this); // 0x80033F20
 
-extern unsigned int ValidTournament__23tListIteratorTournamentc(struct tListIteratorTournament *this, char tourn); // 0x80033FB0
+extern void * ValidTournament__23tListIteratorTournamentc(struct tListIteratorTournament *this, char tourn); // 0x80033FB0
 
 #endif

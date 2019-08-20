@@ -17,85 +17,86 @@
 	// End Line: 261
 
 void AudioEng_Set__Fiiiiiiii(int player,int vol,int esp,int gas,int cam,int dop,int azi,int dir)
+
 {
-  undefined2 uVar1;
+  uint uVar1;
   char cVar3;
   int iVar2;
   byte bVar4;
-  undefined2 *puVar5;
-  byte *pbVar6;
+  undefined *puVar5;
+  ushort uVar6;
+  AudioEng_tState *pAVar7;
+  AudioEng_t *pAVar8;
   
   if ((uint)player < 2) {
-    pbVar6 = (byte *)(&_AudioEng_g)[player];
-    if ((pbVar6 != (byte *)0x0) && ((pbVar6[0x11b] != 0xf || ((pbVar6[0x11a] + 1 & 1) == 0)))) {
-      puVar5 = (undefined2 *)(pbVar6 + (uint)pbVar6[0x11a] * 0xc + 0x5a);
-      iVar2 = (int)((uint)pbVar6[7] * esp) >> 0xe;
-      uVar1 = 0x1ff;
+    pAVar8 = (&__AudioEng_g_2__)[player];
+    if ((pAVar8 != (AudioEng_t *)0x0) &&
+       ((pAVar8->plypos != '\x0f' || ((pAVar8->setpos + 1U & 1) == 0)))) {
+      pAVar7 = pAVar8->queue + (uint)(byte)pAVar8->setpos;
+      iVar2 = (int)((uint)(pAVar8->adjust).timbreScale * esp) >> 0xe;
+      uVar6 = 0x1ff;
       if (iVar2 < 0x200) {
-        uVar1 = (short)iVar2;
+        uVar6 = (ushort)iVar2;
       }
-      puVar5[4] = uVar1;
-      if (**(int **)((&_Cars_gList)[player] + 0x288) == 0x1c) {
-        esp = (esp >> 2) + 0xc000;
+      pAVar7->esp = uVar6;
+      if ((&__Cars_gList_9__)[player]->carInfo->carType == 0x1c) {
+        puVar5 = (undefined *)((esp >> 2) + 0xc000);
       }
       else {
-        esp = esp + 0x3333;
+        puVar5 = &DAT_00003333 + esp;
       }
-      iVar2 = fixedmult(esp,dop);
-      puVar5[1] = (short)((int)((uint)pbVar6[6] * iVar2) >> 10);
+      uVar1 = fixedmult((int)puVar5,dop);
+      pAVar7->dop = (ushort)((int)((uint)(pAVar8->adjust).pitchScale * uVar1) >> 10);
       iVar2 = gas + (gas >> 5) + (gas >> 6);
       if (iVar2 < 0x81) {
-        *(byte *)((int)puVar5 + 0xb) = (byte)iVar2;
+        pAVar7->gas = (uchar)iVar2;
       }
       else {
-        *(byte *)((int)puVar5 + 0xb) = 0x80;
+        pAVar7->gas = -0x80;
       }
       if (cam == 0) {
-        *(byte *)(puVar5 + 5) = pbVar6[1];
-        if (DAT_801131f8 == 1) {
-          puVar5[3] = 0;
-          puVar5[2] = (short)azi;
+        pAVar7->exh = (pAVar8->adjust).inCarExhaust;
+        if (GameSetup_gData.commMode == 1) {
+          pAVar7->sep = 0;
+          pAVar7->azi = (ushort)azi;
         }
         else {
-          puVar5[2] = 0;
-          puVar5[3] = 0x3fff;
+          pAVar7->azi = 0;
+          pAVar7->sep = 0x3fff;
         }
-        bVar4 = *pbVar6;
+        bVar4 = (pAVar8->adjust).inCarBoost;
       }
       else {
-        *(byte *)(puVar5 + 5) = pbVar6[2];
+        pAVar7->exh = (pAVar8->adjust).outCarExhaust;
         if (dir < 0) {
-          bVar4 = *(byte *)(puVar5 + 5);
-          iVar2 = dir * (uint)pbVar6[3] * (uint)bVar4;
+          bVar4 = pAVar7->exh;
+          iVar2 = dir * (uint)(pAVar8->adjust).fwdEngBoost * (uint)bVar4;
         }
         else {
-          bVar4 = *(byte *)(puVar5 + 5);
-          iVar2 = dir * (uint)pbVar6[4] * (0x80 - (uint)bVar4);
+          bVar4 = pAVar7->exh;
+          iVar2 = dir * (uint)(pAVar8->adjust).rwdExhBoost * (0x80 - (uint)bVar4);
         }
         iVar2 = iVar2 >> 7;
         cVar3 = (char)((uint)iVar2 >> 0x10);
         if (iVar2 < 0) {
           cVar3 = (char)((uint)(iVar2 + 0xffff) >> 0x10);
         }
-        *(byte *)(puVar5 + 5) = bVar4 + cVar3;
-        puVar5[2] = (short)azi;
-        puVar5[3] = 0;
-        bVar4 = pbVar6[5];
+        pAVar7->exh = bVar4 + cVar3;
+        pAVar7->azi = (ushort)azi;
+        pAVar7->sep = 0;
+        bVar4 = (pAVar8->adjust).outCarBoost;
       }
       iVar2 = (int)(vol * (uint)bVar4) >> 6;
-      uVar1 = 0x7ff;
+      uVar6 = 0x7ff;
       if (iVar2 < 0x800) {
-        uVar1 = (undefined2)iVar2;
+        uVar6 = (ushort)iVar2;
       }
-      *puVar5 = uVar1;
-      pbVar6[0x11a] = pbVar6[0x11a] + 1 & 0xf;
+      pAVar7->vol = uVar6;
+      pAVar8->setpos = pAVar8->setpos + 1U & 0xf;
     }
   }
   return;
-
-
 }
-
 
 
 
@@ -221,26 +222,29 @@ void AudioEng_Set__Fiiiiiiii(int player,int vol,int esp,int gas,int cam,int dop,
 	// End offset: 0x8007BDAC
 	// End Line: 455
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void AudioEng_Update__Fv(void)
+
 {
   bool bVar1;
-  char cVar2;
-  int iVar3;
-  int iVar4;
-  uint uVar5;
-  undefined4 uVar6;
-  undefined uVar7;
-  uint uVar8;
-  int iVar9;
-  int iVar10;
-  int iVar11;
-  ushort *puVar12;
-  int iVar13;
+  uchar *puVar2;
+  uchar *puVar3;
+  uint uVar4;
+  char cVar5;
+  uint uVar6;
+  int iVar7;
+  int iVar8;
+  AudioEng_t *pAVar9;
+  AudioEng_t *pAVar10;
+  AudioEng_tState *pAVar11;
+  AudioEng_t *pAVar12;
+  ushort uVar13;
   ushort uVar14;
-  ushort uVar15;
+  AudioEng_t *pAVar15;
   int iVar16;
   int local_48;
-  undefined local_44;
+  char local_44;
   undefined local_40;
   undefined local_3d;
   undefined2 local_3c;
@@ -250,182 +254,184 @@ void AudioEng_Update__Fv(void)
   
   local_30 = 0;
   do {
-    if ((1 < local_30) || (iVar13 = (&_AudioEng_g)[local_30], iVar13 == 0)) {
+    if ((1 < local_30) || (pAVar12 = (&__AudioEng_g_2__)[local_30], pAVar12 == (AudioEng_t *)0x0)) {
       return;
     }
-    puVar12 = (ushort *)(iVar13 + (uint)*(byte *)(iVar13 + 0x11b) * 0xc + 0x5a);
-    iVar3 = gettick();
-    if (*(char *)(iVar13 + 0x11b) != *(char *)(iVar13 + 0x11a)) {
-      iVar4 = gettick();
-      if (*(int *)(iVar13 + 8) < iVar4) {
-        *(int *)(iVar13 + 8) = iVar3 + 2;
+    pAVar11 = pAVar12->queue + (uint)(byte)pAVar12->plypos;
+    puVar2 = gettick();
+    if (pAVar12->plypos != pAVar12->setpos) {
+      puVar3 = gettick();
+      if (pAVar12->tick < (int)puVar3) {
+        *(uchar **)&pAVar12->tick = puVar2 + 2;
         iVar16 = 0;
-        iVar3 = iVar13;
-        iVar4 = iVar13;
+        pAVar9 = pAVar12;
+        pAVar10 = pAVar12;
         while (iVar16 < 0x10) {
-          if (-1 < *(char *)(iVar3 + 0x124)) {
-            uVar8 = (uint)puVar12[4];
-            if (((int)uVar8 < (int)*(short *)(iVar3 + 0x11c)) ||
-               ((int)*(short *)(iVar3 + 0x11e) <= (int)uVar8)) {
-              iVar10 = 0;
+          if (-1 < pAVar9->chan[0].patchnum) {
+            uVar6 = (uint)pAVar11->esp;
+            iVar7 = (int)pAVar9->chan[0].min;
+            if (((int)uVar6 < iVar7) || ((int)pAVar9->chan[0].max <= (int)uVar6)) {
+              iVar7 = 0;
             }
             else {
-              iVar10 = (int)*(char *)(*(int *)(iVar3 + 0x120) +
-                                     (uVar8 - (int)*(short *)(iVar3 + 0x11c)));
+              iVar7 = (int)pAVar9->chan[0].xlate[uVar6 - iVar7];
             }
-            if (iVar10 != 0) {
+            if (iVar7 != 0) {
               if (iVar16 < 8) {
-                uVar8 = 0x80 - (uint)*(byte *)((int)puVar12 + 0xb);
+                uVar6 = 0x80 - (uint)pAVar11->gas;
               }
               else {
-                uVar8 = (uint)*(byte *)((int)puVar12 + 0xb);
+                uVar6 = (uint)pAVar11->gas;
               }
-              if (*(char *)(iVar3 + 0x124) < '@') {
-                uVar5 = (uint)*(byte *)(puVar12 + 5);
+              if (pAVar9->chan[0].patchnum < '@') {
+                uVar4 = (uint)pAVar11->exh;
 code_r0x8007b9f4:
-                uVar5 = (uint)(byte)(&Xfade)[uVar5];
+                uVar4 = (uint)(byte)(&Xfade)[uVar4];
               }
               else {
-                if (puVar12[3] == 0) {
-                  uVar5 = 0x80 - (uint)*(byte *)(puVar12 + 5);
+                if (pAVar11->sep == 0) {
+                  uVar4 = 0x80 - (uint)pAVar11->exh;
                   goto code_r0x8007b9f4;
                 }
-                uVar5 = (int)((uint)(byte)(&UNK_8010e70c)[-(uint)*(byte *)(puVar12 + 5)] * 0x2f) >>
-                        6;
+                uVar4 = (int)((uint)(byte)(&CHAR___8010e70c)[-(uint)pAVar11->exh] * 0x2f) >> 6;
               }
-              iVar10 = iVar10 * (uint)(byte)(&Xfade)[uVar8] * uVar5;
+              iVar7 = iVar7 * (uint)(byte)(&Xfade)[uVar6] * uVar4;
             }
-            uVar8 = iVar10 * (uint)*puVar12 >> 0x15;
-            if (0x7f < uVar8) {
-              uVar8 = 0x7f;
+            uVar6 = iVar7 * (uint)pAVar11->vol >> 0x15;
+            if (0x7f < uVar6) {
+              uVar6 = 0x7f;
             }
-            *(uint *)(iVar4 + 0xc) = uVar8;
-            *(uint *)(iVar13 + 0x4c) = (uint)puVar12[2];
-            *(uint *)(iVar13 + 0x50) = (uint)puVar12[3];
-            *(uint *)(iVar13 + 0x54) = (uint)puVar12[1];
+            pAVar10->vol[0] = uVar6;
+            pAVar12->azi = (uint)pAVar11->azi;
+            pAVar12->sep = (uint)pAVar11->sep;
+            pAVar12->dop = (uint)pAVar11->dop;
           }
-          iVar4 = iVar4 + 4;
-          iVar3 = iVar3 + 0xc;
+          pAVar10 = (AudioEng_t *)&(pAVar10->adjust).rwdExhBoost;
+          pAVar9 = (AudioEng_t *)pAVar9->vol;
           iVar16 = iVar16 + 1;
         }
-        *(byte *)(iVar13 + 0x11b) = *(char *)(iVar13 + 0x11b) + 1U & 0xf;
+        pAVar12->plypos = pAVar12->plypos + 1U & 0xf;
       }
     }
-    iVar10 = 0;
-    iVar3 = iVar13;
-    iVar4 = iVar13;
-    iVar16 = iVar13;
-    while (iVar10 < 0x10) {
-      if (-1 < *(char *)(iVar3 + 0x124)) {
-        if (*(int *)(iVar16 + 0xc) == 0) {
-          if (*(int *)(iVar3 + 0x1e4) != -1) {
-            SNDstop();
-            if (*(int *)(iVar3 + 0x2a4) != -1) {
-              SNDstop();
+    iVar16 = 0;
+    pAVar9 = pAVar12;
+    pAVar10 = pAVar12;
+    pAVar15 = pAVar12;
+    while (iVar16 < 0x10) {
+      cVar5 = pAVar9->chan[0].patchnum;
+      if (-1 < cVar5) {
+        if (pAVar15->vol[0] == 0) {
+          uVar6 = pAVar9->left[0].handle;
+          if (uVar6 != 0xffffffff) {
+            SNDstop(uVar6);
+            uVar6 = pAVar9->right[0].handle;
+            if (uVar6 != 0xffffffff) {
+              SNDstop(uVar6);
             }
-            *(undefined4 *)(iVar3 + 0x1e4) = 0xffffffff;
-            *(undefined4 *)(iVar3 + 0x2a4) = 0xffffffff;
+            pAVar9->left[0].handle = -1;
+            pAVar9->right[0].handle = -1;
           }
         }
         else {
-          if (*(char *)(iVar3 + 0x124) < '@') {
-            uVar15 = *(ushort *)(iVar13 + 0x4c);
-            uVar14 = uVar15;
+          if (cVar5 < '@') {
+            uVar14 = *(ushort *)&pAVar12->azi;
+            uVar13 = uVar14;
           }
           else {
-            uVar15 = *(short *)(iVar13 + 0x4c) + *(short *)(iVar13 + 0x50);
-            uVar14 = *(short *)(iVar13 + 0x4c) - *(short *)(iVar13 + 0x50);
+            uVar14 = *(short *)&pAVar12->azi + *(short *)&pAVar12->sep;
+            uVar13 = *(short *)&pAVar12->azi - *(short *)&pAVar12->sep;
           }
           SNDplaysetdef(&local_48);
-          local_44 = *(undefined *)(iVar13 + 0x58);
-          local_48 = (int)*(char *)(iVar3 + 0x124);
+          local_44 = pAVar12->bhandle;
+          local_48 = (int)pAVar9->chan[0].patchnum;
           local_40 = 0;
-          local_3c = *(undefined2 *)(iVar13 + 0x54);
+          local_3c = *(undefined2 *)&pAVar12->dop;
           local_3d = 1;
           local_36 = 0;
-          if (*(int *)(iVar3 + 0x1e4) == -1) {
-            local_38 = uVar14;
+          if (pAVar9->left[0].handle == -1) {
+            local_38 = uVar13;
             uVar6 = SNDplay(&local_48);
-            *(undefined4 *)(iVar3 + 0x1e4) = uVar6;
-            *(undefined *)(iVar4 + 0x35c) = 2;
-            *(undefined *)(iVar3 + 0x1dc) = 0;
-            *(ushort *)(iVar3 + 0x1e0) = uVar14;
-            *(undefined2 *)(iVar3 + 0x1de) = *(undefined2 *)(iVar13 + 0x54);
+            pAVar9->left[0].handle = uVar6;
+            pAVar10->delay[0] = '\x02';
+            pAVar9->left[0].vol = '\0';
+            pAVar9->left[0].azim = uVar13;
+            pAVar9->left[0].pitch = *(ushort *)&pAVar12->dop;
           }
           else {
-            if (((*(int *)(iVar13 + 0x50) == 0) || (*(char *)(iVar3 + 0x124) < '@')) ||
-               (*(int *)(iVar3 + 0x2a4) != -1)) {
-              iVar9 = (int)*(char *)(iVar3 + 0x1dc);
-              iVar11 = *(int *)(iVar16 + 0xc);
-              if (iVar9 != iVar11) {
-                if (iVar11 < iVar9) {
-                  uVar7 = (undefined)(iVar9 + -2);
-                  bVar1 = iVar9 + -2 < iVar11;
+            if (((pAVar12->sep == 0) || (pAVar9->chan[0].patchnum < '@')) ||
+               (pAVar9->right[0].handle != -1)) {
+              iVar7 = (int)pAVar9->left[0].vol;
+              iVar8 = pAVar15->vol[0];
+              if (iVar7 != iVar8) {
+                if (iVar8 < iVar7) {
+                  cVar5 = (char)(iVar7 + -2);
+                  bVar1 = iVar7 + -2 < iVar8;
                 }
                 else {
-                  uVar7 = (undefined)(iVar9 + 2);
-                  bVar1 = iVar11 < iVar9 + 2;
+                  cVar5 = (char)(iVar7 + 2);
+                  bVar1 = iVar8 < iVar7 + 2;
                 }
                 if (bVar1) {
-                  uVar7 = (undefined)iVar11;
+                  cVar5 = (char)iVar8;
                 }
-                *(undefined *)(iVar3 + 0x1dc) = uVar7;
-                SNDvol(*(undefined4 *)(iVar3 + 0x1e4),(int)*(char *)(iVar3 + 0x1dc));
+                pAVar9->left[0].vol = cVar5;
+                SNDvol(pAVar9->left[0].handle,(int)pAVar9->left[0].vol);
               }
             }
-            if ((uint)*(ushort *)(iVar3 + 0x1e0) != (uint)uVar14) {
-              SND3dpos(*(undefined4 *)(iVar3 + 0x1e4),(uint)uVar14,0);
-              *(ushort *)(iVar3 + 0x1e0) = uVar14;
+            if ((uint)pAVar9->left[0].azim != (uint)uVar13) {
+              SND3dpos(pAVar9->left[0].handle,(uint)uVar13);
+              pAVar9->left[0].azim = uVar13;
             }
-            if ((uint)*(ushort *)(iVar3 + 0x1de) != *(uint *)(iVar13 + 0x54)) {
-              SNDpitchmult(*(undefined4 *)(iVar3 + 0x1e4));
-              *(undefined2 *)(iVar3 + 0x1de) = *(undefined2 *)(iVar13 + 0x54);
+            if ((uint)pAVar9->left[0].pitch != pAVar12->dop) {
+              SNDpitchmult(pAVar9->left[0].handle,pAVar12->dop);
+              pAVar9->left[0].pitch = *(ushort *)&pAVar12->dop;
             }
-            if ((*(char *)(iVar3 + 0x124) < '@') || (*(int *)(iVar13 + 0x50) == 0)) {
-              if (*(int *)(iVar3 + 0x2a4) != -1) {
-                SNDstop();
-                *(undefined4 *)(iVar3 + 0x2a4) = 0xffffffff;
-                *(undefined *)(iVar4 + 0x35c) = 2;
+            if ((pAVar9->chan[0].patchnum < '@') || (pAVar12->sep == 0)) {
+              uVar6 = pAVar9->right[0].handle;
+              if (uVar6 != 0xffffffff) {
+                SNDstop(uVar6);
+                pAVar9->right[0].handle = -1;
+                pAVar10->delay[0] = '\x02';
               }
             }
             else {
-              if (*(int *)(iVar3 + 0x2a4) == -1) {
-                cVar2 = *(char *)(iVar4 + 0x35c) + -1;
-                *(char *)(iVar4 + 0x35c) = cVar2;
-                if (cVar2 == -1) {
-                  local_38 = uVar15;
+              if (pAVar9->right[0].handle == -1) {
+                cVar5 = pAVar10->delay[0] + -1;
+                pAVar10->delay[0] = cVar5;
+                if (cVar5 == -1) {
+                  local_38 = uVar14;
                   uVar6 = SNDplay(&local_48);
-                  *(undefined4 *)(iVar3 + 0x2a4) = uVar6;
-                  *(undefined *)(iVar3 + 0x29c) = 0;
-                  *(ushort *)(iVar3 + 0x2a0) = uVar15;
+                  pAVar9->right[0].handle = uVar6;
+                  pAVar9->right[0].vol = '\0';
+                  pAVar9->right[0].azim = uVar14;
 LAB_8007bd18:
-                  *(undefined2 *)(iVar3 + 0x29e) = *(undefined2 *)(iVar13 + 0x54);
+                  pAVar9->right[0].pitch = *(ushort *)&pAVar12->dop;
                 }
               }
               else {
-                iVar9 = (int)*(char *)(iVar3 + 0x29c);
-                iVar11 = *(int *)(iVar16 + 0xc);
-                if (iVar9 != iVar11) {
-                  if (iVar11 < iVar9) {
-                    uVar7 = (undefined)(iVar9 + -2);
-                    bVar1 = iVar9 + -2 < iVar11;
+                iVar7 = (int)pAVar9->right[0].vol;
+                iVar8 = pAVar15->vol[0];
+                if (iVar7 != iVar8) {
+                  if (iVar8 < iVar7) {
+                    cVar5 = (char)(iVar7 + -2);
+                    bVar1 = iVar7 + -2 < iVar8;
                   }
                   else {
-                    uVar7 = (undefined)(iVar9 + 2);
-                    bVar1 = iVar11 < iVar9 + 2;
+                    cVar5 = (char)(iVar7 + 2);
+                    bVar1 = iVar8 < iVar7 + 2;
                   }
                   if (bVar1) {
-                    uVar7 = (undefined)iVar11;
+                    cVar5 = (char)iVar8;
                   }
-                  *(undefined *)(iVar3 + 0x29c) = uVar7;
-                  SNDvol(*(undefined4 *)(iVar3 + 0x2a4),(int)*(char *)(iVar3 + 0x29c));
+                  pAVar9->right[0].vol = cVar5;
+                  SNDvol(pAVar9->right[0].handle,(int)pAVar9->right[0].vol);
                 }
-                if ((uint)*(ushort *)(iVar3 + 0x2a0) != (uint)uVar15) {
-                  SND3dpos(*(undefined4 *)(iVar3 + 0x2a4),(uint)uVar15,0);
-                  *(ushort *)(iVar3 + 0x2a0) = uVar15;
+                if ((uint)pAVar9->right[0].azim != (uint)uVar14) {
+                  SND3dpos(pAVar9->right[0].handle,(uint)uVar14);
+                  pAVar9->right[0].azim = uVar14;
                 }
-                if ((uint)*(ushort *)(iVar3 + 0x29e) != *(uint *)(iVar13 + 0x54)) {
-                  SNDpitchmult(*(undefined4 *)(iVar3 + 0x2a4));
+                if ((uint)pAVar9->right[0].pitch != pAVar12->dop) {
+                  SNDpitchmult(pAVar9->right[0].handle,pAVar12->dop);
                   goto LAB_8007bd18;
                 }
               }
@@ -433,17 +439,14 @@ LAB_8007bd18:
           }
         }
       }
-      iVar4 = iVar4 + 1;
-      iVar3 = iVar3 + 0xc;
-      iVar16 = iVar16 + 4;
-      iVar10 = iVar10 + 1;
+      pAVar10 = (AudioEng_t *)&(pAVar10->adjust).inCarExhaust;
+      pAVar9 = (AudioEng_t *)pAVar9->vol;
+      pAVar15 = (AudioEng_t *)&(pAVar15->adjust).rwdExhBoost;
+      iVar16 = iVar16 + 1;
     }
     local_30 = local_30 + 1;
   } while( true );
-
-
 }
-
 
 
 
@@ -458,7 +461,9 @@ LAB_8007bd18:
 	// End offset: 0x8007BE38
 	// End Line: 472
 
-void AudioEng_LoadDef__FPcT0illPP13AudioEng_tDef( (char *filename,char *name,int handle,long offset,long size,AudioEng_tDef **ed)
+void AudioEng_LoadDef__FPcT0illPP13AudioEng_tDef
+               (char *filename,char *name,int handle,long offset,long size,AudioEng_tDef **ed)
+
 {
   AudioEng_tDef *pAVar1;
   
@@ -468,10 +473,7 @@ void AudioEng_LoadDef__FPcT0illPP13AudioEng_tDef( (char *filename,char *name,int
     FILE_readsync(handle,offset,*ed,size,100);
   }
   return;
-
-
 }
-
 
 
 
@@ -678,18 +680,20 @@ void AudioEng_LoadDef__FPcT0illPP13AudioEng_tDef( (char *filename,char *name,int
 	// End Line: 655
 
 int AudioEng_StartUp__FiPc(int player,char *carname)
+
 {
   bool bVar1;
   int iVar2;
-  undefined *puVar3;
-  int iVar4;
-  char *pdata;
+  AudioEng_t *pAVar3;
+  uint uVar4;
+  byte *name;
+  short *__dest;
   AudioEng_tDef **ed;
   short *psVar5;
   short sVar6;
-  undefined *puVar7;
+  AudioEng_t *pAVar7;
   int iVar8;
-  undefined *puVar9;
+  AudioEng_t *pAVar9;
   char *__format;
   AudioEng_tDef *pAVar10;
   size_t __n;
@@ -698,220 +702,216 @@ int AudioEng_StartUp__FiPc(int player,char *carname)
   int iVar13;
   int iVar14;
   int iVar15;
-  void *__dest;
-  void *pvVar16;
-  int iVar17;
-  int iVar18;
+  int iVar16;
+  short *psVar17;
+  byte *pbVar18;
+  int iVar19;
+  int iVar20;
   char acStack128 [64];
-  int local_40;
-  long local_3c;
-  int local_38;
+  uint local_40;
+  uint local_3c;
+  uint local_38;
   AudioEng_tDef *local_34;
   AudioEng_tDef *local_30 [2];
   
   if (1 < (uint)player) {
     return 0;
   }
-  iVar17 = 0;
-  if ((&_AudioEng_g)[player] != 0) {
+  iVar19 = 0;
+  if ((&__AudioEng_g_2__)[player] != (AudioEng_t *)0x0) {
     return 0;
   }
-  iVar18 = 0;
-  puVar3 = (undefined *)reservememadr("Engine Audio",0x370,0);
-  iVar14 = 0;
-  *(undefined **)(&_AudioEng_g + player) = puVar3;
-  *(undefined4 *)(puVar3 + 0x36c) = 0;
-  *(undefined4 *)(puVar3 + 8) = 0;
-  *(undefined4 *)(puVar3 + 0x4c) = 0;
-  *(undefined4 *)(puVar3 + 0x50) = 0;
-  *(undefined4 *)(puVar3 + 0x54) = 0x1000;
-  puVar7 = puVar3;
-  puVar9 = puVar3;
+  iVar20 = 0;
+  pAVar3 = (AudioEng_t *)reservememadr(s_Engine_Audio_80055800,0x370,0);
+  iVar15 = 0;
+  (&__AudioEng_g_2__)[player] = pAVar3;
+  pAVar3->tables = (char *)0x0;
+  pAVar3->tick = 0;
+  pAVar3->azi = 0;
+  pAVar3->sep = 0;
+  pAVar3->dop = 0x1000;
+  pAVar7 = pAVar3;
+  pAVar9 = pAVar3;
   do {
-    *(undefined4 *)(puVar9 + 0xc) = 0;
-    *(undefined4 *)(puVar7 + 0x1e4) = 0xffffffff;
-    *(undefined4 *)(puVar7 + 0x2a4) = 0xffffffff;
-    puVar7[0x124] = 0xff;
-    *(undefined2 *)(puVar7 + 0x11c) = 0x200;
-    *(undefined2 *)(puVar7 + 0x11e) = 0x200;
-    *(undefined4 *)(puVar7 + 0x120) = 0;
-    puVar7 = puVar7 + 0xc;
-    iVar14 = iVar14 + 1;
-    puVar9 = puVar9 + 4;
-  } while (iVar14 < 0x10);
+    pAVar9->vol[0] = 0;
+    pAVar7->left[0].handle = -1;
+    pAVar7->right[0].handle = -1;
+    pAVar7->chan[0].patchnum = -1;
+    pAVar7->chan[0].min = 0x200;
+    pAVar7->chan[0].max = 0x200;
+    pAVar7->chan[0].xlate = (char *)0x0;
+    pAVar7 = (AudioEng_t *)pAVar7->vol;
+    iVar15 = iVar15 + 1;
+    pAVar9 = (AudioEng_t *)&(pAVar9->adjust).rwdExhBoost;
+  } while (iVar15 < 0x10);
   local_30[0] = (AudioEng_tDef *)0x0;
   local_34 = (AudioEng_tDef *)0x0;
-  *puVar3 = 0x32;
-  puVar3[1] = 0x1f;
-  puVar3[5] = 0xa6;
-  puVar3[2] = 0x2b;
-  puVar3[3] = 0x40;
-  puVar3[4] = 0x79;
-  puVar3[6] = 0x50;
-  puVar3[7] = 0x68;
-  puVar3[0x11a] = 0;
-  puVar3[0x11b] = 0;
+  (pAVar3->adjust).inCarBoost = '2';
+  (pAVar3->adjust).inCarExhaust = '\x1f';
+  (pAVar3->adjust).outCarBoost = -0x5a;
+  (pAVar3->adjust).outCarExhaust = '+';
+  (pAVar3->adjust).fwdEngBoost = '@';
+  (pAVar3->adjust).rwdExhBoost = 'y';
+  (pAVar3->adjust).pitchScale = 'P';
+  (pAVar3->adjust).timbreScale = 'h';
+  pAVar3->setpos = '\0';
+  pAVar3->plypos = '\0';
   bVar1 = false;
-  if (DAT_801131f8 == 1) {
-    __format = "%s%sens.viv";
+  if (GameSetup_gData.commMode == 1) {
+    __format = s__s_sens_viv_80055810;
   }
   else {
-    __format = "%s%seng.viv";
+    __format = s__s_seng_viv_8005581c;
   }
-  sprintf(acStack128,__format,0,carname);
-  iVar14 = loadbigfileheader(acStack128,0x10);
-  if (iVar14 == 0) {
-    if (DAT_801131f8 == 1) {
-      __format = "%sp993ens.viv";
+  sprintf(acStack128,__format,PTR_801164d8,carname);
+  pbVar18 = (byte *)loadbigfileheader(acStack128,0x10);
+  if (pbVar18 == (byte *)0x0) {
+    if (GameSetup_gData.commMode == 1) {
+      __format = s__sp993ens_viv_80055828;
     }
     else {
-      __format = "%sp993eng.viv";
+      __format = s__sp993eng_viv_80055838;
     }
-    sprintf(acStack128,__format,0);
-    iVar14 = loadbigfileheader(acStack128,0x10);
-    if (iVar14 == 0) goto LAB_8007c1ac;
+    sprintf(acStack128,__format,PTR_801164d8);
+    pbVar18 = (byte *)loadbigfileheader(acStack128,0x10);
+    if (pbVar18 == (byte *)0x0) goto LAB_8007c1ac;
   }
   FILE_opensync(acStack128,1,100,&local_40);
   iVar15 = 0;
   while( true ) {
-    iVar4 = bigcount(iVar14);
-    if (iVar4 <= iVar15) break;
-    __format = (char *)locatebigentry(iVar14,0,iVar15,&local_3c,&local_38);
-    iVar4 = wildcard(__format,"*.bnk");
-    if ((iVar4 == 0) || (bVar1)) {
-      iVar4 = wildcard(__format,"*.ltb");
-      if ((iVar4 == 0) || (local_34 != (AudioEng_tDef *)0x0)) {
-        iVar4 = wildcard(__format,"*.ctb");
-        if ((iVar4 == 0) || (local_30[0] != (AudioEng_tDef *)0x0)) goto LAB_8007c190;
+    uVar4 = bigcount(pbVar18);
+    if ((int)uVar4 <= iVar15) break;
+    name = (byte *)locatebigentry(pbVar18,(byte *)0x0,iVar15,&local_3c,&local_38);
+    uVar4 = wildcard(name,(byte *)s___bnk_8013c73c);
+    if ((uVar4 == 0) || (bVar1)) {
+      uVar4 = wildcard(name,(byte *)s___ltb_8013c744);
+      if ((uVar4 == 0) || (local_34 != (AudioEng_tDef *)0x0)) {
+        uVar4 = wildcard(name,(byte *)s___ctb_8013c74c);
+        if ((uVar4 == 0) || (local_30[0] != (AudioEng_tDef *)0x0)) goto LAB_8007c190;
         ed = local_30;
       }
       else {
         ed = &local_34;
       }
-      AudioEng_LoadDef__FPcT0illPP13AudioEng_tDef(acStack128,__format,local_40,local_3c,local_38,ed)
-      ;
+      AudioEng_LoadDef__FPcT0illPP13AudioEng_tDef
+                (acStack128,(char *)name,local_40,local_3c,local_38,ed);
     }
     else {
-      pdata = (char *)reservememadr(__format,local_38,0x10);
-      if (pdata != (char *)0x0) {
+      __dest = reservememadr((char *)name,local_38,0x10);
+      if (__dest != (short *)0x0) {
         bVar1 = true;
-        FILE_readsync(local_40,local_3c,pdata,local_38,100);
-        iVar18 = AudioCmn_AddBank__FPciT0i(__format,local_38,pdata,player);
-        puVar3[0x58] = *(undefined *)(&gSndBnk + player * 3);
+        FILE_readsync(local_40,local_3c,__dest,local_38,100);
+        iVar20 = AudioCmn_AddBank__FPciT0i((char *)name,local_38,(char *)__dest,player);
+        pAVar3->bhandle = *(char *)&(&gSndBnk)[player].bnkID;
       }
     }
 LAB_8007c190:
     iVar15 = iVar15 + 1;
   }
   FILE_closesync(local_40,100);
-  purgememadr(iVar14);
+  purgememadr((int)pbVar18);
 LAB_8007c1ac:
   if (!bVar1) {
-    return iVar18;
+    return iVar20;
   }
   if (local_30[0] == (AudioEng_tDef *)0x0) {
-    return iVar18;
+    return iVar20;
   }
-  iVar14 = 0;
+  iVar15 = 0;
   if (local_34 == (AudioEng_tDef *)0x0) {
-    return iVar18;
+    return iVar20;
   }
   do {
-    if (1 < iVar14) {
-      __dest = (void *)reservememadr("Engine Tables",iVar17,0);
-      *(void **)(puVar3 + 0x36c) = __dest;
-      iVar17 = 0;
-      while (iVar17 < 2) {
-        iVar14 = 0;
+    if (1 < iVar15) {
+      __dest = reservememadr(s_Engine_Tables_80055848,iVar19,0);
+      *(short **)&pAVar3->tables = __dest;
+      iVar19 = 0;
+      while (iVar19 < 2) {
+        iVar15 = 0;
         pAVar11 = local_30[0];
-        if (iVar17 != 0) {
+        if (iVar19 != 0) {
           pAVar11 = local_34;
         }
-        iVar15 = 0;
-        while (iVar14 < 8) {
-          psVar5 = (short *)(puVar3 + iVar15 + 0x11c);
-          if (iVar17 != 0) {
+        iVar16 = 0;
+        while (iVar15 < 8) {
+          psVar5 = (short *)((int)&pAVar3->chan[0].min + iVar16);
+          if (iVar19 != 0) {
             psVar5 = psVar5 + 0x30;
           }
-          iVar4 = (int)*psVar5;
-          pvVar16 = __dest;
-          if ((int)psVar5[1] != iVar4) {
-            __n = (int)psVar5[1] - iVar4;
-            *(void **)(psVar5 + 2) = __dest;
-            pvVar16 = (void *)((int)__dest + __n);
-            memcpy(__dest,pAVar11->pvoltable[0]->xlate + iVar4,__n);
+          iVar12 = (int)*psVar5;
+          psVar17 = __dest;
+          if ((int)psVar5[1] != iVar12) {
+            __n = (int)psVar5[1] - iVar12;
+            *(short **)(psVar5 + 2) = __dest;
+            psVar17 = (short *)((int)__dest + __n);
+            memcpy(__dest,pAVar11->pvoltable[0] + iVar12,__n);
           }
           pAVar11 = (AudioEng_tDef *)&pAVar11->ver;
-          iVar15 = iVar15 + 0xc;
-          iVar14 = iVar14 + 1;
-          __dest = pvVar16;
+          iVar16 = iVar16 + 0xc;
+          iVar15 = iVar15 + 1;
+          __dest = psVar17;
         }
-        iVar17 = iVar17 + 1;
+        iVar19 = iVar19 + 1;
       }
-      purgememadr(local_34);
-      purgememadr(local_30[0]);
-      return iVar18;
+      purgememadr((int)local_34);
+      purgememadr((int)local_30[0]);
+      return iVar20;
     }
     pAVar11 = local_30[0];
-    if (iVar14 != 0) {
+    if (iVar15 != 0) {
       pAVar11 = local_34;
     }
-    iVar15 = 0;
+    iVar16 = 0;
     if (pAVar11->resolved == '\0') {
-      iVar13 = 0;
-      iVar12 = 0x148;
-      iVar4 = 0x128;
+      iVar14 = 0;
+      iVar13 = 0x148;
+      iVar12 = 0x128;
       pAVar10 = pAVar11;
-      while (iVar8 = (int)&pAVar11->id + iVar15, iVar15 < 8) {
+      while (iVar8 = (int)&pAVar11->id + iVar16, iVar16 < 8) {
         if (-1 < *(char *)(iVar8 + 0x20)) {
-          psVar5 = (short *)(puVar3 + iVar13 + 0x11c);
-          pAVar10->pvoltable[0] =
-               (AudioEng_tTable *)((int)&pAVar11->id + (int)pAVar10->pvoltable[0]->xlate + iVar4);
-          pAVar10->pbendtable[0] =
-               (AudioEng_tTable *)((int)&pAVar11->id + (int)pAVar10->pbendtable[0]->xlate + iVar12);
-          if (iVar14 != 0) {
-            psVar5 = psVar5 + 0x30;
+          __dest = (short *)((int)&pAVar3->chan[0].min + iVar14);
+          pAVar10->pvoltable[0] = pAVar10->pvoltable[0] + (int)&pAVar11->id + iVar12;
+          pAVar10->pbendtable[0] = pAVar10->pbendtable[0] + (int)&pAVar11->id + iVar13;
+          if (iVar15 != 0) {
+            __dest = __dest + 0x30;
           }
-          *(undefined *)(psVar5 + 4) = *(undefined *)(iVar8 + 0x20);
+          *(undefined *)(__dest + 4) = *(undefined *)(iVar8 + 0x20);
           iVar8 = 0;
-          if (pAVar10->pvoltable[0]->xlate[0] == '\0') {
+          if (*pAVar10->pvoltable[0] == (_func_26)0x0) {
             iVar2 = 1;
             do {
               iVar8 = iVar2;
               bVar1 = iVar8 < 0x200;
               if (!bVar1) goto LAB_8007c2c4;
               iVar2 = iVar8 + 1;
-            } while (pAVar10->pvoltable[0]->xlate[iVar8] == '\0');
+            } while (pAVar10->pvoltable[0][iVar8] == (_func_26)0x0);
           }
           bVar1 = iVar8 < 0x200;
 LAB_8007c2c4:
           sVar6 = (short)iVar8;
-          *psVar5 = sVar6;
+          *__dest = sVar6;
           if (bVar1) {
             do {
               sVar6 = (short)iVar8;
-              if (pAVar10->pvoltable[0]->xlate[iVar8] == '\0') break;
+              if (pAVar10->pvoltable[0][iVar8] == (_func_26)0x0) break;
               iVar8 = iVar8 + 1;
               sVar6 = (short)iVar8;
             } while (iVar8 < 0x200);
           }
-          psVar5[1] = sVar6;
-          iVar17 = iVar17 + ((int)sVar6 - (int)*psVar5);
+          __dest[1] = sVar6;
+          iVar19 = iVar19 + ((int)sVar6 - (int)*__dest);
         }
         pAVar11->resolved = '\x01';
         pAVar10 = (AudioEng_tDef *)&pAVar10->ver;
-        iVar13 = iVar13 + 0xc;
+        iVar14 = iVar14 + 0xc;
+        iVar13 = iVar13 + 4;
         iVar12 = iVar12 + 4;
-        iVar4 = iVar4 + 4;
-        iVar15 = iVar15 + 1;
+        iVar16 = iVar16 + 1;
       }
     }
-    iVar14 = iVar14 + 1;
+    iVar15 = iVar15 + 1;
   } while( true );
-
-
 }
-
 
 
 
@@ -926,14 +926,14 @@ LAB_8007c2c4:
 	// End offset: 0x8007C434
 	// End Line: 661
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void AudioEng_StartServer__Fv(void)
+
 {
   iSNDserveradd100hzclient(AudioEng_Update__Fv);
   return;
-
-
 }
-
 
 
 
@@ -948,14 +948,14 @@ void AudioEng_StartServer__Fv(void)
 	// End offset: 0x8007C458
 	// End Line: 668
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void AudioEng_StopServer__Fv(void)
+
 {
-  iSNDserverremove100hzclient(AudioEng_Update__Fv);
+  iSNDserverremove100hzclient((int)AudioEng_Update__Fv);
   return;
-
-
 }
-
 
 
 
@@ -989,34 +989,34 @@ void AudioEng_StopServer__Fv(void)
 	// End offset: 0x8007C524
 	// End Line: 697
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void AudioEng_Pause__Fv(void)
+
 {
-  undefined2 *puVar1;
-  int iVar2;
-  int *piVar3;
+  AudioEng_tState *pAVar1;
+  AudioEng_t *pAVar2;
+  AudioEng_t **ppAVar3;
   int iVar4;
   
   iVar4 = 0;
-  piVar3 = &_AudioEng_g;
-  while (((iVar4 < 2 && (iVar2 = *piVar3, iVar2 != 0)) &&
-         ((*(char *)(iVar2 + 0x11b) != '\x0f' || ((*(char *)(iVar2 + 0x11a) + 1U & 1) == 0))))) {
-    piVar3 = piVar3 + 1;
-    puVar1 = (undefined2 *)(iVar2 + (uint)*(byte *)(iVar2 + 0x11a) * 0xc + 0x5a);
-    *puVar1 = 0;
-    puVar1[4] = 0;
-    puVar1[1] = 0x1000;
-    *(undefined *)((int)puVar1 + 0xb) = 0;
-    *(undefined *)(puVar1 + 5) = 0;
-    puVar1[3] = 0;
-    puVar1[2] = 0;
+  ppAVar3 = &__AudioEng_g_2__;
+  while (((iVar4 < 2 && (pAVar2 = *ppAVar3, pAVar2 != (AudioEng_t *)0x0)) &&
+         ((pAVar2->plypos != '\x0f' || ((pAVar2->setpos + 1U & 1) == 0))))) {
+    ppAVar3 = ppAVar3 + 1;
+    pAVar1 = pAVar2->queue + (uint)(byte)pAVar2->setpos;
+    pAVar1->vol = 0;
+    pAVar1->esp = 0;
+    pAVar1->dop = 0x1000;
+    pAVar1->gas = '\0';
+    pAVar1->exh = '\0';
+    pAVar1->sep = 0;
+    pAVar1->azi = 0;
     iVar4 = iVar4 + 1;
-    *(byte *)(iVar2 + 0x11a) = *(char *)(iVar2 + 0x11a) + 1U & 0xf;
+    pAVar2->setpos = pAVar2->setpos + 1U & 0xf;
   }
   return;
-
-
 }
-
 
 
 
@@ -1031,13 +1031,13 @@ void AudioEng_Pause__Fv(void)
 	// End offset: 0x8007C52C
 	// End Line: 703
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void AudioEng_Resume__Fv(void)
+
 {
   return;
-
-
 }
-
 
 
 
@@ -1077,44 +1077,47 @@ void AudioEng_Resume__Fv(void)
 	// End offset: 0x8007C5F0
 	// End Line: 731
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void AudioEng_CleanUp__Fv(void)
+
 {
-  int iVar1;
-  int iVar2;
+  uint uVar1;
+  AudioEng_t *pAVar2;
   int iVar3;
-  int *piVar4;
+  AudioEng_t *pAVar4;
+  AudioEng_t **ppAVar5;
   
-  piVar4 = &_AudioEng_g;
+  ppAVar5 = &__AudioEng_g_2__;
   while( true ) {
-    if (-0x7fec38c5 < (int)piVar4) {
+    if (-0x7fec38c5 < (int)ppAVar5) {
       return;
     }
-    iVar3 = *piVar4;
-    iVar2 = 0;
-    iVar1 = iVar3;
-    if (iVar3 == 0) break;
+    pAVar4 = *ppAVar5;
+    iVar3 = 0;
+    pAVar2 = pAVar4;
+    if (pAVar4 == (AudioEng_t *)0x0) break;
     do {
-      if (*(int *)(iVar1 + 0x1e4) != -1) {
-        SNDstop();
-        if (*(int *)(iVar1 + 0x2a4) != -1) {
-          SNDstop();
+      uVar1 = pAVar2->left[0].handle;
+      if (uVar1 != 0xffffffff) {
+        SNDstop(uVar1);
+        uVar1 = pAVar2->right[0].handle;
+        if (uVar1 != 0xffffffff) {
+          SNDstop(uVar1);
         }
-        *(undefined4 *)(iVar1 + 0x1e4) = 0xffffffff;
-        *(undefined4 *)(iVar1 + 0x2a4) = 0xffffffff;
+        pAVar2->left[0].handle = -1;
+        pAVar2->right[0].handle = -1;
       }
-      iVar2 = iVar2 + 1;
-      iVar1 = iVar1 + 0xc;
-    } while (iVar2 < 0x10);
-    purgememadr(*(undefined4 *)(iVar3 + 0x36c));
-    purgememadr(iVar3);
-    *piVar4 = 0;
-    piVar4 = piVar4 + 1;
+      iVar3 = iVar3 + 1;
+      pAVar2 = (AudioEng_t *)pAVar2->vol;
+    } while (iVar3 < 0x10);
+    purgememadr((int)pAVar4->tables);
+    purgememadr((int)pAVar4);
+    *ppAVar5 = (AudioEng_t *)0x0;
+    ppAVar5 = ppAVar5 + 1;
   }
   return;
-
-
 }
-
 
 
 

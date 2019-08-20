@@ -21,57 +21,60 @@
 	// End offset: 0x800D1D1C
 	// End Line: 376
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Hud_CreateHudViews__Fv(void)
+
 {
   int iVar1;
-  undefined4 *puVar2;
+  GameSetup_tData *pGVar2;
   
   Hud_InitTables__Fv();
-  puVar2 = &GameSetup_gData;
-  iGp000013f0 = 0;
+  pGVar2 = &GameSetup_gData;
+  DAT_000013f0 = 0;
   iVar1 = 0;
-  if (false) {
+  if (0 < GameSetup_gData.numCars) {
     do {
-      if ((puVar2[0xf6] & 0x40) != 0) {
-        iGp000013f0 = 1;
+      if ((pGVar2->carInfo[0].carClass & 0x40U) != 0) {
+        DAT_000013f0 = 1;
       }
       iVar1 = iVar1 + 1;
-      puVar2 = puVar2 + 0x2d;
-    } while (iVar1 < 0);
+      pGVar2 = (GameSetup_tData *)((pGVar2->controllerData).shockImpact + 1);
+    } while (iVar1 < GameSetup_gData.numCars);
   }
-  if (true) {
-    if ((false) || (iGp000013f0 != 0)) {
-      iGp00001420 = 8;
+  if (GameSetup_gData.numPlayerRaceCars < 2) {
+    if ((GameSetup_gData.numPlayerRaceCars + GameSetup_gData.numOpponentRaceCars == 1) ||
+       (DAT_000013f0 != 0)) {
+      DAT_00001420 = 8;
     }
     else {
-      iGp00001420 = 0;
+      DAT_00001420 = 0;
     }
   }
   else {
-    iGp00001420 = -6;
+    DAT_00001420 = -6;
   }
-  if (DAT_801131f8 == 1) {
-    iGp0000140c = Draw_SetView__Fiiiiiiiii
-                            (0x105,iGp00001420 + 0x13e,0x245,iGp00001420 + 0x13e,0x2d,0x30,0,0,1);
-    iGp00001410 = Draw_SetView__Fiiiiiiiii
-                            (0x105,iGp00001420 + 0x1a9,0x245,iGp00001420 + 0x1a9,0x2d,0x30,0,0,1);
-    iGp00001404 = Draw_SetView__Fiiiiiiiii(0,0x100,0x140,0x100,0x140,0x78,0,0,1);
-    iGp00001408 = Draw_SetView__Fiiiiiiiii(0,0x178,0x140,0x178,0x140,0x78,0,0,1);
-    iGp00001414 = Draw_SetView__Fiiiiiiiii(0x115,0x113,0x255,0x113,0x1c,0x1c,0,0,1);
-    iGp00001418 = Draw_SetView__Fiiiiiiiii(0x115,0x17c,0x255,0x17c,0x1c,0x1c,0,0,1);
+  if (GameSetup_gData.commMode == 1) {
+    DAT_0000140c = Draw_SetView__Fiiiiiiiii
+                             (0x105,DAT_00001420 + 0x13e,0x245,DAT_00001420 + 0x13e,0x2d,0x30,0,0,1)
+    ;
+    DAT_00001410 = Draw_SetView__Fiiiiiiiii
+                             (0x105,DAT_00001420 + 0x1a9,0x245,DAT_00001420 + 0x1a9,0x2d,0x30,0,0,1)
+    ;
+    DAT_00001404 = Draw_SetView__Fiiiiiiiii(0,0x100,0x140,0x100,0x140,0x78,0,0,1);
+    DAT_00001408 = Draw_SetView__Fiiiiiiiii(0,0x178,0x140,0x178,0x140,0x78,0,0,1);
+    DAT_00001414 = Draw_SetView__Fiiiiiiiii(0x115,0x113,0x255,0x113,0x1c,0x1c,0,0,1);
+    DAT_00001418 = Draw_SetView__Fiiiiiiiii(0x115,0x17c,0x255,0x17c,0x1c,0x1c,0,0,1);
   }
   else {
-    iGp0000140c = Draw_SetView__Fiiiiiiiii
-                            (0xff,iGp00001420 + 0x1a4,0x23f,iGp00001420 + 0x1a4,0x2d,0x30,0,0,1);
-    iGp00001404 = Draw_SetView__Fiiiiiiiii(0,0x100,0x140,0x100,0x140,0xf0,0,0,1);
-    iGp00001414 = Draw_SetView__Fiiiiiiiii(0xb8,0x115,0x1f8,0x115,0x1c,0x1c,0,0,1);
+    DAT_0000140c = Draw_SetView__Fiiiiiiiii
+                             (0xff,DAT_00001420 + 0x1a4,0x23f,DAT_00001420 + 0x1a4,0x2d,0x30,0,0,1);
+    DAT_00001404 = Draw_SetView__Fiiiiiiiii(0,0x100,0x140,0x100,0x140,0xf0,0,0,1);
+    DAT_00001414 = Draw_SetView__Fiiiiiiiii(0xb8,0x115,0x1f8,0x115,0x1c,0x1c,0,0,1);
   }
-  iGp0000141c = Draw_SetView__Fiiiiiiiii(0,0x100,0x140,0x100,0x140,0xf0,0,0,1);
+  DAT_0000141c = Draw_SetView__Fiiiiiiiii(0,0x100,0x140,0x100,0x140,0xf0,0,0,1);
   return;
-
-
 }
-
 
 
 
@@ -89,23 +92,21 @@ void Hud_CreateHudViews__Fv(void)
 	// End Line: 381
 
 void Hud_GoTpage__Fi(int page)
+
 {
   uint *puVar1;
   uint *puVar2;
   uint uVar3;
   
-  puVar2 = _DAT_1f800004;
-  puVar1 = _DAT_1f800000;
-  *_DAT_1f800004 = *_DAT_1f800004 & 0xff000000 | *_DAT_1f800000 & 0xffffff;
-  uVar3 = (uint)_DAT_1f800004 & 0xffffff;
-  _DAT_1f800004 = _DAT_1f800004 + 3;
+  puVar2 = DAT_1f800004;
+  puVar1 = DAT_1f800000;
+  *DAT_1f800004 = *DAT_1f800004 & 0xff000000 | *DAT_1f800000 & 0xffffff;
+  uVar3 = (uint)DAT_1f800004 & 0xffffff;
+  DAT_1f800004 = DAT_1f800004 + 3;
   *puVar1 = *puVar1 & 0xff000000 | uVar3;
-  SetDrawMode(puVar2,0,0,(page * 0x40 + 0x80U & 0x3ff) >> 6,0);
+  SetDrawMode((int)puVar2,0,0,(page * 0x40 + 0x80U & 0x3ff) >> 6,(byte *)0x0);
   return;
-
-
 }
-
 
 
 
@@ -124,29 +125,29 @@ void Hud_GoTpage__Fi(int page)
 	// End offset: 0x800D1DFC
 	// End Line: 480
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Hud_DebugInfo__Fv(void)
+
 {
   int iVar1;
   int iVar2;
   char acStack40 [24];
   
-  sprintf(acStack40,"SLC %d",(int)*(short *)(_Cars_gList + 8));
+  sprintf(acStack40,s_SLC__d_8013d8c4,(int)(__Cars_gList_9__->N).simRoadInfo.slice);
   Font_TextXY__FPcii(acStack40,0xe6,0x2d);
   iVar1 = textpixels(acStack40);
-  Hud_FBuildF4__FiiiiiUlcc(1,0xe6,0x30,iVar1 + 5,10,0x50505,0,0);
+  Hud_FBuildF4__FiiiiiUlcc(1,0xe6,0x30,iVar1 + 5,10,(ulong)&DAT_00050505,0,0);
   iVar1 = AudioMus_Buffered__Fv();
   iVar2 = AudioMus_Threshold__Fv();
-  sprintf(acStack40,"AUD %d.%d/%d.%d",iVar1 / 1000,(iVar1 % 1000) / 100,iVar2 / 1000,
+  sprintf(acStack40,s_AUD__d__d__d__d_800568dc,iVar1 / 1000,(iVar1 % 1000) / 100,iVar2 / 1000,
           (iVar2 % 1000) / 100);
   Font_TextXY__FPcii(acStack40,0xe6,0x23);
   iVar1 = textpixels(acStack40);
-  Hud_FBuildF4__FiiiiiUlcc(1,0xe6,0x26,iVar1 + 5,10,0x50505,0,0);
+  Hud_FBuildF4__FiiiiiUlcc(1,0xe6,0x26,iVar1 + 5,10,(ulong)&DAT_00050505,0,0);
   CopSpeak_Debug__Fv();
   return;
-
-
 }
-
 
 
 
@@ -161,13 +162,13 @@ void Hud_DebugInfo__Fv(void)
 	// End offset: 0x800D1F90
 	// End Line: 537
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Hud_DebugCrap__Fv(void)
+
 {
   return;
-
-
 }
-
 
 
 
@@ -185,21 +186,17 @@ void Hud_DebugCrap__Fv(void)
 	// End Line: 557
 
 void Hud_BuildSprite__FP4SPRTiiiUli(SPRT *sprt,int shapeIdx,int x,int y,ulong color,int trans)
+
 {
-  shapeIdx = shapeIdx * 0x14;
-  SetSemiTrans(sprt,trans);
+  SetSemiTrans((int)sprt,trans);
   *(undefined *)((int)&sprt->tag + 3) = 4;
   *(ulong *)&sprt->r0 = color | 0x66000000;
   *(int *)&sprt->x0 = y << 0x10 | x;
-  *(undefined4 *)&sprt->u0 = *(undefined4 *)(&HudPmx_gShapes + shapeIdx);
+  *(undefined4 *)&sprt->u0 = *(undefined4 *)&(&HudPmx_gShapes)[shapeIdx].pixmap;
   *(int *)&sprt->w =
-       (int)*(short *)(&DAT_80110caa + shapeIdx) << 0x10 | (int)*(short *)(&DAT_80110ca8 + shapeIdx)
-  ;
+       (int)(&HudPmx_gShapes)[shapeIdx].height << 0x10 | (int)(&HudPmx_gShapes)[shapeIdx].width;
   return;
-
-
 }
-
 
 
 
@@ -215,13 +212,11 @@ void Hud_BuildSprite__FP4SPRTiiiUli(SPRT *sprt,int shapeIdx,int x,int y,ulong co
 	// End Line: 574
 
 void Hud_BuildSprite2__FP4SPRTiii(SPRT *sprt,int shapeIdx,int x,int y)
+
 {
-  Hud_BuildSprite__FP4SPRTiiiUli(sprt,shapeIdx,x,y,0,0);
+  Hud_BuildSprite__FP4SPRTiiiUli(sprt,shapeIdx,x,y,uGp000018c8,(uint)bGp000018c4);
   return;
-
-
 }
-
 
 
 
@@ -239,23 +234,21 @@ void Hud_BuildSprite2__FP4SPRTiii(SPRT *sprt,int shapeIdx,int x,int y)
 	// End Line: 580
 
 void Hud_FBuildSprite__FiiiUli(int shapeIdx,int x,int y,ulong color,int trans)
+
 {
   uint *puVar1;
   SPRT *sprt;
   uint uVar2;
   
-  sprt = _DAT_1f800004;
-  puVar1 = _DAT_1f800000;
-  _DAT_1f800004->tag = _DAT_1f800004->tag & 0xff000000 | *_DAT_1f800000 & 0xffffff;
-  uVar2 = (uint)_DAT_1f800004 & 0xffffff;
-  _DAT_1f800004 = _DAT_1f800004 + 1;
+  sprt = DAT_1f800004;
+  puVar1 = DAT_1f800000;
+  DAT_1f800004->tag = DAT_1f800004->tag & 0xff000000 | *DAT_1f800000 & 0xffffff;
+  uVar2 = (uint)DAT_1f800004 & 0xffffff;
+  DAT_1f800004 = DAT_1f800004 + 1;
   *puVar1 = *puVar1 & 0xff000000 | uVar2;
   Hud_BuildSprite__FP4SPRTiiiUli(sprt,shapeIdx,x,y,color,trans);
   return;
-
-
 }
-
 
 
 
@@ -277,6 +270,7 @@ void Hud_FBuildSprite__FiiiUli(int shapeIdx,int x,int y,ulong color,int trans)
 	// End Line: 587
 
 void Hud_BuildSpriteFromFont__FP4SPRTcii(SPRT *sprt,char ch,int x,int y)
+
 {
   uchar local_28 [4];
   uchar local_24 [4];
@@ -287,18 +281,15 @@ void Hud_BuildSpriteFromFont__FP4SPRTcii(SPRT *sprt,char ch,int x,int y)
   Font_GetUVWH__FcPiN41(ch,(int *)local_28,(int *)local_24,(int *)local_20,(int *)local_1c,local_18)
   ;
   *(undefined *)((int)&sprt->tag + 3) = 4;
-  *(undefined4 *)&sprt->r0 = 0x66000000;
+  *(uint *)&sprt->r0 = uGp000018c8 | 0x66000000;
   *(int *)&sprt->x0 = (y + local_18[0]) * 0x10000 | x;
   sprt->u0 = local_28[0];
   sprt->v0 = local_24[0];
-  sprt->clut = 0;
+  sprt->clut = gFontClut;
   sprt->w = local_20[0];
   sprt->h = local_1c[0];
   return;
-
-
 }
-
 
 
 
@@ -313,12 +304,14 @@ void Hud_BuildSpriteFromFont__FP4SPRTcii(SPRT *sprt,char ch,int x,int y)
 	// End offset: 0x800D21C4
 	// End Line: 621
 
-void Hud_BuildF3__FP7POLY_F3P13HudPmx_tShapeiiUl( (POLY_F3 *prim,HudPmx_tShape *shape,int x,int y,ulong color)
+void Hud_BuildF3__FP7POLY_F3P13HudPmx_tShapeiiUl
+               (POLY_F3 *prim,HudPmx_tShape *shape,int x,int y,ulong color)
+
 {
   uint uVar1;
   
   *(ulong *)&prim->r0 = color;
-  SetPolyF3();
+  SetPolyF3((int)prim);
   *(int *)&prim->x0 = y << 0x10 | x;
   uVar1 = (uint)(ushort)shape->height << 0x10;
   *(int *)&prim->x1 =
@@ -327,10 +320,7 @@ void Hud_BuildF3__FP7POLY_F3P13HudPmx_tShapeiiUl( (POLY_F3 *prim,HudPmx_tShape *
   *(int *)&prim->x2 =
        (y + ((int)(((int)uVar1 >> 0x10) + (uVar1 >> 0x1f)) >> 1)) * 0x10000 | x + (int)shape->width;
   return;
-
-
 }
-
 
 
 
@@ -345,7 +335,9 @@ void Hud_BuildF3__FP7POLY_F3P13HudPmx_tShapeiiUl( (POLY_F3 *prim,HudPmx_tShape *
 	// End offset: 0x800D2288
 	// End Line: 630
 
-void Hud_BuildGT4__FP8POLY_GT4P13HudPmx_tShapeiiUl( (POLY_GT4 *prim,HudPmx_tShape *shape,int x,int y,ulong color)
+void Hud_BuildGT4__FP8POLY_GT4P13HudPmx_tShapeiiUl
+               (POLY_GT4 *prim,HudPmx_tShape *shape,int x,int y,ulong color)
+
 {
   *(undefined *)((int)&prim->tag + 3) = 0xc;
   *(int *)&prim->x0 = y << 0x10 | x;
@@ -361,10 +353,7 @@ void Hud_BuildGT4__FP8POLY_GT4P13HudPmx_tShapeiiUl( (POLY_GT4 *prim,HudPmx_tShap
   *(int *)&prim->x3 = (y + (int)shape->height) * 0x10000 | x + (int)shape->width;
   *(undefined4 *)&prim->u3 = *(undefined4 *)&(shape->pixmap).u3;
   return;
-
-
 }
-
 
 
 
@@ -379,11 +368,13 @@ void Hud_BuildGT4__FP8POLY_GT4P13HudPmx_tShapeiiUl( (POLY_GT4 *prim,HudPmx_tShap
 	// End offset: 0x800D2334
 	// End Line: 648
 
-void Hud_BuildFT4__FP8POLY_FT4P13HudPmx_tShapeiiUli( (POLY_FT4 *prim,HudPmx_tShape *shape,int x,int y,ulong color,int trans)
+void Hud_BuildFT4__FP8POLY_FT4P13HudPmx_tShapeiiUli
+               (POLY_FT4 *prim,HudPmx_tShape *shape,int x,int y,ulong color,int trans)
+
 {
   *(ulong *)&prim->r0 = color;
-  SetPolyFT4();
-  SetSemiTrans(prim,trans);
+  SetPolyFT4((int)prim);
+  SetSemiTrans((int)prim,trans);
   *(int *)&prim->x0 = y << 0x10 | x;
   *(undefined4 *)&prim->u0 = *(undefined4 *)&shape->pixmap;
   *(int *)&prim->x1 = y << 0x10 | x + (int)shape->width;
@@ -393,10 +384,7 @@ void Hud_BuildFT4__FP8POLY_FT4P13HudPmx_tShapeiiUli( (POLY_FT4 *prim,HudPmx_tSha
   *(int *)&prim->x3 = (y + (int)shape->height) * 0x10000 | x + (int)shape->width;
   *(undefined4 *)&prim->u3 = *(undefined4 *)&(shape->pixmap).u3;
   return;
-
-
 }
-
 
 
 
@@ -411,13 +399,15 @@ void Hud_BuildFT4__FP8POLY_FT4P13HudPmx_tShapeiiUli( (POLY_FT4 *prim,HudPmx_tSha
 	// End offset: 0x800D2424
 	// End Line: 663
 
-void Hud_BuildMirrorFT4__FP8POLY_FT4P13HudPmx_tShapeiiUli( (POLY_FT4 *prim,HudPmx_tShape *shape,int x,int y,ulong color,int trans)
+void Hud_BuildMirrorFT4__FP8POLY_FT4P13HudPmx_tShapeiiUli
+               (POLY_FT4 *prim,HudPmx_tShape *shape,int x,int y,ulong color,int trans)
+
 {
   undefined4 uVar1;
   
   *(ulong *)&prim->r0 = color;
-  SetPolyFT4();
-  SetSemiTrans(prim,trans);
+  SetPolyFT4((int)prim);
+  SetSemiTrans((int)prim,trans);
   *(int *)&prim->x0 = y << 0x10 | x + (int)shape->width;
   uVar1 = *(undefined4 *)&shape->pixmap;
   *(int *)&prim->x1 = y << 0x10 | x;
@@ -430,10 +420,7 @@ void Hud_BuildMirrorFT4__FP8POLY_FT4P13HudPmx_tShapeiiUli( (POLY_FT4 *prim,HudPm
   *(undefined4 *)&prim->u3 = *(undefined4 *)&(shape->pixmap).u3;
   prim->u3 = prim->u3 + -1;
   return;
-
-
 }
-
 
 
 
@@ -448,13 +435,15 @@ void Hud_BuildMirrorFT4__FP8POLY_FT4P13HudPmx_tShapeiiUli( (POLY_FT4 *prim,HudPm
 	// End offset: 0x800D2528
 	// End Line: 683
 
-void Hud_BuildMapMirrorFT4__FP8POLY_FT4P13HudPmx_tShapeiiUli( (POLY_FT4 *prim,HudPmx_tShape *shape,int x,int y,ulong color,int trans)
+void Hud_BuildMapMirrorFT4__FP8POLY_FT4P13HudPmx_tShapeiiUli
+               (POLY_FT4 *prim,HudPmx_tShape *shape,int x,int y,ulong color,int trans)
+
 {
   undefined4 uVar1;
   
   *(ulong *)&prim->r0 = color;
-  SetPolyFT4();
-  SetSemiTrans(prim,trans);
+  SetPolyFT4((int)prim);
+  SetSemiTrans((int)prim,trans);
   *(int *)&prim->x0 = y << 0x10 | x + (int)shape->width;
   uVar1 = *(undefined4 *)&shape->pixmap;
   *(int *)&prim->x1 = y << 0x10 | x;
@@ -471,10 +460,7 @@ void Hud_BuildMapMirrorFT4__FP8POLY_FT4P13HudPmx_tShapeiiUli( (POLY_FT4 *prim,Hu
   *(undefined4 *)&prim->u3 = uVar1;
   prim->x3 = prim->x3 + -3;
   return;
-
-
 }
-
 
 
 
@@ -490,22 +476,20 @@ void Hud_BuildMapMirrorFT4__FP8POLY_FT4P13HudPmx_tShapeiiUli( (POLY_FT4 *prim,Hu
 	// End Line: 713
 
 void Hud_BuildF4__FP7POLY_F4iiiiiUl(POLY_F4 *prim,int trans,int x,int y,int w,int h,ulong color)
+
 {
   uint uVar1;
   
   *(ulong *)&prim->r0 = color;
-  SetPolyF4();
-  SetSemiTrans(prim,trans);
+  SetPolyF4((int)prim);
+  SetSemiTrans((int)prim,trans);
   uVar1 = (y + h) * 0x10000;
   *(int *)&prim->x0 = y << 0x10 | x;
   *(int *)&prim->x1 = y << 0x10 | x + w;
   *(uint *)&prim->x2 = uVar1 | x;
   *(uint *)&prim->x3 = uVar1 | x + w;
   return;
-
-
 }
-
 
 
 
@@ -520,7 +504,10 @@ void Hud_BuildF4__FP7POLY_F4iiiiiUl(POLY_F4 *prim,int trans,int x,int y,int w,in
 	// End offset: 0x800D26D8
 	// End Line: 729
 
-void Hud_BuildG4__FP7POLY_G4iiiiiUlUlUlUl( (POLY_G4 *prim,int trans,int x,int y,int w,int h,ulong col1,ulong col2,ulong col3, ulong col4)
+void Hud_BuildG4__FP7POLY_G4iiiiiUlUlUlUl
+               (POLY_G4 *prim,int trans,int x,int y,int w,int h,ulong col1,ulong col2,ulong col3,
+               ulong col4)
+
 {
   uint uVar1;
   
@@ -528,18 +515,15 @@ void Hud_BuildG4__FP7POLY_G4iiiiiUlUlUlUl( (POLY_G4 *prim,int trans,int x,int y,
   *(ulong *)&prim->r1 = col2;
   *(ulong *)&prim->r2 = col3;
   *(ulong *)&prim->r3 = col4;
-  SetPolyG4();
-  SetSemiTrans(prim,trans);
+  SetPolyG4((int)prim);
+  SetSemiTrans((int)prim,trans);
   uVar1 = (y + h) * 0x10000;
   *(int *)&prim->x0 = y << 0x10 | x;
   *(int *)&prim->x1 = y << 0x10 | x + w;
   *(uint *)&prim->x2 = uVar1 | x;
   *(uint *)&prim->x3 = uVar1 | x + w;
   return;
-
-
 }
-
 
 
 
@@ -554,23 +538,22 @@ void Hud_BuildG4__FP7POLY_G4iiiiiUlUlUlUl( (POLY_G4 *prim,int trans,int x,int y,
 	// End offset: 0x800D2794
 	// End Line: 748
 
-void Hud_BuildF4o__FP7POLY_F4iiiiiUlScSc( (POLY_F4 *prim,int trans,int x,int y,int w,int h,ulong color,int x0off,int x1off)
+void Hud_BuildF4o__FP7POLY_F4iiiiiUlScSc
+               (POLY_F4 *prim,int trans,int x,int y,int w,int h,ulong color,int x0off,int x1off)
+
 {
   uint uVar1;
   
   *(ulong *)&prim->r0 = color;
-  SetPolyF4();
-  SetSemiTrans(prim,trans);
+  SetPolyF4((int)prim);
+  SetSemiTrans((int)prim,trans);
   uVar1 = (y + h) * 0x10000;
   *(int *)&prim->x0 = y << 0x10 | x + (int)(char)x0off;
   *(int *)&prim->x1 = y << 0x10 | x + w + (int)(char)x1off;
   *(uint *)&prim->x2 = uVar1 | x;
   *(uint *)&prim->x3 = uVar1 | x + w;
   return;
-
-
 }
-
 
 
 
@@ -588,23 +571,21 @@ void Hud_BuildF4o__FP7POLY_F4iiiiiUlScSc( (POLY_F4 *prim,int trans,int x,int y,i
 	// End Line: 763
 
 void Hud_FBuildGT4__FP13HudPmx_tShapeiiUl(HudPmx_tShape *shape,int x,int y,ulong col1)
+
 {
   uint *puVar1;
   POLY_GT4 *prim;
   uint uVar2;
   
-  prim = _DAT_1f800004;
-  puVar1 = _DAT_1f800000;
-  _DAT_1f800004->tag = _DAT_1f800004->tag & 0xff000000 | *_DAT_1f800000 & 0xffffff;
-  uVar2 = (uint)_DAT_1f800004 & 0xffffff;
-  _DAT_1f800004 = _DAT_1f800004 + 1;
+  prim = DAT_1f800004;
+  puVar1 = DAT_1f800000;
+  DAT_1f800004->tag = DAT_1f800004->tag & 0xff000000 | *DAT_1f800000 & 0xffffff;
+  uVar2 = (uint)DAT_1f800004 & 0xffffff;
+  DAT_1f800004 = DAT_1f800004 + 1;
   *puVar1 = *puVar1 & 0xff000000 | uVar2;
   Hud_BuildGT4__FP8POLY_GT4P13HudPmx_tShapeiiUl(prim,shape,x,y,col1);
   return;
-
-
 }
-
 
 
 
@@ -622,23 +603,21 @@ void Hud_FBuildGT4__FP13HudPmx_tShapeiiUl(HudPmx_tShape *shape,int x,int y,ulong
 	// End Line: 769
 
 void Hud_FBuildFT4__FP13HudPmx_tShapeiiUl(HudPmx_tShape *shape,int x,int y,ulong col1)
+
 {
   uint *puVar1;
   POLY_FT4 *prim;
   uint uVar2;
   
-  prim = _DAT_1f800004;
-  puVar1 = _DAT_1f800000;
-  _DAT_1f800004->tag = _DAT_1f800004->tag & 0xff000000 | *_DAT_1f800000 & 0xffffff;
-  uVar2 = (uint)_DAT_1f800004 & 0xffffff;
-  _DAT_1f800004 = _DAT_1f800004 + 1;
+  prim = DAT_1f800004;
+  puVar1 = DAT_1f800000;
+  DAT_1f800004->tag = DAT_1f800004->tag & 0xff000000 | *DAT_1f800000 & 0xffffff;
+  uVar2 = (uint)DAT_1f800004 & 0xffffff;
+  DAT_1f800004 = DAT_1f800004 + 1;
   *puVar1 = *puVar1 & 0xff000000 | uVar2;
   Hud_BuildFT4__FP8POLY_FT4P13HudPmx_tShapeiiUli(prim,shape,x,y,col1,0);
   return;
-
-
 }
-
 
 
 
@@ -655,25 +634,24 @@ void Hud_FBuildFT4__FP13HudPmx_tShapeiiUl(HudPmx_tShape *shape,int x,int y,ulong
 	// End offset: 0x800D2984
 	// End Line: 777
 
-void Hud_FBuildF4__FiiiiiUlcc( (int transparent,int x,int y,int w,int h,ulong col1,int x0off,int x1off)
+void Hud_FBuildF4__FiiiiiUlcc
+               (int transparent,int x,int y,int w,int h,ulong col1,int x0off,int x1off)
+
 {
   uint *puVar1;
   POLY_F4 *prim;
   uint uVar2;
   
-  prim = _DAT_1f800004;
-  puVar1 = _DAT_1f800000;
-  _DAT_1f800004->tag = _DAT_1f800004->tag & 0xff000000 | *_DAT_1f800000 & 0xffffff;
-  uVar2 = (uint)_DAT_1f800004 & 0xffffff;
-  _DAT_1f800004 = _DAT_1f800004 + 1;
+  prim = DAT_1f800004;
+  puVar1 = DAT_1f800000;
+  DAT_1f800004->tag = DAT_1f800004->tag & 0xff000000 | *DAT_1f800000 & 0xffffff;
+  uVar2 = (uint)DAT_1f800004 & 0xffffff;
+  DAT_1f800004 = DAT_1f800004 + 1;
   *puVar1 = *puVar1 & 0xff000000 | uVar2;
   Hud_BuildF4o__FP7POLY_F4iiiiiUlScSc
             (prim,transparent,x,y,w,h,col1,(int)(char)x0off,(int)(char)x1off);
   return;
-
-
 }
-
 
 
 
@@ -692,6 +670,7 @@ void Hud_FBuildF4__FiiiiiUlcc( (int transparent,int x,int y,int w,int h,ulong co
 	// End Line: 796
 
 void uppercase__FPc(char *string)
+
 {
   size_t sVar1;
   int iVar2;
@@ -710,10 +689,7 @@ void uppercase__FPc(char *string)
     } while (iVar2 < (int)sVar1);
   }
   return;
-
-
 }
-
 
 
 
@@ -728,22 +704,22 @@ void uppercase__FPc(char *string)
 	// End offset: 0x800D2AE4
 	// End Line: 809
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Hud_Kill__Fv(void)
+
 {
   HudPmx_Kill__Fv();
-  if (iGp000018bc != 0) {
-    purgememadr();
+  if (DAT_000018bc != 0) {
+    purgememadr(DAT_000018bc);
   }
-  iGp000018bc = 0;
-  if (iGp000018c0 != 0) {
-    purgememadr();
+  DAT_000018bc = 0;
+  if (DAT_000018c0 != 0) {
+    purgememadr(DAT_000018c0);
   }
-  iGp000018c0 = 0;
+  DAT_000018c0 = 0;
   return;
-
-
 }
-
 
 
 
@@ -758,17 +734,17 @@ void Hud_Kill__Fv(void)
 	// End offset: 0x800D2B3C
 	// End Line: 821
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Hud_Init0__Fv(void)
+
 {
-  uGp000018bc = reservememadr(&DAT_8013d8cc,0x80c,0);
-  if (DAT_801131f8 == 1) {
-    uGp000018c0 = reservememadr(&DAT_8013d8d4,0x80c,0);
+  DAT_000018bc = reservememadr(&DAT_8013d8cc,0x80c,0);
+  if (GameSetup_gData.commMode == 1) {
+    DAT_000018c0 = reservememadr(&DAT_8013d8d4,0x80c,0);
   }
   return;
-
-
 }
-
 
 
 
@@ -804,81 +780,90 @@ void Hud_Init0__Fv(void)
 	// End Line: 872
 
 void Hud_InitMapFrame__Fii(int i,int mode)
+
 {
   int iVar1;
   int iVar2;
+  int iVar3;
+  int iVar4;
+  int iVar5;
   int x;
   POLY_FT4 *prim;
-  undefined *local_38;
+  int iVar6;
+  int iVar7;
+  int iVar8;
+  POLY_F4 *local_38;
   
-  iVar2 = iGp000018bc;
+  iVar5 = DAT_000018bc;
   if (i != 0) {
-    iVar2 = iGp000018c0;
+    iVar5 = DAT_000018c0;
   }
   local_38 = &gHudF4;
   if (i != 0) {
-    local_38 = &DAT_8013e4f8;
+    local_38 = &POLY_F4_8013e4f8;
   }
-  prim = (POLY_FT4 *)&gHudFT4;
+  prim = &gHudFT4;
   if (i != 0) {
-    prim = (POLY_FT4 *)&DAT_8013e668;
+    prim = &POLY_FT4_8013e668;
   }
-  iVar1 = 0;
+  iVar4 = 0;
   if (i != 0) {
-    iVar1 = -0xd;
+    iVar4 = -0xd;
   }
-  x = (int)*(short *)(iGp000018b8 + 0x38);
+  iVar6 = (int)HudPmx_tShape_80110db0.height;
+  iVar7 = (int)HudPmx_tShape_80110db0.width;
+  iVar1 = (int)HudPmx_tShape_80110e28.height;
+  iVar2 = (int)HudPmx_tShape_80110e78.width;
+  x = (int)*(short *)(DAT_000018b8 + 0x38);
+  iVar8 = (int)HudPmx_tShape_80110e78.height;
+  iVar3 = (int)HudPmx_tShape_80110e28.width;
   if (mode == 1) {
     x = x + -0x1e;
   }
-  uGp000018c8 = 0xff5721;
-  uGp000018c4 = 0;
+  DAT_000018c8 = 0xff5721;
+  DAT_000018c4 = 0;
   Hud_BuildSprite2__FP4SPRTiii
-            ((SPRT *)(iVar2 + 0x4ec),0xe,x,(int)*(short *)(iGp000018b8 + 0x3a) + iGp00001420 + iVar1
-            );
+            ((SPRT *)(iVar5 + 0x4ec),0xe,x,
+             (int)*(short *)(DAT_000018b8 + 0x3a) + DAT_00001420 + iVar4);
   Hud_BuildSprite2__FP4SPRTiii
-            ((SPRT *)(iVar2 + 0x500),0xf,(int)*(short *)(iGp000018b8 + 0x38),
-             (int)*(short *)(iGp000018b8 + 0x3a) + iGp00001420 + iVar1);
+            ((SPRT *)(iVar5 + 0x500),0xf,(int)*(short *)(DAT_000018b8 + 0x38) + iVar7 + iVar3,
+             (int)*(short *)(DAT_000018b8 + 0x3a) + DAT_00001420 + iVar4);
   Hud_BuildSprite2__FP4SPRTiii
-            ((SPRT *)(iVar2 + 0x514),0x10,x,
-             (int)*(short *)(iGp000018b8 + 0x3a) + iGp00001420 + iVar1);
+            ((SPRT *)(iVar5 + 0x514),0x10,x,
+             (int)*(short *)(DAT_000018b8 + 0x3a) + DAT_00001420 + iVar6 + iVar8 + iVar4);
   Hud_BuildSprite2__FP4SPRTiii
-            ((SPRT *)(iVar2 + 0x528),0x11,(int)*(short *)(iGp000018b8 + 0x38),
-             (int)*(short *)(iGp000018b8 + 0x3a) + iGp00001420 + iVar1);
+            ((SPRT *)(iVar5 + 0x528),0x11,(int)*(short *)(DAT_000018b8 + 0x38) + iVar7 + iVar3,
+             (int)*(short *)(DAT_000018b8 + 0x3a) + DAT_00001420 + iVar6 + iVar8 + iVar4);
   Hud_BuildSprite2__FP4SPRTiii
-            ((SPRT *)(iVar2 + 0x53c),mode + 0x14,x,
-             (int)*(short *)(iGp000018b8 + 0x3a) + iGp00001420 + iVar1);
+            ((SPRT *)(iVar5 + 0x53c),mode + 0x14,x + iVar7,
+             (int)*(short *)(DAT_000018b8 + 0x3a) + DAT_00001420 + iVar4);
   Hud_BuildSprite2__FP4SPRTiii
-            ((SPRT *)(iVar2 + 0x550),mode + 0x14,x,
-             (int)*(short *)(iGp000018b8 + 0x3a) + iGp00001420 + iVar1);
+            ((SPRT *)(iVar5 + 0x550),mode + 0x14,x + iVar7,
+             (((int)*(short *)(DAT_000018b8 + 0x3a) + DAT_00001420 + iVar6 * 2 + iVar8) - iVar1) +
+             iVar4);
   Hud_BuildSprite2__FP4SPRTiii
-            ((SPRT *)(iVar2 + 0x564),0x18,x,
-             (int)*(short *)(iGp000018b8 + 0x3a) + iGp00001420 + iVar1);
+            ((SPRT *)(iVar5 + 0x564),0x18,x,
+             (int)*(short *)(DAT_000018b8 + 0x3a) + DAT_00001420 + iVar6 + iVar4);
   Hud_BuildSprite2__FP4SPRTiii
-            ((SPRT *)(iVar2 + 0x578),0x18,(int)*(short *)(iGp000018b8 + 0x38),
-             (int)*(short *)(iGp000018b8 + 0x3a) + iGp00001420 + iVar1);
-  Hud_BuildF4__FP7POLY_F4iiiiiUl((POLY_F4 *)(local_38 + 0x60),1,0,0,0x2d,0x30,0);
-  if (true) {
-    Hud_BuildFT4__FP8POLY_FT4P13HudPmx_tShapeiiUli
-              (prim,(HudPmx_tShape *)&DAT_801115f8,0,0,0x808080,1);
+            ((SPRT *)(iVar5 + 0x578),0x18,
+             ((int)*(short *)(DAT_000018b8 + 0x38) + iVar7 * 2 + iVar3) - iVar2,
+             (int)*(short *)(DAT_000018b8 + 0x3a) + DAT_00001420 + iVar6 + iVar4);
+  Hud_BuildF4__FP7POLY_F4iiiiiUl(local_38 + 4,1,0,0,0x2d,0x30,0);
+  if (GameSetup_gData.mirrorTrack == 0) {
+    Hud_BuildFT4__FP8POLY_FT4P13HudPmx_tShapeiiUli(prim,&HudPmx_tShape_801115f8,0,0,0x808080,1);
   }
   else {
     Hud_BuildMapMirrorFT4__FP8POLY_FT4P13HudPmx_tShapeiiUli
-              (prim,(HudPmx_tShape *)&DAT_801115f8,0,0,0x808080,1);
+              (prim,&HudPmx_tShape_801115f8,0,0,0x808080,1);
   }
-  Hud_BuildFT4__FP8POLY_FT4P13HudPmx_tShapeiiUli
-            (prim + 1,(HudPmx_tShape *)&DAT_80111558,0,0,0x808080,1);
+  Hud_BuildFT4__FP8POLY_FT4P13HudPmx_tShapeiiUli(prim + 1,&HudPmx_tShape_80111558,0,0,0x808080,1);
   Hud_BuildMirrorFT4__FP8POLY_FT4P13HudPmx_tShapeiiUli
-            (prim + 2,(HudPmx_tShape *)&DAT_80111558,0,0,0x808080,1);
-  Hud_BuildFT4__FP8POLY_FT4P13HudPmx_tShapeiiUli
-            (prim + 3,(HudPmx_tShape *)&DAT_8011156c,0,0,0x808080,1);
+            (prim + 2,&HudPmx_tShape_80111558,(int)HudPmx_tShape_80111558.width,0,0x808080,1);
+  Hud_BuildFT4__FP8POLY_FT4P13HudPmx_tShapeiiUli(prim + 3,&HudPmx_tShape_8011156c,0,0,0x808080,1);
   Hud_BuildMirrorFT4__FP8POLY_FT4P13HudPmx_tShapeiiUli
-            (prim + 4,(HudPmx_tShape *)&DAT_8011156c,0,0,0x808080,1);
+            (prim + 4,&HudPmx_tShape_8011156c,(int)HudPmx_tShape_8011156c.width,0,0x808080,1);
   return;
-
-
 }
-
 
 
 
@@ -901,6 +886,7 @@ void Hud_InitMapFrame__Fii(int i,int mode)
 	// End Line: 924
 
 void Hud_BuildTimeSprites__FP4SPRTPcii(SPRT *sprt,char *str,int x,int y)
+
 {
   char cVar1;
   byte ch;
@@ -914,15 +900,15 @@ void Hud_BuildTimeSprites__FP4SPRTPcii(SPRT *sprt,char *str,int x,int y)
   undefined local_2c;
   undefined local_2b;
   
-  local_38 = 0x27273a3a;
-  local_34 = 0x27;
-  local_33 = 0x2e;
-  local_30 = 0x22223a2e;
-  local_2c = 0x22;
-  local_2b = 0x2c;
   ch = *str;
-  bVar2 = *(byte *)((int)&local_38 + DAT_801132cc);
-  bVar3 = *(byte *)((int)&local_30 + DAT_801132cc);
+  bVar2 = *(byte *)((int)&local_38 + GameSetup_gData.userSetting.language);
+  bVar3 = *(byte *)((int)&local_30 + GameSetup_gData.userSetting.language);
+  local_38 = DAT_8013d8dc;
+  local_34 = DAT_8013d8e0;
+  local_33 = DAT_8013d8e1;
+  local_30 = DAT_8013d8e4;
+  local_2c = DAT_8013d8e8;
+  local_2b = DAT_8013d8e9;
   while (ch != 0) {
     if (ch == 0x4d) {
       ch = bVar2;
@@ -939,10 +925,7 @@ void Hud_BuildTimeSprites__FP4SPRTPcii(SPRT *sprt,char *str,int x,int y)
     sprt = sprt + 1;
   }
   return;
-
-
 }
-
 
 
 
@@ -996,206 +979,234 @@ void Hud_BuildTimeSprites__FP4SPRTPcii(SPRT *sprt,char *str,int x,int y)
 	// End offset: 0x800D39B8
 	// End Line: 1154
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Hud_Init__Fv(void)
+
 {
-  undefined4 *puVar1;
-  undefined4 *puVar2;
+  short sVar1;
+  short sVar2;
+  short *psVar3;
+  uint uVar4;
+  uchar **ppuVar5;
+  uchar **ppuVar6;
   char *str;
-  undefined *puVar3;
-  int x;
-  undefined *puVar4;
+  DR_MODE *pDVar7;
+  DR_MODE *pDVar8;
   int y;
   int y_00;
   int shapeIdx;
+  int w;
   int y_01;
   SPRT *sprt;
   POLY_G4 *prim;
-  int x_00;
+  int iVar9;
+  int x;
   POLY_F4 *local_3c;
   int local_30;
-  undefined4 *local_2c;
+  GameSetup_tData *local_2c;
   
-  x_00 = 0;
+  x = 0;
   y_01 = 0;
   do {
     shapeIdx = 0;
-    puVar3 = &gTPage0;
-    puVar4 = &gTPage1;
+    pDVar7 = &gTPage0;
+    pDVar8 = &gTPage1;
     do {
-      SetDrawMode(puVar3 + y_01,0,0,2,0);
-      SetDrawMode(puVar4 + y_01,0,0,3,0);
-      puVar4 = puVar4 + 0xc;
+      SetDrawMode((int)&pDVar7->tag + y_01,0,0,2,(byte *)0x0);
+      SetDrawMode((int)&pDVar8->tag + y_01,0,0,3,(byte *)0x0);
+      pDVar8 = pDVar8 + 1;
       shapeIdx = shapeIdx + 1;
-      puVar3 = puVar3 + 0xc;
+      pDVar7 = pDVar7 + 1;
     } while (shapeIdx < 4);
-    x_00 = x_00 + 1;
+    x = x + 1;
     y_01 = y_01 + 0x30;
-  } while (x_00 < 2);
+  } while (x < 2);
   y_01 = 0;
   local_30 = 0;
   local_2c = &GameSetup_gData;
-  while (sprt = pSGp000018bc, y_01 <= DashHUD_gInfo) {
-    sprt = pSGp000018bc;
+  while (sprt = DAT_000018bc, y_01 <= DashHUD_gInfo.splitscreen) {
+    sprt = DAT_000018bc;
     if (y_01 != 0) {
-      sprt = pSGp000018c0;
+      sprt = DAT_000018c0;
     }
-    local_3c = (POLY_F4 *)&gHudF4;
+    local_3c = &gHudF4;
     if (y_01 != 0) {
-      local_3c = (POLY_F4 *)&DAT_8013e4f8;
+      local_3c = &POLY_F4_8013e4f8;
     }
-    prim = (POLY_G4 *)&gHudG4;
+    prim = &gHudG4;
     if (y_01 != 0) {
-      prim = (POLY_G4 *)&DAT_8013e7c0;
+      prim = &POLY_G4_8013e7c0;
     }
-    x_00 = 0;
+    x = 0;
     if (y_01 != 0) {
-      x_00 = -0xf;
+      x = -0xf;
     }
-    shapeIdx = (uint)(local_2c[0x116] == 0) * 0x10;
-    if (local_2c[0x117] == 0) {
+    shapeIdx = (uint)(local_2c->carInfo[0].HudTime == 0) * 0x10;
+    if (local_2c->carInfo[0].HudLapnum == 0) {
       shapeIdx = shapeIdx + 0x10;
     }
     Hud_BuildSprite__FP4SPRTiiiUli
-              (sprt,0x68,(int)*psGp000018b8,((int)psGp000018b8[1] + x_00) - shapeIdx,0xbebe,0);
-    uGp000018c8 = 0x808080;
-    Hud_BuildSprite2__FP4SPRTiii(sprt + 1,0x80,(int)psGp000018b8[2],(int)psGp000018b8[3] + x_00);
+              (sprt,0x68,(int)*DAT_000018b8,((int)DAT_000018b8[1] + x) - shapeIdx,
+               (ulong)&DAT_0000bebe,0);
+    DAT_000018c8 = 0x808080;
+    Hud_BuildSprite2__FP4SPRTiii(sprt + 1,0x80,(int)DAT_000018b8[2],(int)DAT_000018b8[3] + x);
     shapeIdx = 0x81;
     if (y_01 != 0) {
       shapeIdx = 0x83;
     }
     Hud_BuildSprite2__FP4SPRTiii(sprt + 2,shapeIdx,0,0);
     *(undefined4 *)&sprt[2].w = 0x1c001c;
-    shapeIdx = 0x46;
-    if (iGp000013f0 != 0) {
-      shapeIdx = 0x2e;
+    shapeIdx = (int)HudPmx_tShape_801114f4.width;
+    w = 0x46;
+    if (DAT_000013f0 != 0) {
+      w = 0x2e;
     }
-    x = (int)psGp000018b8[4];
-    y = (int)psGp000018b8[5] + x_00;
-    Hud_BuildSprite2__FP4SPRTiii(sprt + 4,0x69,x,y);
-    Hud_BuildG4__FP7POLY_G4iiiiiUlUlUlUl(prim,1,x,y,shapeIdx,10,0,0x707070,0,0x707070);
-    Hud_BuildSprite2__FP4SPRTiii(sprt + 5,0x7d,x + shapeIdx,y);
-    Hud_BuildF4__FP7POLY_F4iiiiiUl(local_3c,1,x + shapeIdx,y + 7,7,3,0x707070);
-    shapeIdx = local_2c[0x116];
-    x = (int)psGp000018b8[6];
-    y = (int)psGp000018b8[7] + x_00 + (uint)(shapeIdx == 0) * -0x10;
-    Hud_BuildSprite2__FP4SPRTiii(sprt + 6,0x6b,x,y);
-    Hud_BuildG4__FP7POLY_G4iiiiiUlUlUlUl(prim + 1,1,x,y,0x1d,10,0,0x707070,0,0x707070);
-    Hud_BuildF4__FP7POLY_F4iiiiiUl(local_3c + 1,1,x + 0x1d,y + 7,7,3,0x707070);
-    Hud_BuildSprite2__FP4SPRTiii(sprt + 7,0x7d,x + 0x1d,y);
-    x = (int)psGp000018b8[8];
-    y = (int)psGp000018b8[9] + x_00;
-    Hud_BuildSprite2__FP4SPRTiii(sprt + 8,0x69,x,y);
-    Hud_BuildG4__FP7POLY_G4iiiiiUlUlUlUl(prim + 3,1,x,y,0x3c,10,0,0x707070,0,0x707070);
-    Hud_BuildF4__FP7POLY_F4iiiiiUl(local_3c + 2,1,x + 0x3c,y + 7,7,3,0x707070);
-    Hud_BuildSprite2__FP4SPRTiii(sprt + 9,0x7d,x + 0x3c,y);
-    x = 0x26;
-    if ((iGp000013f0 == 0) && (x = 0x32, *(int *)(&DAT_801132ac + local_30) == 0)) {
-      x = 0x3d;
+    sVar1 = DAT_000018b8[4];
+    y = (int)DAT_000018b8[5] + x;
+    Hud_BuildSprite2__FP4SPRTiii(sprt + 4,0x69,(int)sVar1,y);
+    shapeIdx = (int)sVar1 + shapeIdx;
+    Hud_BuildG4__FP7POLY_G4iiiiiUlUlUlUl
+              (prim,1,shapeIdx,y,w,10,0,(ulong)&DAT_00707070,0,(ulong)&DAT_00707070);
+    shapeIdx = shapeIdx + w;
+    Hud_BuildSprite2__FP4SPRTiii(sprt + 5,0x7d,shapeIdx,y);
+    Hud_BuildF4__FP7POLY_F4iiiiiUl(local_3c,1,shapeIdx,y + 7,7,3,(ulong)&DAT_00707070);
+    shapeIdx = (int)HudPmx_tShape_801114f4.width;
+    sVar1 = DAT_000018b8[6];
+    uVar4 = (uint)(local_2c->carInfo[0].HudTime == 0);
+    w = (int)DAT_000018b8[7] + x + uVar4 * -0x10;
+    Hud_BuildSprite2__FP4SPRTiii(sprt + 6,0x6b,(int)sVar1,w);
+    shapeIdx = (int)sVar1 + shapeIdx;
+    Hud_BuildG4__FP7POLY_G4iiiiiUlUlUlUl
+              (prim + 1,1,shapeIdx,w,0x1d,10,0,(ulong)&DAT_00707070,0,(ulong)&DAT_00707070);
+    shapeIdx = shapeIdx + 0x1d;
+    Hud_BuildF4__FP7POLY_F4iiiiiUl(local_3c + 1,1,shapeIdx,w + 7,7,3,(ulong)&DAT_00707070);
+    Hud_BuildSprite2__FP4SPRTiii(sprt + 7,0x7d,shapeIdx,w);
+    shapeIdx = (int)HudPmx_tShape_801114f4.width;
+    sVar1 = DAT_000018b8[8];
+    w = (int)DAT_000018b8[9] + x;
+    Hud_BuildSprite2__FP4SPRTiii(sprt + 8,0x69,(int)sVar1,w);
+    shapeIdx = (int)sVar1 + shapeIdx;
+    Hud_BuildG4__FP7POLY_G4iiiiiUlUlUlUl
+              (prim + 3,1,shapeIdx,w,0x3c,10,0,(ulong)&DAT_00707070,0,(ulong)&DAT_00707070);
+    shapeIdx = shapeIdx + 0x3c;
+    Hud_BuildF4__FP7POLY_F4iiiiiUl(local_3c + 2,1,shapeIdx,w + 7,7,3,(ulong)&DAT_00707070);
+    Hud_BuildSprite2__FP4SPRTiii(sprt + 9,0x7d,shapeIdx,w);
+    w = (int)HudPmx_tShape_801115d0.width;
+    shapeIdx = 0x26;
+    if ((DAT_000013f0 == 0) &&
+       (shapeIdx = 0x32, *(int *)((int)GameSetup_gData.checkpointHUD + local_30) == 0)) {
+      shapeIdx = 0x3d;
     }
-    if (iGp000013f0 == 0) {
-      y = (int)psGp000018b8[10];
-      y_00 = (int)psGp000018b8[0xb] + x_00;
+    if (DAT_000013f0 == 0) {
+      y = (int)DAT_000018b8[10];
+      y_00 = (int)DAT_000018b8[0xb] + x;
     }
     else {
-      y = (int)psGp000018b8[4] + 0xe;
-      y_00 = (int)psGp000018b8[5] + x_00 + 0xe;
+      y = (int)DAT_000018b8[4] + 0xe;
+      y_00 = (int)DAT_000018b8[5] + x + 0xe;
     }
     Hud_BuildSprite2__FP4SPRTiii(sprt + 10,0x76,y,y_00);
-    Hud_BuildG4__FP7POLY_G4iiiiiUlUlUlUl(prim + 2,1,y,y_00,x,10,0,0x707070,0,0x707070);
-    Hud_BuildF4__FP7POLY_F4iiiiiUl(local_3c + 3,1,y + x,y_00 + 7,7,3,0x707070);
-    Hud_BuildSprite__FP4SPRTiiiUli(sprt + 0xb,0x7d,y + x,y_00,0x808080,0);
-    uGp000018c8 = 0xa0a0a0;
+    Hud_BuildG4__FP7POLY_G4iiiiiUlUlUlUl
+              (prim + 2,1,y + w,y_00,shapeIdx,10,0,(ulong)&DAT_00707070,0,(ulong)&DAT_00707070);
+    shapeIdx = y + w + shapeIdx;
+    Hud_BuildF4__FP7POLY_F4iiiiiUl(local_3c + 3,1,shapeIdx,y_00 + 7,7,3,(ulong)&DAT_00707070);
+    Hud_BuildSprite__FP4SPRTiiiUli(sprt + 0xb,0x7d,shapeIdx,y_00,0x808080,0);
+    DAT_000018c8 = 0xa0a0a0;
     Hud_BuildTimeSprites__FP4SPRTPcii
-              (sprt + 0xc,"00M00S00",(int)psGp000018b8[4] + (int)psGp000018b8[0xc],
-               (int)psGp000018b8[5] + x_00 + (int)psGp000018b8[0xd]);
+              (sprt + 0xc,s_00M00S00_800568ec,(int)DAT_000018b8[4] + (int)DAT_000018b8[0xc],
+               (int)DAT_000018b8[5] + x + (int)DAT_000018b8[0xd]);
     Hud_BuildTimeSprites__FP4SPRTPcii
-              (sprt + 0x14,"0/0",(int)psGp000018b8[6] + (int)psGp000018b8[0xe],
-               (int)psGp000018b8[7] + (int)psGp000018b8[0xf] + x_00 + (uint)(shapeIdx == 0) * -0x10)
-    ;
-    uGp000018c8 = 0xa0a0a0;
+              (sprt + 0x14,(char *)&PTR_DAT_8013d8ec,(int)DAT_000018b8[6] + (int)DAT_000018b8[0xe],
+               (int)DAT_000018b8[7] + (int)DAT_000018b8[0xf] + x + uVar4 * -0x10);
+    DAT_000018c8 = 0xa0a0a0;
     Hud_BuildTimeSprites__FP4SPRTPcii
-              (sprt + 0x17,"0M00S00",(int)psGp000018b8[8] + (int)psGp000018b8[0x10],
-               (int)psGp000018b8[9] + (int)psGp000018b8[0x11] + x_00 + 1);
-    if (iGp000013f0 == 0) {
-      shapeIdx = (int)psGp000018b8[10] + (int)psGp000018b8[0x12];
-      x = (int)psGp000018b8[0xb] + x_00 + 1;
+              (sprt + 0x17,s_0M00S00_8013d8f0,(int)DAT_000018b8[8] + (int)DAT_000018b8[0x10],
+               (int)DAT_000018b8[9] + (int)DAT_000018b8[0x11] + x + 1);
+    if (DAT_000013f0 == 0) {
+      shapeIdx = (int)DAT_000018b8[10] + (int)DAT_000018b8[0x12];
+      w = (int)DAT_000018b8[0xb] + x + 1;
     }
     else {
-      shapeIdx = (int)psGp000018b8[4] + 0x10;
-      x = (int)psGp000018b8[5] + x_00 + 0xc;
+      shapeIdx = (int)DAT_000018b8[4] + 0x10;
+      w = (int)DAT_000018b8[5] + x + 0xc;
     }
-    if (*(int *)(&DAT_801132ac + local_30) == 0) {
-      str = "0M00S00";
+    if (*(int *)((int)GameSetup_gData.checkpointHUD + local_30) == 0) {
+      str = s_0M00S00_8013d8f0;
     }
     else {
-      str = "0.000";
+      str = s_0_000_8013d8f8;
     }
-    Hud_BuildTimeSprites__FP4SPRTPcii(sprt + 0x1e,str,shapeIdx,x);
-    *(int *)(&HudSplitTimeDiff1 + local_30) = (int)sprt[0x1f].y0 - (int)sprt[0x1e].y0;
-    uGp000018c8 = 0xa0a0a0;
-    *(int *)(&HudSplitTimeDiff2 + local_30) = (int)sprt[0x22].y0 - (int)sprt[0x1e].y0;
-    shapeIdx = (int)psGp000018b8[0x1c] + (int)psGp000018b8[0x14];
-    x = (int)psGp000018b8[0x1d] + iGp00001420 + (int)psGp000018b8[0x15] + x_00;
-    if ((y_01 == 0) && (DashHUD_gInfo != 0)) {
-      x = x + -2;
+    Hud_BuildTimeSprites__FP4SPRTPcii
+              (sprt + 0x1e,str,shapeIdx + (int)HudPmx_tShape_801115d0.width,w);
+    *(int *)((int)&HudSplitTimeDiff1 + local_30) = (int)sprt[0x1f].y0 - (int)sprt[0x1e].y0;
+    psVar3 = DAT_000018b8;
+    DAT_000018c8 = 0xa0a0a0;
+    *(int *)((int)&HudSplitTimeDiff2 + local_30) = (int)sprt[0x22].y0 - (int)sprt[0x1e].y0;
+    shapeIdx = (int)HudPmx_tShape_80111008.width;
+    sVar1 = psVar3[0x1c];
+    sVar2 = psVar3[0x14];
+    y = (int)HudPmx_tShape_80111224.width;
+    w = (int)psVar3[0x1d] + DAT_00001420 + (int)psVar3[0x15] + x;
+    if ((y_01 == 0) && (DashHUD_gInfo.splitscreen != 0)) {
+      w = w + -2;
     }
-    y = 0;
-    y_00 = 0x334;
+    y_00 = 0;
+    iVar9 = 0x334;
     Hud_BuildSprite__FP4SPRTiiiUli
-              (sprt + 0x28,0x3e,(int)psGp000018b8[0x1c] + 0x13,x + -1,0x808080,0);
-    Hud_BuildSprite2__FP4SPRTiii(sprt + 0x25,0x2c,shapeIdx,x);
-    Hud_BuildSprite2__FP4SPRTiii(sprt + 0x26,0x47,shapeIdx,x);
-    Hud_BuildSprite2__FP4SPRTiii(sprt + 0x27,0x36,shapeIdx,x);
-    uGp000018c8 = 0x808080;
-    shapeIdx = (int)psGp000018b8[2] + (int)psGp000018b8[0x16];
-    x_00 = (int)psGp000018b8[3] + (int)psGp000018b8[0x17] + x_00;
-    Hud_BuildSprite2__FP4SPRTiii(sprt + 0x31,0x1a,shapeIdx + -1,x_00);
-    Hud_BuildSprite2__FP4SPRTiii(sprt + 0x32,0x1b,shapeIdx + -2,x_00 + -1);
+              (sprt + 0x28,0x3e,(int)DAT_000018b8[0x1c] + 0x13,w + -1,0x808080,0);
+    Hud_BuildSprite2__FP4SPRTiii(sprt + 0x25,0x2c,(int)sVar1 + (int)sVar2,w);
+    shapeIdx = (int)sVar1 + (int)sVar2 + shapeIdx;
+    Hud_BuildSprite2__FP4SPRTiii(sprt + 0x26,0x47,shapeIdx,w);
+    Hud_BuildSprite2__FP4SPRTiii(sprt + 0x27,0x36,shapeIdx + y,w);
+    DAT_000018c8 = 0x808080;
+    shapeIdx = (int)DAT_000018b8[2] + (int)DAT_000018b8[0x16];
+    x = (int)DAT_000018b8[3] + (int)DAT_000018b8[0x17] + x;
+    Hud_BuildSprite2__FP4SPRTiii(sprt + 0x31,0x1a,shapeIdx + -1,x);
+    Hud_BuildSprite2__FP4SPRTiii(sprt + 0x32,0x1b,shapeIdx + -2,x + -1);
     do {
-      Hud_BuildSprite2__FP4SPRTiii((SPRT *)((int)&sprt->tag + y_00),y + 0x1c,shapeIdx + 2,x_00 + 6);
-      y = y + 1;
-      y_00 = y_00 + 0x14;
-    } while (y < 8);
+      Hud_BuildSprite2__FP4SPRTiii((SPRT *)((int)&sprt->tag + iVar9),y_00 + 0x1c,shapeIdx + 2,x + 6)
+      ;
+      y_00 = y_00 + 1;
+      iVar9 = iVar9 + 0x14;
+    } while (y_00 < 8);
     Hud_InitMapFrame__Fii(y_01,0);
     y_01 = y_01 + 1;
     local_30 = local_30 + 4;
-    local_2c = local_2c + 0x2d;
+    local_2c = (GameSetup_tData *)((local_2c->controllerData).shockImpact + 1);
   }
   shapeIdx = 0;
-  uGp000018c8 = 0x808080;
-  uGp000018c4 = 1;
-  x_00 = (int)psGp000018b8[0x1a];
-  y_01 = (int)psGp000018b8[0x1b];
-  Hud_BuildSprite2__FP4SPRTiii(pSGp000018bc + 0x37,0x6f,x_00,y_01);
-  Hud_BuildSprite2__FP4SPRTiii(sprt + 0x33,0x6c,x_00 + 0x12,y_01);
-  Hud_BuildSprite2__FP4SPRTiii(sprt + 0x34,0x6e,x_00 + 0x25,y_01);
-  Hud_BuildSprite2__FP4SPRTiii(sprt + 0x35,0x3f,x_00 + 0x3a,y_01);
-  Hud_BuildSprite2__FP4SPRTiii(sprt + 0x38,0x72,x_00 + 0x4a,y_01);
-  Hud_BuildSprite2__FP4SPRTiii(sprt + 0x36,0,x_00 + 0x6d,y_01 + -7);
+  DAT_000018c8 = 0x808080;
+  DAT_000018c4 = 1;
+  x = (int)DAT_000018b8[0x1a];
+  y_01 = (int)DAT_000018b8[0x1b];
+  Hud_BuildSprite2__FP4SPRTiii(DAT_000018bc + 0x37,0x6f,x,y_01);
+  Hud_BuildSprite2__FP4SPRTiii(sprt + 0x33,0x6c,x + 0x12,y_01);
+  Hud_BuildSprite2__FP4SPRTiii(sprt + 0x34,0x6e,x + 0x25,y_01);
+  Hud_BuildSprite2__FP4SPRTiii(sprt + 0x35,0x3f,x + 0x3a,y_01);
+  Hud_BuildSprite2__FP4SPRTiii(sprt + 0x38,0x72,x + 0x4a,y_01);
+  Hud_BuildSprite2__FP4SPRTiii(sprt + 0x36,0,x + 0x6d,y_01 + -7);
   Hud_BuildSprite2__FP4SPRTiii(sprt + 0x39,3,0,y_01 + 4);
-  uGp000018c4 = 0;
+  DAT_000018c4 = 0;
   Hud_InitCdPlayer__Fv();
   Hud_Reset__Fv();
-  puVar2 = &PerpOverlayMessage;
-  puVar1 = &PerpOverlayOn;
+  ppuVar6 = &PerpOverlayMessage;
+  ppuVar5 = &PerpOverlayOn;
+  DAT_000018dc = 0;
+  DAT_000013e8 = 0;
+  DAT_000013ec = 0;
+  DAT_000018e4 = 0;
+  DAT_000013dc = 0;
   do {
-    *puVar1 = 0;
-    *puVar2 = 0;
-    puVar2 = puVar2 + 1;
+    *ppuVar5 = (uchar *)0x0;
+    *ppuVar6 = (uchar *)0x0;
+    ppuVar6 = ppuVar6 + 1;
     shapeIdx = shapeIdx + 1;
-    puVar1 = puVar1 + 1;
+    ppuVar5 = ppuVar5 + 1;
   } while (shapeIdx < 2);
-  uGp000013dc = 0;
-  uGp000013e8 = 0;
-  uGp000013ec = 0;
-  uGp000013f4 = 0;
-  uGp000018dc = 0;
-  uGp000018e4 = 0;
+  DAT_000013f4 = 0;
   return;
-
-
 }
-
 
 
 
@@ -1210,17 +1221,17 @@ void Hud_Init__Fv(void)
 	// End offset: 0x800D3A0C
 	// End Line: 1229
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Hud_InitTables__Fv(void)
+
 {
-  puGp000018b8 = &Hud_gElementPositions;
-  if (false) {
-    puGp000018b8 = &DAT_80120970;
+  DAT_000018b8 = &Hud_gElementPositions;
+  if (1 < GameSetup_gData.numPlayerRaceCars) {
+    DAT_000018b8 = (tSmallCoordXY *)&PTR_DAT_80120970;
   }
   return;
-
-
 }
-
 
 
 
@@ -1242,6 +1253,7 @@ void Hud_InitTables__Fv(void)
 	// End Line: 1244
 
 void Hud_BuildETimeString__FP4SPRTi(SPRT *sprt,int time)
+
 {
   int iVar1;
   int iVar2;
@@ -1268,24 +1280,21 @@ void Hud_BuildETimeString__FP4SPRTi(SPRT *sprt,int time)
     iVar5 = iVar5 + 0x3f;
   }
   iVar3 = iVar5 >> 6;
-  *(undefined4 *)&sprt->u0 = (&HudPmx_gHudNumberUV)[iVar4 / 10];
-  *(undefined4 *)&sprt[1].u0 = (&HudPmx_gHudNumberUV)[iVar4 % 10];
-  *(undefined4 *)&sprt[3].u0 = (&HudPmx_gHudNumberUV)[iVar2 / 10];
-  *(undefined4 *)&sprt[4].u0 = (&HudPmx_gHudNumberUV)[iVar2 % 10];
+  *(HudPmx_tUV *)&sprt->u0 = (&HudPmx_gHudNumberUV)[iVar4 / 10];
+  *(HudPmx_tUV *)&sprt[1].u0 = (&HudPmx_gHudNumberUV)[iVar4 % 10];
+  *(HudPmx_tUV *)&sprt[3].u0 = (&HudPmx_gHudNumberUV)[iVar2 / 10];
+  *(HudPmx_tUV *)&sprt[4].u0 = (&HudPmx_gHudNumberUV)[iVar2 % 10];
   iVar1 = (iVar3 / 10 + (iVar3 >> 0x1f)) - (iVar5 >> 0x1f);
-  *(undefined4 *)&sprt[6].u0 = (&HudPmx_gHudNumberUV)[iVar1];
-  *(undefined4 *)&sprt[7].u0 = (&HudPmx_gHudNumberUV)[iVar3 + iVar1 * -10];
+  *(HudPmx_tUV *)&sprt[6].u0 = (&HudPmx_gHudNumberUV)[iVar1];
+  *(HudPmx_tUV *)&sprt[7].u0 = (&HudPmx_gHudNumberUV)[iVar3 + iVar1 * -10];
   return;
-
-
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// unsigned int /*$ra*/ Hud_BuildDistanceString__FP4SPRTi(struct SPRT *sprt /*$t2*/, int player /*$a1*/)
+// void * /*$ra*/ Hud_BuildDistanceString__FP4SPRTi(struct SPRT *sprt /*$t2*/, int player /*$a1*/)
  // line 1253, offset 0x800d3ba4
 	/* begin block 1 */
 		// Start line: 1254
@@ -1297,29 +1306,29 @@ void Hud_BuildETimeString__FP4SPRTi(SPRT *sprt,int time)
 	// End offset: 0x800D3D3C
 	// End Line: 1270
 
-uint Hud_BuildDistanceString__FP4SPRTi(SPRT *sprt,int player)
+void * Hud_BuildDistanceString__FP4SPRTi(SPRT *sprt,int player)
+
 {
   int iVar1;
+  int iVar2;
   
-  iVar1 = *(int *)((&_Cars_gHumanRaceCarList)[player] + 0x398) * 6;
+  iVar2 = ((&__Cars_gHumanRaceCarList_9__)[player]->stats).checkpointUpdate;
+  iVar1 = iVar2 * 6;
   if (iVar1 < 0) {
-    iVar1 = *(int *)((&_Cars_gHumanRaceCarList)[player] + 0x398) * -6;
+    iVar1 = iVar2 * -6;
   }
-  if (*(int *)(&DAT_801132ac + player * 4) == 2) {
+  if (GameSetup_gData.checkpointHUD[player] == 2) {
     iVar1 = (iVar1 * 1000) / 0x647;
   }
   if (iVar1 < 10000) {
-    *(undefined4 *)&sprt->u0 = (&HudPmx_gHudNumberUV)[iVar1 / 1000];
-    *(undefined4 *)&sprt[2].u0 = (&HudPmx_gHudNumberUV)[(iVar1 % 1000) / 100];
-    *(undefined4 *)&sprt[3].u0 = (&HudPmx_gHudNumberUV)[(iVar1 % 100) / 10];
-    *(undefined4 *)&sprt[4].u0 = (&HudPmx_gHudNumberUV)[iVar1 % 10];
-    return 1;
+    *(HudPmx_tUV *)&sprt->u0 = (&HudPmx_gHudNumberUV)[iVar1 / 1000];
+    *(HudPmx_tUV *)&sprt[2].u0 = (&HudPmx_gHudNumberUV)[(iVar1 % 1000) / 100];
+    *(HudPmx_tUV *)&sprt[3].u0 = (&HudPmx_gHudNumberUV)[(iVar1 % 100) / 10];
+    *(HudPmx_tUV *)&sprt[4].u0 = (&HudPmx_gHudNumberUV)[iVar1 % 10];
+    return &DAT_00000001;
   }
-  return 0;
-
-
+  return (void *)0x0;
 }
-
 
 
 
@@ -1341,6 +1350,7 @@ uint Hud_BuildDistanceString__FP4SPRTi(SPRT *sprt,int player)
 	// End Line: 1285
 
 void Hud_BuildTimeString__FP4SPRTi(SPRT *sprt,int time)
+
 {
   int iVar1;
   int iVar2;
@@ -1362,17 +1372,14 @@ void Hud_BuildTimeString__FP4SPRTi(SPRT *sprt,int time)
     iVar4 = iVar4 + 0x3f;
   }
   iVar3 = iVar4 >> 6;
-  *(undefined4 *)&sprt->u0 = (&HudPmx_gHudNumberUV)[iVar2 % 10];
-  *(undefined4 *)&sprt[2].u0 = (&HudPmx_gHudNumberUV)[iVar1 / 10];
-  *(undefined4 *)&sprt[3].u0 = (&HudPmx_gHudNumberUV)[iVar1 % 10];
+  *(HudPmx_tUV *)&sprt->u0 = (&HudPmx_gHudNumberUV)[iVar2 % 10];
+  *(HudPmx_tUV *)&sprt[2].u0 = (&HudPmx_gHudNumberUV)[iVar1 / 10];
+  *(HudPmx_tUV *)&sprt[3].u0 = (&HudPmx_gHudNumberUV)[iVar1 % 10];
   iVar2 = (iVar3 / 10 + (iVar3 >> 0x1f)) - (iVar4 >> 0x1f);
-  *(undefined4 *)&sprt[5].u0 = (&HudPmx_gHudNumberUV)[iVar2];
-  *(undefined4 *)&sprt[6].u0 = (&HudPmx_gHudNumberUV)[iVar3 + iVar2 * -10];
+  *(HudPmx_tUV *)&sprt[5].u0 = (&HudPmx_gHudNumberUV)[iVar2];
+  *(HudPmx_tUV *)&sprt[6].u0 = (&HudPmx_gHudNumberUV)[iVar3 + iVar2 * -10];
   return;
-
-
 }
-
 
 
 
@@ -1417,122 +1424,129 @@ void Hud_BuildTimeString__FP4SPRTi(SPRT *sprt,int time)
 	// End offset: 0x800D401C
 	// End Line: 1404
 
+/* WARNING: Could not reconcile some variable overlaps */
+
 void Hud_BuildTach__Fi(int player)
+
 {
+  uint *puVar1;
   POLY_F3 *prim;
-  short sVar1;
-  uint *puVar2;
-  int iVar3;
-  int iVar4;
-  int y;
-  undefined *puVar5;
-  uint uVar6;
+  short sVar2;
+  HudPmx_tShape *pHVar3;
+  uint uVar4;
+  uint uVar5;
+  int iVar6;
+  ulong *puVar7;
+  uint uVar8;
   POLY_F3 *prim_00;
-  uint uVar7;
-  short sVar8;
-  int iVar9;
-  undefined4 local_40;
-  undefined4 local_3c;
+  uint uVar9;
+  int y;
+  undefined *puVar10;
+  int local_40;
+  int local_3c;
   int local_38;
   int local_34;
   ulong local_30;
   
   if (player == 0) {
-    local_38 = iGp000018bc;
+    local_38 = DAT_000018bc;
   }
   else {
-    local_38 = iGp000018c0;
+    local_38 = DAT_000018c0;
   }
-  iVar9 = 0x1d;
-  if ((int)(&DAT_801135c0)[player * 0x2d] < 0x1e) {
-    iVar9 = (&DAT_801135c0)[player * 0x2d];
+  iVar6 = GameSetup_gData.carInfo[player].carType;
+  y = 0x1d;
+  if (iVar6 < 0x1e) {
+    y = iVar6;
   }
-  if (DAT_80113240 == 0) {
-    puVar5 = &day_needle;
+  if (GameSetup_gData.Time == 0) {
+    puVar7 = &day_needle;
   }
   else {
-    puVar5 = &night_needle;
+    puVar7 = &night_needle;
   }
-  local_30 = *(ulong *)(puVar5 + iVar9 * 4);
-  iVar9 = 0x5999;
-  if (false) {
-    iVar9 = 0x13334;
+  local_30 = puVar7[y];
+  puVar10 = &DAT_00005999 + (DashHUD_gInfo.rpm * 0x10000) / 0x2a30;
+  if ((int)puVar10 < 0x5999) {
+    puVar10 = &DAT_00005999;
   }
-  fixedsincos(iVar9,&local_40,&local_3c);
+  if (0x13334 < (int)puVar10) {
+    puVar10 = &DAT_00013334;
+  }
+  fixedsincos((uint)puVar10,&local_40,&local_3c);
   if (player == 0) {
-    puVar2 = &DAT_801116ac;
+    pHVar3 = &HudPmx_tShape_801116ac;
   }
   else {
-    puVar2 = &DAT_801116d4;
+    pHVar3 = &HudPmx_tShape_801116d4;
   }
-  uVar7 = *puVar2;
-  iVar3 = fixedmult(local_3c,0x1d);
-  iVar4 = fixedmult(local_40,0x1d);
-  uVar6 = iVar3 + 0x1d;
+  uVar9 = *(uint *)&pHVar3->pixmap;
+  uVar4 = fixedmult(local_3c,0x1d);
+  uVar5 = fixedmult(local_40,0x1d);
+  uVar8 = uVar4 + 0x1d;
   if (player != 0) {
-    uVar6 = iVar3 + 0x75;
+    uVar8 = uVar4 + 0x75;
   }
-  *(uint *)(local_38 + 0x34) = uVar7 & 0xffff0000 | (iVar4 + 0x9d) * 0x100 | uVar6;
-  local_34 = fixedmult(local_3c,10);
-  local_34 = local_34 + 0xe;
-  y = fixedmult(local_40,10);
-  prim = _DAT_1f800004;
-  puVar2 = _DAT_1f800000;
-  y = y + 0xe;
-  prim_00 = _DAT_1f800004 + 1;
-  _DAT_1f800004->tag = _DAT_1f800004->tag & 0xff000000 | *_DAT_1f800000 & 0xffffff;
-  *puVar2 = *puVar2 & 0xff000000 | (uint)_DAT_1f800004 & 0xffffff;
-  _DAT_1f800004[1].tag = _DAT_1f800004[1].tag & 0xff000000 | (uint)_DAT_1f800004 & 0xffffff;
-  _DAT_1f800004 = (POLY_F3 *)&_DAT_1f800004[1].x2;
-  *puVar2 = *puVar2 & 0xff000000 | (uint)prim_00 & 0xffffff;
+  *(uint *)(local_38 + 0x34) = uVar9 & 0xffff0000 | (uVar5 + 0x9d) * 0x100 | uVar8;
+  uVar8 = fixedmult(local_3c,10);
+  local_34 = uVar8 + 0xe;
+  uVar8 = fixedmult(local_40,10);
+  prim = DAT_1f800004;
+  puVar1 = DAT_1f800000;
+  y = uVar8 + 0xe;
+  prim_00 = DAT_1f800004 + 1;
+  DAT_1f800004->tag = DAT_1f800004->tag & 0xff000000 | *DAT_1f800000 & 0xffffff;
+  *puVar1 = *puVar1 & 0xff000000 | (uint)DAT_1f800004 & 0xffffff;
+  DAT_1f800004[1].tag = DAT_1f800004[1].tag & 0xff000000 | (uint)DAT_1f800004 & 0xffffff;
+  DAT_1f800004 = (POLY_F3 *)&DAT_1f800004[1].x2;
+  *puVar1 = *puVar1 & 0xff000000 | (uint)prim_00 & 0xffffff;
   *(undefined *)((int)&prim[1].tag + 3) = 3;
-  prim[1].x0 = 0xe - (short)iVar3;
+  prim[1].x0 = 0xe - (short)uVar4;
   *(ulong *)&prim[1].r0 = local_30 + 0x484848 | 0x42000000;
-  prim[1].y0 = 0xe - (short)iVar4;
+  prim[1].y0 = 0xe - (short)uVar5;
   prim[1].y1 = (short)y;
   prim[1].x1 = (short)local_34;
-  prim_00 = _DAT_1f800004;
-  puVar2 = _DAT_1f800000;
-  _DAT_1f800004->tag = _DAT_1f800004->tag & 0xff000000 | *_DAT_1f800000 & 0xffffff;
-  uVar6 = (uint)_DAT_1f800004 & 0xffffff;
-  _DAT_1f800004 = _DAT_1f800004 + 1;
-  *puVar2 = *puVar2 & 0xff000000 | uVar6;
-  Hud_BuildF3__FP7POLY_F3P13HudPmx_tShapeiiUl
-            (prim,(HudPmx_tShape *)&DAT_801116c0,local_34,y,local_30);
-  Hud_BuildF3__FP7POLY_F3P13HudPmx_tShapeiiUl(prim_00,(HudPmx_tShape *)&DAT_801116c0,local_34,y,0);
+  prim_00 = DAT_1f800004;
+  puVar1 = DAT_1f800000;
+  DAT_1f800004->tag = DAT_1f800004->tag & 0xff000000 | *DAT_1f800000 & 0xffffff;
+  uVar8 = (uint)DAT_1f800004 & 0xffffff;
+  DAT_1f800004 = DAT_1f800004 + 1;
+  *puVar1 = *puVar1 & 0xff000000 | uVar8;
+  Hud_BuildF3__FP7POLY_F3P13HudPmx_tShapeiiUl(prim,&HudPmx_tShape_801116c0,local_34,y,local_30);
+  Hud_BuildF3__FP7POLY_F3P13HudPmx_tShapeiiUl(prim_00,&HudPmx_tShape_801116c0,local_34,y,0);
   prim->code = prim->code & 0xfd;
-  fixedsincos(iVar9 + -0x200,&local_40,&local_3c);
-  sVar1 = fixedmult(local_3c,0x20);
-  prim->x1 = 0xe - sVar1;
-  prim_00->x1 = 0xe - sVar1;
-  sVar1 = fixedmult(local_40,0x20);
-  prim->y1 = 0xe - sVar1;
-  prim_00->y1 = 0xe - sVar1;
-  fixedsincos(iVar9 + 0x200,&local_40,&local_3c);
-  sVar1 = fixedmult(local_3c,0x20);
-  prim->x2 = 0xe - sVar1;
-  prim_00->x2 = 0xe - sVar1;
-  sVar1 = fixedmult(local_40,0x20);
-  sVar8 = -sVar1 + 0xe;
-  prim->y2 = sVar8;
-  prim_00->y2 = sVar8;
-  puVar2 = _DAT_1f800000;
+  fixedsincos((uint)(puVar10 + -0x200),&local_40,&local_3c);
+  uVar8 = fixedmult(local_3c,0x20);
+  sVar2 = 0xe - (short)uVar8;
+  prim->x1 = sVar2;
+  prim_00->x1 = sVar2;
+  uVar8 = fixedmult(local_40,0x20);
+  sVar2 = 0xe - (short)uVar8;
+  prim->y1 = sVar2;
+  prim_00->y1 = sVar2;
+  fixedsincos((uint)(puVar10 + 0x200),&local_40,&local_3c);
+  uVar8 = fixedmult(local_3c,0x20);
+  sVar2 = 0xe - (short)uVar8;
+  prim->x2 = sVar2;
+  prim_00->x2 = sVar2;
+  uVar8 = fixedmult(local_40,0x20);
+  sVar2 = -(short)uVar8 + 0xe;
+  prim->y2 = sVar2;
+  prim_00->y2 = sVar2;
+  puVar1 = DAT_1f800000;
   prim_00->y0 = prim_00->y0 + 2;
-  prim_00->y2 = -sVar1 + 0x10;
+  prim_00->y2 = -(short)uVar8 + 0x10;
   prim_00->y1 = prim_00->y1 + 2;
-  *(uint *)(local_38 + 0x28) = *(uint *)(local_38 + 0x28) & 0xff000000 | *puVar2 & 0xffffff;
-  *puVar2 = *puVar2 & 0xff000000 | local_38 + 0x28U & 0xffffff;
+  *(uint *)(local_38 + 0x28) = *(uint *)(local_38 + 0x28) & 0xff000000 | *puVar1 & 0xffffff;
+  *puVar1 = *puVar1 & 0xff000000 | local_38 + 0x28U & 0xffffff;
   return;
-
-
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// int /*$ra*/ Hud_BuildString__FPciiiib(char *str /*$s2*/, int x /*$s1*/, int y /*$s6*/, int color /*$s7*/, int player /*stack 16*/, unsigned int justwidth /*stack 20*/)
+// int /*$ra*/ Hud_BuildString__FPciiiib(char *str /*$s2*/, int x /*$s1*/, int y /*$s6*/, int color /*$s7*/, int player /*stack 16*/, void * justwidth /*stack 20*/)
  // line 1450, offset 0x800d42c8
 	/* begin block 1 */
 		// Start line: 1451
@@ -1591,114 +1605,119 @@ void Hud_BuildTach__Fi(int player)
 	// End offset: 0x800D45E4
 	// End Line: 1543
 
-int Hud_BuildString__FPciiiib(char *str,int x,int y,int color,int player,uint justwidth)
+int Hud_BuildString__FPciiiib(char *str,int x,int y,int color,int player,void *justwidth)
+
 {
   char cVar1;
-  size_t sVar2;
+  short sVar2;
+  size_t sVar3;
+  int iVar4;
+  byte bVar5;
   int x_00;
-  byte bVar3;
-  int x_01;
   int local_38;
   
   Hud_GoTpage__Fi(1);
-  sVar2 = strlen(str);
+  sVar3 = strlen(str);
   local_38 = 0;
-  player = player * 0x20;
   x_00 = x;
   do {
-    if ((int)sVar2 <= local_38) {
+    if ((int)sVar3 <= local_38) {
       Hud_GoTpage__Fi(0);
       return x_00 - x;
     }
     cVar1 = *str;
     if (cVar1 == ' ') {
-      x_01 = x_00 + 3;
+      x_00 = x_00 + 3;
     }
     else {
       if (cVar1 == '*') {
-        if (DAT_8013e8a1 == '#') {
-          if (justwidth == 0) {
+        if (gPadinfo.buf[0].ID == '#') {
+          sVar2 = HudPmx_tShape_80111a1c.width;
+          if (justwidth == (void *)0x0) {
             Hud_FBuildSprite__FiiiUli(0xad,x_00 + 2,y,color,0);
+            sVar2 = HudPmx_tShape_80111a1c.width;
           }
         }
         else {
-          if (justwidth == 0) {
+          sVar2 = HudPmx_tShape_801119e0.width;
+          if (justwidth == (void *)0x0) {
             Hud_FBuildSprite__FiiiUli(0xaa,x_00 + 2,y,color,0);
+            sVar2 = HudPmx_tShape_801119e0.width;
           }
         }
-        x_01 = x_00 + 5;
-        if (DAT_801131f8 == 1) {
-          if (DAT_8013e8c1 == '#') {
-            if (DAT_8013e8a1 != '#') {
+        x_00 = x_00 + 5 + (int)sVar2;
+        if (GameSetup_gData.commMode == 1) {
+          if (gPadinfo.buf[4].ID == '#') {
+            if (gPadinfo.buf[0].ID != '#') {
 LAB_800d443c:
-              if (DAT_8013e8c1 == '#') {
-                if (justwidth == 0) {
-                  Hud_FBuildSprite__FiiiUli(0xad,x_01,y,color,0);
+              if (gPadinfo.buf[4].ID == '#') {
+                if (justwidth == (void *)0x0) {
+                  Hud_FBuildSprite__FiiiUli(0xad,x_00,y,color,0);
                 }
-                x_01 = 0;
-                x_00 = x_00 + 8;
+                iVar4 = (int)HudPmx_tShape_80111a1c.width;
+                x_00 = x_00 + 3;
               }
               else {
-                if (justwidth == 0) {
-                  Hud_FBuildSprite__FiiiUli(0xaa,x_01,y,color,0);
+                if (justwidth == (void *)0x0) {
+                  Hud_FBuildSprite__FiiiUli(0xaa,x_00,y,color,0);
                 }
-                x_01 = 0;
-                x_00 = x_00 + 8;
+                iVar4 = (int)HudPmx_tShape_801119e0.width;
+                x_00 = x_00 + 3;
               }
               goto LAB_800d45cc;
             }
           }
           else {
-            if (DAT_8013e8a1 == '#') goto LAB_800d443c;
+            if (gPadinfo.buf[0].ID == '#') goto LAB_800d443c;
           }
         }
       }
       else {
-        x_01 = 0;
+        iVar4 = 0;
         if (cVar1 == '^') {
-          bVar3 = 0xaa;
-          if ((&DAT_8013e8a1)[player] == '#') {
-            bVar3 = 0xad;
+          bVar5 = 0xaa;
+          if (gPadinfo.buf[player * 4].ID == '#') {
+            bVar5 = 0xad;
           }
         }
         else {
           if (cVar1 == '(') {
-            bVar3 = 0xa9;
-            if ((&DAT_8013e8a1)[player] == '#') {
-              bVar3 = 0xab;
+            bVar5 = 0xa9;
+            if (gPadinfo.buf[player * 4].ID == '#') {
+              bVar5 = 0xab;
             }
           }
           else {
             if (cVar1 == ')') {
-              bVar3 = 0xa8;
-              if ((&DAT_8013e8a1)[player] == '#') {
-                bVar3 = 0xac;
+              bVar5 = 0xa8;
+              if (gPadinfo.buf[player * 4].ID == '#') {
+                bVar5 = 0xac;
               }
             }
             else {
               if (cVar1 == '&') {
-                bVar3 = 0xae;
+                bVar5 = 0xae;
               }
               else {
-                bVar3 = cVar1 + 0x6e;
+                bVar5 = cVar1 + 0x6e;
                 if (9 < (byte)(cVar1 - 0x30U)) {
                   if (cVar1 == '-') {
-                    bVar3 = 0x48;
+                    bVar5 = 0x48;
                   }
                   else {
                     if (cVar1 == ':') {
-                      bVar3 = 0x49;
+                      bVar5 = 0x49;
                     }
                     else {
-                      bVar3 = cVar1 + 0x8a;
+                      bVar5 = cVar1 + 0x8a;
                       if ((byte)(cVar1 + 0x40U) < 0x1d) {
-                        x_01 = -1;
+                        iVar4 = -1;
                       }
                       else {
-                        bVar3 = *str + 0x43;
+                        bVar5 = *str + 0x43;
                         if (*str == -0x1b) {
-                          bVar3 = 0x67;
-                          x_01 = -1;
+                          bVar5 = 0x67;
+                          iVar4 = -1;
                         }
                       }
                     }
@@ -1708,23 +1727,19 @@ LAB_800d443c:
             }
           }
         }
-        if (justwidth == 0) {
-          Hud_FBuildSprite__FiiiUli((uint)bVar3,x_00,y + x_01,color,0);
+        if (justwidth == (void *)0x0) {
+          Hud_FBuildSprite__FiiiUli((uint)bVar5,x_00,y + iVar4,color,0);
         }
-        x_01 = (int)*(short *)(&DAT_80110ca8 + (uint)bVar3 * 0x14);
+        iVar4 = (int)(&HudPmx_gShapes)[(uint)bVar5].width;
         x_00 = x_00 + 1;
 LAB_800d45cc:
-        x_01 = x_00 + x_01;
+        x_00 = x_00 + iVar4;
       }
     }
     str = str + 1;
     local_38 = local_38 + 1;
-    x_00 = x_01;
   } while( true );
-
-
 }
-
 
 
 
@@ -1882,217 +1897,246 @@ LAB_800d45cc:
 	// End Line: 1713
 
 void Hud_BuildNumbers0__Fi(int player)
+
 {
   uint *puVar1;
   short sVar2;
-  uint *puVar3;
-  uint uVar4;
-  int time;
+  void *pvVar3;
+  short sVar4;
   short sVar5;
+  int time;
+  SPRT *sprt;
   uint *puVar6;
   int iVar7;
   uint *puVar8;
-  uint *puVar9;
+  int iVar9;
+  POLY_G4 *pPVar10;
+  POLY_F4 *pPVar11;
+  uint uVar12;
   
-  puVar9 = (uint *)&gHudF4;
+  iVar9 = iGp000018bc;
   if (player != 0) {
-    puVar9 = (uint *)&DAT_8013e4f8;
+    iVar9 = iGp000018c0;
   }
-  puVar8 = (uint *)&gHudG4;
+  pPVar11 = &gHudF4;
   if (player != 0) {
-    puVar8 = (uint *)&DAT_8013e7c0;
+    pPVar11 = &POLY_F4_8013e4f8;
+  }
+  pPVar10 = &gHudG4;
+  if (player != 0) {
+    pPVar10 = &POLY_G4_8013e7c0;
   }
   sVar2 = 0;
   if (player != 0) {
     sVar2 = -0xf;
   }
-  if ((&DAT_80113644)[player * 0x2d] != 0) {
-    if ((DAT_80112744 == 0) || (true)) {
-      time = DAT_80112764;
-      if (false) {
-        time = 0;
+  if (GameSetup_gData.carInfo[player].HudTime != 0) {
+    if ((DashHUD_gInfo.flashtime == 0) || ((simGlobal.gameTicks & 0x10U) == 0)) {
+      time = DashHUD_gInfo.laptime;
+      if (iGp000013f0 != 0) {
+        time = iGp000013e8;
       }
-      Hud_BuildETimeString__FP4SPRTi((SPRT *)0xf0,time);
+      Hud_BuildETimeString__FP4SPRTi((SPRT *)(iVar9 + 0xf0),time);
     }
-    puVar3 = _DAT_1f800000;
+    puVar8 = DAT_1f800000;
     time = 8;
-    if (false) {
+    if (iGp000013f0 != 0) {
       time = 5;
     }
     iVar7 = 0xc;
     if (0xc < time + 0xcU) {
-      puVar6 = (uint *)0xf0;
+      puVar6 = (uint *)(iVar9 + 0xf0);
       do {
         iVar7 = iVar7 + 1;
-        *puVar6 = *puVar6 & 0xff000000 | *puVar3 & 0xffffff;
-        *puVar3 = *puVar3 & 0xff000000 | (uint)puVar6 & 0xffffff;
+        *puVar6 = *puVar6 & 0xff000000 | *puVar8 & 0xffffff;
+        *puVar8 = *puVar8 & 0xff000000 | (uint)puVar6 & 0xffffff;
         puVar6 = puVar6 + 5;
       } while (iVar7 < (int)(time + 0xcU));
     }
-    puVar6 = _DAT_1f800000;
+    puVar8 = DAT_1f800000;
     time = 4;
-    puVar3 = (uint *)&DAT_00000050;
+    puVar6 = (uint *)(iVar9 + 0x50);
     do {
       time = time + 1;
-      *puVar3 = *puVar3 & 0xff000000 | *puVar6 & 0xffffff;
-      *puVar6 = *puVar6 & 0xff000000 | (uint)puVar3 & 0xffffff;
-      puVar1 = _DAT_1f800000;
-      puVar3 = puVar3 + 5;
+      *puVar6 = *puVar6 & 0xff000000 | *puVar8 & 0xffffff;
+      *puVar8 = *puVar8 & 0xff000000 | (uint)puVar6 & 0xffffff;
+      puVar1 = DAT_1f800000;
+      puVar6 = puVar6 + 5;
     } while (time < 6);
-    *puVar8 = *puVar8 & 0xff000000 | *_DAT_1f800000 & 0xffffff;
-    *puVar1 = *puVar1 & 0xff000000 | (uint)puVar8 & 0xffffff;
-    *puVar9 = *puVar9 & 0xff000000 | (uint)puVar8 & 0xffffff;
-    *puVar1 = *puVar1 & 0xff000000 | (uint)puVar9 & 0xffffff;
+    pPVar10->tag = pPVar10->tag & 0xff000000 | *DAT_1f800000 & 0xffffff;
+    *puVar1 = *puVar1 & 0xff000000 | (uint)pPVar10 & 0xffffff;
+    pPVar11->tag = pPVar11->tag & 0xff000000 | (uint)pPVar10 & 0xffffff;
+    *puVar1 = *puVar1 & 0xff000000 | (uint)pPVar11 & 0xffffff;
   }
-  if (true) {
-    sRam000000e6 = sRam00000016 + sVar2 + sRam00000026;
-    sVar2 = sRam000000e6 + 10;
-    sVar5 = sRam000000e6 + 7;
-    sRam000000d2 = sRam000000e6;
-    *(short *)((int)puVar8 + 0x52) = sRam000000e6;
-    *(short *)((int)puVar8 + 0x5a) = sRam000000e6;
-    *(short *)((int)puVar8 + 0x62) = sVar2;
-    *(short *)((int)puVar8 + 0x6a) = sVar2;
-    sRam00000262 = sRam000000e6 + 1;
-    *(short *)((int)puVar9 + 0x52) = sVar5;
-    *(short *)((int)puVar9 + 0x56) = sVar5;
-    *(short *)((int)puVar9 + 0x5a) = sVar2;
-    *(short *)((int)puVar9 + 0x5e) = sVar2;
-    sRam00000276 = *(short *)(&HudSplitTimeDiff1 + player * 4) + sRam00000262;
-    sRam000002b2 = *(short *)(&HudSplitTimeDiff2 + player * 4) + sRam00000262;
-    sRam0000028a = sRam00000262;
-    sRam0000029e = sRam00000262;
-    sRam000002c6 = sRam00000262;
-    sRam000002da = sRam00000262;
+  if (iGp000013f0 == 0) {
+    sVar4 = *(short *)(iGp000018b8 + 0x16) + sVar2 + *(short *)(iGp000018b8 + 0x26);
+    sVar2 = sVar4 + 10;
+    *(short *)(iVar9 + 0xd2) = sVar4;
+    pPVar10[2].y0 = sVar4;
+    pPVar10[2].y1 = sVar4;
+    pPVar10[2].y2 = sVar2;
+    pPVar10[2].y3 = sVar2;
+    *(short *)(iVar9 + 0xe6) = sVar4;
+    sVar5 = sVar4 + 1;
+    pPVar11[3].y0 = sVar4 + 7;
+    pPVar11[3].y1 = sVar4 + 7;
+    pPVar11[3].y2 = sVar2;
+    pPVar11[3].y3 = sVar2;
+    *(short *)(iVar9 + 0x262) = sVar5;
+    sVar2 = *(short *)(&HudSplitTimeDiff1 + player);
+    *(short *)(iVar9 + 0x28a) = sVar5;
+    *(short *)(iVar9 + 0x29e) = sVar5;
+    *(short *)(iVar9 + 0x276) = sVar2 + sVar5;
+    sVar2 = *(short *)(&HudSplitTimeDiff2 + player);
+    *(short *)(iVar9 + 0x2c6) = sVar5;
+    *(short *)(iVar9 + 0x2da) = sVar5;
+    *(short *)(iVar9 + 0x2b2) = sVar2 + sVar5;
   }
-  if ((true) || (true)) {
-    if (true) {
+  if ((iGp000018dc == 0) || (iGp000013f0 == 0)) {
+    if (GameSetup_gData.checkpointType == 0) {
       return;
     }
-    if (*(int *)(&DAT_801132ac + player * 4) == 0) {
-      if (*(int *)((&_Cars_gHumanRaceCarList)[player] + 0x39c) < 1) {
+    if (GameSetup_gData.checkpointHUD[player] == 0) {
+      if (((&__Cars_gHumanRaceCarList_9__)[player]->stats).checkpointDisplay < 1) {
         return;
       }
-      time = *(int *)((&_Cars_gHumanRaceCarList)[player] + 0x394);
+      time = ((&__Cars_gHumanRaceCarList_9__)[player]->stats).checkpointDifference;
       if (time < -0x95ff) {
         return;
       }
       if (0x95ff < time) {
         return;
       }
-      if (false) {
+      if (iGp000013f0 != 0) {
         return;
       }
-      if ((&DAT_8011275c)[player] != 0) {
+      if (DashHUD_gInfo.wrongway[player] != 0) {
         return;
       }
-      uRam000000d4 = 0;
-      puVar6 = (uint *)0x258;
+      if (time < 0) {
+        *(undefined4 *)(iVar9 + 0xd4) = HudPmx_tShape_801115e4.pixmap._0_4_;
+      }
+      else {
+        *(undefined4 *)(iVar9 + 0xd4) = HudPmx_tShape_801115d0.pixmap._0_4_;
+      }
+      sprt = (SPRT *)(iVar9 + 600);
       time = 0x1e;
       Hud_BuildTimeString__FP4SPRTi
-                ((SPRT *)0x258,*(int *)((&_Cars_gHumanRaceCarList)[player] + 0x394));
-      puVar3 = _DAT_1f800000;
+                (sprt,((&__Cars_gHumanRaceCarList_9__)[player]->stats).checkpointDifference);
+      puVar8 = DAT_1f800000;
       do {
         time = time + 1;
-        *puVar6 = *puVar6 & 0xff000000 | *puVar3 & 0xffffff;
-        *puVar3 = *puVar3 & 0xff000000 | (uint)puVar6 & 0xffffff;
-        puVar6 = puVar6 + 5;
+        sprt->tag = sprt->tag & 0xff000000 | *puVar8 & 0xffffff;
+        *puVar8 = *puVar8 & 0xff000000 | (uint)sprt & 0xffffff;
+        sprt = sprt + 1;
       } while (time < 0x25);
       time = 10;
-      puVar3 = (uint *)0xc8;
+      puVar8 = (uint *)(iVar9 + 200);
+      uVar12 = (uint)puVar8 & 0xffffff;
       do {
-        puVar6 = _DAT_1f800000;
+        puVar6 = DAT_1f800000;
         if (time == 10) {
           Hud_GoTpage__Fi(0);
-          uRam000000c8 = uRam000000c8 & 0xff000000 | *_DAT_1f800000 & 0xffffff;
-          *_DAT_1f800000 = *_DAT_1f800000 & 0xff000000 | 200;
+          puVar6 = DAT_1f800000;
+          *(uint *)(iVar9 + 200) = *(uint *)(iVar9 + 200) & 0xff000000 | *DAT_1f800000 & 0xffffff;
+          *puVar6 = *puVar6 & 0xff000000 | uVar12;
           Hud_GoTpage__Fi(1);
         }
         else {
-          *puVar3 = *puVar3 & 0xff000000 | *_DAT_1f800000 & 0xffffff;
-          *puVar6 = *puVar6 & 0xff000000 | (uint)puVar3 & 0xffffff;
+          *puVar8 = *puVar8 & 0xff000000 | *DAT_1f800000 & 0xffffff;
+          *puVar6 = *puVar6 & 0xff000000 | (uint)puVar8 & 0xffffff;
         }
-        puVar3 = puVar3 + 5;
+        puVar8 = puVar8 + 5;
         time = time + 1;
       } while (time < 0xc);
     }
     else {
-      uVar4 = Hud_BuildDistanceString__FP4SPRTi((SPRT *)0x258,player);
-      puVar3 = _DAT_1f800000;
-      if (uVar4 == 0) {
+      pvVar3 = Hud_BuildDistanceString__FP4SPRTi((SPRT *)(iVar9 + 600),player);
+      if (pvVar3 == (void *)0x0) {
         return;
       }
-      uRam000000d4 = 0;
+      if (((&__Cars_gHumanRaceCarList_9__)[player]->stats).checkpointUpdate < 0) {
+        *(undefined4 *)(iVar9 + 0xd4) = HudPmx_tShape_801115e4.pixmap._0_4_;
+      }
+      else {
+        *(undefined4 *)(iVar9 + 0xd4) = HudPmx_tShape_801115d0.pixmap._0_4_;
+      }
+      puVar8 = DAT_1f800000;
       time = 0x1e;
-      puVar6 = (uint *)0x258;
+      puVar6 = (uint *)(iVar9 + 600);
       do {
         time = time + 1;
-        *puVar6 = *puVar6 & 0xff000000 | *puVar3 & 0xffffff;
-        *puVar3 = *puVar3 & 0xff000000 | (uint)puVar6 & 0xffffff;
+        *puVar6 = *puVar6 & 0xff000000 | *puVar8 & 0xffffff;
+        *puVar8 = *puVar8 & 0xff000000 | (uint)puVar6 & 0xffffff;
         puVar6 = puVar6 + 5;
       } while (time < 0x23);
       time = 10;
-      puVar3 = (uint *)0xc8;
+      puVar8 = (uint *)(iVar9 + 200);
+      uVar12 = (uint)puVar8 & 0xffffff;
       do {
-        puVar6 = _DAT_1f800000;
+        puVar6 = DAT_1f800000;
         if (time == 10) {
           Hud_GoTpage__Fi(0);
-          uRam000000c8 = uRam000000c8 & 0xff000000 | *_DAT_1f800000 & 0xffffff;
-          *_DAT_1f800000 = *_DAT_1f800000 & 0xff000000 | 200;
+          puVar6 = DAT_1f800000;
+          *(uint *)(iVar9 + 200) = *(uint *)(iVar9 + 200) & 0xff000000 | *DAT_1f800000 & 0xffffff;
+          *puVar6 = *puVar6 & 0xff000000 | uVar12;
           Hud_GoTpage__Fi(1);
         }
         else {
-          *puVar3 = *puVar3 & 0xff000000 | *_DAT_1f800000 & 0xffffff;
-          *puVar6 = *puVar6 & 0xff000000 | (uint)puVar3 & 0xffffff;
+          *puVar8 = *puVar8 & 0xff000000 | *DAT_1f800000 & 0xffffff;
+          *puVar6 = *puVar6 & 0xff000000 | (uint)puVar8 & 0xffffff;
         }
-        puVar3 = puVar3 + 5;
+        puVar8 = puVar8 + 5;
         time = time + 1;
       } while (time < 0xc);
     }
   }
   else {
-    if ((&DAT_80113644)[player * 0x2d] == 0) {
+    if (GameSetup_gData.carInfo[player].HudTime == 0) {
       return;
     }
-    puVar6 = (uint *)0x258;
-    uRam000000d4 = 0;
-    Hud_BuildTimeString__FP4SPRTi((SPRT *)0x258,0);
-    puVar3 = _DAT_1f800000;
+    sprt = (SPRT *)(iVar9 + 600);
+    *(undefined4 *)(iVar9 + 0xd4) = HudPmx_tShape_801115d0.pixmap._0_4_;
+    time = iGp000018dc;
+    if (iGp000018dc < 0) {
+      time = 0;
+    }
+    Hud_BuildTimeString__FP4SPRTi(sprt,time);
+    puVar8 = DAT_1f800000;
     time = 0x1e;
     do {
       time = time + 1;
-      *puVar6 = *puVar6 & 0xff000000 | *puVar3 & 0xffffff;
-      *puVar3 = *puVar3 & 0xff000000 | (uint)puVar6 & 0xffffff;
-      puVar6 = puVar6 + 5;
+      sprt->tag = sprt->tag & 0xff000000 | *puVar8 & 0xffffff;
+      *puVar8 = *puVar8 & 0xff000000 | (uint)sprt & 0xffffff;
+      sprt = sprt + 1;
     } while (time < 0x22);
     time = 10;
-    puVar3 = (uint *)0xc8;
+    puVar8 = (uint *)(iVar9 + 200);
+    uVar12 = (uint)puVar8 & 0xffffff;
     do {
-      puVar6 = _DAT_1f800000;
+      puVar6 = DAT_1f800000;
       if (time == 10) {
         Hud_GoTpage__Fi(0);
-        uRam000000c8 = uRam000000c8 & 0xff000000 | *_DAT_1f800000 & 0xffffff;
-        *_DAT_1f800000 = *_DAT_1f800000 & 0xff000000 | 200;
+        puVar6 = DAT_1f800000;
+        *(uint *)(iVar9 + 200) = *(uint *)(iVar9 + 200) & 0xff000000 | *DAT_1f800000 & 0xffffff;
+        *puVar6 = *puVar6 & 0xff000000 | uVar12;
         Hud_GoTpage__Fi(1);
       }
       else {
-        *puVar3 = *puVar3 & 0xff000000 | *_DAT_1f800000 & 0xffffff;
-        *puVar6 = *puVar6 & 0xff000000 | (uint)puVar3 & 0xffffff;
+        *puVar8 = *puVar8 & 0xff000000 | *DAT_1f800000 & 0xffffff;
+        *puVar6 = *puVar6 & 0xff000000 | (uint)puVar8 & 0xffffff;
       }
-      puVar3 = puVar3 + 5;
+      puVar8 = puVar8 + 5;
       time = time + 1;
     } while (time < 0xc);
   }
-  puVar3 = _DAT_1f800000;
-  puVar8[0x12] = puVar8[0x12] & 0xff000000 | *_DAT_1f800000 & 0xffffff;
-  *puVar3 = *puVar3 & 0xff000000 | (uint)(puVar8 + 0x12) & 0xffffff;
-  puVar9[0x12] = puVar9[0x12] & 0xff000000 | (uint)(puVar8 + 0x12) & 0xffffff;
-  *puVar3 = *puVar3 & 0xff000000 | (uint)(puVar9 + 0x12) & 0xffffff;
+  puVar8 = DAT_1f800000;
+  pPVar10[2].tag = pPVar10[2].tag & 0xff000000 | *DAT_1f800000 & 0xffffff;
+  *puVar8 = *puVar8 & 0xff000000 | (uint)(pPVar10 + 2) & 0xffffff;
+  pPVar11[3].tag = pPVar11[3].tag & 0xff000000 | (uint)(pPVar10 + 2) & 0xffffff;
+  *puVar8 = *puVar8 & 0xff000000 | (uint)(pPVar11 + 3) & 0xffffff;
   return;
-
-
 }
-
 
 
 
@@ -2189,6 +2233,7 @@ void Hud_BuildNumbers0__Fi(int player)
 	// End Line: 1898
 
 void Hud_BuildNumbers__Fi(int player)
+
 {
   short sVar1;
   short sVar2;
@@ -2197,218 +2242,229 @@ void Hud_BuildNumbers__Fi(int player)
   uint *puVar5;
   POLY_GT4 *prim;
   uint *puVar6;
-  int iVar7;
+  uint uVar7;
   uint *puVar8;
   int iVar9;
   int iVar10;
   uint uVar11;
-  undefined *puVar12;
-  undefined *puVar13;
+  int iVar12;
+  POLY_G4 *pPVar13;
   int iVar14;
+  POLY_F4 *pPVar15;
   int x;
-  uint *puVar15;
-  int y;
   int iVar16;
+  int iVar17;
+  uint *puVar18;
+  int y;
+  int iVar19;
   
-  puVar15 = puGp000018bc;
+  puVar18 = DAT_000018bc;
   if (player != 0) {
-    puVar15 = puGp000018c0;
+    puVar18 = DAT_000018c0;
   }
-  puVar13 = &gHudF4;
+  pPVar15 = &gHudF4;
   if (player != 0) {
-    puVar13 = &DAT_8013e4f8;
+    pPVar15 = &POLY_F4_8013e4f8;
   }
-  puVar12 = &gHudG4;
+  pPVar13 = &gHudG4;
   if (player != 0) {
-    puVar12 = &DAT_8013e7c0;
+    pPVar13 = &POLY_G4_8013e7c0;
   }
   y = 0;
   if (player != 0) {
     y = -0xf;
   }
-  if ((((&DAT_80113648)[player * 0x2d] != 0) && (iGp000013f0 == 0)) &&
-     (iVar9 = 0x14, DAT_8011276c != 1)) {
-    puVar15[0x67] = (&HudPmx_gHudNumberUV)[DAT_80112768];
-    puVar6 = puVar15 + 100;
-    puVar15[0x71] = (&HudPmx_gHudNumberUV)[DAT_8011276c];
-    puVar8 = _DAT_1f800000;
+  if (((GameSetup_gData.carInfo[player].HudLapnum != 0) && (DAT_000013f0 == 0)) &&
+     (iVar9 = 0x14, DashHUD_gInfo.maxlaps != 1)) {
+    *(HudPmx_tUV *)(puVar18 + 0x67) = (&HudPmx_gHudNumberUV)[DashHUD_gInfo.lap];
+    puVar6 = puVar18 + 100;
+    *(HudPmx_tUV *)(puVar18 + 0x71) = (&HudPmx_gHudNumberUV)[DashHUD_gInfo.maxlaps];
+    puVar8 = DAT_1f800000;
     do {
       iVar9 = iVar9 + 1;
       *puVar6 = *puVar6 & 0xff000000 | *puVar8 & 0xffffff;
       *puVar8 = *puVar8 & 0xff000000 | (uint)puVar6 & 0xffffff;
-      puVar5 = _DAT_1f800000;
+      puVar5 = DAT_1f800000;
       puVar6 = puVar6 + 5;
     } while (iVar9 < 0x17);
     iVar9 = 6;
-    puVar8 = puVar15 + 0x1e;
+    puVar8 = puVar18 + 0x1e;
     do {
       iVar9 = iVar9 + 1;
       *puVar8 = *puVar8 & 0xff000000 | *puVar5 & 0xffffff;
       *puVar5 = *puVar5 & 0xff000000 | (uint)puVar8 & 0xffffff;
-      puVar6 = _DAT_1f800000;
+      puVar6 = DAT_1f800000;
       puVar8 = puVar8 + 5;
     } while (iVar9 < 8);
-    *(uint *)(puVar12 + 0x24) = *(uint *)(puVar12 + 0x24) & 0xff000000 | *_DAT_1f800000 & 0xffffff;
-    *puVar6 = *puVar6 & 0xff000000 | (uint)(puVar12 + 0x24) & 0xffffff;
-    *(uint *)(puVar13 + 0x18) =
-         *(uint *)(puVar13 + 0x18) & 0xff000000 | (uint)(puVar12 + 0x24) & 0xffffff;
-    *puVar6 = *puVar6 & 0xff000000 | (uint)(puVar13 + 0x18) & 0xffffff;
+    pPVar13[1].tag = pPVar13[1].tag & 0xff000000 | *DAT_1f800000 & 0xffffff;
+    *puVar6 = *puVar6 & 0xff000000 | (uint)(pPVar13 + 1) & 0xffffff;
+    pPVar15[1].tag = pPVar15[1].tag & 0xff000000 | (uint)(pPVar13 + 1) & 0xffffff;
+    *puVar6 = *puVar6 & 0xff000000 | (uint)(pPVar15 + 1) & 0xffffff;
   }
-  if (((((&DAT_80113644)[player * 0x2d] != 0) && (DAT_8011278c != 0)) &&
-      ((DAT_8011278c < 0x9600 && ((iGp000013f0 == 0 && (iGp000018fc == 0)))))) &&
-     (DAT_8011276c != 1)) {
-    if ((DAT_80112744 == 0) || (true)) {
-      Hud_BuildTimeString__FP4SPRTi((SPRT *)(puVar15 + 0x73),DAT_8011278c);
+  if ((((GameSetup_gData.carInfo[player].HudTime != 0) && (DashHUD_gInfo.record != 0)) &&
+      ((DashHUD_gInfo.record < 0x9600 && ((DAT_000013f0 == 0 && (DAT_000018fc == 0)))))) &&
+     (DashHUD_gInfo.maxlaps != 1)) {
+    if ((DashHUD_gInfo.flashtime == 0) || ((simGlobal.gameTicks & 0x10U) == 0)) {
+      Hud_BuildTimeString__FP4SPRTi((SPRT *)(puVar18 + 0x73),DashHUD_gInfo.record);
     }
-    puVar8 = _DAT_1f800000;
+    puVar8 = DAT_1f800000;
     iVar9 = 0x17;
-    puVar6 = puVar15 + 0x73;
+    puVar6 = puVar18 + 0x73;
     do {
       iVar9 = iVar9 + 1;
       *puVar6 = *puVar6 & 0xff000000 | *puVar8 & 0xffffff;
       *puVar8 = *puVar8 & 0xff000000 | (uint)puVar6 & 0xffffff;
-      puVar5 = _DAT_1f800000;
+      puVar5 = DAT_1f800000;
       puVar6 = puVar6 + 5;
     } while (iVar9 < 0x1e);
     iVar9 = 8;
-    puVar8 = puVar15 + 0x28;
+    puVar8 = puVar18 + 0x28;
     do {
       iVar9 = iVar9 + 1;
       *puVar8 = *puVar8 & 0xff000000 | *puVar5 & 0xffffff;
       *puVar5 = *puVar5 & 0xff000000 | (uint)puVar8 & 0xffffff;
-      puVar6 = _DAT_1f800000;
+      puVar6 = DAT_1f800000;
       puVar8 = puVar8 + 5;
     } while (iVar9 < 10);
-    *(uint *)(puVar12 + 0x6c) = *(uint *)(puVar12 + 0x6c) & 0xff000000 | *_DAT_1f800000 & 0xffffff;
-    *puVar6 = *puVar6 & 0xff000000 | (uint)(puVar12 + 0x6c) & 0xffffff;
-    *(uint *)(puVar13 + 0x30) =
-         *(uint *)(puVar13 + 0x30) & 0xff000000 | (uint)(puVar12 + 0x6c) & 0xffffff;
-    *puVar6 = *puVar6 & 0xff000000 | (uint)(puVar13 + 0x30) & 0xffffff;
+    pPVar13[3].tag = pPVar13[3].tag & 0xff000000 | *DAT_1f800000 & 0xffffff;
+    *puVar6 = *puVar6 & 0xff000000 | (uint)(pPVar13 + 3) & 0xffffff;
+    pPVar15[2].tag = pPVar15[2].tag & 0xff000000 | (uint)(pPVar13 + 3) & 0xffffff;
+    *puVar6 = *puVar6 & 0xff000000 | (uint)(pPVar15 + 2) & 0xffffff;
   }
-  if ((((&DAT_8011364c)[player * 0x2d] != 0) && (iGp000013f0 == 0)) && (1 < DAT_80112788)) {
-    *(short *)(puVar15 + 0xbb) =
-         (*(short *)(iGp000018b8 + 0x38) + *(short *)(iGp000018b8 + 0x28) + -2) -
-         *(short *)(&DAT_80110ca8 + (DAT_80112784 + 0x2c) * 0x14);
-    puVar15[0xbc] = *(uint *)(&DAT_80111008 + DAT_80112784 * 0x14);
+  if (((GameSetup_gData.carInfo[player].HudPosition != 0) && (DAT_000013f0 == 0)) &&
+     (1 < DashHUD_gInfo.opponents)) {
+    *(short *)(puVar18 + 0xbb) =
+         (*(short *)(DAT_000018b8 + 0x38) + *(short *)(DAT_000018b8 + 0x28) +
+         HudPmx_tShape_80111008.width + -2) - (&HudPmx_gShapes)[DashHUD_gInfo.position + 0x2c].width
+    ;
+    puVar18[0xbc] = *(uint *)&(&HudPmx_tShape_80111008)[DashHUD_gInfo.position].pixmap;
     iVar9 = 0x25;
-    *(undefined2 *)(puVar15 + 0xbd) = *(undefined2 *)(&DAT_80110ca8 + (DAT_80112784 + 0x2c) * 0x14);
-    puVar15[0xc6] = *(uint *)(&DAT_801110bc + DAT_80112788 * 0x14);
-    puVar8 = _DAT_1f800000;
-    puVar6 = puVar15 + 0xb9;
-    *(undefined2 *)(puVar15 + 199) = *(undefined2 *)(&DAT_80110ca8 + (DAT_80112788 + 0x35) * 0x14);
+    *(short *)(puVar18 + 0xbd) = (&HudPmx_gShapes)[DashHUD_gInfo.position + 0x2c].width;
+    puVar18[0xc6] = *(uint *)&(&HudPmx_tShape_801110bc)[DashHUD_gInfo.opponents].pixmap;
+    puVar8 = DAT_1f800000;
+    puVar6 = puVar18 + 0xb9;
+    *(short *)(puVar18 + 199) = (&HudPmx_gShapes)[DashHUD_gInfo.opponents + 0x35].width;
     do {
       iVar9 = iVar9 + 1;
       *puVar6 = *puVar6 & 0xff000000 | *puVar8 & 0xffffff;
       *puVar8 = *puVar8 & 0xff000000 | (uint)puVar6 & 0xffffff;
       puVar6 = puVar6 + 5;
     } while (iVar9 < 0x28);
-    if ((&DAT_8011363c)[iVar9 * 0x2d] != 0) {
+    if (GameSetup_gData.carInfo[iVar9].HudMap != 0) {
       Hud_GoTpage__Fi(0);
-      puVar8 = _DAT_1f800000;
-      puVar15[200] = puVar15[200] & 0xff000000 | *_DAT_1f800000 & 0xffffff;
-      *puVar8 = *puVar8 & 0xff000000 | (uint)(puVar15 + 200) & 0xffffff;
+      puVar8 = DAT_1f800000;
+      puVar18[200] = puVar18[200] & 0xff000000 | *DAT_1f800000 & 0xffffff;
+      *puVar8 = *puVar8 & 0xff000000 | (uint)(puVar18 + 200) & 0xffffff;
       Hud_GoTpage__Fi(1);
     }
   }
   Hud_GoTpage__Fi(0);
-  puVar8 = _DAT_1f800000;
-  if ((&DAT_80113638)[player * 0x2d] == 0) goto LAB_800d5640;
-  if (true) {
-    puVar6 = puVar15 + 0xf0;
-    puVar15[0xf0] = puVar15[0xf0] & 0xff000000 | *_DAT_1f800000 & 0xffffff;
+  puVar8 = DAT_1f800000;
+  if (GameSetup_gData.carInfo[player].HudTach == 0) goto LAB_800d5640;
+  if (DashHUD_gInfo.gear == 0) {
+    puVar6 = puVar18 + 0xf0;
+    puVar18[0xf0] = puVar18[0xf0] & 0xff000000 | *DAT_1f800000 & 0xffffff;
 LAB_800d551c:
     *puVar8 = *puVar8 & 0xff000000 | (uint)puVar6 & 0xffffff;
   }
   else {
-    if (false) {
-      puVar6 = puVar15 + 0xeb;
-      puVar15[0xeb] = puVar15[0xeb] & 0xff000000 | *_DAT_1f800000 & 0xffffff;
+    if (DashHUD_gInfo.gear == 1) {
+      puVar6 = puVar18 + 0xeb;
+      puVar18[0xeb] = puVar18[0xeb] & 0xff000000 | *DAT_1f800000 & 0xffffff;
       goto LAB_800d551c;
     }
-    puVar15[0xc3] = puVar15[0xc3] & 0xff000000 | *_DAT_1f800000 & 0xffffff;
-    *puVar8 = *puVar8 & 0xff000000 | (uint)(puVar15 + 0xc3) & 0xffffff;
+    (puVar18 + DashHUD_gInfo.gear * 5)[0xc3] =
+         (puVar18 + DashHUD_gInfo.gear * 5)[0xc3] & 0xff000000 | *DAT_1f800000 & 0xffffff;
+    *puVar8 = *puVar8 & 0xff000000 | (uint)(puVar18 + DashHUD_gInfo.gear * 5 + 0xc3) & 0xffffff;
   }
-  puVar8 = _DAT_1f800000;
-  if ((&DAT_80113630)[player * 0x2d] == 0) {
-    puVar6 = puVar15 + 0xfa;
-    puVar15[0xfa] = puVar15[0xfa] & 0xff000000 | *_DAT_1f800000 & 0xffffff;
+  puVar8 = DAT_1f800000;
+  if (GameSetup_gData.carInfo[player].HudSpeed == 0) {
+    puVar6 = puVar18 + 0xfa;
+    puVar18[0xfa] = puVar18[0xfa] & 0xff000000 | *DAT_1f800000 & 0xffffff;
   }
   else {
-    puVar6 = puVar15 + 0xf5;
-    puVar15[0xf5] = puVar15[0xf5] & 0xff000000 | *_DAT_1f800000 & 0xffffff;
+    puVar6 = puVar18 + 0xf5;
+    puVar18[0xf5] = puVar18[0xf5] & 0xff000000 | *DAT_1f800000 & 0xffffff;
   }
   *puVar8 = *puVar8 & 0xff000000 | (uint)puVar6 & 0xffffff;
 LAB_800d5640:
   Hud_GoTpage__Fi(1);
-  if ((&DAT_80113638)[player * 0x2d] != 0) {
-    iVar9 = fixedmult((&DAT_80113634)[player * 0x2d],DAT_8011277c);
-    prim = _DAT_1f800004;
-    puVar8 = _DAT_1f800000;
-    if (iVar9 < 0) {
-      iVar9 = iVar9 + 0xffff;
+  if (GameSetup_gData.carInfo[player].HudTach != 0) {
+    uVar7 = fixedmult(GameSetup_gData.carInfo[player].HudSpeedMult,DashHUD_gInfo.speed);
+    prim = DAT_1f800004;
+    puVar8 = DAT_1f800000;
+    if ((int)uVar7 < 0) {
+      uVar7 = uVar7 + 0xffff;
     }
-    iVar10 = iVar9 >> 0x10;
-    iVar14 = (int)*(short *)(iGp000018b8 + 4) + (int)*(short *)(iGp000018b8 + 0x30);
-    x = iVar14 + 6;
-    puVar3 = &_DAT_1f800004->tag;
-    sVar1 = *(short *)(iGp000018b8 + 0x32);
-    sVar2 = *(short *)(iGp000018b8 + 6);
-    uVar11 = (uint)_DAT_1f800004 & 0xffffff;
-    puVar4 = &_DAT_1f800004->tag;
-    _DAT_1f800004 = _DAT_1f800004 + 1;
-    *puVar4 = *puVar3 & 0xff000000 | *_DAT_1f800000 & 0xffffff;
+    iVar10 = (int)uVar7 >> 0x10;
+    iVar9 = (int)HudPmx_tShape_8011101c.width;
+    iVar12 = (int)HudPmx_tShape_80111094.width;
+    iVar16 = (int)HudPmx_tShape_80111008.width + 1;
+    x = iVar16 * 2 + (int)*(short *)(DAT_000018b8 + 4) + (int)*(short *)(DAT_000018b8 + 0x30) + 4;
+    puVar3 = &DAT_1f800004->tag;
+    sVar1 = *(short *)(DAT_000018b8 + 0x32);
+    sVar2 = *(short *)(DAT_000018b8 + 6);
+    uVar11 = (uint)DAT_1f800004 & 0xffffff;
+    puVar4 = &DAT_1f800004->tag;
+    DAT_1f800004 = DAT_1f800004 + 1;
+    *puVar4 = *puVar3 & 0xff000000 | *DAT_1f800000 & 0xffffff;
     y = (int)sVar2 + (int)sVar1 + y;
     *puVar8 = *puVar8 & 0xff000000 | uVar11;
-    iVar7 = (iVar10 / 10 + (iVar10 >> 0x1f)) - (iVar9 >> 0x1f);
-    iVar9 = (iVar10 / 100 + (iVar10 >> 0x1f)) - (iVar9 >> 0x1f);
-    iVar16 = iVar7 + iVar9 * -10;
+    iVar17 = iVar16 + iVar9 >> 1;
+    iVar9 = (iVar10 / 10 + (iVar10 >> 0x1f)) - ((int)uVar7 >> 0x1f);
+    iVar14 = (iVar10 / 100 + (iVar10 >> 0x1f)) - ((int)uVar7 >> 0x1f);
+    iVar19 = iVar9 + iVar14 * -10;
     Hud_BuildGT4__FP8POLY_GT4P13HudPmx_tShapeiiUl
-              (prim,(HudPmx_tShape *)(&DAT_80111008 + (iVar10 + iVar7 * -10) * 0x14),x,y,0xc8c8c8);
+              (prim,&HudPmx_tShape_80111008 + iVar10 + iVar9 * -10,x,y,0xc8c8c8);
     *(undefined4 *)&prim->r3 = 0x505050;
     *(undefined4 *)&prim->r2 = 0x505050;
-    prim = _DAT_1f800004;
-    puVar8 = _DAT_1f800000;
-    if ((iVar16 != 1) && (iVar16 != 7)) {
-      x = iVar14 + 5;
+    prim = DAT_1f800004;
+    puVar8 = DAT_1f800000;
+    if (iVar19 == 1) {
+      x = x - iVar17;
     }
-    if ((iVar9 != 0) || (iVar16 != 0)) {
-      _DAT_1f800004->tag = _DAT_1f800004->tag & 0xff000000 | *_DAT_1f800000 & 0xffffff;
-      uVar11 = (uint)_DAT_1f800004 & 0xffffff;
-      _DAT_1f800004 = _DAT_1f800004 + 1;
-      *puVar8 = *puVar8 & 0xff000000 | uVar11;
+    else {
+      if (iVar19 == 7) {
+        x = x - (iVar16 + iVar12 >> 1);
+      }
+      else {
+        x = x - iVar16;
+      }
+    }
+    if ((iVar14 != 0) || (iVar19 != 0)) {
+      DAT_1f800004->tag = DAT_1f800004->tag & 0xff000000 | *DAT_1f800000 & 0xffffff;
+      uVar7 = (uint)DAT_1f800004 & 0xffffff;
+      DAT_1f800004 = DAT_1f800004 + 1;
+      *puVar8 = *puVar8 & 0xff000000 | uVar7;
       Hud_BuildGT4__FP8POLY_GT4P13HudPmx_tShapeiiUl
-                (prim,(HudPmx_tShape *)(&DAT_80111008 + iVar16 * 0x14),x,y,0xc8c8c8);
+                (prim,&HudPmx_tShape_80111008 + iVar19,x,y,0xc8c8c8);
       *(undefined4 *)&prim->r3 = 0x505050;
       *(undefined4 *)&prim->r2 = 0x505050;
     }
-    prim = _DAT_1f800004;
-    puVar8 = _DAT_1f800000;
-    if (iVar16 == 1) {
-      x = x + -1;
+    prim = DAT_1f800004;
+    puVar8 = DAT_1f800000;
+    if (iVar19 == 1) {
+      x = x - (iVar16 - iVar17);
     }
-    sVar1 = *(short *)(&DAT_80110ca8 + (iVar9 + 0x2c) * 0x14);
-    if (iVar9 != 0) {
-      _DAT_1f800004->tag = _DAT_1f800004->tag & 0xff000000 | *_DAT_1f800000 & 0xffffff;
-      uVar11 = (uint)_DAT_1f800004 & 0xffffff;
-      _DAT_1f800004 = _DAT_1f800004 + 1;
-      *puVar8 = *puVar8 & 0xff000000 | uVar11;
+    sVar1 = (&HudPmx_gShapes)[iVar14 + 0x2c].width;
+    if (iVar14 != 0) {
+      DAT_1f800004->tag = DAT_1f800004->tag & 0xff000000 | *DAT_1f800000 & 0xffffff;
+      uVar7 = (uint)DAT_1f800004 & 0xffffff;
+      DAT_1f800004 = DAT_1f800004 + 1;
+      *puVar8 = *puVar8 & 0xff000000 | uVar7;
       Hud_BuildGT4__FP8POLY_GT4P13HudPmx_tShapeiiUl
-                (prim,(HudPmx_tShape *)(&DAT_80111008 + iVar9 * 0x14),(x + -1) - (int)sVar1,y,
-                 0xc8c8c8);
+                (prim,&HudPmx_tShape_80111008 + iVar14,(x + -1) - (int)sVar1,y,0xc8c8c8);
       *(undefined4 *)&prim->r3 = 0x505050;
       *(undefined4 *)&prim->r2 = 0x505050;
     }
   }
-  puVar8 = _DAT_1f800000;
-  if (((&DAT_8011275c)[player] != 0) && (false)) {
-    *puVar15 = *puVar15 & 0xff000000 | *_DAT_1f800000 & 0xffffff;
-    *puVar8 = *puVar8 & 0xff000000 | (uint)puVar15 & 0xffffff;
+  puVar8 = DAT_1f800000;
+  if ((DashHUD_gInfo.wrongway[player] != 0) && ((simGlobal.gameTicks >> 5 & 1U) != 0)) {
+    *puVar18 = *puVar18 & 0xff000000 | *DAT_1f800000 & 0xffffff;
+    *puVar8 = *puVar8 & 0xff000000 | (uint)puVar18 & 0xffffff;
   }
   return;
-
-
 }
-
 
 
 
@@ -2425,45 +2481,45 @@ LAB_800d5640:
 	// End offset: 0x800D5AE0
 	// End Line: 1927
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Hud_InitMap__Fv(void)
+
 {
   int iVar1;
-  int iVar2;
+  Car_tObj *pCVar2;
   int iVar3;
-  int *piVar4;
-  undefined4 *puVar5;
+  Car_tObj **ppCVar4;
+  CVECTOR *pCVar5;
   
   iVar1 = Cars_gNumRaceCars;
   iVar3 = 0;
   if (0 < Cars_gNumRaceCars) {
-    puVar5 = &Hud_gMarkerColor;
-    piVar4 = &_Cars_gRaceCarList;
+    pCVar5 = &Hud_gMarkerColor;
+    ppCVar4 = &__Cars_gRaceCarList_9__;
     do {
-      iVar2 = *piVar4;
-      piVar4 = piVar4 + 1;
+      pCVar2 = *ppCVar4;
+      ppCVar4 = ppCVar4 + 1;
       iVar3 = iVar3 + 1;
-      *puVar5 = *(undefined4 *)(*(int *)(iVar2 + 0x288) + 0x94);
-      puVar5 = puVar5 + 1;
+      *pCVar5 = *(CVECTOR *)&pCVar2->carInfo->HudColour;
+      pCVar5 = pCVar5 + 1;
     } while (iVar3 < iVar1);
   }
   iVar1 = Cars_gNumCopCars;
   iVar3 = 0;
   if (0 < Cars_gNumCopCars) {
-    puVar5 = &Hud_gCopMarkerColor;
-    piVar4 = &_Cars_gCopCarList;
+    pCVar5 = &Hud_gCopMarkerColor;
+    ppCVar4 = &__Cars_gCopCarList_9__;
     do {
-      iVar2 = *piVar4;
-      piVar4 = piVar4 + 1;
+      pCVar2 = *ppCVar4;
+      ppCVar4 = ppCVar4 + 1;
       iVar3 = iVar3 + 1;
-      *puVar5 = *(undefined4 *)(*(int *)(iVar2 + 0x288) + 0x94);
-      puVar5 = puVar5 + 1;
+      *pCVar5 = *(CVECTOR *)&pCVar2->carInfo->HudColour;
+      pCVar5 = pCVar5 + 1;
     } while (iVar3 < iVar1);
   }
   return;
-
-
 }
-
 
 
 
@@ -2550,147 +2606,144 @@ void Hud_InitMap__Fv(void)
 	// End Line: 2134
 
 void Hud_BuildMapMarkers__Fi(int player)
+
 {
-  uint *puVar1;
+  int iVar1;
+  uint *puVar2;
   SPRT *sprt;
-  int iVar2;
   int iVar3;
-  int shapeIdx;
-  ulong color;
-  int *piVar4;
+  uint uVar4;
   uint uVar5;
-  int iVar6;
-  int *piVar7;
-  ulong *puVar8;
-  int iVar9;
+  CVECTOR color;
+  uint uVar6;
+  int iVar7;
+  Car_tObj **ppCVar8;
+  CVECTOR *pCVar9;
   int iVar10;
+  int shapeIdx;
   int iVar11;
   
-  iVar2 = iGp00001430;
-  iVar9 = 0;
-  piVar7 = &_Cars_gCopCarList;
-  iVar3 = iGp00001434 + 2;
-  while (iVar9 < Cars_gNumCopCars) {
-    if (*(char *)(*piVar7 + 0x91) != '\0') {
-      piVar4 = (int *)((int)*(short *)(*piVar7 + 8) * 0x20);
-      iVar6 = *piVar4;
-      iVar10 = iVar6 / iGp00001428;
-      if (iGp00001428 == 0) {
+  iVar1 = DAT_00001430;
+  iVar10 = 0;
+  ppCVar8 = &__Cars_gCopCarList_9__;
+  iVar3 = DAT_00001434 + 2;
+  while (iVar10 < Cars_gNumCopCars) {
+    if (((*ppCVar8)->N).active != '\0') {
+      iVar7 = BWorldSm_slices[(int)((*ppCVar8)->N).simRoadInfo.slice].center[0];
+      shapeIdx = iVar7 / DAT_00001428;
+      if (DAT_00001428 == 0) {
         trap(0x1c00);
       }
-      if ((iGp00001428 == -1) && (iVar6 == -0x80000000)) {
+      if ((DAT_00001428 == -1) && (iVar7 == -0x80000000)) {
         trap(0x1800);
       }
-      iVar6 = piVar4[2];
-      iVar11 = iVar6 / iGp0000142c;
-      if (iGp0000142c == 0) {
+      iVar7 = BWorldSm_slices[(int)((*ppCVar8)->N).simRoadInfo.slice].center[2];
+      iVar11 = iVar7 / DAT_0000142c;
+      if (DAT_0000142c == 0) {
         trap(0x1c00);
       }
-      if ((iGp0000142c == -1) && (iVar6 == -0x80000000)) {
+      if ((DAT_0000142c == -1) && (iVar7 == -0x80000000)) {
         trap(0x1800);
       }
-      shapeIdx = fixedmult(uGp000013fc,iVar10);
-      iVar6 = fixedmult(uGp00001400,iVar11);
-      iVar6 = (iVar2 + shapeIdx) - iVar6;
-      iVar10 = fixedmult(uGp00001400,iVar10);
-      iVar11 = fixedmult(uGp000013fc,iVar11);
-      sprt = _DAT_1f800004;
-      puVar1 = _DAT_1f800000;
-      if (false) {
-        iVar6 = -iVar6;
+      uVar4 = fixedmult(DAT_000013fc,shapeIdx);
+      uVar5 = fixedmult(DAT_00001400,iVar11);
+      iVar7 = (iVar1 + uVar4) - uVar5;
+      uVar4 = fixedmult(DAT_00001400,shapeIdx);
+      uVar5 = fixedmult(DAT_000013fc,iVar11);
+      sprt = DAT_1f800004;
+      puVar2 = DAT_1f800000;
+      if (GameSetup_gData.mirrorTrack != 0) {
+        iVar7 = -iVar7;
       }
-      _DAT_1f800004->tag = _DAT_1f800004->tag & 0xff000000 | *_DAT_1f800000 & 0xffffff;
-      *puVar1 = *puVar1 & 0xff000000 | (uint)_DAT_1f800004 & 0xffffff;
-      _DAT_1f800004 = _DAT_1f800004 + 1;
-      if ((*(uint *)(*piVar7 + 0x570) & 2) == 0) {
-        uGp000018c8 = (&Hud_gCopMarkerColor)[iVar9];
+      DAT_1f800004->tag = DAT_1f800004->tag & 0xff000000 | *DAT_1f800000 & 0xffffff;
+      *puVar2 = *puVar2 & 0xff000000 | (uint)DAT_1f800004 & 0xffffff;
+      DAT_1f800004 = DAT_1f800004 + 1;
+      if ((((*ppCVar8)->speechInfo).speechSource & 2) == 0) {
+        DAT_000018c8 = (&Hud_gCopMarkerColor)[iVar10];
       }
       else {
-        uGp000018c8 = 0xff;
-        if ((gFlip == 0) && (uGp000018c8 = 0xff, DAT_8011e0d4 == 0)) {
-          uGp000018c8 = 0xff0000;
+        DAT_000018c8 = (CVECTOR)0xff;
+        if ((gFlip == 0) && (DAT_000018c8 = (CVECTOR)0xff, simVar.quickPauseSim == 0)) {
+          DAT_000018c8 = (CVECTOR)0xff0000;
         }
       }
       Hud_BuildSprite__FP4SPRTiiiUli
-                (sprt,0x7a,iVar6 + 0x14U & 0xffff,0x18U - (iVar3 + iVar10 + iVar11) & 0xffff,
-                 uGp000018c8,0);
+                (sprt,0x7a,iVar7 + 0x14U & 0xffff,0x18 - (iVar3 + uVar4 + uVar5) & 0xffff,
+                 (ulong)DAT_000018c8,0);
     }
-    piVar7 = piVar7 + 1;
-    iVar9 = iVar9 + 1;
+    ppCVar8 = ppCVar8 + 1;
+    iVar10 = iVar10 + 1;
   }
-  iVar9 = 0;
-  puVar8 = &Hud_gMarkerColor;
-  piVar7 = &_Cars_gRaceCarList;
-  while (iVar9 < Cars_gNumRaceCars) {
-    if (*(char *)(*piVar7 + 0x91) != '\0') {
-      piVar4 = (int *)((int)*(short *)(*piVar7 + 8) * 0x20);
-      iVar6 = *piVar4;
-      iVar10 = iVar6 / iGp00001428;
-      if (iGp00001428 == 0) {
+  iVar10 = 0;
+  pCVar9 = &Hud_gMarkerColor;
+  ppCVar8 = &__Cars_gRaceCarList_9__;
+  while (iVar10 < Cars_gNumRaceCars) {
+    if (((*ppCVar8)->N).active != '\0') {
+      iVar7 = BWorldSm_slices[(int)((*ppCVar8)->N).simRoadInfo.slice].center[0];
+      shapeIdx = iVar7 / DAT_00001428;
+      if (DAT_00001428 == 0) {
         trap(0x1c00);
       }
-      if ((iGp00001428 == -1) && (iVar6 == -0x80000000)) {
+      if ((DAT_00001428 == -1) && (iVar7 == -0x80000000)) {
         trap(0x1800);
       }
-      iVar6 = piVar4[2];
-      iVar11 = iVar6 / iGp0000142c;
-      if (iGp0000142c == 0) {
+      iVar7 = BWorldSm_slices[(int)((*ppCVar8)->N).simRoadInfo.slice].center[2];
+      iVar11 = iVar7 / DAT_0000142c;
+      if (DAT_0000142c == 0) {
         trap(0x1c00);
       }
-      if ((iGp0000142c == -1) && (iVar6 == -0x80000000)) {
+      if ((DAT_0000142c == -1) && (iVar7 == -0x80000000)) {
         trap(0x1800);
       }
-      shapeIdx = fixedmult(uGp000013fc,iVar10);
-      iVar6 = fixedmult(uGp00001400,iVar11);
-      iVar6 = (iVar2 + shapeIdx) - iVar6;
-      iVar10 = fixedmult(uGp00001400,iVar10);
-      iVar11 = fixedmult(uGp000013fc,iVar11);
-      sprt = _DAT_1f800004;
-      puVar1 = _DAT_1f800000;
-      if (false) {
-        iVar6 = -iVar6;
+      uVar4 = fixedmult(DAT_000013fc,shapeIdx);
+      uVar5 = fixedmult(DAT_00001400,iVar11);
+      iVar7 = (iVar1 + uVar4) - uVar5;
+      uVar4 = fixedmult(DAT_00001400,shapeIdx);
+      uVar5 = fixedmult(DAT_000013fc,iVar11);
+      sprt = DAT_1f800004;
+      puVar2 = DAT_1f800000;
+      if (GameSetup_gData.mirrorTrack != 0) {
+        iVar7 = -iVar7;
       }
-      _DAT_1f800004->tag = _DAT_1f800004->tag & 0xff000000 | *_DAT_1f800000 & 0xffffff;
-      *puVar1 = *puVar1 & 0xff000000 | (uint)_DAT_1f800004 & 0xffffff;
-      uVar5 = *(uint *)(*piVar7 + 0x260);
-      _DAT_1f800004 = _DAT_1f800004 + 1;
-      if ((uVar5 & 0x200) == 0) {
-        if ((uVar5 & 4) == 0) {
+      DAT_1f800004->tag = DAT_1f800004->tag & 0xff000000 | *DAT_1f800000 & 0xffffff;
+      *puVar2 = *puVar2 & 0xff000000 | (uint)DAT_1f800004 & 0xffffff;
+      uVar6 = (*ppCVar8)->carFlags;
+      DAT_1f800004 = DAT_1f800004 + 1;
+      if ((uVar6 & 0x200) == 0) {
+        if ((uVar6 & 4) == 0) {
           shapeIdx = 0x7a;
-          uVar5 = iVar6 + 0x14;
+          uVar6 = iVar7 + 0x14;
         }
         else {
           shapeIdx = 0x79;
-          uVar5 = iVar6 + 0x13;
+          uVar6 = iVar7 + 0x13;
         }
-        color = *puVar8;
+        color = *pCVar9;
       }
       else {
-        if ((*(uint *)(*piVar7 + 0x570) & 2) == 0) {
-          color = *puVar8;
+        if ((((*ppCVar8)->speechInfo).speechSource & 2) == 0) {
+          color = *pCVar9;
         }
         else {
-          color = 0xff;
-          if ((gFlip == 0) && (color = 0xff, DAT_8011e0d4 == 0)) {
-            color = 0xff0000;
+          color = (CVECTOR)0xff;
+          if ((gFlip == 0) && (color = (CVECTOR)0xff, simVar.quickPauseSim == 0)) {
+            color = (CVECTOR)0xff0000;
           }
         }
         shapeIdx = 0x79;
-        uVar5 = iVar6 + 0x13;
-        uGp000018c8 = color;
+        uVar6 = iVar7 + 0x13;
+        DAT_000018c8 = color;
       }
       Hud_BuildSprite__FP4SPRTiiiUli
-                (sprt,shapeIdx,uVar5 & 0xffff,0x18U - (iVar3 + iVar10 + iVar11) & 0xffff,color,0);
+                (sprt,shapeIdx,uVar6 & 0xffff,0x18 - (iVar3 + uVar4 + uVar5) & 0xffff,(ulong)color,0
+                );
     }
-    puVar8 = puVar8 + 1;
-    piVar7 = piVar7 + 1;
-    iVar9 = iVar9 + 1;
+    pCVar9 = pCVar9 + 1;
+    ppCVar8 = ppCVar8 + 1;
+    iVar10 = iVar10 + 1;
   }
   return;
-
-
 }
-
 
 
 
@@ -2734,20 +2787,18 @@ void Hud_BuildMapMarkers__Fi(int player)
 	// End Line: 2158
 
 void Hud_WingmanFlash__Fii(int player,int index)
+
 {
-  if ((Replay_ReplayMode < 2) && (iGp000013dc == 0)) {
+  if ((Replay_ReplayMode < 2) && (DAT_000013dc == 0)) {
     if ((&Hud_gWingmanInterface)[player] != '\x01') {
       Hud_InitMapFrame__Fii(player,1);
       (&Hud_gWingmanInterface)[player] = '\x01';
     }
     (&Hud_gWingmanFlashIcon)[player] = (char)index;
-    (&Hud_gWingmanFlashTicks)[player] = ticks + 100;
+    *(uchar **)(&Hud_gWingmanFlashTicks + player) = ticks + 100;
   }
   return;
-
-
 }
-
 
 
 
@@ -2806,6 +2857,7 @@ void Hud_WingmanFlash__Fii(int player,int index)
 	// End Line: 2196
 
 void Hud_BuildWingmanInterface__Fi(int player)
+
 {
   uint *puVar1;
   POLY_F4 *prim;
@@ -2821,26 +2873,26 @@ void Hud_BuildWingmanInterface__Fi(int player)
   if (player != 0) {
     x = -0xf;
   }
-  iVar4 = (&Hud_gWingmanFlashTicks)[player] - ticks;
-  iVar3 = (int)sRam00000038;
-  y_00 = (int)sRam0000003a + x + 2;
+  iVar4 = (&Hud_gWingmanFlashTicks)[player] - (int)ticks;
+  iVar3 = (int)*(short *)(iGp000018b8 + 0x38);
+  y_00 = (int)*(short *)(iGp000018b8 + 0x3a) + iGp00001420 + x + 2;
   str = TextSys_Word__Fi(0x29);
   x = iVar3 + -0x1b;
-  Hud_BuildString__FPciiiib(str,x,y_00 + 3,0x808080,0,0);
+  Hud_BuildString__FPciiiib(str,x,y_00 + 3,0x808080,0,(void *)0x0);
   str = TextSys_Word__Fi(0x2a);
-  Hud_BuildString__FPciiiib(str,x,y_00 + 0xc,0x808080,player,0);
+  Hud_BuildString__FPciiiib(str,x,y_00 + 0xc,0x808080,player,(void *)0x0);
   str = TextSys_Word__Fi(0x2b);
-  Hud_BuildString__FPciiiib(str,x,y_00 + 0x15,0x808080,player,0);
+  Hud_BuildString__FPciiiib(str,x,y_00 + 0x15,0x808080,player,(void *)0x0);
   str = TextSys_Word__Fi(0x2c);
-  Hud_BuildString__FPciiiib(str,x,y_00 + 0x1e,0x808080,player,0);
+  Hud_BuildString__FPciiiib(str,x,y_00 + 0x1e,0x808080,player,(void *)0x0);
   str = TextSys_Word__Fi(0x2d);
-  Hud_BuildString__FPciiiib(str,x,y_00 + 0x27,0x808080,player,0);
-  prim = _DAT_1f800004;
-  puVar1 = _DAT_1f800000;
+  Hud_BuildString__FPciiiib(str,x,y_00 + 0x27,0x808080,player,(void *)0x0);
+  prim = DAT_1f800004;
+  puVar1 = DAT_1f800000;
   if (0 < iVar4) {
-    _DAT_1f800004->tag = _DAT_1f800004->tag & 0xff000000 | *_DAT_1f800000 & 0xffffff;
-    uVar2 = (uint)_DAT_1f800004 & 0xffffff;
-    _DAT_1f800004 = _DAT_1f800004 + 1;
+    DAT_1f800004->tag = DAT_1f800004->tag & 0xff000000 | *DAT_1f800000 & 0xffffff;
+    uVar2 = (uint)DAT_1f800004 & 0xffffff;
+    DAT_1f800004 = DAT_1f800004 + 1;
     *puVar1 = *puVar1 & 0xff000000 | uVar2;
     Hud_BuildF4__FP7POLY_F4iiiiiUl
               (prim,0,iVar3 + -0x10,
@@ -2850,29 +2902,26 @@ void Hud_BuildWingmanInterface__Fi(int player)
   iVar4 = 0;
   x = 2;
   do {
-    prim = _DAT_1f800004;
-    puVar1 = _DAT_1f800000;
+    prim = DAT_1f800004;
+    puVar1 = DAT_1f800000;
     y = y_00 + x;
     x = x + 9;
     iVar4 = iVar4 + 1;
-    _DAT_1f800004->tag = _DAT_1f800004->tag & 0xff000000 | *_DAT_1f800000 & 0xffffff;
-    uVar2 = (uint)_DAT_1f800004 & 0xffffff;
-    _DAT_1f800004 = _DAT_1f800004 + 1;
+    DAT_1f800004->tag = DAT_1f800004->tag & 0xff000000 | *DAT_1f800000 & 0xffffff;
+    uVar2 = (uint)DAT_1f800004 & 0xffffff;
+    DAT_1f800004 = DAT_1f800004 + 1;
     *puVar1 = *puVar1 & 0xff000000 | uVar2;
     Hud_BuildF4__FP7POLY_F4iiiiiUl(prim,0,iVar3 + -0x1c,y,0x4b,7,0);
-    prim = _DAT_1f800004;
-    puVar1 = _DAT_1f800000;
+    prim = DAT_1f800004;
+    puVar1 = DAT_1f800000;
   } while (iVar4 < 5);
-  _DAT_1f800004->tag = _DAT_1f800004->tag & 0xff000000 | *_DAT_1f800000 & 0xffffff;
-  uVar2 = (uint)_DAT_1f800004 & 0xffffff;
-  _DAT_1f800004 = _DAT_1f800004 + 1;
+  DAT_1f800004->tag = DAT_1f800004->tag & 0xff000000 | *DAT_1f800000 & 0xffffff;
+  uVar2 = (uint)DAT_1f800004 & 0xffffff;
+  DAT_1f800004 = DAT_1f800004 + 1;
   *puVar1 = *puVar1 & 0xff000000 | uVar2;
   Hud_BuildF4__FP7POLY_F4iiiiiUl(prim,1,iVar3 + -0x1c,y_00,0x4b,0x30,0);
   return;
-
-
 }
-
 
 
 
@@ -2887,17 +2936,17 @@ void Hud_BuildWingmanInterface__Fi(int player)
 	// End offset: 0x800D63B8
 	// End Line: 2220
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Hud_InitCdPlayer__Fv(void)
+
 {
-  Hud_gCdActive = 0;
-  Hud_ActivateCDPlayer = (uint)(Replay_ReplayMode < 2);
-  Hud_gCdLastTick = 0;
-  Hud_gCdScrollTitle = 0;
+  uGp000013e0 = 0;
+  uGp000013e4 = (uint)(Replay_ReplayMode < 2);
+  uGp00001438 = 0;
+  uGp0000143c = 0;
   return;
-
-
 }
-
 
 
 
@@ -2915,7 +2964,7 @@ void Hud_InitCdPlayer__Fv(void)
 	// 		int time; // $s5
 	// 		char *title; // $s1
 	// 		char *artist; // $s0
-	// 		static unsigned int keepup; // offset 0x64
+	// 		static void * keepup; // offset 0x64
 	// 		int tx; // $a1
 	// 		int dx; // $s3
 	// 		int w; // $v1
@@ -3116,22 +3165,23 @@ void Hud_InitCdPlayer__Fv(void)
 	// End Line: 2485
 
 void Hud_BuildCdPlayer__Fii(int type)
+
 {
-  bool bVar1;
-  ushort uVar2;
+  short sVar1;
+  bool bVar2;
+  ushort uVar3;
   int y;
-  AudioMus_tCurrentSong *pAVar3;
-  int x;
-  int iVar4;
-  byte *pbVar5;
-  int wordnum;
+  AudioMus_tCurrentSong *pAVar4;
+  int iVar5;
   byte *pbVar6;
+  int wordnum;
+  byte *pbVar7;
   char *__s;
   byte *__s_00;
+  int y_00;
   int w;
   int local_b8;
-  int iVar7;
-  int x_00;
+  int x;
   char acStack168 [8];
   byte local_a0 [32];
   char acStack128 [32];
@@ -3139,85 +3189,88 @@ void Hud_BuildCdPlayer__Fii(int type)
   char acStack64 [17];
   undefined local_2f;
   
-  x = (int)sRam0000003c;
-  y = (int)sRam0000003e;
-  x_00 = x + 2;
+  sVar1 = *(short *)(iGp000018b8 + 0x3c);
+  y = (int)*(short *)(iGp000018b8 + 0x3e);
+  x = (int)sVar1 + 2;
   if (type == 0) {
-    DAT_8013d900 = 1;
+    iGp000013b4 = 1;
   }
-  w = 0;
+  y_00 = 0;
   local_2f = 0;
-  pAVar3 = AudioMus_GetCurrentSong__Fv();
-  if (pAVar3 == (AudioMus_tCurrentSong *)0x0) {
+  pAVar4 = AudioMus_GetCurrentSong__Fv();
+  if (pAVar4 == (AudioMus_tCurrentSong *)0x0) {
     return;
   }
-  if (Hud_gCdActive == 0) {
-    bVar1 = false;
-    if ((((true) || ((countdown < 4 && (true)))) ||
-        ((uVar2 = PAD_state(4), (uVar2 & 0x400) != 0 && (DashHUD_gInfo != 0)))) ||
-       ((uVar2 = PAD_state(0), (uVar2 & 0x400) != 0 && ((true || (DashHUD_gInfo != 0)))))) {
-      bVar1 = true;
+  if (iGp000013e0 == 0) {
+    bVar2 = false;
+    if ((((simGlobal.gameTicks < 0x240) || (((byte)countdown < 4 && (iGp000013f0 == 0)))) ||
+        ((uVar3 = PAD_state(4), (uVar3 & 0x400) != 0 && (DashHUD_gInfo.splitscreen != 0)))) ||
+       ((uVar3 = PAD_state(0), (uVar3 & 0x400) != 0 &&
+        ((iGp000013f0 == 0 || (DashHUD_gInfo.splitscreen != 0)))))) {
+      bVar2 = true;
     }
-    if ((bVar1) ||
-       ((((DAT_8013e8a1 == '#' && (0xbf < DAT_8013e8a7)) && ((true || (DashHUD_gInfo != 0)))) ||
-        (((DAT_8013e8c1 == '#' && (0xbf < DAT_8013e8c7)) && (DashHUD_gInfo != 0)))))) {
-      Hud_gCdActive = 1;
-      Hud_ActivateCDPlayer = 1;
+    if ((bVar2) ||
+       ((((gPadinfo.buf[0].ID == '#' && (0xbf < gPadinfo.buf[0].data._5_1_)) &&
+         ((iGp000013f0 == 0 || (DashHUD_gInfo.splitscreen != 0)))) ||
+        (((gPadinfo.buf[4].ID == '#' && (0xbf < gPadinfo.buf[4].data._5_1_)) &&
+         (DashHUD_gInfo.splitscreen != 0)))))) {
+      iGp000013e0 = 1;
+      iGp000013e4 = 1;
     }
   }
-  if (Hud_ActivateCDPlayer != 0) {
-    if (false) {
-      Hud_gCdActive = 1;
+  if (iGp000013e4 != 0) {
+    if (iGp000013f0 != 0) {
+      iGp000013e0 = 1;
     }
-    Hud_ActivateCDPlayer = 0;
-    Hud_gCdScrollTitle = 1;
-    Hud_gCdLastTick = ticks;
+    iGp000013e4 = 0;
+    iGp0000143c = 1;
+    puGp00001438 = ticks;
     if (type == 0) {
-      DAT_8013d900 = 1;
+      iGp000013b4 = 1;
     }
     else {
-      DAT_8013d900 = 0;
+      iGp000013b4 = 0;
     }
   }
-  if (DAT_8013d900 != 0) {
+  if (iGp000013b4 != 0) {
     type = 0;
   }
-  iVar7 = pAVar3->remaining;
-  local_b8 = pAVar3->index;
+  local_b8 = pAVar4->remaining;
+  w = pAVar4->index;
   __s_00 = local_60;
-  if ((pAVar3->info).title == (char *)0x0) {
+  if ((pAVar4->info).title == (char *)0x0) {
     __s_00 = (byte *)0x0;
   }
   else {
-    sprintf((char *)__s_00,"%s");
+    sprintf((char *)__s_00,(char *)&PTR_DAT_8013d904);
   }
   __s = acStack128;
-  if ((pAVar3->info).artist == (char *)0x0) {
+  if ((pAVar4->info).artist == (char *)0x0) {
     __s = (char *)0x0;
   }
   else {
-    sprintf(__s,"%s");
+    sprintf(__s,(char *)&PTR_DAT_8013d904);
   }
   uppercase__FPc((char *)__s_00);
   if ((type == 0) && (__s != (char *)0x0)) {
     uppercase__FPc(__s);
   }
-  if (Hud_gCdActive == 0) {
-    Hud_kTurnSongOffNext = 1;
+  if (iGp000013e0 == 0) {
+    uGp000013f4 = 1;
     return;
   }
-  if (local_b8 < 1) {
-    if (local_b8 == 0) {
-      sprintf(acStack168,"- -");
+  if (w < 1) {
+    if (w == 0) {
+      sprintf(acStack168,(char *)&PTR_DAT_8013d910);
       wordnum = 0x44;
     }
     else {
-      if (local_b8 == -2) {
-        sprintf(acStack168,"- -");
+      if (w == -2) {
+        sprintf(acStack168,(char *)&PTR_DAT_8013d910);
         wordnum = 0x45;
       }
       else {
-        sprintf(acStack168,"- -");
+        sprintf(acStack168,(char *)&PTR_DAT_8013d910);
         __s = (char *)0x0;
         if (__s_00 != (byte *)0x0) goto LAB_800d6724;
         wordnum = 0x46;
@@ -3227,115 +3280,121 @@ void Hud_BuildCdPlayer__Fii(int type)
     __s_00 = (byte *)TextSys_Word__Fi(wordnum);
 LAB_800d6724:
     if (__s_00 == (byte *)0x0) {
-      DAT_8013d900 = 0;
-      Hud_gCdLastTick = ticks;
+      iGp000013b4 = 0;
+      puGp00001438 = ticks;
       goto LAB_800d68a4;
     }
   }
   else {
-    sprintf(acStack168,"%02d",local_b8);
+    sprintf(acStack168,&DAT_8013d908,w);
     if (__s_00 == (byte *)0x0) {
-      Hud_gCdScrollTitle = 1;
-      Hud_gCdLastTick = ticks;
+      iGp0000143c = 1;
+      puGp00001438 = ticks;
       goto LAB_800d6724;
     }
   }
-  w = Hud_BuildString__FPciiiib((char *)__s_00,0,0,0,0,1);
-  if (Hud_gCdScrollTitle < w + 0x4c) {
-    while (Hud_gCdLastTick < ticks) {
-      Hud_gCdScrollTitle = Hud_gCdScrollTitle + 1;
-      Hud_gCdLastTick = Hud_gCdLastTick + 4;
+  y_00 = Hud_BuildString__FPciiiib((char *)__s_00,0,0,0,0,&DAT_00000001);
+  if (iGp0000143c < y_00 + 0x4c) {
+    while ((int)puGp00001438 < (int)ticks) {
+      iGp0000143c = iGp0000143c + 1;
+      puGp00001438 = puGp00001438 + 4;
     }
   }
   else {
-    if (Hud_gCdLastTick + 0x80 < ticks) {
-      Hud_gCdActive = 0;
+    if ((int)(puGp00001438 + 0x80) < (int)ticks) {
+      iGp000013e0 = 0;
     }
   }
-  w = 0;
-  pbVar6 = local_a0;
-  wordnum = 0x4c - Hud_gCdScrollTitle;
+  y_00 = 0;
+  pbVar7 = local_a0;
+  wordnum = 0x4c - iGp0000143c;
   if (*__s_00 != 0) {
-    pbVar5 = __s_00;
+    pbVar6 = __s_00;
     do {
-      if ((int)(__s_00 + 0x3f) <= (int)pbVar5) break;
-      if (*pbVar5 == 0x20) {
-        iVar4 = 3;
+      if ((int)(__s_00 + 0x3f) <= (int)pbVar6) break;
+      if (*pbVar6 == 0x20) {
+        iVar5 = 3;
       }
       else {
-        if ((uint)*pbVar5 - 0x30 < 10) {
-          iVar4 = (uint)*pbVar5 + 0x6e;
+        if ((uint)*pbVar6 - 0x30 < 10) {
+          iVar5 = (uint)*pbVar6 + 0x6e;
         }
         else {
-          iVar4 = (uint)*pbVar5 + 0x43;
+          iVar5 = (uint)*pbVar6 + 0x43;
         }
-        iVar4 = (int)*(short *)(&DAT_80110ca8 + iVar4 * 0x14) + 1;
+        iVar5 = (int)(&HudPmx_gShapes)[iVar5].width + 1;
       }
-      if (0x4b < wordnum + iVar4) break;
+      if (0x4b < wordnum + iVar5) break;
       if (wordnum < 0) {
-        w = w + iVar4;
+        y_00 = y_00 + iVar5;
       }
       else {
-        *pbVar6 = *pbVar5;
-        pbVar6 = pbVar6 + 1;
+        *pbVar7 = *pbVar6;
+        pbVar7 = pbVar7 + 1;
       }
-      pbVar5 = pbVar5 + 1;
-      wordnum = wordnum + iVar4;
-    } while (*pbVar5 != 0);
+      pbVar6 = pbVar6 + 1;
+      wordnum = wordnum + iVar5;
+    } while (*pbVar6 != 0);
   }
-  *pbVar6 = 0;
+  *pbVar7 = 0;
 LAB_800d68a4:
   if (type == 0) {
     if (__s_00 == (byte *)0x0) {
       return;
     }
-    Hud_gShowedCDPlayer = 1;
+    uGp000018fc = 1;
     Hud_BuildString__FPciiiib
-              ((char *)local_a0,(x_00 + w + 10) - (Hud_gCdScrollTitle + -0x4c),y + 0xc,0xbebe,0,0);
+              ((char *)local_a0,(x + y_00 + 10) - (iGp0000143c + -0x4c),y + 0xc,(int)&DAT_0000bebe,0
+               ,(void *)0x0);
     if (__s != (char *)0x0) {
-      Hud_BuildString__FPciiiib(__s,x + 0xc,y + 0x15,0x808080,0,0);
+      Hud_BuildString__FPciiiib(__s,(int)sVar1 + 0xc,y + 0x15,0x808080,0,(void *)0x0);
     }
     Hud_GoTpage__Fi(0);
-    Hud_BlackThinBox__Fiiii((int)sRam0000003c + 10,(int)sRam0000003e + 10,0x50,0x12);
+    Hud_BlackThinBox__Fiiii
+              ((int)*(short *)(iGp000018b8 + 0x3c) + 10,(int)*(short *)(iGp000018b8 + 0x3e) + 10,
+               0x50,0x12);
     y = 0;
     w = 0x50;
     local_b8 = 0x12;
-    x = (int)sRam0000003c + 10;
-    x_00 = (int)sRam0000003e + 10;
+    x = (int)*(short *)(iGp000018b8 + 0x3c) + 10;
+    y_00 = (int)*(short *)(iGp000018b8 + 0x3e) + 10;
   }
   else {
-    Hud_gShowedCDPlayer = 1;
+    uGp000018fc = 1;
     Font_TextColor__Fi(4);
-    Font_TextXY__FPcii(acStack168,x_00,y);
+    Font_TextXY__FPcii(acStack168,x,y);
     if (__s_00 != (byte *)0x0) {
       Font_TextColor__Fi(3);
       Hud_BuildString__FPciiiib
-                ((char *)local_a0,(x_00 + w + 0x16) - (Hud_gCdScrollTitle + -0x4c),y + 5,0xbebe,0,0)
-      ;
+                ((char *)local_a0,(x + y_00 + 0x16) - (iGp0000143c + -0x4c),y + 5,(int)&DAT_0000bebe
+                 ,0,(void *)0x0);
       Hud_GoTpage__Fi(0);
-      if (local_b8 != 0) {
-        sprintf(acStack64,"%1d%c%02d",iVar7 / 60000,(uint)(byte)"::\'\'\'."[DAT_801132cc],
-                (iVar7 % 60000) / 1000);
+      if (w != 0) {
+        sprintf(acStack64,s__1d_c_02d_800568f8,local_b8 / 60000,
+                (uint)(byte)(&HudminChar)[GameSetup_gData.userSetting.language],
+                (local_b8 % 60000) / 1000);
         Font_TextColor__Fi(4);
-        x = textpixels(acStack64);
-        Font_TextXY__FPcii(acStack64,(x_00 - x) + 0x5c,y + 0xe);
+        y_00 = textpixels(acStack64);
+        Font_TextXY__FPcii(acStack64,(x - y_00) + 0x5c,y + 0xe);
       }
     }
-    Hud_BlackThinBox__Fiiii((int)sRam0000003c,(int)sRam0000003e,0x66,0x1c);
-    Hud_FBuildF4__FiiiiiUlcc(0,(int)sRam0000003c,(int)sRam0000003e,0x66,0xe,0,0,0);
-    Hud_FBuildF4__FiiiiiUlcc(0,(int)sRam0000003c,(int)sRam0000003e + 0x1b,0x66,1,0,0,0);
+    Hud_BlackThinBox__Fiiii
+              ((int)*(short *)(iGp000018b8 + 0x3c),(int)*(short *)(iGp000018b8 + 0x3e),0x66,0x1c);
+    Hud_FBuildF4__FiiiiiUlcc
+              (0,(int)*(short *)(iGp000018b8 + 0x3c),(int)*(short *)(iGp000018b8 + 0x3e),0x66,0xe,0,
+               0,0);
+    Hud_FBuildF4__FiiiiiUlcc
+              (0,(int)*(short *)(iGp000018b8 + 0x3c),(int)*(short *)(iGp000018b8 + 0x3e) + 0x1b,0x66
+               ,1,0,0,0);
     y = 1;
     w = 0x66;
-    x = (int)sRam0000003c;
-    x_00 = (int)sRam0000003e;
+    x = (int)*(short *)(iGp000018b8 + 0x3c);
+    y_00 = (int)*(short *)(iGp000018b8 + 0x3e);
     local_b8 = 0x1c;
   }
-  Hud_FBuildF4__FiiiiiUlcc(y,x,x_00,w,local_b8,0,0,0);
+  Hud_FBuildF4__FiiiiiUlcc(y,x,y_00,w,local_b8,0,0,0);
   return;
-
-
 }
-
 
 
 
@@ -3419,177 +3478,178 @@ LAB_800d68a4:
 	// End Line: 2615
 
 int Hud_BuildRadar__Fi(int player)
+
 {
   bool bVar1;
   uint *puVar2;
   SPRT *sprt;
-  int iVar3;
+  BO_tNewtonObj *pBVar3;
   int iVar4;
   uint uVar5;
-  ulong color;
-  int iVar6;
+  CVECTOR color;
+  Car_tObj *pCVar6;
   int iVar7;
-  int *piVar8;
+  int iVar8;
   int *piVar9;
-  int iVar10;
-  int shapeIdx;
+  Car_tObj **ppCVar10;
   int iVar11;
   int iVar12;
+  int shapeIdx;
   int iVar13;
   int iVar14;
-  ulong *puVar15;
+  int iVar15;
   int iVar16;
+  CVECTOR *pCVar17;
+  int iVar18;
   int local_e0 [46];
   
-  iVar14 = 0;
   iVar16 = 0;
-  iVar3 = (&Camera_gInfo)[player * 0x44];
-  iVar13 = *(int *)(iVar3 + 0xf0) >> 8;
-  iVar12 = *(int *)(iVar3 + 0x108) >> 8;
-  iVar11 = *(int *)(iVar3 + 0xf8) >> 8;
-  iVar6 = *(int *)(iVar3 + 0x110) >> 8;
-  shapeIdx = *(int *)(iVar3 + 0xa0) >> 8;
-  iVar3 = -*(int *)(iVar3 + 0xa8) >> 8;
+  iVar18 = 0;
+  pBVar3 = (&Camera_gInfo)[player].anchor;
+  iVar15 = (pBVar3->orientMat).m[0] >> 8;
+  iVar14 = (pBVar3->orientMat).m[6] >> 8;
+  iVar13 = (pBVar3->orientMat).m[2] >> 8;
+  iVar7 = (pBVar3->orientMat).m[8] >> 8;
+  shapeIdx = (pBVar3->position).x >> 8;
+  iVar12 = -(pBVar3->position).z >> 8;
   if (0 < Cars_gNumRaceCars) {
-    piVar9 = &_Cars_gRaceCarList;
-    iVar10 = 0;
+    ppCVar10 = &__Cars_gRaceCarList_9__;
+    iVar11 = 0;
     do {
-      iVar7 = (*(int *)(*piVar9 + 0xa0) >> 8) - shapeIdx;
-      iVar4 = (-*(int *)(*piVar9 + 0xa8) >> 8) - iVar3;
-      piVar8 = (int *)((int)local_e0 + iVar10);
-      *piVar8 = iVar13 * iVar7 + iVar12 * iVar4 >> 0x10;
-      *(int *)((int)local_e0 + iVar10 + 8) = iVar11 * iVar7 + iVar6 * iVar4 >> 0x11;
-      if (false) {
-        *piVar8 = -*piVar8;
+      iVar8 = (((*ppCVar10)->N).position.x >> 8) - shapeIdx;
+      iVar4 = (-((*ppCVar10)->N).position.z >> 8) - iVar12;
+      piVar9 = (int *)((int)local_e0 + iVar11);
+      *piVar9 = iVar15 * iVar8 + iVar14 * iVar4 >> 0x10;
+      *(int *)((int)local_e0 + iVar11 + 8) = iVar13 * iVar8 + iVar7 * iVar4 >> 0x11;
+      if (GameSetup_gData.mirrorTrack != 0) {
+        *piVar9 = -*piVar9;
       }
-      if (((((*(char *)(*piVar9 + 0x91) != '\0') && (*(int *)(*piVar9 + 0x254) != player)) &&
-           (-0x16 < *piVar8)) &&
-          ((*piVar8 < 0x16 && (iVar4 = *(int *)((int)local_e0 + iVar10 + 8), -0x18 < iVar4)))) &&
+      if (((((((*ppCVar10)->N).active != '\0') && ((*ppCVar10)->carIndex != player)) &&
+           (-0x16 < *piVar9)) &&
+          ((*piVar9 < 0x16 && (iVar4 = *(int *)((int)local_e0 + iVar11 + 8), -0x18 < iVar4)))) &&
          (iVar4 < 0x18)) {
-        iVar16 = 1;
+        iVar18 = 1;
       }
-      piVar9 = piVar9 + 1;
-      iVar14 = iVar14 + 1;
-      iVar10 = iVar10 + 0xc;
-    } while (iVar14 < Cars_gNumRaceCars);
+      ppCVar10 = ppCVar10 + 1;
+      iVar16 = iVar16 + 1;
+      iVar11 = iVar11 + 0xc;
+    } while (iVar16 < Cars_gNumRaceCars);
   }
-  iVar14 = 0;
+  iVar16 = 0;
   if (0 < Cars_gNumCopCars) {
-    piVar9 = &_Cars_gCopCarList;
-    iVar10 = Cars_gNumRaceCars;
+    ppCVar10 = &__Cars_gCopCarList_9__;
+    iVar11 = Cars_gNumRaceCars;
     do {
-      iVar4 = *piVar9;
-      if (*(char *)(iVar4 + 0x91) != '\0') {
-        iVar7 = (*(int *)(iVar4 + 0xa0) >> 8) - shapeIdx;
-        iVar4 = (-*(int *)(iVar4 + 0xa8) >> 8) - iVar3;
-        piVar8 = local_e0 + iVar10 * 3;
-        *piVar8 = iVar13 * iVar7 + iVar12 * iVar4 >> 0x10;
-        local_e0[iVar10 * 3 + 2] = iVar11 * iVar7 + iVar6 * iVar4 >> 0x11;
-        if (false) {
-          *piVar8 = -*piVar8;
+      pCVar6 = *ppCVar10;
+      if ((pCVar6->N).active != '\0') {
+        iVar8 = ((pCVar6->N).position.x >> 8) - shapeIdx;
+        iVar4 = (-(pCVar6->N).position.z >> 8) - iVar12;
+        piVar9 = local_e0 + iVar11 * 3;
+        *piVar9 = iVar15 * iVar8 + iVar14 * iVar4 >> 0x10;
+        local_e0[iVar11 * 3 + 2] = iVar13 * iVar8 + iVar7 * iVar4 >> 0x11;
+        if (GameSetup_gData.mirrorTrack != 0) {
+          *piVar9 = -*piVar9;
         }
-        if (((-0x16 < *piVar8) && (*piVar8 < 0x16)) &&
-           ((-0x18 < local_e0[iVar10 * 3 + 2] && (local_e0[iVar10 * 3 + 2] < 0x18)))) {
-          iVar16 = 1;
+        if (((-0x16 < *piVar9) && (*piVar9 < 0x16)) &&
+           ((-0x18 < local_e0[iVar11 * 3 + 2] && (local_e0[iVar11 * 3 + 2] < 0x18)))) {
+          iVar18 = 1;
         }
       }
-      iVar10 = iVar10 + 1;
-      iVar14 = iVar14 + 1;
-      piVar9 = piVar9 + 1;
-    } while (iVar14 < Cars_gNumCopCars);
+      iVar11 = iVar11 + 1;
+      iVar16 = iVar16 + 1;
+      ppCVar10 = ppCVar10 + 1;
+    } while (iVar16 < Cars_gNumCopCars);
   }
-  iVar3 = Cars_gNumRaceCars;
-  if (iVar16 == 0) {
-    iVar6 = 0;
+  iVar7 = Cars_gNumRaceCars;
+  if (iVar18 == 0) {
+    iVar12 = 0;
     if (0 < Cars_gNumRaceCars) {
-      piVar8 = local_e0;
-      piVar9 = &_Cars_gRaceCarList;
+      piVar9 = local_e0;
+      ppCVar10 = &__Cars_gRaceCarList_9__;
       do {
-        if (*(char *)(*piVar9 + 0x91) != '\0') {
-          shapeIdx = piVar8[2] >> 2;
-          *piVar8 = *piVar8 >> 2;
-          piVar8[2] = shapeIdx;
-          if ((((*(int *)(*piVar9 + 0x254) != player) && (-0x16 < *piVar8)) && (*piVar8 < 0x16)) &&
+        if (((*ppCVar10)->N).active != '\0') {
+          shapeIdx = piVar9[2] >> 2;
+          *piVar9 = *piVar9 >> 2;
+          piVar9[2] = shapeIdx;
+          if (((((*ppCVar10)->carIndex != player) && (-0x16 < *piVar9)) && (*piVar9 < 0x16)) &&
              ((-0x18 < shapeIdx && (shapeIdx < 0x18)))) {
-            iVar16 = 2;
+            iVar18 = 2;
           }
         }
-        piVar8 = piVar8 + 3;
-        iVar6 = iVar6 + 1;
-        piVar9 = piVar9 + 1;
-      } while (iVar6 < iVar3);
+        piVar9 = piVar9 + 3;
+        iVar12 = iVar12 + 1;
+        ppCVar10 = ppCVar10 + 1;
+      } while (iVar12 < iVar7);
     }
-    iVar6 = Cars_gNumCopCars;
-    iVar3 = Cars_gNumRaceCars;
-    iVar11 = 0;
+    iVar12 = Cars_gNumCopCars;
+    iVar7 = Cars_gNumRaceCars;
+    iVar13 = 0;
     shapeIdx = Cars_gNumRaceCars;
     if (0 < Cars_gNumCopCars) {
       do {
         piVar9 = local_e0 + shapeIdx * 3;
         *piVar9 = *piVar9 >> 2;
-        iVar13 = *piVar9;
-        iVar12 = local_e0[shapeIdx * 3 + 2] >> 2;
-        local_e0[shapeIdx * 3 + 2] = iVar12;
-        if (((-0x16 < iVar13) && (iVar13 < 0x16)) && ((-0x18 < iVar12 && (iVar12 < 0x18)))) {
-          iVar16 = 2;
+        iVar15 = *piVar9;
+        iVar14 = local_e0[shapeIdx * 3 + 2] >> 2;
+        local_e0[shapeIdx * 3 + 2] = iVar14;
+        if (((-0x16 < iVar15) && (iVar15 < 0x16)) && ((-0x18 < iVar14 && (iVar14 < 0x18)))) {
+          iVar18 = 2;
         }
-        iVar11 = iVar11 + 1;
-        shapeIdx = iVar11 + iVar3;
-      } while (iVar11 < iVar6);
+        iVar13 = iVar13 + 1;
+        shapeIdx = iVar13 + iVar7;
+      } while (iVar13 < iVar12);
     }
   }
-  iVar3 = 0;
-  piVar9 = &_Cars_gCopCarList;
-  while (sprt = _DAT_1f800004, puVar2 = _DAT_1f800000, iVar3 < Cars_gNumCopCars) {
-    if (*(char *)(*piVar9 + 0x91) != '\0') {
-      _DAT_1f800004->tag = _DAT_1f800004->tag & 0xff000000 | *_DAT_1f800000 & 0xffffff;
-      uVar5 = (uint)_DAT_1f800004 & 0xffffff;
+  iVar7 = 0;
+  ppCVar10 = &__Cars_gCopCarList_9__;
+  while (sprt = DAT_1f800004, puVar2 = DAT_1f800000, iVar7 < Cars_gNumCopCars) {
+    if (((*ppCVar10)->N).active != '\0') {
+      DAT_1f800004->tag = DAT_1f800004->tag & 0xff000000 | *DAT_1f800000 & 0xffffff;
+      uVar5 = (uint)DAT_1f800004 & 0xffffff;
       bVar1 = gFlip != 0;
-      _DAT_1f800004 = _DAT_1f800004 + 1;
+      DAT_1f800004 = DAT_1f800004 + 1;
       *puVar2 = *puVar2 & 0xff000000 | uVar5;
-      if ((bVar1) || (uGp000018c8 = 0xff0000, DAT_8011e0d4 != 0)) {
-        uGp000018c8 = 0xff;
+      if ((bVar1) || (DAT_000018c8 = 0xff0000, simVar.quickPauseSim != 0)) {
+        DAT_000018c8 = 0xff;
       }
       Hud_BuildSprite__FP4SPRTiiiUli
-                (sprt,0x7a,local_e0[(iVar3 + Cars_gNumRaceCars) * 3] + 0x14U & 0xffff,
-                 local_e0[(iVar3 + Cars_gNumRaceCars) * 3 + 2] + 0x18U & 0xffff,uGp000018c8,0);
+                (sprt,0x7a,local_e0[(iVar7 + Cars_gNumRaceCars) * 3] + 0x14U & 0xffff,
+                 local_e0[(iVar7 + Cars_gNumRaceCars) * 3 + 2] + 0x18U & 0xffff,DAT_000018c8,0);
     }
-    piVar9 = piVar9 + 1;
-    iVar3 = iVar3 + 1;
+    ppCVar10 = ppCVar10 + 1;
+    iVar7 = iVar7 + 1;
   }
-  iVar3 = 0;
-  iVar6 = 0;
-  puVar15 = &Hud_gMarkerColor;
-  piVar9 = &_Cars_gRaceCarList;
-  while (sprt = _DAT_1f800004, puVar2 = _DAT_1f800000, iVar3 < Cars_gNumRaceCars) {
-    if ((iVar3 != player) && (*(char *)(*piVar9 + 0x91) != '\0')) {
-      _DAT_1f800004->tag = _DAT_1f800004->tag & 0xff000000 | *_DAT_1f800000 & 0xffffff;
-      *puVar2 = *puVar2 & 0xff000000 | (uint)_DAT_1f800004 & 0xffffff;
-      _DAT_1f800004 = _DAT_1f800004 + 1;
-      if ((*(uint *)(*piVar9 + 0x260) & 4) == 0) {
-        iVar11 = *(int *)((int)local_e0 + iVar6 + 8);
-        color = (&Hud_gMarkerColor)[iVar3];
+  iVar7 = 0;
+  iVar12 = 0;
+  pCVar17 = &Hud_gMarkerColor;
+  ppCVar10 = &__Cars_gRaceCarList_9__;
+  while (sprt = DAT_1f800004, puVar2 = DAT_1f800000, iVar7 < Cars_gNumRaceCars) {
+    if ((iVar7 != player) && (((*ppCVar10)->N).active != '\0')) {
+      DAT_1f800004->tag = DAT_1f800004->tag & 0xff000000 | *DAT_1f800000 & 0xffffff;
+      *puVar2 = *puVar2 & 0xff000000 | (uint)DAT_1f800004 & 0xffffff;
+      DAT_1f800004 = DAT_1f800004 + 1;
+      if (((*ppCVar10)->carFlags & 4U) == 0) {
+        iVar13 = *(int *)((int)local_e0 + iVar12 + 8);
+        color = (&Hud_gMarkerColor)[iVar7];
         shapeIdx = 0x7a;
-        uVar5 = *(int *)((int)local_e0 + iVar6) + 0x14;
+        uVar5 = *(int *)((int)local_e0 + iVar12) + 0x14;
       }
       else {
-        iVar11 = *(int *)((int)local_e0 + iVar6 + 8);
-        color = *puVar15;
+        iVar13 = *(int *)((int)local_e0 + iVar12 + 8);
+        color = *pCVar17;
         shapeIdx = 0x79;
-        uVar5 = *(int *)((int)local_e0 + iVar6) + 0x13;
+        uVar5 = *(int *)((int)local_e0 + iVar12) + 0x13;
       }
-      Hud_BuildSprite__FP4SPRTiiiUli(sprt,shapeIdx,uVar5 & 0xffff,iVar11 + 0x18U & 0xffff,color,0);
+      Hud_BuildSprite__FP4SPRTiiiUli
+                (sprt,shapeIdx,uVar5 & 0xffff,iVar13 + 0x18U & 0xffff,(ulong)color,0);
     }
-    iVar6 = iVar6 + 0xc;
-    puVar15 = puVar15 + 1;
-    piVar9 = piVar9 + 1;
-    iVar3 = iVar3 + 1;
+    iVar12 = iVar12 + 0xc;
+    pCVar17 = pCVar17 + 1;
+    ppCVar10 = ppCVar10 + 1;
+    iVar7 = iVar7 + 1;
   }
-  return iVar16;
-
-
+  return iVar18;
 }
-
 
 
 
@@ -3608,84 +3668,93 @@ int Hud_BuildRadar__Fi(int player)
 	// End offset: 0x800D749C
 	// End Line: 2842
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Hud_BuildReplay__Fv(void)
+
 {
-  uint *puVar1;
+  int iVar1;
   uint *puVar2;
-  undefined4 uVar3;
-  int iVar4;
-  uint uVar5;
-  uint *puVar6;
-  int iVar7;
+  uint *puVar3;
+  undefined4 uVar4;
+  int iVar5;
+  uint uVar6;
+  uint *puVar7;
+  int iVar8;
   byte local_8 [8];
   
-  iVar7 = 0x33;
-  iVar4 = 0x3fc;
+  iVar8 = 0x33;
+  iVar5 = 0x3fc;
   do {
-    iVar7 = iVar7 + 1;
-    *(undefined4 *)(iVar4 + iGp000018bc + 4) = 0x66808080;
-    iVar4 = iVar4 + 0x14;
-  } while (iVar7 < 0x3f);
-  *(undefined4 *)((uint)local_8[DAT_8011703c] * 0x14 + iGp000018bc + 0x400) = 0x6600bebe;
-  if (DAT_8011703c == 3) {
-    *(undefined4 *)(iGp000018bc + 0x464) = 0x6600bebe;
+    iVar1 = DAT_000018bc;
+    iVar8 = iVar8 + 1;
+    *(undefined4 *)(iVar5 + DAT_000018bc + 4) = 0x66808080;
+    iVar5 = iVar5 + 0x14;
+  } while (iVar8 < 0x3f);
+  *(undefined4 *)((uint)local_8[Replay_ReplayInterface.selection] * 0x14 + iVar1 + 0x400) =
+       0x6600bebe;
+  if (Replay_ReplayInterface.selection == 3) {
+    *(undefined4 *)(iVar1 + 0x464) = 0x6600bebe;
   }
-  *(undefined4 *)(iGp000018bc + 0x41c) =
-       *(undefined4 *)(&UNK_80111530 + Replay_ReplayInterface * -0x14);
-  if (DAT_80117030 == 1) {
-    iVar4 = 0x73;
+  *(undefined4 *)(DAT_000018bc + 0x41c) =
+       *(undefined4 *)
+        &((HudPmx_tShape *)((int)&HudPmx_tShape_80111530 + Replay_ReplayInterface.pause * -0x14))->
+         pixmap;
+  if (Replay_ReplayInterface.speed == 1) {
+    iVar5 = 0x73;
   }
   else {
-    if (DAT_80117030 < 2) {
-      iVar4 = 0x74;
-      if (DAT_80117030 == 0) {
-        iVar4 = 0x72;
+    if (Replay_ReplayInterface.speed < 2) {
+      iVar5 = 0x74;
+      if (Replay_ReplayInterface.speed == 0) {
+        iVar5 = 0x72;
       }
     }
     else {
-      iVar4 = 0x74;
-      if (DAT_80117030 == 2) {
-        iVar4 = 0x75;
+      iVar5 = 0x74;
+      if (Replay_ReplayInterface.speed == 2) {
+        iVar5 = 0x75;
       }
     }
   }
-  *(undefined *)(iGp000018bc + 0x46c) = (&HudPmx_gShapes)[iVar4 * 0x14];
-  *(undefined *)(iGp000018bc + 0x46d) = (&UNK_80110c99)[iVar4 * 0x14];
-  *(undefined4 *)(iGp000018bc + 0x480) = *(undefined4 *)(&DAT_80110cc0 + DAT_80117038 * 0x14);
-  *(short *)(iGp000018bc + 0x47c) = *(short *)(iGp000018b8 + 0x34) + 0x75;
-  if (DAT_8011703c == 4) {
-    uVar3 = 0x6600bebe;
+  *(uchar *)(DAT_000018bc + 0x46c) = (&HudPmx_gShapes)[iVar5].pixmap.u0;
+  *(uchar *)(DAT_000018bc + 0x46d) = (&HudPmx_gShapes)[iVar5].pixmap.v0;
+  iVar5 = DAT_000018bc;
+  *(undefined4 *)(DAT_000018bc + 0x480) =
+       *(undefined4 *)&(&HudPmx_tShape_80110cc0)[Replay_ReplayInterface.camera].pixmap;
+  *(short *)(iVar5 + 0x47c) = *(short *)(DAT_000018b8 + 0x34) + 0x75;
+  if (Replay_ReplayInterface.selection == 4) {
+    uVar4 = 0x6600bebe;
   }
   else {
-    uVar3 = 0x66808080;
+    uVar4 = 0x66808080;
   }
-  *(undefined4 *)(iGp000018bc + 0x478) = uVar3;
-  puVar1 = _DAT_1f800000;
-  iVar4 = 0x33;
-  puVar6 = (uint *)(iGp000018bc + 0x3fc);
-  *(uint *)(iGp000018bc + 0x474) =
-       *(uint *)(iGp000018bc + 0x474) & 0xff000000 | *_DAT_1f800000 & 0xffffff;
-  *puVar1 = *puVar1 & 0xff000000 | iGp000018bc + 0x474U & 0xffffff;
+  *(undefined4 *)(iVar5 + 0x478) = uVar4;
+  puVar2 = DAT_1f800000;
+  iVar5 = DAT_000018bc;
+  iVar8 = 0x33;
+  puVar7 = (uint *)(DAT_000018bc + 0x3fc);
+  *(uint *)(DAT_000018bc + 0x474) =
+       *(uint *)(DAT_000018bc + 0x474) & 0xff000000 | *DAT_1f800000 & 0xffffff;
+  *puVar2 = *puVar2 & 0xff000000 | iVar5 + 0x474U & 0xffffff;
   do {
-    iVar4 = iVar4 + 1;
-    *puVar6 = *puVar6 & 0xff000000 | *puVar1 & 0xffffff;
-    *puVar1 = *puVar1 & 0xff000000 | (uint)puVar6 & 0xffffff;
-    puVar2 = _DAT_1f800000;
-    puVar6 = puVar6 + 5;
-  } while (iVar4 < 0x38);
-  *(uint *)(iGp000018bc + 0x460) =
-       *(uint *)(iGp000018bc + 0x460) & 0xff000000 | *_DAT_1f800000 & 0xffffff;
-  uVar5 = iGp000018bc + 0x460U & 0xffffff;
-  *puVar2 = *puVar2 & 0xff000000 | uVar5;
-  _DAT_8013e414 = _DAT_8013e414 & 0xff000000 | uVar5;
-  *puVar2 = *puVar2 & 0xff000000 | 0x13e414;
-  _DAT_8013e3b4 = _DAT_8013e3b4 & 0xff000000 | 0x13e414;
-  *puVar2 = *puVar2 & 0xff000000 | 0x13e3b4;
+    iVar8 = iVar8 + 1;
+    *puVar7 = *puVar7 & 0xff000000 | *puVar2 & 0xffffff;
+    *puVar2 = *puVar2 & 0xff000000 | (uint)puVar7 & 0xffffff;
+    puVar3 = DAT_1f800000;
+    iVar5 = DAT_000018bc;
+    puVar7 = puVar7 + 5;
+  } while (iVar8 < 0x38);
+  *(uint *)(DAT_000018bc + 0x460) =
+       *(uint *)(DAT_000018bc + 0x460) & 0xff000000 | *DAT_1f800000 & 0xffffff;
+  uVar6 = iVar5 + 0x460U & 0xffffff;
+  *puVar3 = *puVar3 & 0xff000000 | uVar6;
+  DAT_8013e414 = DAT_8013e414 & 0xff000000 | uVar6;
+  *puVar3 = *puVar3 & 0xff000000 | 0x13e414;
+  DAT_8013e3b4 = DAT_8013e3b4 & 0xff000000 | 0x13e414;
+  *puVar3 = *puVar3 & 0xff000000 | 0x13e3b4;
   return;
-
-
 }
-
 
 
 
@@ -3706,6 +3775,7 @@ void Hud_BuildReplay__Fv(void)
 	// End Line: 2890
 
 int Hud_NextPlayer__Fi(int player)
+
 {
   bool bVar1;
   int iVar2;
@@ -3714,16 +3784,16 @@ int Hud_NextPlayer__Fi(int player)
   int iVar5;
   Car_tObj *carObj;
   
-  bVar1 = 0 < (int)(&Input_gLookBehind)[player] == 0 < (int)(&DAT_8011275c)[player];
-  carObj = (Car_tObj *)(&_Cars_gHumanRaceCarList)[player];
+  bVar1 = 0 < (&Input_gLookBehind)[player] != 0 < DashHUD_gInfo.wrongway[player];
+  carObj = (&__Cars_gHumanRaceCarList_9__)[player];
   if (1 < Cars_gNumRaceCars) {
     iVar2 = Stats_GetPosition__FP8Car_tObj(carObj);
     iVar5 = 0;
-    if ((iVar2 != 1) || (!bVar1)) {
+    if ((iVar2 != 1) || (bVar1)) {
       iVar2 = carObj->sortIndex;
       if (0 < Cars_gNumCars + -1) {
         do {
-          if (bVar1) {
+          if ((uint)bVar1 == GameSetup_gData.reverseTrack) {
             iVar2 = iVar2 + 1;
           }
           else {
@@ -3737,7 +3807,7 @@ int Hud_NextPlayer__Fi(int player)
             iVar2 = 0;
             iVar3 = 0;
           }
-          uVar4 = *(uint *)(*(int *)((int)&_Cars_gSortedList + iVar3) + 0x260);
+          uVar4 = *(uint *)(*(int *)((int)&__Cars_gSortedList_9__ + iVar3) + 0x260);
           if ((uVar4 & 4) != 0) {
             if (player == 0) {
               return 8;
@@ -3746,17 +3816,14 @@ int Hud_NextPlayer__Fi(int player)
           }
           iVar5 = iVar5 + 1;
           if ((uVar4 & 8) != 0) {
-            return *(int *)(*(int *)((int)&_Cars_gSortedList + iVar3) + 0x4ec);
+            return *(int *)(*(int *)((int)&__Cars_gSortedList_9__ + iVar3) + 0x4ec);
           }
         } while (iVar5 < Cars_gNumCars + -1);
       }
     }
   }
   return -1;
-
-
 }
-
 
 
 
@@ -3777,6 +3844,7 @@ int Hud_NextPlayer__Fi(int player)
 	// End Line: 2925
 
 char * Hud_NextPlayerNameOrCarOrTime__Fi(int player)
+
 {
   bool bVar1;
   int iVar2;
@@ -3784,16 +3852,16 @@ char * Hud_NextPlayerNameOrCarOrTime__Fi(int player)
   int iVar4;
   Car_tObj *carObj;
   
-  bVar1 = 0 < (int)(&Input_gLookBehind)[player] == 0 < (int)(&DAT_8011275c)[player];
-  carObj = (Car_tObj *)(&_Cars_gHumanRaceCarList)[player];
+  bVar1 = 0 < (&Input_gLookBehind)[player] != 0 < DashHUD_gInfo.wrongway[player];
+  carObj = (&__Cars_gHumanRaceCarList_9__)[player];
   if (1 < Cars_gNumRaceCars) {
     iVar2 = Stats_GetPosition__FP8Car_tObj(carObj);
     iVar4 = 0;
-    if ((iVar2 != 1) || (!bVar1)) {
+    if ((iVar2 != 1) || (bVar1)) {
       iVar2 = carObj->sortIndex;
       if (0 < Cars_gNumCars + -1) {
         do {
-          if (bVar1) {
+          if ((uint)bVar1 == GameSetup_gData.reverseTrack) {
             iVar2 = iVar2 + 1;
           }
           else {
@@ -3807,9 +3875,9 @@ char * Hud_NextPlayerNameOrCarOrTime__Fi(int player)
             iVar2 = 0;
             iVar3 = 0;
           }
-          iVar3 = *(int *)((int)&_Cars_gSortedList + iVar3);
+          iVar3 = *(int *)((int)&__Cars_gSortedList_9__ + iVar3);
           if ((*(uint *)(iVar3 + 0x260) & 0xc) != 0) {
-            if ((&DAT_80113640)[player * 0x2d] != 2) {
+            if (GameSetup_gData.carInfo[player].HudOpponentID != 2) {
               return (char *)(*(int *)(iVar3 + 0x288) + 0x5c);
             }
             return (char *)(iVar3 + 0x249);
@@ -3819,11 +3887,8 @@ char * Hud_NextPlayerNameOrCarOrTime__Fi(int player)
       }
     }
   }
-  return "";
-
-
+  return (char *)&PTR_DAT_8013d91c;
 }
-
 
 
 
@@ -3884,67 +3949,68 @@ char * Hud_NextPlayerNameOrCarOrTime__Fi(int player)
 	// End offset: 0x800D7A8C
 	// End Line: 2981
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Hud_RenderMapView__Fv(void)
+
 {
-  int iVar1;
-  uint *puVar2;
+  uint *puVar1;
+  int iVar2;
   uint *puVar3;
+  POLY_FT4 *pPVar4;
   int player;
-  int iVar4;
-  undefined4 *puVar5;
-  int iVar6;
+  int iVar5;
+  GameSetup_tData *pGVar6;
+  int iVar7;
   
   player = 0;
-  iVar4 = 0;
-  iVar6 = 0;
-  puVar5 = &GameSetup_gData;
-  while (player <= DashHUD_gInfo) {
-    if (((puVar5[0x114] != 0) && (*(int *)((int)&DAT_8011274c + iVar4) != 0)) &&
+  iVar5 = 0;
+  iVar7 = 0;
+  pGVar6 = &GameSetup_gData;
+  while (player <= DashHUD_gInfo.splitscreen) {
+    if (((pGVar6->carInfo[0].HudMap != 0) && (*(int *)((int)DashHUD_gInfo.showhud + iVar5) != 0)) &&
        ((&Hud_gWingmanInterface)[player] == '\0')) {
-      puVar2 = (uint *)&gHudFT4;
+      pPVar4 = &gHudFT4;
       if (player != 0) {
-        puVar2 = (uint *)&DAT_8013e668;
+        pPVar4 = &POLY_FT4_8013e668;
       }
-      Draw_StartRenderingView__Fi(*(int *)((int)&Hud_gMapView + iVar4));
-      if (puVar5[0x114] == 1) {
+      Draw_StartRenderingView__Fi(*(int *)((int)&Hud_gMapView + iVar5));
+      if (pGVar6->carInfo[0].HudMap == 1) {
         Hud_BuildMapMarkers__Fi(player);
-        puVar3 = _DAT_1f800000;
-        *puVar2 = *puVar2 & 0xff000000 | *_DAT_1f800000 & 0xffffff;
-        *puVar3 = *puVar3 & 0xff000000 | (uint)puVar2 & 0xffffff;
+        puVar1 = DAT_1f800000;
+        pPVar4->tag = pPVar4->tag & 0xff000000 | *DAT_1f800000 & 0xffffff;
+        *puVar1 = *puVar1 & 0xff000000 | (uint)pPVar4 & 0xffffff;
       }
       else {
-        iVar1 = Hud_BuildRadar__Fi(player);
-        puVar3 = _DAT_1f800000;
-        if (iVar1 == 1) {
-          puVar2[10] = puVar2[10] & 0xff000000 | *_DAT_1f800000 & 0xffffff;
-          *puVar3 = *puVar3 & 0xff000000 | (uint)(puVar2 + 10) & 0xffffff;
-          puVar2[0x14] = puVar2[0x14] & 0xff000000 | (uint)(puVar2 + 10) & 0xffffff;
-          puVar2 = puVar2 + 0x14;
+        iVar2 = Hud_BuildRadar__Fi(player);
+        puVar1 = DAT_1f800000;
+        if (iVar2 == 1) {
+          pPVar4[1].tag = pPVar4[1].tag & 0xff000000 | *DAT_1f800000 & 0xffffff;
+          *puVar1 = *puVar1 & 0xff000000 | (uint)(pPVar4 + 1) & 0xffffff;
+          pPVar4[2].tag = pPVar4[2].tag & 0xff000000 | (uint)(pPVar4 + 1) & 0xffffff;
+          iVar2 = 0x50;
         }
         else {
-          puVar2[0x1e] = puVar2[0x1e] & 0xff000000 | *_DAT_1f800000 & 0xffffff;
-          *puVar3 = *puVar3 & 0xff000000 | (uint)(puVar2 + 0x1e) & 0xffffff;
-          puVar2[0x28] = puVar2[0x28] & 0xff000000 | (uint)(puVar2 + 0x1e) & 0xffffff;
-          puVar2 = puVar2 + 0x28;
+          pPVar4[3].tag = pPVar4[3].tag & 0xff000000 | *DAT_1f800000 & 0xffffff;
+          *puVar1 = *puVar1 & 0xff000000 | (uint)(pPVar4 + 3) & 0xffffff;
+          pPVar4[4].tag = pPVar4[4].tag & 0xff000000 | (uint)(pPVar4 + 3) & 0xffffff;
+          iVar2 = 0xa0;
         }
-        *puVar3 = *puVar3 & 0xff000000 | (uint)puVar2 & 0xffffff;
+        *puVar1 = *puVar1 & 0xff000000 | (int)&pPVar4->tag + iVar2 & 0xffffffU;
       }
-      puVar2 = _DAT_1f800000;
-      puVar3 = (uint *)(&DAT_8013e3fc + iVar6);
-      *puVar3 = *puVar3 & 0xff000000 | *_DAT_1f800000 & 0xffffff;
-      *puVar2 = *puVar2 & 0xff000000 | (uint)puVar3 & 0xffffff;
-      Draw_StopRenderingView__Fi(*(int *)((int)&Hud_gMapView + iVar4));
+      puVar1 = DAT_1f800000;
+      puVar3 = (uint *)((int)&DR_MODE_8013e3fc.tag + iVar7);
+      *puVar3 = *puVar3 & 0xff000000 | *DAT_1f800000 & 0xffffff;
+      *puVar1 = *puVar1 & 0xff000000 | (uint)puVar3 & 0xffffff;
+      Draw_StopRenderingView__Fi(*(int *)((int)&Hud_gMapView + iVar5));
     }
-    iVar4 = iVar4 + 4;
-    iVar6 = iVar6 + 0x30;
-    puVar5 = puVar5 + 0x2d;
+    iVar5 = iVar5 + 4;
+    iVar7 = iVar7 + 0x30;
+    pGVar6 = (GameSetup_tData *)((pGVar6->controllerData).shockImpact + 1);
     player = player + 1;
   }
   return;
-
-
 }
-
 
 
 
@@ -3962,28 +4028,39 @@ void Hud_RenderMapView__Fv(void)
 	// End Line: 3083
 
 void Hud_BlackThinBox__Fiiii(int x,int y,int w,int h)
+
 {
+  short sVar1;
   int y_00;
+  int h_00;
+  int y_01;
+  int iVar2;
+  int w_00;
   int x_00;
   int x_01;
+  int x_02;
   
+  sVar1 = HudPmx_tShape_80110dec.height;
   y_00 = y + -2;
-  Hud_FBuildF4__FiiiiiUlcc(0,x + -2,y_00,w + 2,2,0,0,0);
-  x_01 = x + -2;
-  Hud_FBuildF4__FiiiiiUlcc(0,x_01,y + -2,2,h + 4,0,0,0);
-  x_00 = x + w;
-  Hud_FBuildF4__FiiiiiUlcc(0,x_00 + -2,y + -2,2,h + 4,0,0,0);
-  Hud_FBuildF4__FiiiiiUlcc(0,x + -2,y + h,w + 2,2,0,0,0);
-  Hud_FBuildGT4__FP13HudPmx_tShapeiiUl((HudPmx_tShape *)&DAT_80110db0,x_01,y_00,0);
-  Hud_FBuildGT4__FP13HudPmx_tShapeiiUl((HudPmx_tShape *)&DAT_80110dc4,x_00,y_00,0);
-  y_00 = y + h + 2;
-  Hud_FBuildGT4__FP13HudPmx_tShapeiiUl((HudPmx_tShape *)&DAT_80110dd8,x_01,y_00,0);
-  Hud_FBuildGT4__FP13HudPmx_tShapeiiUl((HudPmx_tShape *)&DAT_80110dec,x_00,y_00,0);
+  x_00 = (int)HudPmx_tShape_80110dec.width;
+  x_01 = x + x_00 + -2;
+  w_00 = w + x_00 * -2 + 2;
+  Hud_FBuildF4__FiiiiiUlcc(0,x_01,y_00,w_00,2,0,0,0);
+  x_02 = x + -2;
+  iVar2 = (int)sVar1;
+  y_01 = y + iVar2 + -2;
+  h_00 = h + iVar2 * -2 + 4;
+  Hud_FBuildF4__FiiiiiUlcc(0,x_02,y_01,2,h_00,0,0,0);
+  Hud_FBuildF4__FiiiiiUlcc(0,x + w + -2,y_01,2,h_00,0,0,0);
+  Hud_FBuildF4__FiiiiiUlcc(0,x_01,y + h,w_00,2,0,0,0);
+  Hud_FBuildGT4__FP13HudPmx_tShapeiiUl(&HudPmx_tShape_80110db0,x_02,y_00,0);
+  x_00 = (x + w) - x_00;
+  Hud_FBuildGT4__FP13HudPmx_tShapeiiUl(&HudPmx_tShape_80110dc4,x_00,y_00,0);
+  y_00 = (y + h) - (iVar2 + -2);
+  Hud_FBuildGT4__FP13HudPmx_tShapeiiUl(&HudPmx_tShape_80110dd8,x_02,y_00,0);
+  Hud_FBuildGT4__FP13HudPmx_tShapeiiUl(&HudPmx_tShape_80110dec,x_00,y_00,0);
   return;
-
-
 }
-
 
 
 
@@ -4005,6 +4082,7 @@ void Hud_BlackThinBox__Fiiii(int x,int y,int w,int h)
 	// End Line: 3253
 
 void Hud_Draw321Num__Fiiiiii(int x,int y,int num,int flare_intensity)
+
 {
   uint uVar1;
   int x_00;
@@ -4022,7 +4100,7 @@ void Hud_Draw321Num__Fiiiiii(int x,int y,int num,int flare_intensity)
       x_00 = 0;
       iVar3 = x;
       do {
-        if ((*(uint *)(&Hud_Character + num * 4) & 1 << (uVar4 & 0x1f)) != 0) {
+        if (((&Hud_Character)[num] & 1 << (uVar4 & 0x1f)) != 0) {
           Flare_2DHalo__Fiiiii(iVar3 + 4,iVar6 + 4,flare_intensity,flare_intensity,6);
         }
         iVar3 = iVar3 + 10;
@@ -4046,8 +4124,8 @@ void Hud_Draw321Num__Fiiiiii(int x,int y,int num,int flare_intensity)
       uVar1 = uVar4 & 0x1f;
       uVar4 = uVar4 + 1;
       Hud_FBuildSprite__FiiiUli
-                ((uint)((*(uint *)(&Hud_Character + num * 4) & 1 << uVar1) != 0) | 0x3c,x_00,
-                 iVar6 + 1,0x808080,0);
+                ((uint)(((&Hud_Character)[num] & 1 << uVar1) != 0) | 0x3c,x_00,iVar6 + 1,0x808080,0)
+      ;
       x_00 = iVar3 + 0xb;
       iVar3 = iVar3 + 10;
     } while (iVar2 < 5);
@@ -4057,10 +4135,7 @@ void Hud_Draw321Num__Fiiiiii(int x,int y,int num,int flare_intensity)
   Hud_FBuildF4__FiiiiiUlcc(0,x + -3,y + -2,0x38,0x31,0,0,0);
   Hud_GoTpage__Fi(1);
   return;
-
-
 }
-
 
 
 
@@ -4125,47 +4200,47 @@ void Hud_Draw321Num__Fiiiiii(int x,int y,int num,int flare_intensity)
 	// End offset: 0x800D7F84
 	// End Line: 3340
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Hud_Render321Go__Fv(void)
+
 {
-  uint uVar1;
-  int flare_intensity;
+  undefined4 *puVar1;
+  undefined *flare_intensity;
   int num;
   int y;
   
-  gCView = iGp0000141c;
-  Draw_StartRenderingView__Fi(iGp0000141c);
-  y = (int)*(short *)(iGp000018b8 + 0x46);
-  if ((int)(char)bGp000013d1 != (uint)countdown) {
-    bGp000013d1 = countdown;
-    iGp000018b4 = ticks;
+  gCView.id = DAT_0000141c;
+  Draw_StartRenderingView__Fi(DAT_0000141c);
+  y = (int)*(short *)(DAT_000018b8 + 0x46);
+  if ((int)DAT_000013d1 != (uint)(byte)countdown) {
+    DAT_000013d1 = countdown;
+    DAT_000018b4 = ticks;
   }
-  uVar1 = ticks - iGp000018b4;
-  if (countdown == 4) {
-    if (uVar1 < 100) {
-      flare_intensity = uVar1 * -0x50 + 8000;
+  puVar1 = (undefined4 *)(ticks + -(int)DAT_000018b4);
+  if (countdown == '\x04') {
+    if (puVar1 < &DAT_00000064) {
+      flare_intensity = &DAT_00001f40 + (int)puVar1 * -0x50;
       goto LAB_800d7f18;
     }
   }
   else {
-    if (uVar1 < 100) {
-      flare_intensity = uVar1 * -0x3c + 6000;
+    if (puVar1 < &DAT_00000064) {
+      flare_intensity = &DAT_00001770 + (int)puVar1 * -0x3c;
       goto LAB_800d7f18;
     }
   }
-  flare_intensity = 0;
+  flare_intensity = (undefined *)0x0;
 LAB_800d7f18:
-  num = 4 - (uint)countdown;
-  if (countdown != 4) {
-    Hud_Draw321Num__Fiiiiii(0x48,y,num,flare_intensity);
-    Hud_Draw321Num__Fiiiiii(0x87,y,num,flare_intensity);
-    Hud_Draw321Num__Fiiiiii(0xc6,y,num,flare_intensity);
+  num = 4 - (uint)(byte)countdown;
+  if (countdown != '\x04') {
+    Hud_Draw321Num__Fiiiiii(0x48,y,num,(int)flare_intensity);
+    Hud_Draw321Num__Fiiiiii(0x87,y,num,(int)flare_intensity);
+    Hud_Draw321Num__Fiiiiii(0xc6,y,num,(int)flare_intensity);
   }
-  Draw_StopRenderingView__Fi(iGp0000141c);
+  Draw_StopRenderingView__Fi(DAT_0000141c);
   return;
-
-
 }
-
 
 
 
@@ -4252,73 +4327,80 @@ LAB_800d7f18:
 	// End Line: 3422
 
 void BigBTCTime__Fi(int secs)
+
 {
-  short sVar1;
-  uint *puVar2;
+  int iVar1;
+  int iVar2;
+  uint *puVar3;
   POLY_GT4 *prim;
-  uint uVar3;
+  int iVar4;
+  uint uVar5;
   int x;
-  undefined4 uVar4;
-  ulong color;
+  undefined *puVar6;
+  undefined *color;
+  int iVar7;
   int y;
   
-  if (((iGp000018dc == 0) && (iGp000013dc == 0)) && (-1 < secs)) {
-    if (secs != iGp000013d4) {
-      iGp000013d8 = ticks;
-      iGp000013d4 = secs;
+  if (((DAT_000018dc == 0) && (DAT_000013dc == 0)) && (-1 < secs)) {
+    if (secs != DAT_000013d4) {
+      DAT_000013d8 = ticks;
+      DAT_000013d4 = secs;
     }
-    sVar1 = *(short *)(iGp000018b8 + 0x3c);
-    y = (int)*(short *)(iGp000018b8 + 0x3e);
-    x = (int)sVar1 + 2;
+    y = (int)*(short *)(DAT_000018b8 + 0x3e);
+    x = (int)*(short *)(DAT_000018b8 + 0x3c) + 2;
+    iVar4 = (int)HudPmx_tShape_8011101c.width;
+    iVar7 = (int)HudPmx_tShape_80111008.width + 1;
     if (secs < 0xb) {
-      if (ticks - iGp000013d8 < 0x40) {
-        Hud_BlackThinBox__Fiiii(x,y,2,0xe);
-        Hud_FBuildF4__FiiiiiUlcc(0,x,y,2,0xe,0,0,0);
-        iGp00001360 = 0;
+      if ((int)(ticks + -(int)DAT_000013d8) < 0x40) {
+        Hud_BlackThinBox__Fiiii(x,y,iVar7 * 2,0xe);
+        Hud_FBuildF4__FiiiiiUlcc(0,x,y,iVar7 * 2,0xe,0,0,0);
+        DAT_00001360 = 0;
         return;
       }
-      color = 200;
-      if (iGp00001360 == 0) {
+      color = (undefined *)0xc8;
+      if (DAT_00001360 == 0) {
         AudioCmn_PlayWrongWaySFX__Fv();
-        iGp00001360 = 1;
+        DAT_00001360 = 1;
       }
-      uVar4 = 100;
+      puVar6 = (undefined *)0x64;
     }
     else {
-      color = 0xc800;
-      iGp00001360 = 0;
-      uVar4 = 0x6400;
+      color = &DAT_0000c800;
+      DAT_00001360 = 0;
+      puVar6 = &DAT_00006400;
     }
-    prim = _DAT_1f800004;
-    puVar2 = _DAT_1f800000;
-    _DAT_1f800004->tag = _DAT_1f800004->tag & 0xff000000 | *_DAT_1f800000 & 0xffffff;
-    uVar3 = (uint)_DAT_1f800004 & 0xffffff;
-    _DAT_1f800004 = _DAT_1f800004 + 1;
-    *puVar2 = *puVar2 & 0xff000000 | uVar3;
+    prim = DAT_1f800004;
+    puVar3 = DAT_1f800000;
+    DAT_1f800004->tag = DAT_1f800004->tag & 0xff000000 | *DAT_1f800000 & 0xffffff;
+    uVar5 = (uint)DAT_1f800004 & 0xffffff;
+    DAT_1f800004 = DAT_1f800004 + 1;
+    *puVar3 = *puVar3 & 0xff000000 | uVar5;
+    iVar2 = secs / 10;
     Hud_BuildGT4__FP8POLY_GT4P13HudPmx_tShapeiiUl
-              (prim,(HudPmx_tShape *)(&DAT_80111008 + (secs % 10) * 0x14),x,y,color);
-    *(undefined4 *)&prim->r3 = uVar4;
-    *(undefined4 *)&prim->r2 = uVar4;
-    prim = _DAT_1f800004;
-    puVar2 = _DAT_1f800000;
-    if (secs / 10 != 0) {
-      _DAT_1f800004->tag = _DAT_1f800004->tag & 0xff000000 | *_DAT_1f800000 & 0xffffff;
-      uVar3 = (uint)_DAT_1f800004 & 0xffffff;
-      _DAT_1f800004 = _DAT_1f800004 + 1;
-      *puVar2 = *puVar2 & 0xff000000 | uVar3;
+              (prim,&HudPmx_tShape_80111008 + secs % 10,x + iVar7 + -1,y,(ulong)color);
+    *(undefined **)&prim->r3 = puVar6;
+    *(undefined **)&prim->r2 = puVar6;
+    prim = DAT_1f800004;
+    puVar3 = DAT_1f800000;
+    if (iVar2 != 0) {
+      iVar1 = iVar7;
+      if (iVar2 == 1) {
+        iVar1 = iVar4 + 1;
+      }
+      DAT_1f800004->tag = DAT_1f800004->tag & 0xff000000 | *DAT_1f800000 & 0xffffff;
+      uVar5 = (uint)DAT_1f800004 & 0xffffff;
+      DAT_1f800004 = DAT_1f800004 + 1;
+      *puVar3 = *puVar3 & 0xff000000 | uVar5;
       Hud_BuildGT4__FP8POLY_GT4P13HudPmx_tShapeiiUl
-                (prim,(HudPmx_tShape *)(&DAT_80111008 + (secs / 10) * 0x14),(int)sVar1 + 2,y,color);
-      *(undefined4 *)&prim->r3 = uVar4;
-      *(undefined4 *)&prim->r2 = uVar4;
+                (prim,&HudPmx_tShape_80111008 + iVar2,(x + iVar7) - iVar1,y,(ulong)color);
+      *(undefined **)&prim->r3 = puVar6;
+      *(undefined **)&prim->r2 = puVar6;
     }
-    Hud_BlackThinBox__Fiiii(x,y,2,0xe);
-    Hud_FBuildF4__FiiiiiUlcc(0,x,y,2,0xe,0,0,0);
+    Hud_BlackThinBox__Fiiii(x,y,iVar7 * 2,0xe);
+    Hud_FBuildF4__FiiiiiUlcc(0,x,y,iVar7 * 2,0xe,0,0,0);
   }
   return;
-
-
 }
-
 
 
 
@@ -4448,17 +4530,22 @@ void BigBTCTime__Fi(int secs)
 	// End offset: 0x800D8C18
 	// End Line: 3737
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Hud_RenderHudView__Fv(void)
+
 {
-  int iVar1;
-  uint *puVar2;
+  uint *puVar1;
   char *string;
+  uint uVar2;
   uint *puVar3;
   int *piVar4;
+  int scalex;
+  int iVar5;
   int type;
   int type_00;
   ulong col1;
-  uint uVar5;
+  uint uVar6;
   int y;
   int y_00;
   int player;
@@ -4468,14 +4555,14 @@ void Hud_RenderHudView__Fv(void)
   uint local_38;
   int local_34;
   int local_30;
-  undefined4 *local_2c;
+  GameSetup_tData *local_2c;
   
   player = 0;
   local_38 = 0xffffff;
   local_34 = 0;
   local_30 = 0;
   local_2c = &GameSetup_gData;
-  while (player <= DashHUD_gInfo) {
+  while (player <= DashHUD_gInfo.splitscreen) {
     local_40 = 0;
     if (player != 0) {
       local_40 = -0xf;
@@ -4483,142 +4570,161 @@ void Hud_RenderHudView__Fv(void)
     Draw_StartRenderingView__Fi(*(int *)((int)&Hud_gHudView + local_34));
     Hud_DebugInfo__Fv();
     Hud_DebugCrap__Fv();
-    if ((GameSetup_gData == 1) && (*(int *)((int)&PerpOverlayOn + local_34) != 0)) {
+    if ((GameSetup_gData.raceType == 1) && (*(int *)((int)&PerpOverlayOn + local_34) != 0)) {
       piVar4 = (int *)((int)&PerpOverlayMessage + local_34);
       string = TextSys_Word__Fi(*piVar4 + 0x41);
       local_3c = textpixels(string);
-      y_00 = (int)sRam0000004a + local_40;
+      y_00 = (int)*(short *)(iGp000018b8 + 0x4a) + local_40;
       Font_TextColor__Fi(4);
       string = TextSys_Word__Fi(*piVar4 + 0x41);
-      uVar5 = local_3c >> 1;
-      Font_TextXY__FPcii(string,0xa0 - (uVar5 + 1),y_00);
+      uVar6 = local_3c >> 1;
+      Font_TextXY__FPcii(string,0xa0 - (uVar6 + 1),y_00);
+      uVar2 = simGlobal.gameTicks >> 4 & 1;
       col1 = 0x800000;
-      if (false) {
+      if (uVar2 != 0) {
         col1 = 0x80;
       }
       type = 10;
-      if (false) {
+      if (uVar2 != 0) {
         type = 8;
       }
-      iVar1 = -uVar5;
+      iVar5 = -uVar6;
       y = y_00 + 8;
-      Flare_2DHalo__Fiiiii(iVar1 + 0x7d,y,4000,4000,type);
-      Flare_2DHalo__Fiiiii(iVar1 + 0x73,y,4000,4000,type);
+      scalex = (simGlobal.gameTicks % 0xf) * -0xfa + 4000;
+      Flare_2DHalo__Fiiiii(iVar5 + 0x7d,y,scalex,scalex,type);
+      Flare_2DHalo__Fiiiii(iVar5 + 0x73,y,scalex,scalex,type);
       type = y_00 + 5;
-      Hud_FBuildGT4__FP13HudPmx_tShapeiiUl((HudPmx_tShape *)&DAT_8011115c,iVar1 + 0x7a,type,col1);
-      Hud_FBuildGT4__FP13HudPmx_tShapeiiUl((HudPmx_tShape *)&DAT_8011115c,iVar1 + 0x70,type,col1);
+      Hud_FBuildGT4__FP13HudPmx_tShapeiiUl(&HudPmx_tShape_8011115c,iVar5 + 0x7a,type,col1);
+      Hud_FBuildGT4__FP13HudPmx_tShapeiiUl(&HudPmx_tShape_8011115c,iVar5 + 0x70,type,col1);
+      uVar2 = simGlobal.gameTicks >> 4 & 1;
       col1 = 0x800000;
-      if (true) {
+      if (uVar2 == 0) {
         col1 = 0x80;
       }
       type_00 = 10;
-      if (true) {
+      if (uVar2 == 0) {
         type_00 = 8;
       }
-      Flare_2DHalo__Fiiiii(uVar5 + 0xc0,y,4000,4000,type_00);
-      Flare_2DHalo__Fiiiii(uVar5 + 0xca,y,4000,4000,type_00);
-      Hud_FBuildGT4__FP13HudPmx_tShapeiiUl((HudPmx_tShape *)&DAT_8011115c,uVar5 + 0xbd,type,col1);
-      Hud_FBuildGT4__FP13HudPmx_tShapeiiUl((HudPmx_tShape *)&DAT_8011115c,uVar5 + 199,type,col1);
-      Hud_BlackThinBox__Fiiii(iVar1 + 0x6f,y_00,local_3c + 0x62,0x11);
-      Hud_FBuildF4__FiiiiiUlcc(0,iVar1 + 0x6f,y_00,0x17,0x11,0,0,0);
-      Hud_FBuildF4__FiiiiiUlcc(0,uVar5 + 0xba,y_00,0x15,0x11,0,0,0);
-      Hud_FBuildF4__FiiiiiUlcc(0,uVar5 + 0xba,y_00 + 3,0x16,0xb,0,0,0);
-      Hud_FBuildF4__FiiiiiUlcc(1,iVar1 + 0x86,y_00,local_3c + 0x36,0x11,0x461414,0,0);
+      Flare_2DHalo__Fiiiii(uVar6 + 0xc0,y,scalex,scalex,type_00);
+      Flare_2DHalo__Fiiiii(uVar6 + 0xca,y,scalex,scalex,type_00);
+      Hud_FBuildGT4__FP13HudPmx_tShapeiiUl(&HudPmx_tShape_8011115c,uVar6 + 0xbd,type,col1);
+      Hud_FBuildGT4__FP13HudPmx_tShapeiiUl(&HudPmx_tShape_8011115c,uVar6 + 199,type,col1);
+      Hud_BlackThinBox__Fiiii(iVar5 + 0x6f,y_00,local_3c + 0x62,0x11);
+      Hud_FBuildF4__FiiiiiUlcc(0,iVar5 + 0x6f,y_00,0x17,0x11,0,0,0);
+      Hud_FBuildF4__FiiiiiUlcc(0,uVar6 + 0xba,y_00,0x15,0x11,0,0,0);
+      Hud_FBuildF4__FiiiiiUlcc(0,uVar6 + 0xba,y_00 + 3,0x16,0xb,0,0,0);
+      Hud_FBuildF4__FiiiiiUlcc(1,iVar5 + 0x86,y_00,local_3c + 0x36,0x11,(ulong)&DAT_00461414,0,0);
     }
-    if (player == DashHUD_gInfo) {
-      if (true) {
+    if (player == DashHUD_gInfo.splitscreen) {
+      if ((iGp000013e8 >> 6) - 1U < 0x1e) {
+        BigBTCTime__Fi(iGp000013e8 >> 6);
+      }
+      else {
         y_00 = 0;
-        if (((false) && (y_00 = 1, countdown < 4)) && (true)) {
+        if (((0x23f < simGlobal.gameTicks) && (y_00 = 1, (byte)countdown < 4)) && (iGp000013f0 == 0)
+           ) {
           y_00 = 0;
         }
         Hud_BuildCdPlayer__Fii(y_00);
       }
-      else {
-        BigBTCTime__Fi(0);
-      }
     }
-    if (*(int *)((int)&DAT_8011274c + local_34) != 0) {
+    if (*(int *)((int)DashHUD_gInfo.showhud + local_34) != 0) {
+      y_00 = iGp000018bc;
+      if (player != 0) {
+        y_00 = iGp000018c0;
+      }
       DashHUD_CheckWrongWay__Fi(player);
       DashHUD_HUDCalc__Fi(player);
       Hud_BuildNumbers0__Fi(player);
       Hud_BuildNumbers__Fi(player);
-      puVar2 = _DAT_1f800000;
-      puVar3 = (uint *)(&gTPage0 + local_30);
-      *puVar3 = *puVar3 & 0xff000000 | *_DAT_1f800000 & local_38;
-      uVar5 = *puVar2 & 0xff000000 | (uint)puVar3 & local_38;
-      *puVar2 = uVar5;
-      if (local_2c[0x113] != 0) {
-        uRam00000014 = uRam00000014 & 0xff000000 | uVar5 & local_38;
-        *puVar2 = *puVar2 & 0xff000000 | local_38 & 0x14;
+      puVar1 = DAT_1f800000;
+      puVar3 = (uint *)((int)&gTPage0.tag + local_30);
+      *puVar3 = *puVar3 & 0xff000000 | *DAT_1f800000 & local_38;
+      uVar2 = *puVar1 & 0xff000000 | (uint)puVar3 & local_38;
+      *puVar1 = uVar2;
+      if (local_2c->carInfo[0].HudTach != 0) {
+        *(uint *)(y_00 + 0x14) = *(uint *)(y_00 + 0x14) & 0xff000000 | uVar2 & local_38;
+        *puVar1 = *puVar1 & 0xff000000 | y_00 + 0x14U & local_38;
       }
-      if (local_2c[0x114] != 0) {
-        if (((local_2c[0x115] != 0) && (true)) && (DAT_801131f8 != 1)) {
-          y_00 = Hud_NextPlayer__Fi(player);
-          if (((-1 < y_00) && (y_00 < 9)) && (true)) {
+      if (local_2c->carInfo[0].HudMap != 0) {
+        if (((local_2c->carInfo[0].HudOpponentID != 0) && (iGp000013f0 == 0)) &&
+           (GameSetup_gData.commMode != 1)) {
+          type = Hud_NextPlayer__Fi(player);
+          if (((-1 < type) && (type < 9)) && (iGp000013f0 == 0)) {
+            iVar5 = (int)HudPmx_tShape_801115f8.width;
+            scalex = (int)HudPmx_tShape_80110db0.width;
+            y = (int)HudPmx_tShape_80110e28.width;
             string = Hud_NextPlayerNameOrCarOrTime__Fi(player);
-            sprintf(acStack128,"%s",string);
+            sprintf(acStack128,(char *)&PTR_DAT_8013d904,string);
             Hud_GoTpage__Fi(1);
             uppercase__FPc(acStack128);
-            y_00 = Hud_BuildString__FPciiiib(acStack128,0,0,0,0,1);
+            type = Hud_BuildString__FPciiiib(acStack128,0,0,0,0,&DAT_00000001);
             Hud_BuildString__FPciiiib
-                      (acStack128,(int)sRam00000038 + (2 - y_00 >> 1),
-                       (int)sRam0000003a + local_40 + 1,0x808080,0,0);
+                      (acStack128,(int)*(short *)(iGp000018b8 + 0x38) + ((iVar5 + 2) - type >> 1),
+                       (((int)*(short *)(iGp000018b8 + 0x3a) + iGp00001420 + local_40) -
+                       (int)HudPmx_tShape_80110db0.height) + 1,0x808080,0,(void *)0x0);
             Hud_GoTpage__Fi(0);
             Hud_FBuildGT4__FP13HudPmx_tShapeiiUl
-                      ((HudPmx_tShape *)&DAT_80110db0,(int)sRam00000038,(int)sRam0000003a + local_40
-                       ,0x808080);
+                      (&HudPmx_tShape_80110db0,(int)*(short *)(iGp000018b8 + 0x38),
+                       ((int)*(short *)(iGp000018b8 + 0x3a) + iGp00001420 + local_40) -
+                       (int)HudPmx_tShape_80110db0.height,0x808080);
             Hud_FBuildGT4__FP13HudPmx_tShapeiiUl
-                      ((HudPmx_tShape *)&DAT_80110dc4,(int)sRam00000038,(int)sRam0000003a + local_40
-                       ,0x808080);
-            Hud_FBuildF4__FiiiiiUlcc(0,(int)sRam00000038 + 2,(int)sRam0000003a + local_40,3,0,0,0,0)
-            ;
-            y_00 = 2;
-            if ((&Hud_gWingmanInterface)[player] == '\0') {
-              y_00 = 3;
-            }
-            Hud_FBuildF4__FiiiiiUlcc(0,(int)sRam00000038,(int)sRam0000003a + local_40,3,y_00,0,0,0);
+                      (&HudPmx_tShape_80110dc4,(int)*(short *)(iGp000018b8 + 0x38) + scalex + y,
+                       ((int)*(short *)(iGp000018b8 + 0x3a) + iGp00001420 + local_40) -
+                       (int)HudPmx_tShape_80110dc4.height,0x808080);
             Hud_FBuildF4__FiiiiiUlcc
-                      (0,(int)sRam00000038 + -3,(int)sRam0000003a + local_40,3,3,0,0,0);
+                      (0,(int)*(short *)(iGp000018b8 + 0x38) + 2,
+                       ((int)*(short *)(iGp000018b8 + 0x3a) + iGp00001420 + local_40) -
+                       (int)HudPmx_tShape_80110db0.height,scalex + y + 3,
+                       (int)HudPmx_tShape_80110db0.height,0,0,0);
+            type = 2;
+            if ((&Hud_gWingmanInterface)[player] == '\0') {
+              type = 3;
+            }
+            Hud_FBuildF4__FiiiiiUlcc
+                      (0,(int)*(short *)(iGp000018b8 + 0x38),
+                       (int)*(short *)(iGp000018b8 + 0x3a) + iGp00001420 + local_40,3,type,0,0,0);
+            Hud_FBuildF4__FiiiiiUlcc
+                      (0,(int)*(short *)(iGp000018b8 + 0x38) + scalex + y +
+                         (int)HudPmx_tShape_80110dc4.width + -3,
+                       (int)*(short *)(iGp000018b8 + 0x3a) + iGp00001420 + local_40,3,3,0,0,0);
           }
         }
-        puVar2 = _DAT_1f800000;
-        y_00 = 0x3f;
-        puVar3 = (uint *)0x4ec;
+        puVar1 = DAT_1f800000;
+        type = 0x3f;
+        puVar3 = (uint *)(y_00 + 0x4ec);
         do {
-          y_00 = y_00 + 1;
-          *puVar3 = *puVar3 & 0xff000000 | *puVar2 & local_38;
-          *puVar2 = *puVar2 & 0xff000000 | (uint)puVar3 & local_38;
+          type = type + 1;
+          *puVar3 = *puVar3 & 0xff000000 | *puVar1 & local_38;
+          *puVar1 = *puVar1 & 0xff000000 | (uint)puVar3 & local_38;
           puVar3 = puVar3 + 5;
-        } while (y_00 < 0x47);
+        } while (type < 0x47);
       }
     }
-    if (((player == 0) && (1 < Replay_ReplayMode)) && (DAT_80117048 == 0)) {
+    if (((player == 0) && (1 < Replay_ReplayMode)) && (Replay_ReplayInterface.statsScreen == 0)) {
       Hud_BuildReplay__Fv();
     }
-    puVar2 = _DAT_1f800000;
-    puVar3 = (uint *)(&gTPage1 + local_30);
-    *puVar3 = *puVar3 & 0xff000000 | *_DAT_1f800000 & local_38;
-    *puVar2 = *puVar2 & 0xff000000 | (uint)puVar3 & local_38;
-    if (((*(int *)((int)&DAT_8011274c + local_34) != 0) &&
+    puVar1 = DAT_1f800000;
+    puVar3 = (uint *)((int)&gTPage1.tag + local_30);
+    *puVar3 = *puVar3 & 0xff000000 | *DAT_1f800000 & local_38;
+    *puVar1 = *puVar1 & 0xff000000 | (uint)puVar3 & local_38;
+    if (((*(int *)((int)DashHUD_gInfo.showhud + local_34) != 0) &&
         ((&Hud_gWingmanInterface)[player] != '\0')) && (Replay_ReplayMode < 2)) {
       Hud_BuildWingmanInterface__Fi(player);
     }
-    puVar2 = _DAT_1f800000;
+    puVar1 = DAT_1f800000;
     piVar4 = (int *)((int)&Hud_gHudView + local_34);
     local_34 = local_34 + 4;
-    puVar3 = (uint *)(local_30 + -0x7fec1c64);
+    puVar3 = (uint *)((int)&DR_MODE_8013e39c.tag + local_30);
     local_30 = local_30 + 0x30;
-    *puVar3 = *puVar3 & 0xff000000 | *_DAT_1f800000 & local_38;
-    local_2c = local_2c + 0x2d;
-    *puVar2 = *puVar2 & 0xff000000 | (uint)puVar3 & local_38;
+    *puVar3 = *puVar3 & 0xff000000 | *DAT_1f800000 & local_38;
+    local_2c = (GameSetup_tData *)((local_2c->controllerData).shockImpact + 1);
+    *puVar1 = *puVar1 & 0xff000000 | (uint)puVar3 & local_38;
     player = player + 1;
     Draw_StopRenderingView__Fi(*piVar4);
   }
   return;
-
-
 }
-
 
 
 
@@ -4642,37 +4748,37 @@ void Hud_RenderHudView__Fv(void)
 	// End offset: 0x800D8D40
 	// End Line: 3765
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Hud_RenderTacView__Fv(void)
+
 {
   uint *puVar1;
   int player;
   uint *puVar2;
-  undefined4 *puVar3;
+  GameSetup_tData *pGVar3;
   
   player = 0;
-  if (-1 < DashHUD_gInfo) {
-    puVar2 = (uint *)&DAT_8013e408;
-    puVar3 = &GameSetup_gData;
+  if (-1 < DashHUD_gInfo.splitscreen) {
+    puVar2 = &DAT_8013e408;
+    pGVar3 = &GameSetup_gData;
     do {
-      if ((puVar3[0x113] != 0) && ((&DAT_8011274c)[player] != 0)) {
+      if ((pGVar3->carInfo[0].HudTach != 0) && (DashHUD_gInfo.showhud[player] != 0)) {
         Draw_StartRenderingView__Fi((&Hud_gTacView)[player]);
         DashHUD_HUDCalc__Fi(player);
         Hud_BuildTach__Fi(player);
-        puVar1 = _DAT_1f800000;
-        *puVar2 = *puVar2 & 0xff000000 | *_DAT_1f800000 & 0xffffff;
+        puVar1 = DAT_1f800000;
+        *puVar2 = *puVar2 & 0xff000000 | *DAT_1f800000 & 0xffffff;
         *puVar1 = *puVar1 & 0xff000000 | (uint)puVar2 & 0xffffff;
         Draw_StopRenderingView__Fi((&Hud_gTacView)[player]);
       }
       puVar2 = puVar2 + 0xc;
       player = player + 1;
-      puVar3 = puVar3 + 0x2d;
-    } while (player <= DashHUD_gInfo);
+      pGVar3 = (GameSetup_tData *)((pGVar3->controllerData).shockImpact + 1);
+    } while (player <= DashHUD_gInfo.splitscreen);
   }
   return;
-
-
 }
-
 
 
 
@@ -4684,12 +4790,13 @@ void Hud_RenderTacView__Fv(void)
 		// Start line: 3771
 		// Start offset: 0x800D8D64
 		// Variables:
-	// 		unsigned int showtime; // $a3
+	// 		void * showtime; // $a3
 	/* end block 1 */
 	// End offset: 0x800D8EC0
 	// End Line: 3802
 
 void Hud_ParseTime__FiPc(int nTime,char *sLapTime)
+
 {
   int iVar1;
   int iVar2;
@@ -4707,18 +4814,18 @@ void Hud_ParseTime__FiPc(int nTime,char *sLapTime)
   iVar2 = iVar2 + iVar1 * -6000;
   iVar3 = (iVar2 / 100) * 0x10000 >> 0x10;
   if (iVar1 < 0x3c && nTime != 0) {
-    sprintf(sLapTime,"%01d%c%02d%c%02d",iVar1,(uint)(byte)"::\'\'\'."[DAT_801132cc],iVar3,
-            (uint)(byte)".:\"\"\","[DAT_801132cc],(iVar2 + iVar3 * -100) * 0x10000 >> 0x10);
+    sprintf(sLapTime,s__01d_c_02d_c_02d_80056904,iVar1,
+            (uint)(byte)(&HudminChar)[GameSetup_gData.userSetting.language],iVar3,
+            (uint)(byte)(&HudsecChar)[GameSetup_gData.userSetting.language],
+            (iVar2 + iVar3 * -100) * 0x10000 >> 0x10);
   }
   else {
-    sprintf(sLapTime," - %c - - %c - -",(uint)(byte)"::\'\'\'."[DAT_801132cc],
-            (uint)(byte)".:\"\"\","[DAT_801132cc]);
+    sprintf(sLapTime,s_____c______c_____80056918,
+            (uint)(byte)(&HudminChar)[GameSetup_gData.userSetting.language],
+            (uint)(byte)(&HudsecChar)[GameSetup_gData.userSetting.language]);
   }
   return;
-
-
 }
-
 
 
 
@@ -4737,23 +4844,27 @@ void Hud_ParseTime__FiPc(int nTime,char *sLapTime)
 	// End Line: 3813
 
 void Hud_RenderPauseBox__Fiiii(int x,int y,int w,int h)
+
 {
+  short sVar1;
+  short sVar2;
   int y_00;
+  int x_00;
   
-  Hud_FBuildFT4__FP13HudPmx_tShapeiiUl((HudPmx_tShape *)&DAT_80110db0,x + -2,y + 10,0);
-  Hud_FBuildFT4__FP13HudPmx_tShapeiiUl((HudPmx_tShape *)&DAT_80110dc4,x + w,y + 10,0);
-  y_00 = y + h;
-  Hud_FBuildFT4__FP13HudPmx_tShapeiiUl((HudPmx_tShape *)&DAT_80110dd8,x + -2,y_00,0);
-  Hud_FBuildFT4__FP13HudPmx_tShapeiiUl((HudPmx_tShape *)&DAT_80110dec,x + w,y_00,0);
-  Hud_FBuildF4__FiiiiiUlcc(0,x,y_00 + -2,w,2,0,0,0);
+  sVar2 = HudPmx_tShape_80110dec.height;
+  sVar1 = HudPmx_tShape_80110dec.width;
+  Hud_FBuildFT4__FP13HudPmx_tShapeiiUl(&HudPmx_tShape_80110db0,x + -2,y + 10,0);
+  x_00 = (x + w) - (int)sVar1;
+  Hud_FBuildFT4__FP13HudPmx_tShapeiiUl(&HudPmx_tShape_80110dc4,x_00,y + 10,0);
+  y_00 = (y + h) - (int)sVar2;
+  Hud_FBuildFT4__FP13HudPmx_tShapeiiUl(&HudPmx_tShape_80110dd8,x + -2,y_00,0);
+  Hud_FBuildFT4__FP13HudPmx_tShapeiiUl(&HudPmx_tShape_80110dec,x_00,y_00,0);
+  Hud_FBuildF4__FiiiiiUlcc(0,x,y + h + -2,w,2,0,0,0);
   Hud_BlackThinBox__Fiiii(x,y,w,h);
   Hud_FBuildF4__FiiiiiUlcc(0,x,y,w,0xc,0,0,0);
-  Hud_FBuildF4__FiiiiiUlcc(1,x,y + 0xc,w,h + -0xc,0x461414,0,0);
+  Hud_FBuildF4__FiiiiiUlcc(1,x,y + 0xc,w,h + -0xc,(ulong)&DAT_00461414,0,0);
   return;
-
-
 }
-
 
 
 
@@ -4925,7 +5036,10 @@ void Hud_RenderPauseBox__Fiiii(int x,int y,int w,int h)
 	// End offset: 0x800D9498
 	// End Line: 3968
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Hud_Render__Fv(void)
+
 {
   short player;
   int *piVar1;
@@ -4934,79 +5048,80 @@ void Hud_Render__Fv(void)
   int type;
   int iVar2;
   int *piVar3;
-  byte *pbVar4;
+  char *pcVar4;
   
-  player = sGp000013f8;
-  if (DAT_80117048 != 0) {
-    if (true) {
-      DAT_8011274c = 0;
-      DAT_80112750 = 0;
+  player = DAT_000013f8;
+  if (Replay_ReplayInterface.statsScreen != 0) {
+    if (simGlobal.gameTicks < 0x240) {
+      DashHUD_gInfo.showhud[0] = 0;
+      DashHUD_gInfo.showhud[1] = 0;
     }
-    gCView = iGp0000141c;
-    Draw_StartRenderingView__Fi(iGp0000141c);
+    gCView.id = DAT_0000141c;
+    Draw_StartRenderingView__Fi(DAT_0000141c);
     Hud_DebugCrap__Fv();
     Hud_RenderStatsView__Fv();
-    Draw_StopRenderingView__Fi(iGp0000141c);
+    Draw_StopRenderingView__Fi(DAT_0000141c);
     return;
   }
-  if (((iGp000013dc != 0) || (iGp000018dc == 0)) || (ticks - iGp000018e0 < 0xfb)) goto LAB_800d91ac;
-  if (DashHUD_gInfo == 0) {
+  if (((DAT_000013dc != 0) || (DAT_000018dc == 0)) || ((int)(ticks + -DAT_000018e0) < 0xfb))
+  goto LAB_800d91ac;
+  if (DashHUD_gInfo.splitscreen == 0) {
 LAB_800d9168:
     player_00 = 0x32;
   }
   else {
-    if ((*(uint *)(_Cars_gRaceCarList + 0x260) & 0x200) == 0) {
+    if ((__Cars_gRaceCarList_9__->carFlags & 0x200U) == 0) {
       player_00 = 0xfa;
     }
     else {
       player_00 = 0xfa;
-      if ((uRam00000260 & 0x200) != 0) goto LAB_800d9168;
+      if ((PTR_8010fa04->carFlags & 0x200U) != 0) goto LAB_800d9168;
     }
   }
   iVar2 = player_00;
-  if (iGp000018dc < player_00) {
-    iVar2 = iGp000018dc;
+  if (DAT_000018dc < player_00) {
+    iVar2 = DAT_000018dc;
   }
-  iGp000018dc = iGp000018dc - player_00;
-  iGp000013e8 = iGp000013e8 + iVar2;
-  if (iGp000018dc < 0) {
-    iGp000018dc = 0;
+  DAT_000018dc = DAT_000018dc - player_00;
+  DAT_000013e8 = DAT_000013e8 + iVar2;
+  if (DAT_000018dc < 0) {
+    DAT_000018dc = 0;
   }
 LAB_800d91ac:
-  if ((iGp000013f0 == 0) || (iGp000018e4 != 0)) {
-    if ((iGp000013dc != 0) && (Replay_ReplayMode < 2)) {
-      gCView = iGp0000141c;
-      Draw_StartRenderingView__Fi(iGp0000141c);
+  if ((DAT_000013f0 == 0) || (DAT_000018e4 != 0)) {
+    if ((DAT_000013dc != 0) && (Replay_ReplayMode < 2)) {
+      gCView.id = DAT_0000141c;
+      Draw_StartRenderingView__Fi(DAT_0000141c);
       (&StatsTimer)[(int)player] = (&StatsTimer)[(int)player] + 1;
-      Hud_BTCStats__Fsb(player,0);
-      Draw_StopRenderingView__Fi(iGp0000141c);
+      Hud_BTCStats__Fsb(player,(void *)0x0);
+      Draw_StopRenderingView__Fi(DAT_0000141c);
     }
     player_00 = 0;
-    pbVar4 = &Hud_gWingmanInterface;
+    pcVar4 = &Hud_gWingmanInterface;
     while (player_00 < 2) {
       mode = Input_WingCommandMode__Fi(player_00);
-      if (((uint)*pbVar4 == mode) && (iGp000013dc != 0)) {
+      if (((uint)(byte)*pcVar4 == mode) && (DAT_000013dc != 0)) {
 LAB_800d9424:
-        *pbVar4 = 0;
+        *pcVar4 = 0;
         Hud_InitMapFrame__Fii(player_00,0);
       }
       else {
-        if ((int)(&Hud_gWingmanFlashTicks)[player_00] < ticks) {
-          if ((uint)*pbVar4 != mode) {
+        if ((&Hud_gWingmanFlashTicks)[player_00] < (int)ticks) {
+          if ((uint)(byte)*pcVar4 != mode) {
             if (1 < Replay_ReplayMode) goto LAB_800d9424;
-            if (iGp000013dc == 0) {
+            if (DAT_000013dc == 0) {
               Hud_InitMapFrame__Fii(player_00,mode);
-              *pbVar4 = (byte)mode;
+              *pcVar4 = (byte)mode;
             }
           }
           if (1 < Replay_ReplayMode) goto LAB_800d9424;
         }
       }
-      pbVar4 = pbVar4 + 1;
+      pcVar4 = (char *)((byte *)pcVar4 + 1);
       player_00 = player_00 + 1;
     }
-    uGp000018fc = 0;
-    if (((true) && (countdown != '\0')) && (iGp000013f0 == 0)) {
+    DAT_000018fc = 0;
+    if (((simGlobal.gameTicks < 0x240) && (countdown != '\0')) && (DAT_000013f0 == 0)) {
       Hud_Render321Go__Fv();
     }
     Hud_RenderHudView__Fv();
@@ -5015,23 +5130,24 @@ LAB_800d9424:
   }
   else {
     player_00 = 0;
-    if (-1 < DashHUD_gInfo) {
+    if (-1 < DashHUD_gInfo.splitscreen) {
       iVar2 = 0;
       piVar3 = &Hud_gHudView;
       do {
         Draw_StartRenderingView__Fi(*piVar3);
         Hud_GoTpage__Fi(1);
-        if (((player_00 == 0) && (1 < Replay_ReplayMode)) && (DAT_80117048 == 0)) {
+        if (((player_00 == 0) && (1 < Replay_ReplayMode)) &&
+           (Replay_ReplayInterface.statsScreen == 0)) {
           Hud_BuildReplay__Fv();
         }
-        if (player_00 == DashHUD_gInfo) {
+        if (player_00 == DashHUD_gInfo.splitscreen) {
           type = 1;
-          if ((true) && (countdown == '\0')) {
+          if ((simGlobal.gameTicks < 0x240) && (countdown == '\0')) {
             type = 0;
           }
           Hud_BuildCdPlayer__Fii(type);
         }
-        if (*(int *)((int)&DAT_8011274c + iVar2) != 0) {
+        if (*(int *)((int)DashHUD_gInfo.showhud + iVar2) != 0) {
           Hud_DebugInfo__Fv();
           Hud_BuildNumbers0__Fi(player_00);
         }
@@ -5041,14 +5157,11 @@ LAB_800d9424:
         piVar3 = piVar3 + 1;
         Draw_StopRenderingView__Fi(*piVar1);
         player_00 = player_00 + 1;
-      } while (player_00 <= DashHUD_gInfo);
+      } while (player_00 <= DashHUD_gInfo.splitscreen);
     }
   }
   return;
-
-
 }
-
 
 
 
@@ -5063,39 +5176,40 @@ LAB_800d9424:
 	// End offset: 0x800D955C
 	// End Line: 3988
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Hud_PositionMap__Fv(void)
+
 {
-  undefined4 uVar1;
+  uint uVar1;
   int iVar2;
   double __z;
   
-  uVar1 = __mulsf3(0x421e0000,0x47800000);
-  uGp00001428 = __fixsfsi(uVar1);
-  uVar1 = __mulsf3(0x42233333,0x47800000);
-  uGp0000142c = __fixsfsi(uVar1);
-  uGp00001430 = 7;
-  if (false) {
-    uGp00001430 = 5;
+  iVar2 = GameSetup_gData.track;
+  uVar1 = __mulsf3((uint)(&fMapScaleX)[GameSetup_gData.track],0x47800000);
+  DAT_00001428 = __fixsfsi(uVar1);
+  uVar1 = __mulsf3((uint)(&fMapScaleY)[iVar2],0x47800000);
+  DAT_0000142c = __fixsfsi(uVar1);
+  DAT_00001430 = (int)(&fMapOffX)[iVar2];
+  if (GameSetup_gData.mirrorTrack != 0) {
+    DAT_00001430 = (int)(&fMapOffX)[iVar2] + -2;
   }
-  uGp00001424 = 0xfc0;
-  iVar2 = 7;
-  iGp00001434 = iVar2;
+  DAT_00001424 = (int)(&fMapRotate)[iVar2];
+  iVar2 = (int)(&fMapOffY)[iVar2];
+  DAT_00001434 = iVar2;
   ccos(__z);
   iVar2 = iVar2 << 4;
-  iGp000013fc = iVar2;
+  DAT_000013fc = iVar2;
   csin(__z);
-  iGp00001400 = iVar2 << 4;
+  DAT_00001400 = iVar2 << 4;
   return;
-
-
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// void /*$ra*/ Hud_BTC_Update__FPcib(char *perpname /*$v0*/, int timeleft /*$s1*/, unsigned int userHasControl /*$s0*/)
+// void /*$ra*/ Hud_BTC_Update__FPcib(char *perpname /*$v0*/, int timeleft /*$s1*/, void * userHasControl /*$s0*/)
  // line 3998, offset 0x800d95c8
 	/* begin block 1 */
 		// Start line: 3999
@@ -5104,24 +5218,22 @@ void Hud_PositionMap__Fv(void)
 	// End offset: 0x800D9618
 	// End Line: 4005
 
-void Hud_BTC_Update__FPcib(char *perpname,int timeleft,uint userHasControl)
+void Hud_BTC_Update__FPcib(char *perpname,int timeleft,void *userHasControl)
+
 {
   sprintf(&BTC_CurrentPerpName,perpname);
-  if ((iGp000018dc == 0) && (iGp000013dc == 0)) {
-    iGp000013e8 = timeleft << 1;
+  if ((DAT_000018dc == 0) && (DAT_000013dc == 0)) {
+    DAT_000013e8 = timeleft << 1;
   }
-  uGp000018e4 = userHasControl;
+  DAT_000018e4 = userHasControl;
   return;
-
-
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// void /*$ra*/ Hud_BustedOverlayOn__FiPcbs(int time /*$s4*/, char *name /*$a1*/, unsigned int caught /*$s2*/, short player /*$s5*/)
+// void /*$ra*/ Hud_BustedOverlayOn__FiPcbs(int time /*$s4*/, char *name /*$a1*/, void * caught /*$s2*/, short player /*$s5*/)
  // line 4009, offset 0x800d962c
 	/* begin block 1 */
 		// Start line: 4010
@@ -5167,7 +5279,8 @@ void Hud_BTC_Update__FPcib(char *perpname,int timeleft,uint userHasControl)
 	// End offset: 0x800D97C0
 	// End Line: 4047
 
-void Hud_BustedOverlayOn__FiPcbs(int time,char *name,uint caught,short player)
+void Hud_BustedOverlayOn__FiPcbs(int time,char *name,void *caught,short player)
+
 {
   int iVar1;
   int iVar2;
@@ -5178,19 +5291,18 @@ void Hud_BustedOverlayOn__FiPcbs(int time,char *name,uint caught,short player)
   (&StatsTimer)[iVar1] = 0;
   if (Replay_ReplayMode < 2) {
     psVar3 = &Hud_NextPerp + iVar1;
-    iVar1 = iVar1 * 0xa0;
-    uGp000013ec = uGp000013e8;
-    sprintf(&BTCPerpInfo + iVar1 + (int)*psVar3 * 0x10,name);
-    if (caught == 0) {
+    DAT_000013ec = DAT_000013e8;
+    sprintf((char *)(&BTCPerpInfo + (int)*psVar3 + iVar1 * 10),name);
+    if (caught == (void *)0x0) {
       iVar4 = 0;
       iVar1 = 0;
       do {
         psVar3 = &Hud_NextPerp + iVar4;
         iVar2 = (int)*psVar3;
-        if ((iVar2 == 0) || (*(int *)(&DAT_80120bcc + (iVar2 + -1) * 0x10 + iVar1) != 0)) {
-          *(undefined4 *)(&DAT_80120bcc + iVar2 * 0x10 + iVar1) = 0;
-          *(undefined4 *)(&DAT_80120bc8 + (int)*psVar3 * 0x10 + iVar1) = 0;
-          sprintf(&BTCPerpInfo + iVar1 + (int)*psVar3 * 0x10,&BTC_CurrentPerpName);
+        if ((iVar2 == 0) || (*(int *)((int)&(&BTCPerpInfo)[iVar2 + -1].caught + iVar1) != 0)) {
+          *(undefined4 *)((int)&(&BTCPerpInfo)[iVar2].caught + iVar1) = 0;
+          *(undefined4 *)((int)&(&BTCPerpInfo)[(int)*psVar3].time + iVar1) = 0;
+          sprintf((&BTCPerpInfo)[(int)*psVar3].name + iVar1,&BTC_CurrentPerpName);
           *psVar3 = *psVar3 + 1;
         }
         iVar4 = iVar4 + 1;
@@ -5198,18 +5310,15 @@ void Hud_BustedOverlayOn__FiPcbs(int time,char *name,uint caught,short player)
       } while (iVar4 < 2);
     }
     else {
-      *(undefined4 *)(&DAT_80120bcc + (int)*psVar3 * 0x10 + iVar1) = 1;
-      *(int *)(&DAT_80120bc8 + (int)*psVar3 * 0x10 + iVar1) = time;
+      (&BTCPerpInfo)[iVar1 * 10 + (int)*psVar3].caught = (void *)0x1;
+      (&BTCPerpInfo)[iVar1 * 10 + (int)*psVar3].time = time;
       *psVar3 = *psVar3 + 1;
     }
-    uGp000013dc = 1;
-    sGp000013f8 = player;
+    DAT_000013dc = 1;
+    DAT_000013f8 = player;
   }
   return;
-
-
 }
-
 
 
 
@@ -5224,14 +5333,14 @@ void Hud_BustedOverlayOn__FiPcbs(int time,char *name,uint caught,short player)
 	// End offset: 0x800D97E4
 	// End Line: 4053
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Hud_BustedOverlayOff__Fv(void)
+
 {
-  uGp000013dc = 0;
+  DAT_000013dc = 0;
   return;
-
-
 }
-
 
 
 
@@ -5269,31 +5378,31 @@ void Hud_BustedOverlayOff__Fv(void)
 	// End offset: 0x800D982C
 	// End Line: 4066
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Hud_Reset__Fv(void)
+
 {
-  undefined2 *puVar1;
+  short *psVar1;
   int iVar2;
   
   iVar2 = 0;
   if (Replay_ReplayMode < 2) {
-    puVar1 = &Hud_NextPerp;
+    psVar1 = &Hud_NextPerp;
     do {
-      *puVar1 = 0;
-      puVar1 = puVar1 + 1;
+      *psVar1 = 0;
+      psVar1 = psVar1 + 1;
       iVar2 = iVar2 + 1;
-      BTC_CurrentPerpName = 0;
+      BTC_CurrentPerpName = '\0';
     } while (iVar2 < 2);
   }
-  uGp000013dc = 0;
-  uGp000018dc = 0;
-  uGp000018e4 = 0;
-  uGp000018ec = 0;
-  uGp000018f0 = 0;
+  DAT_000013dc = 0;
+  DAT_000018dc = 0;
+  DAT_000018e4 = 0;
+  DAT_000018ec = 0;
+  DAT_000018f0 = 0;
   return;
-
-
 }
-
 
 
 
@@ -5331,30 +5440,30 @@ void Hud_Reset__Fv(void)
 	// End offset: 0x800D98F0
 	// End Line: 4087
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Hud_BTC_QuitOut__Fv(void)
+
 {
   short *psVar1;
   int iVar2;
   int iVar3;
   
-  if (iGp000013dc == 0) {
+  if (DAT_000013dc == 0) {
     iVar3 = 0;
     iVar2 = 0;
     do {
       psVar1 = &Hud_NextPerp + iVar3;
-      sprintf(&BTCPerpInfo + iVar2 + (int)*psVar1 * 0x10,&BTC_CurrentPerpName);
-      *(undefined4 *)(&DAT_80120bcc + (int)*psVar1 * 0x10 + iVar2) = 0;
+      sprintf((&BTCPerpInfo)[(int)*psVar1].name + iVar2,&BTC_CurrentPerpName);
+      *(undefined4 *)((int)&(&BTCPerpInfo)[(int)*psVar1].caught + iVar2) = 0;
       iVar3 = iVar3 + 1;
-      *(undefined4 *)(&DAT_80120bc8 + (int)*psVar1 * 0x10 + iVar2) = 0;
+      *(undefined4 *)((int)&(&BTCPerpInfo)[(int)*psVar1].time + iVar2) = 0;
       *psVar1 = *psVar1 + 1;
       iVar2 = iVar2 + 0xa0;
     } while (iVar3 < 2);
   }
   return;
-
-
 }
-
 
 
 
@@ -5384,14 +5493,12 @@ void Hud_BTC_QuitOut__Fv(void)
 	// End Line: 4092
 
 void Hud_BTC_BonusTime__Fl(long extratime)
+
 {
-  lGp000018dc = extratime;
-  uGp000018e0 = ticks;
+  DAT_000018dc = extratime;
+  DAT_000018e0 = ticks;
   return;
-
-
 }
-
 
 
 
@@ -5407,14 +5514,12 @@ void Hud_BTC_BonusTime__Fl(long extratime)
 	// End Line: 4102
 
 void Hud_Perp_OverlayOn__Fii(int player,int level)
+
 {
-  (&PerpOverlayOn)[player] = 1;
-  (&PerpOverlayMessage)[player] = level;
+  (&PerpOverlayOn)[player] = (uchar *)0x1;
+  *(int *)(&PerpOverlayMessage + player) = level;
   return;
-
-
 }
-
 
 
 
@@ -5430,13 +5535,11 @@ void Hud_Perp_OverlayOn__Fii(int player,int level)
 	// End Line: 4108
 
 void Hud_Perp_OverlayOff__Fi(int player)
+
 {
-  (&PerpOverlayOn)[player] = 0;
+  (&PerpOverlayOn)[player] = (uchar *)0x0;
   return;
-
-
 }
-
 
 
 

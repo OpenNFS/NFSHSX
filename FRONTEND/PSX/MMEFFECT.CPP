@@ -14,18 +14,18 @@
 	// End offset: 0x8004D6D8
 	// End Line: 234
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void FeDraw_SetABRMode__Fi(int abr)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 

@@ -100,18 +100,18 @@
 	// End offset: 0x800233FC
 	// End Line: 153
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void FECheat_HandleActivation__F10tCheatCode(tCheatCode cheat)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -130,18 +130,18 @@ void FECheat_HandleActivation__F10tCheatCode(tCheatCode cheat)
 	// End offset: 0x80023494
 	// End Line: 182
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void FECheat_EncodeString__FPcT0(char *input,char *output)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -159,18 +159,18 @@ void FECheat_EncodeString__FPcT0(char *input,char *output)
 	// End offset: 0x800235D0
 	// End Line: 222
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void FECheat_EncodeString2__FPcT0(char *input,char *output)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -185,24 +185,24 @@ void FECheat_EncodeString2__FPcT0(char *input,char *output)
 	// End offset: 0x800235D8
 	// End Line: 233
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void FECheat_ActivateBonus__F10tCheatCode(tCheatCode cheat)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// unsigned int /*$ra*/ FECheat_ActivateCheat__FPc(char *cheat /*$a0*/)
+// void * /*$ra*/ FECheat_ActivateCheat__FPc(char *cheat /*$a0*/)
  // line 242, offset 0x80023614
 	/* begin block 1 */
 		// Start line: 243
@@ -211,7 +211,7 @@ void FECheat_ActivateBonus__F10tCheatCode(tCheatCode cheat)
 	// 		int i; // $s2
 	// 		int j; // $a1
 	// 		char buffer[8]; // stack offset -24
-	// 		unsigned int result; // $s1
+	// 		void * result; // $s1
 
 		/* begin block 1.1 */
 			// Start line: 243
@@ -260,24 +260,24 @@ void FECheat_ActivateBonus__F10tCheatCode(tCheatCode cheat)
 	// End offset: 0x80023700
 	// End Line: 272
 
-uint FECheat_ActivateCheat__FPc(char *cheat)
+/* WARNING: Control flow encountered bad instruction data */
+
+void * FECheat_ActivateCheat__FPc(char *cheat)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// unsigned int /*$ra*/ FECheat_IsCheatEnabled__F10tCheatCode(enum tCheatCode cheat /*$a0*/)
+// void * /*$ra*/ FECheat_IsCheatEnabled__F10tCheatCode(enum tCheatCode cheat /*$a0*/)
  // line 277, offset 0x8002371c
 	/* begin block 1 */
 		// Start line: 278
@@ -286,18 +286,18 @@ uint FECheat_ActivateCheat__FPc(char *cheat)
 	// End offset: 0x8002371C
 	// End Line: 279
 
-uint FECheat_IsCheatEnabled__F10tCheatCode(tCheatCode cheat)
+/* WARNING: Control flow encountered bad instruction data */
+
+void * FECheat_IsCheatEnabled__F10tCheatCode(tCheatCode cheat)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -312,18 +312,18 @@ uint FECheat_IsCheatEnabled__F10tCheatCode(tCheatCode cheat)
 	// End offset: 0x80023748
 	// End Line: 287
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void FECheat_SaveBonus__FRUl(ulong *cheat)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -340,24 +340,24 @@ void FECheat_SaveBonus__FRUl(ulong *cheat)
 	// End offset: 0x800237B8
 	// End Line: 306
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void FECheat_LoadBonus__FRUl(ulong *cheat)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// unsigned int /*$ra*/ FECheat_IsTheUserACryBabyCheater__Fv()
+// void * /*$ra*/ FECheat_IsTheUserACryBabyCheater__Fv()
  // line 312, offset 0x800237d0
 	/* begin block 1 */
 		// Start line: 313
@@ -366,24 +366,25 @@ void FECheat_LoadBonus__FRUl(ulong *cheat)
 	// End offset: 0x800237D0
 	// End Line: 317
 
-uint FECheat_IsTheUserACryBabyCheater__Fv(void)
+/* WARNING: Control flow encountered bad instruction data */
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
+void * FECheat_IsTheUserACryBabyCheater__Fv(void)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// unsigned int /*$ra*/ FECheat_ActivateBonusByCode__FPc(char *code /*$a0*/)
+// void * /*$ra*/ FECheat_ActivateBonusByCode__FPc(char *code /*$a0*/)
  // line 324, offset 0x800237e0
 	/* begin block 1 */
 		// Start line: 325
@@ -392,23 +393,23 @@ uint FECheat_IsTheUserACryBabyCheater__Fv(void)
 	// 		int i; // $a3
 	// 		int j; // $a1
 	// 		char buffer[8]; // stack offset -24
-	// 		unsigned int result; // $s1
+	// 		void * result; // $s1
 	/* end block 1 */
 	// End offset: 0x80023880
 	// End Line: 350
 
-uint FECheat_ActivateBonusByCode__FPc(char *code)
+/* WARNING: Control flow encountered bad instruction data */
+
+void * FECheat_ActivateBonusByCode__FPc(char *code)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 

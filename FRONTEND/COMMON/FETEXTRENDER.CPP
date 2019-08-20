@@ -12,18 +12,18 @@
 	// End offset: 0x80020D3C
 	// End Line: 89
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void FETextRender_SetFont__Fi(int size)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -41,18 +41,19 @@ void FETextRender_SetFont__Fi(int size)
 	// End offset: 0x80020E94
 	// End Line: 128
 
-void FETextRender_FullTextRGB__FPcssics( (char *sMenuText,short x,short y,int col,int size,int justify)
+/* WARNING: Control flow encountered bad instruction data */
+
+void FETextRender_FullTextRGB__FPcssics
+               (char *sMenuText,short x,short y,int col,int size,int justify)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -69,18 +70,20 @@ void FETextRender_FullTextRGB__FPcssics( (char *sMenuText,short x,short y,int co
 	// End offset: 0x80020EC0
 	// End Line: 137
 
-void FETextRender_FullText__FPcss13tMenuTextType14tMenuTextStates( (char *sMenuText,short x,short y,tMenuTextType textType,tMenuTextState textState, int justify)
+/* WARNING: Control flow encountered bad instruction data */
+
+void FETextRender_FullText__FPcss13tMenuTextType14tMenuTextStates
+               (char *sMenuText,short x,short y,tMenuTextType textType,tMenuTextState textState,
+               int justify)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -95,18 +98,20 @@ void FETextRender_FullText__FPcss13tMenuTextType14tMenuTextStates( (char *sMenuT
 	// End offset: 0x80020F44
 	// End Line: 145
 
-void FETextRender_FullTextFade__FiPcss13tMenuTextType14tMenuTextStates( (int fade,char *sMenuText,short x,short y,tMenuTextType textType, tMenuTextState textState,int justify)
+/* WARNING: Control flow encountered bad instruction data */
+
+void FETextRender_FullTextFade__FiPcss13tMenuTextType14tMenuTextStates
+               (int fade,char *sMenuText,short x,short y,tMenuTextType textType,
+               tMenuTextState textState,int justify)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -121,18 +126,19 @@ void FETextRender_FullTextFade__FiPcss13tMenuTextType14tMenuTextStates( (int fad
 	// End offset: 0x80021058
 	// End Line: 156
 
-void FETextRender_MenuTextPositioned__Fsss14tMenuTextState13tMenuTextType( (short index,short x,short y,tMenuTextState textState,tMenuTextType textType)
+/* WARNING: Control flow encountered bad instruction data */
+
+void FETextRender_MenuTextPositioned__Fsss14tMenuTextState13tMenuTextType
+               (short index,short x,short y,tMenuTextState textState,tMenuTextType textType)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -150,18 +156,19 @@ void FETextRender_MenuTextPositioned__Fsss14tMenuTextState13tMenuTextType( (shor
 	// End offset: 0x80021118
 	// End Line: 180
 
-void FETextRender_MenuTextFade__Fis14tMenuTextState13tMenuTextType( (int fade,short index,tMenuTextState textState,tMenuTextType textType)
+/* WARNING: Control flow encountered bad instruction data */
+
+void FETextRender_MenuTextFade__Fis14tMenuTextState13tMenuTextType
+               (int fade,short index,tMenuTextState textState,tMenuTextType textType)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -176,18 +183,19 @@ void FETextRender_MenuTextFade__Fis14tMenuTextState13tMenuTextType( (int fade,sh
 	// End offset: 0x80021180
 	// End Line: 194
 
-void FETextRender_MenuTextPositionedJustify__Fssss14tMenuTextState13tMenuTextType( (short index,short x,short y,short justify,tMenuTextState state,tMenuTextType type)
+/* WARNING: Control flow encountered bad instruction data */
+
+void FETextRender_MenuTextPositionedJustify__Fssss14tMenuTextState13tMenuTextType
+               (short index,short x,short y,short justify,tMenuTextState state,tMenuTextType type)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -202,24 +210,26 @@ void FETextRender_MenuTextPositionedJustify__Fssss14tMenuTextState13tMenuTextTyp
 	// End offset: 0x80021280
 	// End Line: 213
 
-void FETextRender_MenuTextPositionedJustifyFade__Fissss14tMenuTextState13tMenuTextType( (int fade,short index,short x,short y,int justify,tMenuTextState textState, tMenuTextType textType)
+/* WARNING: Control flow encountered bad instruction data */
+
+void FETextRender_MenuTextPositionedJustifyFade__Fissss14tMenuTextState13tMenuTextType
+               (int fade,short index,short x,short y,int justify,tMenuTextState textState,
+               tMenuTextType textType)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// int /*$ra*/ FETextRender_WordWrapTextRGBJustify__FPcR4RECTiiib(char *str /*$s0*/, struct RECT *r /*$s7*/, int col /*stack 8*/, int justify /*stack 12*/, int size /*stack 16*/, unsigned int JustGrabHeight /*stack 20*/)
+// int /*$ra*/ FETextRender_WordWrapTextRGBJustify__FPcR4RECTiiib(char *str /*$s0*/, struct RECT *r /*$s7*/, int col /*stack 8*/, int justify /*stack 12*/, int size /*stack 16*/, void * JustGrabHeight /*stack 20*/)
  // line 216, offset 0x800212a4
 	/* begin block 1 */
 		// Start line: 217
@@ -237,18 +247,19 @@ void FETextRender_MenuTextPositionedJustifyFade__Fissss14tMenuTextState13tMenuTe
 	// End offset: 0x800216DC
 	// End Line: 356
 
-int FETextRender_WordWrapTextRGBJustify__FPcR4RECTiiib( (char *str,RECT *r,int col,int justify,int size,uint JustGrabHeight)
+/* WARNING: Control flow encountered bad instruction data */
+
+int FETextRender_WordWrapTextRGBJustify__FPcR4RECTiiib
+              (char *str,RECT *r,int col,int justify,int size,void *JustGrabHeight)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -263,18 +274,18 @@ int FETextRender_WordWrapTextRGBJustify__FPcR4RECTiiib( (char *str,RECT *r,int c
 	// End offset: 0x80021718
 	// End Line: 360
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void FETextRender_WordWrapTextRGB__FPcR4RECTi(char *str,RECT *r,int Col)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -289,18 +300,19 @@ void FETextRender_WordWrapTextRGB__FPcR4RECTi(char *str,RECT *r,int Col)
 	// End offset: 0x80021740
 	// End Line: 365
 
-void FETextRender_WordWrapTextFade__FiPcR4RECT14tMenuTextState13tMenuTextType( (int fade,char *str,RECT *r,tMenuTextState textState,tMenuTextType textType)
+/* WARNING: Control flow encountered bad instruction data */
+
+void FETextRender_WordWrapTextFade__FiPcR4RECT14tMenuTextState13tMenuTextType
+               (int fade,char *str,RECT *r,tMenuTextState textState,tMenuTextType textType)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -315,18 +327,19 @@ void FETextRender_WordWrapTextFade__FiPcR4RECT14tMenuTextState13tMenuTextType( (
 	// End offset: 0x800217E8
 	// End Line: 376
 
-void FETextRender_WordWrapText__FPcR4RECT14tMenuTextState13tMenuTextType( (char *str,RECT *r,tMenuTextState textState,tMenuTextType textType)
+/* WARNING: Control flow encountered bad instruction data */
+
+void FETextRender_WordWrapText__FPcR4RECT14tMenuTextState13tMenuTextType
+               (char *str,RECT *r,tMenuTextState textState,tMenuTextType textType)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -341,18 +354,19 @@ void FETextRender_WordWrapText__FPcR4RECT14tMenuTextState13tMenuTextType( (char 
 	// End offset: 0x80021824
 	// End Line: 381
 
-void FETextRender_WordWrapFade__FisR4RECT14tMenuTextState13tMenuTextType( (int fade,short index,RECT *r,tMenuTextState state,tMenuTextType type)
+/* WARNING: Control flow encountered bad instruction data */
+
+void FETextRender_WordWrapFade__FisR4RECT14tMenuTextState13tMenuTextType
+               (int fade,short index,RECT *r,tMenuTextState state,tMenuTextType type)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -367,18 +381,19 @@ void FETextRender_WordWrapFade__FisR4RECT14tMenuTextState13tMenuTextType( (int f
 	// End offset: 0x8002188C
 	// End Line: 389
 
-void FETextRender_WordWrap__FsR4RECT14tMenuTextState13tMenuTextType( (short index,RECT *r,tMenuTextState textState,tMenuTextType textType)
+/* WARNING: Control flow encountered bad instruction data */
+
+void FETextRender_WordWrap__FsR4RECT14tMenuTextState13tMenuTextType
+               (short index,RECT *r,tMenuTextState textState,tMenuTextType textType)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -395,18 +410,18 @@ void FETextRender_WordWrap__FsR4RECT14tMenuTextState13tMenuTextType( (short inde
 	// End offset: 0x800218C8
 	// End Line: 395
 
+/* WARNING: Control flow encountered bad instruction data */
+
 int FETextRender_WordWrapHeight__FsPc(short width,char *str)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -448,24 +463,24 @@ int FETextRender_WordWrapHeight__FsPc(short width,char *str)
 	// End offset: 0x80021940
 	// End Line: 429
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void FETextRender_Title__Fs(short index)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// void /*$ra*/ FETextRender_SetABR__Fib(int abr /*$a0*/, unsigned int trans /*$a1*/)
+// void /*$ra*/ FETextRender_SetABR__Fib(int abr /*$a0*/, void * trans /*$a1*/)
  // line 441, offset 0x800219e8
 	/* begin block 1 */
 		// Start line: 442
@@ -474,18 +489,18 @@ void FETextRender_Title__Fs(short index)
 	// End offset: 0x800219E8
 	// End Line: 442
 
-void FETextRender_SetABR__Fib(int abr,uint trans)
+/* WARNING: Control flow encountered bad instruction data */
+
+void FETextRender_SetABR__Fib(int abr,void *trans)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 

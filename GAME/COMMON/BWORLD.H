@@ -21,7 +21,7 @@ extern int GetRezIndex__Fi(int dist); // 0x8007DD54
 
 extern int SetupChunkBuildList__FP13DRender_tView(struct DRender_tView *Vi); // 0x8007DD74
 
-extern unsigned int BWorld_IsSliceInBuildList__Fi(int slice); // 0x8007E0A0
+extern void * BWorld_IsSliceInBuildList__Fi(int slice); // 0x8007E0A0
 
 extern void BWorld_OnyxBuildFacets__FP13DRender_tView(struct DRender_tView *Vi); // 0x8007E0F4
 

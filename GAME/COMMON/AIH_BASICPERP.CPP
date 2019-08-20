@@ -92,19 +92,22 @@
 	// End offset: 0x8005B774
 	// End Line: 136
 
+/* WARNING: Type propagation algorithm not settling */
+
 void CheckForCrimes__16AIHigh_BasicPerp(AIHigh_BasicPerp *this)
+
 {
   int iVar1;
   BO_tNewtonObj *pBVar2;
   Car_tObj *pCVar3;
   uint uVar4;
-  int *piVar5;
+  Car_tObj **ppCVar5;
   int iVar6;
   int iVar7;
   
   iVar6 = (this->basicPerpInfo_).copsAssigned_[0];
   iVar1 = AISpeeds_GetLegalSpeed__Fi((int)(((this->AIHigh_Base).carObj_)->N).simRoadInfo.slice);
-  if (-this->copVSPositionList_[5] < 0x280) {
+  if (simGlobal.gameTicks - this->copVSPositionList_[5] < 0x280) {
     return;
   }
   pCVar3 = (this->AIHigh_Base).carObj_;
@@ -112,7 +115,7 @@ void CheckForCrimes__16AIHigh_BasicPerp(AIHigh_BasicPerp *this)
     return;
   }
   iVar7 = iVar6;
-  if (((-(pCVar3->N).collision.lastTime < 0xf) &&
+  if (((simGlobal.gameTicks - (pCVar3->N).collision.lastTime < 0xf) &&
       (pBVar2 = (pCVar3->N).collision.lastOtherObj, iVar7 = iVar6, pBVar2 != (BO_tNewtonObj *)0x0))
      && (iVar7 = iVar6, (*(uint *)((int)pBVar2[1].simRoadInfo.quadPts + 0x10) & 0x20) != 0)) {
     if ((pCVar3->N).collision.lastImpulse < 0x140001) {
@@ -128,7 +131,7 @@ void CheckForCrimes__16AIHigh_BasicPerp(AIHigh_BasicPerp *this)
   if ((iVar6 != 0) && (iVar7 != 4)) {
     return;
   }
-  iVar6 = ((this->AIHigh_Base).carObj_)->carInLane;
+  iVar6 = (((this->AIHigh_Base).carObj_)->script).lastActionTime;
   if (iVar1 < 0) {
     iVar1 = -iVar1;
   }
@@ -138,26 +141,26 @@ void CheckForCrimes__16AIHigh_BasicPerp(AIHigh_BasicPerp *this)
   if ((iVar1 < iVar6) && (iVar7 == 0)) {
     iVar7 = 1;
   }
-  if (true) {
+  if (AITune_oneWay == 0) {
     pCVar3 = (this->AIHigh_Base).carObj_;
-    iVar1 = pCVar3->carInLane;
-    if (false) {
-      if (*(int *)(pCVar3->accTable + 0x6e) < 7) goto LAB_8005b700;
+    iVar1 = (pCVar3->script).lastActionTime;
+    if (iVar1 * AITune_driveSide < 0) {
+      if (*(int *)(pCVar3->accTable + 0x60) < 7) goto LAB_8005b700;
     }
     else {
-      if (6 < *(int *)(pCVar3->accTable + 0x6e)) goto LAB_8005b700;
+      if (6 < *(int *)(pCVar3->accTable + 0x60)) goto LAB_8005b700;
     }
     if (iVar1 < 0) {
       iVar1 = -iVar1;
     }
   }
   else {
-    uVar4 = ((this->AIHigh_Base).carObj_)->carInLane;
-    if (false) {
+    uVar4 = (((this->AIHigh_Base).carObj_)->script).lastActionTime;
+    if (GameSetup_gData.reverseTrack != 0) {
       uVar4 = -uVar4;
     }
     if (uVar4 >> 0x1f == 0) goto LAB_8005b700;
-    iVar1 = ((this->AIHigh_Base).carObj_)->carInLane;
+    iVar1 = (((this->AIHigh_Base).carObj_)->script).lastActionTime;
     if (iVar1 < 0) {
       iVar1 = -iVar1;
     }
@@ -166,26 +169,23 @@ void CheckForCrimes__16AIHigh_BasicPerp(AIHigh_BasicPerp *this)
     iVar7 = 2;
   }
 LAB_8005b700:
-  if (true) {
+  if (simGlobal.gameTicks < 0x200) {
     iVar7 = 0;
   }
   iVar1 = 0;
   if (iVar7 != 0) {
-    piVar5 = &_Cars_gList;
+    ppCVar5 = &__Cars_gList_9__;
     while (iVar1 < Cars_gNumCars) {
-      if (((*(uint *)(*piVar5 + 0x260) & 0x220) != 0) && (*(char *)(*piVar5 + 0x91) != '\0')) {
+      if ((((*ppCVar5)->carFlags & 0x220U) != 0) && (((*ppCVar5)->N).active != '\0')) {
         (this->basicPerpInfo_).copsAssigned_[0] = iVar7;
         return;
       }
-      piVar5 = piVar5 + 1;
+      ppCVar5 = ppCVar5 + 1;
       iVar1 = iVar1 + 1;
     }
   }
   return;
-
-
 }
-
 
 
 
@@ -295,131 +295,137 @@ LAB_8005b700:
 	// End offset: 0x8005BD4C
 	// End Line: 290
 
+/* WARNING: Type propagation algorithm not settling */
+
 int CheckIfCaught__16AIHigh_BasicPerp(AIHigh_BasicPerp *this)
+
 {
-  byte bVar1;
-  bool bVar2;
+  bool bVar1;
+  int iVar2;
   int iVar3;
-  int iVar4;
-  int iVar5;
-  int iVar6;
-  Car_tObj *pCVar7;
-  Car_tObj *otherCarObj;
-  int iVar8;
-  int lane1;
+  uint uVar4;
+  uint uVar5;
+  uint uVar6;
+  int iVar7;
+  speechSourceType sVar8;
   int iVar9;
+  Car_tObj *pCVar10;
+  Car_tObj *otherCarObj;
+  int lane1;
   int slice;
   int lane0;
   
+  iVar2 = GameSetup_gData.skill;
   otherCarObj = (this->AIHigh_Base).carObj_;
   if ((otherCarObj->carFlags & 2U) == 0) {
     iVar3 = (otherCarObj->N).speedXZ;
   }
   else {
-    iVar3 = otherCarObj->carInLane;
+    iVar3 = (otherCarObj->script).lastActionTime;
     if (iVar3 < 0) {
       iVar3 = -iVar3;
     }
   }
   if ((this->basicPerpInfo_).copsAssigned_[0] != 0) {
-    iVar8 = DAT_801131f4 * 4;
-    if (*(int *)(&AIHigh_BasicPerp_PlayerCaughtSpeed + iVar8) < iVar3) {
+    if ((&AIHigh_BasicPerp_PlayerCaughtSpeed)[GameSetup_gData.skill] < iVar3) {
       return 0;
     }
-    if (-this->copVSPositionList_[5] < 0x3c0) {
+    if (simGlobal.gameTicks - this->copVSPositionList_[5] < 0x3c0) {
       return 0;
     }
     otherCarObj = (this->AIHigh_Base).carObj_;
     iVar3 = 0;
     if ((otherCarObj->stats).finishType < 2) {
-      iVar5 = (otherCarObj->N).orientMat.m[4];
+      iVar7 = (otherCarObj->N).orientMat.m[4];
       do {
         while( true ) {
           if (Cars_gNumCars <= iVar3) {
             return 0;
           }
-          otherCarObj = (Car_tObj *)(&_Cars_gList)[iVar3];
-          bVar2 = false;
-          if (((((GameSetup_gData == 1) || (GameSetup_gData == 5)) &&
-               (((uRam00000260 & 0x200) != 0 ||
-                ((Cars_gNumHumanRaceCars == 2 && ((uRam00000260 & 0x200) != 0)))))) &&
+          otherCarObj = (&__Cars_gList_9__)[iVar3];
+          bVar1 = false;
+          if (((((GameSetup_gData.raceType == 1) || (GameSetup_gData.raceType == 5)) &&
+               (((__Cars_gHumanRaceCarList_9__->carFlags & 0x200U) != 0 ||
+                ((Cars_gNumHumanRaceCars == 2 && ((PTR_8010fa4c->carFlags & 0x200U) != 0)))))) &&
               ((otherCarObj->carFlags & 0x200U) != 0)) ||
-             ((((GameSetup_gData != 1 && (GameSetup_gData != 5)) ||
-               (((uRam00000260 & 0x200) == 0 &&
-                ((Cars_gNumHumanRaceCars != 2 || ((uRam00000260 & 0x200) == 0)))))) &&
+             ((((GameSetup_gData.raceType != 1 && (GameSetup_gData.raceType != 5)) ||
+               (((__Cars_gHumanRaceCarList_9__->carFlags & 0x200U) == 0 &&
+                ((Cars_gNumHumanRaceCars != 2 || ((PTR_8010fa4c->carFlags & 0x200U) == 0)))))) &&
               ((otherCarObj->carFlags & 0x20U) != 0)))) {
-            bVar2 = true;
+            bVar1 = true;
           }
-          if (((((bVar2) && ((otherCarObj->desiredLatPos & 2U) != 0)) &&
+          if (((((bVar1) && (sVar8 = (otherCarObj->speechInfo).speechSource, (sVar8 & 2) != 0)) &&
                ((otherCarObj->N).flightTime == 0)) &&
-              (((otherCarObj->N).active != '\0' && ((otherCarObj->desiredLatPos & 4U) == 0)))) &&
+              (((otherCarObj->N).active != '\0' && ((sVar8 & 4) == 0)))) &&
              ((0x9999 < (otherCarObj->N).orientMat.m[4] &&
-              (((this->AIHigh_Base).carObj_)->carInLane - otherCarObj->carInLane <
-               *(int *)(&AIHigh_BasicPerp_MinDeltaSpeed + iVar8))))) break;
+              ((((this->AIHigh_Base).carObj_)->script).lastActionTime -
+               (otherCarObj->script).lastActionTime < (&AIHigh_BasicPerp_MinDeltaSpeed)[iVar2]))))
+          break;
 LAB_8005bd40:
           iVar3 = iVar3 + 1;
         }
-        iVar6 = otherCarObj->carInLane;
-        if (iVar6 < 0) {
-          iVar6 = -iVar6;
+        iVar9 = (otherCarObj->script).lastActionTime;
+        if (iVar9 < 0) {
+          iVar9 = -iVar9;
         }
-        if (*(int *)(&AIHigh_BasicPerp_CopCaughtSpeed + iVar8) <= iVar6) goto LAB_8005bd40;
+        if ((&AIHigh_BasicPerp_CopCaughtSpeed)[iVar2] <= iVar9) goto LAB_8005bd40;
         slice = (otherCarObj->N).position.y;
         lane1 = (((this->AIHigh_Base).carObj_)->N).position.y;
-        iVar6 = slice - lane1;
-        if (iVar6 < 1) {
-          iVar6 = lane1 - slice;
+        iVar9 = slice - lane1;
+        if (iVar9 < 1) {
+          iVar9 = lane1 - slice;
         }
-        if (*(int *)(&AIHigh_BasicPerp_PlayerCaughtDeltaY + iVar8) <= iVar6) goto LAB_8005bd40;
-        iVar6 = AIWorld_ApxSplineDistance__FP8Car_tObjT0((this->AIHigh_Base).carObj_,otherCarObj);
-        if (iVar6 < 0) {
-          iVar6 = -iVar6;
+        if ((&AIHigh_BasicPerp_PlayerCaughtDeltaY)[iVar2] <= iVar9) goto LAB_8005bd40;
+        iVar9 = AIWorld_ApxSplineDistance__FP8Car_tObjT0((this->AIHigh_Base).carObj_,otherCarObj);
+        if (iVar9 < 0) {
+          iVar9 = -iVar9;
         }
-        pCVar7 = (this->AIHigh_Base).carObj_;
-        bVar1 = *(byte *)((int)(pCVar7->N).simRoadInfo.slice * 0x20 + 0x1d);
-        lane1 = *(int *)(pCVar7->accTable + 0x6e);
-        bVar2 = false;
-        if (((int)(7 - (uint)(bVar1 >> 4)) <= lane1) && (lane1 <= (int)(((uint)bVar1 & 0xf) + 6))) {
+        pCVar10 = (this->AIHigh_Base).carObj_;
+        lane1 = *(int *)(pCVar10->accTable + 0x60);
+        bVar1 = false;
+        if (((int)(7 - (uint)(BWorldSm_slices[(int)(pCVar10->N).simRoadInfo.slice].laneCount >> 4))
+             <= lane1) &&
+           (lane1 <= (int)(((uint)BWorldSm_slices[(int)(pCVar10->N).simRoadInfo.slice].laneCount &
+                           0xf) + 6))) {
           slice = (int)(otherCarObj->N).simRoadInfo.slice;
-          bVar1 = *(byte *)(slice * 0x20 + 0x1d);
-          lane0 = *(int *)(otherCarObj->accTable + 0x6e);
-          if (((int)(7 - (uint)(bVar1 >> 4)) <= lane0) &&
-             ((lane0 <= (int)(((uint)bVar1 & 0xf) + 6) &&
+          lane0 = *(int *)(otherCarObj->accTable + 0x60);
+          if (((int)(7 - (uint)(BWorldSm_slices[slice].laneCount >> 4)) <= lane0) &&
+             ((lane0 <= (int)(((uint)BWorldSm_slices[slice].laneCount & 0xf) + 6) &&
               (lane1 = AIWorld_CheckForBarrierBetweenLanes__Fiii(slice,lane0,lane1), lane1 != 0))))
           {
-            pCVar7 = (this->AIHigh_Base).carObj_;
+            pCVar10 = (this->AIHigh_Base).carObj_;
             lane1 = AIWorld_CheckForBarrierBetweenLanes__Fiii
-                              ((int)(pCVar7->N).simRoadInfo.slice,
-                               *(int *)(otherCarObj->accTable + 0x6e),
-                               *(int *)(pCVar7->accTable + 0x6e));
-            bVar2 = lane1 != 0;
+                              ((int)(pCVar10->N).simRoadInfo.slice,
+                               *(int *)(otherCarObj->accTable + 0x60),
+                               *(int *)(pCVar10->accTable + 0x60));
+            bVar1 = lane1 != 0;
           }
         }
-        if ((*(int *)(&AIHigh_BasicPerp_CaughtDistance + iVar8) <= iVar6) || (iVar6 = 0, bVar2))
+        if (((&AIHigh_BasicPerp_CaughtDistance)[iVar2] <= iVar9) || (iVar9 = 0, bVar1))
         goto LAB_8005bd40;
         lane1 = 0x10000;
-        if (((GameSetup_gData == 1) || (GameSetup_gData == 5)) &&
-           (((uRam00000260 & 0x200) != 0 ||
-            ((Cars_gNumHumanRaceCars == 2 && ((uRam00000260 & 0x200) != 0)))))) {
-          iVar9 = (otherCarObj->N).position.x - (((this->AIHigh_Base).carObj_)->N).position.x;
+        if (((GameSetup_gData.raceType == 1) || (GameSetup_gData.raceType == 5)) &&
+           (((__Cars_gHumanRaceCarList_9__->carFlags & 0x200U) != 0 ||
+            ((Cars_gNumHumanRaceCars == 2 && ((PTR_8010fa4c->carFlags & 0x200U) != 0)))))) {
+          lane0 = (otherCarObj->N).position.x - (((this->AIHigh_Base).carObj_)->N).position.x;
           lane1 = (otherCarObj->N).position.y - (((this->AIHigh_Base).carObj_)->N).position.y;
           slice = (otherCarObj->N).position.z - (((this->AIHigh_Base).carObj_)->N).position.z;
-          lane0 = fixedmult(iVar9,(((this->AIHigh_Base).carObj_)->N).orientMat.m[0]);
-          iVar4 = fixedmult(lane1,(((this->AIHigh_Base).carObj_)->N).orientMat.m[1]);
-          iVar6 = fixedmult(slice,(((this->AIHigh_Base).carObj_)->N).orientMat.m[2]);
-          iVar6 = lane0 + iVar4 + iVar6;
-          lane0 = fixedmult(iVar9,(((this->AIHigh_Base).carObj_)->N).orientMat.m[6]);
-          iVar4 = fixedmult(lane1,(((this->AIHigh_Base).carObj_)->N).orientMat.m[7]);
-          lane1 = fixedmult(slice,(((this->AIHigh_Base).carObj_)->N).orientMat.m[8]);
-          lane1 = lane0 + iVar4 + lane1;
+          uVar4 = fixedmult(lane0,(((this->AIHigh_Base).carObj_)->N).orientMat.m[0]);
+          uVar5 = fixedmult(lane1,(((this->AIHigh_Base).carObj_)->N).orientMat.m[1]);
+          uVar6 = fixedmult(slice,(((this->AIHigh_Base).carObj_)->N).orientMat.m[2]);
+          iVar9 = uVar4 + uVar5 + uVar6;
+          uVar4 = fixedmult(lane0,(((this->AIHigh_Base).carObj_)->N).orientMat.m[6]);
+          uVar5 = fixedmult(lane1,(((this->AIHigh_Base).carObj_)->N).orientMat.m[7]);
+          uVar6 = fixedmult(slice,(((this->AIHigh_Base).carObj_)->N).orientMat.m[8]);
+          lane1 = uVar4 + uVar5 + uVar6;
         }
-        if ((iVar5 < 0x999a) ||
-           ((otherCarObj->desiredDirection < 0x471c7 &&
-            (((this->AIHigh_Base).carObj_)->desiredDirection < 0x471c7)))) break;
-        if (iVar6 < 0) {
-          iVar6 = -iVar6;
+        if ((iVar7 < 0x999a) ||
+           (((int)(otherCarObj->speechInfo).speechMode < 0x471c7 &&
+            ((int)(((this->AIHigh_Base).carObj_)->speechInfo).speechMode < 0x471c7)))) break;
+        if (iVar9 < 0) {
+          iVar9 = -iVar9;
         }
-        if ((0x8ffff < iVar6) || (lane1 < 0)) goto LAB_8005bd40;
+        if ((0x8ffff < iVar9) || (lane1 < 0)) goto LAB_8005bd40;
         iVar3 = iVar3 + 1;
       } while (0x8ffff < lane1);
       if (this->beatingTicksLeft_ == 0) {
@@ -430,10 +436,7 @@ LAB_8005bd40:
     }
   }
   return 0;
-
-
 }
-
 
 
 
@@ -553,52 +556,52 @@ LAB_8005bd40:
 	// End Line: 326
 
 void RemoveCloseCops__16AIHigh_BasicPerp(AIHigh_BasicPerp *this)
+
 {
   int iVar1;
   Speaker *pSVar2;
-  Car_tObj *pCVar3;
-  speechIntensityType sVar4;
+  uint uVar3;
+  AIHigh_Base *pAVar4;
+  int iVar5;
   Car_tObj *carObj;
-  Car_tObj **ppCVar5;
-  int iVar6;
+  Car_tObj **ppCVar6;
+  int iVar7;
   
-  iVar6 = 0;
-  ppCVar5 = (Car_tObj **)&_Cars_gCopCarList;
-  while (iVar6 < Cars_gNumCopCars) {
-    carObj = *ppCVar5;
-    if ((carObj->desiredLatPos & 4U) == 0) {
+  iVar7 = 0;
+  ppCVar6 = &__Cars_gCopCarList_9__;
+  while (iVar7 < Cars_gNumCopCars) {
+    carObj = *ppCVar6;
+    if (((carObj->speechInfo).speechSource & 4) == 0) {
       iVar1 = AIWorld_ApxSplineDistance__FP8Car_tObjT0(carObj,(this->AIHigh_Base).carObj_);
       if (iVar1 < 0) {
         iVar1 = -iVar1;
       }
       if (iVar1 < 0x960000) {
-        pCVar3 = (Car_tObj *)(&_highLevelAIObjs)[carObj->carIndex];
-        sVar4 = SPEECH_INTENSITY_MED;
-        if (true) {
-          sVar4 = ~SPEECH_INTENSITY_LOW;
+        pAVar4 = (&__highLevelAIObjs_9__)[carObj->carIndex];
+        iVar5 = 1;
+        if (GameSetup_gData.reverseTrack == 0) {
+          iVar5 = -1;
         }
-        (carObj->speechInfo).speechSource = sVar4;
-        (carObj->speechInfo).speechIntensity = sVar4;
-        (carObj->desiredVector).z = 1;
+        (carObj->script).lastReactionIndex[3] = iVar5;
+        (carObj->script).lastReactionIndex[2] = iVar5;
+        carObj->speedFactor = 1;
         if (iVar1 < 0x1e0000) {
-          *(Car_tObj **)((int)&pCVar3->N + 0x54) = (Car_tObj *)0x1;
+          (&pAVar4->carObj_)[0x15] = (Car_tObj *)&DAT_00000001;
         }
         else {
-          *(Car_tObj **)((int)&pCVar3->N + 0x54) = (Car_tObj *)0x2;
+          (&pAVar4->carObj_)[0x15] = (Car_tObj *)0x2;
         }
-        pSVar2 = Mobile__6SpeechP8Car_tObj(*(Car_tObj **)&pCVar3->N);
-        (**(code **)(pSVar2->_vf[0] + 0x84))
-                  ((int)&(pSVar2->fPosition).flags + (int)*(short *)(pSVar2->_vf[0] + 0x80));
+        pSVar2 = Mobile__6SpeechP8Car_tObj(pAVar4->carObj_);
+        uVar3 = pSVar2->_vf[0].value;
+        (**(code **)(uVar3 + 0x84))((int)&(pSVar2->fPosition).flags + (int)*(short *)(uVar3 + 0x80))
+        ;
       }
     }
-    ppCVar5 = ppCVar5 + 1;
-    iVar6 = iVar6 + 1;
+    ppCVar6 = ppCVar6 + 1;
+    iVar7 = iVar7 + 1;
   }
   return;
-
-
 }
-
 
 
 
@@ -631,7 +634,9 @@ void RemoveCloseCops__16AIHigh_BasicPerp(AIHigh_BasicPerp *this)
 	// End offset: 0x8005BECC
 	// End Line: 333
 
-void RemoveChaser__16AIHigh_BasicPerpii7copType( (AIHigh_BasicPerp *this,int copIndex,int carIndex,copType type)
+void RemoveChaser__16AIHigh_BasicPerpii7copType
+               (AIHigh_BasicPerp *this,int copIndex,int carIndex,copType type)
+
 {
   Car_tObj **ppCVar1;
   
@@ -640,10 +645,7 @@ void RemoveChaser__16AIHigh_BasicPerpii7copType( (AIHigh_BasicPerp *this,int cop
   ppCVar1[7] = (Car_tObj *)0xffffffff;
   ppCVar1[8] = (Car_tObj *)0xffffffff;
   return;
-
-
 }
-
 
 
 
@@ -676,7 +678,9 @@ void RemoveChaser__16AIHigh_BasicPerpii7copType( (AIHigh_BasicPerp *this,int cop
 	// End offset: 0x8005BF08
 	// End Line: 344
 
-int AddChaser__16AIHigh_BasicPerpii7copType( (AIHigh_BasicPerp *this,int copIndex,int carIndex,copType type)
+int AddChaser__16AIHigh_BasicPerpii7copType
+              (AIHigh_BasicPerp *this,int copIndex,int carIndex,copType type)
+
 {
   int iVar1;
   
@@ -686,10 +690,7 @@ int AddChaser__16AIHigh_BasicPerpii7copType( (AIHigh_BasicPerp *this,int copInde
   (&this->positionVSCopList_[5].copIndex)[copIndex] = 5;
   iVar1 = CheckChaserPosition__16AIHigh_BasicPerpii(this,copIndex,carIndex);
   return iVar1;
-
-
 }
-
 
 
 
@@ -763,7 +764,10 @@ int AddChaser__16AIHigh_BasicPerpii7copType( (AIHigh_BasicPerp *this,int copInde
 	// End offset: 0x8005C084
 	// End Line: 401
 
+/* WARNING: Type propagation algorithm not settling */
+
 int CheckChaserPosition__16AIHigh_BasicPerpii(AIHigh_BasicPerp *this,int copIndex,int carIndex)
+
 {
   short sVar1;
   Car_tObj *pCVar2;
@@ -775,27 +779,26 @@ int CheckChaserPosition__16AIHigh_BasicPerpii(AIHigh_BasicPerp *this,int copInde
   Car_tObj *pCVar8;
   
   ppCVar6 = &(this->AIHigh_Base).carObj_ + copIndex;
-  sVar1 = *(short *)(*(int *)(&_highLevelAIObjs)[carIndex] + 8);
+  sVar1 = ((&__highLevelAIObjs_9__)[carIndex]->carObj_->N).simRoadInfo.slice;
   pCVar2 = ppCVar6[0x13];
   while( true ) {
     if ((int)pCVar2 < 1) {
       return (int)pCVar2;
     }
-    ppCVar3 = &(this->AIHigh_Base).carObj_ + ((int)(pCVar2->render).palCopyNum + 0x25) * 2;
+    ppCVar3 = &(this->AIHigh_Base).carObj_ + &(pCVar2->N).simRoadInfo.field_0x7 * 2;
     pCVar8 = ppCVar3[7];
     pCVar4 = ppCVar3[8];
     if ((int)pCVar2 < 1) break;
     if (pCVar8 != (Car_tObj *)0xffffffff) {
       if ((pCVar4 != (Car_tObj *)0xffffffff) &&
          (iVar5 = AIWorld_ApxSplineDistance__FP8Car_tObji
-                            (*(Car_tObj **)&((Car_tObj *)(&_highLevelAIObjs)[(int)pCVar4])->N,
-                             (int)sVar1),
-         -0xc0001 < (int)(iVar5 * (((this->AIHigh_Base).carObj_)->speechInfo).speechSource))) {
+                            ((&__highLevelAIObjs_9__)[(int)pCVar4]->carObj_,(int)sVar1),
+         -0xc0001 < iVar5 * (((this->AIHigh_Base).carObj_)->script).lastReactionIndex[3])) {
         return (int)pCVar2;
       }
       *(Car_tObj **)(&this->positionVSCopList_[5].copIndex + (int)pCVar8) = pCVar2;
     }
-    pCVar4 = (Car_tObj *)((int)(pCVar2->render).palCopyNum + 0x25);
+    pCVar4 = (Car_tObj *)&(pCVar2->N).simRoadInfo.field_0x7;
     ppCVar3 = &(this->AIHigh_Base).carObj_ + (int)pCVar4 * 2;
     ppCVar6[0x13] = pCVar4;
     ppCVar7 = &(this->AIHigh_Base).carObj_ + (int)pCVar2 * 2;
@@ -806,10 +809,7 @@ int CheckChaserPosition__16AIHigh_BasicPerpii(AIHigh_BasicPerp *this,int copInde
     pCVar2 = pCVar4;
   }
   return (int)pCVar2;
-
-
 }
-
 
 
 
@@ -834,6 +834,7 @@ int CheckChaserPosition__16AIHigh_BasicPerpii(AIHigh_BasicPerp *this,int copInde
 	// End Line: 413
 
 void Clear__16AIHigh_BasicPerp(AIHigh_BasicPerp *this)
+
 {
   AIHigh_BasicPerp *pAVar1;
   int iVar2;
@@ -841,20 +842,17 @@ void Clear__16AIHigh_BasicPerp(AIHigh_BasicPerp *this)
   iVar2 = 0;
   pAVar1 = this;
   do {
-    (pAVar1->AIHigh_Base)._vf[2] = (__vtbl_ptr_type *)0xffffffff;
+    (pAVar1->AIHigh_Base)._vf[2].value = 0xffffffff;
     pAVar1->pullOverMode_ = ~PULLOVER_NONE;
     iVar2 = iVar2 + 1;
     pAVar1 = (AIHigh_BasicPerp *)&(pAVar1->AIHigh_Base).stateType_;
   } while (iVar2 < 6);
-  (this->AIHigh_Base)._vf[1] = (__vtbl_ptr_type *)0x0;
+  (this->AIHigh_Base)._vf[1].value = 0;
   this->copVSPositionList_[4] = 0;
   this->copVSPositionList_[5] = -0x280;
   this->beatingTicksLeft_ = 0;
   return;
-
-
 }
-
 
 
 
@@ -926,18 +924,16 @@ void Clear__16AIHigh_BasicPerp(AIHigh_BasicPerp *this)
 	// End Line: 420
 
 AIHigh_BasicPerp * __16AIHigh_BasicPerpP8Car_tObj(AIHigh_BasicPerp *this,Car_tObj *carObj)
+
 {
   __11AIHigh_BaseP8Car_tObj((AIHigh_Base *)this,carObj);
-  (this->AIHigh_Base)._vf[0] = (__vtbl_ptr_type *)&table;
+  (this->AIHigh_Base)._vf[0].value = 0x80054e6c;
   this->lastPullOverTime_ = 0;
   this->lastArrestingCop_ = (Car_tObj *)0x0;
   (this->basicPerpInfo_).copsAssigned_[0] = 0;
   Clear__16AIHigh_BasicPerp(this);
   return this;
-
-
 }
-
 
 
 

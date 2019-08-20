@@ -15,6 +15,7 @@
 	// End Line: 41
 
 void * Alloc__9SimpleMemii(SimpleMem *this,int len,int feign)
+
 {
   uint uVar1;
   void *pvVar2;
@@ -29,10 +30,7 @@ void * Alloc__9SimpleMemii(SimpleMem *this,int len,int feign)
     return pvVar2;
   }
   return (void *)0x0;
-
-
 }
-
 
 
 
@@ -48,15 +46,13 @@ void * Alloc__9SimpleMemii(SimpleMem *this,int len,int feign)
 	// End Line: 46
 
 void * FeignAlloc__9SimpleMemi(SimpleMem *this,int len)
+
 {
   void *pvVar1;
   
   pvVar1 = Alloc__9SimpleMemii(this,len,1);
   return pvVar1;
-
-
 }
-
 
 
 
@@ -74,17 +70,15 @@ void * FeignAlloc__9SimpleMemi(SimpleMem *this,int len)
 	// End Line: 58
 
 void ResizeToFit__9SimpleMem(SimpleMem *this)
+
 {
   void *pvVar1;
   
   pvVar1 = this->freeMem;
   this->freeMem = (void *)0x0;
-  resizememadr(this->heap,(void *)((int)pvVar1 - (int)this->heap));
+  resizememadr((int)this->heap,(int)((int)pvVar1 - (int)this->heap));
   return;
-
-
 }
-
 
 
 

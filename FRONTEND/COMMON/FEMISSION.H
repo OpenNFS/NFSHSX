@@ -3,7 +3,7 @@
 
 extern void Initialize__15tMissionManager(struct tMissionManager *this); // 0x80034060
 
-extern void LoadDescription__15tMissionManagerb(struct tMissionManager *this, unsigned int LoadHotPursuit); // 0x8003407C
+extern void LoadDescription__15tMissionManagerb(struct tMissionManager *this, void * LoadHotPursuit); // 0x8003407C
 
 extern void ReleaseDescription__15tMissionManager(struct tMissionManager *this); // 0x800341B8
 

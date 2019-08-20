@@ -12,18 +12,19 @@
 	// End offset: 0x8004BB38
 	// End Line: 25
 
-void PSXDrawBrightEndLine__Fiiiiiiii( (int col,int x,int y,int w,int h,int side,int fade,int darksides)
+/* WARNING: Control flow encountered bad instruction data */
+
+void PSXDrawBrightEndLine__Fiiiiiiii
+               (int col,int x,int y,int w,int h,int side,int fade,int darksides)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -43,18 +44,19 @@ void PSXDrawBrightEndLine__Fiiiiiiii( (int col,int x,int y,int w,int h,int side,
 	// End offset: 0x8004BDCC
 	// End Line: 115
 
-void PSXTransDrawBrightEndLine__Fiiiiiiiii( (int col,int x,int y,int w,int h,int side,int fade,int darksides,int opacity)
+/* WARNING: Control flow encountered bad instruction data */
+
+void PSXTransDrawBrightEndLine__Fiiiiiiiii
+               (int col,int x,int y,int w,int h,int side,int fade,int darksides,int opacity)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 

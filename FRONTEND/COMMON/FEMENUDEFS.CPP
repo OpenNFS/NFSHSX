@@ -12,18 +12,18 @@
 	// End offset: 0x8002C11C
 	// End Line: 154
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void MenuExtended_SetOnePlayer__FR12tMenuCommand(tMenuCommand *command)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -38,18 +38,18 @@ void MenuExtended_SetOnePlayer__FR12tMenuCommand(tMenuCommand *command)
 	// End offset: 0x8002C16C
 	// End Line: 168
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void MenuExtended_SetTwoPlayer__FR12tMenuCommand(tMenuCommand *command)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -64,18 +64,19 @@ void MenuExtended_SetTwoPlayer__FR12tMenuCommand(tMenuCommand *command)
 	// End offset: 0x8002C17C
 	// End Line: 174
 
+/* WARNING: Control flow encountered bad instruction data */
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void MenuExtended_SetTestDrive__FR12tMenuCommand(void)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -90,18 +91,19 @@ void MenuExtended_SetTestDrive__FR12tMenuCommand(void)
 	// End offset: 0x8002C198
 	// End Line: 181
 
+/* WARNING: Control flow encountered bad instruction data */
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void MenuExtended_SetSingleRace__FR12tMenuCommand(void)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -116,18 +118,19 @@ void MenuExtended_SetSingleRace__FR12tMenuCommand(void)
 	// End offset: 0x8002C1D8
 	// End Line: 196
 
+/* WARNING: Control flow encountered bad instruction data */
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void MenuExtended_SetTournament__FR12tMenuCommand(void)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -142,18 +145,19 @@ void MenuExtended_SetTournament__FR12tMenuCommand(void)
 	// End offset: 0x8002C220
 	// End Line: 205
 
+/* WARNING: Control flow encountered bad instruction data */
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void MenuExtended_SetSpecialEvent__FR12tMenuCommand(void)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -168,18 +172,19 @@ void MenuExtended_SetSpecialEvent__FR12tMenuCommand(void)
 	// End offset: 0x8002C268
 	// End Line: 215
 
+/* WARNING: Control flow encountered bad instruction data */
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void MenuExtended_SetSoloRace__FR12tMenuCommand(void)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -282,18 +287,18 @@ void MenuExtended_SetSoloRace__FR12tMenuCommand(void)
 	// End offset: 0x8002C37C
 	// End Line: 223
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void MenuExtended_GoToTwoPlayerSingleRace__FR12tMenuCommand(tMenuCommand *command)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -308,18 +313,19 @@ void MenuExtended_GoToTwoPlayerSingleRace__FR12tMenuCommand(tMenuCommand *comman
 	// End offset: 0x8002C39C
 	// End Line: 248
 
+/* WARNING: Control flow encountered bad instruction data */
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void MenuExtended_SetDuelRace__FR12tMenuCommand(void)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -334,18 +340,19 @@ void MenuExtended_SetDuelRace__FR12tMenuCommand(void)
 	// End offset: 0x8002C3DC
 	// End Line: 256
 
+/* WARNING: Control flow encountered bad instruction data */
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void MenuExtended_SetFullGrid__FR12tMenuCommand(void)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -442,18 +449,19 @@ void MenuExtended_SetFullGrid__FR12tMenuCommand(void)
 	// End offset: 0x8002C484
 	// End Line: 291
 
+/* WARNING: Control flow encountered bad instruction data */
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 int AskTheUserToSaveTheGame__Fv(void)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -468,18 +476,18 @@ int AskTheUserToSaveTheGame__Fv(void)
 	// End offset: 0x8002C494
 	// End Line: 297
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void MenuExtended_TransitionFromPostGameToMainMenu__FR12tMenuCommand(tMenuCommand *command)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -494,18 +502,19 @@ void MenuExtended_TransitionFromPostGameToMainMenu__FR12tMenuCommand(tMenuComman
 	// End offset: 0x8002C4EC
 	// End Line: 309
 
-void MenuExtended_TransitionFromPostGameToMainMenuAndSaveGame__FR12tMenuCommand( (tMenuCommand *command)
+/* WARNING: Control flow encountered bad instruction data */
+
+void MenuExtended_TransitionFromPostGameToMainMenuAndSaveGame__FR12tMenuCommand
+               (tMenuCommand *command)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -755,18 +764,18 @@ void MenuExtended_TransitionFromPostGameToMainMenuAndSaveGame__FR12tMenuCommand(
 	// End offset: 0x8002C878
 	// End Line: 419
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void MenuExtended_GoToCarSelect__FR12tMenuCommand(tMenuCommand *command)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -781,18 +790,18 @@ void MenuExtended_GoToCarSelect__FR12tMenuCommand(tMenuCommand *command)
 	// End offset: 0x8002C890
 	// End Line: 424
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void MenuExtended_GoToDealer__FR12tMenuCommand(tMenuCommand *command)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -807,18 +816,18 @@ void MenuExtended_GoToDealer__FR12tMenuCommand(tMenuCommand *command)
 	// End offset: 0x8002C8F8
 	// End Line: 433
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void MenuExtended_GoToSeller__FR12tMenuCommand(tMenuCommand *command)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -833,31 +842,31 @@ void MenuExtended_GoToSeller__FR12tMenuCommand(tMenuCommand *command)
 	// End offset: 0x8002C960
 	// End Line: 442
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void MenuExtended_GoToUpgrades__FR12tMenuCommand(tMenuCommand *command)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// unsigned int /*$ra*/ GenericMenuSaveGame__Fi(int showdialog /*$s0*/)
+// void * /*$ra*/ GenericMenuSaveGame__Fi(int showdialog /*$s0*/)
  // line 448, offset 0x8002c9a0
 	/* begin block 1 */
 		// Start line: 449
 		// Start offset: 0x8002C9A0
 		// Variables:
-	// 		unsigned int successful; // $s0
-	// 		unsigned int uninitafter; // $s2
+	// 		void * successful; // $s0
+	// 		void * uninitafter; // $s2
 
 		/* begin block 1.1 */
 			// Start line: 449
@@ -945,24 +954,24 @@ void MenuExtended_GoToUpgrades__FR12tMenuCommand(tMenuCommand *command)
 	// End offset: 0x8002CA90
 	// End Line: 477
 
-uint GenericMenuSaveGame__Fi(int showdialog)
+/* WARNING: Control flow encountered bad instruction data */
+
+void * GenericMenuSaveGame__Fi(int showdialog)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// unsigned int /*$ra*/ PinkSlipsPreSave__Fv()
+// void * /*$ra*/ PinkSlipsPreSave__Fv()
  // line 484, offset 0x8002cabc
 	/* begin block 1 */
 		// Start line: 485
@@ -976,7 +985,7 @@ uint GenericMenuSaveGame__Fi(int showdialog)
 				// Start line: 487
 				// Start offset: 0x8002CADC
 				// Variables:
-			// 		unsigned int ret; // $s1
+			// 		void * ret; // $s1
 			// 		struct tDialogYesNoTri YesNoDialog; // stack offset -184
 			// 		int answer; // $v1
 
@@ -1138,18 +1147,19 @@ uint GenericMenuSaveGame__Fi(int showdialog)
 	// End offset: 0x8002CB70
 	// End Line: 505
 
-uint PinkSlipsPreSave__Fv(void)
+/* WARNING: Control flow encountered bad instruction data */
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
+void * PinkSlipsPreSave__Fv(void)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -1164,18 +1174,18 @@ uint PinkSlipsPreSave__Fv(void)
 	// End offset: 0x8002CBBC
 	// End Line: 519
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void MenuExtended_GoToBestOfOne__FR12tMenuCommand(tMenuCommand *command)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -1190,18 +1200,18 @@ void MenuExtended_GoToBestOfOne__FR12tMenuCommand(tMenuCommand *command)
 	// End offset: 0x8002CC18
 	// End Line: 533
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void MenuExtended_GoToBestOfThree__FR12tMenuCommand(tMenuCommand *command)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -1216,18 +1226,18 @@ void MenuExtended_GoToBestOfThree__FR12tMenuCommand(tMenuCommand *command)
 	// End offset: 0x8002CC74
 	// End Line: 547
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void MenuExtended_GoToBestOfFive__FR12tMenuCommand(tMenuCommand *command)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -1437,18 +1447,18 @@ void MenuExtended_GoToBestOfFive__FR12tMenuCommand(tMenuCommand *command)
 	// End offset: 0x8002CDD8
 	// End Line: 605
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void MenuExtended_GoToRace__FR12tMenuCommand(tMenuCommand *command)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -1646,18 +1656,18 @@ void MenuExtended_GoToRace__FR12tMenuCommand(tMenuCommand *command)
 	// End offset: 0x8002CF24
 	// End Line: 653
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void MenuExtended_GoTo2PlayerRace__FR12tMenuCommand(tMenuCommand *command)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -1899,18 +1909,18 @@ void MenuExtended_GoTo2PlayerRace__FR12tMenuCommand(tMenuCommand *command)
 	// End offset: 0x8002D08C
 	// End Line: 693
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void MenuExtended_GoToTournTrackInfo__FR12tMenuCommand(tMenuCommand *command)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -2152,18 +2162,18 @@ void MenuExtended_GoToTournTrackInfo__FR12tMenuCommand(tMenuCommand *command)
 	// End offset: 0x8002D1F8
 	// End Line: 731
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void MenuExtended_GoToSpecialEventTrackInfo__FR12tMenuCommand(tMenuCommand *command)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -2212,18 +2222,18 @@ void MenuExtended_GoToSpecialEventTrackInfo__FR12tMenuCommand(tMenuCommand *comm
 	// End offset: 0x8002D214
 	// End Line: 736
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void MenuExtended_EnterUserName__FR12tMenuCommand(tMenuCommand *command)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -2238,18 +2248,18 @@ void MenuExtended_EnterUserName__FR12tMenuCommand(tMenuCommand *command)
 	// End offset: 0x8002D278
 	// End Line: 751
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void MenuExtended_GoToShowroom__FR12tMenuCommand(tMenuCommand *command)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -2264,18 +2274,18 @@ void MenuExtended_GoToShowroom__FR12tMenuCommand(tMenuCommand *command)
 	// End offset: 0x8002D2B8
 	// End Line: 758
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void MenuExtended_GoToDealerShowroom__FR12tMenuCommand(tMenuCommand *command)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -2304,18 +2314,19 @@ void MenuExtended_GoToDealerShowroom__FR12tMenuCommand(tMenuCommand *command)
 	// End offset: 0x8002D2F8
 	// End Line: 766
 
+/* WARNING: Control flow encountered bad instruction data */
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void MenuExtended_SetHPSoloRace__FR12tMenuCommand(void)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -2344,18 +2355,19 @@ void MenuExtended_SetHPSoloRace__FR12tMenuCommand(void)
 	// End offset: 0x8002D324
 	// End Line: 774
 
+/* WARNING: Control flow encountered bad instruction data */
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void MenuExtended_SetHPDuelRace__FR12tMenuCommand(void)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -2419,18 +2431,19 @@ void MenuExtended_SetHPDuelRace__FR12tMenuCommand(void)
 	// End offset: 0x8002D394
 	// End Line: 789
 
+/* WARNING: Control flow encountered bad instruction data */
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void MenuExtended_SetHotPursuit__FR12tMenuCommand(void)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -2600,18 +2613,19 @@ void MenuExtended_SetHotPursuit__FR12tMenuCommand(void)
 	// End offset: 0x8002D4E0
 	// End Line: 815
 
+/* WARNING: Control flow encountered bad instruction data */
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void MenuExtended_SellCar__FR12tMenuCommand(void)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -2819,18 +2833,19 @@ void MenuExtended_SellCar__FR12tMenuCommand(void)
 	// End offset: 0x8002D630
 	// End Line: 850
 
+/* WARNING: Control flow encountered bad instruction data */
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void MenuExtended_BuyCar__FR12tMenuCommand(void)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -3013,18 +3028,18 @@ void MenuExtended_BuyCar__FR12tMenuCommand(void)
 	// End offset: 0x8002D76C
 	// End Line: 878
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void MenuExtended_PurchaseUpgrade__Fi(int upgradeNumber)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -3039,18 +3054,19 @@ void MenuExtended_PurchaseUpgrade__Fi(int upgradeNumber)
 	// End offset: 0x8002D78C
 	// End Line: 884
 
+/* WARNING: Control flow encountered bad instruction data */
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void MenuExtended_PurchaseUpgrade1__FR12tMenuCommand(void)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -3065,18 +3081,19 @@ void MenuExtended_PurchaseUpgrade1__FR12tMenuCommand(void)
 	// End offset: 0x8002D7AC
 	// End Line: 889
 
+/* WARNING: Control flow encountered bad instruction data */
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void MenuExtended_PurchaseUpgrade2__FR12tMenuCommand(void)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -3091,18 +3108,19 @@ void MenuExtended_PurchaseUpgrade2__FR12tMenuCommand(void)
 	// End offset: 0x8002D7CC
 	// End Line: 894
 
+/* WARNING: Control flow encountered bad instruction data */
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void MenuExtended_PurchaseUpgrade3__FR12tMenuCommand(void)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -3138,18 +3156,19 @@ void MenuExtended_PurchaseUpgrade3__FR12tMenuCommand(void)
 	// End offset: 0x8002D82C
 	// End Line: 902
 
+/* WARNING: Control flow encountered bad instruction data */
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void MenuExtended_SaveGame__FR12tMenuCommand(void)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -3210,18 +3229,18 @@ void MenuExtended_SaveGame__FR12tMenuCommand(void)
 	// End offset: 0x8002D8A8
 	// End Line: 942
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void GenericMenuLoadGame__Fi(int player)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -3317,18 +3336,19 @@ void GenericMenuLoadGame__Fi(int player)
 	// End offset: 0x8002D958
 	// End Line: 958
 
+/* WARNING: Control flow encountered bad instruction data */
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void MenuExtended_LoadGame__FR12tMenuCommand(void)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -3345,24 +3365,24 @@ void MenuExtended_LoadGame__FR12tMenuCommand(void)
 	// End offset: 0x8002D9D8
 	// End Line: 977
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void MenuExtended_TierFinished__FR12tMenuCommand(tMenuCommand *command)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// unsigned int /*$ra*/ MenuExtended_DidUserWinBeTheCop__Fv()
+// void * /*$ra*/ MenuExtended_DidUserWinBeTheCop__Fv()
  // line 1011, offset 0x8002d9e8
 	/* begin block 1 */
 		// Start line: 1012
@@ -3370,23 +3390,24 @@ void MenuExtended_TierFinished__FR12tMenuCommand(tMenuCommand *command)
 		// Variables:
 	// 		struct tCarInfo carInfo; // stack offset -232
 	// 		struct tCarInfo *activateCar; // $s0
-	// 		unsigned int result; // $s3
+	// 		void * result; // $s3
 	/* end block 1 */
 	// End offset: 0x8002DAE4
 	// End Line: 1037
 
-uint MenuExtended_DidUserWinBeTheCop__Fv(void)
+/* WARNING: Control flow encountered bad instruction data */
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
+void * MenuExtended_DidUserWinBeTheCop__Fv(void)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -3468,18 +3489,18 @@ uint MenuExtended_DidUserWinBeTheCop__Fv(void)
 	// End offset: 0x8002DBF4
 	// End Line: 1083
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void MenuExtended_PostGameMenu__FR12tMenuCommand(tMenuCommand *command)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -3565,18 +3586,18 @@ void MenuExtended_PostGameMenu__FR12tMenuCommand(tMenuCommand *command)
 	// End offset: 0x8002DCFC
 	// End Line: 1121
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void MenuExtended_FinishedPlayer1GetName__FR12tMenuCommand(tMenuCommand *command)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -3608,18 +3629,18 @@ void MenuExtended_FinishedPlayer1GetName__FR12tMenuCommand(tMenuCommand *command
 	// End offset: 0x8002DD84
 	// End Line: 1143
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void MenuExtended_FinishedPlayer2GetName__FR12tMenuCommand(tMenuCommand *command)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -3636,18 +3657,19 @@ void MenuExtended_FinishedPlayer2GetName__FR12tMenuCommand(tMenuCommand *command
 	// End offset: 0x8002DE64
 	// End Line: 1160
 
+/* WARNING: Control flow encountered bad instruction data */
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void MenuExtended_SetPinkSlips__FR12tMenuCommand(void)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -3800,18 +3822,18 @@ void MenuExtended_SetPinkSlips__FR12tMenuCommand(void)
 	// End offset: 0x8002E030
 	// End Line: 1206
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void MenuExtended_AwardPinkSlipsCar__FR12tMenuCommand(tMenuCommand *command)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -3863,18 +3885,18 @@ void MenuExtended_AwardPinkSlipsCar__FR12tMenuCommand(tMenuCommand *command)
 	// End offset: 0x8002E120
 	// End Line: 1232
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void MenuExtended_GoToGarage__FR12tMenuCommand(tMenuCommand *command)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -3889,18 +3911,19 @@ void MenuExtended_GoToGarage__FR12tMenuCommand(tMenuCommand *command)
 	// End offset: 0x8002E144
 	// End Line: 1237
 
+/* WARNING: Control flow encountered bad instruction data */
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void MenuExtended_GoToTournTrophyRoom__FR12tMenuCommand(void)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -3915,18 +3938,19 @@ void MenuExtended_GoToTournTrophyRoom__FR12tMenuCommand(void)
 	// End offset: 0x8002E150
 	// End Line: 1242
 
+/* WARNING: Control flow encountered bad instruction data */
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void MenuExtended_GoToSETrophyRoom__FR12tMenuCommand(void)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -3941,18 +3965,19 @@ void MenuExtended_GoToSETrophyRoom__FR12tMenuCommand(void)
 	// End offset: 0x8002E160
 	// End Line: 1247
 
+/* WARNING: Control flow encountered bad instruction data */
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void MenuExtended_SetBeginner__FR12tMenuCommand(void)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -3967,18 +3992,19 @@ void MenuExtended_SetBeginner__FR12tMenuCommand(void)
 	// End offset: 0x8002E16C
 	// End Line: 1252
 
+/* WARNING: Control flow encountered bad instruction data */
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void MenuExtended_SetIntermediate__FR12tMenuCommand(void)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -3993,18 +4019,19 @@ void MenuExtended_SetIntermediate__FR12tMenuCommand(void)
 	// End offset: 0x8002E17C
 	// End Line: 1257
 
+/* WARNING: Control flow encountered bad instruction data */
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void MenuExtended_SetExpert__FR12tMenuCommand(void)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -4079,18 +4106,18 @@ void MenuExtended_SetExpert__FR12tMenuCommand(void)
 	// End offset: 0x8002E1FC
 	// End Line: 1261
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void MenuExtended_ExitTourney__FR12tMenuCommand(tMenuCommand *command)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -4211,18 +4238,18 @@ void MenuExtended_ExitTourney__FR12tMenuCommand(tMenuCommand *command)
 	// End offset: 0x8002E324
 	// End Line: 1275
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void MenuExtended_ExitPinkSlipsEarly__FR12tMenuCommand(tMenuCommand *command)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -4237,18 +4264,18 @@ void MenuExtended_ExitPinkSlipsEarly__FR12tMenuCommand(tMenuCommand *command)
 	// End offset: 0x8002E3B0
 	// End Line: 1316
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void MenuExtended_PinkSlipsContinue__FR12tMenuCommand(tMenuCommand *command)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -5069,25 +5096,25 @@ void MenuExtended_PinkSlipsContinue__FR12tMenuCommand(tMenuCommand *command)
 	// End offset: 0x8002E3B8
 	// End Line: 1354
 
+/* WARNING: Control flow encountered bad instruction data */
+
 tGlobalMenuDefs * __15tGlobalMenuDefs(tGlobalMenuDefs *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
 
 
 
-
-// autogenerated function stub: 
+// decompiled code
+// original method signature: 
 // void /*$ra*/ _._15tGlobalMenuDefs(struct tGlobalMenuDefs *this /*$s1*/, int __in_chrg /*$s0*/)
-void _._15tGlobalMenuDefs _._15tGlobalMenuDefs(tGlobalMenuDefs *this /*$s1*/this, int __in_chrg /*$s0*/ __in_chrg)
-{ // line 2204, offset 0x800315d4
+ // line 2204, offset 0x800315d4
 	/* begin block 1 */
 		// Start line: 2205
 		// Start offset: 0x800315D4
@@ -5438,7 +5465,19 @@ void _._15tGlobalMenuDefs _._15tGlobalMenuDefs(tGlobalMenuDefs *this /*$s1*/this
 	// End offset: 0x800315D4
 	// End Line: 2205
 
+/* WARNING: Control flow encountered bad instruction data */
+
+void ___15tGlobalMenuDefs(tGlobalMenuDefs *this,int __in_chrg)
+
+{
+  undefined4 in_v1;
+  undefined4 in_t5;
+  
+  special2(in_v1,in_t5,5,0x13);
+                    /* WARNING: Bad instruction - Truncating control flow here */
+  halt_baddata();
 }
+
 
 
 

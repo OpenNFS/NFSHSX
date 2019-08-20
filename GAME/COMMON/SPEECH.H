@@ -1,5 +1,36 @@
-#include "NFS4.H"
-#include "SPEECH.H"
+#ifndef SPEECH_H
+#define SPEECH_H
+
+extern void Status__Q26Speech7Speaker(struct Speaker *this); // 0x800993D4
+
+extern int Unit__Q26Speech7Speaker(struct Speaker *this); // 0x800993CC
+
+extern void * KnownPerp__Q26Speech7SpeakerP8Car_tObj(struct Speaker *this, struct Car_tObj *car); // 0x800993C4
+
+extern void ClearPerp__Q26Speech7SpeakerP8Car_tObj(struct Speaker *this, struct Car_tObj *car); // 0x800993BC
+
+extern void * IsSuper__Q26Speech7Speaker(struct Speaker *this); // 0x800993B4
+
+extern int StatusCount__Q26Speech7Speaker(struct Speaker *this); // 0x800993AC
+
+extern struct Speaker * StatusSub__Q26Speech7Speaker(struct Speaker *this); // 0x800993A4
+
+extern void PurgeStatusSub__Q26Speech7Speaker(struct Speaker *this); // 0x8009939C
+
+extern int DistToPerp__Q26Speech7Speaker(struct Speaker *this); // 0x80099394
+
+extern struct Car_tObj * CarObj__Q26Speech7Speaker(struct Speaker *this); // 0x8009938C
+
+extern void ReActivate__Q26Speech7Speaker(struct Speaker *this); // 0x80099384
+
+extern struct Car_tObj * Perp__Q26Speech7Speaker(struct Speaker *this); // 0x8009937C
+
+extern struct CarBank * GetCarBank__Q26Speech7Speakeri(struct Speaker *this, int carIndex); // 0x80099374
+
+extern struct LocationBank * FindClosestLocationTo__Q26Speech7Speakeri(struct Speaker *this, int slice); // 0x8009936C
+
+extern struct CallSignBank * CallSign__Q26Speech7Speaker(struct Speaker *this); // 0x80099364
+
 
 // decompiled code
 // original method signature: 
@@ -13,12 +44,10 @@
 	// End Line: 265
 
 void Status__Q26Speech7Speaker(Speaker *this)
+
 {
   return;
-
-
 }
-
 
 
 
@@ -34,18 +63,16 @@ void Status__Q26Speech7Speaker(Speaker *this)
 	// End Line: 324
 
 int Unit__Q26Speech7Speaker(Speaker *this)
+
 {
   return 0;
-
-
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// unsigned int /*$ra*/ KnownPerp__Q26Speech7SpeakerP8Car_tObj(struct Speaker *this /*$a0*/, struct Car_tObj *car /*$a1*/)
+// void * /*$ra*/ KnownPerp__Q26Speech7SpeakerP8Car_tObj(struct Speaker *this /*$a0*/, struct Car_tObj *car /*$a1*/)
  // line 328, offset 0x800993c4
 	/* begin block 1 */
 		// Start line: 329
@@ -54,13 +81,11 @@ int Unit__Q26Speech7Speaker(Speaker *this)
 	// End offset: 0x800993C4
 	// End Line: 329
 
-uint KnownPerp__Q26Speech7SpeakerP8Car_tObj(Speaker *this,Car_tObj *car)
+void * KnownPerp__Q26Speech7SpeakerP8Car_tObj(Speaker *this,Car_tObj *car)
+
 {
-  return 0;
-
-
+  return (void *)0x0;
 }
-
 
 
 
@@ -76,18 +101,16 @@ uint KnownPerp__Q26Speech7SpeakerP8Car_tObj(Speaker *this,Car_tObj *car)
 	// End Line: 330
 
 void ClearPerp__Q26Speech7SpeakerP8Car_tObj(Speaker *this,Car_tObj *car)
+
 {
   return;
-
-
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// unsigned int /*$ra*/ IsSuper__Q26Speech7Speaker(struct Speaker *this /*$a0*/)
+// void * /*$ra*/ IsSuper__Q26Speech7Speaker(struct Speaker *this /*$a0*/)
  // line 331, offset 0x800993b4
 	/* begin block 1 */
 		// Start line: 332
@@ -96,13 +119,11 @@ void ClearPerp__Q26Speech7SpeakerP8Car_tObj(Speaker *this,Car_tObj *car)
 	// End offset: 0x800993B4
 	// End Line: 332
 
-uint IsSuper__Q26Speech7Speaker(Speaker *this)
+void * IsSuper__Q26Speech7Speaker(Speaker *this)
+
 {
-  return 0;
-
-
+  return (void *)0x0;
 }
-
 
 
 
@@ -118,12 +139,10 @@ uint IsSuper__Q26Speech7Speaker(Speaker *this)
 	// End Line: 333
 
 int StatusCount__Q26Speech7Speaker(Speaker *this)
+
 {
   return 0;
-
-
 }
-
 
 
 
@@ -139,12 +158,10 @@ int StatusCount__Q26Speech7Speaker(Speaker *this)
 	// End Line: 334
 
 Speaker * StatusSub__Q26Speech7Speaker(Speaker *this)
+
 {
   return (Speaker *)0x0;
-
-
 }
-
 
 
 
@@ -160,12 +177,10 @@ Speaker * StatusSub__Q26Speech7Speaker(Speaker *this)
 	// End Line: 335
 
 void PurgeStatusSub__Q26Speech7Speaker(Speaker *this)
+
 {
   return;
-
-
 }
-
 
 
 
@@ -181,12 +196,10 @@ void PurgeStatusSub__Q26Speech7Speaker(Speaker *this)
 	// End Line: 336
 
 int DistToPerp__Q26Speech7Speaker(Speaker *this)
+
 {
   return 0x3e80000;
-
-
 }
-
 
 
 
@@ -202,12 +215,10 @@ int DistToPerp__Q26Speech7Speaker(Speaker *this)
 	// End Line: 337
 
 Car_tObj * CarObj__Q26Speech7Speaker(Speaker *this)
+
 {
   return (Car_tObj *)0x0;
-
-
 }
-
 
 
 
@@ -223,12 +234,10 @@ Car_tObj * CarObj__Q26Speech7Speaker(Speaker *this)
 	// End Line: 338
 
 void ReActivate__Q26Speech7Speaker(Speaker *this)
+
 {
   return;
-
-
 }
-
 
 
 
@@ -244,12 +253,10 @@ void ReActivate__Q26Speech7Speaker(Speaker *this)
 	// End Line: 339
 
 Car_tObj * Perp__Q26Speech7Speaker(Speaker *this)
+
 {
   return (Car_tObj *)0x0;
-
-
 }
-
 
 
 
@@ -265,12 +272,10 @@ Car_tObj * Perp__Q26Speech7Speaker(Speaker *this)
 	// End Line: 364
 
 CarBank * GetCarBank__Q26Speech7Speakeri(Speaker *this,int carIndex)
+
 {
   return (CarBank *)0x0;
-
-
 }
-
 
 
 
@@ -286,12 +291,10 @@ CarBank * GetCarBank__Q26Speech7Speakeri(Speaker *this,int carIndex)
 	// End Line: 368
 
 LocationBank * FindClosestLocationTo__Q26Speech7Speakeri(Speaker *this,int slice)
+
 {
   return (LocationBank *)0x0;
-
-
 }
-
 
 
 
@@ -307,13 +310,12 @@ LocationBank * FindClosestLocationTo__Q26Speech7Speakeri(Speaker *this,int slice
 	// End Line: 372
 
 CallSignBank * CallSign__Q26Speech7Speaker(Speaker *this)
+
 {
   return (CallSignBank *)0x0;
-
-
 }
 
 
 
 
-
+#endif

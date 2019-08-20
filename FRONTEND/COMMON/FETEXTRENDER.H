@@ -17,7 +17,7 @@ extern void FETextRender_MenuTextPositionedJustify__Fssss14tMenuTextState13tMenu
 
 extern void FETextRender_MenuTextPositionedJustifyFade__Fissss14tMenuTextState13tMenuTextType(int fade, short index, short x, short y, int justify, enum tMenuTextState textState, enum tMenuTextType textType); // 0x800211D4
 
-extern int FETextRender_WordWrapTextRGBJustify__FPcR4RECTiiib(char *str, struct RECT *r, int col, int justify, int size, unsigned int JustGrabHeight); // 0x800212A4
+extern int FETextRender_WordWrapTextRGBJustify__FPcR4RECTiiib(char *str, struct RECT *r, int col, int justify, int size, void * JustGrabHeight); // 0x800212A4
 
 extern void FETextRender_WordWrapTextRGB__FPcR4RECTi(char *str, struct RECT *r, int Col); // 0x80021718
 
@@ -33,6 +33,6 @@ extern int FETextRender_WordWrapHeight__FsPc(short width, char *str); // 0x80021
 
 extern void FETextRender_Title__Fs(short index); // 0x80021914
 
-extern void FETextRender_SetABR__Fib(int abr, unsigned int trans); // 0x800219E8
+extern void FETextRender_SetABR__Fib(int abr, void * trans); // 0x800219E8
 
 #endif

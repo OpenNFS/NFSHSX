@@ -31,13 +31,13 @@ extern void LoadPinkSlipsCars__11tCarManagerR12tSaveCarInfos(struct tCarManager 
 
 extern void SavePinkSlipsCars__11tCarManagerR12tSaveCarInfoss(struct tCarManager *this, struct tSaveCarInfo *save, short playerNum, short withoutCarInGarageNumber); // 0x80016C0C
 
-extern void SetClassAvailable__11tCarManager13tCarClassTypeb(struct tCarManager *this, enum tCarClassType carClass, unsigned int avail); // 0x80016D68
+extern void SetClassAvailable__11tCarManager13tCarClassTypeb(struct tCarManager *this, enum tCarClassType carClass, void * avail); // 0x80016D68
 
-extern void SetCarAvailable__11tCarManager10tCarModelsb(struct tCarManager *this, enum tCarModels carModel, unsigned int avail); // 0x80016DEC
+extern void SetCarAvailable__11tCarManager10tCarModelsb(struct tCarManager *this, enum tCarModels carModel, void * avail); // 0x80016DEC
 
-extern void SetClassViewable__11tCarManager13tCarClassTypeb(struct tCarManager *this, enum tCarClassType carClass, unsigned int view); // 0x80016E08
+extern void SetClassViewable__11tCarManager13tCarClassTypeb(struct tCarManager *this, enum tCarClassType carClass, void * view); // 0x80016E08
 
-extern void SetCarViewable__11tCarManager10tCarModelsb(struct tCarManager *this, enum tCarModels carModel, unsigned int view); // 0x80016E74
+extern void SetCarViewable__11tCarManager10tCarModelsb(struct tCarManager *this, enum tCarModels carModel, void * view); // 0x80016E74
 
 extern void GetStockCar__11tCarManagersR8tCarInfo(struct tCarManager *this, short carNumber, struct tCarInfo *carInfo); // 0x80016E90
 
@@ -59,11 +59,11 @@ extern short GetClassList__11tCarManager13tCarClassTypesP10tCarModels(struct tCa
 
 extern void InitializeIngameCarList__11tCarManager(struct tCarManager *this); // 0x80017578
 
-extern unsigned int IsCarAnAddedModel__11tCarManagerR10tCarModelsRc(struct tCarManager *this, enum tCarModels *model, char *color); // 0x800175F8
+extern void * IsCarAnAddedModel__11tCarManagerR10tCarModelsRc(struct tCarManager *this, enum tCarModels *model, char *color); // 0x800175F8
 
 extern void AddCarToIngameList__11tCarManagerR10tCarModelsRc(struct tCarManager *this, enum tCarModels *model, char *color); // 0x80017678
 
-extern unsigned int FindSimilarCar__11tCarManagerR10tCarModelsRcsP10tCarModels(struct tCarManager *this, enum tCarModels *model, char *color); // 0x80017718
+extern void * FindSimilarCar__11tCarManagerR10tCarModelsRcsP10tCarModels(struct tCarManager *this, enum tCarModels *model, char *color); // 0x80017718
 
 extern struct tListIteratorCar * __16tListIteratorCarPcP11tCarManager(struct tListIteratorCar *this, char *valPtr, struct tCarManager *carManager); // 0x800178CC
 
@@ -79,7 +79,7 @@ extern void Increment__16tListIteratorCar7tPlayer(struct tListIteratorCar *this,
 
 extern void Decrement__16tListIteratorCar7tPlayer(struct tListIteratorCar *this, enum tPlayer atIndex); // 0x800180B4
 
-extern unsigned int ValidCar__16tListIteratorCar7tPlayerc(struct tListIteratorCar *this, enum tPlayer atIndex, char carNumber); // 0x800180D4
+extern void * ValidCar__16tListIteratorCar7tPlayerc(struct tListIteratorCar *this, enum tPlayer atIndex, char carNumber); // 0x800180D4
 
 extern struct tListIteratorCarColor * __21tListIteratorCarColorPcN21iP11tCarManager(struct tListIteratorCarColor *this, char *value, char *player, char *playerCar, int indexSize, struct tCarManager *carManager); // 0x800184A0
 

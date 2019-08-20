@@ -15,18 +15,18 @@
 	// End offset: 0x80015814
 	// End Line: 65
 
+/* WARNING: Control flow encountered bad instruction data */
+
 int FEAudio_StartLoadPatch__FP10SPEECHINFO(SPEECHINFO *info)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -43,18 +43,18 @@ int FEAudio_StartLoadPatch__FP10SPEECHINFO(SPEECHINFO *info)
 	// End offset: 0x80015938
 	// End Line: 119
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void Feaudio_StartPatch__FP10SPEECHINFO(SPEECHINFO *info)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -69,18 +69,18 @@ void Feaudio_StartPatch__FP10SPEECHINFO(SPEECHINFO *info)
 	// End offset: 0x80015BBC
 	// End Line: 205
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void FeAudio_systemtask__Fi(int x)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -95,18 +95,18 @@ void FeAudio_systemtask__Fi(int x)
 	// End offset: 0x80015CA0
 	// End Line: 232
 
+/* WARNING: Control flow encountered bad instruction data */
+
 short FeAudio_AsyncPlayCommentary__FPc(char *name)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -123,18 +123,18 @@ short FeAudio_AsyncPlayCommentary__FPc(char *name)
 	// End offset: 0x80015D18
 	// End Line: 248
 
+/* WARNING: Control flow encountered bad instruction data */
+
 short FeAudio_AsyncPlaySpeech__Fii(int type,int index)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -151,18 +151,18 @@ short FeAudio_AsyncPlaySpeech__Fii(int type,int index)
 	// End offset: 0x80015DAC
 	// End Line: 270
 
+/* WARNING: Control flow encountered bad instruction data */
+
 char * FeAudio_StartBigfileRead__FPciiPi(char *fname,int offset,int length,int *vivHandle)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -181,18 +181,19 @@ char * FeAudio_StartBigfileRead__FPciiPi(char *fname,int offset,int length,int *
 	// End offset: 0x80015EF4
 	// End Line: 301
 
-void FeAudio_LocateBigfile__FP9LUMPYHEADPcPiT2( (LUMPYHEAD *bigfileHeader,char *name,int *offset,int *length)
+/* WARNING: Control flow encountered bad instruction data */
+
+void FeAudio_LocateBigfile__FP9LUMPYHEADPcPiT2
+               (LUMPYHEAD *bigfileHeader,char *name,int *offset,int *length)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -211,18 +212,18 @@ void FeAudio_LocateBigfile__FP9LUMPYHEADPcPiT2( (LUMPYHEAD *bigfileHeader,char *
 	// End offset: 0x800160C4
 	// End Line: 348
 
+/* WARNING: Control flow encountered bad instruction data */
+
 LUMPYHEAD * FeAudio_InitViv__FPc(char *fname)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -237,18 +238,18 @@ LUMPYHEAD * FeAudio_InitViv__FPc(char *fname)
 	// End offset: 0x800160D8
 	// End Line: 361
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void FeAudio_InitCommentary__Fii(int language)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -263,18 +264,19 @@ void FeAudio_InitCommentary__Fii(int language)
 	// End offset: 0x800161A0
 	// End Line: 387
 
+/* WARNING: Control flow encountered bad instruction data */
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void FeAudio_DeInitCommentary__Fv(void)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 

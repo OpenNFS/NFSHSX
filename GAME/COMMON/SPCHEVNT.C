@@ -16,11 +16,12 @@
 	// End Line: 16
 
 long SPCHNFS_C_A_CONFIRM(SPCHNFSType_VOICE *VOICE,int ID_UNIT,SPCHNFSType_CONFIRM *CONFIRM)
+
 {
   undefined4 *puVar1;
   long lVar2;
   int iVar3;
-  undefined4 local_38;
+  uint local_38;
   ulong local_34;
   int local_30;
   ulong local_2c;
@@ -39,10 +40,7 @@ long SPCHNFS_C_A_CONFIRM(SPCHNFSType_VOICE *VOICE,int ID_UNIT,SPCHNFSType_CONFIR
   local_30 = ID_UNIT;
   lVar2 = SPCH_AddEvent(&local_38);
   return lVar2;
-
-
 }
-
 
 
 
@@ -61,11 +59,12 @@ long SPCHNFS_C_A_CONFIRM(SPCHNFSType_VOICE *VOICE,int ID_UNIT,SPCHNFSType_CONFIR
 	// End Line: 36
 
 long SPCHNFS_C_D_REQUEST_EMS(SPCHNFSType_VOICE *VOICE,SPCHNFSType_AMBULANCE *AMBULANCE)
+
 {
   undefined4 *puVar1;
   long lVar2;
   int iVar3;
-  undefined4 local_38;
+  uint local_38;
   ulong local_34;
   ulong local_30;
   undefined4 local_c;
@@ -82,10 +81,7 @@ long SPCHNFS_C_D_REQUEST_EMS(SPCHNFSType_VOICE *VOICE,SPCHNFSType_AMBULANCE *AMB
   local_30 = AMBULANCE->flags;
   lVar2 = SPCH_AddEvent(&local_38);
   return lVar2;
-
-
 }
-
 
 
 
@@ -103,12 +99,15 @@ long SPCHNFS_C_D_REQUEST_EMS(SPCHNFSType_VOICE *VOICE,SPCHNFSType_AMBULANCE *AMB
 	// End offset: 0x8009301C
 	// End Line: 75
 
-long SPCHNFS_D_C_BEGIN_PURS_REP_SPDR( (SPCHNFSType_COLOUR *COLOUR,int ID_CAR,SPCHNFSType_POSITION *POSITION,int ID_LOCATION ,SPCHNFSType_DISTANCE *DISTANCE)
+long SPCHNFS_D_C_BEGIN_PURS_REP_SPDR
+               (SPCHNFSType_COLOUR *COLOUR,int ID_CAR,SPCHNFSType_POSITION *POSITION,int ID_LOCATION
+               ,SPCHNFSType_DISTANCE *DISTANCE)
+
 {
   undefined4 *puVar1;
   long lVar2;
   int iVar3;
-  undefined4 local_38;
+  uint local_38;
   ulong local_34;
   int local_30;
   ulong local_2c;
@@ -131,10 +130,7 @@ long SPCHNFS_D_C_BEGIN_PURS_REP_SPDR( (SPCHNFSType_COLOUR *COLOUR,int ID_CAR,SPC
   local_28 = ID_LOCATION;
   lVar2 = SPCH_AddEvent(&local_38);
   return lVar2;
-
-
 }
-
 
 
 
@@ -152,12 +148,16 @@ long SPCHNFS_D_C_BEGIN_PURS_REP_SPDR( (SPCHNFSType_COLOUR *COLOUR,int ID_CAR,SPC
 	// End offset: 0x80093084
 	// End Line: 103
 
-long SPCHNFS_C_D_ENGAGE_PURS_REP_SPDR_REPLY( (SPCHNFSType_VOICE *VOICE,int ID_UNIT,SPCHNFSType_COLOUR *COLOUR,int ID_CAR, SPCHNFSType_DISTANCE *DISTANCE,SPCHNFSType_POSITION *POSITION,int ID_LOCATION, SPCHNFSType_CONFIRM *CONFIRM)
+long SPCHNFS_C_D_ENGAGE_PURS_REP_SPDR_REPLY
+               (SPCHNFSType_VOICE *VOICE,int ID_UNIT,SPCHNFSType_COLOUR *COLOUR,int ID_CAR,
+               SPCHNFSType_DISTANCE *DISTANCE,SPCHNFSType_POSITION *POSITION,int ID_LOCATION,
+               SPCHNFSType_CONFIRM *CONFIRM)
+
 {
   undefined4 *puVar1;
   long lVar2;
   int iVar3;
-  undefined4 local_38;
+  uint local_38;
   ulong local_34;
   int local_30;
   ulong local_2c;
@@ -186,10 +186,7 @@ long SPCHNFS_C_D_ENGAGE_PURS_REP_SPDR_REPLY( (SPCHNFSType_VOICE *VOICE,int ID_UN
   local_28 = ID_CAR;
   lVar2 = SPCH_AddEvent(&local_38);
   return lVar2;
-
-
 }
-
 
 
 
@@ -207,12 +204,16 @@ long SPCHNFS_C_D_ENGAGE_PURS_REP_SPDR_REPLY( (SPCHNFSType_VOICE *VOICE,int ID_UN
 	// End offset: 0x80093118
 	// End Line: 135
 
-long SPCHNFS_C_D_ENGAGE_PURS_REP_SPDR( (SPCHNFSType_VOICE *VOICE,SPCHNFSType_COLOUR *COLOUR,int ID_CAR, SPCHNFSType_POSITION *POSITION,int ID_LOCATION,SPCHNFSType_DISTANCE *DISTANCE, int ID_SPEED,SPCHNFSType_vs_KMH_MPH *vs_KMH_MPH,SPCHNFSType_PERP_NAME *PERP_NAME)
+long SPCHNFS_C_D_ENGAGE_PURS_REP_SPDR
+               (SPCHNFSType_VOICE *VOICE,SPCHNFSType_COLOUR *COLOUR,int ID_CAR,
+               SPCHNFSType_POSITION *POSITION,int ID_LOCATION,SPCHNFSType_DISTANCE *DISTANCE,
+               int ID_SPEED,SPCHNFSType_vs_KMH_MPH *vs_KMH_MPH,SPCHNFSType_PERP_NAME *PERP_NAME)
+
 {
   undefined4 *puVar1;
   long lVar2;
   int iVar3;
-  undefined4 local_38;
+  uint local_38;
   ulong local_34;
   ulong local_30;
   int local_2c;
@@ -243,10 +244,7 @@ long SPCHNFS_C_D_ENGAGE_PURS_REP_SPDR( (SPCHNFSType_VOICE *VOICE,SPCHNFSType_COL
   local_2c = ID_CAR;
   lVar2 = SPCH_AddEvent(&local_38);
   return lVar2;
-
-
 }
-
 
 
 
@@ -265,11 +263,12 @@ long SPCHNFS_C_D_ENGAGE_PURS_REP_SPDR( (SPCHNFSType_VOICE *VOICE,SPCHNFSType_COL
 	// End Line: 187
 
 long SPCHNFS_C_C_IN_PURS_NEAR_PERP(SPCHNFSType_VOICE *VOICE,SPCHNFSType_COLOUR *COLOUR,int ID_CAR)
+
 {
   undefined4 *puVar1;
   long lVar2;
   int iVar3;
-  undefined4 local_38;
+  uint local_38;
   ulong local_34;
   ulong local_30;
   int local_2c;
@@ -288,10 +287,7 @@ long SPCHNFS_C_C_IN_PURS_NEAR_PERP(SPCHNFSType_VOICE *VOICE,SPCHNFSType_COLOUR *
   local_2c = ID_CAR;
   lVar2 = SPCH_AddEvent(&local_38);
   return lVar2;
-
-
 }
-
 
 
 
@@ -310,11 +306,12 @@ long SPCHNFS_C_C_IN_PURS_NEAR_PERP(SPCHNFSType_VOICE *VOICE,SPCHNFSType_COLOUR *
 	// End Line: 206
 
 long SPCHNFS_D_C_IN_PURS_NEAR_PERP(SPCHNFSType_PURS_UPDT *PURS_UPDT)
+
 {
   undefined4 *puVar1;
   long lVar2;
   int iVar3;
-  undefined4 local_38;
+  uint local_38;
   ulong local_34;
   undefined4 local_c;
   
@@ -329,10 +326,7 @@ long SPCHNFS_D_C_IN_PURS_NEAR_PERP(SPCHNFSType_PURS_UPDT *PURS_UPDT)
   local_34 = PURS_UPDT->flags;
   lVar2 = SPCH_AddEvent(&local_38);
   return lVar2;
-
-
 }
-
 
 
 
@@ -350,12 +344,15 @@ long SPCHNFS_D_C_IN_PURS_NEAR_PERP(SPCHNFSType_PURS_UPDT *PURS_UPDT)
 	// End offset: 0x80093258
 	// End Line: 228
 
-long SPCHNFS_C_D_IN_PURS_NEAR_PERP_REP_STS( (SPCHNFSType_VOICE *VOICE,SPCHNFSType_COLOUR *COLOUR,int ID_CAR, SPCHNFSType_DISTANCE *DISTANCE,SPCHNFSType_POSITION *POSITION,int ID_LOCATION)
+long SPCHNFS_C_D_IN_PURS_NEAR_PERP_REP_STS
+               (SPCHNFSType_VOICE *VOICE,SPCHNFSType_COLOUR *COLOUR,int ID_CAR,
+               SPCHNFSType_DISTANCE *DISTANCE,SPCHNFSType_POSITION *POSITION,int ID_LOCATION)
+
 {
   undefined4 *puVar1;
   long lVar2;
   int iVar3;
-  undefined4 local_38;
+  uint local_38;
   ulong local_34;
   ulong local_30;
   int local_2c;
@@ -380,10 +377,7 @@ long SPCHNFS_C_D_IN_PURS_NEAR_PERP_REP_STS( (SPCHNFSType_VOICE *VOICE,SPCHNFSTyp
   local_2c = ID_CAR;
   lVar2 = SPCH_AddEvent(&local_38);
   return lVar2;
-
-
 }
-
 
 
 
@@ -401,12 +395,15 @@ long SPCHNFS_C_D_IN_PURS_NEAR_PERP_REP_STS( (SPCHNFSType_VOICE *VOICE,SPCHNFSTyp
 	// End offset: 0x800932D4
 	// End Line: 254
 
-long SPCHNFS_D_C_IN_PURS_NEAR_PERP_CONFIRM( (SPCHNFSType_COLOUR *COLOUR,int ID_CAR,int ID_UNIT,SPCHNFSType_CONFIRM *CONFIRM, SPCHNFSType_PERP_NAME *PERP_NAME)
+long SPCHNFS_D_C_IN_PURS_NEAR_PERP_CONFIRM
+               (SPCHNFSType_COLOUR *COLOUR,int ID_CAR,int ID_UNIT,SPCHNFSType_CONFIRM *CONFIRM,
+               SPCHNFSType_PERP_NAME *PERP_NAME)
+
 {
   undefined4 *puVar1;
   long lVar2;
   int iVar3;
-  undefined4 local_38;
+  uint local_38;
   ulong local_34;
   int local_30;
   int local_2c;
@@ -429,10 +426,7 @@ long SPCHNFS_D_C_IN_PURS_NEAR_PERP_CONFIRM( (SPCHNFSType_COLOUR *COLOUR,int ID_C
   local_2c = ID_UNIT;
   lVar2 = SPCH_AddEvent(&local_38);
   return lVar2;
-
-
 }
-
 
 
 
@@ -450,12 +444,15 @@ long SPCHNFS_D_C_IN_PURS_NEAR_PERP_CONFIRM( (SPCHNFSType_COLOUR *COLOUR,int ID_C
 	// End offset: 0x80093340
 	// End Line: 324
 
-long SPCHNFS_C_D_IN_PURS_AWAY_PERP_REPLY_STS( (SPCHNFSType_VOICE *VOICE,SPCHNFSType_COLOUR *COLOUR,int ID_CAR, SPCHNFSType_POSITION *POSITION,int ID_LOCATION,SPCHNFSType_DISTANCE *DISTANCE)
+long SPCHNFS_C_D_IN_PURS_AWAY_PERP_REPLY_STS
+               (SPCHNFSType_VOICE *VOICE,SPCHNFSType_COLOUR *COLOUR,int ID_CAR,
+               SPCHNFSType_POSITION *POSITION,int ID_LOCATION,SPCHNFSType_DISTANCE *DISTANCE)
+
 {
   undefined4 *puVar1;
   long lVar2;
   int iVar3;
-  undefined4 local_38;
+  uint local_38;
   ulong local_34;
   ulong local_30;
   int local_2c;
@@ -480,10 +477,7 @@ long SPCHNFS_C_D_IN_PURS_AWAY_PERP_REPLY_STS( (SPCHNFSType_VOICE *VOICE,SPCHNFST
   local_2c = ID_CAR;
   lVar2 = SPCH_AddEvent(&local_38);
   return lVar2;
-
-
 }
-
 
 
 
@@ -501,12 +495,15 @@ long SPCHNFS_C_D_IN_PURS_AWAY_PERP_REPLY_STS( (SPCHNFSType_VOICE *VOICE,SPCHNFST
 	// End offset: 0x800933B4
 	// End Line: 350
 
-long SPCHNFS_D_C_IN_PURS_AWAY_PERP_CONFIRM( (SPCHNFSType_COLOUR *COLOUR,int ID_CAR,int ID_UNIT,SPCHNFSType_CONFIRM *CONFIRM, SPCHNFSType_PERP_NAME *PERP_NAME)
+long SPCHNFS_D_C_IN_PURS_AWAY_PERP_CONFIRM
+               (SPCHNFSType_COLOUR *COLOUR,int ID_CAR,int ID_UNIT,SPCHNFSType_CONFIRM *CONFIRM,
+               SPCHNFSType_PERP_NAME *PERP_NAME)
+
 {
   undefined4 *puVar1;
   long lVar2;
   int iVar3;
-  undefined4 local_38;
+  uint local_38;
   ulong local_34;
   int local_30;
   int local_2c;
@@ -529,10 +526,7 @@ long SPCHNFS_D_C_IN_PURS_AWAY_PERP_CONFIRM( (SPCHNFSType_COLOUR *COLOUR,int ID_C
   local_2c = ID_UNIT;
   lVar2 = SPCH_AddEvent(&local_38);
   return lVar2;
-
-
 }
-
 
 
 
@@ -550,12 +544,15 @@ long SPCHNFS_D_C_IN_PURS_AWAY_PERP_CONFIRM( (SPCHNFSType_COLOUR *COLOUR,int ID_C
 	// End offset: 0x80093420
 	// End Line: 416
 
-long SPCHNFS_C_D_IN_PURS_LOOK_PERP_REPLY_STS( (SPCHNFSType_VOICE *VOICE,SPCHNFSType_COLOUR *COLOUR,int ID_CAR, SPCHNFSType_PERP_NAME *PERP_NAME)
+long SPCHNFS_C_D_IN_PURS_LOOK_PERP_REPLY_STS
+               (SPCHNFSType_VOICE *VOICE,SPCHNFSType_COLOUR *COLOUR,int ID_CAR,
+               SPCHNFSType_PERP_NAME *PERP_NAME)
+
 {
   undefined4 *puVar1;
   long lVar2;
   int iVar3;
-  undefined4 local_38;
+  uint local_38;
   ulong local_34;
   ulong local_30;
   int local_2c;
@@ -576,10 +573,7 @@ long SPCHNFS_C_D_IN_PURS_LOOK_PERP_REPLY_STS( (SPCHNFSType_VOICE *VOICE,SPCHNFST
   local_2c = ID_CAR;
   lVar2 = SPCH_AddEvent(&local_38);
   return lVar2;
-
-
 }
-
 
 
 
@@ -598,11 +592,12 @@ long SPCHNFS_C_D_IN_PURS_LOOK_PERP_REPLY_STS( (SPCHNFSType_VOICE *VOICE,SPCHNFST
 	// End Line: 476
 
 long SPCHNFS_C_C_IDLE_WINGMAN_DISAPPEARS(SPCHNFSType_VOICE *VOICE)
+
 {
   undefined4 *puVar1;
   long lVar2;
   int iVar3;
-  undefined4 local_38;
+  uint local_38;
   ulong local_34;
   undefined4 local_c;
   
@@ -617,10 +612,7 @@ long SPCHNFS_C_C_IDLE_WINGMAN_DISAPPEARS(SPCHNFSType_VOICE *VOICE)
   local_34 = VOICE->flags;
   lVar2 = SPCH_AddEvent(&local_38);
   return lVar2;
-
-
 }
-
 
 
 
@@ -639,11 +631,12 @@ long SPCHNFS_C_C_IDLE_WINGMAN_DISAPPEARS(SPCHNFSType_VOICE *VOICE)
 	// End Line: 493
 
 long SPCHNFS_C_D_REQ_RDBLK(SPCHNFSType_VOICE *VOICE)
+
 {
   undefined4 *puVar1;
   long lVar2;
   int iVar3;
-  undefined4 local_38;
+  uint local_38;
   ulong local_34;
   undefined4 local_c;
   
@@ -658,10 +651,7 @@ long SPCHNFS_C_D_REQ_RDBLK(SPCHNFSType_VOICE *VOICE)
   local_34 = VOICE->flags;
   lVar2 = SPCH_AddEvent(&local_38);
   return lVar2;
-
-
 }
-
 
 
 
@@ -680,11 +670,12 @@ long SPCHNFS_C_D_REQ_RDBLK(SPCHNFSType_VOICE *VOICE)
 	// End Line: 510
 
 long SPCHNFS_D_C_RDBLK_SPBLT_DENIED_REPLY(SPCHNFSType_vs_RDBLK_SSTRP *vs_RDBLK_SSTRP)
+
 {
   undefined4 *puVar1;
   long lVar2;
   int iVar3;
-  undefined4 local_38;
+  uint local_38;
   ulong local_34;
   undefined4 local_c;
   
@@ -699,10 +690,7 @@ long SPCHNFS_D_C_RDBLK_SPBLT_DENIED_REPLY(SPCHNFSType_vs_RDBLK_SSTRP *vs_RDBLK_S
   local_34 = vs_RDBLK_SSTRP->flags;
   lVar2 = SPCH_AddEvent(&local_38);
   return lVar2;
-
-
 }
-
 
 
 
@@ -720,12 +708,14 @@ long SPCHNFS_D_C_RDBLK_SPBLT_DENIED_REPLY(SPCHNFSType_vs_RDBLK_SSTRP *vs_RDBLK_S
 	// End offset: 0x80093558
 	// End Line: 528
 
-long SPCHNFS_D_C_RDBLK_SPBLT_GRANT_REPLY( (SPCHNFSType_vs_RDBLK_SSTRP *vs_RDBLK_SSTRP,SPCHNFSType_CONFIRM *CONFIRM)
+long SPCHNFS_D_C_RDBLK_SPBLT_GRANT_REPLY
+               (SPCHNFSType_vs_RDBLK_SSTRP *vs_RDBLK_SSTRP,SPCHNFSType_CONFIRM *CONFIRM)
+
 {
   undefined4 *puVar1;
   long lVar2;
   int iVar3;
-  undefined4 local_38;
+  uint local_38;
   ulong local_34;
   ulong local_30;
   undefined4 local_c;
@@ -742,10 +732,7 @@ long SPCHNFS_D_C_RDBLK_SPBLT_GRANT_REPLY( (SPCHNFSType_vs_RDBLK_SSTRP *vs_RDBLK_
   local_30 = CONFIRM->flags;
   lVar2 = SPCH_AddEvent(&local_38);
   return lVar2;
-
-
 }
-
 
 
 
@@ -763,12 +750,14 @@ long SPCHNFS_D_C_RDBLK_SPBLT_GRANT_REPLY( (SPCHNFSType_vs_RDBLK_SSTRP *vs_RDBLK_
 	// End offset: 0x800935AC
 	// End Line: 548
 
-long SPCHNFS_D_C_RDBLK_CONFIRMED( (SPCHNFSType_POSITION *POSITION,int ID_LOCATION,SPCHNFSType_DISTANCE *DISTANCE)
+long SPCHNFS_D_C_RDBLK_CONFIRMED
+               (SPCHNFSType_POSITION *POSITION,int ID_LOCATION,SPCHNFSType_DISTANCE *DISTANCE)
+
 {
   undefined4 *puVar1;
   long lVar2;
   int iVar3;
-  undefined4 local_38;
+  uint local_38;
   ulong local_34;
   int local_30;
   ulong local_2c;
@@ -787,10 +776,7 @@ long SPCHNFS_D_C_RDBLK_CONFIRMED( (SPCHNFSType_POSITION *POSITION,int ID_LOCATIO
   local_30 = ID_LOCATION;
   lVar2 = SPCH_AddEvent(&local_38);
   return lVar2;
-
-
 }
-
 
 
 
@@ -809,11 +795,12 @@ long SPCHNFS_D_C_RDBLK_CONFIRMED( (SPCHNFSType_POSITION *POSITION,int ID_LOCATIO
 	// End Line: 569
 
 long SPCHNFS_C_D_RDBLK_FAILED(SPCHNFSType_VOICE *VOICE,SPCHNFSType_COLOUR *COLOUR,int ID_CAR)
+
 {
   undefined4 *puVar1;
   long lVar2;
   int iVar3;
-  undefined4 local_38;
+  uint local_38;
   ulong local_34;
   ulong local_30;
   int local_2c;
@@ -832,10 +819,7 @@ long SPCHNFS_C_D_RDBLK_FAILED(SPCHNFSType_VOICE *VOICE,SPCHNFSType_COLOUR *COLOU
   local_2c = ID_CAR;
   lVar2 = SPCH_AddEvent(&local_38);
   return lVar2;
-
-
 }
-
 
 
 
@@ -853,12 +837,15 @@ long SPCHNFS_C_D_RDBLK_FAILED(SPCHNFSType_VOICE *VOICE,SPCHNFSType_COLOUR *COLOU
 	// End offset: 0x80093658
 	// End Line: 593
 
-long SPCHNFS_C_D_REQUEST_BKUP( (SPCHNFSType_VOICE *VOICE,SPCHNFSType_COLOUR *COLOUR,int ID_CAR, SPCHNFSType_POSITION *POSITION,int ID_LOCATION,SPCHNFSType_DISTANCE *DISTANCE)
+long SPCHNFS_C_D_REQUEST_BKUP
+               (SPCHNFSType_VOICE *VOICE,SPCHNFSType_COLOUR *COLOUR,int ID_CAR,
+               SPCHNFSType_POSITION *POSITION,int ID_LOCATION,SPCHNFSType_DISTANCE *DISTANCE)
+
 {
   undefined4 *puVar1;
   long lVar2;
   int iVar3;
-  undefined4 local_38;
+  uint local_38;
   ulong local_34;
   ulong local_30;
   int local_2c;
@@ -883,10 +870,7 @@ long SPCHNFS_C_D_REQUEST_BKUP( (SPCHNFSType_VOICE *VOICE,SPCHNFSType_COLOUR *COL
   local_2c = ID_CAR;
   lVar2 = SPCH_AddEvent(&local_38);
   return lVar2;
-
-
 }
-
 
 
 
@@ -904,12 +888,15 @@ long SPCHNFS_C_D_REQUEST_BKUP( (SPCHNFSType_VOICE *VOICE,SPCHNFSType_COLOUR *COL
 	// End offset: 0x800936CC
 	// End Line: 664
 
-long SPCHNFS_D_C_BKUP_REQUEST_GRANT_REPLY( (SPCHNFSType_DISTANCE *DISTANCE,SPCHNFSType_POSITION *POSITION,int ID_LOCATION, int ID_UNIT)
+long SPCHNFS_D_C_BKUP_REQUEST_GRANT_REPLY
+               (SPCHNFSType_DISTANCE *DISTANCE,SPCHNFSType_POSITION *POSITION,int ID_LOCATION,
+               int ID_UNIT)
+
 {
   undefined4 *puVar1;
   long lVar2;
   int iVar3;
-  undefined4 local_38;
+  uint local_38;
   ulong local_34;
   ulong local_30;
   int local_2c;
@@ -930,10 +917,7 @@ long SPCHNFS_D_C_BKUP_REQUEST_GRANT_REPLY( (SPCHNFSType_DISTANCE *DISTANCE,SPCHN
   local_28 = ID_UNIT;
   lVar2 = SPCH_AddEvent(&local_38);
   return lVar2;
-
-
 }
-
 
 
 
@@ -951,12 +935,15 @@ long SPCHNFS_D_C_BKUP_REQUEST_GRANT_REPLY( (SPCHNFSType_DISTANCE *DISTANCE,SPCHN
 	// End offset: 0x80093728
 	// End Line: 684
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 long SPCHNFS_D_C_BKUP_REQUEST_DENIED_REPLY(void)
+
 {
   undefined4 *puVar1;
   long lVar2;
   int iVar3;
-  undefined4 local_38 [11];
+  uint local_38 [11];
   undefined4 local_c;
   
   iVar3 = 0xb;
@@ -969,10 +956,7 @@ long SPCHNFS_D_C_BKUP_REQUEST_DENIED_REPLY(void)
   local_38[0] = 0x174;
   lVar2 = SPCH_AddEvent(local_38);
   return lVar2;
-
-
 }
-
 
 
 
@@ -991,11 +975,12 @@ long SPCHNFS_D_C_BKUP_REQUEST_DENIED_REPLY(void)
 	// End Line: 737
 
 long SPCHNFS_C_C_NEW_OFFICER_ENGAGING(SPCHNFSType_VOICE *VOICE,int ID_UNIT)
+
 {
   undefined4 *puVar1;
   long lVar2;
   int iVar3;
-  undefined4 local_38;
+  uint local_38;
   ulong local_34;
   int local_30;
   undefined4 local_c;
@@ -1012,10 +997,7 @@ long SPCHNFS_C_C_NEW_OFFICER_ENGAGING(SPCHNFSType_VOICE *VOICE,int ID_UNIT)
   local_30 = ID_UNIT;
   lVar2 = SPCH_AddEvent(&local_38);
   return lVar2;
-
-
 }
-
 
 
 
@@ -1033,12 +1015,16 @@ long SPCHNFS_C_C_NEW_OFFICER_ENGAGING(SPCHNFSType_VOICE *VOICE,int ID_UNIT)
 	// End offset: 0x800937B4
 	// End Line: 761
 
-long SPCHNFS_C_D_PERP_SIGHTED( (SPCHNFSType_VOICE *VOICE,SPCHNFSType_COLOUR *COLOUR,int ID_CAR, SPCHNFSType_DISTANCE *DISTANCE,SPCHNFSType_POSITION *POSITION,int ID_LOCATION, SPCHNFSType_PERP_NAME *PERP_NAME)
+long SPCHNFS_C_D_PERP_SIGHTED
+               (SPCHNFSType_VOICE *VOICE,SPCHNFSType_COLOUR *COLOUR,int ID_CAR,
+               SPCHNFSType_DISTANCE *DISTANCE,SPCHNFSType_POSITION *POSITION,int ID_LOCATION,
+               SPCHNFSType_PERP_NAME *PERP_NAME)
+
 {
   undefined4 *puVar1;
   long lVar2;
   int iVar3;
-  undefined4 local_38;
+  uint local_38;
   ulong local_34;
   ulong local_30;
   int local_2c;
@@ -1065,10 +1051,7 @@ long SPCHNFS_C_D_PERP_SIGHTED( (SPCHNFSType_VOICE *VOICE,SPCHNFSType_COLOUR *COL
   local_2c = ID_CAR;
   lVar2 = SPCH_AddEvent(&local_38);
   return lVar2;
-
-
 }
-
 
 
 
@@ -1087,11 +1070,12 @@ long SPCHNFS_C_D_PERP_SIGHTED( (SPCHNFSType_VOICE *VOICE,SPCHNFSType_COLOUR *COL
 	// End Line: 785
 
 long SPCHNFS_D_C_PERP_SIGHTED_CONFIRM(SPCHNFSType_CONFIRM *CONFIRM,int ID_UNIT)
+
 {
   undefined4 *puVar1;
   long lVar2;
   int iVar3;
-  undefined4 local_38;
+  uint local_38;
   ulong local_34;
   int local_30;
   undefined4 local_c;
@@ -1108,10 +1092,7 @@ long SPCHNFS_D_C_PERP_SIGHTED_CONFIRM(SPCHNFSType_CONFIRM *CONFIRM,int ID_UNIT)
   local_30 = ID_UNIT;
   lVar2 = SPCH_AddEvent(&local_38);
   return lVar2;
-
-
 }
-
 
 
 
@@ -1129,12 +1110,16 @@ long SPCHNFS_D_C_PERP_SIGHTED_CONFIRM(SPCHNFSType_CONFIRM *CONFIRM,int ID_UNIT)
 	// End offset: 0x8009388C
 	// End Line: 809
 
-long SPCHNFS_C_D_PERP_LOST( (SPCHNFSType_VOICE *VOICE,SPCHNFSType_COLOUR *COLOUR,int ID_CAR, SPCHNFSType_POSITION *POSITION,int ID_LOCATION,SPCHNFSType_DISTANCE *DISTANCE, SPCHNFSType_PERP_NAME *PERP_NAME)
+long SPCHNFS_C_D_PERP_LOST
+               (SPCHNFSType_VOICE *VOICE,SPCHNFSType_COLOUR *COLOUR,int ID_CAR,
+               SPCHNFSType_POSITION *POSITION,int ID_LOCATION,SPCHNFSType_DISTANCE *DISTANCE,
+               SPCHNFSType_PERP_NAME *PERP_NAME)
+
 {
   undefined4 *puVar1;
   long lVar2;
   int iVar3;
-  undefined4 local_38;
+  uint local_38;
   ulong local_34;
   ulong local_30;
   int local_2c;
@@ -1161,10 +1146,7 @@ long SPCHNFS_C_D_PERP_LOST( (SPCHNFSType_VOICE *VOICE,SPCHNFSType_COLOUR *COLOUR
   local_2c = ID_CAR;
   lVar2 = SPCH_AddEvent(&local_38);
   return lVar2;
-
-
 }
-
 
 
 
@@ -1183,11 +1165,12 @@ long SPCHNFS_C_D_PERP_LOST( (SPCHNFSType_VOICE *VOICE,SPCHNFSType_COLOUR *COLOUR
 	// End Line: 833
 
 long SPCHNFS_D_C_PERP_LOST_CONFIRM(SPCHNFSType_COLOUR *COLOUR,int ID_CAR)
+
 {
   undefined4 *puVar1;
   long lVar2;
   int iVar3;
-  undefined4 local_38;
+  uint local_38;
   ulong local_34;
   int local_30;
   undefined4 local_c;
@@ -1204,10 +1187,7 @@ long SPCHNFS_D_C_PERP_LOST_CONFIRM(SPCHNFSType_COLOUR *COLOUR,int ID_CAR)
   local_30 = ID_CAR;
   lVar2 = SPCH_AddEvent(&local_38);
   return lVar2;
-
-
 }
-
 
 
 
@@ -1225,12 +1205,15 @@ long SPCHNFS_D_C_PERP_LOST_CONFIRM(SPCHNFSType_COLOUR *COLOUR,int ID_CAR)
 	// End offset: 0x80093960
 	// End Line: 856
 
-long SPCHNFS_C_C_PERP_REAQUIRED( (SPCHNFSType_VOICE *VOICE,SPCHNFSType_COLOUR *COLOUR,int ID_CAR, SPCHNFSType_POSITION *POSITION,int ID_LOCATION,SPCHNFSType_DISTANCE *DISTANCE)
+long SPCHNFS_C_C_PERP_REAQUIRED
+               (SPCHNFSType_VOICE *VOICE,SPCHNFSType_COLOUR *COLOUR,int ID_CAR,
+               SPCHNFSType_POSITION *POSITION,int ID_LOCATION,SPCHNFSType_DISTANCE *DISTANCE)
+
 {
   undefined4 *puVar1;
   long lVar2;
   int iVar3;
-  undefined4 local_38;
+  uint local_38;
   ulong local_34;
   ulong local_30;
   int local_2c;
@@ -1255,10 +1238,7 @@ long SPCHNFS_C_C_PERP_REAQUIRED( (SPCHNFSType_VOICE *VOICE,SPCHNFSType_COLOUR *C
   local_2c = ID_CAR;
   lVar2 = SPCH_AddEvent(&local_38);
   return lVar2;
-
-
 }
-
 
 
 
@@ -1277,11 +1257,12 @@ long SPCHNFS_C_C_PERP_REAQUIRED( (SPCHNFSType_VOICE *VOICE,SPCHNFSType_COLOUR *C
 	// End Line: 935
 
 long SPCHNFS_C_D_PERP_APPREHENSION(SPCHNFSType_VOICE *VOICE,SPCHNFSType_PERP_NAME *PERP_NAME)
+
 {
   undefined4 *puVar1;
   long lVar2;
   int iVar3;
-  undefined4 local_38;
+  uint local_38;
   ulong local_34;
   ulong local_30;
   undefined4 local_c;
@@ -1298,10 +1279,7 @@ long SPCHNFS_C_D_PERP_APPREHENSION(SPCHNFSType_VOICE *VOICE,SPCHNFSType_PERP_NAM
   local_30 = PERP_NAME->flags;
   lVar2 = SPCH_AddEvent(&local_38);
   return lVar2;
-
-
 }
-
 
 
 
@@ -1319,12 +1297,14 @@ long SPCHNFS_C_D_PERP_APPREHENSION(SPCHNFSType_VOICE *VOICE,SPCHNFSType_PERP_NAM
 	// End offset: 0x80093A28
 	// End Line: 955
 
-long SPCHNFS_D_C_PERP_APPREHENSION_REPLY( (int ID_UNIT,SPCHNFSType_CONFIRM *CONFIRM,SPCHNFSType_PERP_NAME *PERP_NAME)
+long SPCHNFS_D_C_PERP_APPREHENSION_REPLY
+               (int ID_UNIT,SPCHNFSType_CONFIRM *CONFIRM,SPCHNFSType_PERP_NAME *PERP_NAME)
+
 {
   undefined4 *puVar1;
   long lVar2;
   int iVar3;
-  undefined4 local_38;
+  uint local_38;
   int local_34;
   ulong local_30;
   ulong local_2c;
@@ -1343,10 +1323,7 @@ long SPCHNFS_D_C_PERP_APPREHENSION_REPLY( (int ID_UNIT,SPCHNFSType_CONFIRM *CONF
   local_34 = ID_UNIT;
   lVar2 = SPCH_AddEvent(&local_38);
   return lVar2;
-
-
 }
-
 
 
 
@@ -1364,12 +1341,16 @@ long SPCHNFS_D_C_PERP_APPREHENSION_REPLY( (int ID_UNIT,SPCHNFSType_CONFIRM *CONF
 	// End offset: 0x80093A80
 	// End Line: 980
 
-long SPCHNFS_C_D_PERP_CRASH_GEN( (SPCHNFSType_VOICE *VOICE,SPCHNFSType_POSITION *POSITION,int ID_LOCATION, SPCHNFSType_COLOUR *COLOUR,int ID_CAR,SPCHNFSType_DISTANCE *DISTANCE, SPCHNFSType_PERP_NAME *PERP_NAME)
+long SPCHNFS_C_D_PERP_CRASH_GEN
+               (SPCHNFSType_VOICE *VOICE,SPCHNFSType_POSITION *POSITION,int ID_LOCATION,
+               SPCHNFSType_COLOUR *COLOUR,int ID_CAR,SPCHNFSType_DISTANCE *DISTANCE,
+               SPCHNFSType_PERP_NAME *PERP_NAME)
+
 {
   undefined4 *puVar1;
   long lVar2;
   int iVar3;
-  undefined4 local_38;
+  uint local_38;
   ulong local_34;
   ulong local_30;
   int local_2c;
@@ -1396,10 +1377,7 @@ long SPCHNFS_C_D_PERP_CRASH_GEN( (SPCHNFSType_VOICE *VOICE,SPCHNFSType_POSITION 
   local_2c = ID_LOCATION;
   lVar2 = SPCH_AddEvent(&local_38);
   return lVar2;
-
-
 }
-
 
 
 
@@ -1418,11 +1396,12 @@ long SPCHNFS_C_D_PERP_CRASH_GEN( (SPCHNFSType_VOICE *VOICE,SPCHNFSType_POSITION 
 	// End Line: 1023
 
 long SPCHNFS_C_P_ARRESTED(SPCHNFSType_VOICE *VOICE,SPCHNFSType_ARREST *ARREST)
+
 {
   undefined4 *puVar1;
   long lVar2;
   int iVar3;
-  undefined4 local_38;
+  uint local_38;
   ulong local_34;
   ulong local_30;
   undefined4 local_c;
@@ -1439,10 +1418,7 @@ long SPCHNFS_C_P_ARRESTED(SPCHNFSType_VOICE *VOICE,SPCHNFSType_ARREST *ARREST)
   local_30 = ARREST->flags;
   lVar2 = SPCH_AddEvent(&local_38);
   return lVar2;
-
-
 }
-
 
 
 
@@ -1461,11 +1437,12 @@ long SPCHNFS_C_P_ARRESTED(SPCHNFSType_VOICE *VOICE,SPCHNFSType_ARREST *ARREST)
 	// End Line: 1042
 
 long SPCHNFS_C_P_WARNING(SPCHNFSType_VOICE *VOICE,SPCHNFSType_ARREST *ARREST)
+
 {
   undefined4 *puVar1;
   long lVar2;
   int iVar3;
-  undefined4 local_38;
+  uint local_38;
   ulong local_34;
   ulong local_30;
   undefined4 local_c;
@@ -1482,10 +1459,7 @@ long SPCHNFS_C_P_WARNING(SPCHNFSType_VOICE *VOICE,SPCHNFSType_ARREST *ARREST)
   local_30 = ARREST->flags;
   lVar2 = SPCH_AddEvent(&local_38);
   return lVar2;
-
-
 }
-
 
 
 
@@ -1504,11 +1478,12 @@ long SPCHNFS_C_P_WARNING(SPCHNFSType_VOICE *VOICE,SPCHNFSType_ARREST *ARREST)
 	// End Line: 1061
 
 long SPCHNFS_C_P_TICKET(SPCHNFSType_VOICE *VOICE,SPCHNFSType_ARREST *ARREST)
+
 {
   undefined4 *puVar1;
   long lVar2;
   int iVar3;
-  undefined4 local_38;
+  uint local_38;
   ulong local_34;
   ulong local_30;
   undefined4 local_c;
@@ -1525,10 +1500,7 @@ long SPCHNFS_C_P_TICKET(SPCHNFSType_VOICE *VOICE,SPCHNFSType_ARREST *ARREST)
   local_30 = ARREST->flags;
   lVar2 = SPCH_AddEvent(&local_38);
   return lVar2;
-
-
 }
-
 
 
 
@@ -1547,11 +1519,12 @@ long SPCHNFS_C_P_TICKET(SPCHNFSType_VOICE *VOICE,SPCHNFSType_ARREST *ARREST)
 	// End Line: 1079
 
 long SPCHNFS_C_P_FALSE_ARREST_BULLHORN(SPCHNFSType_VOICE *VOICE)
+
 {
   undefined4 *puVar1;
   long lVar2;
   int iVar3;
-  undefined4 local_38;
+  uint local_38;
   ulong local_34;
   undefined4 local_c;
   
@@ -1566,10 +1539,7 @@ long SPCHNFS_C_P_FALSE_ARREST_BULLHORN(SPCHNFSType_VOICE *VOICE)
   local_34 = VOICE->flags;
   lVar2 = SPCH_AddEvent(&local_38);
   return lVar2;
-
-
 }
-
 
 
 
@@ -1588,11 +1558,12 @@ long SPCHNFS_C_P_FALSE_ARREST_BULLHORN(SPCHNFSType_VOICE *VOICE)
 	// End Line: 1097
 
 long SPCHNFS_C_D_DURING_FALSE_ARREST(SPCHNFSType_VOICE *VOICE,SPCHNFSType_PERP_NAME *PERP_NAME)
+
 {
   undefined4 *puVar1;
   long lVar2;
   int iVar3;
-  undefined4 local_38;
+  uint local_38;
   ulong local_34;
   ulong local_30;
   undefined4 local_c;
@@ -1609,10 +1580,7 @@ long SPCHNFS_C_D_DURING_FALSE_ARREST(SPCHNFSType_VOICE *VOICE,SPCHNFSType_PERP_N
   local_30 = PERP_NAME->flags;
   lVar2 = SPCH_AddEvent(&local_38);
   return lVar2;
-
-
 }
-
 
 
 
@@ -1631,11 +1599,12 @@ long SPCHNFS_C_D_DURING_FALSE_ARREST(SPCHNFSType_VOICE *VOICE,SPCHNFSType_PERP_N
 	// End Line: 1115
 
 long SPCHNFS_C_P_BULLHORN_SPEECH(SPCHNFSType_VOICE *VOICE)
+
 {
   undefined4 *puVar1;
   long lVar2;
   int iVar3;
-  undefined4 local_38;
+  uint local_38;
   ulong local_34;
   undefined4 local_c;
   
@@ -1650,10 +1619,7 @@ long SPCHNFS_C_P_BULLHORN_SPEECH(SPCHNFSType_VOICE *VOICE)
   local_34 = VOICE->flags;
   lVar2 = SPCH_AddEvent(&local_38);
   return lVar2;
-
-
 }
-
 
 
 
@@ -1672,11 +1638,12 @@ long SPCHNFS_C_P_BULLHORN_SPEECH(SPCHNFSType_VOICE *VOICE)
 	// End Line: 1132
 
 long SPCHNFS_S_C_SUPER_COP_ARRIVAL(SPCHNFSType_VOICE *VOICE)
+
 {
   undefined4 *puVar1;
   long lVar2;
   int iVar3;
-  undefined4 local_38;
+  uint local_38;
   ulong local_34;
   undefined4 local_c;
   
@@ -1691,10 +1658,7 @@ long SPCHNFS_S_C_SUPER_COP_ARRIVAL(SPCHNFSType_VOICE *VOICE)
   local_34 = VOICE->flags;
   lVar2 = SPCH_AddEvent(&local_38);
   return lVar2;
-
-
 }
-
 
 
 
@@ -1713,11 +1677,12 @@ long SPCHNFS_S_C_SUPER_COP_ARRIVAL(SPCHNFSType_VOICE *VOICE)
 	// End Line: 1149
 
 long SPCHNFS_S_C_SUPER_COP_CRITICISM(SPCHNFSType_VOICE *VOICE)
+
 {
   undefined4 *puVar1;
   long lVar2;
   int iVar3;
-  undefined4 local_38;
+  uint local_38;
   ulong local_34;
   undefined4 local_c;
   
@@ -1732,10 +1697,7 @@ long SPCHNFS_S_C_SUPER_COP_CRITICISM(SPCHNFSType_VOICE *VOICE)
   local_34 = VOICE->flags;
   lVar2 = SPCH_AddEvent(&local_38);
   return lVar2;
-
-
 }
-
 
 
 
@@ -1753,12 +1715,15 @@ long SPCHNFS_S_C_SUPER_COP_CRITICISM(SPCHNFSType_VOICE *VOICE)
 	// End offset: 0x80093D78
 	// End Line: 1294
 
-long SPCHNFS_C_D_IN_PURS_NEAR_PERP_REP_LOC( (SPCHNFSType_VOICE *VOICE,SPCHNFSType_POSITION *POSITION,int ID_LOCATION, SPCHNFSType_DISTANCE *DISTANCE)
+long SPCHNFS_C_D_IN_PURS_NEAR_PERP_REP_LOC
+               (SPCHNFSType_VOICE *VOICE,SPCHNFSType_POSITION *POSITION,int ID_LOCATION,
+               SPCHNFSType_DISTANCE *DISTANCE)
+
 {
   undefined4 *puVar1;
   long lVar2;
   int iVar3;
-  undefined4 local_38;
+  uint local_38;
   ulong local_34;
   ulong local_30;
   int local_2c;
@@ -1779,10 +1744,7 @@ long SPCHNFS_C_D_IN_PURS_NEAR_PERP_REP_LOC( (SPCHNFSType_VOICE *VOICE,SPCHNFSTyp
   local_2c = ID_LOCATION;
   lVar2 = SPCH_AddEvent(&local_38);
   return lVar2;
-
-
 }
-
 
 
 
@@ -1800,12 +1762,14 @@ long SPCHNFS_C_D_IN_PURS_NEAR_PERP_REP_LOC( (SPCHNFSType_VOICE *VOICE,SPCHNFSTyp
 	// End offset: 0x80093DD8
 	// End Line: 1316
 
-long SPCHNFS_C_D_IN_PURS_NEAR_PERP_REP_SPD( (SPCHNFSType_VOICE *VOICE,int ID_SPEED,SPCHNFSType_vs_KMH_MPH *vs_KMH_MPH)
+long SPCHNFS_C_D_IN_PURS_NEAR_PERP_REP_SPD
+               (SPCHNFSType_VOICE *VOICE,int ID_SPEED,SPCHNFSType_vs_KMH_MPH *vs_KMH_MPH)
+
 {
   undefined4 *puVar1;
   long lVar2;
   int iVar3;
-  undefined4 local_38;
+  uint local_38;
   ulong local_34;
   int local_30;
   ulong local_2c;
@@ -1824,10 +1788,7 @@ long SPCHNFS_C_D_IN_PURS_NEAR_PERP_REP_SPD( (SPCHNFSType_VOICE *VOICE,int ID_SPE
   local_30 = ID_SPEED;
   lVar2 = SPCH_AddEvent(&local_38);
   return lVar2;
-
-
 }
-
 
 
 
@@ -1845,12 +1806,16 @@ long SPCHNFS_C_D_IN_PURS_NEAR_PERP_REP_SPD( (SPCHNFSType_VOICE *VOICE,int ID_SPE
 	// End offset: 0x80093E2C
 	// End Line: 1341
 
-long SPCHNFS_C_D_IN_PURS_AWAY_PERP_REPLY_LOC( (SPCHNFSType_VOICE *VOICE,SPCHNFSType_POSITION *POSITION,int ID_LOCATION, SPCHNFSType_DISTANCE *DISTANCE,SPCHNFSType_COLOUR *COLOUR,int ID_CAR, SPCHNFSType_PERP_NAME *PERP_NAME)
+long SPCHNFS_C_D_IN_PURS_AWAY_PERP_REPLY_LOC
+               (SPCHNFSType_VOICE *VOICE,SPCHNFSType_POSITION *POSITION,int ID_LOCATION,
+               SPCHNFSType_DISTANCE *DISTANCE,SPCHNFSType_COLOUR *COLOUR,int ID_CAR,
+               SPCHNFSType_PERP_NAME *PERP_NAME)
+
 {
   undefined4 *puVar1;
   long lVar2;
   int iVar3;
-  undefined4 local_38;
+  uint local_38;
   ulong local_34;
   ulong local_30;
   int local_2c;
@@ -1877,10 +1842,7 @@ long SPCHNFS_C_D_IN_PURS_AWAY_PERP_REPLY_LOC( (SPCHNFSType_VOICE *VOICE,SPCHNFST
   local_2c = ID_LOCATION;
   lVar2 = SPCH_AddEvent(&local_38);
   return lVar2;
-
-
 }
-
 
 
 
@@ -1898,12 +1860,15 @@ long SPCHNFS_C_D_IN_PURS_AWAY_PERP_REPLY_LOC( (SPCHNFSType_VOICE *VOICE,SPCHNFST
 	// End offset: 0x80093EB8
 	// End Line: 1369
 
-long SPCHNFS_C_D_IN_PURS_LOOK_PERP_REPLY_LOC( (SPCHNFSType_VOICE *VOICE,SPCHNFSType_POSITION *POSITION,int ID_LOCATION, SPCHNFSType_DISTANCE *DISTANCE,SPCHNFSType_COLOUR *COLOUR,int ID_CAR)
+long SPCHNFS_C_D_IN_PURS_LOOK_PERP_REPLY_LOC
+               (SPCHNFSType_VOICE *VOICE,SPCHNFSType_POSITION *POSITION,int ID_LOCATION,
+               SPCHNFSType_DISTANCE *DISTANCE,SPCHNFSType_COLOUR *COLOUR,int ID_CAR)
+
 {
   undefined4 *puVar1;
   long lVar2;
   int iVar3;
-  undefined4 local_38;
+  uint local_38;
   ulong local_34;
   ulong local_30;
   int local_2c;
@@ -1928,10 +1893,7 @@ long SPCHNFS_C_D_IN_PURS_LOOK_PERP_REPLY_LOC( (SPCHNFSType_VOICE *VOICE,SPCHNFST
   local_2c = ID_LOCATION;
   lVar2 = SPCH_AddEvent(&local_38);
   return lVar2;
-
-
 }
-
 
 
 
@@ -1950,11 +1912,12 @@ long SPCHNFS_C_D_IN_PURS_LOOK_PERP_REPLY_LOC( (SPCHNFSType_VOICE *VOICE,SPCHNFST
 	// End Line: 1393
 
 long SPCHNFS_D_C_INTRO_CALL(int ID_UNIT,int ID_UNIT1,SPCHNFSType_REVINTRO *REVINTRO)
+
 {
   undefined4 *puVar1;
   long lVar2;
   int iVar3;
-  undefined4 local_38;
+  uint local_38;
   int local_34;
   int local_30;
   ulong local_2c;
@@ -1973,10 +1936,7 @@ long SPCHNFS_D_C_INTRO_CALL(int ID_UNIT,int ID_UNIT1,SPCHNFSType_REVINTRO *REVIN
   local_30 = ID_UNIT1;
   lVar2 = SPCH_AddEvent(&local_38);
   return lVar2;
-
-
 }
-
 
 
 
@@ -1994,12 +1954,14 @@ long SPCHNFS_D_C_INTRO_CALL(int ID_UNIT,int ID_UNIT1,SPCHNFSType_REVINTRO *REVIN
 	// End offset: 0x80093F84
 	// End Line: 1436
 
-long SPCHNFS_C_A_INTRO(SPCHNFSType_VOICE *VOICE,int ID_UNIT,int ID_UNIT1, SPCHNFSType_REVINTRO *REVINTRO)
+long SPCHNFS_C_A_INTRO(SPCHNFSType_VOICE *VOICE,int ID_UNIT,int ID_UNIT1,
+                      SPCHNFSType_REVINTRO *REVINTRO)
+
 {
   undefined4 *puVar1;
   long lVar2;
   int iVar3;
-  undefined4 local_38;
+  uint local_38;
   ulong local_34;
   int local_30;
   int local_2c;
@@ -2020,10 +1982,7 @@ long SPCHNFS_C_A_INTRO(SPCHNFSType_VOICE *VOICE,int ID_UNIT,int ID_UNIT1, SPCHNF
   local_2c = ID_UNIT1;
   lVar2 = SPCH_AddEvent(&local_38);
   return lVar2;
-
-
 }
-
 
 
 
@@ -2042,11 +2001,12 @@ long SPCHNFS_C_A_INTRO(SPCHNFSType_VOICE *VOICE,int ID_UNIT,int ID_UNIT1, SPCHNF
 	// End Line: 1456
 
 long SPCHNFS_C_D_IN_PURS_PERP_AIRBORN(SPCHNFSType_VOICE *VOICE)
+
 {
   undefined4 *puVar1;
   long lVar2;
   int iVar3;
-  undefined4 local_38;
+  uint local_38;
   ulong local_34;
   undefined4 local_c;
   
@@ -2061,10 +2021,7 @@ long SPCHNFS_C_D_IN_PURS_PERP_AIRBORN(SPCHNFSType_VOICE *VOICE)
   local_34 = VOICE->flags;
   lVar2 = SPCH_AddEvent(&local_38);
   return lVar2;
-
-
 }
-
 
 
 
@@ -2082,12 +2039,15 @@ long SPCHNFS_C_D_IN_PURS_PERP_AIRBORN(SPCHNFSType_VOICE *VOICE)
 	// End offset: 0x80094024
 	// End Line: 1477
 
-long SPCHNFS_D_C_SPBLT_CONFIRMED( (SPCHNFSType_POSITION *POSITION,int ID_LOCATION,SPCHNFSType_DISTANCE *DISTANCE, int ID_UNIT,SPCHNFSType_SPIKE_BELT_SIDE *SPIKE_BELT_SIDE)
+long SPCHNFS_D_C_SPBLT_CONFIRMED
+               (SPCHNFSType_POSITION *POSITION,int ID_LOCATION,SPCHNFSType_DISTANCE *DISTANCE,
+               int ID_UNIT,SPCHNFSType_SPIKE_BELT_SIDE *SPIKE_BELT_SIDE)
+
 {
   undefined4 *puVar1;
   long lVar2;
   int iVar3;
-  undefined4 local_38;
+  uint local_38;
   ulong local_34;
   int local_30;
   ulong local_2c;
@@ -2110,10 +2070,7 @@ long SPCHNFS_D_C_SPBLT_CONFIRMED( (SPCHNFSType_POSITION *POSITION,int ID_LOCATIO
   local_28 = ID_UNIT;
   lVar2 = SPCH_AddEvent(&local_38);
   return lVar2;
-
-
 }
-
 
 
 
@@ -2132,11 +2089,12 @@ long SPCHNFS_D_C_SPBLT_CONFIRMED( (SPCHNFSType_POSITION *POSITION,int ID_LOCATIO
 	// End Line: 1498
 
 long SPCHNFS_C_D_REQ_SPBLT(SPCHNFSType_VOICE *VOICE)
+
 {
   undefined4 *puVar1;
   long lVar2;
   int iVar3;
-  undefined4 local_38;
+  uint local_38;
   ulong local_34;
   undefined4 local_c;
   
@@ -2151,10 +2109,7 @@ long SPCHNFS_C_D_REQ_SPBLT(SPCHNFSType_VOICE *VOICE)
   local_34 = VOICE->flags;
   lVar2 = SPCH_AddEvent(&local_38);
   return lVar2;
-
-
 }
-
 
 
 
@@ -2173,11 +2128,12 @@ long SPCHNFS_C_D_REQ_SPBLT(SPCHNFSType_VOICE *VOICE)
 	// End Line: 1517
 
 long SPCHNFS_C_D_SPBLT_FAILED(SPCHNFSType_VOICE *VOICE,SPCHNFSType_COLOUR *COLOUR,int ID_CAR)
+
 {
   undefined4 *puVar1;
   long lVar2;
   int iVar3;
-  undefined4 local_38;
+  uint local_38;
   ulong local_34;
   ulong local_30;
   int local_2c;
@@ -2196,10 +2152,7 @@ long SPCHNFS_C_D_SPBLT_FAILED(SPCHNFSType_VOICE *VOICE,SPCHNFSType_COLOUR *COLOU
   local_2c = ID_CAR;
   lVar2 = SPCH_AddEvent(&local_38);
   return lVar2;
-
-
 }
-
 
 
 
@@ -2217,12 +2170,15 @@ long SPCHNFS_C_D_SPBLT_FAILED(SPCHNFSType_VOICE *VOICE,SPCHNFSType_COLOUR *COLOU
 	// End offset: 0x8009412C
 	// End Line: 1539
 
-long SPCHNFS_W_D_RDBLK_PLC( (SPCHNFSType_VOICE *VOICE,SPCHNFSType_POSITION *POSITION,int ID_LOCATION, SPCHNFSType_DISTANCE *DISTANCE)
+long SPCHNFS_W_D_RDBLK_PLC
+               (SPCHNFSType_VOICE *VOICE,SPCHNFSType_POSITION *POSITION,int ID_LOCATION,
+               SPCHNFSType_DISTANCE *DISTANCE)
+
 {
   undefined4 *puVar1;
   long lVar2;
   int iVar3;
-  undefined4 local_38;
+  uint local_38;
   ulong local_34;
   ulong local_30;
   int local_2c;
@@ -2243,10 +2199,7 @@ long SPCHNFS_W_D_RDBLK_PLC( (SPCHNFSType_VOICE *VOICE,SPCHNFSType_POSITION *POSI
   local_2c = ID_LOCATION;
   lVar2 = SPCH_AddEvent(&local_38);
   return lVar2;
-
-
 }
-
 
 
 
@@ -2264,12 +2217,16 @@ long SPCHNFS_W_D_RDBLK_PLC( (SPCHNFSType_VOICE *VOICE,SPCHNFSType_POSITION *POSI
 	// End offset: 0x8009418C
 	// End Line: 1564
 
-long SPCHNFS_W_D_SPBLT_PLC( (SPCHNFSType_VOICE *VOICE,SPCHNFSType_POSITION *POSITION, SPCHNFSType_SPIKE_BELT_SIDE *SPIKE_BELT_SIDE,int ID_UNIT,int ID_LOCATION, SPCHNFSType_DISTANCE *DISTANCE)
+long SPCHNFS_W_D_SPBLT_PLC
+               (SPCHNFSType_VOICE *VOICE,SPCHNFSType_POSITION *POSITION,
+               SPCHNFSType_SPIKE_BELT_SIDE *SPIKE_BELT_SIDE,int ID_UNIT,int ID_LOCATION,
+               SPCHNFSType_DISTANCE *DISTANCE)
+
 {
   undefined4 *puVar1;
   long lVar2;
   int iVar3;
-  undefined4 local_38;
+  uint local_38;
   ulong local_34;
   ulong local_30;
   ulong local_2c;
@@ -2294,10 +2251,7 @@ long SPCHNFS_W_D_SPBLT_PLC( (SPCHNFSType_VOICE *VOICE,SPCHNFSType_POSITION *POSI
   local_28 = ID_UNIT;
   lVar2 = SPCH_AddEvent(&local_38);
   return lVar2;
-
-
 }
-
 
 
 
@@ -2315,12 +2269,15 @@ long SPCHNFS_W_D_SPBLT_PLC( (SPCHNFSType_VOICE *VOICE,SPCHNFSType_POSITION *POSI
 	// End offset: 0x80094204
 	// End Line: 1590
 
-long SPCHNFS_C_D_PERP_CRASH_ROLL( (SPCHNFSType_VOICE *VOICE,SPCHNFSType_POSITION *POSITION,int ID_LOCATION, SPCHNFSType_DISTANCE *DISTANCE,SPCHNFSType_PERP_NAME *PERP_NAME)
+long SPCHNFS_C_D_PERP_CRASH_ROLL
+               (SPCHNFSType_VOICE *VOICE,SPCHNFSType_POSITION *POSITION,int ID_LOCATION,
+               SPCHNFSType_DISTANCE *DISTANCE,SPCHNFSType_PERP_NAME *PERP_NAME)
+
 {
   undefined4 *puVar1;
   long lVar2;
   int iVar3;
-  undefined4 local_38;
+  uint local_38;
   ulong local_34;
   ulong local_30;
   int local_2c;
@@ -2343,10 +2300,7 @@ long SPCHNFS_C_D_PERP_CRASH_ROLL( (SPCHNFSType_VOICE *VOICE,SPCHNFSType_POSITION
   local_2c = ID_LOCATION;
   lVar2 = SPCH_AddEvent(&local_38);
   return lVar2;
-
-
 }
-
 
 
 
@@ -2365,11 +2319,12 @@ long SPCHNFS_C_D_PERP_CRASH_ROLL( (SPCHNFSType_VOICE *VOICE,SPCHNFSType_POSITION
 	// End Line: 1647
 
 long SPCHNFS_D_A_CONFIRM(SPCHNFSType_CONFIRM *CONFIRM)
+
 {
   undefined4 *puVar1;
   long lVar2;
   int iVar3;
-  undefined4 local_38;
+  uint local_38;
   ulong local_34;
   undefined4 local_c;
   
@@ -2384,10 +2339,7 @@ long SPCHNFS_D_A_CONFIRM(SPCHNFSType_CONFIRM *CONFIRM)
   local_34 = CONFIRM->flags;
   lVar2 = SPCH_AddEvent(&local_38);
   return lVar2;
-
-
 }
-
 
 
 
@@ -2406,11 +2358,12 @@ long SPCHNFS_D_A_CONFIRM(SPCHNFSType_CONFIRM *CONFIRM)
 	// End Line: 1664
 
 long SPCHNFS_C_D_ENDGAME(SPCHNFSType_VOICE *VOICE)
+
 {
   undefined4 *puVar1;
   long lVar2;
   int iVar3;
-  undefined4 local_38;
+  uint local_38;
   ulong local_34;
   undefined4 local_c;
   
@@ -2425,10 +2378,7 @@ long SPCHNFS_C_D_ENDGAME(SPCHNFSType_VOICE *VOICE)
   local_34 = VOICE->flags;
   lVar2 = SPCH_AddEvent(&local_38);
   return lVar2;
-
-
 }
-
 
 
 

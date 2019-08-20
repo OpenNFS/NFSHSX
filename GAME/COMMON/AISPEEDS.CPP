@@ -12,15 +12,15 @@
 	// End offset: 0x8006D5B4
 	// End Line: 208
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void AISpeeds_StartUp__Fv(void)
+
 {
-  uGp00000064 = reservememadr("aiwther",0x104,0);
+  DAT_00000064 = reservememadr(s_aiwther_8013c5d0,0x104,0);
   AISpeeds_ReadTuningInfo__Fv();
   return;
-
-
 }
-
 
 
 
@@ -128,94 +128,96 @@ void AISpeeds_StartUp__Fv(void)
 	// End offset: 0x8006D810
 	// End Line: 318
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void AISpeeds_ReadTuningInfo__Fv(void)
+
 {
   Udff_tInfo *handle;
   int iVar1;
-  int iVar2;
+  uint uVar2;
   int iVar3;
-  int *piVar4;
-  int iVar5;
+  int iVar4;
+  int *piVar5;
+  AISpeeds_tSlotInfo *pAVar6;
+  int iVar7;
   char acStack152 [112];
   int local_28 [4];
   
-  iVar5 = 0;
-  sprintf(acStack152,"%stuning.bin",0);
+  iVar7 = 0;
+  sprintf(acStack152,s__stuning_bin_800554d0,PTR_80116470);
   handle = Udff_Opena__FPcT0i(acStack152,(char *)0x0,1);
   Udff_GetInt__FP10Udff_tInfo(handle);
-  piVar4 = &CaravanInfo;
-  while (iVar5 < 6) {
+  pAVar6 = &CaravanInfo;
+  while (iVar7 < 6) {
     iVar1 = Udff_GetInt__FP10Udff_tInfo(handle);
-    *piVar4 = iVar1 << 5;
+    pAVar6->distanceMaintainTime32 = iVar1 << 5;
     iVar1 = Udff_GetInt__FP10Udff_tInfo(handle);
-    piVar4[1] = iVar1;
+    pAVar6->minDistanceMeters = iVar1;
     iVar1 = Udff_GetInt__FP10Udff_tInfo(handle);
-    piVar4[2] = iVar1;
+    pAVar6->maxDistanceMeters = iVar1;
     iVar1 = Udff_GetInt__FP10Udff_tInfo(handle);
-    iVar1 = fixeddiv(0x10000,iVar1 << 0x15);
-    piVar4[3] = iVar1;
-    piVar4 = piVar4 + 4;
-    iVar5 = iVar5 + 1;
+    uVar2 = fixeddiv(0x10000,iVar1 << 0x15);
+    pAVar6->fallBackRandomTime_TickPercent = uVar2;
+    pAVar6 = pAVar6 + 1;
+    iVar7 = iVar7 + 1;
   }
-  iVar5 = 0;
-  if ((GameSetup_gData == 0) && (0 < Cars_gNumAIRaceCars)) {
-    iVar5 = 0;
-    iVar1 = **(int **)(_Cars_gAIRaceCarList + 0x288);
+  iVar7 = 0;
+  if ((GameSetup_gData.raceType == 0) && (0 < Cars_gNumAIRaceCars)) {
+    iVar7 = 0;
+    iVar1 = __Cars_gAIRaceCarList_9__->carInfo->carType;
     do {
       local_28[0] = Udff_GetInt__FP10Udff_tInfo(handle);
       local_28[1] = Udff_GetInt__FP10Udff_tInfo(handle);
       local_28[2] = Udff_GetInt__FP10Udff_tInfo(handle);
-      if (iVar5 == iVar1) {
-        DAT_801131fc = local_28[DAT_801131f4];
+      if (iVar7 == iVar1) {
+        GameSetup_gData.tournamentMultiplier = local_28[GameSetup_gData.skill];
       }
-      iVar5 = iVar5 + 1;
-    } while (iVar5 < 0x16);
+      iVar7 = iVar7 + 1;
+    } while (iVar7 < 0x16);
   }
   else {
     do {
       Udff_GetInt__FP10Udff_tInfo(handle);
       Udff_GetInt__FP10Udff_tInfo(handle);
       Udff_GetInt__FP10Udff_tInfo(handle);
-      iVar5 = iVar5 + 1;
-    } while (iVar5 < 0x16);
+      iVar7 = iVar7 + 1;
+    } while (iVar7 < 0x16);
   }
-  uGp00000068 = 0;
-  iVar5 = 0;
-  while (iVar5 < 0xc) {
+  DAT_00000068 = 0;
+  iVar7 = 0;
+  while (iVar7 < 0xc) {
     Udff_GetInt__FP10Udff_tInfo(handle);
     iVar1 = Udff_GetInt__FP10Udff_tInfo(handle);
-    iVar2 = Udff_GetInt__FP10Udff_tInfo(handle);
-    if (DAT_80113240 == 0) {
-      iVar2 = 0x10000;
+    iVar3 = Udff_GetInt__FP10Udff_tInfo(handle);
+    if (GameSetup_gData.Time == 0) {
+      iVar3 = 0x10000;
     }
-    if (iVar5 == 0) {
-      uGp00000068 = fixedmult(iVar1,iVar2);
+    if (iVar7 == GameSetup_gData.track) {
+      DAT_00000068 = fixedmult(iVar1,iVar3);
     }
-    iVar5 = iVar5 + 1;
+    iVar7 = iVar7 + 1;
   }
-  iVar5 = Udff_GetInt__FP10Udff_tInfo(handle);
-  iVar2 = 0;
+  iVar7 = Udff_GetInt__FP10Udff_tInfo(handle);
+  iVar3 = 0;
   iVar1 = 0;
-  piVar4 = piGp00000064;
+  piVar5 = DAT_00000064;
   do {
-    iVar3 = iVar1;
+    iVar4 = iVar1;
     if (iVar1 < 0) {
-      iVar3 = iVar1 + 0x3f;
+      iVar4 = iVar1 + 0x3f;
     }
-    *piVar4 = 0x10000 - (iVar3 >> 6);
-    piVar4 = piVar4 + 1;
-    iVar2 = iVar2 + 1;
-    iVar1 = iVar1 + iVar5;
-  } while (iVar2 < 0x41);
+    *piVar5 = 0x10000 - (iVar4 >> 6);
+    piVar5 = piVar5 + 1;
+    iVar3 = iVar3 + 1;
+    iVar1 = iVar1 + iVar7;
+  } while (iVar3 < 0x41);
   Udff_GetBuffer__FP10Udff_tInfoPci(handle,(char *)&engineUpgrade,0x10);
   Udff_GetBuffer__FP10Udff_tInfoPci(handle,(char *)&suspensionUpgrade,0x10);
   Udff_GetBuffer__FP10Udff_tInfoPci(handle,(char *)&aeroUpgrade,0x10);
   Udff_Close__FP10Udff_tInfo(handle);
   return;
-
-
 }
-
 
 
 
@@ -230,17 +232,17 @@ void AISpeeds_ReadTuningInfo__Fv(void)
 	// End offset: 0x8006D88C
 	// End Line: 333
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void AISpeeds_CleanUp__Fv(void)
+
 {
-  if (iGp00000064 != 0) {
-    purgememadr();
-    iGp00000064 = 0;
+  if (DAT_00000064 != 0) {
+    purgememadr(DAT_00000064);
+    DAT_00000064 = 0;
   }
   return;
-
-
 }
-
 
 
 
@@ -258,17 +260,19 @@ void AISpeeds_CleanUp__Fv(void)
 	// End offset: 0x8006D930
 	// End Line: 363
 
-int AISpeeds_SuperDuperSpeedUpTheCarsAtTheStartBecauseWeCannotActuallyHandleRenderingTheseCars__FP8Car_tObj( (Car_tObj *carObj)
+int 
+    AISpeeds_SuperDuperSpeedUpTheCarsAtTheStartBecauseWeCannotActuallyHandleRenderingTheseCars__FP8Car_tObj
+              (Car_tObj *carObj)
+
 {
-  if ((((1 < Cars_gNumAIRaceCars) && (GameSetup_gData != 1)) && (true)) &&
-     ((Cars_gNumHumanRaceCars == 1 && (uRam00000006 < (carObj->N).totalSlice)))) {
-    return (Cars_gNumAIRaceCars - carObj->forceNoSimOptz) * 0x3333 + 0x10000;
+  if ((((1 < Cars_gNumAIRaceCars) && (GameSetup_gData.raceType != 1)) &&
+      (simGlobal.gameTicks < 0x780)) &&
+     ((Cars_gNumHumanRaceCars == 1 &&
+      ((__Cars_gHumanRaceCarList_9__->N).totalSlice < (carObj->N).totalSlice)))) {
+    return (Cars_gNumAIRaceCars - carObj->speedNitrous) * 0x3333 + 0x10000;
   }
   return 0x10000;
-
-
 }
-
 
 
 
@@ -314,22 +318,26 @@ int AISpeeds_SuperDuperSpeedUpTheCarsAtTheStartBecauseWeCannotActuallyHandleRend
 	// End Line: 603
 
 int AISpeeds_CalcOpponentTopSpeed__FP8Car_tObjPi(Car_tObj *carObj,int *unFetteredDesiredSpeed)
+
 {
   int iVar1;
   int iVar2;
   int iVar3;
   int iVar4;
-  int iVar5;
-  Car_tObj **ppCVar6;
-  int iVar7;
+  uint uVar5;
+  int iVar6;
+  Car_tObj **ppCVar7;
+  int iVar8;
+  Trk_NewSlice *pTVar9;
   int f_final;
+  undefined *puVar10;
   int f_final_00;
   
   iVar1 = AISpeeds_CalcOpponentCurveSpeed__FP8Car_tObj(carObj);
-  if (carObj->btcGlueModifier == 0) {
-    if (((GameSetup_gData == 1) || (GameSetup_gData == 5)) &&
-       (((uRam00000260 & 0x200) != 0 ||
-        ((Cars_gNumHumanRaceCars == 2 && ((uRam00000260 & 0x200) != 0)))))) {
+  if (carObj->aiGlue == 0) {
+    if (((GameSetup_gData.raceType == 1) || (GameSetup_gData.raceType == 5)) &&
+       (((__Cars_gHumanRaceCarList_9__->carFlags & 0x200U) != 0 ||
+        ((Cars_gNumHumanRaceCars == 2 && ((PTR_8010fa4c->carFlags & 0x200U) != 0)))))) {
       f_final = AISpeeds_BTCGetGlueFactor__FP8Car_tObj(carObj);
     }
     else {
@@ -340,9 +348,9 @@ int AISpeeds_CalcOpponentTopSpeed__FP8Car_tObjPi(Car_tObj *carObj,int *unFettere
     f_final = 0x10000;
   }
   iVar2 = AISpeeds_GetScriptFactor__FP8Car_tObj(carObj);
-  f_final_00 = carObj->max_clacc;
+  f_final_00 = (carObj->targetPos).y;
   iVar3 = AISpeeds_GetDamageFactor__FP8Car_tObj(carObj);
-  if ((GameSetup_gData == 1) || (Cars_gNumAIRaceCars < 2)) {
+  if ((GameSetup_gData.raceType == 1) || (Cars_gNumAIRaceCars < 2)) {
     iVar4 = 0x10000;
   }
   else {
@@ -351,21 +359,21 @@ int AISpeeds_CalcOpponentTopSpeed__FP8Car_tObjPi(Car_tObj *carObj,int *unFettere
   if (f_final_00 < 0) {
     f_final_00 = f_final_00 + 0xff;
   }
-  iVar7 = iGp00000068;
-  if (iGp00000068 < 0) {
-    iVar7 = iGp00000068 + 0xff;
+  iVar8 = DAT_00000068;
+  if (DAT_00000068 < 0) {
+    iVar8 = DAT_00000068 + 0xff;
   }
   if (iVar4 < 0) {
     iVar4 = iVar4 + 0xff;
   }
-  iVar5 = DAT_801131fc;
-  if (DAT_801131fc < 0) {
-    iVar5 = DAT_801131fc + 0xff;
+  iVar6 = GameSetup_gData.tournamentMultiplier;
+  if (GameSetup_gData.tournamentMultiplier < 0) {
+    iVar6 = GameSetup_gData.tournamentMultiplier + 0xff;
   }
   if (f_final < 0) {
     f_final = f_final + 0xff;
   }
-  f_final = (iVar5 >> 8) * (f_final >> 8);
+  f_final = (iVar6 >> 8) * (f_final >> 8);
   if (f_final < 0) {
     f_final = f_final + 0xff;
   }
@@ -373,7 +381,7 @@ int AISpeeds_CalcOpponentTopSpeed__FP8Car_tObjPi(Car_tObj *carObj,int *unFettere
   if (f_final < 0) {
     f_final = f_final + 0xff;
   }
-  f_final = (iVar7 >> 8) * (f_final >> 8);
+  f_final = (iVar8 >> 8) * (f_final >> 8);
   if (f_final < 0) {
     f_final = f_final + 0xff;
   }
@@ -393,12 +401,12 @@ int AISpeeds_CalcOpponentTopSpeed__FP8Car_tObjPi(Car_tObj *carObj,int *unFettere
     iVar3 = iVar3 + 0xff;
   }
   f_final = (f_final >> 8) * (iVar3 >> 8);
-  if ((GameSetup_gData != 1) && ((carObj->N).totalSlice < 0x96)) {
-    f_final_00 = fixedmult((0x10000 - f_final_00) * (uint)(carObj->N).totalSlice,0x1b4);
-    f_final_00 = 0x10000 - f_final_00;
+  if ((GameSetup_gData.raceType != 1) && ((carObj->N).totalSlice < 0x96)) {
+    uVar5 = fixedmult((0x10000 - f_final_00) * (uint)(carObj->N).totalSlice,0x1b4);
+    f_final_00 = 0x10000 - uVar5;
     if ((carObj->N).totalSlice < 0x96) {
-      f_final = fixedmult((0x10000 - f_final) * (uint)(carObj->N).totalSlice,0x1b4);
-      f_final = 0x10000 - f_final;
+      uVar5 = fixedmult((0x10000 - f_final) * (uint)(carObj->N).totalSlice,0x1b4);
+      f_final = 0x10000 - uVar5;
     }
   }
   iVar3 = 
@@ -418,70 +426,68 @@ int AISpeeds_CalcOpponentTopSpeed__FP8Car_tObjPi(Car_tObj *carObj,int *unFettere
     f_final = (f_final >> 8) * (iVar3 >> 8);
   }
   f_final = AISpeeds_LimitGlueMultiplier__FP8Car_tObji(carObj,f_final);
-  carObj->rampDesiredLatPos = f_final;
+  carObj->aDesired = f_final;
   f_final = AISpeeds_LimitGlueMultiplier__FP8Car_tObji(carObj,f_final_00);
-  if (carObj->rampDesiredLatPos < 0x10001) {
+  if (carObj->aDesired < 0x10001) {
     (carObj->N).gravityMult = 0x10000;
   }
   else {
-    (carObj->N).gravityMult = carObj->rampDesiredLatPos;
+    (carObj->N).gravityMult = carObj->aDesired;
   }
   if (iVar1 < 0) {
     iVar1 = iVar1 + 0xff;
   }
-  iVar3 = carObj->rampDesiredLatPos;
+  iVar3 = carObj->aDesired;
   if (iVar3 < 0) {
     iVar3 = iVar3 + 0xff;
   }
-  iVar3 = (iVar1 >> 8) * (iVar3 >> 8);
+  puVar10 = (undefined *)((iVar1 >> 8) * (iVar3 >> 8));
   if (f_final < 0) {
     f_final = f_final + 0xff;
   }
   *unFetteredDesiredSpeed = (iVar1 >> 8) * (f_final >> 8);
   if ((((carObj->carFlags & 1U) != 0) && ((carObj->stats).finishType == 2)) &&
-     (((GameSetup_gData != 1 && (GameSetup_gData != 5)) ||
-      (((uRam00000260 & 0x200) == 0 &&
-       ((Cars_gNumHumanRaceCars != 2 || ((uRam00000260 & 0x200) == 0)))))))) {
+     (((GameSetup_gData.raceType != 1 && (GameSetup_gData.raceType != 5)) ||
+      (((__Cars_gHumanRaceCarList_9__->carFlags & 0x200U) == 0 &&
+       ((Cars_gNumHumanRaceCars != 2 || ((PTR_8010fa4c->carFlags & 0x200U) == 0)))))))) {
     iVar1 = AIWorld_ApxSplineDistance__FP8Car_tObji(carObj,0);
     f_final = 0;
     if (iVar1 < 0) {
       iVar1 = -iVar1;
     }
-    iVar2 = (carObj->N).dimension.x;
-    f_final_00 = carObj->desiredSpeed - iVar2;
-    iVar2 = carObj->desiredSpeed + iVar2;
+    iVar2 = (carObj->speechInfo).playerCarIndex;
+    iVar3 = (carObj->N).dimension.x;
+    f_final_00 = iVar2 - iVar3;
+    iVar2 = iVar2 + iVar3;
     if (0 < Cars_gNumCars) {
-      ppCVar6 = (Car_tObj **)&_Cars_gTotalSortedList;
+      ppCVar7 = &__Cars_gTotalSortedList_9__;
       do {
-        if (*ppCVar6 == carObj) break;
+        if (*ppCVar7 == carObj) break;
         f_final = f_final + 1;
-        ppCVar6 = ppCVar6 + 1;
+        ppCVar7 = ppCVar7 + 1;
       } while (f_final < Cars_gNumCars);
     }
     if (f_final * 0x280000 <= iVar1) {
-      iVar3 = (int)(carObj->N).simRoadInfo.slice * 0x20;
-      f_final = -((uint)*(byte *)(iVar3 + 0x1e) * 0x8000 * (uint)(*(byte *)(iVar3 + 0x1d) >> 4));
+      pTVar9 = BWorldSm_slices + (int)(carObj->N).simRoadInfo.slice;
+      f_final = -((uint)pTVar9->avgPavedWidthLf * 0x8000 * (uint)(pTVar9->laneCount >> 4));
       if (f_final <= f_final_00) {
-        iVar4 = (uint)*(byte *)(iVar3 + 0x1f) * 0x8000 * ((uint)*(byte *)(iVar3 + 0x1d) & 0xf);
-        if ((f_final_00 <= iVar4) && (f_final <= iVar2)) {
-          iVar3 = 0;
-          if (iVar4 < iVar2) goto LAB_8006de40;
+        iVar3 = (uint)pTVar9->avgPavedWidthRt * 0x8000 * ((uint)pTVar9->laneCount & 0xf);
+        if ((f_final_00 <= iVar3) && (f_final <= iVar2)) {
+          puVar10 = (undefined *)0x0;
+          if (iVar3 < iVar2) goto LAB_8006de40;
           if (iVar1 < 0x1900001) {
-            iVar3 = 0x11c71c;
+            puVar10 = &DAT_0011c71c;
             goto LAB_8006de40;
           }
         }
       }
-      iVar3 = 0;
+      puVar10 = (undefined *)0x0;
     }
   }
 LAB_8006de40:
-  *unFetteredDesiredSpeed = *unFetteredDesiredSpeed * (carObj->speechInfo).speechSource;
-  return iVar3 * (carObj->speechInfo).speechSource;
-
-
+  *unFetteredDesiredSpeed = *unFetteredDesiredSpeed * (carObj->script).lastReactionIndex[3];
+  return (int)puVar10 * (carObj->script).lastReactionIndex[3];
 }
-
 
 
 
@@ -554,13 +560,15 @@ LAB_8006de40:
 	// End offset: 0x8006DF24
 	// End Line: 640
 
-int AISpeeds_NeedToSlowDownForCurve__FP8Car_tObjiii( (Car_tObj *carObj,int distanceMeters,int currentSpeed,int futureCurveSpeed)
+int AISpeeds_NeedToSlowDownForCurve__FP8Car_tObjiii
+              (Car_tObj *carObj,int distanceMeters,int currentSpeed,int futureCurveSpeed)
+
 {
   byte *pbVar1;
   int iVar2;
   
   if (futureCurveSpeed <= currentSpeed) {
-    iVar2 = *(int *)(carObj->accTable + 0x68);
+    iVar2 = *(int *)(carObj->accTable + 0x5a);
     if (currentSpeed < 0) {
       currentSpeed = currentSpeed + 0xffff;
     }
@@ -586,10 +594,7 @@ int AISpeeds_NeedToSlowDownForCurve__FP8Car_tObjiii( (Car_tObj *carObj,int dista
     return (uint)(iVar2 + (iVar2 >> 3) < distanceMeters) ^ 1;
   }
   return 0;
-
-
 }
-
 
 
 
@@ -627,54 +632,55 @@ int AISpeeds_NeedToSlowDownForCurve__FP8Car_tObjiii( (Car_tObj *carObj,int dista
 	// End Line: 698
 
 int AISpeeds_CalcOpponentCurveSpeed__FP8Car_tObj(Car_tObj *carObj)
+
 {
-  short sVar1;
-  int curve;
+  uint futureCurveSpeed;
   int currentSpeed;
-  int iVar2;
-  int futureCurveSpeed;
+  int iVar1;
+  int slice;
   
-  iVar2 = 200;
-  currentSpeed = carObj->carInLane;
+  iVar1 = 200;
+  currentSpeed = (carObj->script).lastActionTime;
   if (currentSpeed < 0) {
     currentSpeed = -currentSpeed;
   }
   while( true ) {
-    if (iVar2 < 0) {
+    if (iVar1 < 0) {
       return 0;
     }
-    futureCurveSpeed = (iVar2 / 6) * (carObj->speechInfo).speechSource;
-    if (futureCurveSpeed < 0) {
-      sVar1 = (carObj->N).simRoadInfo.slice;
+    slice = (iVar1 / 6) * (carObj->script).lastReactionIndex[3];
+    if (slice < 0) {
+      slice = (int)(carObj->N).simRoadInfo.slice + slice;
+      if (slice < 0) {
+        slice = slice + gNumSlices;
+      }
     }
     else {
-      sVar1 = (carObj->N).simRoadInfo.slice;
+      slice = (int)(carObj->N).simRoadInfo.slice + slice;
+      if (gNumSlices <= slice) {
+        slice = slice - gNumSlices;
+      }
     }
-    curve = Get__25AIDataRecord_TrackCurve_ti
-                      ((AIDataRecord_TrackCurve_t *)0x0,(int)sVar1 + futureCurveSpeed);
+    slice = Get__25AIDataRecord_TrackCurve_ti(AIDataRecord_TrackCurve,slice);
     futureCurveSpeed =
          Get__30AIDataRecord_CurveSpeedTable_ti
-                   (*(AIDataRecord_CurveSpeedTable_t **)(carObj->accTable + 0x66),curve);
-    if (DAT_80113234 != 0) {
-      if (curve < 0) {
-        curve = curve + 3;
+                   (*(AIDataRecord_CurveSpeedTable_t **)(carObj->accTable + 0x58),slice);
+    if (GameSetup_gData.Weather != 0) {
+      if (slice < 0) {
+        slice = slice + 3;
       }
-      futureCurveSpeed = fixedmult(futureCurveSpeed,*(undefined4 *)((curve >> 2) * 4 + iGp00000064))
-      ;
+      futureCurveSpeed = fixedmult(futureCurveSpeed,*(int *)((slice >> 2) * 4 + DAT_00000064));
     }
-    if (iVar2 == 0) break;
-    curve = AISpeeds_NeedToSlowDownForCurve__FP8Car_tObjiii
-                      (carObj,iVar2 << 0x10,currentSpeed,futureCurveSpeed);
-    iVar2 = iVar2 + -0x19;
-    if (curve != 0) {
+    if (iVar1 == 0) break;
+    slice = AISpeeds_NeedToSlowDownForCurve__FP8Car_tObjiii
+                      (carObj,iVar1 << 0x10,currentSpeed,futureCurveSpeed);
+    iVar1 = iVar1 + -0x19;
+    if (slice != 0) {
       return futureCurveSpeed;
     }
   }
   return futureCurveSpeed;
-
-
 }
-
 
 
 
@@ -758,72 +764,72 @@ int AISpeeds_CalcOpponentCurveSpeed__FP8Car_tObj(Car_tObj *carObj)
 	// End Line: 762
 
 int AISpeeds_BTCGetGlueFactor__FP8Car_tObj(Car_tObj *carObj)
+
 {
   int iVar1;
   int iVar2;
-  int iVar3;
+  uint uVar3;
+  int iVar4;
+  undefined *puVar5;
   Car_tObj *otherCarObj;
-  Car_tObj **ppCVar4;
-  int iVar5;
-  int iVar6;
-  Car_tObj *pCVar7;
+  Car_tObj **ppCVar6;
+  int iVar7;
+  int iVar8;
+  Car_tObj *pCVar9;
   
-  iVar5 = 0x270f0000;
-  pCVar7 = (Car_tObj *)0x0;
+  iVar7 = 0x270f0000;
+  pCVar9 = (Car_tObj *)0x0;
   if ((carObj->carFlags & 0x20U) == 0) {
-    iVar6 = 0;
-    ppCVar4 = (Car_tObj **)&_Cars_gHumanRaceCarList;
-    while (iVar6 < Cars_gNumHumanRaceCars) {
-      otherCarObj = *ppCVar4;
+    iVar8 = 0;
+    ppCVar6 = &__Cars_gHumanRaceCarList_9__;
+    while (iVar8 < Cars_gNumHumanRaceCars) {
+      otherCarObj = *ppCVar6;
       if ((otherCarObj->carFlags & 0x200U) != 0) {
         iVar1 = AIWorld_ApxSplineDistance__FP8Car_tObjT0(carObj,otherCarObj);
         iVar2 = iVar1;
         if (iVar1 < 0) {
           iVar2 = -iVar1;
         }
-        iVar3 = iVar5;
-        if (iVar5 < 0) {
-          iVar3 = -iVar5;
+        iVar4 = iVar7;
+        if (iVar7 < 0) {
+          iVar4 = -iVar7;
         }
-        if (iVar2 < iVar3) {
-          iVar5 = iVar1;
-          pCVar7 = otherCarObj;
+        if (iVar2 < iVar4) {
+          iVar7 = iVar1;
+          pCVar9 = otherCarObj;
         }
       }
-      ppCVar4 = ppCVar4 + 1;
-      iVar6 = iVar6 + 1;
+      ppCVar6 = ppCVar6 + 1;
+      iVar8 = iVar8 + 1;
     }
-    if (pCVar7->RSControl != 0) {
+    if (pCVar9->RSControl != 0) {
       return 0x10000;
     }
-    if (0x13fffe < pCVar7->carInLane + 0x9ffffU) {
-      iVar5 = (int)(iVar5 * (carObj->speechInfo).speechSource) / 0x3c0000 + 10;
-      if (iVar5 < 0) {
-        iVar6 = 0;
+    if (0x13fffe < (pCVar9->script).lastActionTime + 0x9ffffU) {
+      iVar7 = (iVar7 * (carObj->script).lastReactionIndex[3]) / 0x3c0000 + 10;
+      if (iVar7 < 0) {
+        iVar8 = 0;
       }
       else {
-        iVar6 = 0x14;
-        if (iVar5 < 0x15) {
-          iVar6 = iVar5;
+        iVar8 = 0x14;
+        if (iVar7 < 0x15) {
+          iVar8 = iVar7;
         }
       }
-      iVar5 = (&AIPerson_glueTable)[iVar6];
-      if (iVar5 < 0x10000) {
-        iVar5 = fixedmult(0x10000 - iVar5,carObj->drag);
-        iVar5 = 0x10000 - iVar5;
+      puVar5 = (undefined *)(&AIPerson_glueTable)[iVar8];
+      if ((int)puVar5 < 0x10000) {
+        uVar3 = fixedmult(0x10000 - (int)puVar5,carObj->rampDesiredLatPos);
+        puVar5 = (undefined *)(0x10000 - uVar3);
       }
-      if (iVar5 < 0x6666) {
-        iVar5 = 0x6666;
+      if ((int)puVar5 < 0x6666) {
+        puVar5 = &DAT_00006666;
       }
-      iVar5 = fixedmult(iVar5,*(undefined4 *)(carObj->accTable + 0x6a));
-      return iVar5;
+      uVar3 = fixedmult((int)puVar5,*(int *)(carObj->accTable + 0x5c));
+      return uVar3;
     }
   }
   return 0x10000;
-
-
 }
-
 
 
 
@@ -839,12 +845,10 @@ int AISpeeds_BTCGetGlueFactor__FP8Car_tObj(Car_tObj *carObj)
 	// End Line: 775
 
 Car_tObj * AISpeeds_GetNextAICar__FP8Car_tObj(Car_tObj *carObj)
+
 {
-  return (Car_tObj *)carObj->donutMode;
-
-
+  return (Car_tObj *)carObj->drag;
 }
-
 
 
 
@@ -872,6 +876,7 @@ Car_tObj * AISpeeds_GetNextAICar__FP8Car_tObj(Car_tObj *carObj)
 	// End Line: 794
 
 Car_tObj * AISpeeds_GetPrevAICar__FP8Car_tObj(Car_tObj *carObj)
+
 {
   Car_tObj *pCVar1;
   int iVar2;
@@ -881,7 +886,7 @@ Car_tObj * AISpeeds_GetPrevAICar__FP8Car_tObj(Car_tObj *carObj)
   pCVar4 = (Car_tObj *)0x0;
   iVar2 = 0;
   if (0 < Cars_gNumCars) {
-    ppCVar3 = (Car_tObj **)&_Cars_gTotalSortedList;
+    ppCVar3 = &__Cars_gTotalSortedList_9__;
     do {
       pCVar1 = *ppCVar3;
       if (carObj == pCVar1) {
@@ -895,10 +900,7 @@ Car_tObj * AISpeeds_GetPrevAICar__FP8Car_tObj(Car_tObj *carObj)
     } while (iVar2 < Cars_gNumCars);
   }
   return (Car_tObj *)0x0;
-
-
 }
-
 
 
 
@@ -980,58 +982,58 @@ Car_tObj * AISpeeds_GetPrevAICar__FP8Car_tObj(Car_tObj *carObj)
 	// End Line: 971
 
 int AISpeeds_GetCaravanFactor__FP8Car_tObj(Car_tObj *carObj)
+
 {
   Car_tObj *carObj_00;
-  int iVar1;
-  Car_tObj *pCVar2;
-  speechSourceType sVar3;
-  uint uVar4;
-  int iVar5;
+  Car_tObj *pCVar1;
+  uint uVar2;
+  int iVar3;
+  undefined *puVar4;
+  uint uVar5;
   int iVar6;
-  uint uVar7;
   
-  uVar7 = carObj->forceNoSimOptz;
+  uVar5 = carObj->speedNitrous;
   carObj_00 = AISpeeds_GetNextAICar__FP8Car_tObj(carObj);
-  if (carObj->btcGlueModifier != 0) {
-    iVar6 = 0xe666;
-    if (*(int *)(carObj->btcGlueModifier + 0x774) < (int)uVar7) {
-      carObj->btcGlueModifier = 0;
+  if (carObj->aiGlue != 0) {
+    puVar4 = &DAT_0000e666;
+    if (*(int *)(carObj->aiGlue + 0x774) < (int)uVar5) {
+      carObj->aiGlue = 0;
     }
     goto LAB_8006e444;
   }
   if (carObj_00 == (Car_tObj *)0x0) {
 LAB_8006e3b0:
-    pCVar2 = (Car_tObj *)carObj_00->btcGlueModifier;
+    pCVar1 = (Car_tObj *)carObj_00->aiGlue;
   }
   else {
-    pCVar2 = (Car_tObj *)carObj_00->btcGlueModifier;
-    if (pCVar2 == (Car_tObj *)0x0) {
-      if (0xd6491 < carObj_00->desiredDirection) {
-        sVar3 = (carObj->speechInfo).speechSource;
-        iVar5 = (carObj_00->speechInfo).warningNumber * sVar3;
-        if (iVar5 < 0) {
-          iVar5 = iVar5 + 0xff;
+    pCVar1 = (Car_tObj *)carObj_00->aiGlue;
+    if (pCVar1 == (Car_tObj *)0x0) {
+      if (0xd6491 < (int)(carObj_00->speechInfo).speechMode) {
+        iVar3 = (carObj->script).lastReactionIndex[3];
+        iVar6 = (carObj_00->script).lastReactionIndex[6] * iVar3;
+        if (iVar6 < 0) {
+          iVar6 = iVar6 + 0xff;
         }
-        if ((iVar5 >> 8) * 0xb3 <= (int)((carObj_00->speechInfo).copCarIndex * sVar3)) {
-          iVar5 = AIWorld_GameOdometer__FP8Car_tObj(carObj_00);
-          iVar1 = AIWorld_GameOdometer__FP8Car_tObj(carObj);
-          iVar5 = iVar5 - iVar1;
-          iVar1 = carObj->AIFishtailEndTick;
-          if (iVar1 + 0xa0000 < iVar5) {
-            iVar6 = 0x13333;
-            if (iVar1 + 0x3e80000 < iVar5) {
-              iVar6 = 0x18000;
+        if ((iVar6 >> 8) * 0xb3 <= (carObj_00->script).lastReactionIndex[5] * iVar3) {
+          iVar3 = AIWorld_GameOdometer__FP8Car_tObj(carObj_00);
+          iVar6 = AIWorld_GameOdometer__FP8Car_tObj(carObj);
+          iVar3 = iVar3 - iVar6;
+          iVar6 = carObj->slackProb;
+          if ((int)(&LAB_000a0000 + iVar6) < iVar3) {
+            puVar4 = &DAT_00013333;
+            if (iVar6 + 0x3e80000 < iVar3) {
+              puVar4 = (undefined *)0x18000;
             }
           }
           else {
-            if (iVar5 < iVar1 + -0xa0000) {
-              iVar6 = 0xcccc;
-              if (iVar5 < iVar1 + -0x3e80000) {
-                iVar6 = 0x9999;
+            if (iVar3 < iVar6 + -0xa0000) {
+              puVar4 = &DAT_0000cccc;
+              if (iVar3 < iVar6 + -0x3e80000) {
+                puVar4 = &DAT_00009999;
               }
             }
             else {
-              iVar6 = 0x10000;
+              puVar4 = (undefined *)0x10000;
             }
           }
           goto LAB_8006e444;
@@ -1040,45 +1042,44 @@ LAB_8006e3b0:
       goto LAB_8006e3b0;
     }
   }
-  iVar6 = 0x10000;
-  if (pCVar2 == carObj) {
-    iVar6 = 0x11999;
+  puVar4 = (undefined *)0x10000;
+  if (pCVar1 == carObj) {
+    puVar4 = &DAT_00011999;
   }
 LAB_8006e444:
-  if ((&CaravanInfo)[uVar7 * 4] != 0) {
-    carObj->lookAheadSlice = carObj->lookAheadSlice;
+  if ((&CaravanInfo)[uVar5].distanceMaintainTime32 != 0) {
+    carObj->accNitrous = carObj->accNitrous - AI_elapsedTime;
   }
-  if (carObj->lookAheadSlice < 0) {
-    uVar4 = (&CaravanInfo)[uVar7 * 4];
-    iVar5 = (int)(uVar4 + (uVar4 >> 0x1f)) >> 1;
-    uVar4 = fastRandom & 0xffff00;
-    fastRandom = fastRandom & 0xffff;
-    carObj->lookAheadSlice = iVar5 + (iVar5 * (uVar4 >> 8) >> 0x10);
-    randtemp = fastRandom;
-    carObj->AIFishtailEndTick =
-         ((&DAT_8010ddb8)[uVar7 * 4] +
-         (((&DAT_8010ddbc)[uVar7 * 4] - (&DAT_8010ddb8)[uVar7 * 4]) * (fastRandom >> 8) >> 0x10)) *
-         0x10000;
+  if (carObj->accNitrous < 0) {
+    uVar2 = (&CaravanInfo)[uVar5].distanceMaintainTime32;
+    iVar3 = (int)(uVar2 + (uVar2 >> 0x1f)) >> 1;
+    randtemp = (fastRandom * randSeed & 0xffff) * randSeed;
+    carObj->accNitrous = iVar3 + (iVar3 * ((fastRandom * randSeed & 0xffff00) >> 8) >> 0x10);
+    fastRandom = randtemp & 0xffff;
+    carObj->slackProb =
+         ((&CaravanInfo)[uVar5].minDistanceMeters +
+         (((&CaravanInfo)[uVar5].maxDistanceMeters - (&CaravanInfo)[uVar5].minDistanceMeters) *
+          ((randtemp & 0xffff00) >> 8) >> 0x10)) * 0x10000;
   }
-  if (((((int)uVar7 < Cars_gNumAIRaceCars + -1) && (carObj->btcGlueModifier == 0)) &&
-      ((int)(uint)(carObj->N).totalSlice < -0x14d)) && ((1 < uVar7 || (leaderBoard != 0)))) {
-    randtemp = fastRandom;
-    fastRandom = fastRandom & 0xffff;
-    if (((carObj_00 == (Car_tObj *)0x0) || (carObj_00->btcGlueModifier == 0)) &&
-       ((false && (pCVar2 = AISpeeds_GetPrevAICar__FP8Car_tObj(carObj), pCVar2 != (Car_tObj *)0x0)))
-       ) {
-      *(Car_tObj **)&carObj->btcGlueModifier = pCVar2;
+  if (((((int)uVar5 < Cars_gNumAIRaceCars + -1) && (carObj->aiGlue == 0)) &&
+      ((int)(uint)(carObj->N).totalSlice < GameSetup_gData.numLaps * gNumSlices + -0x14d)) &&
+     ((1 < uVar5 || (leaderBoard.leadRacer != __Cars_gHumanRaceCarList_9__)))) {
+    randtemp = fastRandom * randSeed;
+    fastRandom = randtemp & 0xffff;
+    if (((carObj_00 == (Car_tObj *)0x0) || (carObj_00->aiGlue == 0)) &&
+       (((randtemp >> 8 & 0xffff) <
+         (&CaravanInfo)[uVar5].fallBackRandomTime_TickPercent * AI_elapsedTime &&
+        (pCVar1 = AISpeeds_GetPrevAICar__FP8Car_tObj(carObj), pCVar1 != (Car_tObj *)0x0)))) {
+      *(Car_tObj **)&carObj->aiGlue = pCVar1;
     }
   }
-  if (((carObj_00 != (Car_tObj *)0x0) && (carObj_00->gripFactor < carObj->gripFactor + -0x1999)) &&
-     (carObj_00->btcGlueModifier == 0)) {
-    *(Car_tObj **)&carObj_00->btcGlueModifier = carObj;
+  if (((carObj_00 != (Car_tObj *)0x0) &&
+      (carObj_00->wipeOutStartTick < carObj->wipeOutStartTick + -0x1999)) &&
+     (carObj_00->aiGlue == 0)) {
+    *(Car_tObj **)&carObj_00->aiGlue = carObj;
   }
-  return iVar6;
-
-
+  return (int)puVar4;
 }
-
 
 
 
@@ -1166,80 +1167,79 @@ LAB_8006e444:
 	// End Line: 1053
 
 int AISpeeds_GetGlueFactor__FP8Car_tObj(Car_tObj *carObj)
+
 {
   int iVar1;
   int iVar2;
   int iVar3;
-  int iVar4;
-  undefined4 uVar5;
+  uint uVar4;
+  int iVar5;
+  undefined *puVar6;
   
-  uVar5 = 0x10000;
-  iVar1 = AIWorld_GameOdometer__FP8Car_tObj(DAT_8010dda8);
-  iVar2 = AIWorld_GameOdometer__FP8Car_tObj(DAT_8010ddac);
-  iVar3 = AIWorld_GameOdometer__FP8Car_tObj(DAT_8010ddb0);
-  iVar4 = DAT_8010dda8->carInLane;
-  if (iVar4 < 0) {
-    iVar4 = -iVar4;
+  puVar6 = (undefined *)0x10000;
+  iVar1 = AIWorld_GameOdometer__FP8Car_tObj(leaderBoard.leadHumanRacer);
+  iVar2 = AIWorld_GameOdometer__FP8Car_tObj(leaderBoard.leadAIRacer);
+  iVar3 = AIWorld_GameOdometer__FP8Car_tObj(leaderBoard.lastAIRacer);
+  iVar5 = ((leaderBoard.leadHumanRacer)->script).lastActionTime;
+  if (iVar5 < 0) {
+    iVar5 = -iVar5;
   }
-  if (iVar4 < 0xa0000) {
-    iVar4 = 0x10000;
+  if (iVar5 < 0xa0000) {
+    iVar5 = 0x10000;
     goto LAB_8006e818;
   }
   if (iVar1 < iVar3) {
-    iVar4 = (iVar2 - iVar1) / 0x3c0000 + 10;
-    if (iVar4 < 0) {
+    iVar5 = (iVar2 - iVar1) / 0x3c0000 + 10;
+    if (iVar5 < 0) {
       iVar2 = 0;
     }
     else {
 LAB_8006e77c:
       iVar2 = 0x14;
-      if (iVar4 < 0x15) {
-        iVar2 = iVar4;
+      if (iVar5 < 0x15) {
+        iVar2 = iVar5;
       }
     }
   }
   else {
     if (iVar1 <= iVar2) {
-      iVar4 = (iVar2 - iVar1) / 0x3c0000 + 10;
-      if (iVar4 < 0) {
+      iVar5 = (iVar2 - iVar1) / 0x3c0000 + 10;
+      if (iVar5 < 0) {
         iVar2 = 0;
       }
       else {
         iVar2 = 0x14;
-        if (iVar4 < 0x15) {
-          iVar2 = iVar4;
+        if (iVar5 < 0x15) {
+          iVar2 = iVar5;
         }
       }
-      iVar4 = (&AIPerson_glueTable)[iVar2];
-      uVar5 = 0x8000;
-      if (GameSetup_gData != 3) {
-        uVar5 = 0xe666;
+      iVar5 = (&AIPerson_glueTable)[iVar2];
+      puVar6 = (undefined *)0x8000;
+      if (GameSetup_gData.raceType != 3) {
+        puVar6 = &DAT_0000e666;
       }
       goto LAB_8006e818;
     }
-    iVar4 = (iVar2 - iVar1) / 0x3c0000 + 10;
-    if (-1 < iVar4) goto LAB_8006e77c;
+    iVar5 = (iVar2 - iVar1) / 0x3c0000 + 10;
+    if (-1 < iVar5) goto LAB_8006e77c;
     iVar2 = 0;
   }
-  iVar4 = (&AIPerson_glueTable)[iVar2];
-  uVar5 = 0x10000;
+  iVar5 = (&AIPerson_glueTable)[iVar2];
+  puVar6 = (undefined *)0x10000;
 LAB_8006e818:
   iVar2 = AIWorld_GameOdometer__FP8Car_tObj(carObj);
-  if ((iVar2 < iVar1 + 0x3c0000) && (iVar4 < 0x10000)) {
-    iVar4 = 0x10000;
+  if ((iVar2 < iVar1 + 0x3c0000) && (iVar5 < 0x10000)) {
+    iVar5 = 0x10000;
   }
-  if (iVar4 < 0x10001) {
-    iVar4 = fixedmult(0x10000 - iVar4,uVar5);
-    iVar4 = -iVar4;
+  if (iVar5 < 0x10001) {
+    uVar4 = fixedmult(0x10000 - iVar5,(int)puVar6);
+    uVar4 = -uVar4;
   }
   else {
-    iVar4 = fixedmult(iVar4 + -0x10000,uVar5);
+    uVar4 = fixedmult(iVar5 + -0x10000,(int)puVar6);
   }
-  return iVar4 + 0x10000;
-
-
+  return uVar4 + 0x10000;
 }
-
 
 
 
@@ -1255,44 +1255,42 @@ LAB_8006e818:
 	// End Line: 1139
 
 int AISpeeds_GetDamageFactor__FP8Car_tObj(Car_tObj *carObj)
+
 {
   int iVar1;
-  int iVar2;
+  uint uVar2;
   int iVar3;
   int iVar4;
-  undefined4 uVar5;
+  int iVar5;
   
   iVar1 = (carObj->N).damage[0];
-  iVar2 = (carObj->N).damage[1];
-  iVar4 = (carObj->N).damage[3];
-  iVar3 = (carObj->N).damage[2];
-  carObj->gripFactor = 0;
-  iVar1 = iVar1 + iVar2 + iVar3 + iVar4 + (carObj->N).damage[4] + (carObj->N).damage[5] +
+  iVar3 = (carObj->N).damage[1];
+  iVar5 = (carObj->N).damage[3];
+  iVar4 = (carObj->N).damage[2];
+  carObj->wipeOutStartTick = 0;
+  iVar1 = iVar1 + iVar3 + iVar4 + iVar5 + (carObj->N).damage[4] + (carObj->N).damage[5] +
           (carObj->N).damage[6] + (carObj->N).damage[7];
-  carObj->gripFactor = iVar1;
-  if (((GameSetup_gData == 1) || (GameSetup_gData == 5)) &&
-     (((uRam00000260 & 0x200) != 0 ||
-      ((Cars_gNumHumanRaceCars == 2 && ((uRam00000260 & 0x200) != 0)))))) {
-    uVar5 = 0x147;
+  carObj->wipeOutStartTick = iVar1;
+  if (((GameSetup_gData.raceType == 1) || (GameSetup_gData.raceType == 5)) &&
+     (((__Cars_gHumanRaceCarList_9__->carFlags & 0x200U) != 0 ||
+      ((Cars_gNumHumanRaceCars == 2 && ((PTR_8010fa4c->carFlags & 0x200U) != 0)))))) {
+    iVar3 = 0x147;
   }
   else {
-    iVar1 = carObj->gripFactor;
-    uVar5 = 0x48;
+    iVar1 = carObj->wipeOutStartTick;
+    iVar3 = 0x48;
   }
-  iVar1 = fixedmult(iVar1,uVar5);
-  carObj->gripFactor = iVar1;
-  iVar2 = 0x10000 - carObj->gripFactor;
-  carObj->gripFactor = iVar2;
+  uVar2 = fixedmult(iVar1,iVar3);
+  carObj->wipeOutStartTick = uVar2;
+  iVar3 = 0x10000 - carObj->wipeOutStartTick;
+  carObj->wipeOutStartTick = iVar3;
   iVar1 = 0x8000;
-  if (0x7fff < iVar2) {
-    iVar1 = iVar2;
+  if (0x7fff < iVar3) {
+    iVar1 = iVar3;
   }
-  carObj->gripFactor = iVar1;
+  carObj->wipeOutStartTick = iVar1;
   return iVar1;
-
-
 }
-
 
 
 
@@ -1327,6 +1325,7 @@ int AISpeeds_GetDamageFactor__FP8Car_tObj(Car_tObj *carObj)
 	// End Line: 1182
 
 int AISpeeds_LimitGlueMultiplier__FP8Car_tObji(Car_tObj *carObj,int f_final)
+
 {
   int iVar1;
   Car_tObj **ppCVar2;
@@ -1336,7 +1335,7 @@ int AISpeeds_LimitGlueMultiplier__FP8Car_tObji(Car_tObj *carObj,int f_final)
   if (0xcccb < f_final - 0x999aU) {
     iVar4 = 0x27100000;
     iVar3 = 0;
-    ppCVar2 = (Car_tObj **)&_Cars_gHumanRaceCarList;
+    ppCVar2 = &__Cars_gHumanRaceCarList_9__;
     while (iVar3 < Cars_gNumHumanRaceCars) {
       iVar1 = AIWorld_ApxSplineDistance__FP8Car_tObjT0(carObj,*ppCVar2);
       if (iVar1 < 0) {
@@ -1350,18 +1349,15 @@ int AISpeeds_LimitGlueMultiplier__FP8Car_tObji(Car_tObj *carObj,int f_final)
     }
     if (iVar4 < 0x780001) {
       if (0x16666 < f_final) {
-        f_final = 0x16666;
+        f_final = (int)&DAT_00016666;
       }
       if (f_final < 0x9999) {
-        f_final = 0x9999;
+        f_final = (int)&DAT_00009999;
       }
     }
   }
   return f_final;
-
-
 }
-
 
 
 
@@ -1381,45 +1377,42 @@ int AISpeeds_LimitGlueMultiplier__FP8Car_tObji(Car_tObj *carObj,int f_final)
 	// End Line: 1240
 
 int AISpeeds_CalcCopTopSpeed__FP8Car_tObj(Car_tObj *carObj)
+
 {
-  AIDataRecord_AccTable_t *pAVar1;
+  int iVar1;
   int iVar2;
-  AIDataRecord_AccTable_t *pAVar3;
-  int iVar4;
+  int iVar3;
   
-  pAVar1 = (AIDataRecord_AccTable_t *)AISpeeds_CalcOpponentCurveSpeed__FP8Car_tObj(carObj);
-  pAVar3 = carObj->accelerationRecord;
-  if ((int)pAVar1 < (int)carObj->accelerationRecord) {
-    pAVar3 = pAVar1;
+  iVar1 = AISpeeds_CalcOpponentCurveSpeed__FP8Car_tObj(carObj);
+  iVar3 = *(int *)(carObj->accTable + 0x62);
+  if (iVar1 < *(int *)(carObj->accTable + 0x62)) {
+    iVar3 = iVar1;
   }
-  iVar2 = carObj->max_clacc;
-  iVar4 = iGp00000068;
-  if (iGp00000068 < 0) {
-    iVar4 = iGp00000068 + 0xff;
+  iVar2 = (carObj->targetPos).y;
+  iVar1 = DAT_00000068;
+  if (DAT_00000068 < 0) {
+    iVar1 = DAT_00000068 + 0xff;
   }
   if (iVar2 < 0) {
     iVar2 = iVar2 + 0xff;
   }
-  iVar4 = (iVar4 >> 8) * (iVar2 >> 8);
-  carObj->rampDesiredLatPos = iVar4;
-  if (iVar4 < 0x10001) {
+  iVar1 = (iVar1 >> 8) * (iVar2 >> 8);
+  carObj->aDesired = iVar1;
+  if (iVar1 < 0x10001) {
     (carObj->N).gravityMult = 0x10000;
   }
   else {
-    (carObj->N).gravityMult = iVar4;
+    (carObj->N).gravityMult = iVar1;
   }
-  if ((int)pAVar3 < 0) {
-    pAVar3 = (AIDataRecord_AccTable_t *)(pAVar3[2].AIDataRecord_t.name_ + 0x2f);
+  if (iVar3 < 0) {
+    iVar3 = iVar3 + 0xff;
   }
-  iVar4 = carObj->rampDesiredLatPos;
-  if (iVar4 < 0) {
-    iVar4 = iVar4 + 0xff;
+  iVar1 = carObj->aDesired;
+  if (iVar1 < 0) {
+    iVar1 = iVar1 + 0xff;
   }
-  return ((int)pAVar3 >> 8) * (iVar4 >> 8) * (carObj->speechInfo).speechSource;
-
-
+  return (iVar3 >> 8) * (iVar1 >> 8) * (carObj->script).lastReactionIndex[3];
 }
-
 
 
 
@@ -1437,52 +1430,52 @@ int AISpeeds_CalcCopTopSpeed__FP8Car_tObj(Car_tObj *carObj)
 	// End Line: 1290
 
 int AISpeeds_CalcTrafficTopSpeed__FP8Car_tObj(Car_tObj *carObj)
+
 {
-  int oldsafe;
   int iVar1;
   uint uVar2;
-  speechSourceType sVar3;
+  int iVar3;
+  uint uVar4;
+  undefined *oldsafe;
   
-  oldsafe = AISpeeds_GetLegalSpeed__Fi((int)(carObj->N).simRoadInfo.slice);
-  oldsafe = fixedmult(oldsafe,0xc000);
-  if (((GameSetup_gData == 1) || (GameSetup_gData == 5)) &&
-     (((uRam00000260 & 0x200) != 0 ||
-      ((Cars_gNumHumanRaceCars == 2 && ((uRam00000260 & 0x200) != 0)))))) {
-    if ((carObj->speechInfo).speechSource == sRam00000554) goto LAB_8006ec80;
+  iVar1 = AISpeeds_GetLegalSpeed__Fi((int)(carObj->N).simRoadInfo.slice);
+  oldsafe = (undefined *)fixedmult(iVar1,0xc000);
+  if (((GameSetup_gData.raceType == 1) || (GameSetup_gData.raceType == 5)) &&
+     (((__Cars_gHumanRaceCarList_9__->carFlags & 0x200U) != 0 ||
+      ((Cars_gNumHumanRaceCars == 2 && ((PTR_8010fa4c->carFlags & 0x200U) != 0)))))) {
+    if ((carObj->script).lastReactionIndex[3] ==
+        (__Cars_gHumanRaceCarList_9__->script).lastReactionIndex[3]) goto LAB_8006ec80;
     iVar1 = AISpeeds_CalculateOncomingCarSpeed__FP8Car_tObj(carObj);
   }
   else {
-    sVar3 = (carObj->speechInfo).speechSource;
-    uVar2 = ~sVar3;
-    if (true) {
-      uVar2 = sVar3 ^ 1;
+    uVar4 = (carObj->script).lastReactionIndex[3];
+    uVar2 = ~uVar4;
+    if (GameSetup_gData.reverseTrack == 0) {
+      uVar2 = uVar4 ^ 1;
     }
     if (uVar2 == 0) goto LAB_8006ec80;
     iVar1 = AISpeeds_CalculateOncomingCarSpeed__FP8Car_tObj(carObj);
   }
-  if (iVar1 <= oldsafe) {
-    oldsafe = AISpeeds_CalculateOncomingCarSpeed__FP8Car_tObj(carObj);
+  if (iVar1 <= (int)oldsafe) {
+    oldsafe = (undefined *)AISpeeds_CalculateOncomingCarSpeed__FP8Car_tObj(carObj);
   }
 LAB_8006ec80:
   if ((carObj->carFlags & 0x10U) != 0) {
-    oldsafe = AISpeeds_RandomizeTrafficSpeed__FP8Car_tObji(carObj,oldsafe);
-    if (oldsafe < 0) {
-      oldsafe = oldsafe + 0xff;
-    }
-    iVar1 = *(int *)(carObj->accTable + 0x6a);
+    iVar1 = AISpeeds_RandomizeTrafficSpeed__FP8Car_tObji(carObj,(int)oldsafe);
     if (iVar1 < 0) {
       iVar1 = iVar1 + 0xff;
     }
-    oldsafe = (oldsafe >> 8) * (iVar1 >> 8);
+    iVar3 = *(int *)(carObj->accTable + 0x5c);
+    if (iVar3 < 0) {
+      iVar3 = iVar3 + 0xff;
+    }
+    oldsafe = (undefined *)((iVar1 >> 8) * (iVar3 >> 8));
   }
-  if (oldsafe < 0x8e38e) {
-    oldsafe = 0x8e38e;
+  if ((int)oldsafe < 0x8e38e) {
+    oldsafe = &DAT_0008e38e;
   }
-  return oldsafe * (carObj->speechInfo).speechSource;
-
-
+  return (int)oldsafe * (carObj->script).lastReactionIndex[3];
 }
-
 
 
 
@@ -1500,20 +1493,18 @@ LAB_8006ec80:
 	// End Line: 1304
 
 int AISpeeds_GetLegalSpeed__Fi(int slice)
+
 {
   ushort *puVar1;
   ushort *puVar2;
   
-  puVar1 = (ushort *)&Track0Speeds;
+  puVar1 = (ushort *)(&__AISpeeds_TrackSpeeds_11__)[GameSetup_gData.track];
   do {
     puVar2 = puVar1;
     puVar1 = puVar2 + 2;
   } while ((int)(uint)*puVar2 < slice);
   return (uint)puVar2[1] << 8;
-
-
 }
-
 
 
 
@@ -1532,38 +1523,36 @@ int AISpeeds_GetLegalSpeed__Fi(int slice)
 	// End Line: 1335
 
 int AISpeeds_RandomizeTrafficSpeed__FP8Car_tObji(Car_tObj *carObj,int oldsafe)
+
 {
-  Car_tObj *pCVar1;
-  int iVar2;
+  int iVar1;
+  undefined **ppuVar2;
   
   if (oldsafe < 1) {
     if (oldsafe < 0) {
       oldsafe = oldsafe + 0xff;
     }
-    pCVar1 = carObj->basisCar;
-    if ((int)pCVar1 < 0) {
-      pCVar1 = (Car_tObj *)((int)(pCVar1->N).orientMat.m + 0xf);
+    iVar1 = carObj->desiredSpeed;
+    if (iVar1 < 0) {
+      iVar1 = iVar1 + 0xff;
     }
-    iVar2 = (oldsafe >> 8) * ((int)pCVar1 >> 8);
+    ppuVar2 = (undefined **)((oldsafe >> 8) * (iVar1 >> 8));
   }
   else {
-    pCVar1 = carObj->basisCar;
-    if ((int)pCVar1 < 0) {
-      pCVar1 = (Car_tObj *)((int)(pCVar1->N).orientMat.m + 0xf);
+    iVar1 = carObj->desiredSpeed;
+    if (iVar1 < 0) {
+      iVar1 = iVar1 + 0xff;
     }
-    iVar2 = (oldsafe >> 8) * ((int)pCVar1 >> 8);
-    if (iVar2 < oldsafe + -0xd6666) {
-      iVar2 = oldsafe + -0xd6666;
+    ppuVar2 = (undefined **)((oldsafe >> 8) * (iVar1 >> 8));
+    if ((int)ppuVar2 < (int)(undefined **)(oldsafe + -0xd6666)) {
+      ppuVar2 = (undefined **)(oldsafe + -0xd6666);
     }
-    if (iVar2 < 0x8e666) {
-      iVar2 = 0x8e666;
+    if ((int)ppuVar2 < 0x8e666) {
+      ppuVar2 = &PTR_0008e666;
     }
   }
-  return iVar2;
-
-
+  return (int)ppuVar2;
 }
-
 
 
 
@@ -1579,42 +1568,40 @@ int AISpeeds_RandomizeTrafficSpeed__FP8Car_tObji(Car_tObj *carObj,int oldsafe)
 	// End Line: 1367
 
 void AISpeeds_CalcDesiredSpeed__FP8Car_tObj(Car_tObj *carObj)
+
 {
   int iVar1;
   uint uVar2;
   
   uVar2 = carObj->carFlags;
-  (carObj->speechInfo).copCarIndex = 0;
+  (carObj->script).lastReactionIndex[5] = 0;
   if ((uVar2 & 8) == 0) {
     if ((uVar2 & 0x20) == 0) {
       if ((uVar2 & 0x10) != 0) {
         iVar1 = AISpeeds_CalcTrafficTopSpeed__FP8Car_tObj(carObj);
-        (carObj->speechInfo).copCarIndex = iVar1;
-        (carObj->speechInfo).warningNumber = iVar1;
+        (carObj->script).lastReactionIndex[5] = iVar1;
+        (carObj->script).lastReactionIndex[6] = iVar1;
       }
     }
     else {
-      if ((carObj->desiredLatPos & 2U) == 0) {
+      if (((carObj->speechInfo).speechSource & 2) == 0) {
         iVar1 = AISpeeds_CalcTrafficTopSpeed__FP8Car_tObj(carObj);
-        (carObj->speechInfo).copCarIndex = iVar1;
+        (carObj->script).lastReactionIndex[5] = iVar1;
       }
       else {
         iVar1 = AISpeeds_CalcCopTopSpeed__FP8Car_tObj(carObj);
-        (carObj->speechInfo).copCarIndex = iVar1;
+        (carObj->script).lastReactionIndex[5] = iVar1;
       }
-      (carObj->speechInfo).warningNumber = (carObj->speechInfo).copCarIndex;
+      (carObj->script).lastReactionIndex[6] = (carObj->script).lastReactionIndex[5];
     }
   }
   else {
-    iVar1 = AISpeeds_CalcOpponentTopSpeed__FP8Car_tObjPi(carObj,&(carObj->speechInfo).warningNumber)
-    ;
-    (carObj->speechInfo).copCarIndex = iVar1;
+    iVar1 = AISpeeds_CalcOpponentTopSpeed__FP8Car_tObjPi
+                      (carObj,(carObj->script).lastReactionIndex + 6);
+    (carObj->script).lastReactionIndex[5] = iVar1;
   }
   return;
-
-
 }
-
 
 
 
@@ -1632,11 +1619,12 @@ void AISpeeds_CalcDesiredSpeed__FP8Car_tObj(Car_tObj *carObj)
 	// End Line: 1399
 
 int AISpeeds_CalculateOncomingCarSpeed__FP8Car_tObj(Car_tObj *carObj)
+
 {
   int iVar1;
   uint uVar2;
   
-  iVar1 = *(int *)(carObj->originalDesiredSpeed + 0x564);
+  iVar1 = *(int *)((carObj->speechInfo).copCarIndex + 0x564);
   if (iVar1 < 0) {
     iVar1 = -iVar1;
   }
@@ -1645,24 +1633,21 @@ int AISpeeds_CalculateOncomingCarSpeed__FP8Car_tObj(Car_tObj *carObj)
   }
   else {
     if (iVar1 < 0x1aaaaa) {
-      return 0xd5555;
+      return (int)&DAT_000d5555;
     }
     if (iVar1 < 0x280000) {
-      return 0x8e38e;
+      return (int)&DAT_0008e38e;
     }
     if (iVar1 < 0x378e38) {
-      return 0x471c7;
+      return (int)&DAT_000471c7;
     }
     if (0x471c70 < iVar1) {
-      return 0x2c51e;
+      return (int)&DAT_0002c51e;
     }
     uVar2 = 0x20000;
   }
   return uVar2 | 0x38e3;
-
-
 }
-
 
 
 
@@ -1680,19 +1665,15 @@ int AISpeeds_CalculateOncomingCarSpeed__FP8Car_tObj(Car_tObj *carObj)
 	// End Line: 1409
 
 void AISpeeds_SetTrafficSpeedRandomFactor__FP8Car_tObj(Car_tObj *carObj)
+
 {
-  uint uVar1;
-  Car_tObj *local_10 [4];
+  int local_10 [4];
   
-  randtemp = fastRandom;
-  uVar1 = fastRandom >> 6;
-  fastRandom = fastRandom & 0xffff;
-  carObj->basisCar = *(Car_tObj **)((int)local_10 + (uVar1 & 0xc));
+  randtemp = fastRandom * randSeed;
+  fastRandom = randtemp & 0xffff;
+  carObj->desiredSpeed = *(int *)((int)local_10 + (randtemp >> 6 & 0xc));
   return;
-
-
 }
-
 
 
 
@@ -1728,51 +1709,51 @@ void AISpeeds_SetTrafficSpeedRandomFactor__FP8Car_tObj(Car_tObj *carObj)
 	// End offset: 0x8006F09C
 	// End Line: 1457
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void AISpeeds_MaintainLeaderBoard__Fv(void)
+
 {
-  int *piVar1;
-  int iVar2;
+  Car_tObj **ppCVar1;
+  Car_tObj *pCVar2;
   int iVar3;
   int iVar4;
-  int iVar5;
+  Car_tObj *pCVar5;
   
   iVar4 = 0;
-  iVar5 = 0;
-  leaderBoard = 0;
-  DAT_8010dda8 = 0;
-  DAT_8010ddac = 0;
-  DAT_8010ddb0 = 0;
+  pCVar5 = (Car_tObj *)0x0;
+  leaderBoard.leadRacer = (Car_tObj *)0x0;
+  leaderBoard.leadHumanRacer = (Car_tObj *)0x0;
+  leaderBoard.leadAIRacer = (Car_tObj *)0x0;
+  leaderBoard.lastAIRacer = (Car_tObj *)0x0;
   iVar3 = Cars_gNumCars + -1;
-  piVar1 = &_Cars_gTotalSortedList + iVar3;
+  ppCVar1 = &__Cars_gTotalSortedList_9__ + iVar3;
   while (-1 < iVar3) {
-    iVar2 = *piVar1;
-    if ((((*(uint *)(iVar2 + 0x260) & 1) != 0) && (leaderBoard == 0)) &&
-       (*(int *)(iVar2 + 0x764) == 0)) {
-      leaderBoard = iVar2;
+    pCVar2 = *ppCVar1;
+    if ((((pCVar2->carFlags & 1U) != 0) && (leaderBoard.leadRacer == (Car_tObj *)0x0)) &&
+       (pCVar2->aiGlue == 0)) {
+      leaderBoard.leadRacer = pCVar2;
     }
-    if ((*(uint *)(iVar2 + 0x260) & 8) != 0) {
-      *(int *)(iVar2 + 0x768) = iVar5;
-      *(int *)(iVar2 + 0x774) = iVar4;
+    if ((pCVar2->carFlags & 8U) != 0) {
+      *(Car_tObj **)&pCVar2->drag = pCVar5;
+      pCVar2->speedNitrous = iVar4;
       iVar4 = iVar4 + 1;
-      iVar5 = iVar2;
-      DAT_8010ddb0 = iVar2;
-      if (DAT_8010ddac == 0) {
-        iVar5 = iVar2;
-        DAT_8010ddac = iVar2;
-        DAT_8010ddb0 = iVar2;
+      pCVar5 = pCVar2;
+      leaderBoard.lastAIRacer = pCVar2;
+      if (leaderBoard.leadAIRacer == (Car_tObj *)0x0) {
+        pCVar5 = pCVar2;
+        leaderBoard.leadAIRacer = pCVar2;
+        leaderBoard.lastAIRacer = pCVar2;
       }
     }
-    if (((*(uint *)(iVar2 + 0x260) & 4) != 0) && (DAT_8010dda8 == 0)) {
-      DAT_8010dda8 = iVar2;
+    if (((pCVar2->carFlags & 4U) != 0) && (leaderBoard.leadHumanRacer == (Car_tObj *)0x0)) {
+      leaderBoard.leadHumanRacer = pCVar2;
     }
-    piVar1 = piVar1 + -1;
+    ppCVar1 = ppCVar1 + -1;
     iVar3 = iVar3 + -1;
   }
   return;
-
-
 }
-
 
 
 
@@ -1788,6 +1769,7 @@ void AISpeeds_MaintainLeaderBoard__Fv(void)
 	// End Line: 1483
 
 int AISpeeds_GetScriptFactor__FP8Car_tObj(Car_tObj *carObj)
+
 {
   int iVar1;
   int iVar2;
@@ -1806,10 +1788,7 @@ int AISpeeds_GetScriptFactor__FP8Car_tObj(Car_tObj *carObj)
     iVar1 = 0x18000;
   }
   return iVar1;
-
-
 }
-
 
 
 
@@ -1828,26 +1807,24 @@ int AISpeeds_GetScriptFactor__FP8Car_tObj(Car_tObj *carObj)
 	// End Line: 1502
 
 int AISpeeds_GetUpgradeAccMult__Fi(int carIndex)
+
 {
-  int iVar1;
-  int iVar2;
+  uint uVar1;
+  Car_tObj *pCVar2;
   
-  iVar2 = (&_Cars_gList)[carIndex];
-  iVar1 = 0x10000;
-  if (*(int *)(*(int *)(iVar2 + 0x288) + 0x3c) == 1) {
-    iVar1 = fixedmult(0x10000,0);
+  pCVar2 = (&__Cars_gList_9__)[carIndex];
+  uVar1 = 0x10000;
+  if (pCVar2->carInfo->EngineMods == 1) {
+    uVar1 = fixedmult(0x10000,engineUpgrade.accMult);
   }
-  if (*(int *)(*(int *)(iVar2 + 0x288) + 0x40) == 1) {
-    iVar1 = fixedmult(iVar1,0);
+  if (pCVar2->carInfo->WeightTransfer == 1) {
+    uVar1 = fixedmult(uVar1,suspensionUpgrade.accMult);
   }
-  if (*(int *)(*(int *)(iVar2 + 0x288) + 0x44) == 1) {
-    iVar1 = fixedmult(iVar1,0);
+  if (pCVar2->carInfo->GroundEffects == 1) {
+    uVar1 = fixedmult(uVar1,aeroUpgrade.accMult);
   }
-  return iVar1;
-
-
+  return uVar1;
 }
-
 
 
 
@@ -1866,26 +1843,24 @@ int AISpeeds_GetUpgradeAccMult__Fi(int carIndex)
 	// End Line: 1517
 
 int AISpeeds_GetUpgradeBrakeMult__Fi(int carIndex)
+
 {
-  int iVar1;
-  int iVar2;
+  uint uVar1;
+  Car_tObj *pCVar2;
   
-  iVar2 = (&_Cars_gList)[carIndex];
-  iVar1 = 0x10000;
-  if (*(int *)(*(int *)(iVar2 + 0x288) + 0x3c) == 1) {
-    iVar1 = fixedmult(0x10000,0);
+  pCVar2 = (&__Cars_gList_9__)[carIndex];
+  uVar1 = 0x10000;
+  if (pCVar2->carInfo->EngineMods == 1) {
+    uVar1 = fixedmult(0x10000,engineUpgrade.brakeMult);
   }
-  if (*(int *)(*(int *)(iVar2 + 0x288) + 0x40) == 1) {
-    iVar1 = fixedmult(iVar1,0);
+  if (pCVar2->carInfo->WeightTransfer == 1) {
+    uVar1 = fixedmult(uVar1,suspensionUpgrade.brakeMult);
   }
-  if (*(int *)(*(int *)(iVar2 + 0x288) + 0x44) == 1) {
-    iVar1 = fixedmult(iVar1,0);
+  if (pCVar2->carInfo->GroundEffects == 1) {
+    uVar1 = fixedmult(uVar1,aeroUpgrade.brakeMult);
   }
-  return iVar1;
-
-
+  return uVar1;
 }
-
 
 
 
@@ -1904,26 +1879,24 @@ int AISpeeds_GetUpgradeBrakeMult__Fi(int carIndex)
 	// End Line: 1531
 
 int AISpeeds_GetUpgradeHandlingMult__Fi(int carIndex)
+
 {
-  int iVar1;
-  int iVar2;
+  uint uVar1;
+  Car_tObj *pCVar2;
   
-  iVar2 = (&_Cars_gList)[carIndex];
-  iVar1 = 0x10000;
-  if (*(int *)(*(int *)(iVar2 + 0x288) + 0x3c) == 1) {
-    iVar1 = fixedmult(0x10000,0);
+  pCVar2 = (&__Cars_gList_9__)[carIndex];
+  uVar1 = 0x10000;
+  if (pCVar2->carInfo->EngineMods == 1) {
+    uVar1 = fixedmult(0x10000,engineUpgrade.handlingMult);
   }
-  if (*(int *)(*(int *)(iVar2 + 0x288) + 0x40) == 1) {
-    iVar1 = fixedmult(iVar1,0);
+  if (pCVar2->carInfo->WeightTransfer == 1) {
+    uVar1 = fixedmult(uVar1,suspensionUpgrade.handlingMult);
   }
-  if (*(int *)(*(int *)(iVar2 + 0x288) + 0x44) == 1) {
-    iVar1 = fixedmult(iVar1,0);
+  if (pCVar2->carInfo->GroundEffects == 1) {
+    uVar1 = fixedmult(uVar1,aeroUpgrade.handlingMult);
   }
-  return iVar1;
-
-
+  return uVar1;
 }
-
 
 
 
@@ -1942,26 +1915,24 @@ int AISpeeds_GetUpgradeHandlingMult__Fi(int carIndex)
 	// End Line: 1545
 
 int AISpeeds_GetUpgradeTopSpeedMult__Fi(int carIndex)
+
 {
-  int iVar1;
-  int iVar2;
+  uint uVar1;
+  Car_tObj *pCVar2;
   
-  iVar2 = (&_Cars_gList)[carIndex];
-  iVar1 = 0x10000;
-  if (*(int *)(*(int *)(iVar2 + 0x288) + 0x3c) == 1) {
-    iVar1 = fixedmult(0x10000,0);
+  pCVar2 = (&__Cars_gList_9__)[carIndex];
+  uVar1 = 0x10000;
+  if (pCVar2->carInfo->EngineMods == 1) {
+    uVar1 = fixedmult(0x10000,engineUpgrade.topSpeedMult);
   }
-  if (*(int *)(*(int *)(iVar2 + 0x288) + 0x40) == 1) {
-    iVar1 = fixedmult(iVar1,0);
+  if (pCVar2->carInfo->WeightTransfer == 1) {
+    uVar1 = fixedmult(uVar1,suspensionUpgrade.topSpeedMult);
   }
-  if (*(int *)(*(int *)(iVar2 + 0x288) + 0x44) == 1) {
-    iVar1 = fixedmult(iVar1,0);
+  if (pCVar2->carInfo->GroundEffects == 1) {
+    uVar1 = fixedmult(uVar1,aeroUpgrade.topSpeedMult);
   }
-  return iVar1;
-
-
+  return uVar1;
 }
-
 
 
 
@@ -1977,15 +1948,13 @@ int AISpeeds_GetUpgradeTopSpeedMult__Fi(int carIndex)
 	// End Line: 1552
 
 int AISpeeds_CalcHumanTopSpeed__FP8Car_tObj(Car_tObj *carObj)
+
 {
   int iVar1;
   
   iVar1 = AISpeeds_CalcHumanCurveSpeed__FP8Car_tObj(carObj);
   return iVar1;
-
-
 }
-
 
 
 
@@ -2006,58 +1975,111 @@ int AISpeeds_CalcHumanTopSpeed__FP8Car_tObj(Car_tObj *carObj)
 	// End Line: 1604
 
 int AISpeeds_CalcHumanCurveSpeed__FP8Car_tObj(Car_tObj *carObj)
+
 {
-  int curve;
   int iVar1;
   int slice;
+  int slice_00;
+  int slice_01;
   
   slice = (int)(carObj->N).simRoadInfo.slice;
-  curve = Get__25AIDataRecord_TrackCurve_ti((AIDataRecord_TrackCurve_t *)0x0,slice);
-  iVar1 = Get__25AIDataRecord_TrackCurve_ti
-                    ((AIDataRecord_TrackCurve_t *)0x0,slice + (carObj->speechInfo).speechSource * 4)
-  ;
-  if (curve < iVar1) {
-    curve = iVar1;
+  slice_00 = slice;
+  if (gNumSlices <= slice) {
+    slice_00 = slice - gNumSlices;
   }
-  iVar1 = Get__25AIDataRecord_TrackCurve_ti
-                    ((AIDataRecord_TrackCurve_t *)0x0,slice + (carObj->speechInfo).speechSource * 8)
-  ;
-  if (curve < iVar1) {
-    curve = iVar1;
+  slice_00 = Get__25AIDataRecord_TrackCurve_ti(AIDataRecord_TrackCurve,slice_00);
+  iVar1 = (carObj->script).lastReactionIndex[3] * 4;
+  slice_01 = slice + iVar1;
+  if (iVar1 < 0) {
+    if (slice_01 < 0) {
+      slice_01 = slice_01 + gNumSlices;
+    }
   }
-  iVar1 = Get__25AIDataRecord_TrackCurve_ti
-                    ((AIDataRecord_TrackCurve_t *)0x0,
-                     slice + (carObj->speechInfo).speechSource * 0xc);
-  if (curve < iVar1) {
-    curve = iVar1;
+  else {
+    if (gNumSlices <= slice_01) {
+      slice_01 = slice_01 - gNumSlices;
+    }
   }
-  iVar1 = Get__25AIDataRecord_TrackCurve_ti
-                    ((AIDataRecord_TrackCurve_t *)0x0,
-                     slice + (carObj->speechInfo).speechSource * 0x10);
-  if (curve < iVar1) {
-    curve = iVar1;
+  iVar1 = Get__25AIDataRecord_TrackCurve_ti(AIDataRecord_TrackCurve,slice_01);
+  if (slice_00 < iVar1) {
+    slice_00 = iVar1;
   }
-  iVar1 = Get__25AIDataRecord_TrackCurve_ti
-                    ((AIDataRecord_TrackCurve_t *)0x0,
-                     slice + (carObj->speechInfo).speechSource * 0x14);
-  if (curve < iVar1) {
-    curve = iVar1;
+  iVar1 = (carObj->script).lastReactionIndex[3] * 8;
+  slice_01 = slice + iVar1;
+  if (iVar1 < 0) {
+    if (slice_01 < 0) {
+      slice_01 = slice_01 + gNumSlices;
+    }
   }
-  curve = curve * 0x1a666;
-  if (curve < 0) {
-    curve = curve + 0xffff;
+  else {
+    if (gNumSlices <= slice_01) {
+      slice_01 = slice_01 - gNumSlices;
+    }
   }
-  curve = curve >> 0x10;
-  if (0xff < curve) {
-    curve = 0xff;
+  iVar1 = Get__25AIDataRecord_TrackCurve_ti(AIDataRecord_TrackCurve,slice_01);
+  if (slice_00 < iVar1) {
+    slice_00 = iVar1;
   }
-  curve = Get__30AIDataRecord_CurveSpeedTable_ti
-                    (*(AIDataRecord_CurveSpeedTable_t **)(carObj->accTable + 0x66),curve);
-  return curve;
-
-
+  iVar1 = (carObj->script).lastReactionIndex[3] * 0xc;
+  slice_01 = slice + iVar1;
+  if (iVar1 < 0) {
+    if (slice_01 < 0) {
+      slice_01 = slice_01 + gNumSlices;
+    }
+  }
+  else {
+    if (gNumSlices <= slice_01) {
+      slice_01 = slice_01 - gNumSlices;
+    }
+  }
+  iVar1 = Get__25AIDataRecord_TrackCurve_ti(AIDataRecord_TrackCurve,slice_01);
+  if (slice_00 < iVar1) {
+    slice_00 = iVar1;
+  }
+  iVar1 = (carObj->script).lastReactionIndex[3] * 0x10;
+  slice_01 = slice + iVar1;
+  if (iVar1 < 0) {
+    if (slice_01 < 0) {
+      slice_01 = slice_01 + gNumSlices;
+    }
+  }
+  else {
+    if (gNumSlices <= slice_01) {
+      slice_01 = slice_01 - gNumSlices;
+    }
+  }
+  iVar1 = Get__25AIDataRecord_TrackCurve_ti(AIDataRecord_TrackCurve,slice_01);
+  if (slice_00 < iVar1) {
+    slice_00 = iVar1;
+  }
+  iVar1 = (carObj->script).lastReactionIndex[3] * 0x14;
+  slice = slice + iVar1;
+  if (iVar1 < 0) {
+    if (slice < 0) {
+      slice = slice + gNumSlices;
+    }
+  }
+  else {
+    if (gNumSlices <= slice) {
+      slice = slice - gNumSlices;
+    }
+  }
+  slice = Get__25AIDataRecord_TrackCurve_ti(AIDataRecord_TrackCurve,slice);
+  if (slice_00 < slice) {
+    slice_00 = slice;
+  }
+  slice_00 = slice_00 * 0x1a666;
+  if (slice_00 < 0) {
+    slice_00 = slice_00 + 0xffff;
+  }
+  slice_00 = slice_00 >> 0x10;
+  if (0xff < slice_00) {
+    slice_00 = 0xff;
+  }
+  slice_00 = Get__30AIDataRecord_CurveSpeedTable_ti
+                       (*(AIDataRecord_CurveSpeedTable_t **)(carObj->accTable + 0x58),slice_00);
+  return slice_00;
 }
-
 
 
 

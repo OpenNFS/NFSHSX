@@ -3,7 +3,7 @@
 
 extern void ChecksumData__FP12tMemCardData(struct tMemCardData *memCardData); // 0x800342A0
 
-extern unsigned int VerifySuccessfulRead__FP12tMemCardData(struct tMemCardData *memCardData); // 0x80034318
+extern void * VerifySuccessfulRead__FP12tMemCardData(struct tMemCardData *memCardData); // 0x80034318
 
 extern void MakeWayForMemoryCard__Fv(); // 0x800343F0
 
@@ -23,15 +23,15 @@ extern void LoadingRedrawProc__Fv(); // 0x80034654
 
 extern void SavingProc__Fv(); // 0x8003467C
 
-extern void Init_Memcard__FbT0(unsigned int redraw, unsigned int pinkslips); // 0x800346A4
+extern void Init_Memcard__FbT0(void * redraw, void * pinkslips); // 0x800346A4
 
 extern void DeInit_Memcard__Fv(); // 0x80034800
 
-extern void Init_MemcardFile__FR12MCRDFILE_defsb(struct MCRDFILE_def *memCardFile, short cardnum, unsigned int notitle); // 0x800348A0
+extern void Init_MemcardFile__FR12MCRDFILE_defsb(struct MCRDFILE_def *memCardFile, short cardnum, void * notitle); // 0x800348A0
 
-extern unsigned int SaveGame__Fs(short player); // 0x80034988
+extern void * SaveGame__Fs(short player); // 0x80034988
 
-extern short LoadGame__FsbT1(short player, unsigned int PinkSlips, unsigned int WithDialogs); // 0x80034E18
+extern short LoadGame__FsbT1(short player, void * PinkSlips, void * WithDialogs); // 0x80034E18
 
 extern enum PinkSlipsErrorCode SavePinkSlipsCars__Fss(short player, short withoutCarInGarageNumber); // 0x800353F0
 

@@ -12,18 +12,20 @@
 	// End offset: 0x80042648
 	// End Line: 68
 
-void GetShapeInfo__19tScreenTrackRecordsRsT1PPcT3( (tScreenTrackRecords *this,short *numPermShapes,short *numSwapShapes, char **permFileName,char **swapFileName)
+/* WARNING: Control flow encountered bad instruction data */
+
+void GetShapeInfo__19tScreenTrackRecordsRsT1PPcT3
+               (tScreenTrackRecords *this,short *numPermShapes,short *numSwapShapes,
+               char **permFileName,char **swapFileName)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -38,18 +40,18 @@ void GetShapeInfo__19tScreenTrackRecordsRsT1PPcT3( (tScreenTrackRecords *this,sh
 	// End offset: 0x8004266C
 	// End Line: 79
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void Initialize__19tScreenTrackRecords(tScreenTrackRecords *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -64,24 +66,24 @@ void Initialize__19tScreenTrackRecords(tScreenTrackRecords *this)
 	// End offset: 0x800426C4
 	// End Line: 98
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void Cleanup__19tScreenTrackRecords(tScreenTrackRecords *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// void /*$ra*/ DrawOneRecord__19tScreenTrackRecordsibi(struct tScreenTrackRecords *this /*$s4*/, int index /*$s2*/, unsigned int newrecord /*$s6*/, int y /*$s5*/)
+// void /*$ra*/ DrawOneRecord__19tScreenTrackRecordsibi(struct tScreenTrackRecords *this /*$s4*/, int index /*$s2*/, void * newrecord /*$s6*/, int y /*$s5*/)
  // line 113, offset 0x80042700
 	/* begin block 1 */
 		// Start line: 114
@@ -93,18 +95,19 @@ void Cleanup__19tScreenTrackRecords(tScreenTrackRecords *this)
 	// End offset: 0x80042940
 	// End Line: 156
 
-void DrawOneRecord__19tScreenTrackRecordsibi( (tScreenTrackRecords *this,int index,uint newrecord,int y)
+/* WARNING: Control flow encountered bad instruction data */
+
+void DrawOneRecord__19tScreenTrackRecordsibi
+               (tScreenTrackRecords *this,int index,void *newrecord,int y)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -122,18 +125,18 @@ void DrawOneRecord__19tScreenTrackRecordsibi( (tScreenTrackRecords *this,int ind
 	// End offset: 0x80042B18
 	// End Line: 200
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void DrawRecords__19tScreenTrackRecordss(tScreenTrackRecords *this,short maxitem)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -224,18 +227,18 @@ void DrawRecords__19tScreenTrackRecordss(tScreenTrackRecords *this,short maxitem
 	// End offset: 0x800430AC
 	// End Line: 291
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void DrawBackground__19tScreenTrackRecords(tScreenTrackRecords *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 

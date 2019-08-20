@@ -13,6 +13,7 @@
 	// End Line: 280
 
 int AudioCmn_MusicLevel__Fi(int level)
+
 {
   uint uVar1;
   
@@ -21,10 +22,7 @@ int AudioCmn_MusicLevel__Fi(int level)
   }
   uVar1 = (level + -0x55) * 7;
   return (((int)(uVar1 + (uVar1 >> 0x1f)) >> 1) + 0x55) * 0x46 >> 7;
-
-
 }
-
 
 
 
@@ -39,13 +37,13 @@ int AudioCmn_MusicLevel__Fi(int level)
 	// End offset: 0x80076480
 	// End Line: 288
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 int AudioCmn_GetTrackRecordLapTime__Fv(void)
+
 {
-  return DAT_801132d4;
-
-
+  return GameSetup_gData.userSetting.bestlap;
 }
-
 
 
 
@@ -60,16 +58,16 @@ int AudioCmn_GetTrackRecordLapTime__Fv(void)
 	// End offset: 0x80076490
 	// End Line: 305
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void AudioCmn_InitThunder__Fv(void)
+
 {
-  AudioCmn_ThunderAmp = 0;
-  AudioCmn_ThunderAzi = 0;
-  AudioCmn_ThunderDel = 0;
+  uGp000001c8 = 0;
+  uGp000001cc = 0;
+  uGp000001d0 = 0;
   return;
-
-
 }
-
 
 
 
@@ -85,17 +83,15 @@ void AudioCmn_InitThunder__Fv(void)
 	// End Line: 316
 
 void AudioCmn_PlayThunder__Fii(int intensity,int azimuth)
+
 {
-  if (AudioCmn_ThunderAmp < intensity) {
-    AudioCmn_ThunderDel = 0x87 - intensity;
-    AudioCmn_ThunderAmp = intensity;
-    AudioCmn_ThunderAzi = azimuth;
+  if (iGp000001c8 < intensity) {
+    iGp000001d0 = 0x87 - intensity;
+    iGp000001c8 = intensity;
+    iGp000001cc = azimuth;
   }
   return;
-
-
 }
-
 
 
 
@@ -110,33 +106,32 @@ void AudioCmn_PlayThunder__Fii(int intensity,int azimuth)
 	// End offset: 0x8007656C
 	// End Line: 335
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void AudioCmn_UpdateThunder__Fv(void)
+
 {
   uint uVar1;
   long lVar2;
   
-  if ((0 < AudioCmn_ThunderAmp) &&
-     (AudioCmn_ThunderDel = AudioCmn_ThunderDel - 1, (int)AudioCmn_ThunderDel < 0)) {
-    AudioCmn_PlaySound__Fiiiii(0,0x16,AudioCmn_ThunderAzi,AudioCmn_ThunderAmp,0x40);
-    if (AudioCmn_ThunderAmp < 0x2e) {
+  if ((0 < iGp000001c8) && (uGp000001d0 = uGp000001d0 - 1, (int)uGp000001d0 < 0)) {
+    AudioCmn_PlaySound__Fiiiii(SndBnk_t_8010e8cc.bnkID,0x16,iGp000001cc,iGp000001c8,0x40);
+    if (iGp000001c8 < 0x2e) {
       uVar1 = random();
       uVar1 = uVar1 & 7;
-      AudioCmn_ThunderAmp = AudioCmn_ThunderAmp + 2;
+      iGp000001c8 = iGp000001c8 + 2;
     }
     else {
       uVar1 = random();
       uVar1 = uVar1 & 0xf;
-      AudioCmn_ThunderAmp = AudioCmn_ThunderAmp + 3;
+      iGp000001c8 = iGp000001c8 + 3;
     }
-    AudioCmn_ThunderAmp = AudioCmn_ThunderAmp - uVar1;
+    iGp000001c8 = iGp000001c8 - uVar1;
     lVar2 = random();
-    AudioCmn_ThunderDel = lVar2 + 0x14U & 3;
+    uGp000001d0 = lVar2 + 0x14U & 3;
   }
   return;
-
-
 }
-
 
 
 
@@ -167,25 +162,25 @@ void AudioCmn_UpdateThunder__Fv(void)
 	// End offset: 0x800765AC
 	// End Line: 462
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void AudioCmn_InitAsyncSfx__Fv(void)
+
 {
   bool bVar1;
-  undefined4 *puVar2;
+  AudioCmn_tAsyncSfxSlot *pAVar2;
   int iVar3;
   
   iVar3 = 0;
-  puVar2 = &AudioCmn_gSfxSlot;
+  pAVar2 = &AudioCmn_gSfxSlot;
   while (bVar1 = iVar3 < 0x20, iVar3 = iVar3 + 1, bVar1) {
-    puVar2[1] = 0xffffffff;
-    puVar2[2] = 0xffffffff;
-    puVar2[5] = 0;
-    puVar2 = puVar2 + 6;
+    pAVar2->patch = -1;
+    pAVar2->handle = -1;
+    pAVar2->header = (char *)0x0;
+    pAVar2 = pAVar2 + 1;
   }
   return;
-
-
 }
-
 
 
 
@@ -203,23 +198,24 @@ void AudioCmn_InitAsyncSfx__Fv(void)
 	// End Line: 487
 
 void AudioCmn_RemoveAsyncSfx__Fi(int slot)
+
 {
-  if ((&DAT_8010eb38)[slot * 6] != -1) {
-    if ((&DAT_8010eb3c)[slot * 6] != -1) {
-      SNDbankremove();
-      (&DAT_8010eb3c)[slot * 6] = 0xffffffff;
-      if ((&DAT_8010eb48)[slot * 6] != 0) {
-        purgememadr();
-        (&DAT_8010eb48)[slot * 6] = 0;
+  char *pcVar1;
+  
+  if ((&AudioCmn_gSfxSlot)[slot].patch != -1) {
+    if ((&AudioCmn_gSfxSlot)[slot].handle != -1) {
+      SNDbankremove((&AudioCmn_gSfxSlot)[slot].handle);
+      pcVar1 = (&AudioCmn_gSfxSlot)[slot].header;
+      (&AudioCmn_gSfxSlot)[slot].handle = -1;
+      if (pcVar1 != (char *)0x0) {
+        purgememadr((int)pcVar1);
+        (&AudioCmn_gSfxSlot)[slot].header = (char *)0x0;
       }
     }
-    (&DAT_8010eb38)[slot * 6] = 0xffffffff;
+    (&AudioCmn_gSfxSlot)[slot].patch = -1;
   }
   return;
-
-
 }
-
 
 
 
@@ -243,7 +239,10 @@ void AudioCmn_RemoveAsyncSfx__Fi(int slot)
 	// End offset: 0x80076664
 	// End Line: 496
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void AudioCmn_DeInitAsyncSfx__Fv(void)
+
 {
   int slot;
   
@@ -253,10 +252,7 @@ void AudioCmn_DeInitAsyncSfx__Fv(void)
     slot = slot + 1;
   } while (slot < 0x20);
   return;
-
-
 }
-
 
 
 
@@ -321,33 +317,33 @@ void AudioCmn_DeInitAsyncSfx__Fv(void)
 	// End Line: 528
 
 int AudioCmn_RemoveOldestAsyncSfx__Fi(int bank)
+
 {
   int iVar1;
-  int *piVar2;
-  undefined4 *puVar3;
-  int iVar4;
+  AudioCmn_tAsyncSfxSlot *pAVar2;
+  int iVar3;
   int slot;
   
   slot = -1;
-  iVar4 = 0;
-  puVar3 = &AudioCmn_gSfxSlot;
-  iVar1 = -0x10;
-  while (iVar4 < 0x20) {
-    if ((puVar3[1] != -1) && ((int)puVar3[3] < iVar1)) {
-      iVar1 = puVar3[3];
-      slot = iVar4;
+  iVar3 = 0;
+  pAVar2 = &AudioCmn_gSfxSlot;
+  iVar1 = simGlobal.gameTicks + -0x10;
+  while (iVar3 < 0x20) {
+    if ((pAVar2->patch != -1) && (pAVar2->ticks < iVar1)) {
+      iVar1 = pAVar2->ticks;
+      slot = iVar3;
     }
-    puVar3 = puVar3 + 6;
-    iVar4 = iVar4 + 1;
+    pAVar2 = pAVar2 + 1;
+    iVar3 = iVar3 + 1;
   }
   iVar1 = 0;
   if (slot == -1) {
-    piVar2 = &AudioCmn_gSfxSlot;
+    pAVar2 = &AudioCmn_gSfxSlot;
     while (iVar1 < 0x20) {
-      if ((piVar2[1] != -1) && (*piVar2 < bank)) {
+      if ((pAVar2->patch != -1) && (pAVar2->bank < bank)) {
         slot = iVar1;
       }
-      piVar2 = piVar2 + 6;
+      pAVar2 = pAVar2 + 1;
       iVar1 = iVar1 + 1;
     }
   }
@@ -355,10 +351,7 @@ int AudioCmn_RemoveOldestAsyncSfx__Fi(int bank)
     AudioCmn_RemoveAsyncSfx__Fi(slot);
   }
   return slot;
-
-
 }
-
 
 
 
@@ -377,17 +370,18 @@ int AudioCmn_RemoveOldestAsyncSfx__Fi(int bank)
 	// End Line: 599
 
 void AudioCmn_LoadAsyncSfx__FiiPvi(int bank,int patch,void *pbank,int size)
+
 {
-  undefined4 uVar1;
+  short *psVar1;
   int iVar2;
-  int *piVar3;
+  AudioCmn_tAsyncSfxSlot *pAVar3;
   int local_30 [2];
   
   iVar2 = 0;
-  piVar3 = &AudioCmn_gSfxSlot;
-  while (((patch != piVar3[1] || (bank != *piVar3)) || (piVar3[2] != -1))) {
+  pAVar3 = &AudioCmn_gSfxSlot;
+  while (((patch != pAVar3->patch || (bank != pAVar3->bank)) || (pAVar3->handle != -1))) {
     iVar2 = iVar2 + 1;
-    piVar3 = piVar3 + 6;
+    pAVar3 = pAVar3 + 1;
     if (0x1f < iVar2) {
       return;
     }
@@ -396,50 +390,47 @@ void AudioCmn_LoadAsyncSfx__FiiPvi(int bank,int patch,void *pbank,int size)
     do {
       iVar2 = SNDmemlargestunused(local_30);
       if (size <= iVar2 + -0x1000) {
-        local_30[0] = SNDbankadd(piVar3 + 2,pbank);
+        local_30[0] = SNDbankadd(&pAVar3->handle,(int)pbank);
         if (local_30[0] == 7) {
-          uVar1 = SNDbankheadersize(piVar3[2]);
-          iVar2 = reservememadr("SFXHDR",uVar1,0x10);
-          piVar3[5] = iVar2;
-          if (iVar2 != 0) {
-            SNDbankheadercopy(iVar2,piVar3[2]);
-            piVar3[1] = patch;
-            piVar3[3] = 0;
+          iVar2 = SNDbankheadersize(pAVar3->handle);
+          psVar1 = reservememadr(s_SFXHDR_8013c67c,iVar2,0x10);
+          *(short **)&pAVar3->header = psVar1;
+          if (psVar1 != (short *)0x0) {
+            SNDbankheadercopy(psVar1,pAVar3->handle);
+            pAVar3->patch = patch;
+            pAVar3->ticks = simGlobal.gameTicks;
             return;
           }
         }
         if (bank == 2) {
-          puts("SNDbankadd failed on speech!\n");
+          puts(s_SNDbankadd_failed_on_speech__800556ec);
         }
-        SNDbankheadersize(piVar3[2]);
+        SNDbankheadersize(pAVar3->handle);
         if (-1 < local_30[0]) {
-          SNDbankremove(piVar3[2]);
+          SNDbankremove(pAVar3->handle);
         }
         goto LAB_800768b8;
       }
       iVar2 = AudioCmn_RemoveOldestAsyncSfx__Fi(bank);
     } while (iVar2 != -1);
     if (bank == 2) {
-      puts("out of SPU ram on speech!\n");
-      piVar3[2] = -1;
+      puts(s_out_of_SPU_ram_on_speech__800556d0);
+      pAVar3->handle = -1;
       goto LAB_800768bc;
     }
   }
 LAB_800768b8:
-  piVar3[2] = -1;
+  pAVar3->handle = -1;
 LAB_800768bc:
-  piVar3[1] = -1;
+  pAVar3->patch = -1;
   return;
-
-
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// int /*$ra*/ AudioCmn_GetAsyncSfx__Fiib(int bank /*$s1*/, int patch /*$s2*/, unsigned int checkonly /*$s3*/)
+// int /*$ra*/ AudioCmn_GetAsyncSfx__Fiib(int bank /*$s1*/, int patch /*$s2*/, void * checkonly /*$s3*/)
  // line 620, offset 0x80076900
 	/* begin block 1 */
 		// Start line: 621
@@ -467,62 +458,59 @@ LAB_800768bc:
 	// End offset: 0x80076A58
 	// End Line: 671
 
-int AudioCmn_GetAsyncSfx__Fiib(int bank,int patch,uint checkonly)
+int AudioCmn_GetAsyncSfx__Fiib(int bank,int patch,void *checkonly)
+
 {
   bool bVar1;
-  undefined4 *puVar2;
-  int *piVar3;
-  int iVar4;
-  uint uVar5;
+  AudioCmn_tAsyncSfxSlot *pAVar2;
+  int iVar3;
+  uint uVar4;
   CopSpeak_tRequest CStack56;
   
-  iVar4 = 0;
-  piVar3 = &AudioCmn_gSfxSlot;
-  while (iVar4 < 0x20) {
-    if ((patch == piVar3[1]) && (bank == *piVar3)) {
-      piVar3[3] = 0;
-      return piVar3[2];
+  iVar3 = 0;
+  pAVar2 = &AudioCmn_gSfxSlot;
+  while (iVar3 < 0x20) {
+    if ((patch == pAVar2->patch) && (bank == pAVar2->bank)) {
+      pAVar2->ticks = simGlobal.gameTicks;
+      return pAVar2->handle;
     }
-    piVar3 = piVar3 + 6;
-    iVar4 = iVar4 + 1;
+    pAVar2 = pAVar2 + 1;
+    iVar3 = iVar3 + 1;
   }
-  uVar5 = 0;
-  puVar2 = &AudioCmn_gSfxSlot;
+  uVar4 = 0;
+  pAVar2 = &AudioCmn_gSfxSlot;
   do {
-    if (puVar2[1] == -1) break;
-    uVar5 = uVar5 + 1;
-    puVar2 = puVar2 + 6;
-  } while ((int)uVar5 < 0x20);
-  bVar1 = uVar5 < 0x20;
-  if ((checkonly == 0) && (bVar1 = uVar5 < 0x20, uVar5 == 0x20)) {
-    uVar5 = AudioCmn_RemoveOldestAsyncSfx__Fi(bank);
-    bVar1 = uVar5 < 0x20;
+    if (pAVar2->patch == -1) break;
+    uVar4 = uVar4 + 1;
+    pAVar2 = pAVar2 + 1;
+  } while ((int)uVar4 < 0x20);
+  bVar1 = uVar4 < 0x20;
+  if ((checkonly == (void *)0x0) && (bVar1 = uVar4 < 0x20, uVar4 == 0x20)) {
+    uVar4 = AudioCmn_RemoveOldestAsyncSfx__Fi(bank);
+    bVar1 = uVar4 < 0x20;
   }
   if (!bVar1) {
     return -1;
   }
-  if (checkonly == 0) {
-    iVar4 = CopSpeak_SfxQueued__Fv();
-    if (5 < iVar4) {
+  if (checkonly == (void *)0x0) {
+    iVar3 = CopSpeak_SfxQueued__Fv();
+    if (5 < iVar3) {
       return -1;
     }
     CopSpeak_InitRequest__FP17CopSpeak_tRequest(&CStack56);
     CStack56.sfx = '\x01';
     CStack56.bank = (char)bank;
     CStack56.phrase = patch;
-    iVar4 = CopSpeak_Request__FP17CopSpeak_tRequest(&CStack56);
-    if (iVar4 == -1) {
+    iVar3 = CopSpeak_Request__FP17CopSpeak_tRequest(&CStack56);
+    if (iVar3 == -1) {
       return -1;
     }
   }
-  (&AudioCmn_gSfxSlot)[uVar5 * 6] = bank;
-  (&DAT_8010eb38)[uVar5 * 6] = patch;
-  (&DAT_8010eb40)[uVar5 * 6] = 0;
+  (&AudioCmn_gSfxSlot)[uVar4].bank = bank;
+  (&AudioCmn_gSfxSlot)[uVar4].patch = patch;
+  (&AudioCmn_gSfxSlot)[uVar4].ticks = simGlobal.gameTicks;
   return -1;
-
-
 }
-
 
 
 
@@ -540,75 +528,74 @@ int AudioCmn_GetAsyncSfx__Fiib(int bank,int patch,uint checkonly)
 	// End offset: 0x80076B84
 	// End Line: 724
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void AudioCmn_Init__Fv(void)
+
 {
-  undefined *puVar1;
+  int *piVar1;
   int iVar2;
-  undefined4 *puVar3;
-  undefined4 *puVar4;
-  undefined4 *puVar5;
-  undefined4 *puVar6;
-  undefined4 *puVar7;
+  AudioCmn_tReTrig *pAVar3;
+  uchar **ppuVar4;
+  int *piVar5;
+  int *piVar6;
   
-  if (iGp000000f8 != 0) {
+  if (DAT_000000f8 != 0) {
     AudioCmn_InitChannelArray__Fv();
-    iVar2 = 0;
-    uGp000000e0 = 0;
-    if (false) {
-      iVar2 = 5;
+    DAT_000000e0 = GameSetup_gData.reverseTrack;
+    iVar2 = GameSetup_gData.track;
+    if ((GameSetup_gData.track & 0x10U) != 0) {
+      iVar2 = (GameSetup_gData.track & 0xfU) + 5;
     }
-    if (false) {
-      puVar1 = &falseLapTrigNumsBackward;
+    if (GameSetup_gData.reverseTrack == 0) {
+      piVar1 = &falseLapTrigNumsForward;
     }
     else {
-      puVar1 = &falseLapTrigNumsForward;
+      piVar1 = &falseLapTrigNumsBackward;
     }
-    uGp00000168 = *(undefined4 *)(puVar1 + iVar2 * 8);
-    uGp0000016c = *(undefined4 *)(puVar1 + iVar2 * 8 + 1);
-    uGp000000e4 = 0;
-    uGp000000e8 = 0;
+    DAT_00000168 = piVar1[iVar2 * 2];
+    DAT_0000016c = (piVar1 + iVar2 * 2)[1];
+    DAT_000000e4 = 0;
+    DAT_000000e8 = 0;
   }
   iVar2 = 0;
-  puVar7 = &AudioCmn_gPlayerArrested;
-  puVar6 = &gtotallaptimes;
-  puVar5 = &PlayersRampedGasLevel;
-  puVar4 = &bestLapTime;
-  puVar3 = &AudioCmn_gReTrig;
+  piVar6 = &AudioCmn_gPlayerArrested;
+  piVar5 = &gtotallaptimes;
+  ppuVar4 = &PlayersRampedGasLevel;
+  piVar1 = &bestLapTime;
+  pAVar3 = &AudioCmn_gReTrig;
   do {
-    *puVar3 = 0;
-    (&fAmbientRangeON)[iVar2] = 0;
-    (&fMysticWindON)[iVar2] = 0;
-    (&currentLap)[iVar2] = 0;
-    *puVar4 = 0;
-    *puVar5 = 0;
-    *puVar6 = 0x200;
-    *puVar7 = 0;
-    puVar7 = puVar7 + 1;
-    puVar6 = puVar6 + 1;
-    puVar5 = puVar5 + 1;
-    puVar4 = puVar4 + 1;
+    pAVar3->count = 0;
+    (&fAmbientRangeON)[iVar2] = '\0';
+    (&fMysticWindON)[iVar2] = '\0';
+    (&currentLap)[iVar2] = '\0';
+    *piVar1 = 0;
+    *ppuVar4 = (uchar *)0x0;
+    *piVar5 = 0x200;
+    *piVar6 = 0;
+    piVar6 = piVar6 + 1;
+    piVar5 = piVar5 + 1;
+    ppuVar4 = ppuVar4 + 1;
+    piVar1 = piVar1 + 1;
     iVar2 = iVar2 + 1;
-    puVar3 = puVar3 + 8;
+    pAVar3 = pAVar3 + 1;
   } while (iVar2 < 2);
   AudioCmn_InitThunder__Fv();
   AudioCmn_InitAsyncSfx__Fv();
   AudioTrk_StartUp__Fv();
-  uGp0000012c = 0;
-  uGp0000012d = 0;
-  uGp000000f1 = 0;
-  uGp000000f2 = 0;
-  iGp000000f4 = AudioCmn_GetTrackRecordLapTime__Fv();
-  DAT_801132e0 = uGp00000108;
-  uGp000000dc = 4;
-  uGp00000190 = 0x7f;
-  uGp0000019c = 0;
-  uGp000001a0 = 0;
-  uGp000001c4 = 0;
+  DAT_0000012c = 0;
+  DAT_0000012d = 0;
+  DAT_000000f1 = 0;
+  DAT_000000f2 = 0;
+  DAT_000000f4 = AudioCmn_GetTrackRecordLapTime__Fv();
+  DAT_000000dc = 4;
+  DAT_00000190 = 0x7f;
+  DAT_0000019c = 0;
+  DAT_000001a0 = 0;
+  DAT_000001c4 = 0;
+  GameSetup_gData.userSetting.sfxLevel = DAT_00000108;
   return;
-
-
 }
-
 
 
 
@@ -757,108 +744,115 @@ void AudioCmn_Init__Fv(void)
 	// End offset: 0x80076F1C
 	// End Line: 904
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void AudioCmn_Reset__Fv(void)
+
 {
   bool bVar1;
-  int iVar2;
+  uchar *puVar2;
+  uchar *puVar3;
   int patch;
-  int *piVar3;
-  undefined4 *puVar4;
+  Channels_t *pCVar4;
+  GameSetup_tData *pGVar5;
   int volume;
-  undefined auStack40 [8];
+  int aiStack40 [2];
   
   CopSpeak_SilenceCop__FP8Car_tObji((Car_tObj *)0x0,0);
   volume = 0;
   CopSpeak_Cancel__Fv();
   SPCH_ClearEventQueue();
   AudioCmn_DeInitAsyncSfx__Fv();
-  piVar3 = &gaChannel;
+  pCVar4 = &gaChannel;
   do {
-    if (*piVar3 != -1) {
-      SNDstop();
-      *piVar3 = -1;
-      piVar3[1] = -1;
+    if (pCVar4->Partial != 0xffffffff) {
+      SNDstop(pCVar4->Partial);
+      pCVar4->Partial = -1;
+      pCVar4->SFXnum = -1;
     }
     volume = volume + 1;
-    piVar3 = piVar3 + 2;
+    pCVar4 = pCVar4 + 1;
   } while (volume < 0x47);
-  if (cGp0000012c != '\0') {
+  if (DAT_0000012c != '\0') {
     AudioCmn_ReverbOff__Fv();
   }
   AudioCmn_Init__Fv();
-  if (0 < iGp00000114) {
+  if (0 < DAT_00000114) {
     bVar1 = false;
-    volume = gettick();
-    while ((!bVar1 && (iVar2 = gettick(), iVar2 < volume + 0x280))) {
+    puVar2 = gettick();
+    while ((!bVar1 && (puVar3 = gettick(), (int)puVar3 < (int)(puVar2 + 0x280)))) {
       bVar1 = true;
       CopSpeak_Server__Fv();
       systemtask(0);
-      iVar2 = SNDmemlargestunused(auStack40);
-      if (0x8000 < iVar2) {
-        if (GameSetup_gData == 1) {
-          iVar2 = 0;
+      volume = SNDmemlargestunused(aiStack40);
+      if (0x8000 < volume) {
+        if (GameSetup_gData.raceType == 1) {
+          volume = 0;
           do {
-            patch = AudioCmn_GetAsyncSfx__Fiib(2,iVar2 + 0x2f,0);
+            patch = AudioCmn_GetAsyncSfx__Fiib(2,volume + 0x2f,(void *)0x0);
             if (patch == -1) {
               bVar1 = false;
             }
-            iVar2 = iVar2 + 1;
-          } while (iVar2 < 4);
+            volume = volume + 1;
+          } while (volume < 4);
         }
-        if ((DAT_80113234 == 1) && (iVar2 = AudioCmn_GetAsyncSfx__Fiib(1,0,0), iVar2 == -1)) {
+        if ((GameSetup_gData.Weather == 1) &&
+           (volume = AudioCmn_GetAsyncSfx__Fiib(1,0,(void *)0x0), volume == -1)) {
           bVar1 = false;
         }
-        iVar2 = 0;
-        puVar4 = &GameSetup_gData;
-        while (iVar2 < 0) {
-          if (puVar4[0xf6] == 2) {
-            patch = CopSpeak_GetEnginePatch__Fii(puVar4[0xf5],0);
-            if ((-1 < patch) && (patch = AudioCmn_GetAsyncSfx__Fiib(1,patch,0), patch == -1)) {
+        volume = 0;
+        pGVar5 = &GameSetup_gData;
+        while (volume < GameSetup_gData.numCars) {
+          if (pGVar5->carInfo[0].carClass == 2) {
+            patch = CopSpeak_GetEnginePatch__Fii(pGVar5->carInfo[0].carType,0);
+            if ((-1 < patch) &&
+               (patch = AudioCmn_GetAsyncSfx__Fiib(1,patch,(void *)0x0), patch == -1)) {
               bVar1 = false;
             }
-            patch = CopSpeak_GetEnginePatch__Fii(puVar4[0xf5],1);
-            if ((-1 < patch) && (patch = AudioCmn_GetAsyncSfx__Fiib(1,patch,0), patch == -1)) {
+            patch = CopSpeak_GetEnginePatch__Fii(pGVar5->carInfo[0].carType,1);
+            if ((-1 < patch) &&
+               (patch = AudioCmn_GetAsyncSfx__Fiib(1,patch,(void *)0x0), patch == -1)) {
               bVar1 = false;
             }
           }
-          puVar4 = puVar4 + 0x2d;
-          iVar2 = iVar2 + 1;
+          pGVar5 = (GameSetup_tData *)((pGVar5->controllerData).shockImpact + 1);
+          volume = volume + 1;
         }
       }
     }
   }
   AudioTrk_PreLoad__Fv();
-  if (iGp00000104 == 0) {
+  if (DAT_00000104 == 0) {
     return;
   }
-  volume = AudioCmn_MusicLevel__Fi(iGp00000104);
+  volume = AudioCmn_MusicLevel__Fi(DAT_00000104);
   AudioMus_Volume__Fi(volume);
   SNDSTRM_setpriority(gMusicHandle,0xff,0xff);
-  volume = gettick();
+  puVar2 = gettick();
   gettick();
   AudioMus_Buffered__Fv();
   AudioMus_Threshold__Fv();
   do {
     bVar1 = false;
-    iVar2 = gettick();
-    if ((iVar2 < volume + 0x40) || (iVar2 = AudioMus_Threshold__Fv(), iVar2 < 1)) {
+    puVar3 = gettick();
+    if (((int)puVar3 < (int)(puVar2 + 0x40)) || (volume = AudioMus_Threshold__Fv(), volume < 1)) {
 LAB_80076e8c:
-      iVar2 = gettick();
-      if (iVar2 < volume + 0x100) {
+      puVar3 = gettick();
+      if ((int)puVar3 < (int)(puVar2 + 0x100)) {
         bVar1 = true;
       }
     }
     else {
-      iVar2 = AudioMus_Buffered__Fv();
+      volume = AudioMus_Buffered__Fv();
       patch = AudioMus_Threshold__Fv();
-      if (iVar2 < patch) goto LAB_80076e8c;
+      if (volume < patch) goto LAB_80076e8c;
     }
     if (!bVar1) {
       volume = AudioMus_Buffered__Fv();
-      iVar2 = AudioMus_Threshold__Fv();
-      if (volume < iVar2 + -100) {
-        DAT_801132dc = 0;
-        iGp00000104 = 0;
+      patch = AudioMus_Threshold__Fv();
+      if (volume < patch + -100) {
+        GameSetup_gData.userSetting.musicLevel = 0;
+        DAT_00000104 = 0;
         volume = AudioCmn_MusicLevel__Fi(0);
         AudioMus_Volume__Fi(volume);
       }
@@ -872,10 +866,7 @@ LAB_80076e8c:
     }
     systemtask(0);
   } while( true );
-
-
 }
-
 
 
 
@@ -899,41 +890,41 @@ LAB_80076e8c:
 	// End offset: 0x80076FFC
 	// End Line: 938
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void AudioCmn_DeInit__Fv(void)
+
 {
-  int *piVar1;
+  Channels_t *pCVar1;
   int iVar2;
   
   AudioEng_StopServer__Fv();
   iVar2 = 0;
   AudioEng_CleanUp__Fv();
   CopSpeak_Stop__Fv();
-  uGp00000108 = DAT_801132e0;
-  uGp00000104 = DAT_801132dc;
+  DAT_00000108 = GameSetup_gData.userSetting.sfxLevel;
+  DAT_00000104 = GameSetup_gData.userSetting.musicLevel;
   AudioTrk_CleanUp__Fv();
   AudioCmn_DeInitAsyncSfx__Fv();
-  piVar1 = &gaChannel;
+  pCVar1 = &gaChannel;
   do {
-    if (*piVar1 != -1) {
-      SNDstop();
-      *piVar1 = -1;
-      piVar1[1] = -1;
+    if (pCVar1->Partial != 0xffffffff) {
+      SNDstop(pCVar1->Partial);
+      pCVar1->Partial = -1;
+      pCVar1->SFXnum = -1;
     }
     iVar2 = iVar2 + 1;
-    piVar1 = piVar1 + 2;
+    pCVar1 = pCVar1 + 1;
   } while (iVar2 < 0x47);
   SNDstopall();
-  SNDbankremove(0xffffffff);
+  SNDbankremove(-1);
   Audio_CleanUp__Fv();
-  if (cGp0000012c != '\0') {
+  if (DAT_0000012c != '\0') {
     AudioCmn_ReverbOff__Fv();
   }
-  uGp000000fc = uGp00000120;
+  DAT_000000fc = DAT_00000120;
   return;
-
-
 }
-
 
 
 
@@ -948,17 +939,17 @@ void AudioCmn_DeInit__Fv(void)
 	// End offset: 0x80077064
 	// End Line: 947
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void AudioCmn_SetLevels__Fv(void)
+
 {
-  if (DAT_80117048 != 0) {
-    uGp00000190 = 0x20;
-    iGp00000108 = (DAT_801132e0 * 0x40) / 0x7f;
+  if (Replay_ReplayInterface.statsScreen != 0) {
+    DAT_00000190 = 0x20;
+    DAT_00000108 = (GameSetup_gData.userSetting.sfxLevel * 0x40) / 0x7f;
   }
   return;
-
-
 }
-
 
 
 
@@ -978,6 +969,7 @@ void AudioCmn_SetLevels__Fv(void)
 	// End Line: 989
 
 int AudioCmn_GetTimePhrase__Fi(int time)
+
 {
   char *pcVar1;
   int iVar2;
@@ -989,7 +981,7 @@ int AudioCmn_GetTimePhrase__Fi(int time)
   else {
     time = time >> 6;
   }
-  pcVar1 = "\x1e\f\x06\x05\x04\x03\x02\x01";
+  pcVar1 = &DAT_8010e758;
   iVar2 = 0;
   do {
     iVar3 = iVar2;
@@ -999,10 +991,7 @@ int AudioCmn_GetTimePhrase__Fi(int time)
     iVar2 = iVar3;
   } while (iVar3 < 0x19);
   return iVar3 + 0x35;
-
-
 }
-
 
 
 
@@ -1058,7 +1047,7 @@ int AudioCmn_GetTimePhrase__Fi(int time)
 				// Start offset: 0x800773AC
 				// Variables:
 			// 		struct CopSpeak_tRequest r; // stack offset -56
-			// 		unsigned int saidplayer; // $s3
+			// 		void * saidplayer; // $s3
 			// 		int opponents; // $s0
 
 				/* begin block 1.2.1.1 */
@@ -1117,40 +1106,44 @@ int AudioCmn_GetTimePhrase__Fi(int time)
 	// End Line: 1193
 
 void AudioCmn_CheckState__FP8Car_tObj(Car_tObj *car)
+
 {
   byte bVar1;
   bool bVar2;
+  uint uVar3;
   int patch;
   int patch_00;
-  uint uVar3;
+  uint uVar4;
   CopSpeak_tRequest CStack56;
   
   bVar1 = *(byte *)&car->carIndex;
-  uVar3 = (uint)bVar1;
-  if ((GameSetup_gData == 1) || (GameSetup_gData == 5)) {
-    if ((uRam00000260 & 0x200) != 0) {
+  uVar4 = (uint)bVar1;
+  if ((GameSetup_gData.raceType == 1) || (GameSetup_gData.raceType == 5)) {
+    if ((__Cars_gHumanRaceCarList_9__->carFlags & 0x200U) != 0) {
       return;
     }
-    if ((Cars_gNumHumanRaceCars == 2) && ((uRam00000260 & 0x200) != 0)) {
+    if ((Cars_gNumHumanRaceCars == 2) && ((PTR_8010fa4c->carFlags & 0x200U) != 0)) {
       return;
     }
   }
-  if (DAT_801131f0 == 1) {
+  if (GameSetup_gData.numLaps == 1) {
     return;
   }
-  patch_00 = car->carInLane;
-  if (false) {
+  patch_00 = (car->script).lastActionTime;
+  if (GameSetup_gData.reverseTrack != 0) {
     patch_00 = -patch_00;
   }
-  if (((car->stats).lap < DAT_801131f0) &&
-     (patch_00 = fixedmult(patch_00,0x50000),
-     0 < (car->stats).sliceTotal +
-         ((patch_00 / 6 + (patch_00 >> 0x1f) >> 0x10) - (patch_00 >> 0x1f)))) {
-    if ((iGp000000f4 == 0) || ((int)-(&gtotallaptimes)[uVar3] < iGp000000f4)) {
-      AudioCmn_GetAsyncSfx__Fiib(2,1,0);
+  if (((car->stats).lap < GameSetup_gData.numLaps) &&
+     (uVar3 = fixedmult(patch_00,(int)&DAT_00050000),
+     ((car->stats).lap + 1) * gNumSlices <
+     (car->stats).sliceTotal +
+     (((int)uVar3 / 6 + ((int)uVar3 >> 0x1f) >> 0x10) - ((int)uVar3 >> 0x1f)))) {
+    if ((DAT_000000f4 == 0) || (simGlobal.gameTicks - (&gtotallaptimes)[uVar4] < DAT_000000f4)) {
+      AudioCmn_GetAsyncSfx__Fiib(2,1,(void *)0x0);
     }
-    if (((car->stats).lap != 0) && ((int)-(&gtotallaptimes)[uVar3] < (int)(&bestLapTime)[uVar3])) {
-      AudioCmn_GetAsyncSfx__Fiib(2,0,0);
+    if (((car->stats).lap != 0) &&
+       (simGlobal.gameTicks - (&gtotallaptimes)[uVar4] < (&bestLapTime)[uVar4])) {
+      AudioCmn_GetAsyncSfx__Fiib(2,0,(void *)0x0);
     }
     patch_00 = Stats_GetNumOpponents__Fv();
     if (1 < patch_00) {
@@ -1164,45 +1157,45 @@ void AudioCmn_CheckState__FP8Car_tObj(Car_tObj *car)
         }
         patch = patch + 0x4f;
       }
-      if (DAT_801131f8 == 1) {
-        AudioCmn_GetAsyncSfx__Fiib(2,uVar3 + 0x33,0);
-        patch = patch + (uVar3 + 1) * 0x23;
+      if (GameSetup_gData.commMode == 1) {
+        AudioCmn_GetAsyncSfx__Fiib(2,uVar4 + 0x33,(void *)0x0);
+        patch = patch + (uVar4 + 1) * 0x23;
       }
-      AudioCmn_GetAsyncSfx__Fiib(2,patch,0);
+      AudioCmn_GetAsyncSfx__Fiib(2,patch,(void *)0x0);
     }
     patch_00 = (car->stats).lap;
-    if (patch_00 < DAT_801131f0 + -1) {
-      if (patch_00 < DAT_801131f0 + -2) {
+    if (patch_00 < GameSetup_gData.numLaps + -1) {
+      if (patch_00 < GameSetup_gData.numLaps + -2) {
         patch_00 = patch_00 + 5;
       }
       else {
         patch_00 = 2;
       }
-      AudioCmn_GetAsyncSfx__Fiib(2,patch_00,0);
+      AudioCmn_GetAsyncSfx__Fiib(2,patch_00,(void *)0x0);
     }
   }
-  if (car->lap == (uint)(byte)(&currentLap)[uVar3]) {
+  if (car->lap == (uint)(byte)(&currentLap)[uVar4]) {
     return;
   }
-  if ((&AudioCmn_gPlayerArrested)[uVar3] != 0) {
+  if ((&AudioCmn_gPlayerArrested)[uVar4] != 0) {
     return;
   }
   CopSpeak_InitRequest__FP17CopSpeak_tRequest(&CStack56);
   bVar2 = false;
-  if ((DAT_801131f8 == 1) &&
-     ((car->stats).time[(car->stats).lap + -1] < (int)(&bestLapTime)[car->carIndex])) {
-    CStack56.phrase = uVar3 + 0x33;
+  if ((GameSetup_gData.commMode == 1) &&
+     ((car->stats).time[(car->stats).lap + -1] < (&bestLapTime)[car->carIndex])) {
+    CStack56.phrase = uVar4 + 0x33;
     CopSpeak_Request__FP17CopSpeak_tRequest(&CStack56);
     bVar2 = true;
   }
-  if ((iGp000000f4 == 0) ||
-     (patch_00 = (car->stats).time[(car->stats).lap + -1], patch_00 < iGp000000f4)) {
+  if ((DAT_000000f4 == 0) ||
+     (patch_00 = (car->stats).time[(car->stats).lap + -1], patch_00 < DAT_000000f4)) {
     CStack56.phrase = 1;
-    iGp000000f4 = (car->stats).time[(car->stats).lap + -1];
-    (&bestLapTime)[car->carIndex] = iGp000000f4;
+    DAT_000000f4 = (car->stats).time[(car->stats).lap + -1];
+    (&bestLapTime)[car->carIndex] = DAT_000000f4;
   }
   else {
-    if ((int)(&bestLapTime)[car->carIndex] <= patch_00) goto LAB_800774e0;
+    if ((&bestLapTime)[car->carIndex] <= patch_00) goto LAB_800774e0;
     CStack56.phrase = 0;
     (&bestLapTime)[car->carIndex] = (car->stats).time[(car->stats).lap + -1];
   }
@@ -1211,13 +1204,13 @@ LAB_800774e0:
   patch_00 = Stats_GetNumOpponents__Fv();
   if (1 < patch_00) {
     patch = Stats_GetPosition__FP8Car_tObj(car);
-    if (car->lap < DAT_801131f0) {
+    if (car->lap < GameSetup_gData.numLaps) {
       if ((patch_00 < 3) && ((car->stats).checkpointDisplay != 0)) {
         patch_00 = AudioCmn_GetTimePhrase__Fi(-(car->stats).checkpointDifference);
         CStack56.phrase = patch_00;
-        if (((DAT_801131f8 == 1) && (CStack56.phrase = patch_00, !bVar2)) &&
+        if (((GameSetup_gData.commMode == 1) && (CStack56.phrase = patch_00, !bVar2)) &&
            ((patch_00 - 0x3bU < 3 || (CStack56.phrase = patch_00, patch_00 - 0x3fU < 0xf)))) {
-          CStack56.phrase = uVar3 + 0x33;
+          CStack56.phrase = uVar4 + 0x33;
           CopSpeak_Request__FP17CopSpeak_tRequest(&CStack56);
           bVar2 = true;
           CStack56.phrase = patch_00;
@@ -1229,12 +1222,12 @@ LAB_800774e0:
           CStack56.phrase = 0x57;
         }
       }
-      if ((DAT_801131f8 == 1) && (!bVar2)) {
-        CStack56.phrase = CStack56.phrase + (uVar3 + 1) * 0x23;
+      if ((GameSetup_gData.commMode == 1) && (!bVar2)) {
+        CStack56.phrase = CStack56.phrase + (uVar4 + 1) * 0x23;
       }
     }
     else {
-      if ((DAT_801131f8 != 1) || (bVar2)) {
+      if ((GameSetup_gData.commMode != 1) || (bVar2)) {
         CStack56.phrase = patch + 10;
         if ((patch == patch_00) && (CStack56.phrase = patch + 10, 2 < patch)) {
           CStack56.phrase = 0x12;
@@ -1258,25 +1251,22 @@ LAB_800774e0:
     CopSpeak_Request__FP17CopSpeak_tRequest(&CStack56);
   }
   patch_00 = (car->stats).lap;
-  if (patch_00 < DAT_801131f0) {
+  if (patch_00 < GameSetup_gData.numLaps) {
     CStack56.phrase = patch_00 + 4;
-    if (DAT_801131f0 + -1 <= patch_00) {
+    if (GameSetup_gData.numLaps + -1 <= patch_00) {
       CStack56.phrase = 2;
     }
     CopSpeak_Request__FP17CopSpeak_tRequest(&CStack56);
   }
-  if ((&currentLap)[uVar3] == '\0') {
-    (&bestLapTime)[uVar3] = -(&gtotallaptimes)[uVar3];
+  if ((&currentLap)[uVar4] == '\0') {
+    (&bestLapTime)[uVar4] = simGlobal.gameTicks - (&gtotallaptimes)[uVar4];
   }
-  (&currentLap)[uVar3] = *(char *)&car->lap;
-  (&gtotallaptimes)[uVar3] = (car->stats).lapTime;
-  iGp000000e4 = car->lap;
-  iGp000000e8 = car->lap;
+  (&currentLap)[uVar4] = *(char *)&car->lap;
+  (&gtotallaptimes)[uVar4] = (car->stats).lapTime;
+  DAT_000000e4 = car->lap;
+  DAT_000000e8 = car->lap;
   return;
-
-
 }
-
 
 
 
@@ -1293,18 +1283,18 @@ LAB_800774e0:
 	// End offset: 0x80077738
 	// End Line: 1202
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void AudioCmn_LoadFESamples__Fv(void)
+
 {
   char acStack112 [104];
   
-  strcpy(acStack112,(char *)0x0);
-  strcat(acStack112,"fesfx");
+  strcpy(acStack112,PTR_801164d8);
+  strcat(acStack112,s_fesfx_8013c684);
   AudioCmn_LoadBank__FPci(acStack112,0);
   return;
-
-
 }
-
 
 
 
@@ -1317,12 +1307,15 @@ void AudioCmn_LoadFESamples__Fv(void)
 		// Start offset: 0x8007777C
 		// Variables:
 	// 		char filename[100]; // stack offset -168
-	// 		char *TrackGenBank[11]; // stack offset -64
+	// 		char (*TrackGenBank[11]); // stack offset -64
 	/* end block 1 */
 	// End offset: 0x80077840
 	// End Line: 1231
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void AudioCmn_LoadGameSamples__Fv(void)
+
 {
   char **ppcVar1;
   char **ppcVar2;
@@ -1334,14 +1327,14 @@ void AudioCmn_LoadGameSamples__Fv(void)
   char acStack168 [104];
   char *local_40 [12];
   
-  AudioEng_StartUp__FiPc(0,"MSLK");
-  if (DAT_801131f8 == 1) {
-    AudioEng_StartUp__FiPc(1,"MSLK");
+  AudioEng_StartUp__FiPc(0,&GameSetup_gCarNames + GameSetup_gData.carInfo[0].carType * 5);
+  if (GameSetup_gData.commMode == 1) {
+    AudioEng_StartUp__FiPc(1,&GameSetup_gCarNames + GameSetup_gData.carInfo[1].carType * 5);
   }
   AudioEng_StartServer__Fv();
-  strcpy(acStack168,(char *)0x0);
-  strcat(acStack168,"Gen");
-  ppcVar1 = &PTR_DAT_8005570c;
+  strcpy(acStack168,PTR_801164d8);
+  strcat(acStack168,(char *)&PTR_DAT_8013c6a0);
+  ppcVar1 = &PTR_PTR_DAT_8005570c;
   ppcVar2 = local_40;
   do {
     ppcVar4 = ppcVar2;
@@ -1355,21 +1348,18 @@ void AudioCmn_LoadGameSamples__Fv(void)
     ppcVar4[3] = pcVar7;
     ppcVar1 = ppcVar3 + 4;
     ppcVar2 = ppcVar4 + 4;
-  } while (ppcVar3 + 4 != &PTR_DAT_8005572c);
+  } while (ppcVar3 + 4 != &PTR_PTR_DAT_8005572c);
   pcVar5 = ppcVar3[5];
   pcVar6 = ppcVar3[6];
-  ppcVar4[4] = "eng";
+  ppcVar4[4] = PTR_PTR_DAT_8005572c;
   ppcVar4[5] = pcVar5;
   ppcVar4[6] = pcVar6;
-  strcat(acStack168,local_40[0]);
+  strcat(acStack168,local_40[GameSetup_gData.track]);
   AudioCmn_LoadBank__FPci(acStack168,3);
-  DAT_8010e8c0 = 0xfffffffd;
-  DAT_8010e8e4 = 0xfffffffe;
+  SndBnk_t_8010e8c0.bnkID = -3;
+  SndBnk_t_8010e8e4.bnkID = -2;
   return;
-
-
 }
-
 
 
 
@@ -1386,25 +1376,25 @@ void AudioCmn_LoadGameSamples__Fv(void)
 	// End offset: 0x800778D8
 	// End Line: 1255
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void AudioCmn_InitChannelArray__Fv(void)
+
 {
-  undefined4 *puVar1;
+  Channels_t *pCVar1;
   int iVar2;
   
   iVar2 = 0;
-  puVar1 = &gaChannel;
+  pCVar1 = &gaChannel;
   do {
-    *puVar1 = 0xffffffff;
-    puVar1[1] = 0xffffffff;
+    pCVar1->Partial = -1;
+    pCVar1->SFXnum = -1;
     iVar2 = iVar2 + 1;
-    puVar1 = puVar1 + 2;
+    pCVar1 = pCVar1 + 1;
   } while (iVar2 < 0x47);
-  uGp0000018c = 0xffffffff;
+  DAT_0000018c = 0xffffffff;
   return;
-
-
 }
-
 
 
 
@@ -1422,6 +1412,7 @@ void AudioCmn_InitChannelArray__Fv(void)
 	// End Line: 1291
 
 int scaleFrequency__Fiii(int sndPlayer,int iSFXnum,int tweakedForce)
+
 {
   uint uVar1;
   uint uVar2;
@@ -1434,8 +1425,8 @@ int scaleFrequency__Fiii(int sndPlayer,int iSFXnum,int tweakedForce)
     }
   }
   else {
-    if ((&DAT_8010e900)[sndPlayer * 2] == iSFXnum) {
-      uVar2 = (uint)(byte)SkidInitMaxFreq[sndPlayer];
+    if ((&gaChannel)[sndPlayer].SFXnum == iSFXnum) {
+      uVar2 = (uint)(byte)(&SkidInitMaxFreq)[sndPlayer];
     }
     else {
       uVar1 = (tweakedForce * 0x7f) / 0xa0000;
@@ -1443,14 +1434,11 @@ int scaleFrequency__Fiii(int sndPlayer,int iSFXnum,int tweakedForce)
       if ((int)uVar1 < 0x80) {
         uVar2 = uVar1;
       }
-      SkidInitMaxFreq[sndPlayer] = (char)uVar2;
+      (&SkidInitMaxFreq)[sndPlayer] = (char)uVar2;
     }
   }
   return uVar2;
-
-
 }
-
 
 
 
@@ -1469,6 +1457,7 @@ int scaleFrequency__Fiii(int sndPlayer,int iSFXnum,int tweakedForce)
 	// End Line: 1424
 
 int ChooseImpactSample__Fi6s_typeT1(int force,s_type surface1,s_type surface2)
+
 {
   uint uVar1;
   int iVar2;
@@ -1538,7 +1527,7 @@ int ChooseImpactSample__Fi6s_typeT1(int force,s_type surface1,s_type surface2)
     else {
       uVar1 = 0x21;
     }
-    if (uVar1 != uGp00000160) {
+    if (uVar1 != DAT_00000160) {
       return uVar1;
     }
     if (uVar1 == 0x21) {
@@ -1593,7 +1582,7 @@ int ChooseImpactSample__Fi6s_typeT1(int force,s_type surface1,s_type surface2)
   else {
     uVar1 = 0x21;
   }
-  if (uVar1 != uGp00000160) {
+  if (uVar1 != DAT_00000160) {
     return uVar1;
   }
   if (uVar1 == 0x21) {
@@ -1629,10 +1618,7 @@ LAB_80077c70:
     return 0x25;
   }
   return iVar2;
-
-
 }
-
 
 
 
@@ -1650,6 +1636,7 @@ LAB_80077c70:
 	// End Line: 1452
 
 int ChooseLoopedSample__F6s_typeT0(s_type surface1,s_type surface2)
+
 {
   int iVar1;
   
@@ -1686,10 +1673,7 @@ LAB_80077cec:
     iVar1 = 0x2c;
   }
   return iVar1;
-
-
 }
-
 
 
 
@@ -1789,18 +1773,22 @@ LAB_80077cec:
 	// End offset: 0x800780A8
 	// End Line: 1575
 
-void AudioCmn_SFX__Fi6s_typeT1iii( (int sndPlayer,s_type surface1,s_type surface2,int tweakedForce,int Distsq, int azimuth)
+void AudioCmn_SFX__Fi6s_typeT1iii
+               (int sndPlayer,s_type surface1,s_type surface2,int tweakedForce,int Distsq,
+               int azimuth)
+
 {
   int iSFXnum;
   int force;
   int iVar1;
   int iVar2;
-  uint uVar3;
+  Car_tObj *pCVar3;
+  uint uVar4;
   int local_28;
   
-  if (iGp000000f8 != 0) {
+  if (DAT_000000f8 != 0) {
     if (Distsq < 0x1324) {
-      local_28 = ((0x1324 - Distsq) * 0x7f) / 0x1324;
+      local_28 = ((int)((int)&DAT_00001324 - Distsq) * 0x7f) / 0x1324;
     }
     else {
       local_28 = 0;
@@ -1826,9 +1814,9 @@ void AudioCmn_SFX__Fi6s_typeT1iii( (int sndPlayer,s_type surface1,s_type surface
       else {
         sndPlayer = 0x31;
         if (iSFXnum == 0x12) {
-          AudioCmn_PlaySound__Fiiiii(0,0x12,azimuth,0x7f,0x40);
-          AudioCmn_PlaySound__Fiiiii(0,0x16,azimuth,0x7f,0x40);
-          AudioCmn_PlaySound__Fiiiii(0,0x23,azimuth,local_28,0x40);
+          AudioCmn_PlaySound__Fiiiii(SndBnk_t_8010e8cc.bnkID,0x12,azimuth,0x7f,0x40);
+          AudioCmn_PlaySound__Fiiiii(SndBnk_t_8010e8cc.bnkID,0x16,azimuth,0x7f,0x40);
+          AudioCmn_PlaySound__Fiiiii(SndBnk_t_8010e8cc.bnkID,0x23,azimuth,local_28,0x40);
           return;
         }
         force = 0x40;
@@ -1841,13 +1829,13 @@ void AudioCmn_SFX__Fi6s_typeT1iii( (int sndPlayer,s_type surface1,s_type surface
           return;
         }
         freeVoiceChannel__Fi(sndPlayer + 4);
-        *(undefined4 *)((&_Cars_gList)[sndPlayer - 0x12U] + 0x790) = 0;
+        (&__Cars_gList_9__)[sndPlayer - 0x12U]->forceNoSimOptz = 0;
         return;
       }
       iSFXnum = ChooseLoopedSample__F6s_typeT0(surface1,surface2);
       force = scaleFrequency__Fiii(sndPlayer,iSFXnum,tweakedForce);
-      uVar3 = sndPlayer - 0x12;
-      if (uVar3 < 2) {
+      uVar4 = sndPlayer - 0x12;
+      if (uVar4 < 2) {
         iVar2 = (tweakedForce * 0x7f) / 0xa0000;
         iVar1 = 0x7f;
         if (iVar2 < 0x80) {
@@ -1856,15 +1844,15 @@ void AudioCmn_SFX__Fi6s_typeT1iii( (int sndPlayer,s_type surface1,s_type surface
         local_28 = local_28 * iVar1 >> 7;
         if (local_28 < 0x1f) {
           freeVoiceChannel__Fi(sndPlayer + 4);
-          *(undefined4 *)((&_Cars_gList)[uVar3] + 0x790) = 0;
+          (&__Cars_gList_9__)[uVar4]->forceNoSimOptz = 0;
         }
         else {
-          iVar2 = (&_Cars_gList)[uVar3];
-          if ((**(int **)(iVar2 + 0x288) < 0x1c) &&
-             (((0 < *(int *)(iVar2 + 0x854) && (0x1e0000 < *(int *)(iVar2 + 0x234))) ||
-              ((*(int *)(iVar2 + 0x854) < 0 && (0x1e0000 < *(int *)(iVar2 + 0x224))))))) {
+          pCVar3 = (&__Cars_gList_9__)[uVar4];
+          if ((pCVar3->carInfo->carType < 0x1c) &&
+             (((iVar2 = pCVar3->audio[5].force, 0 < iVar2 && (0x1e0000 < (pCVar3->N).damage[7])) ||
+              ((iVar2 < 0 && (0x1e0000 < (pCVar3->N).damage[3])))))) {
             AudioCmn_PlaySFX__Fiiiiii(sndPlayer + 4,0x28,force + 10,0x10000,local_28 * 3,azimuth);
-            *(int *)(iVar2 + 0x790) = local_28;
+            pCVar3->forceNoSimOptz = local_28;
           }
         }
       }
@@ -1875,10 +1863,7 @@ void AudioCmn_SFX__Fi6s_typeT1iii( (int sndPlayer,s_type surface1,s_type surface
     AudioCmn_PlaySFX__Fiiiiii(sndPlayer,iSFXnum,force,0x10000,local_28,azimuth);
   }
   return;
-
-
 }
-
 
 
 
@@ -1894,23 +1879,21 @@ void AudioCmn_SFX__Fi6s_typeT1iii( (int sndPlayer,s_type surface1,s_type surface
 	// End Line: 1593
 
 void freeVoiceChannel__Fi(int sndPlayer)
+
 {
-  int iVar1;
+  uint uVar1;
   
-  if ((true) && (sndPlayer != -1)) {
-    iVar1 = (&gaChannel)[sndPlayer * 2];
-    if (iVar1 != -1) {
-      SNDautovol(iVar1,5,0xffffffff);
-      (&gaChannel)[sndPlayer * 2] = -1;
-      (&DAT_8010e900)[sndPlayer * 2] = 0xffffffff;
-      NumSFXOn = NumSFXOn + -1;
+  if ((iGp000000f8 != 0) && (sndPlayer != -1)) {
+    uVar1 = (&gaChannel)[sndPlayer].Partial;
+    if (uVar1 != 0xffffffff) {
+      SNDautovol(uVar1,5,-1);
+      (&gaChannel)[sndPlayer].Partial = -1;
+      (&gaChannel)[sndPlayer].SFXnum = -1;
+      iGp00000124 = iGp00000124 + -1;
     }
   }
   return;
-
-
 }
-
 
 
 
@@ -1944,7 +1927,9 @@ void freeVoiceChannel__Fi(int sndPlayer)
 	// End offset: 0x80078378
 	// End Line: 1709
 
-int AudioCmn_PlayDoppleredSound__Fiiiiii( (int bhandle,int patchNum,int azimuth,int vol,int bend,int doppler)
+int AudioCmn_PlayDoppleredSound__Fiiiiii
+              (int bhandle,int patchNum,int azimuth,int vol,int bend,int doppler)
+
 {
   int iVar1;
   int iVar2;
@@ -1961,40 +1946,40 @@ int AudioCmn_PlayDoppleredSound__Fiiiiii( (int bhandle,int patchNum,int azimuth,
   SNDplaysetdef(&local_30);
   local_2c = (char)bhandle;
   if (patchNum == 0x7d) {
-    local_28 = (undefined)(gMasterSFXLevel * vol >> 7);
+    local_28 = (undefined)(iGp00000108 * vol >> 7);
     goto LAB_8007828c;
   }
   if (bhandle == -4) {
-    local_28 = (undefined)(gMasterFENarrationLevel * 0x81 >> 7);
+    local_28 = (undefined)(iGp00000110 * 0x81 >> 7);
     goto LAB_8007828c;
   }
-  if (bhandle == DAT_8010e8c0) {
+  if (bhandle == SndBnk_t_8010e8c0.bnkID) {
     iVar1 = vol * 0x28;
-    iVar2 = gMasterAmbientLevel;
+    iVar2 = iGp00000114;
 LAB_8007827c:
     iVar1 = iVar1 - vol;
   }
   else {
-    if (bhandle != DAT_8010e8e4) {
+    if (bhandle != SndBnk_t_8010e8e4.bnkID) {
       if ((patchNum == 0x16) || (patchNum == 0x12)) {
-        local_28 = (undefined)(gMasterSFXLevel * vol >> 7);
+        local_28 = (undefined)(iGp00000108 * vol >> 7);
         goto LAB_8007828c;
       }
       if ((patchNum != 3) ||
-         ((iVar1 = vol << 7, iVar2 = gMasterSFXLevel, bhandle != gSndBnk &&
-          (iVar2 = gMasterSFXLevel, bhandle != DAT_8010e8c0)))) {
+         ((iVar1 = vol << 7, iVar2 = iGp00000108, bhandle != gSndBnk.bnkID &&
+          (iVar2 = iGp00000108, bhandle != SndBnk_t_8010e8c0.bnkID)))) {
         if (patchNum == 0) {
           iVar1 = vol * 0xe;
-          iVar2 = gMasterEngineLevel;
+          iVar2 = iGp0000010c;
           goto LAB_80078280;
         }
         iVar1 = vol * 0x28;
-        iVar2 = gMasterSFXLevel;
+        iVar2 = iGp00000108;
       }
       goto LAB_8007827c;
     }
     iVar1 = vol * 0x82;
-    iVar2 = gMasterAmbientLevel;
+    iVar2 = iGp00000114;
   }
 LAB_80078280:
   local_28 = (undefined)(iVar2 * iVar1 >> 0xe);
@@ -2007,7 +1992,7 @@ LAB_8007828c:
   local_24 = (undefined2)(doppler >> 4);
   local_25 = Audio_direct3davail != 0;
   if (Audio_direct3davail == 0) {
-    if (gStereoMode == 0) {
+    if (iGp00000128 == 0) {
       local_29 = 0x40;
     }
     else {
@@ -2029,20 +2014,17 @@ LAB_8007828c:
     else {
       bank = (uint)(local_2c == -3);
     }
-    iVar2 = AudioCmn_GetAsyncSfx__Fiib(bank,patchNum,0);
+    iVar2 = AudioCmn_GetAsyncSfx__Fiib(bank,patchNum,(void *)0x0);
     local_2c = (char)iVar2;
     local_30 = 0;
   }
-  iVar2 = -1;
+  bank = 0xffffffff;
   if (-1 < local_2c) {
-    iVar2 = SNDplay(&local_30);
+    bank = SNDplay(&local_30);
   }
-  NumSFXOn = NumSFXOn + 1;
-  return iVar2;
-
-
+  iGp00000124 = iGp00000124 + 1;
+  return bank;
 }
-
 
 
 
@@ -2058,15 +2040,13 @@ LAB_8007828c:
 	// End Line: 1717
 
 int AudioCmn_PlaySound__Fiiiii(int bhandle,int patchNum,int azimuth,int vol,int bend)
+
 {
   int iVar1;
   
   iVar1 = AudioCmn_PlayDoppleredSound__Fiiiiii(bhandle,patchNum,azimuth,vol,bend,0x10000);
   return iVar1;
-
-
 }
-
 
 
 
@@ -2114,15 +2094,16 @@ int AudioCmn_PlaySound__Fiiiii(int bhandle,int patchNum,int azimuth,int vol,int 
 	// End offset: 0x80078878
 	// End Line: 1903
 
-int AudioCmn_PlaySFX__Fiiiiii( (int sndPlayer,int iSFXnum,int iFreqIn,int iDopplerIn,int iAmpIn,int azimuth)
+int AudioCmn_PlaySFX__Fiiiiii
+              (int sndPlayer,int iSFXnum,int iFreqIn,int iDopplerIn,int iAmpIn,int azimuth)
+
 {
-  int iVar1;
+  uint uVar1;
+  int iVar2;
   int bend;
   int vol;
-  uint uVar2;
   int bhandle;
-  undefined4 *puVar3;
-  int *piVar4;
+  Channels_t *pCVar3;
   
   if (iFreqIn < 0) {
     iFreqIn = 0;
@@ -2138,125 +2119,122 @@ int AudioCmn_PlaySFX__Fiiiiii( (int sndPlayer,int iSFXnum,int iFreqIn,int iDoppl
   if (iAmpIn < 0x80) {
     vol = iAmpIn;
   }
-  bhandle = DAT_8010e8e4;
-  if (((((3 < sndPlayer - 0x1cU) && (bhandle = DAT_8010e8e4, 3 < sndPlayer - 0x32U)) &&
-       (bhandle = DAT_8010e8e4, sndPlayer != 0x24)) &&
-      ((bhandle = DAT_8010e8e4, sndPlayer != 0x36 &&
-       (bhandle = DAT_8010e8e4, 0xf < sndPlayer - 0x37U)))) &&
-     ((bhandle = DAT_8010e8c0, 7 < sndPlayer - 10U &&
-      ((bhandle = DAT_8010e8c0, 1 < sndPlayer - 0x1aU && (bhandle = DAT_8010e8e4, iSFXnum != 0x7d)))
-      ))) {
-    if ((iSFXnum < 0x7e) &&
-       ((iSFXnum == 8 || (((7 < iSFXnum && (iSFXnum < 0xc)) && (9 < iSFXnum)))))) {
-      bhandle = 0;
-    }
-    else {
-      bhandle = (&gSndBnk)[(uint)(byte)(&gBankNumLookupTable)[sndPlayer * 4] * 3];
-    }
+  bhandle = SndBnk_t_8010e8e4.bnkID;
+  if ((((((3 < sndPlayer - 0x1cU) && (bhandle = SndBnk_t_8010e8e4.bnkID, 3 < sndPlayer - 0x32U)) &&
+        (bhandle = SndBnk_t_8010e8e4.bnkID, sndPlayer != 0x24)) &&
+       ((bhandle = SndBnk_t_8010e8e4.bnkID, sndPlayer != 0x36 &&
+        (bhandle = SndBnk_t_8010e8e4.bnkID, 0xf < sndPlayer - 0x37U)))) &&
+      ((bhandle = SndBnk_t_8010e8c0.bnkID, 7 < sndPlayer - 10U &&
+       ((bhandle = SndBnk_t_8010e8c0.bnkID, 1 < sndPlayer - 0x1aU &&
+        (bhandle = SndBnk_t_8010e8e4.bnkID, iSFXnum != 0x7d)))))) &&
+     ((0x7d < iSFXnum ||
+      ((bhandle = SndBnk_t_8010e8cc.bnkID, iSFXnum != 8 &&
+       (((iSFXnum < 8 || (0xb < iSFXnum)) || (bhandle = SndBnk_t_8010e8cc.bnkID, iSFXnum < 10)))))))
+     ) {
+    bhandle = (&gSndBnk)[(uint)*(byte *)(&gBankNumLookupTable + sndPlayer)].bnkID;
   }
   if (sndPlayer == 0x31) {
-    DAT_8010ea84 = AudioCmn_PlayDoppleredSound__Fiiiiii(bhandle,iSFXnum,azimuth,vol,bend,iDopplerIn)
-    ;
-    NumSFXOn = NumSFXOn + -1;
-    DAT_8010ea88 = iSFXnum;
+    Channels_t_8010ea84.Partial =
+         AudioCmn_PlayDoppleredSound__Fiiiiii(bhandle,iSFXnum,azimuth,vol,bend,iDopplerIn);
+    iGp00000124 = iGp00000124 + -1;
+    Channels_t_8010ea84.SFXnum = iSFXnum;
   }
   else {
-    puVar3 = &gaChannel + sndPlayer * 2;
-    if ((&DAT_8010e900)[sndPlayer * 2] == iSFXnum) {
-      iVar1 = SNDover(*puVar3);
-      if (iVar1 != 0) {
-        *puVar3 = 0xffffffff;
-        (&DAT_8010e900)[sndPlayer * 2] = 0xffffffff;
+    pCVar3 = &gaChannel + sndPlayer;
+    if ((&gaChannel)[sndPlayer].SFXnum == iSFXnum) {
+      uVar1 = SNDover(pCVar3->Partial);
+      if (uVar1 != 0) {
+        pCVar3->Partial = -1;
+        (&gaChannel)[sndPlayer].SFXnum = -1;
       }
       if ((bhandle < -1) &&
-         (iVar1 = AudioCmn_GetAsyncSfx__Fiib((uint)(bhandle == -3),iSFXnum,0), iVar1 == -1)) {
-        *puVar3 = 0xffffffff;
-        (&DAT_8010e900)[sndPlayer * 2] = 0xffffffff;
+         (iVar2 = AudioCmn_GetAsyncSfx__Fiib((uint)(bhandle == -3),iSFXnum,(void *)0x0), iVar2 == -1
+         )) {
+        pCVar3->Partial = -1;
+        (&gaChannel)[sndPlayer].SFXnum = -1;
       }
-      if ((&DAT_8010e900)[sndPlayer * 2] == iSFXnum) {
-        iVar1 = (&gaChannel)[sndPlayer * 2];
-        if (iVar1 == -1) {
-          (&DAT_8010e900)[sndPlayer * 2] = 0xffffffff;
+      if ((&gaChannel)[sndPlayer].SFXnum == iSFXnum) {
+        uVar1 = (&gaChannel)[sndPlayer].Partial;
+        if (uVar1 == 0xffffffff) {
+          (&gaChannel)[sndPlayer].SFXnum = -1;
         }
         else {
           if (iSFXnum == 0x7d) {
-            bhandle = gMasterSFXLevel * vol >> 7;
+            bhandle = iGp00000108 * vol >> 7;
           }
           else {
-            if (bhandle == DAT_8010e8c0) {
-              bhandle = gMasterAmbientLevel * vol * 0x27;
+            if (bhandle == SndBnk_t_8010e8c0.bnkID) {
+              bhandle = iGp00000114 * vol * 0x27;
             }
             else {
-              if (bhandle == DAT_8010e8e4) {
-                bhandle = gMasterAmbientLevel * vol * 0x82;
+              if (bhandle == SndBnk_t_8010e8e4.bnkID) {
+                bhandle = iGp00000114 * vol * 0x82;
               }
               else {
                 if (iSFXnum == 99) {
-                  bhandle = gMasterAmbientLevel * vol * 0x27;
+                  bhandle = iGp00000114 * vol * 0x27;
                 }
                 else {
-                  if ((iSFXnum == 3) && ((bhandle == gSndBnk || (bhandle == DAT_8010e8c0)))) {
-                    bhandle = gMasterSFXLevel * vol * 0x7f;
+                  if ((iSFXnum == 3) &&
+                     ((bhandle == gSndBnk.bnkID || (bhandle == SndBnk_t_8010e8c0.bnkID)))) {
+                    bhandle = iGp00000108 * vol * 0x7f;
                   }
                   else {
                     if (iSFXnum == 0) {
                       vol = vol * 0xe;
-                      bhandle = gMasterEngineLevel;
+                      bhandle = iGp0000010c;
                     }
                     else {
                       vol = vol * 0x27;
-                      bhandle = gMasterSFXLevel;
+                      bhandle = iGp00000108;
                     }
                     bhandle = bhandle * vol;
-                    iVar1 = (&gaChannel)[sndPlayer * 2];
+                    uVar1 = (&gaChannel)[sndPlayer].Partial;
                   }
                 }
               }
             }
             bhandle = bhandle >> 0xe;
           }
-          SNDvol(iVar1,bhandle);
+          SNDvol(uVar1,bhandle);
           if (Audio_direct3davail == 0) {
-            if (gStereoMode != 0) {
+            if (iGp00000128 != 0) {
               if (azimuth - 0x4000U < 0x8000) {
-                uVar2 = 0xbfff - azimuth;
+                uVar1 = 0xbfff - azimuth;
               }
               else {
-                uVar2 = azimuth + 0x4000U & 0xffff;
+                uVar1 = azimuth + 0x4000U & 0xffff;
               }
-              SNDpan((&gaChannel)[sndPlayer * 2],(int)uVar2 >> 8);
+              SNDpan((&gaChannel)[sndPlayer].Partial,(int)uVar1 >> 8);
             }
           }
           else {
-            SND3dpos((&gaChannel)[sndPlayer * 2],azimuth,0);
+            SND3dpos((&gaChannel)[sndPlayer].Partial,azimuth);
           }
-          SNDpitchbend((&gaChannel)[sndPlayer * 2],bend);
-          SNDpitchmult((&gaChannel)[sndPlayer * 2],iDopplerIn >> 4);
+          SNDpitchbend((&gaChannel)[sndPlayer].Partial,bend);
+          SNDpitchmult((&gaChannel)[sndPlayer].Partial,iDopplerIn >> 4);
         }
         goto LAB_8007887c;
       }
     }
-    piVar4 = &gaChannel + sndPlayer * 2;
-    if (*piVar4 != -1) {
-      SNDstop();
-      NumSFXOn = NumSFXOn + -1;
+    pCVar3 = &gaChannel + sndPlayer;
+    if (pCVar3->Partial != 0xffffffff) {
+      SNDstop(pCVar3->Partial);
+      iGp00000124 = iGp00000124 + -1;
     }
     bend = AudioCmn_PlayDoppleredSound__Fiiiiii(bhandle,iSFXnum,azimuth,vol,bend,iDopplerIn);
     if (bend == -1) {
-      *piVar4 = -1;
-      (&DAT_8010e900)[sndPlayer * 2] = 0xffffffff;
+      pCVar3->Partial = -1;
+      (&gaChannel)[sndPlayer].SFXnum = -1;
     }
     else {
-      *piVar4 = bend;
-      (&DAT_8010e900)[sndPlayer * 2] = iSFXnum;
+      pCVar3->Partial = bend;
+      (&gaChannel)[sndPlayer].SFXnum = iSFXnum;
     }
   }
 LAB_8007887c:
-  return (&gaChannel)[sndPlayer * 2];
-
-
+  return (&gaChannel)[sndPlayer].Partial;
 }
-
 
 
 
@@ -2299,38 +2277,41 @@ LAB_8007887c:
 	// End offset: 0x800790D4
 	// End Line: 2185
 
-void AudioCmn_SoundCar__FP8Car_tObjiiiiiii( (Car_tObj *car,int dst,int iFreqIn,int doppler,int azimuth,int trackazim,int relvel, int cardir)
+void AudioCmn_SoundCar__FP8Car_tObjiiiiiii
+               (Car_tObj *car,int dst,int iFreqIn,int doppler,int azimuth,int trackazim,int relvel,
+               int cardir)
+
 {
   byte bVar1;
   short sVar2;
   bool bVar3;
   int azimuth_00;
   int bend;
-  uint uVar4;
-  int iAmpIn;
-  undefined4 uVar5;
+  void *pvVar4;
+  uchar *puVar5;
+  uint uVar6;
+  uchar *puVar7;
   int sndPlayer;
   int sndPlayer_00;
-  uint uVar6;
-  int iVar7;
-  int gas;
   int iVar8;
+  int iAmpIn;
+  int gas;
   uint uVar9;
   int local_38;
   
   AudioCmn_CheckState__FP8Car_tObj(car);
-  if (iGp000000f8 == 0) {
+  if (DAT_000000f8 == 0) {
     return;
   }
-  uVar5 = 0x8000000;
-  if ((&DAT_8010f31c)[car->carIndex * 0x88] == 0xc) {
-    uVar5 = 0x10000000;
+  uVar6 = 0x8000000;
+  if ((&Camera_gInfo)[car->carIndex].mode == 0xc) {
+    uVar6 = 0x10000000;
     sndPlayer_00 = 0x10000;
   }
   else {
     sndPlayer_00 = 0x20000;
   }
-  sndPlayer_00 = fixeddiv(uVar5,dst + sndPlayer_00);
+  sndPlayer_00 = fixeddiv(uVar6,dst + sndPlayer_00);
   if (sndPlayer_00 < 0) {
     sndPlayer_00 = sndPlayer_00 + 0xffff;
   }
@@ -2339,9 +2320,9 @@ void AudioCmn_SoundCar__FP8Car_tObjiiiiiii( (Car_tObj *car,int dst,int iFreqIn,i
   if (azimuth_00 < 0) {
     azimuth_00 = -azimuth_00;
   }
-  iVar7 = 0;
+  iVar8 = 0;
   if (-1 < azimuth_00 + -0xd8000) {
-    iVar7 = azimuth_00 + -0xd8000 >> 0xf;
+    iVar8 = azimuth_00 + -0xd8000 >> 0xf;
   }
   azimuth_00 = azimuth_00 >> 0xf;
   if (0x7f < azimuth_00) {
@@ -2362,56 +2343,56 @@ void AudioCmn_SoundCar__FP8Car_tObjiiiiiii( (Car_tObj *car,int dst,int iFreqIn,i
   if (iFreqIn < 0) {
     iFreqIn = 0;
   }
-  iVar8 = (car->N).driveSurfaceType;
-  uVar4 = BWorldSm_TunnelFlagSm__FP12BWorldSm_Pos(&(car->N).simRoadInfo);
-  if (uVar4 == 0) {
-    if (bGp0000012d < 0x20) {
-      bGp0000012d = 0x20;
-      SNDfxmasterlevel(0);
-      uGp0000012c = 1;
+  gas = (car->N).driveSurfaceType;
+  pvVar4 = BWorldSm_TunnelFlagSm__FP12BWorldSm_Pos(&(car->N).simRoadInfo);
+  if (pvVar4 == (void *)0x0) {
+    if (DAT_0000012d < 0x20) {
+      DAT_0000012d = 0x20;
+      SNDfxmasterlevel(0,0x20);
+      DAT_0000012c = 1;
     }
     else {
-      if (0x20 < bGp0000012d) {
+      if (0x20 < DAT_0000012d) {
         uVar6 = 0x20;
-        if (0x1f < (int)((uint)bGp0000012d - 5)) {
-          uVar6 = (uint)bGp0000012d - 5;
+        if (0x1f < (int)((uint)DAT_0000012d - 5)) {
+          uVar6 = (uint)DAT_0000012d - 5;
         }
-        bGp0000012d = (byte)uVar6;
+        DAT_0000012d = (byte)uVar6;
         SNDfxmasterlevel(0,uVar6 & 0xff);
       }
     }
   }
   else {
-    if ((DAT_801131f8 != 1) && (bGp0000012d < 100)) {
+    if ((GameSetup_gData.commMode != 1) && (DAT_0000012d < 100)) {
       uVar6 = 100;
-      if ((uint)bGp0000012d + 10 < 0x65) {
-        uVar6 = (uint)bGp0000012d + 10;
+      if ((uint)DAT_0000012d + 10 < 0x65) {
+        uVar6 = (uint)DAT_0000012d + 10;
       }
-      bGp0000012d = (byte)uVar6;
+      DAT_0000012d = (byte)uVar6;
       SNDfxmasterlevel(0,uVar6 & 0xff);
-      uGp0000012c = 1;
+      DAT_0000012c = 1;
     }
-    iVar7 = iVar7 + 0x14;
+    iVar8 = iVar8 + 0x14;
     local_38 = 0x5e;
   }
   bVar3 = false;
-  if (DAT_801131f8 == 1) {
+  if (GameSetup_gData.commMode == 1) {
     bVar3 = true;
-    gas = 0xc002;
+    iAmpIn = 0xc002;
     if (car->carIndex != 0) {
-      gas = 0x3ffe;
+      iAmpIn = 0x3ffe;
     }
   }
   else {
-    gas = 0;
+    iAmpIn = 0;
   }
   if (car->blowout != 0) {
-    iVar8 = 4;
+    gas = 4;
     azimuth_00 = azimuth_00 << 1;
   }
   if (dst < 0x460000) {
-    iAmpIn = fixedmult(dst,dst);
-    azimuth_00 = ((0x13240000 - iAmpIn) / 0x1324) * azimuth_00;
+    uVar6 = fixedmult(dst,dst);
+    azimuth_00 = ((int)(0x13240000 - uVar6) / 0x1324) * azimuth_00;
     uVar6 = azimuth_00 >> 0x10;
     if (azimuth_00 < 0) {
       uVar6 = azimuth_00 + 0xffff >> 0x10;
@@ -2420,78 +2401,77 @@ void AudioCmn_SoundCar__FP8Car_tObjiiiiiii( (Car_tObj *car,int dst,int iFreqIn,i
   else {
     uVar6 = 0;
   }
-  if (true) {
-    switch(iVar8) {
-    case 2:
-    case 10:
-    case 0xb:
-    case 0xd:
-      azimuth_00 = iVar7;
-      if (iVar7 < 0) {
-        azimuth_00 = iVar7 + 3;
+  switch(gas) {
+  case 2:
+  case 10:
+  case 0xb:
+  case 0xd:
+    azimuth_00 = iVar8;
+    if (iVar8 < 0) {
+      azimuth_00 = iVar8 + 3;
+    }
+    iVar8 = iVar8 + (azimuth_00 >> 2);
+    local_38 = 0x18;
+    break;
+  case 4:
+  case 7:
+  case 0xc:
+    uVar9 = (int)(uint)(byte)(__sbss_size + 1) % bend;
+    if (bend == 0) {
+      trap(0x1c00);
+    }
+    if ((bend == -1) && ((uint)(byte)(__sbss_size + 1) == 0x80000000)) {
+      trap(0x1800);
+    }
+    __sbss_size = (char)uVar9;
+    if ((((uVar9 & 0xff) == 0) && ((car->N).objAltitude < 0x3333)) && (0 < DAT_00000108)) {
+      azimuth_00 = 0;
+      if (bVar3) {
+        azimuth_00 = iAmpIn;
       }
-      iVar7 = iVar7 + (azimuth_00 >> 2);
-      local_38 = 0x18;
-      break;
-    case 4:
-    case 7:
-    case 0xc:
-      uVar9 = (int)(uint)(byte)(cGp00000164 + 1) % bend;
-      if (bend == 0) {
-        trap(0x1c00);
+      bend = 0x40;
+      if (gas == 7) {
+        bend = 0x28;
       }
-      if ((bend == -1) && ((uint)(byte)(cGp00000164 + 1) == 0x80000000)) {
-        trap(0x1800);
-      }
-      cGp00000164 = (char)uVar9;
-      if ((((uVar9 & 0xff) == 0) && ((car->N).objAltitude < 0x3333)) && (0 < iGp00000108)) {
-        azimuth_00 = 0;
-        if (bVar3) {
-          azimuth_00 = gas;
-        }
-        bend = 0x40;
-        if (iVar8 == 7) {
-          bend = 0x28;
-        }
-        AudioCmn_PlaySound__Fiiiii(0,0x1d,azimuth_00,(int)(uVar6 + (uVar6 >> 0x1f)) >> 1,bend);
-      }
+      AudioCmn_PlaySound__Fiiiii
+                (SndBnk_t_8010e8cc.bnkID,0x1d,azimuth_00,(int)(uVar6 + (uVar6 >> 0x1f)) >> 1,bend);
     }
   }
-  if (iGp0000010c == 0) {
+  if (DAT_0000010c == 0) {
     return;
   }
-  sVar2 = (&DAT_8010f31c)[car->carIndex * 0x88];
+  sVar2 = (&Camera_gInfo)[car->carIndex].mode;
   if ((sVar2 < 0) ||
-     ((bend = 0, azimuth_00 = iVar7, 1 < sVar2 && (bend = 1, azimuth_00 = iVar7 >> 1, 4 < sVar2))))
+     ((bend = 0, azimuth_00 = iVar8, 1 < sVar2 && (bend = 1, azimuth_00 = iVar8 >> 1, 4 < sVar2))))
   {
     bend = 2;
-    azimuth_00 = iVar7 >> 1;
+    azimuth_00 = iVar8 >> 1;
   }
   uVar6 = (uint)(byte)(car->control).gasLevel;
-  iVar7 = (&PlayersRampedGasLevel)[car->carIndex];
-  if (iVar7 < (int)uVar6) {
-    iVar8 = (int)((uVar6 - iVar7) + (uVar6 - iVar7 >> 0x1f)) >> 1;
-    gas = iVar7 + iVar8;
+  puVar7 = (&PlayersRampedGasLevel)[car->carIndex];
+  if ((int)puVar7 < (int)uVar6) {
+    iVar8 = (int)((uVar6 - (int)puVar7) + (uVar6 - (int)puVar7 >> 0x1f)) >> 1;
+    puVar5 = puVar7 + iVar8;
     if (iVar8 < 1) {
-      gas = iVar7 + 1;
+      puVar5 = puVar7 + 1;
     }
   }
   else {
-    iVar8 = uVar6 - iVar7;
-    if (iVar7 <= (int)uVar6) goto LAB_80078d54;
+    iVar8 = uVar6 - (int)puVar7;
+    if ((int)puVar7 <= (int)uVar6) goto LAB_80078d54;
     if (iVar8 < 0) {
       iVar8 = iVar8 + 7;
     }
-    gas = iVar7 + -1;
+    puVar5 = puVar7 + -1;
     if (iVar8 >> 3 < 0) {
-      gas = iVar7 + (iVar8 >> 3);
+      puVar5 = puVar7 + (iVar8 >> 3);
     }
   }
-  (&PlayersRampedGasLevel)[car->carIndex] = gas;
+  (&PlayersRampedGasLevel)[car->carIndex] = puVar5;
 LAB_80078d54:
-  iVar7 = (&PlayersRampedGasLevel)[car->carIndex];
-  if (0xff < iVar7) {
-    iVar7 = 0xff;
+  puVar7 = (&PlayersRampedGasLevel)[car->carIndex];
+  if (0xff < (int)puVar7) {
+    puVar7 = (uchar *)0xff;
   }
   iVar8 = sndPlayer_00 * (iFreqIn + 0x28);
   if (iVar8 < 0) {
@@ -2503,7 +2483,7 @@ LAB_80078d54:
   }
   iVar8 = gas * 0x7f >> 7;
   sndPlayer_00 = azimuth_00 * gas >> 7;
-  if (uVar4 == 0) {
+  if (pvVar4 == (void *)0x0) {
     azimuth_00 = Weather_GetNumParticles__Fi(car->carIndex);
   }
   else {
@@ -2518,7 +2498,7 @@ LAB_80078d54:
   if (sndPlayer_00 < 0x80) {
     iAmpIn = sndPlayer_00;
   }
-  if ((relvel != 0) || ((&DAT_8010f31c)[car->carIndex * 0x88] == 0xb)) {
+  if ((relvel != 0) || ((&Camera_gInfo)[car->carIndex].mode == 0xb)) {
     sndPlayer_00 = iVar8 << 0x10;
     iVar8 = sndPlayer_00 / doppler;
     if (doppler == 0) {
@@ -2529,7 +2509,7 @@ LAB_80078d54:
     }
   }
   sndPlayer_00 = 0xe;
-  if ((bend == 0) && (sndPlayer_00 = 0, DAT_801131f8 == 1)) {
+  if ((bend == 0) && (sndPlayer_00 = 0, GameSetup_gData.commMode == 1)) {
     sndPlayer_00 = 0xe;
   }
   if (iAmpIn == 0) {
@@ -2547,17 +2527,17 @@ LAB_80078d54:
     AudioCmn_PlaySFX__Fiiiiii(sndPlayer,sndPlayer_00,local_38,doppler,iAmpIn,azimuth);
   }
   if (car->carIndex == 0) {
-    if ((DAT_80113234 == 1) && (azimuth_00 != 0)) {
+    if ((GameSetup_gData.Weather == 1) && (azimuth_00 != 0)) {
       AudioCmn_PlaySFX__Fiiiiii(0x1a,0,0x48 - gas,doppler,azimuth_00,0);
     }
     else {
       freeVoiceChannel__Fi(0x1a);
     }
   }
-  sndPlayer_00 = iVar7;
+  puVar5 = puVar7;
   if (((((car->control).gearShiftTimer != '\0') &&
-       (bVar1 = (car->control).lastGear, sndPlayer_00 = iVar7, bVar1 < (byte)(car->control).gear))
-      && (sndPlayer_00 = iVar7, bVar1 != 1)) && (sndPlayer_00 = iVar7, iVar7 != 0)) {
+       (bVar1 = (car->control).lastGear, puVar5 = puVar7, bVar1 < (byte)(car->control).gear)) &&
+      (puVar5 = puVar7, bVar1 != 1)) && (puVar5 = puVar7, puVar7 != (uchar *)0x0)) {
     bVar1 = (car->control).gearShiftTimer;
     sndPlayer_00 = car->specs->gearShiftDelay;
     if (sndPlayer_00 == 0) {
@@ -2567,42 +2547,39 @@ LAB_80078d54:
       trap(0x1800);
     }
     iVar8 = iVar8 + (int)(iVar8 * (uint)bVar1) / sndPlayer_00 >> 1;
-    sndPlayer_00 = iVar7 >> 2;
+    puVar5 = (uchar *)((int)puVar7 >> 2);
     if (bVar1 == 5) {
-      sndPlayer_00 = iVar7 - sndPlayer_00;
+      puVar5 = puVar7 + -(int)puVar5;
     }
     else {
       if (bVar1 == 4) {
-        sndPlayer_00 = iVar7 >> 1;
+        puVar5 = (uchar *)((int)puVar7 >> 1);
       }
       else {
-        if ((bVar1 != 3) && (sndPlayer_00 = iVar7, bVar1 < 3)) {
-          sndPlayer_00 = 0;
+        if ((bVar1 != 3) && (puVar5 = puVar7, bVar1 < 3)) {
+          puVar5 = (uchar *)0x0;
         }
       }
     }
-    (&PlayersRampedGasLevel)[car->carIndex] = sndPlayer_00;
+    (&PlayersRampedGasLevel)[car->carIndex] = puVar5;
   }
-  iVar7 = car->specs->redline;
-  azimuth_00 = car->flywheelRpm << 0x10;
-  if (iVar7 == 0) {
+  azimuth_00 = car->specs->redline;
+  sndPlayer_00 = car->flywheelRpm << 0x10;
+  if (azimuth_00 == 0) {
     trap(0x1c00);
   }
-  if ((iVar7 == -1) && (azimuth_00 == -0x80000000)) {
+  if ((azimuth_00 == -1) && (sndPlayer_00 == -0x80000000)) {
     trap(0x1800);
   }
   gas = 0x7f;
   if (car->revLimit == 0) {
-    gas = sndPlayer_00 >> 1;
+    gas = (int)puVar5 >> 1;
   }
   AudioEng_Set__Fiiiiiiii
-            (car->carIndex,iGp0000010c * iVar8 * 0xe >> 0xe,azimuth_00 / iVar7,gas,bend,doppler,
-             azimuth,cardir);
+            (car->carIndex,DAT_0000010c * iVar8 * 0xe >> 0xe,sndPlayer_00 / azimuth_00,gas,bend,
+             doppler,azimuth,cardir);
   return;
-
-
 }
-
 
 
 
@@ -2621,21 +2598,22 @@ LAB_80078d54:
 	// End offset: 0x80079360
 	// End Line: 2238
 
-void AudioCmn_TrafficSFX__Fiiiiiiii( (int iChan,int iSFXnum,int freq,int doppler,int dst,int azimuth,int relvel,int dir)
+void AudioCmn_TrafficSFX__Fiiiiiiii
+               (int iChan,int iSFXnum,int freq,int doppler,int dst,int azimuth,int relvel,int dir)
+
 {
   int iSFXnum_00;
-  int iSFXnum_01;
   uint uVar1;
-  undefined4 uVar2;
+  uint uVar2;
   int iVar3;
   int iDopplerIn;
   
   uVar1 = 0;
-  if (DAT_801131f8 == 1) {
+  if (GameSetup_gData.commMode == 1) {
     uVar1 = (uint)(iChan < 8) ^ 1;
   }
   uVar2 = 0x8000000;
-  if ((&DAT_8010f31c)[uVar1 * 0x88] == 0xc) {
+  if ((&Camera_gInfo)[uVar1].mode == 0xc) {
     uVar2 = 0x10000000;
     iVar3 = 0x10000;
   }
@@ -2648,38 +2626,36 @@ void AudioCmn_TrafficSFX__Fiiiiiiii( (int iChan,int iSFXnum,int freq,int doppler
   }
   iVar3 = iVar3 >> 0x10;
   if ((iVar3 == 0) && (iChan != -1)) {
-    if ((&gaChannel)[iChan * 2] != -1) {
+    if ((&gaChannel)[iChan].Partial != -1) {
       freeVoiceChannel__Fi(iChan);
     }
-    if ((&gaChannel)[(iChan + 4) * 2] != -1) {
+    if ((&gaChannel)[iChan + 4].Partial != -1) {
       freeVoiceChannel__Fi(iChan + 4);
     }
-    if ((&gaChannel)[(iChan + 8) * 2] != -1) {
+    if ((&gaChannel)[iChan + 8].Partial != -1) {
       freeVoiceChannel__Fi(iChan + 8);
     }
   }
   else {
-    iSFXnum_00 = fixedmult(freq + 0x3333,doppler);
-    iSFXnum_01 = CopSpeak_GetEnginePatch__Fii(iSFXnum,0);
-    iDopplerIn = (iSFXnum_00 * 0x50 >> 10) << 4;
+    uVar1 = fixedmult((int)(&DAT_00003333 + freq),doppler);
+    iSFXnum_00 = CopSpeak_GetEnginePatch__Fii(iSFXnum,0);
+    iDopplerIn = ((int)(uVar1 * 0x50) >> 10) << 4;
     AudioCmn_PlaySFX__Fiiiiii
-              (iChan + 4,iSFXnum_01,0x40,iDopplerIn,
-               (int)(iVar3 * (uint)(byte)(&UNK_8010e6cc)[(dir >> 0xc) - (dir >> 10)]) >> 7,azimuth);
+              (iChan + 4,iSFXnum_00,0x40,iDopplerIn,
+               (int)(iVar3 * (uint)(byte)(&CHAR___8010e6cc)[(dir >> 0xc) - (dir >> 10)]) >> 7,
+               azimuth);
     iSFXnum_00 = CopSpeak_GetEnginePatch__Fii(iSFXnum,1);
     AudioCmn_PlaySFX__Fiiiiii
               (iChan + 8,iSFXnum_00,0x40,iDopplerIn,
                (int)(iVar3 * (uint)(byte)(&Xfade)[(dir >> 10) - ((dir >> 0xc) + -0x40)]) >> 7,
                azimuth);
     if (0x280000 < relvel) {
-      relvel = 0x280000;
+      relvel = (int)&DAT_00280000;
     }
     AudioCmn_PlaySFX__Fiiiiii(iChan,99,freq,doppler,(iVar3 * relvel) / 0x280000,azimuth);
   }
   return;
-
-
 }
-
 
 
 
@@ -2696,19 +2672,21 @@ void AudioCmn_TrafficSFX__Fiiiiiiii( (int iChan,int iSFXnum,int freq,int doppler
 	// End offset: 0x80079434
 	// End Line: 2270
 
-void AudioCmn_TrafficSkidSFX__Fi6s_typeT1iii( (int sndPlayer,s_type surface1,s_type surface2,int force,int Distsq,int azimuth)
+void AudioCmn_TrafficSkidSFX__Fi6s_typeT1iii
+               (int sndPlayer,s_type surface1,s_type surface2,int force,int Distsq,int azimuth)
+
 {
   int iVar1;
   
-  if (iGp000000f8 != 0) {
+  if (DAT_000000f8 != 0) {
     if (Distsq < 0x1324) {
-      iVar1 = ((0x1324 - Distsq) * 0x7f) / 0x1324;
+      iVar1 = ((int)((int)&DAT_00001324 - Distsq) * 0x7f) / 0x1324;
     }
     else {
       iVar1 = 0;
     }
     if ((iVar1 == 0) && (sndPlayer != -1)) {
-      if ((&gaChannel)[sndPlayer * 2] != -1) {
+      if ((&gaChannel)[sndPlayer].Partial != -1) {
         freeVoiceChannel__Fi(sndPlayer);
       }
     }
@@ -2717,10 +2695,7 @@ void AudioCmn_TrafficSkidSFX__Fi6s_typeT1iii( (int sndPlayer,s_type surface1,s_t
     }
   }
   return;
-
-
 }
-
 
 
 
@@ -2740,21 +2715,22 @@ void AudioCmn_TrafficSkidSFX__Fi6s_typeT1iii( (int sndPlayer,s_type surface1,s_t
 	// End Line: 2301
 
 void AudioCmn_PlayerHornOn__Fiiiii(int carIndex,int Distsq,int iFreqIn,int azimuth,int doppler)
+
 {
-  int iVar1;
+  uint uVar1;
   int sndPlayer;
   int iSFXnum;
   int iAmpIn;
   
-  if (iGp000000f8 != 0) {
+  if (DAT_000000f8 != 0) {
     if (Distsq < 0x1324) {
-      iAmpIn = ((0x1324 - Distsq) * 0x7f) / 0x1324;
+      iAmpIn = ((int)((int)&DAT_00001324 - Distsq) * 0x7f) / 0x1324;
     }
     else {
       iAmpIn = 0;
     }
     iSFXnum = 3;
-    if (DAT_801131f8 == 1) {
+    if (GameSetup_gData.commMode == 1) {
       iSFXnum = 10;
       sndPlayer = 0x2a;
       if (carIndex == 0) {
@@ -2764,15 +2740,13 @@ void AudioCmn_PlayerHornOn__Fiiiii(int carIndex,int Distsq,int iFreqIn,int azimu
     else {
       sndPlayer = 0x29;
     }
-    if (((&gaChannel)[sndPlayer * 2] == -1) || (iVar1 = SNDover(), iVar1 == 0)) {
+    if (((&gaChannel)[sndPlayer].Partial == 0xffffffff) ||
+       (uVar1 = SNDover((&gaChannel)[sndPlayer].Partial), uVar1 == 0)) {
       AudioCmn_PlaySFX__Fiiiiii(sndPlayer,iSFXnum,iFreqIn,doppler,iAmpIn,azimuth);
     }
   }
   return;
-
-
 }
-
 
 
 
@@ -2790,35 +2764,34 @@ void AudioCmn_PlayerHornOn__Fiiiii(int carIndex,int Distsq,int iFreqIn,int azimu
 	// End Line: 2322
 
 int AudioCmn_PlayerHornOff__Fi(int carIndex)
+
 {
-  int iVar1;
+  uint uVar1;
   int sndPlayer;
   
-  if (iGp000000f8 == 0) {
+  if (DAT_000000f8 == 0) {
     return 0;
   }
   sndPlayer = 0x29;
   if (carIndex == 0) {
 LAB_8007957c:
-    if (DAT_801131f8 == 1) goto LAB_800795e8;
+    if (GameSetup_gData.commMode == 1) goto LAB_800795e8;
   }
   else {
-    if (DAT_801131f8 == 1) {
+    if (GameSetup_gData.commMode == 1) {
       sndPlayer = 0x2a;
       goto LAB_8007957c;
     }
   }
-  if (((**(int **)((&_Cars_gList)[carIndex] + 0x288) == 0x14) && ((&gaChannel)[sndPlayer * 2] != -1)
-      ) && (iVar1 = SNDover(), iVar1 == 0)) {
+  if ((((&__Cars_gList_9__)[carIndex]->carInfo->carType == 0x14) &&
+      ((&gaChannel)[sndPlayer].Partial != 0xffffffff)) &&
+     (uVar1 = SNDover((&gaChannel)[sndPlayer].Partial), uVar1 == 0)) {
     return 1;
   }
 LAB_800795e8:
   freeVoiceChannel__Fi(sndPlayer);
   return 0;
-
-
 }
-
 
 
 
@@ -2834,13 +2807,11 @@ LAB_800795e8:
 	// End Line: 2328
 
 void AudioCmn_PlayFESFX__Fi(int SFXnum)
+
 {
   AudioCmn_PlayFESFXVol__Fii(SFXnum,0x7f);
   return;
-
-
 }
-
 
 
 
@@ -2858,6 +2829,7 @@ void AudioCmn_PlayFESFX__Fi(int SFXnum)
 	// End Line: 2333
 
 void AudioCmn_PlayFESFXVol__Fii(int SFXnum,int vol)
+
 {
   int local_28;
   undefined local_24;
@@ -2870,16 +2842,13 @@ void AudioCmn_PlayFESFXVol__Fii(int SFXnum,int vol)
   local_1d = 0;
   local_1f = 0x40;
   local_21 = 0x40;
-  local_24 = (undefined)gSndBnk;
-  local_20 = (undefined)(iGp00000108 * vol * 0x78 >> 0xe);
+  local_24 = (undefined)gSndBnk.bnkID;
+  local_20 = (undefined)(DAT_00000108 * vol * 0x78 >> 0xe);
   local_28 = SFXnum;
   SNDplay(&local_28);
-  iGp00000124 = iGp00000124 + 1;
+  DAT_00000124 = DAT_00000124 + 1;
   return;
-
-
 }
-
 
 
 
@@ -2894,14 +2863,14 @@ void AudioCmn_PlayFESFXVol__Fii(int SFXnum,int vol)
 	// End offset: 0x800796AC
 	// End Line: 2371
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void AudioCmn_PlayWrongWaySFX__Fv(void)
+
 {
-  AudioCmn_PlaySound__Fiiiii(0,0x10,0,0x7f,0x40);
+  AudioCmn_PlaySound__Fiiiii(SndBnk_t_8010e8cc.bnkID,0x10,0,0x7f,0x40);
   return;
-
-
 }
-
 
 
 
@@ -2917,13 +2886,11 @@ void AudioCmn_PlayWrongWaySFX__Fv(void)
 	// End Line: 2376
 
 void AudioCmn_PlayPauseSound__Fi(int patch)
+
 {
-  iGp0000018c = AudioCmn_PlaySound__Fiiiii(0,patch,0,0x7f,0x40);
+  DAT_0000018c = AudioCmn_PlaySound__Fiiiii(SndBnk_t_8010e8cc.bnkID,patch,0,0x7f,0x40);
   return;
-
-
 }
-
 
 
 
@@ -2941,6 +2908,7 @@ void AudioCmn_PlayPauseSound__Fi(int patch)
 	// End Line: 2415
 
 void quickSirenOn__Fi(int sirennum)
+
 {
   int patchNum;
   
@@ -2949,13 +2917,10 @@ void quickSirenOn__Fi(int sirennum)
     patchNum = 6;
   }
   patchNum = AudioCmn_PlaySound__Fiiiii
-                       (0,patchNum,0x40,0,*(int *)(&sirenCurrentPitch + sirennum * 4));
-  (&gaChannel)[(sirennum + 0x2b) * 2] = patchNum;
+                       (SndBnk_t_8010e8cc.bnkID,patchNum,0x40,0,(&sirenCurrentPitch)[sirennum]);
+  (&gaChannel)[sirennum + 0x2b].Partial = patchNum;
   return;
-
-
 }
-
 
 
 
@@ -2971,16 +2936,15 @@ void quickSirenOn__Fi(int sirennum)
 	// End Line: 2419
 
 void SuperCopSirenOn__Fi(int sirennum)
+
 {
   int iVar1;
   
-  iVar1 = AudioCmn_PlaySound__Fiiiii(0,9,0x40,0,*(int *)(&sirenCurrentPitch + sirennum * 4));
-  (&gaChannel)[(sirennum + 0x2b) * 2] = iVar1;
+  iVar1 = AudioCmn_PlaySound__Fiiiii
+                    (SndBnk_t_8010e8cc.bnkID,9,0x40,0,(&sirenCurrentPitch)[sirennum]);
+  (&gaChannel)[sirennum + 0x2b].Partial = iVar1;
   return;
-
-
 }
-
 
 
 
@@ -2996,29 +2960,24 @@ void SuperCopSirenOn__Fi(int sirennum)
 	// End Line: 2438
 
 void SirenOn__Fii(int sirennum,int supercop)
+
 {
-  int iVar1;
-  
-  iVar1 = sirennum * 4;
-  if (*(int *)(&bSirenOn + iVar1) == 0) {
-    *(int *)(&bSirenOn + iVar1) = 1;
+  if ((&bSirenOn)[sirennum] == 0) {
+    (&bSirenOn)[sirennum] = 1;
     if (supercop == 0) {
-      *(undefined4 *)(&quickSirenActive + iVar1) = 1;
-      *(int *)(&sirenCount + iVar1) = iGp000001c4;
+      (&quickSirenActive)[sirennum] = 1;
+      (&sirenCount)[sirennum] = DAT_000001c4;
       quickSirenOn__Fi(sirennum);
-      iGp000001c4 = iGp000001c4 + 1;
+      DAT_000001c4 = DAT_000001c4 + 1;
     }
     else {
-      *(undefined4 *)(&quickSirenActive + iVar1) = 1;
-      *(undefined4 *)(&sirenCount + iVar1) = 0xffffffff;
+      (&quickSirenActive)[sirennum] = 1;
+      (&sirenCount)[sirennum] = -1;
       SuperCopSirenOn__Fi(sirennum);
     }
   }
   return;
-
-
 }
-
 
 
 
@@ -3034,23 +2993,18 @@ void SirenOn__Fii(int sirennum,int supercop)
 	// End Line: 2443
 
 void SirenOff__Fi(int sirennum)
+
 {
-  int iVar1;
-  
-  iVar1 = sirennum * 4;
-  *(undefined4 *)(&bSirenOn + iVar1) = 0;
-  *(undefined4 *)(&bSirenPitchingUp + iVar1) = 1;
-  *(undefined4 *)(&quickSirenActive + iVar1) = 0;
-  *(undefined4 *)(&sirenCurrentPitch + iVar1) = 0x20;
-  *(undefined4 *)(&slowSirenReps + iVar1) = 3;
-  *(undefined4 *)(&reachedSirenMin + iVar1) = 0;
-  *(undefined4 *)(&quickSirenTimeCount + iVar1) = 0;
-  SNDautovol((&gaChannel)[(sirennum + 0x2b) * 2],5,0xffffffff);
+  (&bSirenOn)[sirennum] = 0;
+  (&bSirenPitchingUp)[sirennum] = 1;
+  (&quickSirenActive)[sirennum] = 0;
+  (&sirenCurrentPitch)[sirennum] = 0x20;
+  (&slowSirenReps)[sirennum] = 3;
+  (&reachedSirenMin)[sirennum] = 0;
+  (&quickSirenTimeCount)[sirennum] = 0;
+  SNDautovol((&gaChannel)[sirennum + 0x2b].Partial,5,-1);
   return;
-
-
 }
-
 
 
 
@@ -3068,13 +3022,14 @@ void SirenOff__Fi(int sirennum)
 	// End Line: 2485
 
 void UpdateSiren__Fiiiii(int sirennum,int amp,int dop,int azimuth,int supercop)
+
 {
-  int iVar1;
-  uint uVar2;
+  uint uVar1;
+  int iVar2;
   
-  if (*(int *)(&bSirenOn + sirennum * 4) != 0) {
-    iVar1 = SNDover((&gaChannel)[(sirennum + 0x2b) * 2]);
-    if (iVar1 != 0) {
+  if ((&bSirenOn)[sirennum] != 0) {
+    uVar1 = SNDover((&gaChannel)[sirennum + 0x2b].Partial);
+    if (uVar1 != 0) {
       if (supercop == 0) {
         quickSirenOn__Fi(sirennum);
       }
@@ -3082,8 +3037,7 @@ void UpdateSiren__Fiiiii(int sirennum,int amp,int dop,int azimuth,int supercop)
         SuperCopSirenOn__Fi(sirennum);
       }
     }
-    *(int *)(&quickSirenTimeCount + sirennum * 4) =
-         *(int *)(&quickSirenTimeCount + sirennum * 4) + 1;
+    (&quickSirenTimeCount)[sirennum] = (&quickSirenTimeCount)[sirennum] + 1;
     if (dop < 0) {
       dop = dop + 0x3ff;
     }
@@ -3091,38 +3045,35 @@ void UpdateSiren__Fiiiii(int sirennum,int amp,int dop,int azimuth,int supercop)
     if (dop < 0) {
       dop = 0;
     }
-    iVar1 = 0x7f;
+    iVar2 = 0x7f;
     if (dop < 0x80) {
-      iVar1 = dop;
+      iVar2 = dop;
     }
-    SNDpitchbend((&gaChannel)[(sirennum + 0x2b) * 2],iVar1);
-    if (*(int *)(&sirenCount + sirennum * 4) == -1) {
+    SNDpitchbend((&gaChannel)[sirennum + 0x2b].Partial,iVar2);
+    if ((&sirenCount)[sirennum] == -1) {
       amp = amp * 0x25;
     }
     else {
       amp = amp * 0x2f;
     }
-    SNDvol((&gaChannel)[(sirennum + 0x2b) * 2],iGp00000114 * amp >> 0xe);
+    SNDvol((&gaChannel)[sirennum + 0x2b].Partial,DAT_00000114 * amp >> 0xe);
     if (Audio_direct3davail == 0) {
-      if (iGp00000128 != 0) {
+      if (DAT_00000128 != 0) {
         if (azimuth - 0x4000U < 0x8000) {
-          uVar2 = 0xbfff - azimuth;
+          uVar1 = 0xbfff - azimuth;
         }
         else {
-          uVar2 = azimuth + 0x4000U & 0xffff;
+          uVar1 = azimuth + 0x4000U & 0xffff;
         }
-        SNDpan((&gaChannel)[(sirennum + 0x2b) * 2],(int)uVar2 >> 8);
+        SNDpan((&gaChannel)[sirennum + 0x2b].Partial,(int)uVar1 >> 8);
       }
     }
     else {
-      SND3dpos((&gaChannel)[(sirennum + 0x2b) * 2],azimuth,0);
+      SND3dpos((&gaChannel)[sirennum + 0x2b].Partial,azimuth);
     }
   }
   return;
-
-
 }
-
 
 
 
@@ -3146,34 +3097,34 @@ void UpdateSiren__Fiiiii(int sirennum,int amp,int dop,int azimuth,int supercop)
 	// End offset: 0x80079BD8
 	// End Line: 2523
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void AudioCmn_Pause__Fv(void)
+
 {
-  int *piVar1;
+  Channels_t *pCVar1;
   int iVar2;
   
   CopSpeak_SilenceCop__FP8Car_tObji((Car_tObj *)0x0,0);
   iVar2 = 0;
-  piVar1 = &gaChannel;
+  pCVar1 = &gaChannel;
   do {
-    if (*piVar1 != -1) {
-      SNDvol(*piVar1,0);
+    if (pCVar1->Partial != 0xffffffff) {
+      SNDvol(pCVar1->Partial,0);
     }
     iVar2 = iVar2 + 1;
-    piVar1 = piVar1 + 2;
+    pCVar1 = pCVar1 + 1;
   } while (iVar2 < 0x47);
   AudioMus_Volume__Fi(0);
-  if (cGp0000012c != '\0') {
+  if (DAT_0000012c != '\0') {
     AudioCmn_ReverbOff__Fv();
   }
   AudioEng_Pause__Fv();
   SNDstopall();
-  uGp00000104 = DAT_801132dc;
-  uGp00000108 = DAT_801132e0;
+  DAT_00000104 = GameSetup_gData.userSetting.musicLevel;
+  DAT_00000108 = GameSetup_gData.userSetting.sfxLevel;
   return;
-
-
 }
-
 
 
 
@@ -3188,29 +3139,29 @@ void AudioCmn_Pause__Fv(void)
 	// End offset: 0x80079C6C
 	// End Line: 2537
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void AudioCmn_UnPause__Fv(void)
+
 {
   uint uVar1;
   int iVar2;
   int iVar3;
   
   SNDmastervol(0x7f);
-  iVar2 = iGp00000104 << 3;
-  iVar3 = iGp00000104;
-  if (0x55 < iGp00000104) {
-    uVar1 = (iGp00000104 + -0x55) * 7;
+  iVar2 = DAT_00000104 << 3;
+  iVar3 = DAT_00000104;
+  if (0x55 < DAT_00000104) {
+    uVar1 = (DAT_00000104 + -0x55) * 7;
     iVar3 = ((int)(uVar1 + (uVar1 >> 0x1f)) >> 1) + 0x55;
     iVar2 = iVar3 * 8;
   }
   AudioMus_Volume__Fi((iVar2 * 4 + iVar3 * 3) * 2 >> 7);
   AudioEng_Resume__Fv();
-  DAT_801132dc = iGp00000104;
-  DAT_801132e0 = uGp00000108;
+  GameSetup_gData.userSetting.musicLevel = DAT_00000104;
+  GameSetup_gData.userSetting.sfxLevel = DAT_00000108;
   return;
-
-
 }
-
 
 
 
@@ -3236,43 +3187,44 @@ void AudioCmn_UnPause__Fv(void)
 	// End offset: 0x80079D74
 	// End Line: 2573
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void AudioCmn_UnPauseAndQuit__Fv(void)
+
 {
-  int iVar1;
-  int *piVar2;
+  uint uVar1;
+  Channels_t *pCVar2;
+  int iVar3;
   
-  while (iVar1 = SNDover(uGp0000018c), iVar1 == 0) {
+  while (uVar1 = SNDover(DAT_0000018c), uVar1 == 0) {
     systemtask(0);
   }
-  iVar1 = 0;
+  iVar3 = 0;
   CopSpeak_Stop__Fv();
   SNDmastervol(0);
   AudioMus_StopSong__Fi(0);
-  piVar2 = &gaChannel;
+  pCVar2 = &gaChannel;
   do {
-    if (*piVar2 != -1) {
-      SNDstop();
-      *piVar2 = -1;
-      piVar2[1] = -1;
+    if (pCVar2->Partial != 0xffffffff) {
+      SNDstop(pCVar2->Partial);
+      pCVar2->Partial = -1;
+      pCVar2->SFXnum = -1;
     }
-    iVar1 = iVar1 + 1;
-    piVar2 = piVar2 + 2;
-  } while (iVar1 < 0x47);
-  DAT_801132e0 = uGp00000108;
-  DAT_801132dc = uGp00000104;
-  if (cGp0000012c != '\0') {
+    iVar3 = iVar3 + 1;
+    pCVar2 = pCVar2 + 1;
+  } while (iVar3 < 0x47);
+  GameSetup_gData.userSetting.sfxLevel = DAT_00000108;
+  GameSetup_gData.userSetting.musicLevel = DAT_00000104;
+  if (DAT_0000012c != '\0') {
     AudioCmn_ReverbOff__Fv();
   }
-  iVar1 = 0;
+  iVar3 = 0;
   do {
-    SNDmastervol(iVar1);
-    iVar1 = iVar1 + 1;
-  } while (iVar1 < 0x80);
+    SNDmastervol((char)iVar3);
+    iVar3 = iVar3 + 1;
+  } while (iVar3 < 0x80);
   return;
-
-
 }
-
 
 
 
@@ -3298,46 +3250,47 @@ void AudioCmn_UnPauseAndQuit__Fv(void)
 	// End offset: 0x80079E54
 	// End Line: 2605
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void AudioCmn_UnPauseAndRestart__Fv(void)
+
 {
-  int iVar1;
-  int *piVar2;
+  uint uVar1;
+  Channels_t *pCVar2;
+  int iVar3;
   
   SPCH_ClearEventQueue();
-  while (iVar1 = SNDover(uGp0000018c), iVar1 == 0) {
+  while (uVar1 = SNDover(DAT_0000018c), uVar1 == 0) {
     systemtask(0);
   }
-  iVar1 = 0;
+  iVar3 = 0;
   CopSpeak_Cancel__Fv();
   SNDmastervol(0);
   AudioCmn_DeInitAsyncSfx__Fv();
   AudioMus_StopSong__Fi(0);
-  piVar2 = &gaChannel;
+  pCVar2 = &gaChannel;
   do {
-    if (*piVar2 != -1) {
-      SNDstop();
-      *piVar2 = -1;
-      piVar2[1] = -1;
+    if (pCVar2->Partial != 0xffffffff) {
+      SNDstop(pCVar2->Partial);
+      pCVar2->Partial = -1;
+      pCVar2->SFXnum = -1;
     }
-    iVar1 = iVar1 + 1;
-    piVar2 = piVar2 + 2;
-  } while (iVar1 < 0x47);
-  iVar1 = 0;
+    iVar3 = iVar3 + 1;
+    pCVar2 = pCVar2 + 1;
+  } while (iVar3 < 0x47);
+  iVar3 = 0;
   do {
-    SNDmastervol(iVar1);
-    iVar1 = iVar1 + 1;
-  } while (iVar1 < 0x80);
-  if (cGp0000012c != '\0') {
+    SNDmastervol((char)iVar3);
+    iVar3 = iVar3 + 1;
+  } while (iVar3 < 0x80);
+  if (DAT_0000012c != '\0') {
     AudioCmn_ReverbOff__Fv();
   }
-  DAT_801132e0 = uGp00000108;
-  DAT_801132dc = uGp00000104;
+  GameSetup_gData.userSetting.sfxLevel = DAT_00000108;
+  GameSetup_gData.userSetting.musicLevel = DAT_00000104;
   AudioCmn_Init__Fv();
   return;
-
-
 }
-
 
 
 
@@ -3352,17 +3305,17 @@ void AudioCmn_UnPauseAndRestart__Fv(void)
 	// End offset: 0x80079E88
 	// End Line: 2613
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void AudioCmn_InitReverb__Fv(void)
+
 {
   SNDfxinitbus(0,0x7f,10,0xffffffff,0xffffffff);
-  uGp0000012d = 0;
+  DAT_0000012d = 0;
   SNDfxmasterlevel(0,0);
-  uGp0000012c = 0;
+  DAT_0000012c = 0;
   return;
-
-
 }
-
 
 
 
@@ -3377,16 +3330,16 @@ void AudioCmn_InitReverb__Fv(void)
 	// End offset: 0x80079ECC
 	// End Line: 2632
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void AudioCmn_ReverbOff__Fv(void)
+
 {
   SNDfxmasterlevel(0,0);
-  uGp0000012c = 0;
-  uGp0000012d = 0;
+  DAT_0000012c = 0;
+  DAT_0000012d = 0;
   return;
-
-
 }
-
 
 
 

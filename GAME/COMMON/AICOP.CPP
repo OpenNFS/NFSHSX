@@ -28,29 +28,29 @@
 	// End offset: 0x80066A38
 	// End Line: 124
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void AICop_StartUp__Fv(void)
+
 {
   char *rawTriggers;
   char acStack112 [104];
   
-  if (DAT_80113200 != 0) {
-    _triggerManagerCops = (AITrigger_TriggerManager *)__builtin_new(0x34c);
-    sprintf(acStack112,"%sTr%02d.cop",0,0);
-    pcGp00000024 = (char *)loadfileadrz(acStack112,0);
-    rawTriggers = pcGp00000024;
-    if (pcGp00000024 == (char *)0x0) {
+  if (GameSetup_gData.cops != 0) {
+    triggerManagerCops = (AITrigger_TriggerManager *)__builtin_new(0x34c);
+    sprintf(acStack112,s__sTr_02d_cop_80055200,PTR_801164c0,GameSetup_gData.track);
+    DAT_00000024 = (char *)loadfileadrz(acStack112,0);
+    rawTriggers = DAT_00000024;
+    if (DAT_00000024 == (char *)0x0) {
       rawTriggers = (char *)0x0;
     }
-    Init__24AITrigger_TriggerManagerPc(_triggerManagerCops,rawTriggers);
+    Init__24AITrigger_TriggerManagerPc(triggerManagerCops,rawTriggers);
   }
-  AICop_spikeBelt = 0;
-  uGp00000028 = 0;
-  uGp0000002c = 0;
+  DAT_00000028 = 0;
+  DAT_0000002c = 0;
+  AICop_spikeBelt.active_ = 0;
   return;
-
-
 }
-
 
 
 
@@ -79,19 +79,19 @@ void AICop_StartUp__Fv(void)
 	// End offset: 0x80066A8C
 	// End Line: 146
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void AICop_Restart__Fv(void)
+
 {
-  if ((pcGp00000024 != (char *)0x0) && (DAT_80113200 != 0)) {
-    Init__24AITrigger_TriggerManagerPc(_triggerManagerCops,pcGp00000024);
+  if ((DAT_00000024 != (char *)0x0) && (GameSetup_gData.cops != 0)) {
+    Init__24AITrigger_TriggerManagerPc(triggerManagerCops,DAT_00000024);
   }
-  AICop_spikeBelt = 0;
-  uGp00000028 = 0;
-  uGp0000002c = 0;
+  DAT_00000028 = 0;
+  DAT_0000002c = 0;
+  AICop_spikeBelt.active_ = 0;
   return;
-
-
 }
-
 
 
 
@@ -106,21 +106,21 @@ void AICop_Restart__Fv(void)
 	// End offset: 0x80066AF8
 	// End Line: 168
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void AICop_CleanUp__Fv(void)
+
 {
-  if (_triggerManagerCops != (void *)0x0) {
-    __builtin_delete(_triggerManagerCops);
-    _triggerManagerCops = (void *)0x0;
+  if (triggerManagerCops != (AITrigger_TriggerManager *)0x0) {
+    __builtin_delete(triggerManagerCops);
+    triggerManagerCops = (AITrigger_TriggerManager *)0x0;
   }
-  if ((iGp00000024 != 0) && (DAT_80113200 != 0)) {
-    purgememadr();
-    iGp00000024 = 0;
+  if ((DAT_00000024 != 0) && (GameSetup_gData.cops != 0)) {
+    purgememadr(DAT_00000024);
+    DAT_00000024 = 0;
   }
   return;
-
-
 }
-
 
 
 
@@ -154,18 +154,19 @@ void AICop_CleanUp__Fv(void)
 	// End Line: 186
 
 int AICop_NoCopsInArea__Fii(int slice,int sliceDistance)
+
 {
   int iVar1;
   Car_tObj **ppCVar2;
   int iVar3;
   
   iVar3 = 0;
-  ppCVar2 = (Car_tObj **)&_Cars_gCopCarList;
+  ppCVar2 = &__Cars_gCopCarList_9__;
   do {
     if (Cars_gNumCopCars <= iVar3) {
       return 1;
     }
-    if (((*ppCVar2)->desiredLatPos & 4U) == 0) {
+    if ((((*ppCVar2)->speechInfo).speechSource & 4) == 0) {
       iVar1 = AIWorld_ApxSplineDistance__FP8Car_tObji(*ppCVar2,slice);
       if (iVar1 < 0) {
         iVar1 = -iVar1;
@@ -177,10 +178,7 @@ int AICop_NoCopsInArea__Fii(int slice,int sliceDistance)
     ppCVar2 = ppCVar2 + 1;
     iVar3 = iVar3 + 1;
   } while( true );
-
-
 }
-
 
 
 

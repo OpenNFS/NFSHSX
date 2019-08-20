@@ -41,11 +41,11 @@ extern int BWorldSm_FindEdgeOff__FP8coorddefP12BWorldSm_PosT1Pi(struct coorddef 
 
 extern int BWorldSm_QuadLight__FP12BWorldSm_Pos(struct BWorldSm_Pos *slicePos); // 0x8007FE44
 
-extern unsigned int BWorldSm_TunnelFlagSm__FP12BWorldSm_Pos(struct BWorldSm_Pos *slicePos); // 0x8007FFD4
+extern void * BWorldSm_TunnelFlagSm__FP12BWorldSm_Pos(struct BWorldSm_Pos *slicePos); // 0x8007FFD4
 
 extern void NormalCache_AddEntry__FP12BWorldSm_Pos(struct BWorldSm_Pos *slicePos); // 0x8008002C
 
-extern unsigned int NormalCache_FindEntry__FP12BWorldSm_Pos(struct BWorldSm_Pos *slicePos); // 0x800800E8
+extern void * NormalCache_FindEntry__FP12BWorldSm_Pos(struct BWorldSm_Pos *slicePos); // 0x800800E8
 
 extern void NormalCache_Init__Fv(); // 0x800801AC
 

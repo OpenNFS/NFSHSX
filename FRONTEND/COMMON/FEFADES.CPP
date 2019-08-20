@@ -16,18 +16,18 @@
 	// End offset: 0x8004B7F8
 	// End Line: 27
 
+/* WARNING: Control flow encountered bad instruction data */
+
 int CalcFadeVal__Fiii(int col1,int col2,int amount)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -42,18 +42,18 @@ int CalcFadeVal__Fiii(int col1,int col2,int amount)
 	// End offset: 0x8004B888
 	// End Line: 35
 
+/* WARNING: Control flow encountered bad instruction data */
+
 int CalcFadeVal__Fii(int col1,int amount)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -68,18 +68,18 @@ int CalcFadeVal__Fii(int col1,int amount)
 	// End offset: 0x8004B8AC
 	// End Line: 40
 
+/* WARNING: Control flow encountered bad instruction data */
+
 int CalcFadeVal__Fiiii(int col1,int col2,int amount,int fFade)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -122,18 +122,18 @@ int CalcFadeVal__Fiiii(int col1,int col2,int amount,int fFade)
 	// End offset: 0x8004B8E0
 	// End Line: 45
 
+/* WARNING: Control flow encountered bad instruction data */
+
 int CalcTextFadeUnselToSel__F13tMenuTextTypess(tMenuTextType type,short fSelFade,short fFade)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -176,18 +176,18 @@ int CalcTextFadeUnselToSel__F13tMenuTextTypess(tMenuTextType type,short fSelFade
 	// End offset: 0x8004B950
 	// End Line: 54
 
+/* WARNING: Control flow encountered bad instruction data */
+
 int CalcTextFadeSelToHi__F13tMenuTextTypess(tMenuTextType type,short fSelFade,short fFade)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -249,18 +249,20 @@ int CalcTextFadeSelToHi__F13tMenuTextTypess(tMenuTextType type,short fSelFade,sh
 	// End offset: 0x8004B9D4
 	// End Line: 66
 
-void CalcOnOffFade__F13tMenuTextTypesssRiT4( (tMenuTextType type,short fOnOffFade,short fSelFade,short fFade,int *OnColor, int *OffColor)
+/* WARNING: Control flow encountered bad instruction data */
+
+void CalcOnOffFade__F13tMenuTextTypesssRiT4
+               (tMenuTextType type,short fOnOffFade,short fSelFade,short fFade,int *OnColor,
+               int *OffColor)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 

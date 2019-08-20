@@ -13,9 +13,9 @@ extern void LoadDescription__13tTrackManager(struct tTrackManager *this); // 0x8
 
 extern void ReleaseDescription__13tTrackManager(struct tTrackManager *this); // 0x80021C4C
 
-extern void SetTrackAvailable__13tTrackManagersb(struct tTrackManager *this, short track, unsigned int avail); // 0x80021C8C
+extern void SetTrackAvailable__13tTrackManagersb(struct tTrackManager *this, short track, void * avail); // 0x80021C8C
 
-extern void SetClassAvailable__13tTrackManager15tTrackClassTypeb(struct tTrackManager *this, enum tTrackClassType trackClass, unsigned int avail); // 0x80021CA0
+extern void SetClassAvailable__13tTrackManager15tTrackClassTypeb(struct tTrackManager *this, enum tTrackClassType trackClass, void * avail); // 0x80021CA0
 
 extern struct tTrackInformation * GetTrackByID__13tTrackManagers(struct tTrackManager *this, short track); // 0x80021D00
 
@@ -29,6 +29,6 @@ extern void Increment__18tListIteratorTrack7tPlayer(struct tListIteratorTrack *t
 
 extern void Decrement__18tListIteratorTrack7tPlayer(struct tListIteratorTrack *this, enum tPlayer atIndex); // 0x80021EC0
 
-extern unsigned int ValidTrack__18tListIteratorTrackc(struct tListIteratorTrack *this, char track); // 0x80021F50
+extern void * ValidTrack__18tListIteratorTrackc(struct tListIteratorTrack *this, char track); // 0x80021F50
 
 #endif

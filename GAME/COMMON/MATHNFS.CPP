@@ -21,6 +21,7 @@
 	// End Line: 39
 
 int Math_DistXZ__FP8coorddefT0(coorddef *a,coorddef *b)
+
 {
   int iVar1;
   int iVar2;
@@ -37,10 +38,7 @@ int Math_DistXZ__FP8coorddefT0(coorddef *a,coorddef *b)
     return iVar2 + (iVar1 >> 2);
   }
   return iVar1 + (iVar2 >> 2);
-
-
 }
-
 
 
 
@@ -62,6 +60,7 @@ int Math_DistXZ__FP8coorddefT0(coorddef *a,coorddef *b)
 	// End Line: 54
 
 int Math_Dist3D__FP8coorddefT0(coorddef *a,coorddef *b)
+
 {
   int iVar1;
   int iVar2;
@@ -89,10 +88,7 @@ int Math_Dist3D__FP8coorddefT0(coorddef *a,coorddef *b)
     return iVar3 + (iVar2 >> 2);
   }
   return iVar2 + (iVar3 >> 2);
-
-
 }
-
 
 
 
@@ -111,6 +107,7 @@ int Math_Dist3D__FP8coorddefT0(coorddef *a,coorddef *b)
 	// End Line: 80
 
 int Math_BetterDist__Fii(int a,int b)
+
 {
   int iVar1;
   int iVar2;
@@ -146,10 +143,7 @@ int Math_BetterDist__Fii(int a,int b)
     iVar1 = b + (iVar5 >> 3) + iVar4 + iVar2 + iVar2 + iVar4 + iVar2 + iVar4 + iVar1;
   }
   return iVar1 + iVar3 + (iVar5 >> 0x10);
-
-
 }
-
 
 
 
@@ -169,28 +163,26 @@ int Math_BetterDist__Fii(int a,int b)
 	// End Line: 100
 
 void Math_ResolveRotatedVector__FiiiPiT3(int x,int y,int angle,int *newx,int *newy)
+
 {
-  undefined4 uVar1;
-  undefined4 uVar2;
-  int iVar3;
-  int iVar4;
+  undefined *puVar1;
+  undefined *puVar2;
+  uint uVar3;
+  uint uVar4;
   
   if (angle < 0) {
     angle = angle + 0xff;
   }
-  uVar1 = fixedsin(angle >> 8);
-  uVar2 = fixedcos(angle >> 8);
-  iVar3 = fixedmult(uVar2,x);
-  iVar4 = fixedmult(uVar1,y);
-  *newx = iVar3 - iVar4;
-  iVar3 = fixedmult(uVar1,x);
-  iVar4 = fixedmult(uVar2,y);
-  *newy = iVar3 + iVar4;
+  puVar1 = fixedsin(angle >> 8);
+  puVar2 = fixedcos(angle >> 8);
+  uVar3 = fixedmult((int)puVar2,x);
+  uVar4 = fixedmult((int)puVar1,y);
+  *newx = uVar3 - uVar4;
+  uVar3 = fixedmult((int)puVar1,x);
+  uVar4 = fixedmult((int)puVar2,y);
+  *newy = uVar3 + uVar4;
   return;
-
-
 }
-
 
 
 
@@ -218,6 +210,7 @@ void Math_ResolveRotatedVector__FiiiPiT3(int x,int y,int angle,int *newx,int *ne
 	// End Line: 200
 
 int Math_VectorLength__FP8coorddef(coorddef *v)
+
 {
   uint uVar1;
   uint uVar2;
@@ -283,10 +276,7 @@ int Math_VectorLength__FP8coorddef(coorddef *v)
       iVar5 = -iVar8;
     }
   } while( true );
-
-
 }
-
 
 
 
@@ -314,6 +304,7 @@ int Math_VectorLength__FP8coorddef(coorddef *v)
 	// End Line: 274
 
 int Math_VectorLength2__FP8coorddef(coorddef *v)
+
 {
   uint uVar1;
   uint uVar2;
@@ -379,10 +370,7 @@ int Math_VectorLength2__FP8coorddef(coorddef *v)
       iVar4 = -iVar8;
     }
   } while( true );
-
-
 }
-
 
 
 
@@ -409,73 +397,71 @@ int Math_VectorLength2__FP8coorddef(coorddef *v)
 	// End Line: 361
 
 void Math_NormalizeVector__FP8coorddef(coorddef *v)
+
 {
   uint uVar1;
   uint uVar2;
   uint uVar3;
   int iVar4;
   uint uVar5;
-  int iVar6;
-  int iVar7;
-  int iVar8;
+  uint uVar6;
+  uint uVar7;
+  uint uVar8;
   
-  iVar6 = v->x;
-  iVar7 = v->y;
-  iVar8 = v->z;
-  iVar4 = iVar6;
-  if (iVar6 < 0) {
-    iVar4 = -iVar6;
+  uVar6 = v->x;
+  uVar7 = v->y;
+  uVar8 = v->z;
+  uVar1 = uVar6;
+  if ((int)uVar6 < 0) {
+    uVar1 = -uVar6;
   }
   do {
-    if (iVar4 < 0x1000001) {
-      iVar4 = iVar7;
-      if (iVar7 < 0) {
-        iVar4 = -iVar7;
+    if ((int)uVar1 < 0x1000001) {
+      uVar1 = uVar7;
+      if ((int)uVar7 < 0) {
+        uVar1 = -uVar7;
       }
-      if (iVar4 < 0x1000001) {
-        iVar4 = iVar8;
-        if (iVar8 < 0) {
-          iVar4 = -iVar8;
+      if ((int)uVar1 < 0x1000001) {
+        uVar1 = uVar8;
+        if ((int)uVar8 < 0) {
+          uVar1 = -uVar8;
         }
-        if (iVar4 < 0x1000001) {
-          uVar1 = fixedmult(iVar6,iVar6);
-          uVar2 = fixedmult(iVar7,iVar7);
-          uVar3 = fixedmult(iVar8,iVar8);
+        if ((int)uVar1 < 0x1000001) {
+          uVar1 = fixedmult(uVar6,uVar6);
+          uVar2 = fixedmult(uVar7,uVar7);
+          uVar3 = fixedmult(uVar8,uVar8);
           uVar5 = (uVar1 >> 2) + (uVar2 >> 2) + (uVar3 >> 2);
           while (0x40000000 < uVar5) {
-            iVar6 = iVar6 >> 1;
-            iVar7 = iVar7 >> 1;
-            iVar8 = iVar8 >> 1;
-            uVar1 = fixedmult(iVar6,iVar6);
-            uVar2 = fixedmult(iVar7,iVar7);
-            uVar3 = fixedmult(iVar8,iVar8);
+            uVar6 = (int)uVar6 >> 1;
+            uVar7 = (int)uVar7 >> 1;
+            uVar8 = (int)uVar8 >> 1;
+            uVar1 = fixedmult(uVar6,uVar6);
+            uVar2 = fixedmult(uVar7,uVar7);
+            uVar3 = fixedmult(uVar8,uVar8);
             uVar5 = (uVar1 >> 2) + (uVar2 >> 2) + (uVar3 >> 2);
           }
-          iVar4 = fixedsqrt(uVar1 + uVar2 + uVar3);
-          if (iVar4 != 0) {
-            iVar6 = fixeddiv(iVar6,iVar4);
-            v->x = iVar6;
-            iVar6 = fixeddiv(iVar7,iVar4);
-            v->y = iVar6;
-            iVar4 = fixeddiv(iVar8,iVar4);
+          uVar1 = fixedsqrt(uVar1 + uVar2 + uVar3);
+          if (uVar1 != 0) {
+            iVar4 = fixeddiv(uVar6,uVar1);
+            v->x = iVar4;
+            iVar4 = fixeddiv(uVar7,uVar1);
+            v->y = iVar4;
+            iVar4 = fixeddiv(uVar8,uVar1);
             v->z = iVar4;
           }
           return;
         }
       }
     }
-    iVar6 = iVar6 >> 1;
-    iVar7 = iVar7 >> 1;
-    iVar8 = iVar8 >> 1;
-    iVar4 = iVar6;
-    if (iVar6 < 0) {
-      iVar4 = -iVar6;
+    uVar6 = (int)uVar6 >> 1;
+    uVar7 = (int)uVar7 >> 1;
+    uVar8 = (int)uVar8 >> 1;
+    uVar1 = uVar6;
+    if ((int)uVar6 < 0) {
+      uVar1 = -uVar6;
     }
   } while( true );
-
-
 }
-
 
 
 
@@ -494,30 +480,28 @@ void Math_NormalizeVector__FP8coorddef(coorddef *v)
 	// End Line: 386
 
 void Math_NormalizeShortVector__FP8coorddef(coorddef *v)
+
 {
-  int iVar1;
-  int iVar2;
-  int iVar3;
-  undefined4 uVar4;
+  uint uVar1;
+  uint uVar2;
+  uint uVar3;
+  int iVar4;
   
-  iVar1 = fixedmult(v->x,v->x);
-  iVar2 = fixedmult(v->y,v->y);
-  iVar3 = fixedmult(v->z,v->z);
-  iVar1 = fixedsqrt(iVar1 + iVar2 + iVar3);
-  if (iVar1 != 0) {
-    uVar4 = fixeddiv(0x10000,iVar1);
-    iVar1 = fixedmult(v->x,uVar4);
-    v->x = iVar1;
-    iVar1 = fixedmult(v->y,uVar4);
-    v->y = iVar1;
-    iVar1 = fixedmult(v->z,uVar4);
-    v->z = iVar1;
+  uVar1 = fixedmult(v->x,v->x);
+  uVar2 = fixedmult(v->y,v->y);
+  uVar3 = fixedmult(v->z,v->z);
+  uVar1 = fixedsqrt(uVar1 + uVar2 + uVar3);
+  if (uVar1 != 0) {
+    iVar4 = fixeddiv(0x10000,uVar1);
+    uVar1 = fixedmult(v->x,iVar4);
+    v->x = uVar1;
+    uVar1 = fixedmult(v->y,iVar4);
+    v->y = uVar1;
+    uVar1 = fixedmult(v->z,iVar4);
+    v->z = uVar1;
   }
   return;
-
-
 }
-
 
 
 
@@ -537,10 +521,12 @@ void Math_NormalizeShortVector__FP8coorddef(coorddef *v)
 	// End Line: 417
 
 void Math_QDNormalizeVector__FP8coorddef(coorddef *v)
+
 {
   int a;
-  int iVar1;
+  uint uVar1;
   int iVar2;
+  int iVar3;
   int local_18;
   int local_14;
   int local_10;
@@ -558,34 +544,31 @@ void Math_QDNormalizeVector__FP8coorddef(coorddef *v)
     local_10 = -local_10;
   }
   a = Math_BetterDist__Fii(local_18,local_14);
-  a = Math_BetterDist__Fii(a,local_10);
-  if (a != 0) {
-    a = rinverse(a);
-    iVar2 = v->x;
-    if (iVar2 < 0) {
-      iVar2 = iVar2 + 0xff;
+  uVar1 = Math_BetterDist__Fii(a,local_10);
+  if (uVar1 != 0) {
+    a = rinverse(uVar1);
+    iVar3 = v->x;
+    if (iVar3 < 0) {
+      iVar3 = iVar3 + 0xff;
     }
     if (a < 0) {
       a = a + 0xff;
     }
     a = a >> 8;
-    iVar1 = v->y;
-    v->x = (iVar2 >> 8) * a;
-    if (iVar1 < 0) {
-      iVar1 = iVar1 + 0xff;
-    }
-    iVar2 = v->z;
-    v->y = (iVar1 >> 8) * a;
+    iVar2 = v->y;
+    v->x = (iVar3 >> 8) * a;
     if (iVar2 < 0) {
       iVar2 = iVar2 + 0xff;
     }
-    v->z = (iVar2 >> 8) * a;
+    iVar3 = v->z;
+    v->y = (iVar2 >> 8) * a;
+    if (iVar3 < 0) {
+      iVar3 = iVar3 + 0xff;
+    }
+    v->z = (iVar3 >> 8) * a;
   }
   return;
-
-
 }
-
 
 
 
@@ -612,6 +595,7 @@ void Math_QDNormalizeVector__FP8coorddef(coorddef *v)
 	// End Line: 567
 
 void Math_fasttransmult__FP10matrixtdefN20(matrixtdef *m1,matrixtdef *m2,matrixtdef *mr)
+
 {
   int *piVar1;
   int *piVar2;
@@ -668,10 +652,7 @@ void Math_fasttransmult__FP10matrixtdefN20(matrixtdef *m1,matrixtdef *m2,matrixt
   mr->m[7] = local_1c;
   mr->m[8] = local_18;
   return;
-
-
 }
-
 
 
 

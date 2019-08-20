@@ -38,38 +38,36 @@
 	// End Line: 79
 
 void Audio_InitDriver__Fii(int buffersize,int spusize)
+
 {
-  int *piVar1;
+  SndBnk_t *pSVar1;
   int iVar2;
-  undefined auStack80 [12];
+  undefined4 auStack80 [3];
   undefined2 local_44;
   
   iVar2 = 0;
-  piVar1 = &gSndBnk;
+  pSVar1 = &gSndBnk;
   do {
-    *piVar1 = iVar2;
-    piVar1[2] = 0;
+    pSVar1->bnkID = iVar2;
+    pSVar1->pdata = (char *)0x0;
     iVar2 = iVar2 + 1;
-    piVar1 = piVar1 + 3;
+    pSVar1 = pSVar1 + 1;
   } while (iVar2 < 7);
-  if ((true) || (true)) {
+  if ((AudioCmn_kAudioOn != 0) || (AudioCmn_kAudioStreamingOn != 0)) {
     SNDSYS_getopts(auStack80);
     local_44 = 0x30;
-    SNDSYS_setopts(auStack80);
+    SNDSYS_setopts((int)auStack80);
     SNDSYS_vectortoreal();
-    uGp00000fb4 = reservememadr("audio heap",0x1000,0);
-    SNDSYS_init(uGp00000fb4,0x1000);
+    DAT_00000fb4 = reservememadr(s_audio_heap_80056754,0x1000,0);
+    SNDSYS_init(DAT_00000fb4,0x1000);
     AudioCmn_InitReverb__Fv();
   }
   if (0 < buffersize) {
-    AudioMus_SysStartUp__FiiPc(buffersize,spusize,"amus");
+    AudioMus_SysStartUp__FiiPc(buffersize,spusize,(char *)&PTR_DAT_8013d504);
   }
-  uGp00000fb0 = 0;
+  DAT_00000fb0 = 0;
   return;
-
-
 }
-
 
 
 
@@ -98,18 +96,18 @@ void Audio_InitDriver__Fii(int buffersize,int spusize)
 	// End offset: 0x800BBCB0
 	// End Line: 92
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Audio_DeInitDriver__Fv(void)
+
 {
   AudioMus_SysCleanUp__Fv();
-  if ((true) || (true)) {
+  if ((AudioCmn_kAudioOn != 0) || (AudioCmn_kAudioStreamingOn != 0)) {
     SNDSYS_restore();
-    purgememadr(uGp00000fb4);
+    purgememadr(DAT_00000fb4);
   }
   return;
-
-
 }
-
 
 
 
@@ -126,26 +124,26 @@ void Audio_DeInitDriver__Fv(void)
 	// End offset: 0x800BBD08
 	// End Line: 145
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Audio_CleanUp__Fv(void)
+
 {
-  undefined4 *puVar1;
+  SndBnk_t *pSVar1;
   int iVar2;
   
   iVar2 = 0;
-  puVar1 = &gSndBnk;
+  pSVar1 = &gSndBnk;
   do {
-    if (puVar1[2] != 0) {
-      purgememadr();
-      puVar1[2] = 0;
+    if (pSVar1->pdata != (char *)0x0) {
+      purgememadr((int)pSVar1->pdata);
+      pSVar1->pdata = (char *)0x0;
     }
     iVar2 = iVar2 + 1;
-    puVar1 = puVar1 + 3;
+    pSVar1 = pSVar1 + 1;
   } while (iVar2 < 7);
   return;
-
-
 }
-
 
 
 
@@ -160,18 +158,18 @@ void Audio_CleanUp__Fv(void)
 	// End offset: 0x800BBD54
 	// End Line: 159
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Audio_FECleanUp__Fv(void)
+
 {
-  SNDbankremove(0xffffffff);
-  if (DAT_8010e8b0 != 0) {
-    purgememadr();
-    DAT_8010e8b0 = 0;
+  SNDbankremove(-1);
+  if (gSndBnk.pdata != (char *)0x0) {
+    purgememadr((int)gSndBnk.pdata);
+    gSndBnk.pdata = (char *)0x0;
   }
   return;
-
-
 }
-
 
 
 
@@ -192,15 +190,16 @@ void Audio_FECleanUp__Fv(void)
 	// End Line: 201
 
 int AudioCmn_AddBank__FPciT0i(char *filename,int size,char *pdata,int BankNum)
+
 {
   char cVar1;
   int shandle;
   char *pcVar2;
-  undefined4 uVar3;
-  undefined4 local_20 [2];
+  short *psVar3;
+  int local_20 [2];
   
-  local_20[0] = 0xffffffff;
-  uVar3 = 0;
+  local_20[0] = -1;
+  psVar3 = (short *)0x0;
   pcVar2 = filename;
   if (*filename != '\0') {
     cVar1 = *filename;
@@ -213,25 +212,22 @@ int AudioCmn_AddBank__FPciT0i(char *filename,int size,char *pdata,int BankNum)
       cVar1 = *filename;
     } while (cVar1 != '\0');
   }
-  shandle = SNDbankadd(local_20,pdata);
+  shandle = SNDbankadd(local_20,(int)pdata);
   if (shandle == 7) {
-    uVar3 = SNDbankheadersize(local_20[0]);
-    uVar3 = reservememadr(pcVar2,uVar3,0);
-    SNDbankheadercopy(uVar3,local_20[0]);
+    shandle = SNDbankheadersize(local_20[0]);
+    psVar3 = reservememadr(pcVar2,shandle,0);
+    SNDbankheadercopy(psVar3,local_20[0]);
     shandle = SNDbankheadersize(local_20[0]);
     size = size - shandle;
   }
   else {
     AudioClc_SndError__Fi(shandle);
   }
-  purgememadr(pdata);
-  (&DAT_8010e8b0)[BankNum * 3] = uVar3;
-  (&gSndBnk)[BankNum * 3] = local_20[0];
+  purgememadr((int)pdata);
+  *(short **)&(&gSndBnk)[BankNum].pdata = psVar3;
+  (&gSndBnk)[BankNum].bnkID = local_20[0];
   return size;
-
-
 }
-
 
 
 
@@ -250,13 +246,14 @@ int AudioCmn_AddBank__FPciT0i(char *filename,int size,char *pdata,int BankNum)
 	// End Line: 231
 
 int AudioCmn_LoadBank__FPci(char *filename,int BankNum)
+
 {
   char *pdata;
   int size;
   char acStack96 [80];
   
   strcpy(acStack96,filename);
-  strcat(acStack96,".bnk");
+  strcat(acStack96,(char *)&PTR_DAT_8013d514);
   pdata = (char *)loadfileadrz(acStack96,0x10);
   size = 0;
   if (pdata != (char *)0x0) {
@@ -264,10 +261,7 @@ int AudioCmn_LoadBank__FPci(char *filename,int BankNum)
     size = AudioCmn_AddBank__FPciT0i(filename,size,pdata,BankNum);
   }
   return size;
-
-
 }
-
 
 
 

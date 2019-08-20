@@ -16,8 +16,9 @@
 	// End Line: 160
 
 void InGame_ResetPSXController__Fii(int player,int config)
+
 {
-  char cVar1;
+  uchar uVar1;
   int iVar2;
   int iVar3;
   int iVar4;
@@ -25,41 +26,41 @@ void InGame_ResetPSXController__Fii(int player,int config)
   int iVar5;
   int *piVar6;
   
-  cVar1 = (&DAT_8013e8a1)[player * 0x20];
-  if (cVar1 == '#') {
+  uVar1 = gPadinfo.buf[player * 4].ID;
+  if (uVar1 == '#') {
     iVar2 = 0;
   }
   else {
-    if ((cVar1 == 'S') || (iVar2 = 2, cVar1 == 's')) {
+    if ((uVar1 == 'S') || (iVar2 = 2, uVar1 == 's')) {
       iVar2 = 1;
     }
   }
-  if ((int)*(short *)(&DAT_8011495e + player * 2) != (uint)(byte)(&DAT_8013e8a1)[player * 0x20]) {
-    *(ushort *)(&DAT_8011495e + player * 2) = (ushort)(byte)(&DAT_8013e8a1)[player * 0x20];
+  if ((int)frontEnd.controlType[player] != (uint)gPadinfo.buf[player * 4].ID) {
+    frontEnd.controlType[player] = (ushort)gPadinfo.buf[player * 4].ID;
   }
-  *(int *)(&DAT_8011324c + player * 4) = config;
+  GameSetup_gData.controllerData.controllerConfig[player] = config;
   iVar3 = config * 0x9c + iVar2 * 4;
-  iVar4 = InGame_GetPSXPadValue__Fii(*(int *)(&mappings + iVar3),player);
+  iVar4 = InGame_GetPSXPadValue__Fii((&mappings)[iVar2 + config * 0x27],player);
   piVar6 = &hoff + player;
   (&Input_gHandler)[0x4f - *piVar6] = iVar4;
-  iVar4 = InGame_GetPSXPadValue__Fii(*(int *)(&DAT_80120e08 + iVar3),player);
+  iVar4 = InGame_GetPSXPadValue__Fii((int)(&PTR_DAT_80120e08)[iVar2 + config * 0x27],player);
   (&Input_gHandler)[0x50 - *piVar6] = iVar4;
-  iVar4 = InGame_GetPSXPadValue__Fii(*(int *)(&DAT_80120e14 + iVar3),player);
+  iVar4 = InGame_GetPSXPadValue__Fii((int)(&PTR_DAT_80120e14)[iVar2 + config * 0x27],player);
   (&Input_gHandler)[0x51 - *piVar6] = iVar4;
-  iVar4 = InGame_GetPSXPadValue__Fii(*(int *)(&DAT_80120e20 + iVar3),player);
+  iVar4 = InGame_GetPSXPadValue__Fii((int)(&PTR_DAT_80120e20)[iVar2 + config * 0x27],player);
   (&Input_gHandler)[0x52 - *piVar6] = iVar4;
   iVar4 = InGame_GetPSXPadValue__Fii(*(int *)(&DAT_80120e5c + iVar3),player);
-  *(int *)(&DAT_80113ecc + player * 4) = iVar4;
-  iVar4 = InGame_GetPSXPadValue__Fii(*(int *)(&DAT_80120e50 + iVar3),player);
+  (&INT_80113ecc)[player] = iVar4;
+  iVar4 = InGame_GetPSXPadValue__Fii((int)(&PTR_DAT_80120e50)[iVar2 + config * 0x27],player);
   (&Input_gHandler)[0x75 - *piVar6] = iVar4;
-  iVar4 = InGame_GetPSXPadValue__Fii(*(int *)(&DAT_80120e50 + iVar3),player);
+  iVar4 = InGame_GetPSXPadValue__Fii((int)(&PTR_DAT_80120e50)[iVar2 + config * 0x27],player);
   (&Input_gHandler)[0x65 - *piVar6] = iVar4;
-  iVar4 = InGame_GetPSXPadValue__Fii(*(int *)(&DAT_80120e2c + iVar3),player);
+  iVar4 = InGame_GetPSXPadValue__Fii((int)(&PTR_DAT_80120e2c)[iVar2 + config * 0x27],player);
   (&Input_gHandler)[0x53 - *piVar6] = iVar4;
-  if ((*(uint *)((&_Cars_gHumanRaceCarList)[player] + 0x260) & 0x200) == 0) {
-    iVar4 = InGame_GetPSXPadValue__Fii(*(int *)(&mappings + iVar3),0);
+  if (((&__Cars_gHumanRaceCarList_9__)[player]->carFlags & 0x200U) == 0) {
+    iVar4 = InGame_GetPSXPadValue__Fii((&mappings)[iVar2 + config * 0x27],0);
     (&Input_gHandler)[0x7d - *piVar6] = iVar4;
-    iVar4 = InGame_GetPSXPadValue__Fii(*(int *)(&DAT_80120e08 + iVar3),0);
+    iVar4 = InGame_GetPSXPadValue__Fii((int)(&PTR_DAT_80120e08)[iVar2 + config * 0x27],0);
     (&Input_gHandler)[0x7e - *piVar6] = iVar4;
     value = *(uint *)(&DAT_80120e74 + iVar3);
     if (iVar2 == 1) {
@@ -79,7 +80,7 @@ void InGame_ResetPSXController__Fii(int player,int config)
     iVar4 = 0x81;
   }
   (&Input_gHandler)[iVar4 - iVar5] = iVar3;
-  if (DAT_80113240 == 0) {
+  if (GameSetup_gData.Time == 0) {
     iVar3 = InGame_GetPSXPadValue__Fii(0,player);
     piVar6 = &hoff + player;
     (&Input_gHandler)[0x73 - *piVar6] = iVar3;
@@ -99,21 +100,18 @@ void InGame_ResetPSXController__Fii(int player,int config)
   }
   iVar3 = InGame_GetPSXPadValue__Fii(value,player);
   (&Input_gHandler)[0x54 - *piVar6] = iVar3;
-  iVar3 = config * 0x9c + iVar2 * 4;
-  iVar2 = InGame_GetPSXPadValue__Fii(*(int *)(&DAT_80120e38 + iVar3),player);
+  iVar4 = config * 0x9c + iVar2 * 4;
+  iVar3 = InGame_GetPSXPadValue__Fii(*(int *)(&DAT_80120e38 + iVar4),player);
   piVar6 = &hoff + player;
-  (&Input_gHandler)[0x66 - *piVar6] = iVar2;
-  iVar2 = InGame_GetPSXPadValue__Fii(*(int *)(&DAT_80120e44 + iVar3),player);
-  (&Input_gHandler)[0x67 - *piVar6] = iVar2;
-  iVar2 = InGame_GetPSXPadValue__Fii(*(int *)(&DAT_80120e8c + iVar3),player);
-  (&Input_gHandler)[0x68 - *piVar6] = iVar2;
-  iVar2 = InGame_GetPSXPadValue__Fii(*(int *)(&DAT_80120e80 + iVar3),player);
+  (&Input_gHandler)[0x66 - *piVar6] = iVar3;
+  iVar3 = InGame_GetPSXPadValue__Fii(*(int *)(&DAT_80120e44 + iVar4),player);
+  (&Input_gHandler)[0x67 - *piVar6] = iVar3;
+  iVar3 = InGame_GetPSXPadValue__Fii(*(int *)(&DAT_80120e8c + iVar4),player);
+  (&Input_gHandler)[0x68 - *piVar6] = iVar3;
+  iVar2 = InGame_GetPSXPadValue__Fii((int)(&PTR_DAT_80120e80)[iVar2 + config * 0x27],player);
   (&Input_gHandler)[0x4d - *piVar6] = iVar2;
   return;
-
-
 }
-
 
 
 
@@ -133,6 +131,7 @@ void InGame_ResetPSXController__Fii(int player,int config)
 	// End Line: 333
 
 int InGame_GetPSXPadValue__Fii(int value,int player)
+
 {
   int iVar1;
   byte bVar2;
@@ -141,8 +140,8 @@ int InGame_GetPSXPadValue__Fii(int value,int player)
   uint uVar5;
   
   PAD_update();
-  if ((&DAT_8013e8a0)[player * 0x20] == '\0') {
-    bVar2 = (&DAT_8013e8a1)[player * 0x20];
+  if (gPadinfo.buf[player * 4].nopad == '\0') {
+    bVar2 = gPadinfo.buf[player * 4].ID;
   }
   else {
     bVar2 = 0;
@@ -151,26 +150,27 @@ int InGame_GetPSXPadValue__Fii(int value,int player)
     if (bVar2 < 0x54) {
       if (bVar2 == 0x23) {
         if (value == 0x8000) {
-          iVar1 = *(int *)(&DAT_80113264 + player * 4);
+          iVar1 = GameSetup_gData.controllerData.IImaxRange[player];
           uVar3 = 0x2000000;
         }
         else {
           if (0x8000 < value) {
             if (value != 0x200000) {
               if (value != 0x800000) goto code_r0x800dc9f4;
-              iVar1 = *(int *)(&DAT_80113254 + player * 4);
-              iVar4 = *(int *)(&DAT_8011325c + player * 4);
+              iVar1 = GameSetup_gData.controllerData.deadSpot[player];
+              iVar4 = GameSetup_gData.controllerData.steeringRange[player];
               goto LAB_800dcc68;
             }
-            uVar5 = player << 0x1e | (*(int *)(&DAT_80113254 + player * 4) + 0x80) * 0x10000;
-            uVar3 = (*(int *)(&DAT_8011325c + player * 4) + 0x80) * 0x100;
+            uVar5 = player << 0x1e |
+                    (GameSetup_gData.controllerData.deadSpot[player] + 0x80) * 0x10000;
+            uVar3 = (GameSetup_gData.controllerData.steeringRange[player] + 0x80) * 0x100;
             goto LAB_800dccf4;
           }
           if (value == 0x400) {
             return player << 0x1e | 0x30aff01;
           }
           if (value != 0x4000) goto code_r0x800dc9f4;
-          iVar1 = *(int *)(&DAT_8011326c + player * 4);
+          iVar1 = GameSetup_gData.controllerData.ImaxRange[player];
           uVar3 = 0x1000000;
         }
         uVar5 = player << 0x1e;
@@ -181,23 +181,22 @@ int InGame_GetPSXPadValue__Fii(int value,int player)
     }
     if (bVar2 != 0x73) goto code_r0x800dc9f4;
   }
-  iVar1 = player * 4;
   if (value == 0x400000) {
-    uVar3 = (*(int *)(&DAT_80113274 + iVar1) + 0x80) * 0x10000 | 0x1000000;
-    iVar1 = *(int *)(&DAT_8011327c + iVar1);
+    uVar3 = (GameSetup_gData.controllerData.J1MIN[player] + 0x80) * 0x10000 | 0x1000000;
+    iVar1 = GameSetup_gData.controllerData.J1MAX[player];
 LAB_800dcbe8:
     return player << 0x1e | uVar3 | (iVar1 + 0x80) * 0x100 | 1;
   }
   if (value < 0x400001) {
     if (value == 0x100000) {
-      uVar3 = (0x80 - *(int *)(&DAT_80113274 + iVar1)) * 0x10000 | 0x1000000;
-      iVar1 = *(int *)(&DAT_8011327c + iVar1);
+      uVar3 = (0x80 - GameSetup_gData.controllerData.J1MIN[player]) * 0x10000 | 0x1000000;
+      iVar1 = GameSetup_gData.controllerData.J1MAX[player];
       goto LAB_800dcbac;
     }
     if (0x100000 < value) {
       if (value == 0x200000) {
-        uVar5 = player << 0x1e | (*(int *)(&DAT_80113274 + player * 4) + 0x80) * 0x10000;
-        uVar3 = (*(int *)(&DAT_8011327c + player * 4) + 0x80) * 0x100;
+        uVar5 = player << 0x1e | (GameSetup_gData.controllerData.J1MIN[player] + 0x80) * 0x10000;
+        uVar3 = (GameSetup_gData.controllerData.J1MAX[player] + 0x80) * 0x100;
 LAB_800dccf4:
         return uVar5 | uVar3 | 1;
       }
@@ -205,45 +204,41 @@ code_r0x800dc9f4:
       return player << 0x1a | value << 8 | 2;
     }
     if (value != -0x80000000) goto code_r0x800dc9f4;
-    iVar1 = *(int *)(&DAT_80113284 + iVar1);
+    iVar1 = GameSetup_gData.controllerData.J2MIN[player];
     uVar3 = 0x2000000;
   }
   else {
     if (value != 0x10000000) {
       if (value < 0x10000001) {
         if (value == 0x800000) {
-          iVar1 = *(int *)(&DAT_80113274 + player * 4);
-          iVar4 = *(int *)(&DAT_8011327c + player * 4);
+          iVar1 = GameSetup_gData.controllerData.J1MIN[player];
+          iVar4 = GameSetup_gData.controllerData.J1MAX[player];
 LAB_800dcc68:
           return player << 0x1e | (0x80 - iVar1) * 0x10000 | (0x80 - iVar4) * 0x100 | 1;
         }
         goto code_r0x800dc9f4;
       }
-      iVar1 = player * 4;
       if (value == 0x20000000) {
-        iVar4 = *(int *)(&DAT_80113284 + iVar1);
+        iVar1 = GameSetup_gData.controllerData.J2MIN[player];
         uVar3 = 0x2000000;
       }
       else {
         if (value != 0x40000000) goto code_r0x800dc9f4;
-        iVar4 = *(int *)(&DAT_80113284 + iVar1);
+        iVar1 = GameSetup_gData.controllerData.J2MIN[player];
         uVar3 = 0x3000000;
       }
-      uVar3 = (iVar4 + 0x80) * 0x10000 | uVar3;
-      iVar1 = *(int *)(&DAT_8011328c + iVar1);
+      uVar3 = (iVar1 + 0x80) * 0x10000 | uVar3;
+      iVar1 = GameSetup_gData.controllerData.J2MAX[player];
       goto LAB_800dcbe8;
     }
-    iVar1 = *(int *)(&DAT_80113284 + player * 4);
+    iVar1 = GameSetup_gData.controllerData.J2MIN[player];
     uVar3 = 0x3000000;
   }
   uVar3 = (0x80 - iVar1) * 0x10000 | uVar3;
-  iVar1 = *(int *)(&DAT_8011328c + player * 4);
+  iVar1 = GameSetup_gData.controllerData.J2MAX[player];
 LAB_800dcbac:
   return player << 0x1e | uVar3 | (0x80 - iVar1) * 0x100 | 1;
-
-
 }
-
 
 
 
@@ -259,12 +254,10 @@ LAB_800dcbac:
 	// End Line: 340
 
 int InGame_GetDevice__Fi(int control)
+
 {
   return control & 0xff;
-
-
 }
-
 
 
 
@@ -304,7 +297,10 @@ int InGame_GetDevice__Fi(int control)
 	// End offset: 0x800DCEA0
 	// End Line: 366
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void InGame_SetRamp__Fv(void)
+
 {
   int iVar1;
   int iVar2;
@@ -315,7 +311,7 @@ void InGame_SetRamp__Fv(void)
   if ((Replay_ReplayMode < 2) && (iVar5 = 0, 0 < Cars_gNumHumanRaceCars)) {
     iVar2 = 0;
     do {
-      piVar4 = (int *)((int)&_Cars_gHumanRaceCarList + (iVar2 >> 0xe));
+      piVar4 = (int *)((int)&__Cars_gHumanRaceCarList_9__ + (iVar2 >> 0xe));
       iVar1 = *(int *)(*piVar4 + 0x288);
       *(undefined4 *)(iVar1 + 0x1c) = 1;
       *(undefined4 *)(iVar1 + 0x20) = 1;
@@ -338,10 +334,7 @@ void InGame_SetRamp__Fv(void)
     } while (iVar5 * 0x10000 >> 0x10 < Cars_gNumHumanRaceCars);
   }
   return;
-
-
 }
-
 
 
 

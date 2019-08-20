@@ -12,18 +12,18 @@
 	// End offset: 0x80043118
 	// End Line: 43
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void ClearActuators__23tScreenControllerConfig(tScreenControllerConfig *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -66,18 +66,18 @@ void ClearActuators__23tScreenControllerConfig(tScreenControllerConfig *this)
 	// End offset: 0x8004319C
 	// End Line: 66
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void SetActuators__23tScreenControllerConfigi(tScreenControllerConfig *this,int max)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -92,18 +92,18 @@ void SetActuators__23tScreenControllerConfigi(tScreenControllerConfig *this,int 
 	// End offset: 0x800431AC
 	// End Line: 72
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void TurnOffShakers__23tScreenControllerConfig(tScreenControllerConfig *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -121,18 +121,18 @@ void TurnOffShakers__23tScreenControllerConfig(tScreenControllerConfig *this)
 	// End offset: 0x8004323C
 	// End Line: 91
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void ShakeIt__23tScreenControllerConfig(tScreenControllerConfig *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -166,24 +166,25 @@ void ShakeIt__23tScreenControllerConfig(tScreenControllerConfig *this)
 	// End offset: 0x80043378
 	// End Line: 806
 
+/* WARNING: Control flow encountered bad instruction data */
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Controller_SetRamp__Fv(void)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// short /*$ra*/ AnimKeyPoints__23tScreenControllerConfigbT1(struct tScreenControllerConfig *this /*$a0*/, unsigned int forward /*$a1*/, unsigned int pt /*$a2*/)
+// short /*$ra*/ AnimKeyPoints__23tScreenControllerConfigbT1(struct tScreenControllerConfig *this /*$a0*/, void * forward /*$a1*/, void * pt /*$a2*/)
  // line 817, offset 0x8004339c
 	/* begin block 1 */
 		// Start line: 818
@@ -192,18 +193,19 @@ void Controller_SetRamp__Fv(void)
 	// End offset: 0x800433F0
 	// End Line: 830
 
-short AnimKeyPoints__23tScreenControllerConfigbT1( (tScreenControllerConfig *this,uint forward,uint pt)
+/* WARNING: Control flow encountered bad instruction data */
+
+short AnimKeyPoints__23tScreenControllerConfigbT1
+                (tScreenControllerConfig *this,void *forward,void *pt)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -218,18 +220,18 @@ short AnimKeyPoints__23tScreenControllerConfigbT1( (tScreenControllerConfig *thi
 	// End offset: 0x800436D8
 	// End Line: 927
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void CheckConfigs__23tScreenControllerConfig(tScreenControllerConfig *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -244,31 +246,31 @@ void CheckConfigs__23tScreenControllerConfig(tScreenControllerConfig *this)
 	// End offset: 0x80043768
 	// End Line: 939
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void SwapInController__23tScreenControllerConfig(tScreenControllerConfig *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// void /*$ra*/ SetCurrentController__23tScreenControllerConfigb(struct tScreenControllerConfig *this /*$s1*/, unsigned int firsttime /*$s5*/)
+// void /*$ra*/ SetCurrentController__23tScreenControllerConfigb(struct tScreenControllerConfig *this /*$s1*/, void * firsttime /*$s5*/)
  // line 943, offset 0x80043778
 	/* begin block 1 */
 		// Start line: 944
 		// Start offset: 0x80043778
 		// Variables:
 	// 		struct tInsideBoxMenu *fSetMenu; // $s2
-	// 		unsigned int setmenutonull; // $s4
+	// 		void * setmenutonull; // $s4
 
 		/* begin block 1.1 */
 			// Start line: 944
@@ -499,18 +501,18 @@ void SwapInController__23tScreenControllerConfig(tScreenControllerConfig *this)
 	// End offset: 0x80043ACC
 	// End Line: 1051
 
-void SetCurrentController__23tScreenControllerConfigb(tScreenControllerConfig *this,uint firsttime)
+/* WARNING: Control flow encountered bad instruction data */
+
+void SetCurrentController__23tScreenControllerConfigb(tScreenControllerConfig *this,void *firsttime)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -525,18 +527,18 @@ void SetCurrentController__23tScreenControllerConfigb(tScreenControllerConfig *t
 	// End offset: 0x80043B74
 	// End Line: 1102
 
+/* WARNING: Control flow encountered bad instruction data */
+
 int CalcAnimFrame__23tScreenControllerConfigi(tScreenControllerConfig *this,int frame)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -578,18 +580,20 @@ int CalcAnimFrame__23tScreenControllerConfigi(tScreenControllerConfig *this,int 
 	// End offset: 0x80043DBC
 	// End Line: 1150
 
-void ActualDrawController__23tScreenControllerConfigiiiii( (tScreenControllerConfig *this,int frame,int fadelevelmain,int fadeleveltop, int shakex,int shakey)
+/* WARNING: Control flow encountered bad instruction data */
+
+void ActualDrawController__23tScreenControllerConfigiiiii
+               (tScreenControllerConfig *this,int frame,int fadelevelmain,int fadeleveltop,
+               int shakex,int shakey)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -1021,24 +1025,24 @@ void ActualDrawController__23tScreenControllerConfigiiiii( (tScreenControllerCon
 	// End offset: 0x80044ACC
 	// End Line: 1501
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void DrawController__23tScreenControllerConfig(tScreenControllerConfig *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// void /*$ra*/ HorzVertLine__23tScreenControllerConfigPsb(struct tScreenControllerConfig *this /*$s6*/, short *ArrowLoc /*$a1*/, unsigned int type /*$s5*/)
+// void /*$ra*/ HorzVertLine__23tScreenControllerConfigPsb(struct tScreenControllerConfig *this /*$s6*/, short *ArrowLoc /*$a1*/, void * type /*$s5*/)
  // line 1518, offset 0x80044af4
 	/* begin block 1 */
 		// Start line: 1519
@@ -1127,18 +1131,19 @@ void DrawController__23tScreenControllerConfig(tScreenControllerConfig *this)
 	// End offset: 0x80044D14
 	// End Line: 1566
 
-void HorzVertLine__23tScreenControllerConfigPsb( (tScreenControllerConfig *this,short *ArrowLoc,uint type)
+/* WARNING: Control flow encountered bad instruction data */
+
+void HorzVertLine__23tScreenControllerConfigPsb
+               (tScreenControllerConfig *this,short *ArrowLoc,void *type)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -1153,18 +1158,18 @@ void HorzVertLine__23tScreenControllerConfigPsb( (tScreenControllerConfig *this,
 	// End offset: 0x80044E0C
 	// End Line: 1600
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void DrawArrow__23tScreenControllerConfigPs(tScreenControllerConfig *this,short *ArrowLoc)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -1206,18 +1211,18 @@ void DrawArrow__23tScreenControllerConfigPs(tScreenControllerConfig *this,short 
 	// End offset: 0x80045050
 	// End Line: 1653
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void DrawBackground__23tScreenControllerConfig(tScreenControllerConfig *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -1394,18 +1399,18 @@ void DrawBackground__23tScreenControllerConfig(tScreenControllerConfig *this)
 	// End offset: 0x8004569C
 	// End Line: 1814
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void DrawForeground__23tScreenControllerConfig(tScreenControllerConfig *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -1420,18 +1425,20 @@ void DrawForeground__23tScreenControllerConfig(tScreenControllerConfig *this)
 	// End offset: 0x800456CC
 	// End Line: 1820
 
-void GetShapeInfo__23tScreenControllerConfigRsT1PPcT3( (tScreenControllerConfig *this,short *numPermShapes,short *numSwapShapes, char **permFileName,char **swapFileName)
+/* WARNING: Control flow encountered bad instruction data */
+
+void GetShapeInfo__23tScreenControllerConfigRsT1PPcT3
+               (tScreenControllerConfig *this,short *numPermShapes,short *numSwapShapes,
+               char **permFileName,char **swapFileName)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -1446,18 +1453,18 @@ void GetShapeInfo__23tScreenControllerConfigRsT1PPcT3( (tScreenControllerConfig 
 	// End offset: 0x800457B4
 	// End Line: 1858
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void Initialize__23tScreenControllerConfig(tScreenControllerConfig *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -1472,18 +1479,18 @@ void Initialize__23tScreenControllerConfig(tScreenControllerConfig *this)
 	// End offset: 0x80045820
 	// End Line: 1882
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void Cleanup__23tScreenControllerConfig(tScreenControllerConfig *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -1498,18 +1505,18 @@ void Cleanup__23tScreenControllerConfig(tScreenControllerConfig *this)
 	// End offset: 0x8004585C
 	// End Line: 1890
 
+/* WARNING: Control flow encountered bad instruction data */
+
 tScreenControllerConfig * __23tScreenControllerConfig(tScreenControllerConfig *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -1526,18 +1533,18 @@ tScreenControllerConfig * __23tScreenControllerConfig(tScreenControllerConfig *t
 	// End offset: 0x80045904
 	// End Line: 1915
 
+/* WARNING: Control flow encountered bad instruction data */
+
 int GetHelpText__23tScreenControllerConfig(tScreenControllerConfig *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 

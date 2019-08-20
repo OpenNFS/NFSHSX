@@ -20,18 +20,18 @@
 	// End offset: 0x8004BF20
 	// End Line: 81
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void DrawShape_SubtractNFS4RectEdges__FR4RECT(RECT *rect)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -50,18 +50,18 @@ void DrawShape_SubtractNFS4RectEdges__FR4RECT(RECT *rect)
 	// End offset: 0x8004C19C
 	// End Line: 125
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void DrawShape_NFS4RoundRectangle__FiR4RECTs(int textID,RECT *position,short selected)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -82,18 +82,18 @@ void DrawShape_NFS4RoundRectangle__FiR4RECTs(int textID,RECT *position,short sel
 	// End offset: 0x8004C1BC
 	// End Line: 130
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void DrawShape_NFS4Rectangle__FR4RECT(RECT *position)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -108,18 +108,18 @@ void DrawShape_NFS4Rectangle__FR4RECT(RECT *position)
 	// End offset: 0x8004C4DC
 	// End Line: 171
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void DrawShape_NFS4TransRectangle__FR4RECTs(RECT *r,short opacity)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 

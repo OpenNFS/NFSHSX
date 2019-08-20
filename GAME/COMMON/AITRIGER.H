@@ -3,7 +3,7 @@
 
 extern void Init__24AITrigger_TriggerManagerPc(struct AITrigger_TriggerManager *this, char *rawTriggers); // 0x8007286C
 
-extern int InsertTrigger__24AITrigger_TriggerManagerP9trigger_tb(struct AITrigger_TriggerManager *this, union trigger_t *trigger, unsigned int fromFile); // 0x80072948
+extern int InsertTrigger__24AITrigger_TriggerManagerP9trigger_tb(struct AITrigger_TriggerManager *this, union trigger_t *trigger, void * fromFile); // 0x80072948
 
 extern union trigger_t * GetNextTrigger__24AITrigger_TriggerManageri(struct AITrigger_TriggerManager *this, int car); // 0x80072A44
 

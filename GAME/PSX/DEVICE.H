@@ -13,7 +13,7 @@ extern void Device_SetHardCodedKeys__Fv(); // 0x800BD5E0
 
 extern int Device_PSXPad__FUl(unsigned long param); // 0x800BD644
 
-extern unsigned int Device_ReadPad__FiUl(int port, unsigned long param); // 0x800BD6AC
+extern void * Device_ReadPad__FiUl(int port, unsigned long param); // 0x800BD6AC
 
 extern int Device_PSXPadMulti__FUl(unsigned long param); // 0x800BD8DC
 

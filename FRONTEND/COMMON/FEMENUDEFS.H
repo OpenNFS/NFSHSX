@@ -35,9 +35,9 @@ extern void MenuExtended_GoToSeller__FR12tMenuCommand(struct tMenuCommand *comma
 
 extern void MenuExtended_GoToUpgrades__FR12tMenuCommand(struct tMenuCommand *command); // 0x8002C960
 
-extern unsigned int GenericMenuSaveGame__Fi(int showdialog); // 0x8002C9A0
+extern void * GenericMenuSaveGame__Fi(int showdialog); // 0x8002C9A0
 
-extern unsigned int PinkSlipsPreSave__Fv(); // 0x8002CABC
+extern void * PinkSlipsPreSave__Fv(); // 0x8002CABC
 
 extern void MenuExtended_GoToBestOfOne__FR12tMenuCommand(struct tMenuCommand *command); // 0x8002CB84
 
@@ -85,7 +85,7 @@ extern void MenuExtended_LoadGame__FR12tMenuCommand(); // 0x8002D8D0
 
 extern void MenuExtended_TierFinished__FR12tMenuCommand(struct tMenuCommand *command); // 0x8002D968
 
-extern unsigned int MenuExtended_DidUserWinBeTheCop__Fv(); // 0x8002D9E8
+extern void * MenuExtended_DidUserWinBeTheCop__Fv(); // 0x8002D9E8
 
 extern void MenuExtended_PostGameMenu__FR12tMenuCommand(struct tMenuCommand *command); // 0x8002DB04
 

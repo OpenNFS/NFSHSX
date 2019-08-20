@@ -69,7 +69,7 @@ extern int * Front_AppendTrafficData__FPiR9tFEStream(int *stream, struct tFEStre
 
 extern int * Front_AppendTrackData__FPiR9tFEStream(int *stream, struct tFEStream *streamData); // 0x8002A56C
 
-extern unsigned int Front_EnableLocalSpeech__Fv(); // 0x8002A6AC
+extern void * Front_EnableLocalSpeech__Fv(); // 0x8002A6AC
 
 extern int * Front_BuildStream__FPi(int *stream); // 0x8002A738
 
@@ -81,7 +81,7 @@ extern void SetPlayList__Fi(int ivealreadygotone); // 0x8002B874
 
 extern short Front_GetTrackRaced__Fv(); // 0x8002B960
 
-extern unsigned int PlayerNameExist__Fi(int player); // 0x8002B9D0
+extern void * PlayerNameExist__Fi(int player); // 0x8002B9D0
 
 extern char * PlayerName__Fi(int player); // 0x8002B9FC
 

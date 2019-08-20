@@ -14,18 +14,18 @@
 	// End offset: 0x80021A48
 	// End Line: 40
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void Initialize__13tTrackManager(tTrackManager *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -42,18 +42,18 @@ void Initialize__13tTrackManager(tTrackManager *this)
 	// End offset: 0x80021A74
 	// End Line: 60
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void LoadTracks__13tTrackManagerR14tSaveTrackInfo(tTrackManager *this,tSaveTrackInfo *load)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -70,18 +70,18 @@ void LoadTracks__13tTrackManagerR14tSaveTrackInfo(tTrackManager *this,tSaveTrack
 	// End offset: 0x80021A9C
 	// End Line: 78
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void SaveTracks__13tTrackManagerR14tSaveTrackInfo(tTrackManager *this,tSaveTrackInfo *save)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -96,18 +96,19 @@ void SaveTracks__13tTrackManagerR14tSaveTrackInfo(tTrackManager *this,tSaveTrack
 	// End offset: 0x80021AA4
 	// End Line: 85
 
-void GetTrack__13tTrackManagersR17tTrackInformation( (tTrackManager *this,short trackNumber,tTrackInformation *trackInfo)
+/* WARNING: Control flow encountered bad instruction data */
+
+void GetTrack__13tTrackManagersR17tTrackInformation
+               (tTrackManager *this,short trackNumber,tTrackInformation *trackInfo)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -127,18 +128,18 @@ void GetTrack__13tTrackManagersR17tTrackInformation( (tTrackManager *this,short 
 	// End offset: 0x80021C30
 	// End Line: 140
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void LoadDescription__13tTrackManager(tTrackManager *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -153,24 +154,24 @@ void LoadDescription__13tTrackManager(tTrackManager *this)
 	// End offset: 0x80021C74
 	// End Line: 150
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void ReleaseDescription__13tTrackManager(tTrackManager *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// void /*$ra*/ SetTrackAvailable__13tTrackManagersb(struct tTrackManager *this /*$a0*/, short track /*$a1*/, unsigned int avail /*$a2*/)
+// void /*$ra*/ SetTrackAvailable__13tTrackManagersb(struct tTrackManager *this /*$a0*/, short track /*$a1*/, void * avail /*$a2*/)
  // line 157, offset 0x80021c8c
 	/* begin block 1 */
 		// Start line: 158
@@ -179,24 +180,24 @@ void ReleaseDescription__13tTrackManager(tTrackManager *this)
 	// End offset: 0x80021C8C
 	// End Line: 159
 
-void SetTrackAvailable__13tTrackManagersb(tTrackManager *this,short track,uint avail)
+/* WARNING: Control flow encountered bad instruction data */
+
+void SetTrackAvailable__13tTrackManagersb(tTrackManager *this,short track,void *avail)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// void /*$ra*/ SetClassAvailable__13tTrackManager15tTrackClassTypeb(struct tTrackManager *this /*$a0*/, enum tTrackClassType trackClass /*$a1*/, unsigned int avail /*$a2*/)
+// void /*$ra*/ SetClassAvailable__13tTrackManager15tTrackClassTypeb(struct tTrackManager *this /*$a0*/, enum tTrackClassType trackClass /*$a1*/, void * avail /*$a2*/)
  // line 172, offset 0x80021ca0
 	/* begin block 1 */
 		// Start line: 173
@@ -207,18 +208,19 @@ void SetTrackAvailable__13tTrackManagersb(tTrackManager *this,short track,uint a
 	// End offset: 0x80021CF8
 	// End Line: 181
 
-void SetClassAvailable__13tTrackManager15tTrackClassTypeb( (tTrackManager *this,tTrackClassType trackClass,uint avail)
+/* WARNING: Control flow encountered bad instruction data */
+
+void SetClassAvailable__13tTrackManager15tTrackClassTypeb
+               (tTrackManager *this,tTrackClassType trackClass,void *avail)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -235,18 +237,18 @@ void SetClassAvailable__13tTrackManager15tTrackClassTypeb( (tTrackManager *this,
 	// End offset: 0x80021D4C
 	// End Line: 210
 
+/* WARNING: Control flow encountered bad instruction data */
+
 tTrackInformation * GetTrackByID__13tTrackManagers(tTrackManager *this,short track)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -261,25 +263,27 @@ tTrackInformation * GetTrackByID__13tTrackManagers(tTrackManager *this,short tra
 	// End offset: 0x80021D54
 	// End Line: 234
 
-tListIteratorTrack * __18tListIteratorTrackPcT1P13tTrackManager( (tListIteratorTrack *this,char *valPtr,char *index,tTrackManager *trackManager)
+/* WARNING: Control flow encountered bad instruction data */
+
+tListIteratorTrack *
+__18tListIteratorTrackPcT1P13tTrackManager
+          (tListIteratorTrack *this,char *valPtr,char *index,tTrackManager *trackManager)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
 
 
 
-
-// autogenerated function stub: 
+// decompiled code
+// original method signature: 
 // void /*$ra*/ _._18tListIteratorTrack(struct tListIteratorTrack *this /*$a0*/, int __in_chrg /*$a1*/)
-void _._18tListIteratorTrack _._18tListIteratorTrack(tListIteratorTrack *this /*$a0*/this, int __in_chrg /*$a1*/ __in_chrg)
-{ // line 239, offset 0x80021dac
+ // line 239, offset 0x80021dac
 	/* begin block 1 */
 		// Start line: 240
 		// Start offset: 0x80021DAC
@@ -287,7 +291,19 @@ void _._18tListIteratorTrack _._18tListIteratorTrack(tListIteratorTrack *this /*
 	// End offset: 0x80021DAC
 	// End Line: 240
 
+/* WARNING: Control flow encountered bad instruction data */
+
+void ___18tListIteratorTrack(tListIteratorTrack *this,int __in_chrg)
+
+{
+  undefined4 in_v1;
+  undefined4 in_t5;
+  
+  special2(in_v1,in_t5,5,0x13);
+                    /* WARNING: Bad instruction - Truncating control flow here */
+  halt_baddata();
 }
+
 
 
 // decompiled code
@@ -303,18 +319,18 @@ void _._18tListIteratorTrack _._18tListIteratorTrack(tListIteratorTrack *this /*
 	// End offset: 0x80021DD4
 	// End Line: 245
 
+/* WARNING: Control flow encountered bad instruction data */
+
 short TextValue__18tListIteratorTrack7tPlayer(tListIteratorTrack *this,tPlayer atIndex)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -329,18 +345,18 @@ short TextValue__18tListIteratorTrack7tPlayer(tListIteratorTrack *this,tPlayer a
 	// End offset: 0x80021EB0
 	// End Line: 256
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void Increment__18tListIteratorTrack7tPlayer(tListIteratorTrack *this,tPlayer atIndex)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -355,47 +371,47 @@ void Increment__18tListIteratorTrack7tPlayer(tListIteratorTrack *this,tPlayer at
 	// End offset: 0x80021F40
 	// End Line: 266
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void Decrement__18tListIteratorTrack7tPlayer(tListIteratorTrack *this,tPlayer atIndex)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// unsigned int /*$ra*/ ValidTrack__18tListIteratorTrackc(struct tListIteratorTrack *this /*$a0*/, char track /*$a1*/)
+// void * /*$ra*/ ValidTrack__18tListIteratorTrackc(struct tListIteratorTrack *this /*$a0*/, char track /*$a1*/)
  // line 269, offset 0x80021f50
 	/* begin block 1 */
 		// Start line: 270
 		// Start offset: 0x80021F50
 		// Variables:
 	// 		struct tTrackInformation *trackInfo; // $v1
-	// 		unsigned int result; // $a1
+	// 		void * result; // $a1
 	/* end block 1 */
 	// End offset: 0x80021FEC
 	// End Line: 289
 
-uint ValidTrack__18tListIteratorTrackc(tListIteratorTrack *this,char track)
+/* WARNING: Control flow encountered bad instruction data */
+
+void * ValidTrack__18tListIteratorTrackc(tListIteratorTrack *this,char track)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 

@@ -33,18 +33,18 @@
 	// End offset: 0x800186F8
 	// End Line: 77
 
+/* WARNING: Control flow encountered bad instruction data */
+
 short ShouldTimeOut__11tDialogBase(tDialogBase *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -59,18 +59,19 @@ short ShouldTimeOut__11tDialogBase(tDialogBase *this)
 	// End offset: 0x80018700
 	// End Line: 84
 
+/* WARNING: Control flow encountered bad instruction data */
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void InitializeClass__11tDialogBase(void)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -94,18 +95,19 @@ void InitializeClass__11tDialogBase(void)
 	// End offset: 0x800187D8
 	// End Line: 102
 
+/* WARNING: Control flow encountered bad instruction data */
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void DrawAllDialogs__11tDialogBase(void)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -129,18 +131,19 @@ void DrawAllDialogs__11tDialogBase(void)
 	// End offset: 0x80018828
 	// End Line: 112
 
+/* WARNING: Control flow encountered bad instruction data */
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void HideAllDialogs__11tDialogBase(void)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -155,18 +158,19 @@ void HideAllDialogs__11tDialogBase(void)
 	// End offset: 0x80018830
 	// End Line: 121
 
+/* WARNING: Control flow encountered bad instruction data */
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 tDialogBase * GetTopMostDialog__11tDialogBase(void)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -204,18 +208,18 @@ tDialogBase * GetTopMostDialog__11tDialogBase(void)
 	// End offset: 0x800188F0
 	// End Line: 154
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void Display__11tDialogBase(tDialogBase *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -239,18 +243,18 @@ void Display__11tDialogBase(tDialogBase *this)
 	// End offset: 0x800189A0
 	// End Line: 181
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void Hide__11tDialogBase(tDialogBase *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -265,18 +269,18 @@ void Hide__11tDialogBase(tDialogBase *this)
 	// End offset: 0x800189B8
 	// End Line: 201
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void Draw__11tDialogBase(tDialogBase *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -291,18 +295,19 @@ void Draw__11tDialogBase(tDialogBase *this)
 	// End offset: 0x80018AF8
 	// End Line: 246
 
-void ProcessInput__11tDialogBase7tPlayerR13tInputKeyTypeR12tMenuCommand( (tDialogBase *this,tInputKeyType *keyval)
+/* WARNING: Control flow encountered bad instruction data */
+
+void ProcessInput__11tDialogBase7tPlayerR13tInputKeyTypeR12tMenuCommand
+               (tDialogBase *this,tInputKeyType *keyval)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -317,18 +322,18 @@ void ProcessInput__11tDialogBase7tPlayerR13tInputKeyTypeR12tMenuCommand( (tDialo
 	// End offset: 0x80018B7C
 	// End Line: 266
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void AddItem__11tDialogHelpss(tDialogHelp *this,short textID,short controllerID)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -353,8 +358,8 @@ void AddItem__11tDialogHelpss(tDialogHelp *this,short textID,short controllerID)
 				// Start line: 323
 				// Start offset: 0x80018C60
 				// Variables:
-			// 		unsigned int showLeftRight; // $s2
-			// 		unsigned int showCross; // $s4
+			// 		void * showLeftRight; // $s2
+			// 		void * showCross; // $s4
 			// 		struct tMenu *menu; // $s0
 
 				/* begin block 1.1.1.1 */
@@ -680,18 +685,18 @@ void AddItem__11tDialogHelpss(tDialogHelp *this,short textID,short controllerID)
 	// End offset: 0x800190F0
 	// End Line: 452
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void CalculateDimensions__11tDialogHelp(tDialogHelp *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -757,18 +762,18 @@ void CalculateDimensions__11tDialogHelp(tDialogHelp *this)
 	// End offset: 0x800193F0
 	// End Line: 546
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void Draw__11tDialogHelp(tDialogHelp *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -827,18 +832,18 @@ void Draw__11tDialogHelp(tDialogHelp *this)
 	// End offset: 0x800195CC
 	// End Line: 600
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void CalculateDimensions__20tDialogMessageString(tDialogMessageString *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -884,18 +889,18 @@ void CalculateDimensions__20tDialogMessageString(tDialogMessageString *this)
 	// End offset: 0x8001977C
 	// End Line: 651
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void Draw__20tDialogMessageString(tDialogMessageString *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -910,18 +915,19 @@ void Draw__20tDialogMessageString(tDialogMessageString *this)
 	// End offset: 0x800197D8
 	// End Line: 669
 
-void ProcessInput__17tDialogBackUpOnly7tPlayerR13tInputKeyTypeR12tMenuCommand( (tDialogBackUpOnly *this,tPlayer fromPlayer,tInputKeyType *keyval)
+/* WARNING: Control flow encountered bad instruction data */
+
+void ProcessInput__17tDialogBackUpOnly7tPlayerR13tInputKeyTypeR12tMenuCommand
+               (tDialogBackUpOnly *this,tPlayer fromPlayer,tInputKeyType *keyval)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -1074,18 +1080,18 @@ void ProcessInput__17tDialogBackUpOnly7tPlayerR13tInputKeyTypeR12tMenuCommand( (
 	// End offset: 0x80019980
 	// End Line: 737
 
+/* WARNING: Control flow encountered bad instruction data */
+
 short Run__18tDialogInteractive(tDialogInteractive *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -1128,18 +1134,18 @@ short Run__18tDialogInteractive(tDialogInteractive *this)
 	// End offset: 0x80019A7C
 	// End Line: 760
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void CalculateDimensions__12tDialogYesNo(tDialogYesNo *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -1202,18 +1208,18 @@ void CalculateDimensions__12tDialogYesNo(tDialogYesNo *this)
 	// End offset: 0x80019A8C
 	// End Line: 766
 
+/* WARNING: Control flow encountered bad instruction data */
+
 tDialogYesNo * __12tDialogYesNo(tDialogYesNo *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -1289,18 +1295,18 @@ tDialogYesNo * __12tDialogYesNo(tDialogYesNo *this)
 	// End offset: 0x80019C98
 	// End Line: 816
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void Draw__12tDialogYesNo(tDialogYesNo *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -1338,18 +1344,19 @@ void Draw__12tDialogYesNo(tDialogYesNo *this)
 	// End offset: 0x80019D88
 	// End Line: 850
 
-void ProcessInput__12tDialogYesNo7tPlayerR13tInputKeyTypeR12tMenuCommand( (tDialogYesNo *this,tPlayer fromPlayer,tInputKeyType *keyVal,tMenuCommand *command)
+/* WARNING: Control flow encountered bad instruction data */
+
+void ProcessInput__12tDialogYesNo7tPlayerR13tInputKeyTypeR12tMenuCommand
+               (tDialogYesNo *this,tPlayer fromPlayer,tInputKeyType *keyVal,tMenuCommand *command)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -1362,23 +1369,25 @@ void ProcessInput__12tDialogYesNo7tPlayerR13tInputKeyTypeR12tMenuCommand( (tDial
 		// Start offset: 0x80019D98
 		// Variables:
 	// 		int card; // $s1
-	// 		unsigned int fMemCardGone; // $s0
+	// 		void * fMemCardGone; // $s0
 	/* end block 1 */
 	// End offset: 0x80019E58
 	// End Line: 902
 
-void ProcessInput__15tDialogYesNoMem7tPlayerR13tInputKeyTypeR12tMenuCommand( (tDialogYesNoMem *this,tPlayer fromPlayer,tInputKeyType *keyVal,tMenuCommand *command )
+/* WARNING: Control flow encountered bad instruction data */
+
+void ProcessInput__15tDialogYesNoMem7tPlayerR13tInputKeyTypeR12tMenuCommand
+               (tDialogYesNoMem *this,tPlayer fromPlayer,tInputKeyType *keyVal,tMenuCommand *command
+               )
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -1393,18 +1402,20 @@ void ProcessInput__15tDialogYesNoMem7tPlayerR13tInputKeyTypeR12tMenuCommand( (tD
 	// End offset: 0x80019EAC
 	// End Line: 917
 
-void ProcessInput__15tDialogYesNoTri7tPlayerR13tInputKeyTypeR12tMenuCommand( (tDialogYesNoTri *this,tPlayer fromPlayer,tInputKeyType *keyVal,tMenuCommand *command )
+/* WARNING: Control flow encountered bad instruction data */
+
+void ProcessInput__15tDialogYesNoTri7tPlayerR13tInputKeyTypeR12tMenuCommand
+               (tDialogYesNoTri *this,tPlayer fromPlayer,tInputKeyType *keyVal,tMenuCommand *command
+               )
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -1419,18 +1430,19 @@ void ProcessInput__15tDialogYesNoTri7tPlayerR13tInputKeyTypeR12tMenuCommand( (tD
 	// End offset: 0x80019EBC
 	// End Line: 922
 
-void ProcessInput__21tDialogNoInputMessage7tPlayerR13tInputKeyTypeR12tMenuCommand( (tDialogNoInputMessage *this)
+/* WARNING: Control flow encountered bad instruction data */
+
+void ProcessInput__21tDialogNoInputMessage7tPlayerR13tInputKeyTypeR12tMenuCommand
+               (tDialogNoInputMessage *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 

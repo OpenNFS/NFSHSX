@@ -12,16 +12,16 @@
 	// End offset: 0x80072EB8
 	// End Line: 108
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 int AITune_GetOneWay__Fv(void)
+
 {
-  if (false) {
-    return (uint)(bRam0000003d >> 4 == 0);
+  if (0xb < GameSetup_gData.track) {
+    return (uint)(BWorldSm_slices[1].laneCount >> 4 == 0);
   }
-  return 0;
-
-
+  return (&AITune_trackInfo)[GameSetup_gData.track].oneWay;
 }
-
 
 
 
@@ -36,16 +36,16 @@ int AITune_GetOneWay__Fv(void)
 	// End offset: 0x80072EF8
 	// End Line: 116
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 int AITune_GetDriveSide__Fv(void)
+
 {
-  if (false) {
+  if (0xb < GameSetup_gData.track) {
     return 1;
   }
-  return 1;
-
-
+  return (&AITune_trackInfo)[GameSetup_gData.track].driveSide;
 }
-
 
 
 
@@ -60,16 +60,16 @@ int AITune_GetDriveSide__Fv(void)
 	// End offset: 0x80072F38
 	// End Line: 124
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 int AITune_GetRoughLapTimes__Fv(void)
+
 {
-  if (false) {
+  if (0xb < GameSetup_gData.track) {
     return 0xbe;
   }
-  return 0xaa;
-
-
+  return (&AITune_trackInfo)[GameSetup_gData.track].roughLapTimeSeconds;
 }
-
 
 
 
@@ -84,16 +84,16 @@ int AITune_GetRoughLapTimes__Fv(void)
 	// End offset: 0x80072F40
 	// End Line: 129
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void AITune_StartUp1__Fv(void)
+
 {
-  iGp000000a4 = AITune_GetOneWay__Fv();
-  iGp000000a8 = AITune_GetDriveSide__Fv();
-  iGp000000ac = AITune_GetRoughLapTimes__Fv();
+  DAT_000000a4 = AITune_GetOneWay__Fv();
+  DAT_000000a8 = AITune_GetDriveSide__Fv();
+  DAT_000000ac = AITune_GetRoughLapTimes__Fv();
   return;
-
-
 }
-
 
 
 
@@ -108,13 +108,13 @@ void AITune_StartUp1__Fv(void)
 	// End offset: 0x80072F78
 	// End Line: 139
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void AITune_StartUp2__Fv(void)
+
 {
   return;
-
-
 }
-
 
 
 
@@ -129,13 +129,13 @@ void AITune_StartUp2__Fv(void)
 	// End offset: 0x80072F80
 	// End Line: 143
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void AITune_CleanUp1__Fv(void)
+
 {
   return;
-
-
 }
-
 
 
 
@@ -150,13 +150,13 @@ void AITune_CleanUp1__Fv(void)
 	// End offset: 0x80072F88
 	// End Line: 147
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void AITune_CleanUp2__Fv(void)
+
 {
   return;
-
-
 }
-
 
 
 

@@ -31,88 +31,88 @@
 	// End offset: 0x800CAB98
 	// End Line: 99
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Force_Vbl__Fv(void)
+
 {
   byte bVar1;
   byte bVar2;
-  int iVar3;
-  char cVar4;
-  char *pcVar5;
-  int iVar6;
-  int iVar7;
+  uchar uVar3;
+  uint uVar4;
+  int iVar5;
+  uchar uVar6;
+  Force_tGlobal *pFVar7;
+  int iVar8;
+  int iVar9;
   
-  iVar7 = 0;
-  pcVar5 = &Force_g;
+  iVar8 = 0;
+  pFVar7 = &Force_g;
   do {
-    iVar6 = iVar7 << 4;
-    if (1 < iVar7) {
-      uGp00001302 = uGp00001302 + 1;
+    if (1 < iVar8) {
+      DAT_00001302 = DAT_00001302 + 1;
       return;
     }
-    iVar3 = PadGetState(iVar6);
-    if (iVar3 == 6) {
-      if (*pcVar5 == '\0') {
-        PadSetAct(iVar6,pcVar5 + 6,2);
-        PadSetActAlign(iVar6,&Force_gActAlign);
-        *pcVar5 = '\x01';
+    uVar4 = PadGetState();
+    if (uVar4 == 6) {
+      if (pFVar7->active == '\0') {
+        PadSetAct(iVar8 << 4,pFVar7->actuator,2);
+        PadSetActAlign(iVar8 << 4,&Force_gActAlign);
+        pFVar7->active = '\x01';
       }
     }
     else {
-      if (iVar3 < 4) {
-        *pcVar5 = '\0';
+      if ((int)uVar4 < 4) {
+        pFVar7->active = '\0';
       }
     }
-    if ((byte)pcVar5[5] < (byte)pcVar5[4]) {
-      iVar6 = (uint)(byte)pcVar5[2] + (uint)(byte)pcVar5[3];
-      *(bool *)(pcVar5 + 6) =
-           (uint)(byte)(&Force_rand_256)[(uint)(uGp00001302 >> 1) & 0xff] <
-           (uint)(byte)pcVar5[1] + (uint)(byte)pcVar5[3];
+    if (pFVar7->fade < pFVar7->time) {
+      iVar5 = (uint)pFVar7->low + (uint)pFVar7->jolt;
+      *(bool *)pFVar7->actuator =
+           (uint)(&Force_rand_256)[(uint)(DAT_00001302 >> 1) & 0xff] <
+           (uint)pFVar7->high + (uint)pFVar7->jolt;
 LAB_800cab3c:
-      cVar4 = -1;
-      if (iVar6 < 0x100) {
-        cVar4 = (char)iVar6;
+      uVar6 = -1;
+      if (iVar5 < 0x100) {
+        uVar6 = (uchar)iVar5;
       }
-      pcVar5[7] = cVar4;
-      pcVar5[4] = pcVar5[4] + -1;
+      uVar3 = pFVar7->time;
+      pFVar7->actuator[1] = uVar6;
+      pFVar7->time = uVar3 + -1;
     }
     else {
-      if (pcVar5[4] != 0) {
-        bVar1 = pcVar5[5];
+      if (pFVar7->time != 0) {
+        iVar5 = (uint)pFVar7->jolt * (uint)pFVar7->time;
+        bVar1 = pFVar7->fade;
         if (bVar1 == 0) {
           trap(0x1c00);
         }
-        if (((uint)bVar1 == 0xffffffff) &&
-           ((uint)(byte)pcVar5[3] * (uint)(byte)pcVar5[4] == -0x80000000)) {
+        if (((uint)bVar1 == 0xffffffff) && (iVar5 == -0x80000000)) {
           trap(0x1800);
         }
-        bVar2 = pcVar5[5];
+        iVar9 = (uint)pFVar7->jolt * (uint)pFVar7->time;
+        bVar2 = pFVar7->fade;
         if (bVar2 == 0) {
           trap(0x1c00);
         }
-        if (((uint)bVar2 == 0xffffffff) &&
-           ((uint)(byte)pcVar5[3] * (uint)(byte)pcVar5[4] == -0x80000000)) {
+        if (((uint)bVar2 == 0xffffffff) && (iVar9 == -0x80000000)) {
           trap(0x1800);
         }
-        *(bool *)(pcVar5 + 6) =
-             (int)(uint)(byte)(&Force_rand_256)[(uint)(uGp00001302 >> 1) & 0xff] <
-             (int)((int)((uint)(byte)pcVar5[3] * (uint)(byte)pcVar5[4]) / (int)(uint)bVar1 +
-                  (uint)(byte)pcVar5[1]);
-        iVar6 = (int)((uint)(byte)pcVar5[3] * (uint)(byte)pcVar5[4]) / (int)(uint)bVar2 +
-                (uint)(byte)pcVar5[2];
+        *(bool *)pFVar7->actuator =
+             (int)(uint)(&Force_rand_256)[(uint)(DAT_00001302 >> 1) & 0xff] <
+             (int)(iVar5 / (int)(uint)bVar1 + (uint)pFVar7->high);
+        iVar5 = iVar9 / (int)(uint)bVar2 + (uint)pFVar7->low;
         goto LAB_800cab3c;
       }
-      pcVar5[3] = '\0';
-      bVar1 = (&Force_rand_256)[(uint)(uGp00001302 >> 1) & 0xff];
-      pcVar5[7] = pcVar5[2];
-      *(bool *)(pcVar5 + 6) = bVar1 < (byte)pcVar5[1];
+      pFVar7->jolt = '\0';
+      bVar1 = (&Force_rand_256)[(uint)(DAT_00001302 >> 1) & 0xff];
+      pFVar7->actuator[1] = pFVar7->low;
+      *(bool *)pFVar7->actuator = bVar1 < pFVar7->high;
     }
-    pcVar5 = pcVar5 + 8;
-    iVar7 = iVar7 + 1;
+    pFVar7 = pFVar7 + 1;
+    iVar8 = iVar8 + 1;
   } while( true );
-
-
 }
-
 
 
 
@@ -206,55 +206,56 @@ LAB_800cab3c:
 	// End Line: 223
 
 void Force_Update__FP8Car_tObj(Car_tObj *car)
+
 {
   int iVar1;
-  int iVar2;
-  int iVar3;
-  int iVar4;
-  uint uVar5;
+  uint uVar2;
+  undefined4 *puVar3;
+  uint uVar4;
+  int iVar5;
   int iVar6;
   int iVar7;
   int *piVar8;
-  int iVar9;
-  undefined uVar10;
-  undefined uVar11;
-  int iVar12;
+  undefined *puVar9;
+  uchar uVar10;
+  uchar uVar11;
+  undefined *puVar12;
   int iVar13;
   int local_30;
   int local_2c;
   
-  uVar5 = car->carIndex;
-  iVar1 = uVar5 * 8;
-  if (1 < uVar5) {
+  uVar4 = car->carIndex;
+  if (1 < uVar4) {
     return;
   }
   if (1 < Replay_ReplayMode) {
-    (&DAT_8011fd61)[iVar1] = 0;
-    (&DAT_8011fd62)[iVar1] = 0;
-    (&DAT_8011fd64)[iVar1] = 0;
+    (&Force_g)[uVar4].high = '\0';
+    (&Force_g)[uVar4].low = '\0';
+    (&Force_g)[uVar4].time = '\0';
     return;
   }
-  iVar6 = *(int *)(&DAT_80113294 + uVar5 * 4);
-  if (iVar6 == 0) {
+  iVar5 = GameSetup_gData.controllerData.shockMode[uVar4];
+  iVar6 = GameSetup_gData.controllerData.shockImpact[uVar4];
+  if (iVar5 == 0) {
     local_30 = 0;
   }
   else {
-    local_30 = (iVar6 + 0x10) * 0x2da6;
+    local_30 = (iVar5 + 0x10) * 0x2da6;
   }
-  if (iVar6 == 0) {
+  if (iVar5 == 0) {
     local_2c = 0;
   }
   else {
-    local_2c = (iVar6 + 0x10) * 0x1e6e;
+    local_2c = (iVar5 + 0x10) * 0x1e6e;
   }
-  if (*(int *)(&DAT_8011329c + uVar5 * 4) == 0) {
-    iVar6 = 0;
+  if (iVar6 == 0) {
+    iVar5 = 0;
   }
   else {
-    iVar6 = (*(int *)(&DAT_8011329c + uVar5 * 4) + 0x10) * 0xb699;
+    iVar5 = (iVar6 + 0x10) * 0xb699;
   }
-  iVar12 = 0;
-  iVar4 = 0;
+  puVar12 = (undefined *)0x0;
+  iVar6 = 0;
   if ((car->N).flightTime == 0) {
     switch((car->N).driveSurfaceType) {
     case 2:
@@ -265,14 +266,14 @@ void Force_Update__FP8Car_tObj(Car_tObj *car)
     case 7:
     case 8:
     case 9:
-      iVar12 = 0;
+      puVar12 = (undefined *)0x0;
       iVar13 = (car->linearVel_ch).z;
       if (iVar13 < 0) {
         iVar13 = -iVar13;
       }
-      iVar4 = 0x78000;
+      iVar6 = 0x78000;
       if (iVar13 >> 2 < 0x78001) {
-        iVar4 = iVar13 >> 2;
+        iVar6 = iVar13 >> 2;
       }
       goto LAB_800cadb8;
     case 10:
@@ -280,129 +281,125 @@ void Force_Update__FP8Car_tObj(Car_tObj *car)
     case 0xc:
     case 0xd:
     case 0xf:
-      iVar4 = (car->linearVel_ch).z;
-      if (iVar4 < 0) {
-        iVar4 = -iVar4;
+      iVar6 = (car->linearVel_ch).z;
+      if (iVar6 < 0) {
+        iVar6 = -iVar6;
       }
-      iVar12 = 0x58000;
-      if (iVar4 >> 1 < 0x58001) {
-        iVar12 = iVar4 >> 1;
+      puVar12 = (undefined *)0x58000;
+      if ((int)(undefined *)(iVar6 >> 1) < 0x58001) {
+        puVar12 = (undefined *)(iVar6 >> 1);
       }
       break;
     case 0xe:
-      iVar12 = 0;
+      puVar12 = (undefined *)0x0;
     }
-    iVar4 = 0;
+    iVar6 = 0;
   }
 LAB_800cadb8:
-  iVar13 = car->topSpeedUpgradeMult + -1;
-  if (car->topSpeedUpgradeMult != 0) {
+  iVar13 = car->gripFactor + -1;
+  if (car->gripFactor != 0) {
     piVar8 = &(car->N).objID + iVar13 * 6;
     while (-1 < iVar13) {
-      iVar3 = piVar8[0x1e7];
-      if (iVar3 == 0x12) {
-        iVar9 = iVar4;
-        iVar2 = piVar8[0x1ea] << 1;
-        if (piVar8[0x1ea] << 1 < iVar12) {
-          iVar9 = iVar4;
-          iVar2 = iVar12;
+      puVar3 = (undefined4 *)piVar8[0x1e7];
+      if (puVar3 == (undefined4 *)((int)&DAT_00000010 + 2)) {
+        iVar1 = iVar6;
+        puVar9 = (undefined *)(piVar8[0x1ea] << 1);
+        if ((int)(undefined *)(piVar8[0x1ea] << 1) < (int)puVar12) {
+          iVar1 = iVar6;
+          puVar9 = puVar12;
         }
       }
       else {
-        if (iVar3 == 0x14) {
-          iVar9 = piVar8[0x1ea] << 1;
-          iVar2 = iVar12;
-          if (piVar8[0x1ea] << 1 < iVar4) {
-            iVar9 = iVar4;
-            iVar2 = iVar12;
+        if (puVar3 == &DAT_00000014) {
+          iVar1 = piVar8[0x1ea] << 1;
+          puVar9 = puVar12;
+          if (piVar8[0x1ea] << 1 < iVar6) {
+            iVar1 = iVar6;
+            puVar9 = puVar12;
           }
         }
         else {
-          iVar9 = iVar4;
-          iVar2 = iVar12;
-          if ((((iVar3 < 0) && (iVar9 = iVar4, iVar2 = iVar12, iVar6 != 0)) &&
-              (iVar9 = iVar4, iVar2 = iVar12, piVar8[0x1e8] != 10)) &&
-             (iVar9 = iVar4, iVar2 = iVar12, piVar8[0x1e8] != 8)) {
-            iVar3 = piVar8[0x1ea];
-            if (iVar3 < 0x28001) {
+          iVar1 = iVar6;
+          puVar9 = puVar12;
+          if (((((int)puVar3 < 0) && (iVar1 = iVar6, puVar9 = puVar12, iVar5 != 0)) &&
+              (iVar1 = iVar6, puVar9 = puVar12, piVar8[0x1e8] != 10)) &&
+             (iVar1 = iVar6, puVar9 = puVar12, piVar8[0x1e8] != 8)) {
+            puVar9 = (undefined *)piVar8[0x1ea];
+            if ((int)puVar9 < 0x28001) {
               iVar7 = 0x20;
             }
             else {
-              iVar9 = 0x28000;
-              iVar3 = fixeddiv(iVar3,0x28000);
-              iVar3 = iVar3 * 0x20;
-              if (iVar3 < 0) {
-                iVar3 = iVar3 + 0xffff;
+              iVar1 = fixeddiv((uint)puVar9,(uint)&DAT_00028000);
+              iVar1 = iVar1 * 0x20;
+              if (iVar1 < 0) {
+                iVar1 = iVar1 + 0xffff;
               }
-              if (iVar3 >> 0x10 < 0x61) {
-                iVar2 = fixeddiv(piVar8[0x1ea],0x28000);
-                iVar2 = iVar2 * 0x20;
-                iVar7 = iVar2 >> 0x10;
-                iVar3 = iVar9;
-                if (iVar2 < 0) {
-                  iVar7 = iVar2 + 0xffff >> 0x10;
-                  iVar3 = iVar9;
+              if (iVar1 >> 0x10 < 0x61) {
+                iVar1 = fixeddiv(piVar8[0x1ea],(uint)&DAT_00028000);
+                iVar1 = iVar1 * 0x20;
+                iVar7 = iVar1 >> 0x10;
+                puVar9 = &DAT_00028000;
+                if (iVar1 < 0) {
+                  iVar7 = iVar1 + 0xffff >> 0x10;
+                  puVar9 = &DAT_00028000;
                 }
               }
               else {
                 iVar7 = 0x60;
-                iVar3 = iVar9;
+                puVar9 = &DAT_00028000;
               }
             }
-            iVar3 = fixedmult(iVar3,iVar6);
-            if (iVar3 < 0) {
-              iVar3 = iVar3 + 0xffff;
+            uVar2 = fixedmult((int)puVar9,iVar5);
+            if ((int)uVar2 < 0) {
+              uVar2 = uVar2 + 0xffff;
             }
-            if (((int)(uint)(byte)(&DAT_8011fd63)[iVar1] < iVar3 >> 0x10) ||
-               (iVar9 = iVar4, iVar2 = iVar12, (int)(uint)(byte)(&DAT_8011fd64)[iVar1] < iVar7)) {
-              (&DAT_8011fd65)[iVar1] = (char)(iVar7 >> 1);
-              (&DAT_8011fd64)[iVar1] = (char)iVar7;
-              (&DAT_8011fd63)[iVar1] = (char)((uint)iVar3 >> 0x10);
-              iVar9 = iVar4;
-              iVar2 = iVar12;
+            if (((int)(uint)(&Force_g)[uVar4].jolt < (int)uVar2 >> 0x10) ||
+               (iVar1 = iVar6, puVar9 = puVar12, (int)(uint)(&Force_g)[uVar4].time < iVar7)) {
+              (&Force_g)[uVar4].fade = (uchar)(iVar7 >> 1);
+              (&Force_g)[uVar4].time = (uchar)iVar7;
+              (&Force_g)[uVar4].jolt = (uchar)(uVar2 >> 0x10);
+              iVar1 = iVar6;
+              puVar9 = puVar12;
             }
           }
         }
       }
-      piVar8 = piVar8 + 0x22c;
+      piVar8 = piVar8 + 0x3e;
       iVar13 = iVar13 + -1;
-      iVar4 = iVar9;
-      iVar12 = iVar2;
+      iVar6 = iVar1;
+      puVar12 = puVar9;
     }
   }
   if (local_30 == 0) {
-    uVar11 = 0;
+    uVar11 = '\0';
   }
   else {
-    if (0xa0000 < iVar12) {
-      iVar12 = 0xa0000;
+    if (0xa0000 < (int)puVar12) {
+      puVar12 = &LAB_000a0000;
     }
-    iVar6 = fixedmult(iVar12,local_30);
-    uVar11 = (undefined)((uint)iVar6 >> 0x10);
-    if (iVar6 < 0) {
-      uVar11 = (undefined)((uint)(iVar6 + 0xffff) >> 0x10);
+    uVar2 = fixedmult((int)puVar12,local_30);
+    uVar11 = (uchar)(uVar2 >> 0x10);
+    if ((int)uVar2 < 0) {
+      uVar11 = (uchar)(uVar2 + 0xffff >> 0x10);
     }
   }
   if (local_2c == 0) {
-    uVar10 = 0;
+    uVar10 = '\0';
   }
   else {
-    if (0xf0000 < iVar4) {
-      iVar4 = 0xf0000;
+    if (0xf0000 < iVar6) {
+      iVar6 = 0xf0000;
     }
-    iVar6 = fixedmult(iVar4,local_2c);
-    uVar10 = (undefined)((uint)iVar6 >> 0x10);
-    if (iVar6 < 0) {
-      uVar10 = (undefined)((uint)(iVar6 + 0xffff) >> 0x10);
+    uVar2 = fixedmult(iVar6,local_2c);
+    uVar10 = (uchar)(uVar2 >> 0x10);
+    if ((int)uVar2 < 0) {
+      uVar10 = (uchar)(uVar2 + 0xffff >> 0x10);
     }
   }
-  (&DAT_8011fd61)[iVar1] = uVar11;
-  (&DAT_8011fd62)[iVar1] = uVar10;
+  (&Force_g)[uVar4].high = uVar11;
+  (&Force_g)[uVar4].low = uVar10;
   return;
-
-
 }
-
 
 
 
@@ -426,37 +423,35 @@ LAB_800cadb8:
 	// End offset: 0x800CB0CC
 	// End Line: 245
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Force_StartUp__Fv(void)
+
 {
-  undefined *puVar1;
-  undefined4 *puVar2;
+  uchar *puVar1;
+  Force_tGlobal *pFVar2;
   
-  puVar2 = (undefined4 *)&Force_g;
-  if (true) {
-    puVar1 = &DAT_8011fd67;
-    do {
-      *(undefined *)puVar2 = 0;
-      puVar1[-6] = 0;
-      puVar1[-5] = 0;
-      puVar1[-3] = 0;
-      puVar1[-1] = 0;
-      *puVar1 = 0;
-      puVar2 = puVar2 + 2;
-      puVar1 = puVar1 + 8;
-    } while (puVar2 < &colourRGB);
-  }
+  pFVar2 = &Force_g;
+  puVar1 = Force_g.actuator + 1;
+  do {
+    pFVar2->active = '\0';
+    puVar1[-6] = '\0';
+    puVar1[-5] = '\0';
+    puVar1[-3] = '\0';
+    puVar1[-1] = '\0';
+    *puVar1 = '\0';
+    pFVar2 = pFVar2 + 1;
+    puVar1 = puVar1 + 8;
+  } while (pFVar2 < &colourRGB);
   VSyncCallback(Force_Vbl__Fv);
   Sched_AddFunction__FP15Sched_tSchedulePFPv_vPvi
-            (DAT_8011e0bc,Force_Update__FP8Car_tObj,(void *)0x0,0x32);
-  if (DAT_801131f8 == 1) {
+            (simGlobal.schedule32Hz,Force_Update__FP8Car_tObj,__Cars_gHumanRaceCarList_9__,0x32);
+  if (GameSetup_gData.commMode == 1) {
     Sched_AddFunction__FP15Sched_tSchedulePFPv_vPvi
-              (DAT_8011e0bc,Force_Update__FP8Car_tObj,(void *)0x0,0x32);
+              (simGlobal.schedule32Hz,Force_Update__FP8Car_tObj,PTR_8010fa4c,0x32);
   }
   return;
-
-
 }
-
 
 
 
@@ -480,29 +475,27 @@ void Force_StartUp__Fv(void)
 	// End offset: 0x800CB120
 	// End Line: 257
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Force_Disable__Fv(void)
+
 {
-  undefined *puVar1;
-  undefined4 *puVar2;
+  uchar *puVar1;
+  Force_tGlobal *pFVar2;
   
-  puVar2 = (undefined4 *)&Force_g;
-  if (true) {
-    puVar1 = &DAT_8011fd67;
-    do {
-      puVar1[-1] = 0;
-      *puVar1 = 0;
-      puVar2 = puVar2 + 2;
-      puVar1 = puVar1 + 8;
-    } while (puVar2 < &colourRGB);
-  }
+  pFVar2 = &Force_g;
+  puVar1 = Force_g.actuator + 1;
+  do {
+    puVar1[-1] = '\0';
+    *puVar1 = '\0';
+    pFVar2 = pFVar2 + 1;
+    puVar1 = puVar1 + 8;
+  } while (pFVar2 < &colourRGB);
   PadSetActAlign(0,&Force_gOffAlign);
   PadSetActAlign(4,&Force_gOffAlign);
   VSyncCallback(0);
   return;
-
-
 }
-
 
 
 
@@ -520,18 +513,16 @@ void Force_Disable__Fv(void)
 	// End Line: 274
 
 int Force_IsForceOn__FP8Car_tObj(Car_tObj *car)
+
 {
   if (1 < Replay_ReplayMode) {
     return 0;
   }
   if ((uint)car->carIndex < 2) {
-    return (uint)((&Force_g)[car->carIndex * 8] == '\x01');
+    return (uint)((&Force_g)[car->carIndex].active == '\x01');
   }
   return 0;
-
-
 }
-
 
 
 
@@ -555,27 +546,25 @@ int Force_IsForceOn__FP8Car_tObj(Car_tObj *car)
 	// End offset: 0x800CB1EC
 	// End Line: 286
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Force_Pause__Fv(void)
+
 {
-  undefined *puVar1;
-  undefined4 *puVar2;
+  uchar *puVar1;
+  Force_tGlobal *pFVar2;
   
-  puVar2 = (undefined4 *)&Force_g;
-  if (true) {
-    puVar1 = &DAT_8011fd64;
-    do {
-      puVar1[-3] = 0;
-      puVar1[-2] = 0;
-      *puVar1 = 0;
-      puVar2 = puVar2 + 2;
-      puVar1 = puVar1 + 8;
-    } while (puVar2 < &colourRGB);
-  }
+  pFVar2 = &Force_g;
+  puVar1 = &Force_g.time;
+  do {
+    puVar1[-3] = '\0';
+    puVar1[-2] = '\0';
+    *puVar1 = '\0';
+    pFVar2 = pFVar2 + 1;
+    puVar1 = puVar1 + 8;
+  } while (pFVar2 < &colourRGB);
   return;
-
-
 }
-
 
 
 
@@ -590,13 +579,13 @@ void Force_Pause__Fv(void)
 	// End offset: 0x800CB1F4
 	// End Line: 292
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Force_UnPause__Fv(void)
+
 {
   return;
-
-
 }
-
 
 
 
@@ -612,12 +601,10 @@ void Force_UnPause__Fv(void)
 	// End Line: 299
 
 void Force_HitSign__FP8Car_tObj(Car_tObj *car)
+
 {
   return;
-
-
 }
-
 
 
 
@@ -633,12 +620,10 @@ void Force_HitSign__FP8Car_tObj(Car_tObj *car)
 	// End Line: 302
 
 void Force_HitWall__Fi(int impulse)
+
 {
   return;
-
-
 }
-
 
 
 

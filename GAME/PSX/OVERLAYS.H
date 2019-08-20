@@ -7,7 +7,7 @@ extern void RaceSummary__Fv(); // 0x800D9A48
 
 extern void RaceStatistics__Fv(); // 0x800D9FBC
 
-extern void Hud_BTCStats__Fsb(short player, unsigned int postgame); // 0x800DA728
+extern void Hud_BTCStats__Fsb(short player, void * postgame); // 0x800DA728
 
 extern void Hud_RenderStatsView__Fv(); // 0x800DAE8C
 

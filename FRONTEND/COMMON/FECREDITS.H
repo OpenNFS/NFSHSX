@@ -9,7 +9,7 @@ extern void DeInit__14tCreditManager(struct tCreditManager *this); // 0x80035BD8
 
 extern void RealDeInit__14tCreditManager(struct tCreditManager *this); // 0x80035BE4
 
-extern void Draw__14tCreditManagerb(struct tCreditManager *this, unsigned int selected); // 0x80035C24
+extern void Draw__14tCreditManagerb(struct tCreditManager *this, void * selected); // 0x80035C24
 
 extern void SetupCurrCredit__14tCreditManager(struct tCreditManager *this); // 0x80035D68
 

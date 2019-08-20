@@ -13,29 +13,27 @@
 	// End Line: 67
 
 int Device_VerifyType__Fi(int port)
+
 {
   uint uVar1;
   uint uVar2;
-  int iVar3;
   
-  if (true) {
-    iVar3 = port * 8;
-    if ((&DAT_8013e8a0)[iVar3] != '\0') {
+  if (gUseFrontend != 0) {
+    if (gPadinfo.buf[port].nopad != '\0') {
       return 0;
     }
     uVar1 = -(uint)(port != 0);
     uVar2 = uVar1 & 2;
-    if ((uint)(byte)(&DAT_8013e8a1)[iVar3] != (int)*(short *)(&DAT_8011495e + uVar2)) {
-      InGame_ResetPSXController__Fii((uint)(port != 0),*(int *)(&DAT_8011324c + (uVar1 & 4)));
-      *(ushort *)(&DAT_8011495e + uVar2) = (ushort)(byte)(&DAT_8013e8a1)[iVar3];
+    if ((uint)gPadinfo.buf[port].ID != (int)*(short *)((int)frontEnd.controlType + uVar2)) {
+      InGame_ResetPSXController__Fii
+                ((uint)(port != 0),
+                 *(int *)((int)GameSetup_gData.controllerData.controllerConfig + (uVar1 & 4)));
+      *(ushort *)((int)frontEnd.controlType + uVar2) = (ushort)gPadinfo.buf[port].ID;
       return 1;
     }
   }
   return 1;
-
-
 }
-
 
 
 
@@ -53,26 +51,26 @@ int Device_VerifyType__Fi(int port)
 	// End Line: 88
 
 int Device_Fail__Fi(int port)
+
 {
   byte bVar1;
   int iVar2;
+  byte *pbVar3;
   
   iVar2 = Device_VerifyType__Fi(port);
   if (iVar2 == 0) {
-    bVar1 = (&failtime_98)[(uint)(port != 0)];
+    pbVar3 = (byte *)((int)&failtime_98 + (uint)(port != 0));
+    bVar1 = *pbVar3;
     if (8 < bVar1) {
       return 1;
     }
-    (&failtime_98)[(uint)(port != 0)] = bVar1 + 1;
+    *pbVar3 = bVar1 + 1;
   }
   else {
-    (&failtime_98)[(uint)(port != 0)] = 0;
+    *(undefined *)((int)&failtime_98 + (uint)(port != 0)) = 0;
   }
   return 0;
-
-
 }
-
 
 
 
@@ -87,49 +85,49 @@ int Device_Fail__Fi(int port)
 	// End offset: 0x800BD5A8
 	// End Line: 161
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Device_Update__Fv(void)
+
 {
   int iVar1;
   int iVar2;
   
   PAD_update();
-  if (DAT_8011e0cc == 0) {
-    if (iGp00001234 != 0) {
-      iGp00001234 = 0;
-      uGp00001230 = 0xffffffff;
-      uGp00001238 = 0;
-      uGp0000123c = 0;
+  if (simVar.pauseSim == 0) {
+    if (DAT_00001234 != 0) {
+      DAT_00001234 = 0;
+      DAT_00001230 = 0xffffffff;
+      DAT_00001238 = 0;
+      DAT_0000123c = 0;
     }
   }
   else {
-    iGp00001234 = 1;
-    uGp00001238 = 0x11;
-    uGp0000123c = 0x11;
+    DAT_00001234 = 1;
+    DAT_00001238 = 0x11;
+    DAT_0000123c = 0x11;
   }
-  if (DAT_8011e0cc == 0) {
+  if (simVar.pauseSim == 0) {
     iVar2 = Device_Fail__Fi(0);
-    iVar1 = DAT_801131f8;
+    iVar1 = GameSetup_gData.commMode;
     if (iVar2 == 0) {
-      if ((DAT_801131f8 == 1) && (iVar2 = Device_Fail__Fi(4), iVar2 != 0)) {
-        iGp0000122c = iVar1;
-        uGp00001230 = 4;
-        uGp00001248 = 1;
+      if ((GameSetup_gData.commMode == 1) && (iVar2 = Device_Fail__Fi(4), iVar2 != 0)) {
+        DAT_0000122c = iVar1;
+        DAT_00001230 = 4;
+        DAT_00001248 = 1;
       }
       else {
-        iGp0000122c = 0;
+        DAT_0000122c = 0;
       }
     }
     else {
-      iGp0000122c = 1;
-      uGp00001230 = 0;
-      uGp00001248 = 0;
+      DAT_0000122c = 1;
+      DAT_00001230 = 0;
+      DAT_00001248 = 0;
     }
   }
   return;
-
-
 }
-
 
 
 
@@ -144,20 +142,20 @@ void Device_Update__Fv(void)
 	// End offset: 0x800BD5B8
 	// End Line: 171
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Device_StartUp__Fv(void)
+
 {
-  uGp0000122c = 0;
-  uGp00001230 = 0xffffffff;
-  uGp00001234 = 0;
-  uGp00001238 = 0;
-  uGp0000123c = 0;
-  uGp00001240 = 0;
-  uGp00001244 = 0;
+  DAT_0000122c = 0;
+  DAT_00001230 = 0xffffffff;
+  DAT_00001234 = 0;
+  DAT_00001238 = 0;
+  DAT_0000123c = 0;
+  DAT_00001240 = 0;
+  DAT_00001244 = 0;
   return;
-
-
 }
-
 
 
 
@@ -172,23 +170,23 @@ void Device_StartUp__Fv(void)
 	// End offset: 0x800BD5E0
 	// End Line: 201
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Device_SetHardCodedKeys__Fv(void)
+
 {
-  DAT_80113e74 = 0;
-  DAT_80113e78 = 0x1003;
-  DAT_80113e7c = 0x4003;
-  DAT_80113e80 = 0x8003;
-  DAT_80113e84 = 0x2003;
-  DAT_80113e88 = 0x400003;
-  DAT_80113e8c = 0x803;
-  DAT_80113e94 = 0x103;
-  DAT_80113ed4 = 0x100003;
-  DAT_80113ed8 = 0x800003;
+  INT_80113e74 = 0;
+  INT_80113e78 = (int)&DAT_00001003;
+  INT_80113e7c = (int)&DAT_00004003;
+  INT_80113e80 = (int)&DAT_00008003;
+  INT_80113e84 = (int)&DAT_00002003;
+  INT_80113e88 = (int)&DAT_00400003;
+  INT_80113e8c = 0x803;
+  INT_80113e94 = 0x103;
+  INT_80113ed4 = (int)&DAT_00100003;
+  INT_80113ed8 = 0x800003;
   return;
-
-
 }
-
 
 
 
@@ -204,26 +202,23 @@ void Device_SetHardCodedKeys__Fv(void)
 	// End Line: 251
 
 int Device_PSXPad__FUl(ulong param)
+
 {
   int iVar1;
   
   iVar1 = Device_VerifyType__Fi(param >> 0x10);
   if ((iVar1 == 0) ||
-     (iVar1 = 0xff, (~(uint)*(ushort *)((param >> 0x10) * 8 + -0x7fec175e) & 0xffff & param) == 0))
-  {
+     (iVar1 = 0xff, (~(uint)*(ushort *)&gPadinfo.buf[param >> 0x10].data & 0xffff & param) == 0)) {
     iVar1 = 0;
   }
   return iVar1;
-
-
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// unsigned int /*$ra*/ Device_ReadPad__FiUl(int port /*$s0*/, unsigned long param /*$s1*/)
+// void * /*$ra*/ Device_ReadPad__FiUl(int port /*$s0*/, unsigned long param /*$s1*/)
  // line 261, offset 0x800bd6ac
 	/* begin block 1 */
 		// Start line: 262
@@ -234,74 +229,71 @@ int Device_PSXPad__FUl(ulong param)
 	// End offset: 0x800BD8C8
 	// End Line: 303
 
-uint Device_ReadPad__FiUl(int port,ulong param)
+void * Device_ReadPad__FiUl(int port,ulong param)
+
 {
   ushort uVar1;
   int iVar2;
-  uint uVar3;
+  undefined *puVar3;
   
   iVar2 = Device_VerifyType__Fi(port);
   if (iVar2 == 0) {
-    return 0;
+    return (void *)0x0;
   }
-  if ((&DAT_8013e8a1)[port * 8] == '#') {
-    if (((param & 0xffff) != 0x4000) || (*(byte *)(port * 8 + -0x7fec175b) < 0x40)) {
-      if (((&DAT_8013e8a1)[port * 8] == '#') &&
-         (((param & 0xffff) == 0x8000 && (0x3f < *(byte *)(port * 8 + -0x7fec175a))))) {
-        return 1;
+  if (gPadinfo.buf[port].ID == '#') {
+    if (((param & 0xffff) != 0x4000) || (*(byte *)((int)&gPadinfo.buf[port].data + 3) < 0x40)) {
+      if ((gPadinfo.buf[port].ID == '#') &&
+         (((param & 0xffff) == 0x8000 && (0x3f < *(byte *)((int)&gPadinfo.buf[port].data + 4))))) {
+        return &DAT_00000001;
       }
       goto LAB_800bd758;
     }
 LAB_800bd79c:
-    uVar3 = 1;
+    puVar3 = &DAT_00000001;
   }
   else {
 LAB_800bd758:
-    iVar2 = port * 8;
-    if ((&DAT_8013e8a1)[iVar2] == 's') {
+    if (gPadinfo.buf[port].ID == 's') {
       if ((param & 0xffff) == 0x80) {
-        if (*(byte *)(iVar2 + -0x7fec175c) < 0x41) goto LAB_800bd79c;
-        if (*(byte *)(iVar2 + -0x7fec175a) < 0x41) {
-          return 1;
+        if (*(byte *)((int)&gPadinfo.buf[port].data + 2) < 0x41) goto LAB_800bd79c;
+        if (*(byte *)((int)&gPadinfo.buf[port].data + 4) < 0x41) {
+          return &DAT_00000001;
         }
       }
-      if ((&DAT_8013e8a1)[port * 8] == 's') {
+      if (gPadinfo.buf[port].ID == 's') {
         if ((param & 0xffff) == 0x20) {
-          if (0xbf < *(byte *)(iVar2 + -0x7fec175c)) {
-            return 1;
+          if (0xbf < *(byte *)((int)&gPadinfo.buf[port].data + 2)) {
+            return &DAT_00000001;
           }
-          if (0xbf < *(byte *)(iVar2 + -0x7fec175a)) {
-            return 1;
+          if (0xbf < *(byte *)((int)&gPadinfo.buf[port].data + 4)) {
+            return &DAT_00000001;
           }
         }
-        if ((&DAT_8013e8a1)[port * 8] == 's') {
+        if (gPadinfo.buf[port].ID == 's') {
           if ((param & 0xffff) == 0x10) {
-            if ((byte)(&DAT_8013e8a7)[iVar2] < 0x41) {
-              return 1;
+            if (*(byte *)((int)&gPadinfo.buf[port].data + 5) < 0x41) {
+              return &DAT_00000001;
             }
-            if (*(byte *)(iVar2 + -0x7fec175b) < 0x41) {
-              return 1;
+            if (*(byte *)((int)&gPadinfo.buf[port].data + 3) < 0x41) {
+              return &DAT_00000001;
             }
           }
-          if (((&DAT_8013e8a1)[port * 8] == 's') && ((param & 0xffff) == 0x40)) {
-            if (0xbf < (byte)(&DAT_8013e8a7)[iVar2]) {
-              return 1;
+          if ((gPadinfo.buf[port].ID == 's') && ((param & 0xffff) == 0x40)) {
+            if (0xbf < *(byte *)((int)&gPadinfo.buf[port].data + 5)) {
+              return &DAT_00000001;
             }
-            if (0xbf < *(byte *)(iVar2 + -0x7fec175b)) {
-              return 1;
+            if (0xbf < *(byte *)((int)&gPadinfo.buf[port].data + 3)) {
+              return &DAT_00000001;
             }
           }
         }
       }
     }
     uVar1 = PAD_state(port);
-    uVar3 = (uint)(((uint)uVar1 & param) != 0);
+    puVar3 = (undefined *)(uint)(((uint)uVar1 & param) != 0);
   }
-  return uVar3;
-
-
+  return puVar3;
 }
-
 
 
 
@@ -317,22 +309,23 @@ LAB_800bd758:
 	// End Line: 343
 
 int Device_PSXPadMulti__FUl(ulong param)
+
 {
-  uint uVar1;
+  void *pvVar1;
   int iVar2;
   
-  if (DAT_8011e0cc == 0) {
-    uVar1 = Device_ReadPad__FiUl(0,param);
-    if (uVar1 == 0) {
-      if ((1 < Replay_ReplayMode) || (iVar2 = 0, DAT_801131f8 == 1)) {
-        uVar1 = Device_ReadPad__FiUl(4,param);
-        if (uVar1 == 0) {
+  if (simVar.pauseSim == 0) {
+    pvVar1 = Device_ReadPad__FiUl(0,param);
+    if (pvVar1 == (void *)0x0) {
+      if ((1 < Replay_ReplayMode) || (iVar2 = 0, GameSetup_gData.commMode == 1)) {
+        pvVar1 = Device_ReadPad__FiUl(4,param);
+        if (pvVar1 == (void *)0x0) {
           iVar2 = 0;
         }
         else {
           if ((param & 0xffff) == 8) {
-            uGp00001248 = 1;
-            iGp00001230 = 4;
+            DAT_00001248 = 1;
+            DAT_00001230 = 4;
           }
           iVar2 = 0xff;
         }
@@ -341,23 +334,20 @@ int Device_PSXPadMulti__FUl(ulong param)
     else {
       iVar2 = 0xff;
       if ((param & 0xffff) == 8) {
-        iGp00001230 = 0;
-        uGp00001248 = 0;
+        DAT_00001230 = 0;
+        DAT_00001248 = 0;
       }
     }
   }
   else {
-    uVar1 = Device_ReadPad__FiUl(iGp00001230,param);
+    pvVar1 = Device_ReadPad__FiUl(DAT_00001230,param);
     iVar2 = 0xff;
-    if (uVar1 == 0) {
+    if (pvVar1 == (void *)0x0) {
       iVar2 = 0;
     }
   }
   return iVar2;
-
-
 }
-
 
 
 
@@ -377,6 +367,7 @@ int Device_PSXPadMulti__FUl(ulong param)
 	// End Line: 385
 
 int Device_Analog__FUl(ulong param)
+
 {
   int iVar1;
   uint uVar2;
@@ -389,7 +380,7 @@ int Device_Analog__FUl(ulong param)
   if (iVar1 == 0) {
     return 0;
   }
-  uVar2 = (uint)*(byte *)((param >> 0x14) * 8 + (param >> 0x10 & 3) + -0x7fec175c);
+  uVar2 = (uint)*(byte *)((int)&gPadinfo.buf[param >> 0x14].data + (param >> 0x10 & 3) + 2);
   uVar5 = param >> 8 & 0xff;
   uVar4 = param & 0xff;
   if (uVar5 < uVar4) {
@@ -427,10 +418,7 @@ LAB_800bda70:
     }
   }
   return 0;
-
-
 }
-
 
 
 
@@ -446,12 +434,10 @@ LAB_800bda70:
 	// End Line: 395
 
 int Device_Null__FUl(ulong param)
+
 {
   return 0;
-
-
 }
-
 
 
 

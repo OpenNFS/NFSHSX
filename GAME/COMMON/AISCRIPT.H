@@ -1,7 +1,7 @@
 #ifndef AISCRIPT_H
 #define AISCRIPT_H
 
-extern void AIScript_Assign__FP10AIScript_tPA7_25AIScript_tReactionDetails(struct AIScript_t *script, struct AIScript_tReactionDetails *data[7]); // 0x8006F6F8
+extern void AIScript_Assign__FP10AIScript_tPA7_25AIScript_tReactionDetails(struct AIScript_t *script, struct AIScript_tReactionDetails (*data)[7]); // 0x8006F6F8
 
 extern void AIScript_ClearLastReactionIndex__FP10AIScript_t(struct AIScript_t *script); // 0x8006F700
 

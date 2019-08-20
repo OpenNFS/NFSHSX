@@ -41,18 +41,19 @@
 	// End offset: 0x80012AC4
 	// End Line: 115
 
+/* WARNING: Control flow encountered bad instruction data */
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Fe3D_InitShowroom__Fv(void)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -71,18 +72,18 @@ void Fe3D_InitShowroom__Fv(void)
 	// End offset: 0x80012AE4
 	// End Line: 121
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void CameraLookAt__FP10matrixtdefP8coorddef(matrixtdef *mat,coorddef *camPoint)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -150,18 +151,20 @@ void CameraLookAt__FP10matrixtdefP8coorddef(matrixtdef *mat,coorddef *camPoint)
 	// End offset: 0x80012F70
 	// End Line: 330
 
-void Draw_MenuRenderingView__FP8Car_tObjP13DRender_tViewiiiUliffii( (Car_tObj *carObj,DRender_tView *Vi,int posX,int posY,int player,ulong rotation, int camRot,float camY,float camZ,int light,int reflection)
+/* WARNING: Control flow encountered bad instruction data */
+
+void Draw_MenuRenderingView__FP8Car_tObjP13DRender_tViewiiiUliffii
+               (Car_tObj *carObj,DRender_tView *Vi,int posX,int posY,int player,ulong rotation,
+               int camRot,float camY,float camZ,int light,int reflection)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 

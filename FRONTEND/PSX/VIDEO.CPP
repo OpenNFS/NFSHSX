@@ -17,18 +17,18 @@
 	// End offset: 0x80050D50
 	// End Line: 77
 
+/* WARNING: Control flow encountered bad instruction data */
+
 int VIDEO_create__Fiiiii(int width,int height,int fps,int streambuffersize,int memtype)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -43,18 +43,18 @@ int VIDEO_create__Fiiiii(int width,int height,int fps,int streambuffersize,int m
 	// End offset: 0x80050E88
 	// End Line: 135
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void VIDEO_destroy__Fi(int handle)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -69,18 +69,18 @@ void VIDEO_destroy__Fi(int handle)
 	// End offset: 0x80050EE4
 	// End Line: 155
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void VIDEO_spoolfile__FiPc(int handle,char *fname)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -95,18 +95,18 @@ void VIDEO_spoolfile__FiPc(int handle,char *fname)
 	// End offset: 0x80050F44
 	// End Line: 179
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void VIDEO_startplayback__Fi(int handle)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -121,18 +121,18 @@ void VIDEO_startplayback__Fi(int handle)
 	// End offset: 0x80050F88
 	// End Line: 195
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void VIDEO_abortplayback__Fi(int handle)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -192,18 +192,18 @@ void VIDEO_abortplayback__Fi(int handle)
 	// End offset: 0x80051030
 	// End Line: 248
 
+/* WARNING: Control flow encountered bad instruction data */
+
 VIDEOSTATE VIDEO_state__Fi(int handle)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -238,18 +238,18 @@ VIDEOSTATE VIDEO_state__Fi(int handle)
 	// End offset: 0x8005115C
 	// End Line: 336
 
+/* WARNING: Control flow encountered bad instruction data */
+
 int VIDEO_updateframexy__Fiii(int handle,int x,int y)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -264,18 +264,18 @@ int VIDEO_updateframexy__Fiii(int handle,int x,int y)
 	// End offset: 0x80051180
 	// End Line: 370
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void videoupdatetime__FP11VIDEOSTRUCT(VIDEOSTRUCT *vid)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -334,18 +334,19 @@ void videoupdatetime__FP11VIDEOSTRUCT(VIDEOSTRUCT *vid)
 	// End offset: 0x80051248
 	// End Line: 411
 
-int videodecode__FP11VIDEOSTRUCTP14STREAMCHUNKHDRii( (VIDEOSTRUCT *vid,STREAMCHUNKHDR *chunk,int x,int y)
+/* WARNING: Control flow encountered bad instruction data */
+
+int videodecode__FP11VIDEOSTRUCTP14STREAMCHUNKHDRii
+              (VIDEOSTRUCT *vid,STREAMCHUNKHDR *chunk,int x,int y)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 

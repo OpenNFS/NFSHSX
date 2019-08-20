@@ -52,18 +52,19 @@
 	// End offset: 0x8004F390
 	// End Line: 116
 
-void FETexture_LoadPmxAtOffset__FPciP18tTexture_ShapeInfoii( (char *f,int index,tTexture_ShapeInfo *dest,int yoffset,int xoffset)
+/* WARNING: Control flow encountered bad instruction data */
+
+void FETexture_LoadPmxAtOffset__FPciP18tTexture_ShapeInfoii
+               (char *f,int index,tTexture_ShapeInfo *dest,int yoffset,int xoffset)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -78,18 +79,18 @@ void FETexture_LoadPmxAtOffset__FPciP18tTexture_ShapeInfoii( (char *f,int index,
 	// End offset: 0x8004F3B8
 	// End Line: 126
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void FETexture_LoadPmx__FPciP18tTexture_ShapeInfo(char *f,int index,tTexture_ShapeInfo *dest)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 

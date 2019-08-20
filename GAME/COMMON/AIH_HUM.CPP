@@ -12,16 +12,16 @@
 	// End offset: 0x80063270
 	// End Line: 27
 
+/* WARNING: Type propagation algorithm not settling */
+
 void HighExecute__12AIHigh_Human(AIHigh_Human *this)
+
 {
   HandleCops__13AIHigh_Player((AIHigh_Player *)this);
   (((this->AIHigh_Player).AIHigh_BasicPerp.AIHigh_Base.carObj_)->N).active = '\x01';
   StateExecute__12AIState_Base((this->AIHigh_Player).AIHigh_BasicPerp.AIHigh_Base.state_);
   return;
-
-
 }
-
 
 
 
@@ -37,14 +37,12 @@ void HighExecute__12AIHigh_Human(AIHigh_Human *this)
 	// End Line: 39
 
 AIHigh_Human * __12AIHigh_HumanP8Car_tObj(AIHigh_Human *this,Car_tObj *carObj)
+
 {
   __13AIHigh_PlayerP8Car_tObj((AIHigh_Player *)this,carObj);
-  (this->AIHigh_Player).AIHigh_BasicPerp.AIHigh_Base._vf[0] = (__vtbl_ptr_type *)&table;
+  (this->AIHigh_Player).AIHigh_BasicPerp.AIHigh_Base._vf[0].value = 0x800550c8;
   return this;
-
-
 }
-
 
 
 

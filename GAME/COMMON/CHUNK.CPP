@@ -356,19 +356,19 @@
 	// End offset: 0x8008B730
 	// End Line: 225
 
-void InstanceGroup__5ChunkP15SerializedGroupP9SimpleMem( (Chunk *this,SerializedGroup *chunkGroup,SimpleMem *mem)
+void InstanceGroup__5ChunkP15SerializedGroupP9SimpleMem
+               (Chunk *this,SerializedGroup *chunkGroup,SimpleMem *mem)
+
 {
   char cVar1;
-  short sVar2;
   SerializedGroup *source;
-  Group *pGVar3;
+  Group *pGVar2;
   SerializedGroup *source_00;
-  Trk_Quad *pTVar4;
-  uint uVar5;
-  SerializedGroup *pSVar6;
-  SerializedGroup *pSVar7;
-  int iVar8;
-  int iVar9;
+  uint uVar3;
+  SerializedGroup *pSVar4;
+  SerializedGroup *pSVar5;
+  int iVar6;
+  int iVar7;
   int dataSize;
   
   source = LocateGroupType__15SerializedGroupii(chunkGroup,0x1c,0);
@@ -382,11 +382,11 @@ void InstanceGroup__5ChunkP15SerializedGroupP9SimpleMem( (Chunk *this,Serialized
   this->chunkboundPts[2] = *(RelCoord16 *)&source[3].dummy;
   this->chunkboundPts[3] = *(RelCoord16 *)&source[3].m_num_elements;
   this->chunkInd = *(short *)&source[1].m_num_elements;
-  if (DAT_801131f8 != 1) {
-    pGVar3 = LocateCreateGroupType__15SerializedGroupiP9SimpleMemi(chunkGroup,3,mem,0);
-    this->objInstanceBuf = pGVar3;
-    pGVar3 = LocateCreateGroupType__15SerializedGroupiP9SimpleMemi(chunkGroup,0xb,mem,0);
-    this->simObjBuf = pGVar3;
+  if (GameSetup_gData.commMode != 1) {
+    pGVar2 = LocateCreateGroupType__15SerializedGroupiP9SimpleMemi(chunkGroup,3,mem,0);
+    this->objInstanceBuf = pGVar2;
+    pGVar2 = LocateCreateGroupType__15SerializedGroupiP9SimpleMemi(chunkGroup,0xb,mem,0);
+    this->simObjBuf = pGVar2;
     goto LAB_8008b734;
   }
   source = LocateGroupType__15SerializedGroupii(chunkGroup,0xb,0);
@@ -396,77 +396,77 @@ LAB_8008b630:
     this->simObjBuf = (Group *)0x0;
   }
   else {
-    iVar9 = 0;
-    pSVar6 = source + 1;
-    while (iVar9 < source->m_num_elements) {
-      if (*(char *)((int)&pSVar6[1].m_type + 2) != '\x7f') {
-        uVar5 = (uint)*(byte *)((int)&pSVar6[1].m_type + 2);
-        pSVar7 = source_00 + 1;
-        if (source_00->m_num_elements <= (int)uVar5) break;
-        while (uVar5 = uVar5 - 1, uVar5 != 0xffffffff) {
-          pSVar7 = (SerializedGroup *)((int)&pSVar7->m_type + (int)*(short *)&pSVar7->m_type);
+    iVar7 = 0;
+    pSVar4 = source + 1;
+    while (iVar7 < source->m_num_elements) {
+      if (*(char *)((int)&pSVar4[1].m_type + 2) != '\x7f') {
+        uVar3 = (uint)*(byte *)((int)&pSVar4[1].m_type + 2);
+        pSVar5 = source_00 + 1;
+        if (source_00->m_num_elements <= (int)uVar3) break;
+        while (uVar3 = uVar3 - 1, uVar3 != 0xffffffff) {
+          pSVar5 = (SerializedGroup *)((int)&pSVar5->m_type + (int)*(short *)&pSVar5->m_type);
         }
-        if (((pSVar7 == (SerializedGroup *)0x0) || (*(char *)((int)&pSVar7->m_type + 2) != '\x05'))
-           || (*(char *)((int)&pSVar7[2].m_type + 3) != '\0')) break;
+        if (((pSVar5 == (SerializedGroup *)0x0) || (*(char *)((int)&pSVar5->m_type + 2) != '\x05'))
+           || (*(char *)((int)&pSVar5[2].m_type + 3) != '\0')) break;
       }
-      pSVar6 = (SerializedGroup *)&pSVar6[1].m_length;
-      iVar9 = iVar9 + 1;
+      pSVar4 = (SerializedGroup *)&pSVar4[1].m_length;
+      iVar7 = iVar7 + 1;
     }
-    if (iVar9 == 0) goto LAB_8008b630;
-    pGVar3 = CreateLiteGroupDataSize__15SerializedGroupP15SerializedGroupP9SimpleMemi
-                       (chunkGroup,source,mem,iVar9 * 0x14);
-    this->simObjBuf = pGVar3;
-    pGVar3->m_num_elements = iVar9;
+    if (iVar7 == 0) goto LAB_8008b630;
+    pGVar2 = CreateLiteGroupDataSize__15SerializedGroupP15SerializedGroupP9SimpleMemi
+                       (chunkGroup,source,mem,iVar7 * 0x14);
+    this->simObjBuf = pGVar2;
+    pGVar2->m_num_elements = iVar7;
   }
-  iVar9 = 0;
+  iVar7 = 0;
   if (source_00 == (SerializedGroup *)0x0) {
     this->objInstanceBuf = (Group *)0x0;
   }
   else {
     dataSize = 0;
-    pSVar6 = source_00 + 1;
-    while (iVar9 < source_00->m_num_elements) {
-      cVar1 = *(char *)((int)&pSVar6->m_type + 2);
+    pSVar4 = source_00 + 1;
+    while (iVar7 < source_00->m_num_elements) {
+      cVar1 = *(char *)((int)&pSVar4->m_type + 2);
       if (cVar1 == '\x05') {
-        if (*(char *)((int)&pSVar6[2].m_type + 3) != '\0') break;
+        if (*(char *)((int)&pSVar4[2].m_type + 3) != '\0') break;
       }
       else {
         if (cVar1 != '\x01') break;
       }
-      iVar9 = iVar9 + 1;
-      dataSize = dataSize + (int)*(short *)&pSVar6->m_type;
-      pSVar6 = (SerializedGroup *)((int)&pSVar6->m_type + (int)*(short *)&pSVar6->m_type);
+      iVar7 = iVar7 + 1;
+      dataSize = dataSize + (int)*(short *)&pSVar4->m_type;
+      pSVar4 = (SerializedGroup *)((int)&pSVar4->m_type + (int)*(short *)&pSVar4->m_type);
     }
-    pGVar3 = CreateLiteGroupDataSize__15SerializedGroupP15SerializedGroupP9SimpleMemi
+    pGVar2 = CreateLiteGroupDataSize__15SerializedGroupP15SerializedGroupP9SimpleMemi
                        (chunkGroup,source_00,mem,dataSize);
-    this->objInstanceBuf = pGVar3;
-    pGVar3->m_num_elements = iVar9;
+    this->objInstanceBuf = pGVar2;
+    pGVar2->m_num_elements = iVar7;
   }
   if ((this->simObjBuf != (Group *)0x0) && (this->objInstanceBuf != (Group *)0x0)) {
     dataSize = this->simObjBuf->m_num_elements;
-    iVar9 = (int)source + dataSize * 0x14 + 0x10;
+    iVar7 = (int)source + dataSize * 0x14 + 0x10;
     while( true ) {
-      iVar8 = iVar9;
+      iVar6 = iVar7;
       dataSize = dataSize + -1;
       if (dataSize == -1) break;
-      iVar9 = iVar8 + -0x14;
-      if (this->objInstanceBuf->m_num_elements <= (int)(uint)*(byte *)(iVar8 + -2)) {
-        *(undefined *)(iVar8 + -2) = 0x7f;
-        iVar9 = iVar8 + -0x14;
+      iVar7 = iVar6 + -0x14;
+      if (this->objInstanceBuf->m_num_elements <= (int)(uint)*(byte *)(iVar6 + -2)) {
+        *(undefined *)(iVar6 + -2) = 0x7f;
+        iVar7 = iVar6 + -0x14;
       }
     }
   }
 LAB_8008b734:
-  pGVar3 = LocateCreateGroupType__15SerializedGroupiP9SimpleMemi(chunkGroup,0x15,mem,0);
-  this->objSpecialInstanceBuf = pGVar3;
-  pGVar3 = LocateCreateGroupType__15SerializedGroupiP9SimpleMemi(chunkGroup,10,mem,0);
-  this->sfxBuf = pGVar3;
-  pGVar3 = LocateCreateGroupType__15SerializedGroupiP9SimpleMemi(chunkGroup,5,mem,0);
-  this->simQuadBuf = pGVar3;
-  pGVar3 = LocateCreateGroupType__15SerializedGroupiP9SimpleMemi(chunkGroup,6,mem,0);
-  this->simSliceBuf = pGVar3;
-  pGVar3 = LocateCreateGroupType__15SerializedGroupiP9SimpleMemi(chunkGroup,9,mem,0);
-  this->lineBuf = pGVar3;
+  pGVar2 = LocateCreateGroupType__15SerializedGroupiP9SimpleMemi(chunkGroup,0x15,mem,0);
+  this->objSpecialInstanceBuf = pGVar2;
+  pGVar2 = LocateCreateGroupType__15SerializedGroupiP9SimpleMemi(chunkGroup,10,mem,0);
+  this->sfxBuf = pGVar2;
+  pGVar2 = LocateCreateGroupType__15SerializedGroupiP9SimpleMemi(chunkGroup,5,mem,0);
+  this->simQuadBuf = pGVar2;
+  pGVar2 = LocateCreateGroupType__15SerializedGroupiP9SimpleMemi(chunkGroup,6,mem,0);
+  this->simSliceBuf = pGVar2;
+  pGVar2 = LocateCreateGroupType__15SerializedGroupiP9SimpleMemi(chunkGroup,9,mem,0);
+  this->lineBuf = pGVar2;
   source = LocateGroupType__15SerializedGroupii(chunkGroup,0x17,0);
   source_00 = LocateGroupType__15SerializedGroupii(source,0x1b,0);
   this->quadCounts[0] = *(uchar *)&source_00[1].m_num_elements;
@@ -475,31 +475,28 @@ LAB_8008b734:
   this->quadCounts[3] = *(uchar *)((int)&source_00[2].m_type + 2);
   this->quadCounts[4] = *(uchar *)&source_00[2].m_length;
   this->quadCounts[5] = *(uchar *)((int)&source_00[2].m_length + 2);
-  pGVar3 = LocateCreateGroupType__15SerializedGroupiP9SimpleMemi(source,0x19,mem,0);
-  pTVar4 = (Trk_Quad *)(pGVar3 + 1);
-  this->renderQuads[0] = pTVar4;
-  pTVar4 = pTVar4 + (int)*(short *)&source_00[1].m_num_elements;
-  this->renderQuads[1] = pTVar4;
-  sVar2 = *(short *)((int)&source_00[1].m_num_elements + 2);
-  this->renderQuads[2] = pTVar4 + (int)sVar2;
-  this->renderQuads[3] = pTVar4 + (int)sVar2 + (int)*(short *)&source_00[2].m_length;
-  pGVar3 = LocateCreateGroupType__15SerializedGroupiP9SimpleMemi(source,0x1a,mem,0);
-  this->stripBuf = pGVar3;
-  pGVar3 = LocateCreateGroupType__15SerializedGroupiP9SimpleMemi(source,0x25,mem,0);
-  this->lorezstripBuf = pGVar3;
-  pGVar3 = LocateCreateGroupType__15SerializedGroupiP9SimpleMemi(source,0x18,mem,0);
-  this->vertexBuf = pGVar3;
-  pGVar3 = LocateCreateGroupType__15SerializedGroupiP9SimpleMemi(source,0x27,mem,0);
-  this->objVertexBuf = pGVar3;
-  pGVar3 = LocateCreateGroupType__15SerializedGroupiP9SimpleMemi(source,0x28,mem,0);
-  this->objQuadBuf = pGVar3;
-  pGVar3 = LocateCreateGroupType__15SerializedGroupiP9SimpleMemi(source,0x29,mem,0);
-  this->objQuadInstanceBuf = pGVar3;
+  pGVar2 = LocateCreateGroupType__15SerializedGroupiP9SimpleMemi(source,0x19,mem,0);
+  *(Group **)this->renderQuads = pGVar2 + 1;
+  pGVar2 = (Group *)((int)(pGVar2 + 1) + (int)*(short *)&source_00[1].m_num_elements * 6);
+  *(Group **)(this->renderQuads + 1) = pGVar2;
+  pGVar2 = (Group *)((int)pGVar2 + (int)*(short *)((int)&source_00[1].m_num_elements + 2) * 6);
+  *(Group **)(this->renderQuads + 2) = pGVar2;
+  *(Group **)(this->renderQuads + 3) =
+       (Group *)((int)pGVar2 + (int)*(short *)&source_00[2].m_length * 6);
+  pGVar2 = LocateCreateGroupType__15SerializedGroupiP9SimpleMemi(source,0x1a,mem,0);
+  this->stripBuf = pGVar2;
+  pGVar2 = LocateCreateGroupType__15SerializedGroupiP9SimpleMemi(source,0x25,mem,0);
+  this->lorezstripBuf = pGVar2;
+  pGVar2 = LocateCreateGroupType__15SerializedGroupiP9SimpleMemi(source,0x18,mem,0);
+  this->vertexBuf = pGVar2;
+  pGVar2 = LocateCreateGroupType__15SerializedGroupiP9SimpleMemi(source,0x27,mem,0);
+  this->objVertexBuf = pGVar2;
+  pGVar2 = LocateCreateGroupType__15SerializedGroupiP9SimpleMemi(source,0x28,mem,0);
+  this->objQuadBuf = pGVar2;
+  pGVar2 = LocateCreateGroupType__15SerializedGroupiP9SimpleMemi(source,0x29,mem,0);
+  this->objQuadInstanceBuf = pGVar2;
   return;
-
-
 }
-
 
 
 
@@ -515,12 +512,10 @@ LAB_8008b734:
 	// End Line: 275
 
 void Chunk_UpdateSys__FP13DRender_tView(DRender_tView *Vi)
+
 {
   return;
-
-
 }
-
 
 
 
@@ -535,13 +530,13 @@ void Chunk_UpdateSys__FP13DRender_tView(DRender_tView *Vi)
 	// End offset: 0x8008B928
 	// End Line: 292
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Chunk_Init__Fv(void)
+
 {
   return;
-
-
 }
-
 
 
 
@@ -556,13 +551,13 @@ void Chunk_Init__Fv(void)
 	// End offset: 0x8008B930
 	// End Line: 311
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Chunk_DeInit__Fv(void)
+
 {
   return;
-
-
 }
-
 
 
 

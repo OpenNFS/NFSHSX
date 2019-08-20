@@ -13,12 +13,10 @@
 	// End Line: 46
 
 void Control_AI__FP8Car_tObj(Car_tObj *carObj)
+
 {
   return;
-
-
 }
-
 
 
 
@@ -85,15 +83,17 @@ void Control_AI__FP8Car_tObj(Car_tObj *carObj)
 	// End Line: 263
 
 void Control_Human__FP8Car_tObj(Car_tObj *carObj)
+
 {
   ushort uVar1;
   char cVar2;
   byte bVar3;
   int player;
+  speechSourceType sVar4;
   int index;
   uint head;
   
-  if (false) {
+  if ((simGlobal.gameTicks & 3U) != 0) {
     return;
   }
   if ((0 < Cars_gNumAICars) && (carObj->carIndex == 0)) {
@@ -102,27 +102,27 @@ void Control_Human__FP8Car_tObj(Car_tObj *carObj)
   InGame_SetRamp__Fv();
   (*carObj->funcReplay)(carObj);
   if (carObj->RSControl == 0) {
-    (carObj->control).desiredGasLevel = DAT_8013d22d & 0xf8;
-    (carObj->control).desiredBrakeLevel = DAT_8013d22e & 0xf8;
-    if (true) {
-      player = (int)Input_gSim;
-      if (player < 0) {
-        player = player + 3;
-      }
-      player = (player >> 2) << 2;
-    }
-    else {
-      player = (int)Input_gSim;
+    (carObj->control).desiredGasLevel = Input_gSim.gas & 0xf8;
+    (carObj->control).desiredBrakeLevel = Input_gSim.brake & 0xf8;
+    if (GameSetup_gData.mirrorTrack == 1) {
+      player = (int)Input_gSim.steering;
       if (player < 0) {
         player = player + 3;
       }
       player = (player >> 2) * -4;
     }
+    else {
+      player = (int)Input_gSim.steering;
+      if (player < 0) {
+        player = player + 3;
+      }
+      player = (player >> 2) << 2;
+    }
     (carObj->control).desiredSteering = player;
-    (carObj->control).handBrake = DAT_8013d22f & 1;
-    (carObj->control).horn = DAT_8013d22f >> 1 & 1;
-    *(bool *)&(carObj->control).abort = DAT_8013d22f >> 3 == 3;
-    (carObj->control).event = DAT_8013d22f >> 3;
+    (carObj->control).handBrake = Input_gSim.flags & 1;
+    (carObj->control).horn = Input_gSim.flags >> 1 & 1;
+    *(bool *)&(carObj->control).abort = Input_gSim.flags >> 3 == 3;
+    (carObj->control).event = Input_gSim.flags >> 3;
   }
   else {
     player = carObj->RSSteering;
@@ -137,22 +137,21 @@ void Control_Human__FP8Car_tObj(Car_tObj *carObj)
     (carObj->control).abort = '\0';
     (carObj->control).event = '\0';
   }
-  if (false) goto switchD_800921a0_caseD_9;
   switch((carObj->control).event) {
   case '\x04':
-    if (false) goto switchD_800921a0_caseD_9;
+    if (HudBustedOverlay != (void *)0x0) goto switchD_800921a0_caseD_9;
     player = carObj->carIndex;
     cVar2 = (carObj->control).event;
     index = 0;
     break;
   case '\x05':
-    if (false) goto switchD_800921a0_caseD_9;
+    if (HudBustedOverlay != (void *)0x0) goto switchD_800921a0_caseD_9;
     player = carObj->carIndex;
     cVar2 = (carObj->control).event;
     index = 1;
     break;
   case '\x06':
-    if (false) goto switchD_800921a0_caseD_9;
+    if (HudBustedOverlay != (void *)0x0) goto switchD_800921a0_caseD_9;
     player = carObj->carIndex;
     cVar2 = (carObj->control).event;
     index = 2;
@@ -161,10 +160,10 @@ void Control_Human__FP8Car_tObj(Car_tObj *carObj)
     if (carObj->carInfo->carType - 0x16U < 6) goto switchD_800921a0_caseD_9;
     bVar3 = (carObj->control).lights;
     if ((bVar3 & 8) == 0) {
-      uVar1 = (carObj->render).palCopyNum[0xb];
+      uVar1 = *(ushort *)&(carObj->render).palCopy;
       (carObj->control).lights = bVar3 & 0xef | 8;
-      (carObj->render).palCopyNum[0xc] = 0;
-      (carObj->render).palCopyNum[0xb] = uVar1 | 0x80;
+      *(undefined2 *)((int)&(carObj->render).palCopy + 2) = 0;
+      *(ushort *)&(carObj->render).palCopy = uVar1 | 0x80;
       goto switchD_800921a0_caseD_9;
     }
     goto LAB_8009235c;
@@ -172,45 +171,45 @@ void Control_Human__FP8Car_tObj(Car_tObj *carObj)
     if (5 < carObj->carInfo->carType - 0x16U) {
       bVar3 = (carObj->control).lights;
       if ((bVar3 & 0x10) == 0) {
-        uVar1 = (carObj->render).palCopyNum[0xc];
+        uVar1 = *(ushort *)((int)&(carObj->render).palCopy + 2);
         (carObj->control).lights = bVar3 & 0xf7 | 0x10;
-        (carObj->render).palCopyNum[0xb] = 0;
-        (carObj->render).palCopyNum[0xc] = uVar1 | 0x80;
+        *(undefined2 *)&(carObj->render).palCopy = 0;
+        *(ushort *)((int)&(carObj->render).palCopy + 2) = uVar1 | 0x80;
       }
       else {
         (carObj->control).lights = bVar3 & 0xe7;
-        (carObj->render).palCopyNum[0xc] = 0;
-        (carObj->render).palCopyNum[0xb] = 0;
+        *(undefined2 *)((int)&(carObj->render).palCopy + 2) = 0;
+        *(undefined2 *)&(carObj->render).palCopy = 0;
       }
     }
   default:
     goto switchD_800921a0_caseD_9;
   case '\v':
     if (carObj->carInfo->carType - 0x16U < 6) {
-      head = carObj->desiredLatPos;
-      if ((head & 2) == 0) {
-        carObj->desiredLatPos = head | 2;
+      sVar4 = (carObj->speechInfo).speechSource;
+      if ((sVar4 & 2) == 0) {
+        (carObj->speechInfo).speechSource = sVar4 | 2;
       }
       else {
-        carObj->desiredLatPos = head & 0xfffffffd;
+        (carObj->speechInfo).speechSource = sVar4 & 0xfffffffd;
       }
       goto switchD_800921a0_caseD_9;
     }
     bVar3 = (carObj->control).lights;
     if ((bVar3 & 0x18) == 0) {
       (carObj->control).lights = bVar3 | 0x18;
-      uVar1 = (carObj->render).palCopyNum[0xc];
-      (carObj->render).palCopyNum[0xb] = (carObj->render).palCopyNum[0xb] | 0x80;
-      (carObj->render).palCopyNum[0xc] = uVar1 | 0x80;
+      uVar1 = *(ushort *)((int)&(carObj->render).palCopy + 2);
+      *(ushort *)&(carObj->render).palCopy = *(ushort *)&(carObj->render).palCopy | 0x80;
+      *(ushort *)((int)&(carObj->render).palCopy + 2) = uVar1 | 0x80;
       goto switchD_800921a0_caseD_9;
     }
 LAB_8009235c:
     (carObj->control).lights = bVar3 & 0xe7;
-    (carObj->render).palCopyNum[0xb] = 0;
-    (carObj->render).palCopyNum[0xc] = 0;
+    *(undefined2 *)&(carObj->render).palCopy = 0;
+    *(undefined2 *)((int)&(carObj->render).palCopy + 2) = 0;
     goto switchD_800921a0_caseD_9;
   case '\f':
-    if ((carObj->desiredLatPos & 2U) != 0) goto switchD_800921a0_caseD_9;
+    if (((carObj->speechInfo).speechSource & 2) != 0) goto switchD_800921a0_caseD_9;
     bVar3 = (carObj->control).lights ^ 3;
     (carObj->control).lights = bVar3;
     if ((bVar3 & 2) != 0) {
@@ -222,7 +221,8 @@ LAB_8009235c:
   case '\x0e':
     bVar3 = (carObj->control).lights ^ 4;
     (carObj->control).lights = bVar3;
-    if (((bVar3 & 2) != 0) || ((carObj->desiredLatPos & 2U) != 0)) goto switchD_800921a0_caseD_9;
+    if (((bVar3 & 2) != 0) || (((carObj->speechInfo).speechSource & 2) != 0))
+    goto switchD_800921a0_caseD_9;
     if ((bVar3 & 4) != 0) {
       R3DCar_TurnHeadLightOn__FP8Car_tObji(carObj,0);
       goto switchD_800921a0_caseD_9;
@@ -240,10 +240,7 @@ switchD_800921a0_caseD_9:
     (carObj->control).desiredGear = bVar3;
   }
   return;
-
-
 }
-
 
 
 

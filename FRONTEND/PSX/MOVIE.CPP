@@ -12,18 +12,18 @@
 	// End offset: 0x8004C650
 	// End Line: 144
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void Movie_Init__Fc(char movie)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -40,18 +40,19 @@ void Movie_Init__Fc(char movie)
 	// End offset: 0x8004C7D8
 	// End Line: 176
 
+/* WARNING: Control flow encountered bad instruction data */
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Movie_DeInit__Fv(void)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -66,18 +67,18 @@ void Movie_DeInit__Fv(void)
 	// End offset: 0x8004C8B0
 	// End Line: 207
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void Movie_SetDecodeOffset__Fssss(short x0,short y0,short x1,short y1)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -95,18 +96,18 @@ void Movie_SetDecodeOffset__Fssss(short x0,short y0,short x1,short y1)
 	// End offset: 0x8004CB18
 	// End Line: 278
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void Movie_Load__Fc(char movie)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -121,18 +122,19 @@ void Movie_Load__Fc(char movie)
 	// End offset: 0x8004CC54
 	// End Line: 300
 
+/* WARNING: Control flow encountered bad instruction data */
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 int Movie_NextFrame__Fv(void)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -147,18 +149,19 @@ int Movie_NextFrame__Fv(void)
 	// End offset: 0x8004CC64
 	// End Line: 308
 
+/* WARNING: Control flow encountered bad instruction data */
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Movie_DownloadFrame__Fv(void)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -173,24 +176,25 @@ void Movie_DownloadFrame__Fv(void)
 	// End offset: 0x8004CC74
 	// End Line: 315
 
+/* WARNING: Control flow encountered bad instruction data */
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Movie_Stop__Fv(void)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// unsigned int /*$ra*/ Movie_Finished__Fv()
+// void * /*$ra*/ Movie_Finished__Fv()
  // line 320, offset 0x8004cc84
 	/* begin block 1 */
 		// Start line: 321
@@ -199,18 +203,19 @@ void Movie_Stop__Fv(void)
 	// End offset: 0x8004CCDC
 	// End Line: 322
 
-uint Movie_Finished__Fv(void)
+/* WARNING: Control flow encountered bad instruction data */
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
+void * Movie_Finished__Fv(void)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -229,18 +234,18 @@ uint Movie_Finished__Fv(void)
 	// End offset: 0x8004CE90
 	// End Line: 398
 
+/* WARNING: Control flow encountered bad instruction data */
+
 int Movie_Play__Fc(char movie)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -255,18 +260,18 @@ int Movie_Play__Fc(char movie)
 	// End offset: 0x8004CEF4
 	// End Line: 411
 
+/* WARNING: Control flow encountered bad instruction data */
+
 int play_movie__Fc(char movie)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -281,18 +286,18 @@ int play_movie__Fc(char movie)
 	// End offset: 0x8004CF14
 	// End Line: 429
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void strSetDefDecEnv__FP6DECENV(DECENV *dec)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -307,18 +312,20 @@ void strSetDefDecEnv__FP6DECENV(DECENV *dec)
 	// End offset: 0x8004CFA0
 	// End Line: 434
 
-void strInit__FP6CdlLOCiPFe_vT2( (CdlLOC *loc,int frame_size,callback *callback,endcallback *endcallback)
+/* WARNING: Control flow encountered bad instruction data */
+
+void strInit__FP6CdlLOCiPFe_vT2
+               (CdlLOC *loc,int frame_size,TDRFuncPtr_strInit__FP6CdlLOCiPFe_vT22callback callback,
+               TDRFuncPtr_strInit__FP6CdlLOCiPFe_vT23endcallback endcallback)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -347,18 +354,19 @@ void strInit__FP6CdlLOCiPFe_vT2( (CdlLOC *loc,int frame_size,callback *callback,
 	// End offset: 0x8004D324
 	// End Line: 489
 
+/* WARNING: Control flow encountered bad instruction data */
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void strCallback__Fv(void)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -376,18 +384,18 @@ void strCallback__Fv(void)
 	// End offset: 0x8004D3BC
 	// End Line: 519
 
+/* WARNING: Control flow encountered bad instruction data */
+
 int strNextVlc__FP6DECENV(DECENV *dec)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -422,18 +430,18 @@ int strNextVlc__FP6DECENV(DECENV *dec)
 	// End offset: 0x8004D5C8
 	// End Line: 601
 
+/* WARNING: Control flow encountered bad instruction data */
+
 ulong * strNext__FP6DECENV(DECENV *dec)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -450,18 +458,18 @@ ulong * strNext__FP6DECENV(DECENV *dec)
 	// End offset: 0x8004D680
 	// End Line: 622
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void strSync__FP6DECENVi(DECENV *dec)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -476,18 +484,18 @@ void strSync__FP6DECENVi(DECENV *dec)
 	// End offset: 0x8004D6C4
 	// End Line: 630
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void strKickCD__FP6CdlLOC(CdlLOC *loc)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 

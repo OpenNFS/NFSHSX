@@ -15,24 +15,24 @@
 	// End offset: 0x800370C4
 	// End Line: 266
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void SwapBackground__11tScreenMaini(tScreenMain *this,int num)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// unsigned int /*$ra*/ DoneLoadingBackground__11tScreenMain(struct tScreenMain *this /*$a0*/)
+// void * /*$ra*/ DoneLoadingBackground__11tScreenMain(struct tScreenMain *this /*$a0*/)
  // line 270, offset 0x800370dc
 	/* begin block 1 */
 		// Start line: 271
@@ -41,18 +41,18 @@ void SwapBackground__11tScreenMaini(tScreenMain *this,int num)
 	// End offset: 0x80037150
 	// End Line: 277
 
-uint DoneLoadingBackground__11tScreenMain(tScreenMain *this)
+/* WARNING: Control flow encountered bad instruction data */
+
+void * DoneLoadingBackground__11tScreenMain(tScreenMain *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -133,18 +133,18 @@ uint DoneLoadingBackground__11tScreenMain(tScreenMain *this)
 	// End offset: 0x80037414
 	// End Line: 343
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void SetState__11tScreenMain16tScreenMainState(tScreenMain *this,tScreenMainState state)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -172,18 +172,18 @@ void SetState__11tScreenMain16tScreenMainState(tScreenMain *this,tScreenMainStat
 	// End offset: 0x80037768
 	// End Line: 403
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void InitDynamicImages__11tScreenMain(tScreenMain *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -251,18 +251,19 @@ void InitDynamicImages__11tScreenMain(tScreenMain *this)
 	// End offset: 0x800377F4
 	// End Line: 413
 
-void ProcessInput__11tScreenMain7tPlayerR13tInputKeyTypeR12tMenuCommand( (tScreenMain *this,tInputKeyType *keyval)
+/* WARNING: Control flow encountered bad instruction data */
+
+void ProcessInput__11tScreenMain7tPlayerR13tInputKeyTypeR12tMenuCommand
+               (tScreenMain *this,tInputKeyType *keyval)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -280,18 +281,18 @@ void ProcessInput__11tScreenMain7tPlayerR13tInputKeyTypeR12tMenuCommand( (tScree
 	// End offset: 0x80037900
 	// End Line: 438
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void DrawDropShadow__11tScreenMain(tScreenMain *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -308,18 +309,18 @@ void DrawDropShadow__11tScreenMain(tScreenMain *this)
 	// End offset: 0x800379A0
 	// End Line: 453
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void DrawVideoLines__11tScreenMain(tScreenMain *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -358,7 +359,7 @@ void DrawVideoLines__11tScreenMain(tScreenMain *this)
 						// Start line: 473
 						// Start offset: 0x80037A3C
 						// Variables:
-					// 		unsigned int bAllTVsOn; // $a2
+					// 		void * bAllTVsOn; // $a2
 					/* end block 1.1.1.1.1 */
 					// End offset: 0x80037B08
 					// End Line: 486
@@ -742,18 +743,18 @@ void DrawVideoLines__11tScreenMain(tScreenMain *this)
 	// End offset: 0x8003866C
 	// End Line: 738
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void DrawBackground__11tScreenMain(tScreenMain *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -768,18 +769,20 @@ void DrawBackground__11tScreenMain(tScreenMain *this)
 	// End offset: 0x80038698
 	// End Line: 748
 
-void GetShapeInfo__11tScreenMainRsT1PPcT3( (tScreenMain *this,short *numPermShapes,short *numSwapShapes,char **permFileName, char **swapFileName)
+/* WARNING: Control flow encountered bad instruction data */
+
+void GetShapeInfo__11tScreenMainRsT1PPcT3
+               (tScreenMain *this,short *numPermShapes,short *numSwapShapes,char **permFileName,
+               char **swapFileName)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -797,18 +800,18 @@ void GetShapeInfo__11tScreenMainRsT1PPcT3( (tScreenMain *this,short *numPermShap
 	// End offset: 0x800388B4
 	// End Line: 785
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void PreLoad__11tScreenMain(tScreenMain *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -821,7 +824,7 @@ void PreLoad__11tScreenMain(tScreenMain *this)
 		// Start offset: 0x800388D4
 		// Variables:
 	// 		short i; // $s0
-	// 		unsigned int shapesLoaded; // $s0
+	// 		void * shapesLoaded; // $s0
 
 		/* begin block 1.1 */
 			// Start line: 809
@@ -854,18 +857,18 @@ void PreLoad__11tScreenMain(tScreenMain *this)
 	// End offset: 0x80038ABC
 	// End Line: 838
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void Initialize__11tScreenMain(tScreenMain *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -882,18 +885,18 @@ void Initialize__11tScreenMain(tScreenMain *this)
 	// End offset: 0x80038B24
 	// End Line: 852
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void Cleanup__11tScreenMain(tScreenMain *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 

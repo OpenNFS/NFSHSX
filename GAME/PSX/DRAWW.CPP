@@ -59,7 +59,10 @@
 	// End offset: 0x800C5028
 	// End Line: 236
 
-void DrawW_AddSubdividPrimGT4__FP8POLY_GT4P12Draw_SVertexN31P25Draw_tGiveShelbyMoreCache( (POLY_GT4 *prim,Draw_SVertex *v0,Draw_SVertex *v1,Draw_SVertex *v2,Draw_SVertex *v3, Draw_tGiveShelbyMoreCache *sd)
+void DrawW_AddSubdividPrimGT4__FP8POLY_GT4P12Draw_SVertexN31P25Draw_tGiveShelbyMoreCache
+               (POLY_GT4 *prim,Draw_SVertex *v0,Draw_SVertex *v1,Draw_SVertex *v2,Draw_SVertex *v3,
+               Draw_tGiveShelbyMoreCache *sd)
+
 {
   undefined2 uVar1;
   undefined2 uVar2;
@@ -98,10 +101,7 @@ void DrawW_AddSubdividPrimGT4__FP8POLY_GT4P12Draw_SVertexN31P25Draw_tGiveShelbyM
   prim->tpage = uVar4;
   prim->clut = uVar5;
   return;
-
-
 }
-
 
 
 
@@ -160,7 +160,10 @@ void DrawW_AddSubdividPrimGT4__FP8POLY_GT4P12Draw_SVertexN31P25Draw_tGiveShelbyM
 	// End offset: 0x800C50B4
 	// End Line: 317
 
-void DrawW_AddSubdividPrimGT3__FP8POLY_GT3P12Draw_SVertexN21P25Draw_tGiveShelbyMoreCache( (POLY_GT3 *prim,Draw_SVertex *v0,Draw_SVertex *v1,Draw_SVertex *v2, Draw_tGiveShelbyMoreCache *sd)
+void DrawW_AddSubdividPrimGT3__FP8POLY_GT3P12Draw_SVertexN21P25Draw_tGiveShelbyMoreCache
+               (POLY_GT3 *prim,Draw_SVertex *v0,Draw_SVertex *v1,Draw_SVertex *v2,
+               Draw_tGiveShelbyMoreCache *sd)
+
 {
   undefined2 uVar1;
   undefined2 uVar2;
@@ -191,10 +194,7 @@ void DrawW_AddSubdividPrimGT3__FP8POLY_GT3P12Draw_SVertexN21P25Draw_tGiveShelbyM
   prim->tpage = uVar3;
   prim->clut = uVar4;
   return;
-
-
 }
-
 
 
 
@@ -210,6 +210,7 @@ void DrawW_AddSubdividPrimGT3__FP8POLY_GT3P12Draw_SVertexN21P25Draw_tGiveShelbyM
 	// End Line: 390
 
 void DrawW_DivVertice__FP12Draw_SVertexN20(Draw_SVertex *v0,Draw_SVertex *v1,Draw_SVertex *v2)
+
 {
   v0->vx = (short)((int)v1->vx + (int)v2->vx + 1 >> 1);
   v0->vy = (short)((int)v1->vy + (int)v2->vy + 1 >> 1);
@@ -220,10 +221,7 @@ void DrawW_DivVertice__FP12Draw_SVertexN20(Draw_SVertex *v0,Draw_SVertex *v1,Dra
   v0->g = (uchar)((int)((uint)v1->g + (uint)v2->g) >> 1);
   v0->b = (uchar)((int)((uint)v1->b + (uint)v2->b) >> 1);
   return;
-
-
 }
-
 
 
 
@@ -243,7 +241,10 @@ void DrawW_DivVertice__FP12Draw_SVertexN20(Draw_SVertex *v0,Draw_SVertex *v1,Dra
 	// End offset: 0x800C527C
 	// End Line: 419
 
-int DrawW_CalcSubdivision__FP25Draw_tGiveShelbyMoreCacheP12Draw_SVertexN31( (Draw_tGiveShelbyMoreCache *sd,Draw_SVertex *v0,Draw_SVertex *v1,Draw_SVertex *v2, Draw_SVertex *v3)
+int DrawW_CalcSubdivision__FP25Draw_tGiveShelbyMoreCacheP12Draw_SVertexN31
+              (Draw_tGiveShelbyMoreCache *sd,Draw_SVertex *v0,Draw_SVertex *v1,Draw_SVertex *v2,
+              Draw_SVertex *v3)
+
 {
   int iVar1;
   int iVar2;
@@ -272,10 +273,7 @@ int DrawW_CalcSubdivision__FP25Draw_tGiveShelbyMoreCacheP12Draw_SVertexN31( (Dra
     iVar1 = 1;
   }
   return iVar1;
-
-
 }
-
 
 
 
@@ -399,7 +397,10 @@ int DrawW_CalcSubdivision__FP25Draw_tGiveShelbyMoreCacheP12Draw_SVertexN31( (Dra
 	// End offset: 0x800C5B84
 	// End Line: 588
 
-void DrawW_SubdividFacet__FP25Draw_tGiveShelbyMoreCacheiP12Draw_SVertexN32ss( (Draw_tGiveShelbyMoreCache *sd,int l,Draw_SVertex *v0,Draw_SVertex *v1, Draw_SVertex *v2,Draw_SVertex *v3,int n,int subDivide)
+void DrawW_SubdividFacet__FP25Draw_tGiveShelbyMoreCacheiP12Draw_SVertexN32ss
+               (Draw_tGiveShelbyMoreCache *sd,int l,Draw_SVertex *v0,Draw_SVertex *v1,
+               Draw_SVertex *v2,Draw_SVertex *v3,int n,int subDivide)
+
 {
   short sVar1;
   undefined4 uVar2;
@@ -483,89 +484,89 @@ void DrawW_SubdividFacet__FP25Draw_tGiveShelbyMoreCacheiP12Draw_SVertexN32ss( (D
     return;
   }
   subDivide_00 = (n << 0x10) >> 0xc;
-  v0_01 = (Draw_SVertex *)(&gDiv + subDivide_00);
+  v0_01 = (Draw_SVertex *)((int)&gDiv.v[0].vx + subDivide_00);
   n_00 = (int)((uint)(ushort)((short)n + 1) << 0x10) >> 0xc;
-  v0_02 = (Draw_SVertex *)(&gDiv + n_00);
+  v0_02 = (Draw_SVertex *)((int)&gDiv.v[0].vx + n_00);
   iVar5 = (int)((uint)(ushort)((short)n + 2) << 0x10) >> 0xc;
-  v0_04 = (Draw_SVertex *)(&gDiv + iVar5);
+  v0_04 = (Draw_SVertex *)((int)&gDiv.v[0].vx + iVar5);
   iVar4 = (int)((uint)(ushort)((short)n + 3) << 0x10) >> 0xc;
-  v0_03 = (Draw_SVertex *)(&gDiv + iVar4);
+  v0_03 = (Draw_SVertex *)((int)&gDiv.v[0].vx + iVar4);
   iVar7 = (int)((uint)(ushort)((short)n + 4) << 0x10) >> 0xc;
-  v0_00 = (Draw_SVertex *)(&gDiv + iVar7);
+  v0_00 = (Draw_SVertex *)((int)&gDiv.v[0].vx + iVar7);
   DrawW_DivVertice__FP12Draw_SVertexN20(v0_01,v0,v1);
   setCopReg(2,in_zero,*(undefined4 *)v0_01);
-  setCopReg(2,in_at,*(undefined4 *)(&DAT_8011f62c + subDivide_00));
+  setCopReg(2,in_at,*(undefined4 *)((int)&gDiv.v[0].vz + subDivide_00));
   copFunction(2,0x180001);
   DrawW_DivVertice__FP12Draw_SVertexN20(v0_02,v1,v2);
   iVar9 = getCopControlWord(2,0xf800);
   if (iVar9 < 0) {
-    (&DAT_8011f637)[subDivide_00] = 1;
+    (&gDiv.v[0].a)[subDivide_00] = '\x01';
   }
   else {
-    (&DAT_8011f637)[subDivide_00] = 0;
+    (&gDiv.v[0].a)[subDivide_00] = '\0';
   }
   uVar2 = getCopReg(2,0xe);
-  *(undefined4 *)(&DAT_8011f630 + subDivide_00) = uVar2;
+  *(undefined4 *)((int)&gDiv.v[0].dvx + subDivide_00) = uVar2;
   setCopReg(2,in_zero,*(undefined4 *)v0_02);
-  setCopReg(2,in_at,*(undefined4 *)(&DAT_8011f62c + n_00));
+  setCopReg(2,in_at,*(undefined4 *)((int)&gDiv.v[0].vz + n_00));
   copFunction(2,0x180001);
   DrawW_DivVertice__FP12Draw_SVertexN20(v0_04,v2,v3);
   iVar9 = getCopControlWord(2,0xf800);
   if (iVar9 < 0) {
-    (&DAT_8011f637)[n_00] = 1;
+    (&gDiv.v[0].a)[n_00] = '\x01';
   }
   else {
-    (&DAT_8011f637)[n_00] = 0;
+    (&gDiv.v[0].a)[n_00] = '\0';
   }
   uVar2 = getCopReg(2,0xe);
-  *(undefined4 *)(&DAT_8011f630 + n_00) = uVar2;
+  *(undefined4 *)((int)&gDiv.v[0].dvx + n_00) = uVar2;
   setCopReg(2,in_zero,*(undefined4 *)v0_04);
-  setCopReg(2,in_at,*(undefined4 *)(&DAT_8011f62c + iVar5));
+  setCopReg(2,in_at,*(undefined4 *)((int)&gDiv.v[0].vz + iVar5));
   copFunction(2,0x180001);
   DrawW_DivVertice__FP12Draw_SVertexN20(v0_03,v3,v0);
   iVar9 = getCopControlWord(2,0xf800);
   if (iVar9 < 0) {
-    (&DAT_8011f637)[iVar5] = 1;
+    (&gDiv.v[0].a)[iVar5] = '\x01';
   }
   else {
-    (&DAT_8011f637)[iVar5] = 0;
+    (&gDiv.v[0].a)[iVar5] = '\0';
   }
   uVar2 = getCopReg(2,0xe);
-  *(undefined4 *)(&DAT_8011f630 + iVar5) = uVar2;
+  *(undefined4 *)((int)&gDiv.v[0].dvx + iVar5) = uVar2;
   setCopReg(2,in_zero,*(undefined4 *)v0_03);
-  setCopReg(2,in_at,*(undefined4 *)(&DAT_8011f62c + iVar4));
+  setCopReg(2,in_at,*(undefined4 *)((int)&gDiv.v[0].vz + iVar4));
   copFunction(2,0x180001);
   DrawW_DivVertice__FP12Draw_SVertexN20(v0_00,v0,v2);
   iVar9 = getCopControlWord(2,0xf800);
   if (iVar9 < 0) {
-    (&DAT_8011f637)[iVar4] = 1;
+    (&gDiv.v[0].a)[iVar4] = '\x01';
   }
   else {
-    (&DAT_8011f637)[iVar4] = 0;
+    (&gDiv.v[0].a)[iVar4] = '\0';
   }
   uVar2 = getCopReg(2,0xe);
-  *(undefined4 *)(&DAT_8011f630 + iVar4) = uVar2;
+  *(undefined4 *)((int)&gDiv.v[0].dvx + iVar4) = uVar2;
   setCopReg(2,in_zero,*(undefined4 *)v0_00);
-  setCopReg(2,in_at,*(undefined4 *)(&DAT_8011f62c + iVar7));
+  setCopReg(2,in_at,*(undefined4 *)((int)&gDiv.v[0].vz + iVar7));
   copFunction(2,0x180001);
   iVar9 = getCopControlWord(2,0xf800);
   if (iVar9 < 0) {
-    (&DAT_8011f637)[iVar7] = 1;
+    (&gDiv.v[0].a)[iVar7] = '\x01';
   }
   else {
-    (&DAT_8011f637)[iVar7] = 0;
+    (&gDiv.v[0].a)[iVar7] = '\0';
   }
   if (sd->doublelayer == 0) goto LAB_800c598c;
   (sd->GT4Prim).code = (sd->GT4Prim).code & 0xf7;
-  prim = _DAT_1f800004;
+  prim = DAT_1f800004;
   iVar9 = sd->otz + 8;
   if (v0->a == '\0') {
     if (v1->a == '\0') {
-      if ((&DAT_8011f637)[subDivide_00] == '\0') {
-        puVar8 = (uint *)(iVar9 * 4 + _DAT_1f800000);
-        _DAT_1f800004->tag = _DAT_1f800004->tag & 0xff000000 | *puVar8 & 0xffffff;
-        uVar6 = (uint)_DAT_1f800004 & 0xffffff;
-        _DAT_1f800004 = _DAT_1f800004 + 1;
+      if ((&gDiv.v[0].a)[subDivide_00] == '\0') {
+        puVar8 = (uint *)(iVar9 * 4 + DAT_1f800000);
+        DAT_1f800004->tag = DAT_1f800004->tag & 0xff000000 | *puVar8 & 0xffffff;
+        uVar6 = (uint)DAT_1f800004 & 0xffffff;
+        DAT_1f800004 = DAT_1f800004 + 1;
         *puVar8 = *puVar8 & 0xff000000 | uVar6;
         DrawW_AddSubdividPrimGT3__FP8POLY_GT3P12Draw_SVertexN21P25Draw_tGiveShelbyMoreCache
                   (prim,v0,v1,v0_01,sd);
@@ -573,14 +574,14 @@ void DrawW_SubdividFacet__FP25Draw_tGiveShelbyMoreCacheiP12Draw_SVertexN32ss( (D
       goto LAB_800c5790;
     }
 LAB_800c5834:
-    prim = _DAT_1f800004;
+    prim = DAT_1f800004;
     if (v2->a != '\0') goto LAB_800c58d8;
     if (v3->a == '\0') {
-      if ((&DAT_8011f637)[iVar5] == '\0') {
-        puVar8 = (uint *)(iVar9 * 4 + _DAT_1f800000);
-        _DAT_1f800004->tag = _DAT_1f800004->tag & 0xff000000 | *puVar8 & 0xffffff;
-        uVar6 = (uint)_DAT_1f800004 & 0xffffff;
-        _DAT_1f800004 = _DAT_1f800004 + 1;
+      if ((&gDiv.v[0].a)[iVar5] == '\0') {
+        puVar8 = (uint *)(iVar9 * 4 + DAT_1f800000);
+        DAT_1f800004->tag = DAT_1f800004->tag & 0xff000000 | *puVar8 & 0xffffff;
+        uVar6 = (uint)DAT_1f800004 & 0xffffff;
+        DAT_1f800004 = DAT_1f800004 + 1;
         *puVar8 = *puVar8 & 0xff000000 | uVar6;
         DrawW_AddSubdividPrimGT3__FP8POLY_GT3P12Draw_SVertexN21P25Draw_tGiveShelbyMoreCache
                   (prim,v2,v3,v0_04,sd);
@@ -590,14 +591,14 @@ LAB_800c5834:
   }
   else {
 LAB_800c5790:
-    prim = _DAT_1f800004;
+    prim = DAT_1f800004;
     if (v1->a != '\0') goto LAB_800c5834;
     if (v2->a == '\0') {
-      if ((&DAT_8011f637)[n_00] == '\0') {
-        puVar8 = (uint *)(iVar9 * 4 + _DAT_1f800000);
-        _DAT_1f800004->tag = _DAT_1f800004->tag & 0xff000000 | *puVar8 & 0xffffff;
-        uVar6 = (uint)_DAT_1f800004 & 0xffffff;
-        _DAT_1f800004 = _DAT_1f800004 + 1;
+      if ((&gDiv.v[0].a)[n_00] == '\0') {
+        puVar8 = (uint *)(iVar9 * 4 + DAT_1f800000);
+        DAT_1f800004->tag = DAT_1f800004->tag & 0xff000000 | *puVar8 & 0xffffff;
+        uVar6 = (uint)DAT_1f800004 & 0xffffff;
+        DAT_1f800004 = DAT_1f800004 + 1;
         *puVar8 = *puVar8 & 0xff000000 | uVar6;
         DrawW_AddSubdividPrimGT3__FP8POLY_GT3P12Draw_SVertexN21P25Draw_tGiveShelbyMoreCache
                   (prim,v1,v2,v0_02,sd);
@@ -605,12 +606,12 @@ LAB_800c5790:
       goto LAB_800c5834;
     }
 LAB_800c58d8:
-    prim = _DAT_1f800004;
-    if (((v3->a == '\0') && (v0->a == '\0')) && ((&DAT_8011f637)[iVar4] == '\0')) {
-      puVar8 = (uint *)(iVar9 * 4 + _DAT_1f800000);
-      _DAT_1f800004->tag = _DAT_1f800004->tag & 0xff000000 | *puVar8 & 0xffffff;
-      uVar6 = (uint)_DAT_1f800004 & 0xffffff;
-      _DAT_1f800004 = _DAT_1f800004 + 1;
+    prim = DAT_1f800004;
+    if (((v3->a == '\0') && (v0->a == '\0')) && ((&gDiv.v[0].a)[iVar4] == '\0')) {
+      puVar8 = (uint *)(iVar9 * 4 + DAT_1f800000);
+      DAT_1f800004->tag = DAT_1f800004->tag & 0xff000000 | *puVar8 & 0xffffff;
+      uVar6 = (uint)DAT_1f800004 & 0xffffff;
+      DAT_1f800004 = DAT_1f800004 + 1;
       *puVar8 = *puVar8 & 0xff000000 | uVar6;
       DrawW_AddSubdividPrimGT3__FP8POLY_GT3P12Draw_SVertexN21P25Draw_tGiveShelbyMoreCache
                 (prim,v3,v0,v0_03,sd);
@@ -620,7 +621,7 @@ LAB_800c58d8:
 LAB_800c598c:
   l = l + 1;
   uVar2 = getCopReg(2,0xe);
-  *(undefined4 *)(&DAT_8011f630 + iVar7) = uVar2;
+  *(undefined4 *)((int)&gDiv.v[0].dvx + iVar7) = uVar2;
   n_00 = (int)(short)((short)n + 5);
   subDivide_00 = (int)(short)subDivide;
   DrawW_SubdividFacet__FP25Draw_tGiveShelbyMoreCacheiP12Draw_SVertexN32ss
@@ -632,10 +633,7 @@ LAB_800c598c:
   DrawW_SubdividFacet__FP25Draw_tGiveShelbyMoreCacheiP12Draw_SVertexN32ss
             (sd,l,v0_03,v0_00,v0_04,v3,n_00,subDivide_00);
   return;
-
-
 }
-
 
 
 
@@ -656,6 +654,7 @@ LAB_800c598c:
 	// End Line: 596
 
 void DrawW_LoadPrecVECTOR__FP12Draw_SVertexP6VECTOR(Draw_SVertex *v,VECTOR *dv)
+
 {
   int iVar1;
   
@@ -663,10 +662,7 @@ void DrawW_LoadPrecVECTOR__FP12Draw_SVertexP6VECTOR(Draw_SVertex *v,VECTOR *dv)
   *(uint *)v = dv->vy << 0x12 | (dv->vx & 0x3fffU) << 2;
   v->vz = (short)(iVar1 << 2);
   return;
-
-
 }
-
 
 
 
@@ -723,7 +719,9 @@ void DrawW_LoadPrecVECTOR__FP12Draw_SVertexP6VECTOR(Draw_SVertex *v,VECTOR *dv)
 	// End offset: 0x800C5ECC
 	// End Line: 697
 
-void DrawW_SetUpSubdividFacet__FiP25Draw_tGiveShelbyMoreCache( (int face,Draw_tGiveShelbyMoreCache *sd)
+void DrawW_SetUpSubdividFacet__FiP25Draw_tGiveShelbyMoreCache
+               (int face,Draw_tGiveShelbyMoreCache *sd)
+
 {
   short sVar1;
   short sVar2;
@@ -842,10 +840,7 @@ LAB_800c5ed0:
   DrawW_SubdividFacet__FP25Draw_tGiveShelbyMoreCacheiP12Draw_SVertexN32ss
             (sd,0,v_02,v_01,v,v_00,0,(uint)(face == 0));
   return;
-
-
 }
-
 
 
 
@@ -877,7 +872,7 @@ LAB_800c5ed0:
 						// Start line: 723
 						// Start offset: 0x800C5F48
 						// Variables:
-					// 		unsigned char *coplookuptbl[256][8]; // $v1
+					// 		unsigned char (*coplookuptbl)[256][8]; // $v1
 					// 		int index; // $a1
 					// 		int lookup; // $v0
 					/* end block 1.1.1.1.1 */
@@ -897,6 +892,7 @@ LAB_800c5ed0:
 	// End Line: 745
 
 void Night_NightCopCalc__FP6VECTORPs(VECTOR *v,short *idx)
+
 {
   bool bVar1;
   int iVar2;
@@ -907,15 +903,12 @@ void Night_NightCopCalc__FP6VECTORPs(VECTOR *v,short *idx)
     if (bVar1) {
       iVar2 = -iVar2;
     }
-    *idx = (ushort)*(byte *)((int)*idx * 8 + (&_Night_gCopColor)[(uint)bVar1] +
-                            ((int)(uint)*(byte *)((iVar2 >> 5) * 0x40 + (v->vx + 0x400 >> 5)) >> 1))
-    ;
+    *idx = (ushort)(&__Night_gCopColor)[(uint)bVar1]
+                   [((int)(uint)Night_gNightTbl[(iVar2 >> 5) * 0x40 + (v->vx + 0x400 >> 5)] >> 1) +
+                    (int)*idx * 8];
   }
   return;
-
-
 }
-
 
 
 
@@ -968,7 +961,9 @@ void Night_NightCopCalc__FP6VECTORPs(VECTOR *v,short *idx)
 	// End offset: 0x800C6094
 	// End Line: 789
 
-void Night_NightCalc__FP6VECTORPsP25Draw_tGiveShelbyMoreCache( (VECTOR *v,short *idx,Draw_tGiveShelbyMoreCache *sd)
+void Night_NightCalc__FP6VECTORPsP25Draw_tGiveShelbyMoreCache
+               (VECTOR *v,short *idx,Draw_tGiveShelbyMoreCache *sd)
+
 {
   byte bVar1;
   int iVar2;
@@ -980,24 +975,21 @@ void Night_NightCalc__FP6VECTORPsP25Draw_tGiveShelbyMoreCache( (VECTOR *v,short 
   iVar4 = v->vz;
   iVar5 = (int)sd->night_ZNear;
   if (sd->night_DrawLightning != '\0') {
-    *idx = (ushort)*(byte *)((&_Night_gWeatherLightingTable)[(uint)sd->night_LightningType] +
-                            (int)*idx);
+    *idx = (ushort)(&__Night_gWeatherLightingTable)[(uint)sd->night_LightningType][(int)*idx];
   }
   if ((iVar5 < iVar4) && (iVar4 < iVar5 + (1 << ((uint)bVar1 + 6 & 0x1f)))) {
     iVar3 = v->vx;
     iVar2 = 1 << ((uint)sd->night_XDistShift + 5 & 0x1f);
     if ((-iVar2 < iVar3) && (iVar3 < iVar2)) {
-      *idx = (ushort)*(byte *)((int)*idx * 0x10 + _Night_gCurrentNightColor +
-                              (uint)*(byte *)((iVar4 - iVar5 >> ((uint)sd->night_ZDistShift & 0x1f))
-                                              * 0x40 + (iVar3 + iVar2 >>
-                                                       ((uint)sd->night_XDistShift & 0x1f))));
+      *idx = (ushort)__Night_gCurrentNightColor_
+                     [(uint)Night_gNightTbl
+                            [(iVar4 - iVar5 >> ((uint)sd->night_ZDistShift & 0x1f)) * 0x40 +
+                             (iVar3 + iVar2 >> ((uint)sd->night_XDistShift & 0x1f))] +
+                      (int)*idx * 0x10];
     }
   }
   return;
-
-
 }
-
 
 
 
@@ -1081,13 +1073,16 @@ void Night_NightCalc__FP6VECTORPsP25Draw_tGiveShelbyMoreCache( (VECTOR *v,short 
 	// End offset: 0x800C648C
 	// End Line: 894
 
-void DrawW_NightColorCalc__FP25Draw_tGiveShelbyMoreCacheP8POLY_GT4P8CCOORD16N32( (Draw_tGiveShelbyMoreCache *sd,POLY_GT4 *prim,CCOORD16 *vt0,CCOORD16 *vt1, CCOORD16 *vt2,CCOORD16 *vt3)
+void DrawW_NightColorCalc__FP25Draw_tGiveShelbyMoreCacheP8POLY_GT4P8CCOORD16N32
+               (Draw_tGiveShelbyMoreCache *sd,POLY_GT4 *prim,CCOORD16 *vt0,CCOORD16 *vt1,
+               CCOORD16 *vt2,CCOORD16 *vt3)
+
 {
   undefined4 in_zero;
   undefined4 in_at;
-  undefined4 uVar1;
-  undefined4 uVar2;
-  undefined4 uVar3;
+  CVECTOR CVar1;
+  CVECTOR CVar2;
+  CVECTOR CVar3;
   VECTOR local_30;
   
   if (sd->light == -1) {
@@ -1167,12 +1162,12 @@ void DrawW_NightColorCalc__FP25Draw_tGiveShelbyMoreCacheP8POLY_GT4P8CCOORD16N32(
       local_30.vz = getCopReg(2,0x1b);
       Night_NightCopCalc__FP6VECTORPs(&local_30,&vt3->light);
     }
-    uVar3 = *(undefined4 *)((int)vt1->light * 4 + _Chunk_lightTable);
-    uVar2 = *(undefined4 *)((int)vt3->light * 4 + _Chunk_lightTable);
-    uVar1 = *(undefined4 *)((int)vt2->light * 4 + _Chunk_lightTable);
-    *(undefined4 *)&prim->r0 = *(undefined4 *)((int)vt0->light * 4 + _Chunk_lightTable);
-    *(undefined4 *)&prim->r1 = uVar3;
-    *(undefined4 *)&prim->r2 = uVar2;
+    CVar3 = Chunk_lightTable[(int)vt1->light];
+    CVar2 = Chunk_lightTable[(int)vt3->light];
+    CVar1 = Chunk_lightTable[(int)vt2->light];
+    *(CVECTOR *)&prim->r0 = Chunk_lightTable[(int)vt0->light];
+    *(CVECTOR *)&prim->r1 = CVar3;
+    *(CVECTOR *)&prim->r2 = CVar2;
   }
   else {
     if ((sd->nightFlags & 1U) != 0) {
@@ -1209,12 +1204,12 @@ void DrawW_NightColorCalc__FP25Draw_tGiveShelbyMoreCacheP8POLY_GT4P8CCOORD16N32(
       local_30.vz = getCopReg(2,0x1b);
       Night_NightCopCalc__FP6VECTORPs(&local_30,&sd->light);
     }
-    uVar1 = *(undefined4 *)((int)sd->light * 4 + _Chunk_lightTable);
-    *(undefined4 *)&prim->r0 = uVar1;
-    *(undefined4 *)&prim->r1 = uVar1;
-    *(undefined4 *)&prim->r2 = uVar1;
+    CVar1 = Chunk_lightTable[(int)sd->light];
+    *(CVECTOR *)&prim->r0 = CVar1;
+    *(CVECTOR *)&prim->r1 = CVar1;
+    *(CVECTOR *)&prim->r2 = CVar1;
   }
-  *(undefined4 *)&prim->r3 = uVar1;
+  *(CVECTOR *)&prim->r3 = CVar1;
   setCopControlWord(2,0,*(undefined4 *)(sd->matB).m);
   setCopControlWord(2,0x800,*(undefined4 *)((sd->matB).m + 2));
   setCopControlWord(2,0x1000,*(undefined4 *)((sd->matB).m + 4));
@@ -1224,10 +1219,7 @@ void DrawW_NightColorCalc__FP25Draw_tGiveShelbyMoreCacheP8POLY_GT4P8CCOORD16N32(
   setCopControlWord(2,0x3000,(sd->matB).t[1]);
   setCopControlWord(2,0x3800,(sd->matB).t[2]);
   return;
-
-
 }
-
 
 
 
@@ -1485,7 +1477,11 @@ void DrawW_NightColorCalc__FP25Draw_tGiveShelbyMoreCacheP8POLY_GT4P8CCOORD16N32(
 	// End offset: 0x800C6E10
 	// End Line: 1294
 
-void DrawW_DrawQuad__FP25Draw_tGiveShelbyMoreCacheP8Trk_Quad( (Draw_tGiveShelbyMoreCache *sd,Trk_Quad *inQuad)
+/* WARNING: Could not reconcile some variable overlaps */
+
+void DrawW_DrawQuad__FP25Draw_tGiveShelbyMoreCacheP8Trk_Quad
+               (Draw_tGiveShelbyMoreCache *sd,Trk_Quad *inQuad)
+
 {
   bool bVar1;
   byte bVar2;
@@ -1533,9 +1529,9 @@ void DrawW_DrawQuad__FP25Draw_tGiveShelbyMoreCacheP8Trk_Quad( (Draw_tGiveShelbyM
   undefined4 local_3c;
   int local_38;
   undefined4 local_34;
-  undefined4 local_30;
-  undefined4 local_2c;
-  undefined4 local_28;
+  CVECTOR local_30;
+  CVECTOR local_2c;
+  CVECTOR local_28;
   undefined4 local_24;
   
   pCVar21 = sd->vertices;
@@ -1649,21 +1645,21 @@ void DrawW_DrawQuad__FP25Draw_tGiveShelbyMoreCacheP8Trk_Quad( (Draw_tGiveShelbyM
       iVar18 = iVar16 >> 4;
     }
     sd->otz = iVar18 + sd->offset;
-    puVar11 = _DAT_1f800004;
-    iVar18 = _DAT_1f800000;
+    puVar11 = DAT_1f800004;
+    iVar18 = DAT_1f800000;
     if ((0 < sd->otz) && (sd->otz <= Draw_gViewOtSize + -3)) {
       if ((bVar2 & 0x80) != 0) {
         local_4c = 0;
         local_4a = 0;
         local_50 = 0;
         local_4e = 0;
-        *_DAT_1f800004 =
-             *_DAT_1f800004 & 0xff000000 | *(uint *)(sd->otz * 4 + _DAT_1f800000) & 0xffffff;
+        *DAT_1f800004 =
+             *DAT_1f800004 & 0xff000000 | *(uint *)(sd->otz * 4 + DAT_1f800000) & 0xffffff;
         pTVar19 = (Track_tMaterial *)(sd->otz * 4 + iVar18);
-        uVar13 = (uint)_DAT_1f800004 & 0xffffff;
-        _DAT_1f800004 = _DAT_1f800004 + 3;
+        uVar13 = (uint)DAT_1f800004 & 0xffffff;
+        DAT_1f800004 = DAT_1f800004 + 3;
         *(uint *)pTVar19 = (uint)*pTVar19 & 0xff000000 | uVar13;
-        SetTexWindow(puVar11,&local_50);
+        SetTexWindow((int)puVar11,(byte *)&local_50);
       }
       if (bVar8) {
         prim = &sd->GT4Prim;
@@ -1688,11 +1684,11 @@ void DrawW_DrawQuad__FP25Draw_tGiveShelbyMoreCacheP8Trk_Quad( (Draw_tGiveShelbyM
       if (sd->nightFlags == '\0') {
         setCopReg(2,0x4000,local_34);
         if ((int)sd->light == -1) {
-          setCopReg(2,&local_30,*(undefined4 *)((int)local_5c._2_2_ * 4 + _Chunk_lightTable));
+          setCopReg(2,&local_30,Chunk_lightTable[(int)local_5c._2_2_]);
           copFunction(2,0x780010);
-          local_28 = *(undefined4 *)((int)local_54._2_2_ * 4 + _Chunk_lightTable);
-          local_30 = *(undefined4 *)((int)local_6c._2_2_ * 4 + _Chunk_lightTable);
-          local_2c = *(undefined4 *)((int)local_64._2_2_ * 4 + _Chunk_lightTable);
+          local_28 = Chunk_lightTable[(int)local_54._2_2_];
+          local_30 = Chunk_lightTable[(int)local_6c._2_2_];
+          local_2c = Chunk_lightTable[(int)local_64._2_2_];
           uVar22 = getCopReg(2,0x16);
           *(undefined4 *)&prim->r3 = uVar22;
           setCopReg(2,(uint)bVar2,local_30);
@@ -1708,7 +1704,7 @@ void DrawW_DrawQuad__FP25Draw_tGiveShelbyMoreCacheP8Trk_Quad( (Draw_tGiveShelbyM
           *(undefined4 *)&prim->r2 = uVar22;
         }
         else {
-          setCopReg(2,pTVar19,*(undefined4 *)((int)sd->light * 4 + _Chunk_lightTable));
+          setCopReg(2,pTVar19,Chunk_lightTable[(int)sd->light]);
           copFunction(2,0x780010);
           local_24 = getCopReg(2,0x16);
           *(undefined4 *)&prim->r0 = local_24;
@@ -1741,7 +1737,7 @@ void DrawW_DrawQuad__FP25Draw_tGiveShelbyMoreCacheP8Trk_Quad( (Draw_tGiveShelbyM
             iVar18 = 0xf;
           }
         }
-        prim->clut = *(ushort *)(&gClutDepth + iVar18 * 2 + (uint)pDVar24->pad2 * 0x20);
+        prim->clut = (&gClutDepth)[(uint)pDVar24->pad2 * 0x10 + iVar18];
       }
       if (bVar8) {
         cVar4 = sd->zeroGTETransFlag;
@@ -1755,15 +1751,15 @@ void DrawW_DrawQuad__FP25Draw_tGiveShelbyMoreCacheP8Trk_Quad( (Draw_tGiveShelbyM
           setCopControlWord(2,0x3000,(sd->identMat).t[1]);
           setCopControlWord(2,0x3800,(sd->identMat).t[2]);
         }
-        if (stackSpeedUpEnbabledFlag == 0) {
+        if (iGp000012d0 == 0) {
           DrawW_SetUpSubdividFacet__FiP25Draw_tGiveShelbyMoreCache(face,sd);
         }
         else {
-          gWSavePtr = SetSp(gWSavePtr);
-          stackSpeedUpEnbabledFlag = 0;
+          uGp000012e4 = SetSp();
+          iGp000012d0 = 0;
           DrawW_SetUpSubdividFacet__FiP25Draw_tGiveShelbyMoreCache(face,sd);
-          gWSavePtr = SetSp(gWSavePtr);
-          stackSpeedUpEnbabledFlag = 1;
+          uGp000012e4 = SetSp();
+          iGp000012d0 = 1;
         }
         setCopControlWord(2,0,*(undefined4 *)(sd->matB).m);
         setCopControlWord(2,0x800,*(undefined4 *)((sd->matB).m + 2));
@@ -1776,8 +1772,8 @@ void DrawW_DrawQuad__FP25Draw_tGiveShelbyMoreCacheP8Trk_Quad( (Draw_tGiveShelbyM
           setCopControlWord(2,0x3800,(sd->matB).t[2]);
         }
       }
-      puVar11 = _DAT_1f800004;
-      iVar18 = _DAT_1f800000;
+      puVar11 = DAT_1f800004;
+      iVar18 = DAT_1f800000;
       if ((bVar2 & 0x80) != 0) {
         iVar12 = (uint)pDVar24->u3 - (uint)pDVar24->u0;
         local_4c = (short)iVar12;
@@ -1793,21 +1789,18 @@ void DrawW_DrawQuad__FP25Draw_tGiveShelbyMoreCacheP8Trk_Quad( (Draw_tGiveShelbyM
         local_4a = local_4a + 1;
         local_50 = 0;
         local_4e = 0;
-        *_DAT_1f800004 =
-             *_DAT_1f800004 & 0xff000000 | *(uint *)(sd->otz * 4 + _DAT_1f800000) & 0xffffff;
+        *DAT_1f800004 =
+             *DAT_1f800004 & 0xff000000 | *(uint *)(sd->otz * 4 + DAT_1f800000) & 0xffffff;
         puVar20 = (uint *)(sd->otz * 4 + iVar18);
-        face = (uint)_DAT_1f800004 & 0xffffff;
-        _DAT_1f800004 = _DAT_1f800004 + 3;
+        face = (uint)DAT_1f800004 & 0xffffff;
+        DAT_1f800004 = DAT_1f800004 + 3;
         *puVar20 = *puVar20 & 0xff000000 | face;
-        SetTexWindow(puVar11,&local_50);
+        SetTexWindow((int)puVar11,(byte *)&local_50);
       }
     }
   }
   return;
-
-
 }
-
 
 
 
@@ -1826,6 +1819,7 @@ void DrawW_DrawQuad__FP25Draw_tGiveShelbyMoreCacheP8Trk_Quad( (Draw_tGiveShelbyM
 	// End Line: 1325
 
 void DrawW_kCtrlWorld_High__FP25Draw_tGiveShelbyMoreCache(Draw_tGiveShelbyMoreCache *sd)
+
 {
   uint uVar1;
   Trk_Quad *inQuad;
@@ -1839,10 +1833,7 @@ void DrawW_kCtrlWorld_High__FP25Draw_tGiveShelbyMoreCache(Draw_tGiveShelbyMoreCa
     }
   }
   return;
-
-
 }
-
 
 
 
@@ -1905,6 +1896,7 @@ void DrawW_kCtrlWorld_High__FP25Draw_tGiveShelbyMoreCache(Draw_tGiveShelbyMoreCa
 	// End Line: 1376
 
 void DrawW_StripDraw_High__FP25Draw_tGiveShelbyMoreCache(Draw_tGiveShelbyMoreCache *sd)
+
 {
   byte bVar1;
   short sVar2;
@@ -1937,10 +1929,7 @@ void DrawW_StripDraw_High__FP25Draw_tGiveShelbyMoreCache(Draw_tGiveShelbyMoreCac
     pTVar4 = (Trk_NewStrip *)(&pTVar4->topVert + (uint)(byte)pTVar4->size);
   }
   return;
-
-
 }
-
 
 
 
@@ -2216,12 +2205,13 @@ void DrawW_StripDraw_High__FP25Draw_tGiveShelbyMoreCache(Draw_tGiveShelbyMoreCac
 	// End Line: 1655
 
 void DrawW_DoTrough__FP13DRender_tViewP11tBuildEntry(DRender_tView *Vi,tBuildEntry *buildList)
+
 {
   int iVar1;
   int iVar2;
-  int iVar3;
-  undefined2 *puVar4;
-  int *piVar5;
+  Group *pGVar3;
+  Chunk *pCVar4;
+  coorddef *pcVar5;
   int iVar6;
   int local_50;
   int local_4c;
@@ -2231,131 +2221,128 @@ void DrawW_DoTrough__FP13DRender_tViewP11tBuildEntry(DRender_tView *Vi,tBuildEnt
   
   iVar6 = 0;
   local_30 = BWorld_gChunkCount;
-  _DAT_1f8000da = 1;
-  _DAT_1f800074 = 0x1000;
-  _DAT_1f800078 = 0;
-  _DAT_1f80007c = 0x1000;
-  _DAT_1f800080 = 0;
-  _DAT_1f800084 = 0x1000;
-  _DAT_1f800088 = 0;
-  _DAT_1f80008c = 0;
-  _DAT_1f800090 = 0;
-  _DAT_1f800148 = 0;
+  DAT_1f8000da = 1;
+  DAT_1f800074 = gIdentTemplate.m[0]._0_4_;
+  DAT_1f800078 = gIdentTemplate.m._4_4_;
+  DAT_1f80007c = gIdentTemplate.m[1]._2_4_;
+  DAT_1f800080 = gIdentTemplate.m[2]._0_4_;
+  DAT_1f800084 = gIdentTemplate._16_4_;
+  DAT_1f800088 = gIdentTemplate.t[0];
+  DAT_1f80008c = gIdentTemplate.t[1];
+  DAT_1f800090 = gIdentTemplate.t[2];
+  DAT_1f800148 = 0;
   do {
     if (local_30 <= iVar6) {
       return;
     }
     if ((buildList->enableBits & 1U) != 0) {
-      _DAT_1f8000fc = &gInitialArt;
+      DAT_1f8000fc = &gInitialArt;
       DAT_1f8000e4 = *(byte *)&buildList->chunkInd;
       DAT_1f8000e5 = buildList->geomRez;
-      iVar1 = (uint)DAT_1f8000e4 * 0x70;
-      DrawW_WorldSetUpMatrix__FP10matrixtdefP6MATRIX
-                ((matrixtdef *)&gWorldMat,(MATRIX *)&DAT_1f800014);
+      pCVar4 = Track_chunkList + (uint)DAT_1f8000e4;
+      DrawW_WorldSetUpMatrix__FP10matrixtdefP6MATRIX(&gWorldMat,(MATRIX *)&DAT_1f800014);
       DAT_1f800106 = 0;
-      _DAT_1f8000d8 = 0xffff;
-      _DAT_1f8000e0 = *(int *)(iVar1 + 0x6c) + 4;
-      _DAT_1f8000f0 = 0;
-      piVar5 = (int *)(_Chunk_chunkCenters + (uint)DAT_1f8000e4 * 0xc);
-      if (false) {
+      DAT_1f8000d8 = 0xffff;
+      DAT_1f8000e0 = pCVar4->vertexBuf + 1;
+      DAT_1f8000f0 = Track_materials;
+      pcVar5 = Chunk_chunkCenters + (uint)DAT_1f8000e4;
+      if (gNight_renderNight != (uchar *)0x0) {
         DAT_1f800106 = 4;
-        iVar2 = *piVar5 - *(int *)((&DAT_8010f2b0)[Vi->player * 0x44] + 0xa0) >> 10;
-        iVar3 = piVar5[2] - *(int *)((&DAT_8010f2b0)[Vi->player * 0x44] + 0xa8) >> 10;
-        if (iVar2 * iVar2 + iVar3 * iVar3 < 0x47e0000) {
-          if ((*(byte *)((&_Cars_gList)[Vi->player] + 0x447) & 6) != 0) {
+        iVar1 = pcVar5->x - (((&Camera_gInfo)[Vi->player].target)->position).x >> 10;
+        iVar2 = pcVar5->z - (((&Camera_gInfo)[Vi->player].target)->position).z >> 10;
+        if (iVar1 * iVar1 + iVar2 * iVar2 < 0x47e0000) {
+          if ((((&__Cars_gList_9__)[Vi->player]->control).lights & 6U) != 0) {
             DAT_1f800106 = 5;
           }
-          local_50 = (Vi->cview).translation.x - *(int *)((&DAT_8010f2b0)[Vi->player * 0x44] + 0xa0)
-          ;
-          local_4c = (Vi->cview).translation.y - *(int *)((&DAT_8010f2b0)[Vi->player * 0x44] + 0xa4)
-          ;
-          local_48 = (Vi->cview).translation.z - *(int *)((&DAT_8010f2b0)[Vi->player * 0x44] + 0xa8)
-          ;
-          transform(&local_50,&gNightMat,&cStack64);
-          DrawW_WorldSetUpTranslation__FP8coorddefP6MATRIX(&cStack64,(MATRIX *)0x1f800034);
+          local_50 = (Vi->cview).translation.x - (((&Camera_gInfo)[Vi->player].target)->position).x;
+          local_4c = (Vi->cview).translation.y - (((&Camera_gInfo)[Vi->player].target)->position).y;
+          local_48 = (Vi->cview).translation.z - (((&Camera_gInfo)[Vi->player].target)->position).z;
+          transform(&local_50,(int *)&gNightMat,(int *)&cStack64);
+          DrawW_WorldSetUpTranslation__FP8coorddefP6MATRIX(&cStack64,(MATRIX *)&DAT_1f800034);
         }
-        if ((false) &&
-           (iVar2 = *piVar5 - _LAB_000000a0 >> 10, iVar3 = piVar5[2] - iRam000000a8 >> 10,
-           iVar2 * iVar2 + iVar3 * iVar3 < 0x47e0000)) {
+        if ((BW_gCopCarObj != (Car_tObj *)0x0) &&
+           (iVar1 = pcVar5->x - (BW_gCopCarObj->N).position.x >> 10,
+           iVar2 = pcVar5->z - (BW_gCopCarObj->N).position.z >> 10,
+           iVar1 * iVar1 + iVar2 * iVar2 < 0x47e0000)) {
           DAT_1f800106 = DAT_1f800106 | 2;
-          local_50 = (Vi->cview).translation.x - _LAB_000000a0;
-          local_4c = (Vi->cview).translation.y - iRam000000a4;
-          local_48 = (Vi->cview).translation.z - iRam000000a8;
-          transform(&local_50,&gCopMat,&cStack64);
-          DrawW_WorldSetUpTranslation__FP8coorddefP6MATRIX(&cStack64,(MATRIX *)0x1f800054);
+          local_50 = (Vi->cview).translation.x - (BW_gCopCarObj->N).position.x;
+          local_4c = (Vi->cview).translation.y - (BW_gCopCarObj->N).position.y;
+          local_48 = (Vi->cview).translation.z - (BW_gCopCarObj->N).position.z;
+          transform(&local_50,(int *)&gCopMat,(int *)&cStack64);
+          DrawW_WorldSetUpTranslation__FP8coorddefP6MATRIX(&cStack64,(MATRIX *)&DAT_1f800054);
         }
       }
-      _DAT_1f8000f4 = (undefined2)(*piVar5 - (Vi->cview).translation.x >> 10);
-      _DAT_1f8000f6 = (undefined2)(piVar5[1] - (Vi->cview).translation.y >> 10);
-      _DAT_1f8000f8 = (undefined2)(piVar5[2] - (Vi->cview).translation.z >> 10);
-      _DAT_1f800030 = 0;
-      _DAT_1f80002c = 0;
-      _DAT_1f800028 = 0;
+      DAT_1f8000f4 = (undefined2)(pcVar5->x - (Vi->cview).translation.x >> 10);
+      DAT_1f8000f6 = (undefined2)(pcVar5->y - (Vi->cview).translation.y >> 10);
+      DAT_1f8000f8 = (undefined2)(pcVar5->z - (Vi->cview).translation.z >> 10);
+      DAT_1f800030 = 0;
+      DAT_1f80002c = 0;
+      DAT_1f800028 = 0;
       setCopControlWord(2,0x2800,0);
       setCopControlWord(2,0x3000,0);
       setCopControlWord(2,0x3800,0);
       if (DAT_1f8000e5 == '\0') {
-        puVar4 = *(undefined2 **)(iVar1 + 0x3c);
-        if (puVar4 != (undefined2 *)0x0) {
-          _DAT_1f800104 = *puVar4;
-          _DAT_1f800100 = puVar4 + 2;
-          if (_DAT_1f800100 != (undefined2 *)0x0) {
-            _DAT_1f8000ec = 0x7d;
+        pGVar3 = pCVar4->lorezstripBuf;
+        if (pGVar3 != (Group *)0x0) {
+          DAT_1f800104 = *(undefined2 *)&pGVar3->m_num_elements;
+          DAT_1f800100 = pGVar3 + 1;
+          if (DAT_1f800100 != (Group *)0x0) {
+            DAT_1f8000ec = 0x7d;
             DrawW_StripDraw_High__FP25Draw_tGiveShelbyMoreCache
                       ((Draw_tGiveShelbyMoreCache *)&DAT_1f800000);
           }
         }
-        DAT_1f8000e7 = *(char *)(iVar1 + 0x20);
+        DAT_1f8000e7 = pCVar4->quadCounts[0];
         if (DAT_1f8000e7 != '\0') {
-          _DAT_1f8000e8 = *(int *)(iVar1 + 0x28);
-          _DAT_1f8000ec = 0x7d;
+          DAT_1f8000e8 = (Group *)pCVar4->renderQuads[0];
+          DAT_1f8000ec = 0x7d;
           DAT_1f800107 = 1;
-          _DAT_1f8000d8 = 0xffff;
+          DAT_1f8000d8 = 0xffff;
           DrawW_kCtrlWorld_High__FP25Draw_tGiveShelbyMoreCache
                     ((Draw_tGiveShelbyMoreCache *)&DAT_1f800000);
         }
-        DAT_1f8000e7 = *(char *)(iVar1 + 0x21);
+        DAT_1f8000e7 = pCVar4->quadCounts[1];
         if (DAT_1f8000e7 != '\0') {
-          _DAT_1f8000e8 = *(int *)(iVar1 + 0x2c);
+          DAT_1f8000e8 = (Group *)pCVar4->renderQuads[1];
 LAB_800c746c:
-          _DAT_1f8000ec = 0x1e;
+          DAT_1f8000ec = 0x1e;
           DAT_1f800107 = 1;
-          _DAT_1f8000d8 = 0xffff;
+          DAT_1f8000d8 = 0xffff;
           DrawW_kCtrlWorld_High__FP25Draw_tGiveShelbyMoreCache
                     ((Draw_tGiveShelbyMoreCache *)&DAT_1f800000);
         }
       }
       else {
-        puVar4 = *(undefined2 **)(iVar1 + 0x38);
-        if (puVar4 != (undefined2 *)0x0) {
-          _DAT_1f800100 = puVar4 + 2;
-          _DAT_1f800104 = *puVar4;
-          _DAT_1f8000ec = 0x7d;
+        pGVar3 = pCVar4->stripBuf;
+        if (pGVar3 != (Group *)0x0) {
+          DAT_1f800100 = pGVar3 + 1;
+          DAT_1f800104 = *(undefined2 *)&pGVar3->m_num_elements;
+          DAT_1f8000ec = 0x7d;
           DrawW_StripDraw_High__FP25Draw_tGiveShelbyMoreCache
                     ((Draw_tGiveShelbyMoreCache *)&DAT_1f800000);
-          DAT_1f8000e7 = *(char *)(iVar1 + 0x25);
+          DAT_1f8000e7 = pCVar4->quadCounts[5];
           if (DAT_1f8000e7 != '\0') {
-            _DAT_1f8000e8 = *(int *)(iVar1 + 0x34);
+            DAT_1f8000e8 = (Group *)pCVar4->renderQuads[3];
             goto LAB_800c746c;
           }
         }
       }
-      _DAT_1f8000e0 = *(int *)(iVar1 + 0x5c) + 4;
-      DAT_1f8000e7 = *(char *)(iVar1 + 0x22);
+      DAT_1f8000e0 = pCVar4->objVertexBuf + 1;
+      DAT_1f8000e7 = pCVar4->quadCounts[2];
       if (DAT_1f8000e7 != '\0') {
-        _DAT_1f8000ec = 0x7d;
+        DAT_1f8000ec = 0x7d;
         DAT_1f800107 = 1;
-        _DAT_1f8000d8 = 0xffff;
-        _DAT_1f8000e8 = *(int *)(iVar1 + 0x60) + 4;
+        DAT_1f8000d8 = 0xffff;
+        DAT_1f8000e8 = pCVar4->objQuadBuf + 1;
         DrawW_kCtrlWorld_High__FP25Draw_tGiveShelbyMoreCache
                   ((Draw_tGiveShelbyMoreCache *)&DAT_1f800000);
       }
-      DAT_1f8000e7 = *(char *)(iVar1 + 0x23);
+      DAT_1f8000e7 = pCVar4->quadCounts[3];
       if (DAT_1f8000e7 != '\0') {
-        _DAT_1f8000ec = 0x32;
+        DAT_1f8000ec = 0x32;
         DAT_1f800107 = 1;
-        _DAT_1f8000d8 = 0xffff;
-        _DAT_1f8000e8 = *(int *)(iVar1 + 100) + 4;
+        DAT_1f8000d8 = 0xffff;
+        DAT_1f8000e8 = pCVar4->objQuadInstanceBuf + 1;
         DrawW_kCtrlWorld_High__FP25Draw_tGiveShelbyMoreCache
                   ((Draw_tGiveShelbyMoreCache *)&DAT_1f800000);
       }
@@ -2363,10 +2350,7 @@ LAB_800c746c:
     buildList = buildList + 1;
     iVar6 = iVar6 + 1;
   } while( true );
-
-
 }
-
 
 
 
@@ -2415,6 +2399,7 @@ LAB_800c746c:
 	// End Line: 1666
 
 void DrawW_WorldSetUpMatrix__FP10matrixtdefP6MATRIX(matrixtdef *m,MATRIX *mat)
+
 {
   int iVar1;
   int iVar2;
@@ -2440,10 +2425,7 @@ void DrawW_WorldSetUpMatrix__FP10matrixtdefP6MATRIX(matrixtdef *m,MATRIX *mat)
   setCopControlWord(2,0x1800,*(undefined4 *)(mat->m + 6));
   setCopControlWord(2,0x2000,*(undefined4 *)(mat->m + 8));
   return;
-
-
 }
-
 
 
 
@@ -2463,6 +2445,7 @@ void DrawW_WorldSetUpMatrix__FP10matrixtdefP6MATRIX(matrixtdef *m,MATRIX *mat)
 	// End Line: 1676
 
 void DrawW_WorldSetUpTranslation__FP8coorddefP6MATRIX(coorddef *t,MATRIX *mat)
+
 {
   int iVar1;
   int iVar2;
@@ -2476,10 +2459,7 @@ void DrawW_WorldSetUpTranslation__FP8coorddefP6MATRIX(coorddef *t,MATRIX *mat)
   setCopControlWord(2,0x3000,mat->t[1]);
   setCopControlWord(2,0x3800,mat->t[2]);
   return;
-
-
 }
-
 
 
 
@@ -2503,23 +2483,23 @@ void DrawW_WorldSetUpTranslation__FP8coorddefP6MATRIX(coorddef *t,MATRIX *mat)
 	// End offset: 0x800C763C
 	// End Line: 1701
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void DrawW_ResetAnimationTimer__Fv(void)
+
 {
-  undefined4 *puVar1;
+  int *piVar1;
   int iVar2;
   
   iVar2 = 0xb;
-  puVar1 = &DAT_8011f744;
+  piVar1 = &INT_8011f744;
   do {
-    *puVar1 = 0;
+    *piVar1 = 0;
     iVar2 = iVar2 + -1;
-    puVar1 = puVar1 + -1;
+    piVar1 = piVar1 + -1;
   } while (-1 < iVar2);
   return;
-
-
 }
-
 
 
 
@@ -2553,23 +2533,22 @@ void DrawW_ResetAnimationTimer__Fv(void)
 	// End Line: 1717
 
 int DrawW_GetAnimationTime__FP15Trk_AnimateInst(Trk_AnimateInst *animInst)
+
 {
   int iVar1;
   int iVar2;
   
-  if (((animInst->objectIndex != '\0') && (true)) && (true)) {
+  if (((animInst->objectIndex != '\0') && (GameSetup_gData.track != 3)) &&
+     (GameSetup_gData.track != 7)) {
     iVar2 = ((int)animInst->count + -2) * (int)animInst->interval;
-    iVar1 = *(int *)(&animation_timer + ((uint)animInst->objectIndex - 1) * 4);
-    if (iVar2 <= *(int *)(&animation_timer + ((uint)animInst->objectIndex - 1) * 4)) {
+    iVar1 = (&animation_timer)[(uint)animInst->objectIndex - 1];
+    if (iVar2 <= (&animation_timer)[(uint)animInst->objectIndex - 1]) {
       iVar1 = iVar2;
     }
     return iVar1;
   }
-  return 0;
-
-
+  return simGlobal.gameTicks;
 }
-
 
 
 
@@ -2658,49 +2637,48 @@ int DrawW_GetAnimationTime__FP15Trk_AnimateInst(Trk_AnimateInst *animInst)
 	// End Line: 1780
 
 void DrawW_SetAnimationTime__FP15Trk_AnimateInstPii(Trk_AnimateInst *animInst,int *table,int time)
+
 {
   int iVar1;
-  int iVar2;
-  int *piVar3;
-  int *piVar4;
-  int iVar5;
+  int *piVar2;
+  int iVar3;
+  int iVar4;
+  Car_tObj **ppCVar5;
+  int iVar6;
   
   iVar1 = Cars_gNumHumanRaceCars;
-  iVar2 = (uint)animInst->objectIndex - 1;
-  if (*(int *)(&animation_timer + iVar2 * 4) < 0xf01) {
-    piVar3 = (int *)(&animation_timer + iVar2 * 4);
-    iVar5 = 0;
-    if (0 < *piVar3) {
-      *piVar3 = *piVar3 + 1;
+  iVar3 = (uint)animInst->objectIndex - 1;
+  if ((&animation_timer)[iVar3] < 0xf01) {
+    piVar2 = &animation_timer + iVar3;
+    iVar6 = 0;
+    if (0 < *piVar2) {
+      *piVar2 = *piVar2 + 1;
       return;
     }
-    piVar4 = &_Cars_gHumanRaceCarList;
-    while (iVar5 < iVar1) {
-      if ((table[iVar2 * 2] <= (int)*(short *)(*piVar4 + 8)) &&
-         ((int)*(short *)(*piVar4 + 8) <= (table + iVar2 * 2)[1])) {
-        *piVar3 = *piVar3 + 1;
+    ppCVar5 = &__Cars_gHumanRaceCarList_9__;
+    while (iVar6 < iVar1) {
+      iVar4 = (int)((*ppCVar5)->N).simRoadInfo.slice;
+      if ((table[iVar3 * 2] <= iVar4) && (iVar4 <= (table + iVar3 * 2)[1])) {
+        *piVar2 = *piVar2 + 1;
       }
-      piVar4 = piVar4 + 1;
-      iVar5 = iVar5 + 1;
+      ppCVar5 = ppCVar5 + 1;
+      iVar6 = iVar6 + 1;
     }
   }
   else {
-    iVar5 = 0;
-    piVar3 = &_Cars_gHumanRaceCarList;
-    while (iVar5 < iVar1) {
-      if (((int)*(short *)(*piVar3 + 8) < table[iVar2 * 2]) ||
-         ((table + iVar2 * 2)[1] < (int)*(short *)(*piVar3 + 8))) {
-        *(int *)(&animation_timer + iVar2 * 4) = 0;
+    iVar6 = 0;
+    ppCVar5 = &__Cars_gHumanRaceCarList_9__;
+    while (iVar6 < iVar1) {
+      iVar4 = (int)((*ppCVar5)->N).simRoadInfo.slice;
+      if ((iVar4 < table[iVar3 * 2]) || ((table + iVar3 * 2)[1] < iVar4)) {
+        (&animation_timer)[iVar3] = 0;
       }
-      piVar3 = piVar3 + 1;
-      iVar5 = iVar5 + 1;
+      ppCVar5 = ppCVar5 + 1;
+      iVar6 = iVar6 + 1;
     }
   }
   return;
-
-
 }
-
 
 
 
@@ -2736,35 +2714,37 @@ void DrawW_SetAnimationTime__FP15Trk_AnimateInstPii(Trk_AnimateInst *animInst,in
 	// End offset: 0x800C788C
 	// End Line: 1804
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void DrawW_DoObjectAnimations__Fv(void)
+
 {
+  int time;
   Trk_AnimateInst **ppTVar1;
   int iVar2;
   int *table;
   
-  if (false) {
-    if (true) {
-      return;
-    }
-    table = (int *)&trk4;
+  time = simGlobal.gameTicks;
+  if (GameSetup_gData.track == 0) {
+    table = &trk0;
   }
   else {
-    table = (int *)&trk0;
+    if (GameSetup_gData.track != 4) {
+      return;
+    }
+    table = &trk4;
   }
   iVar2 = 0;
-  ppTVar1 = (Trk_AnimateInst **)&_Anim_gInstanceFromIndex;
+  ppTVar1 = &__Anim_gInstanceFromIndex_32__;
   do {
     if ((*ppTVar1)->objectIndex != '\0') {
-      DrawW_SetAnimationTime__FP15Trk_AnimateInstPii(*ppTVar1,table,0);
+      DrawW_SetAnimationTime__FP15Trk_AnimateInstPii(*ppTVar1,table,time);
     }
     iVar2 = iVar2 + 1;
     ppTVar1 = ppTVar1 + 1;
   } while (iVar2 < 0x10);
   return;
-
-
 }
-
 
 
 
@@ -2878,10 +2858,12 @@ void DrawW_DoObjectAnimations__Fv(void)
 	// End offset: 0x800C7B6C
 	// End Line: 2049
 
-int DrawW_BuildObjectFacets__FP13DRender_tViewP15ChunkObjectInfo( (DRender_tView *Vi,ChunkObjectInfo *gObjInfo)
+int DrawW_BuildObjectFacets__FP13DRender_tViewP15ChunkObjectInfo
+              (DRender_tView *Vi,ChunkObjectInfo *gObjInfo)
+
 {
   byte bVar1;
-  uint uVar2;
+  void *pvVar2;
   int ticks;
   Trk_AnimateInst *animInst;
   Trk_ObjectDef *objDef;
@@ -2909,9 +2891,9 @@ int DrawW_BuildObjectFacets__FP13DRender_tViewP15ChunkObjectInfo( (DRender_tView
     local_38 = gObjInfo->doFrustumClip;
     iVar5 = gObjInfo->zClipSq;
     local_34 = gObjInfo->visList;
-    _DAT_1f800030 = 0;
-    _DAT_1f80002c = 0;
-    _DAT_1f800028 = 0;
+    DAT_1f800030 = 0;
+    DAT_1f80002c = 0;
+    DAT_1f800028 = 0;
     setCopControlWord(2,0x2800,0);
     setCopControlWord(2,0x3000,0);
     setCopControlWord(2,0x3800,0);
@@ -2921,15 +2903,16 @@ int DrawW_BuildObjectFacets__FP13DRender_tViewP15ChunkObjectInfo( (DRender_tView
       if ((local_34 == (short *)0x0) || ((((ushort)local_34[iVar3] >> 0xc ^ 1) & 1) == 0)) {
         offset = local_3c;
         if (local_3c == 0) {
-          offset = (int)(char)(&goffsets)[(uint)animInst->zoffset];
+          offset = (int)(&goffsets)[(uint)animInst->zoffset];
         }
         bVar1 = animInst->type;
         if (bVar1 == 1) {
-          objDef = *(Trk_ObjectDef **)((int)animInst->pad * 4 + __Track_gObjDefs);
+          objDef = Track_gObjDefs[(int)animInst->pad];
           if (((local_38 == 0) ||
-              (uVar2 = ObjectClipped__FP13DRender_tViewiP8coorddefP25Draw_tGiveShelbyMoreCache
-                                 (Vi,(int)animInst->pad,(coorddef *)&animInst->count,
-                                  (Draw_tGiveShelbyMoreCache *)&DAT_1f800000), uVar2 == 0)) &&
+              (pvVar2 = ObjectClipped__FP13DRender_tViewiP8coorddefP25Draw_tGiveShelbyMoreCache
+                                  (Vi,(int)animInst->pad,(coorddef *)&animInst->count,
+                                   (Draw_tGiveShelbyMoreCache *)&DAT_1f800000),
+              pvVar2 == (void *)0x0)) &&
              ((iVar5 == -1 ||
               (ticks = xzsquaredist32__FP8coorddefT0
                                  ((coorddef *)&animInst->count,(coorddef *)&Vi->cview),
@@ -2951,8 +2934,7 @@ int DrawW_BuildObjectFacets__FP13DRender_tViewP15ChunkObjectInfo( (DRender_tView
               offset = 
                        DrawObjectTransform__FP13DRender_tViewP11Draw_DCacheP10matrixtdefP13Trk_ObjectDefP8coorddefis
                                  (Vi,(Draw_DCache *)&DAT_1f800000,local_30,
-                                  *(Trk_ObjectDef **)((int)animInst->pad * 4 + __Track_gObjDefs),
-                                  &local_60,offset,-1);
+                                  Track_gObjDefs[(int)animInst->pad],&local_60,offset,-1);
               iVar4 = iVar4 + offset;
               if ((animInst->flags & 2) != 0) {
                 local_50.x = local_60.x + mStack136.m[6] * -0x10;
@@ -2970,10 +2952,7 @@ int DrawW_BuildObjectFacets__FP13DRender_tViewP15ChunkObjectInfo( (DRender_tView
     }
   }
   return iVar4;
-
-
 }
-
 
 
 
@@ -3074,16 +3053,18 @@ int DrawW_BuildObjectFacets__FP13DRender_tViewP15ChunkObjectInfo( (DRender_tView
 	// End offset: 0x800C7E8C
 	// End Line: 2152
 
-int DrawW_BuildCustomObjectFacets__FP13DRender_tViewP11Draw_DCacheP13Trk_SimObjectP5Groupi( (DRender_tView *Vi,Draw_DCache *sd,Trk_SimObject *simObjs,Group *group,int zClipSq)
+int DrawW_BuildCustomObjectFacets__FP13DRender_tViewP11Draw_DCacheP13Trk_SimObjectP5Groupi
+              (DRender_tView *Vi,Draw_DCache *sd,Trk_SimObject *simObjs,Group *group,int zClipSq)
+
 {
   char cVar1;
   char cVar2;
   bool bVar3;
   ObjectAnim *pOVar4;
   int iVar5;
-  uint uVar6;
-  int iVar7;
-  int iVar8;
+  void *pvVar6;
+  uint uVar7;
+  uint uVar8;
   int iVar9;
   int iVar10;
   Group *pGVar11;
@@ -3113,8 +3094,7 @@ int DrawW_BuildCustomObjectFacets__FP13DRender_tViewP11Draw_DCacheP13Trk_SimObje
       cVar2 = *(char *)((int)&pGVar11->m_num_elements + 2);
       cVar1 = (&DAT_8013d828)[(uint)*(byte *)&pGVar11[1].m_num_elements];
       if ((cVar2 == '\x05') || (cVar2 == '\x02')) {
-        objDef = *(Trk_ObjectDef **)
-                  ((int)*(short *)((int)&pGVar11[1].m_num_elements + 2) * 4 + __Track_gObjDefs);
+        objDef = Track_gObjDefs[(int)*(short *)((int)&pGVar11[1].m_num_elements + 2)];
         if ((cVar2 == '\x02') ||
            (pOVar4 = Object_GetAnim__FP13Trk_SimObject
                                (simObjs + (uint)*(byte *)((int)&pGVar11[8].m_num_elements + 2)),
@@ -3123,34 +3103,34 @@ int DrawW_BuildCustomObjectFacets__FP13DRender_tViewP11Draw_DCacheP13Trk_SimObje
           bVar3 = false;
           if ((zClipSq <= iVar5) ||
              ((*(char *)((int)&pGVar11->m_num_elements + 2) == '\x02' &&
-              (uVar6 = ObjectClipped__FP13DRender_tViewiP8coorddefP25Draw_tGiveShelbyMoreCache
-                                 (Vi,(int)*(short *)((int)&pGVar11[1].m_num_elements + 2),
-                                  (coorddef *)(pGVar11 + 2),(Draw_tGiveShelbyMoreCache *)sd),
-              uVar6 != 0)))) {
+              (pvVar6 = ObjectClipped__FP13DRender_tViewiP8coorddefP25Draw_tGiveShelbyMoreCache
+                                  (Vi,(int)*(short *)((int)&pGVar11[1].m_num_elements + 2),
+                                   (coorddef *)(pGVar11 + 2),(Draw_tGiveShelbyMoreCache *)sd),
+              pvVar6 != (void *)0x0)))) {
             bVar3 = true;
           }
           if (!bVar3) {
             local_38 = pGVar11[5].m_num_elements;
             local_34 = pGVar11[6].m_num_elements;
             Quatern_QuatToMat__FP5tQuatP10matrixtdef((tQuat *)&local_38,&local_60);
-            iVar8 = (int)*(short *)&pGVar11[7].m_num_elements << 8;
+            iVar5 = (int)*(short *)&pGVar11[7].m_num_elements << 8;
             iVar9 = (int)*(short *)((int)&pGVar11[7].m_num_elements + 2) << 8;
             iVar10 = (int)*(short *)&pGVar11[8].m_num_elements << 8;
-            iVar5 = fixedmult(local_60.m[0],iVar8);
-            iVar7 = fixedmult(local_60.m[3],iVar8);
-            local_60.m[6] = fixedmult(local_60.m[6],iVar8);
-            local_60.m[0] = iVar5;
-            local_60.m[3] = iVar7;
-            iVar5 = fixedmult(local_60.m[1],iVar9);
-            iVar7 = fixedmult(local_60.m[4],iVar9);
+            uVar7 = fixedmult(local_60.m[0],iVar5);
+            uVar8 = fixedmult(local_60.m[3],iVar5);
+            local_60.m[6] = fixedmult(local_60.m[6],iVar5);
+            local_60.m[0] = uVar7;
+            local_60.m[3] = uVar8;
+            uVar7 = fixedmult(local_60.m[1],iVar9);
+            uVar8 = fixedmult(local_60.m[4],iVar9);
             local_60.m[7] = fixedmult(local_60.m[7],iVar9);
-            local_60.m[1] = iVar5;
-            local_60.m[4] = iVar7;
-            iVar5 = fixedmult(local_60.m[2],iVar10);
-            iVar7 = fixedmult(local_60.m[5],iVar10);
+            local_60.m[1] = uVar7;
+            local_60.m[4] = uVar8;
+            uVar7 = fixedmult(local_60.m[2],iVar10);
+            uVar8 = fixedmult(local_60.m[5],iVar10);
             local_60.m[8] = fixedmult(local_60.m[8],iVar10);
-            local_60.m[2] = iVar5;
-            local_60.m[5] = iVar7;
+            local_60.m[2] = uVar7;
+            local_60.m[5] = uVar8;
             iVar5 = 
                     DrawObjectTransform__FP13DRender_tViewP11Draw_DCacheP10matrixtdefP13Trk_ObjectDefP8coorddefis
                               (Vi,sd,&local_60,objDef,(coorddef *)(pGVar11 + 2),(int)cVar1,-1);
@@ -3160,8 +3140,9 @@ int DrawW_BuildCustomObjectFacets__FP13DRender_tViewP11Draw_DCacheP13Trk_SimObje
         else {
           pOVar4 = Object_GetAnim__FP13Trk_SimObject
                              (simObjs + (uint)*(byte *)((int)&pGVar11[8].m_num_elements + 2));
-          (**(code **)(pOVar4->_vf[0] + 0x14))
-                    ((int)pOVar4->_vf + (int)*(short *)(pOVar4->_vf[0] + 0x10),Vi,sd,(int)cVar1);
+          uVar7 = pOVar4->_vf[0].value;
+          (**(code **)(uVar7 + 0x14))
+                    ((int)&pOVar4->_vf[0].value + (int)*(short *)(uVar7 + 0x10),Vi,sd,(int)cVar1);
         }
       }
       pGVar11 = (Group *)((int)&pGVar11->m_num_elements + (int)*(short *)&pGVar11->m_num_elements);
@@ -3169,10 +3150,7 @@ int DrawW_BuildCustomObjectFacets__FP13DRender_tViewP11Draw_DCacheP13Trk_SimObje
     }
   }
   return local_30;
-
-
 }
-
 
 
 
@@ -3191,9 +3169,14 @@ int DrawW_BuildCustomObjectFacets__FP13DRender_tViewP11Draw_DCacheP13Trk_SimObje
 	// End offset: 0x800C8168
 	// End Line: 2223
 
-int DrawObjectTransform__FP13DRender_tViewP11Draw_DCacheP10matrixtdefP13Trk_ObjectDefP8coorddefis( (DRender_tView *Vi,Draw_DCache *sd,matrixtdef *matrix,Trk_ObjectDef *objDef, coorddef *pCp,int offset,int light)
+int DrawObjectTransform__FP13DRender_tViewP11Draw_DCacheP10matrixtdefP13Trk_ObjectDefP8coorddefis
+              (DRender_tView *Vi,Draw_DCache *sd,matrixtdef *matrix,Trk_ObjectDef *objDef,
+              coorddef *pCp,int offset,int light)
+
 {
   byte bVar1;
+  Track_tMaterial *pTVar2;
+  uchar *puVar3;
   MATRIX *mat;
   matrixtdef mStack112;
   coorddef local_48;
@@ -3201,27 +3184,29 @@ int DrawObjectTransform__FP13DRender_tViewP11Draw_DCacheP10matrixtdefP13Trk_Obje
   
   *(Trk_ObjectDef **)&sd[1].head.cprim.PrimPtr = objDef + 1;
   *(uchar *)((int)&sd[1].head.cprim.MPrimPtr + 3) = objDef->quadCount;
+  pTVar2 = Track_materials;
   bVar1 = objDef->vertexCount;
   *(undefined *)((int)sd[1].matB.t + 2) = 0;
+  puVar3 = gNight_renderNight;
   *(int *)&sd[1].head.clipW = offset;
   *(Trk_ObjectDef **)&sd[1].head.mirror = objDef + (uint)bVar1 * 2 + 1;
-  *(undefined4 *)sd[1].matB.m = 0;
-  if (false) {
+  *(Track_tMaterial **)sd[1].matB.m = pTVar2;
+  if (puVar3 != (uchar *)0x0) {
     *(undefined *)((int)sd[1].matB.t + 2) = 4;
-    if ((*(byte *)((&_Cars_gList)[Vi->player] + 0x447) & 6) != 0) {
+    if ((((&__Cars_gList_9__)[Vi->player]->control).lights & 6U) != 0) {
       *(undefined *)((int)sd[1].matB.t + 2) = 5;
     }
-    local_48.x = pCp->x - *(int *)((&DAT_8010f2b0)[Vi->player * 0x44] + 0xa0);
-    local_48.y = pCp->y - *(int *)((&DAT_8010f2b0)[Vi->player * 0x44] + 0xa4);
-    local_48.z = pCp->z - *(int *)((&DAT_8010f2b0)[Vi->player * 0x44] + 0xa8);
-    transform(&local_48,&gNightMat,&local_38);
+    local_48.x = pCp->x - (((&Camera_gInfo)[Vi->player].target)->position).x;
+    local_48.y = pCp->y - (((&Camera_gInfo)[Vi->player].target)->position).y;
+    local_48.z = pCp->z - (((&Camera_gInfo)[Vi->player].target)->position).z;
+    transform((int *)&local_48,(int *)&gNightMat,(int *)&local_38);
     DrawW_WorldSetUpTranslation__FP8coorddefP6MATRIX(&local_38,&sd->matNight);
-    if (false) {
+    if (BW_gCopCarObj != (Car_tObj *)0x0) {
       *(byte *)((int)sd[1].matB.t + 2) = *(byte *)((int)sd[1].matB.t + 2) | 2;
-      local_48.x = pCp->x - _LAB_000000a0;
-      local_48.y = pCp->y - iRam000000a4;
-      local_48.z = pCp->z - iRam000000a8;
-      transform(&local_48,&gCopMat,&local_38);
+      local_48.x = pCp->x - (BW_gCopCarObj->N).position.x;
+      local_48.y = pCp->y - (BW_gCopCarObj->N).position.y;
+      local_48.z = pCp->z - (BW_gCopCarObj->N).position.z;
+      transform((int *)&local_48,(int *)&gCopMat,(int *)&local_38);
       DrawW_WorldSetUpTranslation__FP8coorddefP6MATRIX(&local_38,&sd->matCop);
     }
     (sd->matB).t[2] = 0;
@@ -3237,21 +3222,21 @@ int DrawObjectTransform__FP13DRender_tViewP11Draw_DCacheP10matrixtdefP13Trk_Obje
   TrsProj_SetPsxTransZero__Fv();
   TrsProj_TransPt__FP8coorddefT0(&local_48,&local_38);
   if (offset == -1) {
-    *(undefined4 *)&sd[1].head.clipW = Draw_gMidGroundOtz;
+    *(int *)&sd[1].head.clipW = Draw_gMidGroundOtz;
     local_38.x = local_38.x >> 2;
     local_38.z = local_38.z >> 2;
     local_38.y = local_38.y >> 2;
   }
   *(undefined4 *)(sd[1].matB.m + 2) = 0;
   sd[1].matB.m[4] = 0;
-  Math_fasttransmult__FP10matrixtdefN20(matrix,(matrixtdef *)&gWorldMat,&mStack112);
+  Math_fasttransmult__FP10matrixtdefN20(matrix,&gWorldMat,&mStack112);
   mat = &sd->matB;
   DrawW_WorldSetUpMatrix__FP10matrixtdefP6MATRIX(&mStack112,mat);
   DrawW_WorldSetUpTranslation__FP8coorddefP6MATRIX(&local_38,mat);
   *(undefined *)((int)sd[1].matB.t + 3) = 0;
   sd->light = (short)light;
   DrawW_kCtrlWorld_High__FP25Draw_tGiveShelbyMoreCache((Draw_tGiveShelbyMoreCache *)sd);
-  DrawW_WorldSetUpMatrix__FP10matrixtdefP6MATRIX((matrixtdef *)&gWorldMat,mat);
+  DrawW_WorldSetUpMatrix__FP10matrixtdefP6MATRIX(&gWorldMat,mat);
   (sd->matB).t[2] = 0;
   (sd->matB).t[1] = 0;
   (sd->matB).t[0] = 0;
@@ -3259,10 +3244,7 @@ int DrawObjectTransform__FP13DRender_tViewP11Draw_DCacheP10matrixtdefP13Trk_Obje
   setCopControlWord(2,0x3000,(sd->matB).t[1]);
   setCopControlWord(2,0x3800,(sd->matB).t[2]);
   return (uint)objDef->quadCount;
-
-
 }
-
 
 
 
@@ -3294,38 +3276,44 @@ int DrawObjectTransform__FP13DRender_tViewP11Draw_DCacheP10matrixtdefP13Trk_Obje
 	// End offset: 0x800C84C8
 	// End Line: 2330
 
-int DrawObjectSimple__FP13DRender_tViewP11Draw_DCacheP13Trk_ObjectDefP8coorddefi( (DRender_tView *Vi,Draw_DCache *sd,Trk_ObjectDef *objDef,coorddef *pCp,int offset)
+int DrawObjectSimple__FP13DRender_tViewP11Draw_DCacheP13Trk_ObjectDefP8coorddefi
+              (DRender_tView *Vi,Draw_DCache *sd,Trk_ObjectDef *objDef,coorddef *pCp,int offset)
+
 {
   byte bVar1;
-  short sVar2;
+  Track_tMaterial *pTVar2;
+  uchar *puVar3;
+  short sVar4;
   int local_40;
   int local_3c;
   int local_38;
   coorddef cStack48;
   
+  pTVar2 = Track_materials;
   *(Trk_ObjectDef **)&sd[1].head.cprim.PrimPtr = objDef + 1;
-  *(undefined4 *)sd[1].matB.m = 0;
+  *(Track_tMaterial **)sd[1].matB.m = pTVar2;
   *(uchar *)((int)&sd[1].head.cprim.MPrimPtr + 3) = objDef->quadCount;
   bVar1 = objDef->vertexCount;
   *(undefined *)((int)sd[1].matB.t + 2) = 0;
+  puVar3 = gNight_renderNight;
   *(int *)&sd[1].head.clipW = offset;
   *(Trk_ObjectDef **)&sd[1].head.mirror = objDef + (uint)bVar1 * 2 + 1;
-  if (false) {
+  if (puVar3 != (uchar *)0x0) {
     *(undefined *)((int)sd[1].matB.t + 2) = 4;
-    if ((*(byte *)((&_Cars_gList)[Vi->player] + 0x447) & 6) != 0) {
+    if ((((&__Cars_gList_9__)[Vi->player]->control).lights & 6U) != 0) {
       *(undefined *)((int)sd[1].matB.t + 2) = 5;
     }
-    local_40 = (Vi->cview).translation.x - *(int *)((&DAT_8010f2b0)[Vi->player * 0x44] + 0xa0);
-    local_3c = (Vi->cview).translation.y - *(int *)((&DAT_8010f2b0)[Vi->player * 0x44] + 0xa4);
-    local_38 = (Vi->cview).translation.z - *(int *)((&DAT_8010f2b0)[Vi->player * 0x44] + 0xa8);
-    transform(&local_40,&gNightMat,&cStack48);
+    local_40 = (Vi->cview).translation.x - (((&Camera_gInfo)[Vi->player].target)->position).x;
+    local_3c = (Vi->cview).translation.y - (((&Camera_gInfo)[Vi->player].target)->position).y;
+    local_38 = (Vi->cview).translation.z - (((&Camera_gInfo)[Vi->player].target)->position).z;
+    transform(&local_40,(int *)&gNightMat,(int *)&cStack48);
     DrawW_WorldSetUpTranslation__FP8coorddefP6MATRIX(&cStack48,&sd->matNight);
-    if (false) {
+    if (BW_gCopCarObj != (Car_tObj *)0x0) {
       *(byte *)((int)sd[1].matB.t + 2) = *(byte *)((int)sd[1].matB.t + 2) | 2;
-      local_40 = (Vi->cview).translation.x - _LAB_000000a0;
-      local_3c = (Vi->cview).translation.y - iRam000000a4;
-      local_38 = (Vi->cview).translation.z - iRam000000a8;
-      transform(&local_40,&gCopMat,&cStack48);
+      local_40 = (Vi->cview).translation.x - (BW_gCopCarObj->N).position.x;
+      local_3c = (Vi->cview).translation.y - (BW_gCopCarObj->N).position.y;
+      local_38 = (Vi->cview).translation.z - (BW_gCopCarObj->N).position.z;
+      transform(&local_40,(int *)&gCopMat,(int *)&cStack48);
       DrawW_WorldSetUpTranslation__FP8coorddefP6MATRIX(&cStack48,&sd->matCop);
     }
     (sd->matB).t[2] = 0;
@@ -3336,25 +3324,22 @@ int DrawObjectSimple__FP13DRender_tViewP11Draw_DCacheP13Trk_ObjectDefP8coorddefi
     setCopControlWord(2,0x3800,(sd->matB).t[2]);
   }
   if (offset == -1) {
-    *(undefined4 *)&sd[1].head.clipW = Draw_gMidGroundOtz;
+    *(int *)&sd[1].head.clipW = Draw_gMidGroundOtz;
     sd[1].matB.m[2] = (short)(pCp->x - (Vi->cview).translation.x >> 0xc);
     sd[1].matB.m[3] = (short)(pCp->y - (Vi->cview).translation.y >> 0xc);
-    sVar2 = (short)(pCp->z - (Vi->cview).translation.z >> 0xc);
+    sVar4 = (short)(pCp->z - (Vi->cview).translation.z >> 0xc);
   }
   else {
     sd[1].matB.m[2] = (short)(pCp->x - (Vi->cview).translation.x >> 10);
     sd[1].matB.m[3] = (short)(pCp->y - (Vi->cview).translation.y >> 10);
-    sVar2 = (short)(pCp->z - (Vi->cview).translation.z >> 10);
+    sVar4 = (short)(pCp->z - (Vi->cview).translation.z >> 10);
   }
-  sd[1].matB.m[4] = sVar2;
+  sd[1].matB.m[4] = sVar4;
   *(undefined *)((int)sd[1].matB.t + 3) = 1;
   sd->light = -1;
   DrawW_kCtrlWorld_High__FP25Draw_tGiveShelbyMoreCache((Draw_tGiveShelbyMoreCache *)sd);
   return (uint)objDef->quadCount;
-
-
 }
-
 
 
 
@@ -3551,21 +3536,22 @@ int DrawObjectSimple__FP13DRender_tViewP11Draw_DCacheP13Trk_ObjectDefP8coorddefi
 	// End offset: 0x800C8BA0
 	// End Line: 2650
 
-int DrawW_BuildChunkObjectFacets__FP13DRender_tViewP15ChunkObjectInfo( (DRender_tView *Vi,ChunkObjectInfo *gObjInfo)
+int DrawW_BuildChunkObjectFacets__FP13DRender_tViewP15ChunkObjectInfo
+              (DRender_tView *Vi,ChunkObjectInfo *gObjInfo)
+
 {
   byte bVar1;
-  uint uVar2;
-  undefined4 uVar3;
-  int local_68;
-  int iVar4;
+  void *pvVar2;
+  uint uVar3;
+  uint uVar4;
   ObjectAnim *pOVar5;
-  int iVar6;
-  short sVar7;
+  int local_68;
+  short sVar6;
+  int iVar7;
   int iVar8;
-  int iVar9;
-  Group *pGVar10;
+  Group *pGVar9;
   Trk_ObjectDef *objDef;
-  int iVar11;
+  int iVar10;
   int offset;
   matrixtdef local_60;
   Trk_SimObject *local_38;
@@ -3574,185 +3560,177 @@ int DrawW_BuildChunkObjectFacets__FP13DRender_tViewP15ChunkObjectInfo( (DRender_
   int local_2c;
   
   local_38 = gObjInfo->simObjs;
-  pGVar10 = gObjInfo->objInstanceBuf + 1;
+  pGVar9 = gObjInfo->objInstanceBuf + 1;
   local_30 = gObjInfo->objInstanceBuf->m_num_elements;
   local_34 = gObjInfo->doFrustumClip;
-  iVar11 = 0;
+  iVar10 = 0;
   if (local_30 == 0) {
-    iVar11 = 0;
+    iVar10 = 0;
   }
   else {
-    _DAT_1f800030 = 0;
-    _DAT_1f80002c = 0;
-    _DAT_1f800028 = 0;
+    DAT_1f800030 = 0;
+    DAT_1f80002c = 0;
+    DAT_1f800028 = 0;
     setCopControlWord(2,0x2800,0);
     setCopControlWord(2,0x3000,0);
     setCopControlWord(2,0x3800,0);
     local_2c = 0;
     while (local_2c < local_30) {
-      bVar1 = *(byte *)((int)&pGVar10->m_num_elements + 2);
-      offset = (int)(char)(&goffsets)[(uint)*(byte *)&pGVar10[1].m_num_elements];
+      bVar1 = *(byte *)((int)&pGVar9->m_num_elements + 2);
+      offset = (int)(&goffsets)[(uint)*(byte *)&pGVar9[1].m_num_elements];
       if (((bVar1 & 0x80) != 0) ||
          ((((bVar1 != 5 && (local_34 != 0)) &&
-           (uVar2 = ObjectClipped__FP13DRender_tViewiP8coorddefP25Draw_tGiveShelbyMoreCache
-                              (Vi,(int)*(short *)((int)&pGVar10[1].m_num_elements + 2),
-                               (coorddef *)(pGVar10 + 2),(Draw_tGiveShelbyMoreCache *)&DAT_1f800000)
-           , uVar2 != 0)) && (*(char *)((int)&pGVar10->m_num_elements + 2) != '\x02'))))
+           (pvVar2 = ObjectClipped__FP13DRender_tViewiP8coorddefP25Draw_tGiveShelbyMoreCache
+                               (Vi,(int)*(short *)((int)&pGVar9[1].m_num_elements + 2),
+                                (coorddef *)(pGVar9 + 2),(Draw_tGiveShelbyMoreCache *)&DAT_1f800000)
+           , pvVar2 != (void *)0x0)) && (*(char *)((int)&pGVar9->m_num_elements + 2) != '\x02'))))
       goto LAB_800c8b88;
-      _DAT_1f800148 = 0x400;
-      sVar7 = -1;
-      if ((*(byte *)((int)&pGVar10[1].m_num_elements + 1) & 1) == 0) {
+      DAT_1f800148 = 0x400;
+      sVar6 = -1;
+      if ((*(byte *)((int)&pGVar9[1].m_num_elements + 1) & 1) == 0) {
         if (bVar1 == 2) {
-          Quatern_QuatToMat__FP5tQuatP10matrixtdef((tQuat *)(pGVar10 + 5),&local_60);
-          iVar6 = (int)*(short *)&pGVar10[7].m_num_elements << 8;
-          iVar8 = (int)*(short *)((int)&pGVar10[7].m_num_elements + 2) << 8;
-          iVar9 = (int)*(short *)&pGVar10[8].m_num_elements << 8;
-          local_68 = fixedmult(local_60.m[0],iVar6);
-          iVar4 = fixedmult(local_60.m[3],iVar6);
-          local_60.m[6] = fixedmult(local_60.m[6],iVar6);
-          local_60.m[0] = local_68;
-          local_60.m[3] = iVar4;
-          local_68 = fixedmult(local_60.m[1],iVar8);
-          iVar4 = fixedmult(local_60.m[4],iVar8);
-          local_60.m[7] = fixedmult(local_60.m[7],iVar8);
-          local_60.m[1] = local_68;
-          local_60.m[4] = iVar4;
-          iVar4 = fixedmult(local_60.m[2],iVar9);
-          iVar6 = fixedmult(local_60.m[5],iVar9);
-          local_60.m[8] = fixedmult(local_60.m[8],iVar9);
-          objDef = *(Trk_ObjectDef **)
-                    ((int)*(short *)((int)&pGVar10[1].m_num_elements + 2) * 4 + __Track_gObjDefs);
-          local_68 = (int)*(short *)((int)&pGVar10[8].m_num_elements + 2);
-          local_60.m[2] = iVar4;
-          local_60.m[5] = iVar6;
+          Quatern_QuatToMat__FP5tQuatP10matrixtdef((tQuat *)(pGVar9 + 5),&local_60);
+          local_68 = (int)*(short *)&pGVar9[7].m_num_elements << 8;
+          iVar7 = (int)*(short *)((int)&pGVar9[7].m_num_elements + 2) << 8;
+          iVar8 = (int)*(short *)&pGVar9[8].m_num_elements << 8;
+          uVar3 = fixedmult(local_60.m[0],local_68);
+          uVar4 = fixedmult(local_60.m[3],local_68);
+          local_60.m[6] = fixedmult(local_60.m[6],local_68);
+          local_60.m[0] = uVar3;
+          local_60.m[3] = uVar4;
+          uVar3 = fixedmult(local_60.m[1],iVar7);
+          uVar4 = fixedmult(local_60.m[4],iVar7);
+          local_60.m[7] = fixedmult(local_60.m[7],iVar7);
+          local_60.m[1] = uVar3;
+          local_60.m[4] = uVar4;
+          uVar3 = fixedmult(local_60.m[2],iVar8);
+          uVar4 = fixedmult(local_60.m[5],iVar8);
+          local_60.m[8] = fixedmult(local_60.m[8],iVar8);
+          objDef = Track_gObjDefs[(int)*(short *)((int)&pGVar9[1].m_num_elements + 2)];
+          local_68 = (int)*(short *)((int)&pGVar9[8].m_num_elements + 2);
+          local_60.m[2] = uVar3;
+          local_60.m[5] = uVar4;
           goto LAB_800c8b34;
         }
         if (bVar1 < 3) {
           if (bVar1 == 1) {
             offset = DrawObjectSimple__FP13DRender_tViewP11Draw_DCacheP13Trk_ObjectDefP8coorddefi
                                (Vi,(Draw_DCache *)&DAT_1f800000,
-                                *(Trk_ObjectDef **)
-                                 ((int)*(short *)((int)&pGVar10[1].m_num_elements + 2) * 4 +
-                                 __Track_gObjDefs),(coorddef *)(pGVar10 + 2),offset);
-            iVar11 = iVar11 + offset;
+                                Track_gObjDefs[(int)*(short *)((int)&pGVar9[1].m_num_elements + 2)],
+                                (coorddef *)(pGVar9 + 2),offset);
+            iVar10 = iVar10 + offset;
           }
         }
         else {
           if (bVar1 == 5) {
-            objDef = *(Trk_ObjectDef **)
-                      ((int)*(short *)((int)&pGVar10[1].m_num_elements + 2) * 4 + __Track_gObjDefs);
+            objDef = Track_gObjDefs[(int)*(short *)((int)&pGVar9[1].m_num_elements + 2)];
             pOVar5 = Object_GetAnim__FP13Trk_SimObject
-                               (local_38 + (uint)*(byte *)((int)&pGVar10[8].m_num_elements + 2));
+                               (local_38 + (uint)*(byte *)((int)&pGVar9[8].m_num_elements + 2));
             if (pOVar5 == (ObjectAnim *)0x0) {
-              Quatern_QuatToMat__FP5tQuatP10matrixtdef((tQuat *)(pGVar10 + 5),&local_60);
-              iVar6 = (int)*(short *)&pGVar10[7].m_num_elements << 8;
-              iVar8 = (int)*(short *)((int)&pGVar10[7].m_num_elements + 2) << 8;
-              iVar9 = (int)*(short *)&pGVar10[8].m_num_elements << 8;
-              local_68 = fixedmult(local_60.m[0],iVar6);
-              iVar4 = fixedmult(local_60.m[3],iVar6);
-              local_60.m[6] = fixedmult(local_60.m[6],iVar6);
-              local_60.m[0] = local_68;
-              local_60.m[3] = iVar4;
-              local_68 = fixedmult(local_60.m[1],iVar8);
-              iVar4 = fixedmult(local_60.m[4],iVar8);
-              local_60.m[7] = fixedmult(local_60.m[7],iVar8);
-              local_60.m[1] = local_68;
-              local_60.m[4] = iVar4;
-              iVar4 = fixedmult(local_60.m[2],iVar9);
-              iVar6 = fixedmult(local_60.m[5],iVar9);
-              local_60.m[8] = fixedmult(local_60.m[8],iVar9);
+              Quatern_QuatToMat__FP5tQuatP10matrixtdef((tQuat *)(pGVar9 + 5),&local_60);
+              local_68 = (int)*(short *)&pGVar9[7].m_num_elements << 8;
+              iVar7 = (int)*(short *)((int)&pGVar9[7].m_num_elements + 2) << 8;
+              iVar8 = (int)*(short *)&pGVar9[8].m_num_elements << 8;
+              uVar3 = fixedmult(local_60.m[0],local_68);
+              uVar4 = fixedmult(local_60.m[3],local_68);
+              local_60.m[6] = fixedmult(local_60.m[6],local_68);
+              local_60.m[0] = uVar3;
+              local_60.m[3] = uVar4;
+              uVar3 = fixedmult(local_60.m[1],iVar7);
+              uVar4 = fixedmult(local_60.m[4],iVar7);
+              local_60.m[7] = fixedmult(local_60.m[7],iVar7);
+              local_60.m[1] = uVar3;
+              local_60.m[4] = uVar4;
+              uVar3 = fixedmult(local_60.m[2],iVar8);
+              uVar4 = fixedmult(local_60.m[5],iVar8);
+              local_60.m[8] = fixedmult(local_60.m[8],iVar8);
               local_68 = -1;
-              local_60.m[2] = iVar4;
-              local_60.m[5] = iVar6;
+              local_60.m[2] = uVar3;
+              local_60.m[5] = uVar4;
               goto LAB_800c8b34;
             }
             pOVar5 = Object_GetAnim__FP13Trk_SimObject
-                               (local_38 + (uint)*(byte *)((int)&pGVar10[8].m_num_elements + 2));
-            (**(code **)(pOVar5->_vf[0] + 0x14))
-                      ((int)pOVar5->_vf + (int)*(short *)(pOVar5->_vf[0] + 0x10),Vi,0x1f800000,
+                               (local_38 + (uint)*(byte *)((int)&pGVar9[8].m_num_elements + 2));
+            uVar3 = pOVar5->_vf[0].value;
+            (**(code **)(uVar3 + 0x14))
+                      ((int)&pOVar5->_vf[0].value + (int)*(short *)(uVar3 + 0x10),Vi,0x1f800000,
                        offset);
           }
           else {
             if (bVar1 == 9) {
-              xformy(&local_60,(int)*(short *)&pGVar10[5].m_num_elements);
-              iVar8 = (int)*(short *)&pGVar10[6].m_num_elements << 8;
-              iVar6 = (int)*(short *)((int)&pGVar10[5].m_num_elements + 2) << 8;
-              local_68 = fixedmult(local_60.m[0],iVar8);
-              iVar4 = fixedmult(local_60.m[3],iVar8);
-              local_60.m[6] = fixedmult(local_60.m[6],iVar8);
-              local_60.m[0] = local_68;
-              local_60.m[3] = iVar4;
-              local_68 = fixedmult(local_60.m[1],iVar6);
-              iVar4 = fixedmult(local_60.m[4],iVar6);
-              local_60.m[7] = fixedmult(local_60.m[7],iVar6);
-              local_60.m[1] = local_68;
-              local_60.m[4] = iVar4;
-              iVar4 = fixedmult(local_60.m[2],iVar8);
-              iVar6 = fixedmult(local_60.m[5],iVar8);
-              local_60.m[8] = fixedmult(local_60.m[8],iVar8);
-              _DAT_1f800148 = 0;
-              objDef = *(Trk_ObjectDef **)
-                        ((int)*(short *)((int)&pGVar10[1].m_num_elements + 2) * 4 + __Track_gObjDefs
-                        );
-              local_68 = (int)*(short *)((int)&pGVar10[6].m_num_elements + 2);
-              local_60.m[2] = iVar4;
-              local_60.m[5] = iVar6;
+              xformy((int *)&local_60,(int)*(short *)&pGVar9[5].m_num_elements);
+              local_68 = (int)*(short *)&pGVar9[6].m_num_elements << 8;
+              iVar7 = (int)*(short *)((int)&pGVar9[5].m_num_elements + 2) << 8;
+              uVar3 = fixedmult(local_60.m[0],local_68);
+              uVar4 = fixedmult(local_60.m[3],local_68);
+              local_60.m[6] = fixedmult(local_60.m[6],local_68);
+              local_60.m[0] = uVar3;
+              local_60.m[3] = uVar4;
+              uVar3 = fixedmult(local_60.m[1],iVar7);
+              uVar4 = fixedmult(local_60.m[4],iVar7);
+              local_60.m[7] = fixedmult(local_60.m[7],iVar7);
+              local_60.m[1] = uVar3;
+              local_60.m[4] = uVar4;
+              uVar3 = fixedmult(local_60.m[2],local_68);
+              uVar4 = fixedmult(local_60.m[5],local_68);
+              local_60.m[8] = fixedmult(local_60.m[8],local_68);
+              DAT_1f800148 = 0;
+              objDef = Track_gObjDefs[(int)*(short *)((int)&pGVar9[1].m_num_elements + 2)];
+              local_68 = (int)*(short *)((int)&pGVar9[6].m_num_elements + 2);
+              local_60.m[2] = uVar3;
+              local_60.m[5] = uVar4;
               goto LAB_800c8b34;
             }
           }
         }
       }
       else {
-        uVar3 = fixedatan(pGVar10[2].m_num_elements - (Vi->cview).translation.x,
-                          pGVar10[4].m_num_elements - (Vi->cview).translation.z);
-        fixedxformy(&local_60,uVar3);
+        uVar3 = fixedatan(pGVar9[2].m_num_elements - (Vi->cview).translation.x,
+                          pGVar9[4].m_num_elements - (Vi->cview).translation.z);
+        fixedxformy((int *)&local_60,uVar3);
         if (bVar1 == 9) {
-          iVar6 = (int)*(short *)&pGVar10[6].m_num_elements << 8;
-          iVar8 = (int)*(short *)((int)&pGVar10[5].m_num_elements + 2) << 8;
-          local_68 = fixedmult(local_60.m[0],iVar6);
-          iVar4 = fixedmult(local_60.m[3],iVar6);
-          local_60.m[6] = fixedmult(local_60.m[6],iVar6);
-          local_60.m[0] = local_68;
-          local_60.m[3] = iVar4;
-          local_68 = fixedmult(local_60.m[1],iVar8);
-          iVar4 = fixedmult(local_60.m[4],iVar8);
-          local_60.m[7] = fixedmult(local_60.m[7],iVar8);
-          local_60.m[1] = local_68;
-          local_60.m[4] = iVar4;
-          local_68 = fixedmult(local_60.m[2],iVar6);
-          iVar4 = fixedmult(local_60.m[5],iVar6);
-          local_60.m[8] = fixedmult(local_60.m[8],iVar6);
-          sVar7 = *(short *)((int)&pGVar10[6].m_num_elements + 2);
-          _DAT_1f800148 = 0;
-          local_60.m[2] = local_68;
-          local_60.m[5] = iVar4;
+          local_68 = (int)*(short *)&pGVar9[6].m_num_elements << 8;
+          iVar7 = (int)*(short *)((int)&pGVar9[5].m_num_elements + 2) << 8;
+          uVar3 = fixedmult(local_60.m[0],local_68);
+          uVar4 = fixedmult(local_60.m[3],local_68);
+          local_60.m[6] = fixedmult(local_60.m[6],local_68);
+          local_60.m[0] = uVar3;
+          local_60.m[3] = uVar4;
+          uVar3 = fixedmult(local_60.m[1],iVar7);
+          uVar4 = fixedmult(local_60.m[4],iVar7);
+          local_60.m[7] = fixedmult(local_60.m[7],iVar7);
+          local_60.m[1] = uVar3;
+          local_60.m[4] = uVar4;
+          uVar3 = fixedmult(local_60.m[2],local_68);
+          uVar4 = fixedmult(local_60.m[5],local_68);
+          local_60.m[8] = fixedmult(local_60.m[8],local_68);
+          sVar6 = *(short *)((int)&pGVar9[6].m_num_elements + 2);
+          DAT_1f800148 = 0;
+          local_60.m[2] = uVar3;
+          local_60.m[5] = uVar4;
         }
-        objDef = *(Trk_ObjectDef **)
-                  ((int)*(short *)((int)&pGVar10[1].m_num_elements + 2) * 4 + __Track_gObjDefs);
-        local_68 = (int)sVar7;
+        objDef = Track_gObjDefs[(int)*(short *)((int)&pGVar9[1].m_num_elements + 2)];
+        local_68 = (int)sVar6;
 LAB_800c8b34:
         offset = 
                  DrawObjectTransform__FP13DRender_tViewP11Draw_DCacheP10matrixtdefP13Trk_ObjectDefP8coorddefis
                            (Vi,(Draw_DCache *)&DAT_1f800000,&local_60,objDef,
-                            (coorddef *)(pGVar10 + 2),offset,local_68);
-        iVar11 = iVar11 + offset;
+                            (coorddef *)(pGVar9 + 2),offset,local_68);
+        iVar10 = iVar10 + offset;
       }
 LAB_800c8b88:
       local_2c = local_2c + 1;
-      pGVar10 = (Group *)((int)&pGVar10->m_num_elements + (int)*(short *)&pGVar10->m_num_elements);
+      pGVar9 = (Group *)((int)&pGVar9->m_num_elements + (int)*(short *)&pGVar9->m_num_elements);
     }
   }
-  return iVar11;
-
-
+  return iVar10;
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// unsigned int /*$ra*/ ObjectClipped__FP13DRender_tViewiP8coorddefP25Draw_tGiveShelbyMoreCache(struct DRender_tView *Vi /*$a3*/, int ind /*$a1*/, struct coorddef *pCp /*$a2*/, struct Draw_tGiveShelbyMoreCache *sd /*$a3*/)
+// void * /*$ra*/ ObjectClipped__FP13DRender_tViewiP8coorddefP25Draw_tGiveShelbyMoreCache(struct DRender_tView *Vi /*$a3*/, int ind /*$a1*/, struct coorddef *pCp /*$a2*/, struct Draw_tGiveShelbyMoreCache *sd /*$a3*/)
  // line 2660, offset 0x800c8bd0
 	/* begin block 1 */
 		// Start line: 2661
@@ -3782,10 +3760,13 @@ LAB_800c8b88:
 	// End offset: 0x800C8CB4
 	// End Line: 2710
 
-uint ObjectClipped__FP13DRender_tViewiP8coorddefP25Draw_tGiveShelbyMoreCache( (DRender_tView *Vi,int ind,coorddef *pCp,Draw_tGiveShelbyMoreCache *sd)
+void * ObjectClipped__FP13DRender_tViewiP8coorddefP25Draw_tGiveShelbyMoreCache
+                 (DRender_tView *Vi,int ind,coorddef *pCp,Draw_tGiveShelbyMoreCache *sd)
+
 {
-  uint uVar1;
+  undefined *puVar1;
   int iVar2;
+  Group *pGVar3;
   int local_38;
   int local_34;
   int local_30;
@@ -3795,26 +3776,23 @@ uint ObjectClipped__FP13DRender_tViewiP8coorddefP25Draw_tGiveShelbyMoreCache( (D
   int local_14;
   int local_10;
   
-  ind = ind * 8;
-  local_38 = (int)*(short *)(ind + 4) * 0x400 + pCp->x;
-  local_34 = (int)*(short *)(ind + 6) * 0x400 + pCp->y;
-  local_30 = (int)*(short *)(ind + 8) * 0x400 + pCp->z;
+  pGVar3 = gPersistObjDefBoundingSpheres + ind * 2 + 1;
+  local_38 = (int)*(short *)&pGVar3->m_num_elements * 0x400 + pCp->x;
+  local_34 = (int)*(short *)((int)&pGVar3->m_num_elements + 2) * 0x400 + pCp->y;
+  local_30 = (int)*(short *)&pGVar3[1].m_num_elements * 0x400 + pCp->z;
   local_18 = (Vi->cview).translationInv.x;
   local_14 = (Vi->cview).translationInv.y;
   local_10 = (Vi->cview).translationInv.z;
-  transform(&local_38,&(Vi->cview).mrotationInv,local_28);
-  iVar2 = local_20 + local_10 + (int)*(short *)(ind + 10) * 0x400;
+  transform(&local_38,(int *)&(Vi->cview).mrotationInv,local_28);
+  iVar2 = local_20 + local_10 + (int)*(short *)((int)&pGVar3[1].m_num_elements + 2) * 0x400;
   if (iVar2 < local_28[0] + local_18) {
-    uVar1 = 1;
+    puVar1 = &DAT_00000001;
   }
   else {
-    uVar1 = (uint)(iVar2 < -(local_28[0] + local_18));
+    puVar1 = (undefined *)(uint)(iVar2 < -(local_28[0] + local_18));
   }
-  return uVar1;
-
-
+  return puVar1;
 }
-
 
 
 
@@ -3904,93 +3882,91 @@ uint ObjectClipped__FP13DRender_tViewiP8coorddefP25Draw_tGiveShelbyMoreCache( (D
 	// End Line: 2865
 
 void DrawW_DoObjects__FP13DRender_tViewP11tBuildEntry(DRender_tView *Vi,tBuildEntry *buildList)
+
 {
   int iVar1;
-  int iVar2;
-  int iVar3;
+  Group *pGVar2;
+  Chunk *pCVar3;
   int iVar4;
   int iVar5;
   
   iVar1 = BWorld_gChunkCount;
   iVar4 = 0;
-  iVar5 = *(int *)(_gCurrContext + 0x88);
-  _DAT_1f8000fc = &gInitialArt;
-  pDGp000012f0 = Vi;
+  iVar5 = gCurrContext->currentChunk;
+  DAT_1f8000fc = &gInitialArt;
+  DAT_000012f0 = Vi;
   while (iVar4 < iVar1) {
     if ((buildList->enableBits & 2U) != 0) {
-      iVar2 = (int)buildList->chunkInd * 0x70;
-      iVar3 = *(int *)(iVar2 + 0x50) + 4;
-      if (*(int *)(iVar2 + 0x40) != 0) {
-        _DAT_1f8000da = 1;
-        DAT_8011f74c = *(int *)(iVar2 + 0x40);
-        DAT_8011f750 = (uint)(buildList->geomRez == '\x04');
-        gChunkObjInfo = iVar3;
-        uGp000012e4 = SetSp(0x1f8003fc);
-        uGp000012d0 = 1;
+      pCVar3 = Track_chunkList + (int)buildList->chunkInd;
+      pGVar2 = pCVar3->simObjBuf;
+      if (pCVar3->objInstanceBuf != (Group *)0x0) {
+        DAT_1f8000da = 1;
+        gChunkObjInfo.objInstanceBuf = pCVar3->objInstanceBuf;
+        gChunkObjInfo.doFrustumClip = ZEXT14(buildList->geomRez == '\x04');
+        gChunkObjInfo.simObjs = (Trk_SimObject *)(pGVar2 + 1);
+        DAT_000012e4 = SetSp();
+        DAT_000012d0 = 1;
         DrawW_BuildChunkObjectFacets__FP13DRender_tViewP15ChunkObjectInfo
-                  (pDGp000012f0,(ChunkObjectInfo *)&gChunkObjInfo);
-        uGp000012e4 = SetSp(uGp000012e4);
-        uGp000012d0 = 0;
+                  (DAT_000012f0,&gChunkObjInfo);
+        DAT_000012e4 = SetSp();
+        DAT_000012d0 = 0;
       }
-      if (((DAT_80113240 == 0) && (DAT_80113234 == 0)) && (*(int *)(iVar2 + 0x44) != 0)) {
-        _DAT_1f800148 = 0x400;
-        _DAT_1f8000da = 0;
-        DAT_8011f75c = 0;
-        DAT_8011f74c = *(int *)(iVar2 + 0x44);
-        DAT_8011f754 = 0xffffffff;
-        DAT_8011f758 = 0x32;
-        DAT_8011f750 = 1;
-        gChunkObjInfo = iVar3;
-        DrawW_BuildObjectFacets__FP13DRender_tViewP15ChunkObjectInfo
-                  (pDGp000012f0,(ChunkObjectInfo *)&gChunkObjInfo);
+      if (((GameSetup_gData.Time == 0) && (GameSetup_gData.Weather == 0)) &&
+         (pCVar3->objSpecialInstanceBuf != (Group *)0x0)) {
+        DAT_1f800148 = 0x400;
+        DAT_1f8000da = 0;
+        gChunkObjInfo.visList = (short *)0x0;
+        gChunkObjInfo.objInstanceBuf = pCVar3->objSpecialInstanceBuf;
+        gChunkObjInfo.zClipSq = -1;
+        gChunkObjInfo.offset = 0x32;
+        gChunkObjInfo.doFrustumClip = 1;
+        gChunkObjInfo.simObjs = (Trk_SimObject *)(pGVar2 + 1);
+        DrawW_BuildObjectFacets__FP13DRender_tViewP15ChunkObjectInfo(DAT_000012f0,&gChunkObjInfo);
       }
     }
     buildList = buildList + 1;
     iVar4 = iVar4 + 1;
   }
-  _DAT_1f8000da = 0;
-  _DAT_1f800148 = 0x400;
-  if (_gPersistObjInst != 0) {
-    if (((true) || (((0x27 < iVar5 - 1U && (0x1d < iVar5 - 0x3dU)) && (8 < iVar5 - 0x6cU)))) &&
-       ((false || (((0x34 < iVar5 - 1U && (0x1b < iVar5 - 0x44U)) && (0x13 < iVar5 - 0x6cU)))))) {
-      DAT_8011f74c = _gPersistObjInst;
-      gChunkObjInfo = 0;
-      DAT_8011f758 = 0x7d;
-      DAT_8011f750 = 1;
-      DAT_8011f754 = *(undefined4 *)(_gCurrContext + 0x90);
-      DAT_8011f75c = 0;
-      uGp000012e4 = SetSp(0x1f8003fc);
-      uGp000012d0 = 1;
-      DrawW_BuildObjectFacets__FP13DRender_tViewP15ChunkObjectInfo
-                (pDGp000012f0,(ChunkObjectInfo *)&gChunkObjInfo);
-      uGp000012e4 = SetSp(uGp000012e4);
-      uGp000012d0 = 0;
+  DAT_1f8000da = 0;
+  DAT_1f800148 = 0x400;
+  if (gPersistObjInst != (Group *)0x0) {
+    if (((GameSetup_gData.track != 4) ||
+        (((0x27 < iVar5 - 1U && (0x1d < iVar5 - 0x3dU)) && (8 < iVar5 - 0x6cU)))) &&
+       ((GameSetup_gData.track != 0 ||
+        (((0x34 < iVar5 - 1U && (0x1b < iVar5 - 0x44U)) && (0x13 < iVar5 - 0x6cU)))))) {
+      gChunkObjInfo.objInstanceBuf = gPersistObjInst;
+      gChunkObjInfo.simObjs = (Trk_SimObject *)0x0;
+      gChunkObjInfo.offset = 0x7d;
+      gChunkObjInfo.doFrustumClip = 1;
+      gChunkObjInfo.zClipSq = gCurrContext->polyFarZClipSq;
+      gChunkObjInfo.visList = (short *)0x0;
+      DAT_000012e4 = SetSp();
+      DAT_000012d0 = 1;
+      DrawW_BuildObjectFacets__FP13DRender_tViewP15ChunkObjectInfo(DAT_000012f0,&gChunkObjInfo);
+      DAT_000012e4 = SetSp();
+      DAT_000012d0 = 0;
     }
   }
-  if (_gPersistMidgroundObjInst != 0) {
-    gChunkObjInfo = 0;
-    DAT_8011f74c = _gPersistMidgroundObjInst;
-    DAT_8011f754 = 0xffffffff;
-    DAT_8011f758 = 0xffffffff;
-    DAT_8011f75c = iVar5 * 0x40;
-    DAT_8011f750 = 1;
-    uGp000012e4 = SetSp(0x1f8003fc);
-    uGp000012d0 = 1;
-    DrawW_BuildObjectFacets__FP13DRender_tViewP15ChunkObjectInfo
-              (pDGp000012f0,(ChunkObjectInfo *)&gChunkObjInfo);
-    uGp000012e4 = SetSp(uGp000012e4);
-    uGp000012d0 = 0;
+  if (gPersistMidgroundObjInst != (Group *)0x0) {
+    gChunkObjInfo.simObjs = (Trk_SimObject *)0x0;
+    gChunkObjInfo.objInstanceBuf = gPersistMidgroundObjInst;
+    gChunkObjInfo.zClipSq = -1;
+    gChunkObjInfo.offset = -1;
+    gChunkObjInfo.doFrustumClip = 1;
+    gChunkObjInfo.visList = __Track_gInViewList_ + iVar5 * 0x20;
+    DAT_000012e4 = SetSp();
+    DAT_000012d0 = 1;
+    DrawW_BuildObjectFacets__FP13DRender_tViewP15ChunkObjectInfo(DAT_000012f0,&gChunkObjInfo);
+    DAT_000012e4 = SetSp();
+    DAT_000012d0 = 0;
   }
-  if ((false) && (0 < __front_dtors_size)) {
+  if ((Object_customObjInst != (Group *)0x0) && (0 < Object_customObjInst->m_num_elements)) {
     DrawW_BuildCustomObjectFacets__FP13DRender_tViewP11Draw_DCacheP13Trk_SimObjectP5Groupi
-              (Vi,(Draw_DCache *)&DAT_1f800000,(Trk_SimObject *)0x4,(Group *)0x0,
-               *(int *)(_gCurrContext + 0x90));
+              (Vi,(Draw_DCache *)&DAT_1f800000,(Trk_SimObject *)(Object_customSimObjs + 1),
+               Object_customObjInst,gCurrContext->polyFarZClipSq);
   }
   return;
-
-
 }
-
 
 
 
@@ -4018,6 +3994,7 @@ void DrawW_DoObjects__FP13DRender_tViewP11tBuildEntry(DRender_tView *Vi,tBuildEn
 	// End Line: 2895
 
 int Draw_CircleClip__FP8coorddefT0i(coorddef *pt1,coorddef *pt2,int r)
+
 {
   int iVar1;
   int iVar2;
@@ -4037,10 +4014,7 @@ int Draw_CircleClip__FP8coorddefT0i(coorddef *pt1,coorddef *pt2,int r)
     iVar2 = iVar1 + (iVar2 >> 2);
   }
   return (uint)(iVar2 < r);
-
-
 }
-
 
 
 
@@ -4198,25 +4172,29 @@ int Draw_CircleClip__FP8coorddefT0i(coorddef *pt1,coorddef *pt2,int r)
 	// End offset: 0x800C95F0
 	// End Line: 3035
 
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
 void Draw_kCtrlSkidmark__FP18Draw_tCtrlSkidmark(Draw_tCtrlSkidmark *fskid)
+
 {
   short sVar1;
   bool bVar2;
   uint *puVar3;
   undefined4 in_zero;
   undefined4 in_at;
-  uint uVar4;
+  void *pvVar4;
   int iVar5;
   undefined4 *puVar6;
   uint uVar7;
-  uint *puVar8;
-  uint uVar9;
-  coorddef *pcVar10;
-  int iVar11;
+  uint uVar8;
+  Draw_tPixMap *pDVar9;
+  uint uVar10;
+  coorddef *pcVar11;
   int iVar12;
-  coorddef *pt1;
   int iVar13;
+  coorddef *pt1;
   int iVar14;
+  int iVar15;
   int local_48;
   int local_44;
   int local_40;
@@ -4224,104 +4202,104 @@ void Draw_kCtrlSkidmark__FP18Draw_tCtrlSkidmark(Draw_tCtrlSkidmark *fskid)
   int local_34;
   int local_30;
   
-  iVar13 = fskid->count;
+  iVar14 = fskid->count;
   _DAT_1f800014 = (fskid->m).m[0] >> 4 & 0xffffU | ((fskid->m).m[3] >> 4) << 0x10;
   _DAT_1f800018 = (fskid->m).m[6] >> 4 & 0xffffU | ((fskid->m).m[1] >> 4) << 0x10;
   _DAT_1f80001c = (fskid->m).m[4] >> 4 & 0xffffU | ((fskid->m).m[7] >> 4) << 0x10;
   _DAT_1f800020 = (fskid->m).m[2] >> 4 & 0xffffU | ((fskid->m).m[5] >> 4) << 0x10;
   _DAT_1f800024 = _DAT_1f800024 & 0xffff0000 | (fskid->m).m[8] >> 4 & 0xffffU;
-  iVar5 = iVar13 * 0x2b0;
+  iVar5 = iVar14 * 0x2b0;
   do {
     do {
-      iVar13 = iVar13 + -1;
-      iVar14 = iVar5 + -0x2b0;
-      if (iVar13 == -1) {
+      iVar14 = iVar14 + -1;
+      iVar15 = iVar5 + -0x2b0;
+      if (iVar14 == -1) {
         return;
       }
       pt1 = (coorddef *)((int)&fskid->smp[-1].seg[0].svx[0].vx + iVar5);
       bVar2 = false;
-      uVar4 = BWorld_IsSliceInBuildList__Fi((int)*(short *)((int)&pt1[1].x + 2));
-      if (uVar4 != 0) {
-        iVar5 = Draw_CircleClip__FP8coorddefT0i(pt1,&fskid->t,0x320000);
+      pvVar4 = BWorld_IsSliceInBuildList__Fi((int)*(short *)((int)&pt1[1].x + 2));
+      if (pvVar4 != (void *)0x0) {
+        iVar5 = Draw_CircleClip__FP8coorddefT0i(pt1,&fskid->t,(int)&DAT_00320000);
         bVar2 = iVar5 != 0;
       }
-      iVar5 = iVar14;
+      iVar5 = iVar15;
     } while (!bVar2);
     local_38 = pt1->x - (fskid->t).x;
     local_34 = pt1->y - (fskid->t).y;
     local_30 = pt1->z - (fskid->t).z;
-    transform(&local_38,fskid,&local_48);
-    _DAT_1f800028 = local_48 >> 6;
-    _DAT_1f80002c = local_44 >> 6;
-    _DAT_1f800030 = local_40 >> 6;
+    transform(&local_38,(int *)fskid,&local_48);
+    DAT_1f800028 = local_48 >> 6;
+    DAT_1f80002c = local_44 >> 6;
+    DAT_1f800030 = local_40 >> 6;
     setCopControlWord(2,0,_DAT_1f800014);
     setCopControlWord(2,0x800,_DAT_1f800018);
     setCopControlWord(2,0x1000,_DAT_1f80001c);
     setCopControlWord(2,0x1800,_DAT_1f800020);
     setCopControlWord(2,0x2000,_DAT_1f800024);
-    setCopControlWord(2,0x2800,_DAT_1f800028);
-    setCopControlWord(2,0x3000,_DAT_1f80002c);
-    setCopControlWord(2,0x3800,_DAT_1f800030);
-    iVar12 = 0;
-    iVar11 = 0x10;
+    setCopControlWord(2,0x2800,DAT_1f800028);
+    setCopControlWord(2,0x3000,DAT_1f80002c);
+    setCopControlWord(2,0x3800,DAT_1f800030);
+    iVar13 = 0;
+    iVar12 = 0x10;
     sVar1 = *(short *)&pt1[1].x;
-    pcVar10 = pt1;
-    while (puVar3 = _DAT_1f800004, iVar5 = iVar14, iVar12 < (int)sVar1) {
-      if ((_DAT_1f800004 < _DAT_1f800008) &&
-         (puVar6 = (undefined4 *)((int)&pt1->x + iVar11), pcVar10[3].y != 0)) {
+    pcVar11 = pt1;
+    while (puVar3 = DAT_1f800004, iVar5 = iVar15, iVar13 < (int)sVar1) {
+      if ((DAT_1f800004 < DAT_1f800008) &&
+         (puVar6 = (undefined4 *)((int)&pt1->x + iVar12), pcVar11[3].y != 0)) {
         setCopReg(2,in_zero,*puVar6);
         setCopReg(2,in_at,puVar6[1]);
         copFunction(2,0x180001);
-        _DAT_1f800098 = getCopReg(2,0x19);
-        _DAT_1f80009c = getCopReg(2,0x1a);
-        _DAT_1f8000a0 = getCopReg(2,0x1b);
-        uVar4 = getCopReg(2,0xe);
-        _DAT_1f800004[2] = uVar4;
+        DAT_1f800098 = getCopReg(2,0x19);
+        DAT_1f80009c = getCopReg(2,0x1a);
+        DAT_1f8000a0 = getCopReg(2,0x1b);
+        uVar7 = getCopReg(2,0xe);
+        DAT_1f800004[2] = uVar7;
         setCopReg(2,in_zero,puVar6[2]);
         setCopReg(2,in_at,puVar6[3]);
         copFunction(2,0x180001);
-        _DAT_1f8000a8 = getCopReg(2,0x19);
-        _DAT_1f8000ac = getCopReg(2,0x1a);
-        _DAT_1f8000b0 = getCopReg(2,0x1b);
-        setCopReg(2,in_zero,*(undefined4 *)(pcVar10[3].y + 8));
-        setCopReg(2,in_at,*(undefined4 *)(pcVar10[3].y + 0xc));
+        DAT_1f8000a8 = getCopReg(2,0x19);
+        DAT_1f8000ac = getCopReg(2,0x1a);
+        DAT_1f8000b0 = getCopReg(2,0x1b);
+        setCopReg(2,in_zero,*(undefined4 *)(pcVar11[3].y + 8));
+        setCopReg(2,in_at,*(undefined4 *)(pcVar11[3].y + 0xc));
         copFunction(2,0x180001);
-        _DAT_1f8000b8 = getCopReg(2,0x19);
-        _DAT_1f8000bc = getCopReg(2,0x1a);
-        _DAT_1f8000c0 = getCopReg(2,0x1b);
-        setCopReg(2,in_zero,*(undefined4 *)pcVar10[3].y);
-        setCopReg(2,in_at,((undefined4 *)pcVar10[3].y)[1]);
+        DAT_1f8000b8 = getCopReg(2,0x19);
+        DAT_1f8000bc = getCopReg(2,0x1a);
+        DAT_1f8000c0 = getCopReg(2,0x1b);
+        setCopReg(2,in_zero,*(undefined4 *)pcVar11[3].y);
+        setCopReg(2,in_at,((undefined4 *)pcVar11[3].y)[1]);
         copFunction(2,0x180001);
-        _DAT_1f8000c8 = getCopReg(2,0x19);
-        _DAT_1f8000cc = getCopReg(2,0x1a);
-        _DAT_1f8000d0 = getCopReg(2,0x1b);
-        if (((_DAT_1f800098 < _DAT_1f8000a0) ||
-            (((_DAT_1f8000a8 < _DAT_1f8000b0 || (_DAT_1f8000b8 < _DAT_1f8000c0)) ||
-             (_DAT_1f8000c8 < _DAT_1f8000d0)))) &&
-           ((((-_DAT_1f800098 < _DAT_1f8000a0 || (-_DAT_1f8000a8 < _DAT_1f8000b0)) ||
-             (-_DAT_1f8000b8 < _DAT_1f8000c0)) || (-_DAT_1f8000c8 < _DAT_1f8000d0)))) {
-          uVar9 = pcVar10[3].x;
-          puVar8 = *(uint **)(&_gSkidMarkPixmap + (uVar9 & 1) * 4);
-          uVar4 = getCopReg(2,0xc);
-          puVar3[5] = uVar4;
-          uVar4 = getCopReg(2,0xd);
-          puVar3[0xb] = uVar4;
-          uVar4 = getCopReg(2,0xe);
-          puVar3[8] = uVar4;
+        DAT_1f8000c8 = getCopReg(2,0x19);
+        DAT_1f8000cc = getCopReg(2,0x1a);
+        DAT_1f8000d0 = getCopReg(2,0x1b);
+        if (((DAT_1f800098 < DAT_1f8000a0) ||
+            (((DAT_1f8000a8 < DAT_1f8000b0 || (DAT_1f8000b8 < DAT_1f8000c0)) ||
+             (DAT_1f8000c8 < DAT_1f8000d0)))) &&
+           ((((-DAT_1f800098 < DAT_1f8000a0 || (-DAT_1f8000a8 < DAT_1f8000b0)) ||
+             (-DAT_1f8000b8 < DAT_1f8000c0)) || (-DAT_1f8000c8 < DAT_1f8000d0)))) {
+          uVar10 = pcVar11[3].x;
+          pDVar9 = (&__gSkidMarkPixmap_2__)[uVar10 & 1];
+          uVar7 = getCopReg(2,0xc);
+          puVar3[5] = uVar7;
+          uVar7 = getCopReg(2,0xd);
+          puVar3[0xb] = uVar7;
+          uVar7 = getCopReg(2,0xe);
+          puVar3[8] = uVar7;
           copFunction(2,0x168002e);
           iVar5 = getCopReg(2,7);
-          _DAT_1f800094 = (iVar5 >> 5) + 0x32;
-          if (_DAT_1f800094 < 1) {
+          DAT_1f800094 = (iVar5 >> 5) + 0x32;
+          if (DAT_1f800094 < 1) {
             return;
           }
-          if (Draw_gViewOtSize + -3 < _DAT_1f800094) {
+          if (Draw_gViewOtSize + -3 < DAT_1f800094) {
             return;
           }
-          if (uVar9 == 0) {
-            puVar3[1] = pcVar10[2].z;
-            puVar3[4] = pcVar10[2].z;
-            puVar3[10] = *(uint *)(pcVar10[3].y + 0x10);
-            puVar3[7] = *(uint *)(pcVar10[3].y + 0x10);
+          if (uVar10 == 0) {
+            puVar3[1] = pcVar11[2].z;
+            puVar3[4] = pcVar11[2].z;
+            puVar3[10] = *(uint *)(pcVar11[3].y + 0x10);
+            puVar3[7] = *(uint *)(pcVar11[3].y + 0x10);
           }
           else {
             puVar3[1] = 0x404040;
@@ -4331,15 +4309,15 @@ void Draw_kCtrlSkidmark__FP18Draw_tCtrlSkidmark(Draw_tCtrlSkidmark *fskid)
           }
           *(undefined *)((int)puVar3 + 7) = 0x3e;
           *(undefined *)((int)puVar3 + 3) = 0xc;
-          uVar4 = puVar8[1];
-          uVar9 = puVar8[2];
-          uVar7 = puVar8[3];
-          puVar3[3] = *puVar8;
-          puVar3[6] = uVar4;
-          puVar3[9] = uVar9;
-          puVar3[0xc] = uVar7;
+          uVar7 = *(uint *)&pDVar9->u1;
+          uVar10 = *(uint *)&pDVar9->u2;
+          uVar8 = *(uint *)&pDVar9->u3;
+          puVar3[3] = *(uint *)pDVar9;
+          puVar3[6] = uVar7;
+          puVar3[9] = uVar10;
+          puVar3[0xc] = uVar8;
           if (*(short *)((int)puVar3 + 0xe) == -1) {
-            iVar5 = ((iVar5 >> 5) - (int)_DAT_1f8000dc) * 0x10 >> ((uint)_DAT_1f8000de & 0x1f);
+            iVar5 = ((iVar5 >> 5) - (int)DAT_1f8000dc) * 0x10 >> ((uint)DAT_1f8000de & 0x1f);
             if (iVar5 < 0) {
               iVar5 = 0;
             }
@@ -4348,34 +4326,29 @@ void Draw_kCtrlSkidmark__FP18Draw_tCtrlSkidmark(Draw_tCtrlSkidmark *fskid)
                 iVar5 = 0xf;
               }
             }
-            *(undefined2 *)((int)puVar3 + 0xe) =
-                 *(undefined2 *)
-                  (&gClutDepth + iVar5 * 2 + (uint)*(ushort *)((int)puVar8 + 10) * 0x20);
+            *(short *)((int)puVar3 + 0xe) = (&gClutDepth)[(uint)pDVar9->pad2 * 0x10 + iVar5];
           }
-          iVar5 = _DAT_1f800000 + _DAT_1f800094 * 4;
-          uVar4 = iVar5 + 2;
-          uVar9 = uVar4 & 3;
-          uVar7 = (int)_DAT_1f800004 << 8;
-          puVar3 = _DAT_1f800004 + 0xd;
-          *_DAT_1f800004 =
-               (*(int *)(uVar4 - uVar9) << (3 - uVar9) * 8 |
-               (uint)(_DAT_1f800004 + 0xd) & 0xffffffffU >> (uVar9 + 1) * 8) >> 8 | 0xc000000;
-          _DAT_1f800004 = puVar3;
-          uVar4 = iVar5 + 2;
-          uVar9 = uVar4 & 3;
-          puVar3 = (uint *)(uVar4 - uVar9);
-          *puVar3 = *puVar3 & -1 << (uVar9 + 1) * 8 | uVar7 >> (3 - uVar9) * 8;
+          iVar5 = DAT_1f800000 + DAT_1f800094 * 4;
+          uVar7 = iVar5 + 2;
+          uVar10 = uVar7 & 3;
+          uVar8 = (int)DAT_1f800004 << 8;
+          puVar3 = DAT_1f800004 + 0xd;
+          *DAT_1f800004 =
+               (*(int *)(uVar7 - uVar10) << (3 - uVar10) * 8 |
+               (uint)(DAT_1f800004 + 0xd) & 0xffffffffU >> (uVar10 + 1) * 8) >> 8 | 0xc000000;
+          DAT_1f800004 = puVar3;
+          uVar7 = iVar5 + 2;
+          uVar10 = uVar7 & 3;
+          puVar3 = (uint *)(uVar7 - uVar10);
+          *puVar3 = *puVar3 & -1 << (uVar10 + 1) * 8 | uVar8 >> (3 - uVar10) * 8;
         }
       }
-      pcVar10 = (coorddef *)&pcVar10[2].y;
-      iVar11 = iVar11 + 0x1c;
-      iVar12 = iVar12 + 1;
+      pcVar11 = (coorddef *)&pcVar11[2].y;
+      iVar12 = iVar12 + 0x1c;
+      iVar13 = iVar13 + 1;
     }
   } while( true );
-
-
 }
-
 
 
 
@@ -4419,6 +4392,7 @@ void Draw_kCtrlSkidmark__FP18Draw_tCtrlSkidmark(Draw_tCtrlSkidmark *fskid)
 	// End Line: 3104
 
 void DrawW_SetUpSubdividFacet_Line__FP25Draw_tGiveShelbyMoreCache(Draw_tGiveShelbyMoreCache *sd)
+
 {
   short sVar1;
   short sVar2;
@@ -4525,10 +4499,7 @@ LAB_800c9878:
   DrawW_SubdividFacet__FP25Draw_tGiveShelbyMoreCacheiP12Draw_SVertexN32ss(sd,0,v_02,v_01,v,v_00,0,0)
   ;
   return;
-
-
 }
-
 
 
 
@@ -4699,7 +4670,9 @@ LAB_800c9878:
 	// End offset: 0x800CA074
 	// End Line: 3331
 
-void DrawW_OnyxLinePrim__FP8CCOORD16P8Trk_LineiP25Draw_tGiveShelbyMoreCache( (CCOORD16 *geomVertices,Trk_Line *lineQuad,int count,Draw_tGiveShelbyMoreCache *sd)
+void DrawW_OnyxLinePrim__FP8CCOORD16P8Trk_LineiP25Draw_tGiveShelbyMoreCache
+               (CCOORD16 *geomVertices,Trk_Line *lineQuad,int count,Draw_tGiveShelbyMoreCache *sd)
+
 {
   uint uVar1;
   long lVar2;
@@ -4709,16 +4682,18 @@ void DrawW_OnyxLinePrim__FP8CCOORD16P8Trk_LineiP25Draw_tGiveShelbyMoreCache( (CC
   undefined4 in_zero;
   undefined4 in_at;
   int iVar6;
-  undefined4 uVar7;
+  CVECTOR CVar7;
   int iVar8;
-  undefined4 uVar9;
+  CVECTOR CVar9;
   undefined4 uVar10;
   undefined4 uVar11;
-  Draw_tGiveShelbyMoreCache *pDVar12;
-  ulong *puVar13;
-  POLY_GT4 *pPVar14;
-  undefined4 *puVar15;
-  int iVar16;
+  undefined4 uVar12;
+  undefined4 uVar13;
+  Draw_tGiveShelbyMoreCache *pDVar14;
+  ulong *puVar15;
+  POLY_GT4 *pPVar16;
+  Draw_tPixMap *pDVar17;
+  int iVar18;
   undefined4 local_54;
   undefined4 local_50;
   undefined4 local_4c;
@@ -4728,16 +4703,16 @@ void DrawW_OnyxLinePrim__FP8CCOORD16P8Trk_LineiP25Draw_tGiveShelbyMoreCache( (CC
   int *local_30;
   uint local_2c;
   
-  iVar16 = 0;
+  iVar18 = 0;
   local_30 = &sd->otz;
   sd->offsubdivid = 0x200;
-  pDVar12 = (Draw_tGiveShelbyMoreCache *)count;
-  while (pCVar5 = geomVertices, iVar16 < count + -1) {
-    while ((iVar16 < count + -1 && (lineQuad->type != -1))) {
-      puVar15 = (undefined4 *)(&_gDLPixmap)[(uint)lineQuad->type];
-      uVar9 = *(undefined4 *)(pCVar5 + 1);
-      uVar11 = *(undefined4 *)&geomVertices[1].z;
-      uVar10 = *(undefined4 *)geomVertices;
+  pDVar14 = (Draw_tGiveShelbyMoreCache *)count;
+  while (pCVar5 = geomVertices, iVar18 < count + -1) {
+    while ((iVar18 < count + -1 && (lineQuad->type != -1))) {
+      pDVar17 = (&__gDLPixmap_10__)[(uint)lineQuad->type];
+      uVar11 = *(undefined4 *)(pCVar5 + 1);
+      uVar13 = *(undefined4 *)&geomVertices[1].z;
+      uVar12 = *(undefined4 *)geomVertices;
       local_54 = *(undefined4 *)&pCVar5->z;
       local_50 = *(undefined4 *)(pCVar5 + 2);
       local_4c = *(undefined4 *)&geomVertices[2].z;
@@ -4750,11 +4725,11 @@ void DrawW_OnyxLinePrim__FP8CCOORD16P8Trk_LineiP25Draw_tGiveShelbyMoreCache( (CC
       (sd->tVn0).vy = lVar2;
       lVar2 = getCopReg(2,0x1b);
       (sd->tVn0).vz = lVar2;
-      iVar6 = _DAT_1f800004;
-      uVar7 = getCopReg(2,0xe);
-      *(undefined4 *)(_DAT_1f800004 + 8) = uVar7;
-      setCopReg(2,in_zero,uVar9);
-      setCopReg(2,in_at,uVar11);
+      iVar6 = DAT_1f800004;
+      uVar10 = getCopReg(2,0xe);
+      *(undefined4 *)(DAT_1f800004 + 8) = uVar10;
+      setCopReg(2,in_zero,uVar11);
+      setCopReg(2,in_at,uVar13);
       copFunction(2,0x180001);
       lVar2 = getCopReg(2,0x19);
       (sd->tVn1).vx = lVar2;
@@ -4762,7 +4737,7 @@ void DrawW_OnyxLinePrim__FP8CCOORD16P8Trk_LineiP25Draw_tGiveShelbyMoreCache( (CC
       (sd->tVn1).vy = lVar2;
       lVar2 = getCopReg(2,0x1b);
       (sd->tVn1).vz = lVar2;
-      setCopReg(2,in_zero,uVar10);
+      setCopReg(2,in_zero,uVar12);
       setCopReg(2,in_at,local_54);
       copFunction(2,0x180001);
       lVar2 = getCopReg(2,0x19);
@@ -4785,12 +4760,12 @@ void DrawW_OnyxLinePrim__FP8CCOORD16P8Trk_LineiP25Draw_tGiveShelbyMoreCache( (CC
            ((sd->tVn3).vx < (sd->tVn3).vz)))) &&
          ((((-(sd->tVn0).vx < (sd->tVn0).vz || (-(sd->tVn1).vx < (sd->tVn1).vz)) ||
            (-(sd->tVn2).vx < (sd->tVn2).vz)) || (-(sd->tVn3).vx < (sd->tVn3).vz)))) {
-        uVar7 = getCopReg(2,0xc);
-        *(undefined4 *)(iVar6 + 0x14) = uVar7;
-        uVar7 = getCopReg(2,0xd);
-        *(undefined4 *)(iVar6 + 0x2c) = uVar7;
-        uVar7 = getCopReg(2,0xe);
-        *(undefined4 *)(iVar6 + 0x20) = uVar7;
+        uVar10 = getCopReg(2,0xc);
+        *(undefined4 *)(iVar6 + 0x14) = uVar10;
+        uVar10 = getCopReg(2,0xd);
+        *(undefined4 *)(iVar6 + 0x2c) = uVar10;
+        uVar10 = getCopReg(2,0xe);
+        *(undefined4 *)(iVar6 + 0x20) = uVar10;
         copFunction(2,0x168002e);
         iVar6 = getCopReg(2,7);
         *local_30 = iVar6;
@@ -4806,39 +4781,39 @@ void DrawW_OnyxLinePrim__FP8CCOORD16P8Trk_LineiP25Draw_tGiveShelbyMoreCache( (CC
           sd->otz = iVar8;
           if ((0 < iVar8) && (iVar8 <= Draw_gViewOtSize + -3)) {
             if (iVar6 < 200) {
-              pPVar14 = &sd->GT4Prim;
+              pPVar16 = &sd->GT4Prim;
             }
             else {
-              pPVar14 = (POLY_GT4 *)(sd->head).cprim.PrimPtr;
-              puVar13 = (sd->head).cprim.LastPrim + *local_30;
-              *(POLY_GT4 **)&(sd->head).cprim.PrimPtr = pPVar14 + 1;
-              uVar1 = (int)puVar13 + 2;
+              pPVar16 = (POLY_GT4 *)(sd->head).cprim.PrimPtr;
+              puVar15 = (sd->head).cprim.LastPrim + *local_30;
+              *(POLY_GT4 **)&(sd->head).cprim.PrimPtr = pPVar16 + 1;
+              uVar1 = (int)puVar15 + 2;
               uVar3 = uVar1 & 3;
-              pPVar14->tag = (*(int *)(uVar1 - uVar3) << (3 - uVar3) * 8 |
-                             (uint)(pPVar14 + 1) & 0xffffffffU >> (uVar3 + 1) * 8) >> 8 | 0xc000000;
-              uVar1 = (int)puVar13 + 2;
+              pPVar16->tag = (*(int *)(uVar1 - uVar3) << (3 - uVar3) * 8 |
+                             (uint)(pPVar16 + 1) & 0xffffffffU >> (uVar3 + 1) * 8) >> 8 | 0xc000000;
+              uVar1 = (int)puVar15 + 2;
               uVar3 = uVar1 & 3;
               puVar4 = (uint *)(uVar1 - uVar3);
               *puVar4 = *puVar4 & -1 << (uVar3 + 1) * 8 |
-                        (uint)((int)pPVar14 << 8) >> (3 - uVar3) * 8;
+                        (uint)((int)pPVar16 << 8) >> (3 - uVar3) * 8;
             }
             local_34 = getCopReg(2,8);
             if (sd->nightFlags == 0) {
               local_4c._2_2_ = (short)((uint)local_4c >> 0x10);
-              setCopReg(2,pDVar12,*(undefined4 *)((int)local_4c._2_2_ * 4 + _Chunk_lightTable));
+              setCopReg(2,pDVar14,Chunk_lightTable[(int)local_4c._2_2_]);
               setCopReg(2,0x4000,local_34);
               copFunction(2,0x780010);
-              uVar7 = getCopReg(2,0x16);
-              *(undefined4 *)&pPVar14->r2 = uVar7;
-              *(undefined4 *)&pPVar14->r0 = *(undefined4 *)&pPVar14->r2;
+              uVar10 = getCopReg(2,0x16);
+              *(undefined4 *)&pPVar16->r2 = uVar10;
+              *(undefined4 *)&pPVar16->r0 = *(undefined4 *)&pPVar16->r2;
               local_54._2_2_ = (short)((uint)local_54 >> 0x10);
-              local_48.vx = *(long *)((int)local_54._2_2_ * 4 + _Chunk_lightTable);
-              setCopReg(2,pDVar12,local_48.vx);
+              local_48.vx = Chunk_lightTable[(int)local_54._2_2_];
+              setCopReg(2,pDVar14,local_48.vx);
               setCopReg(2,0x4000,local_34);
               copFunction(2,0x780010);
-              uVar7 = getCopReg(2,0x16);
-              *(undefined4 *)&pPVar14->r3 = uVar7;
-              *(undefined4 *)&pPVar14->r1 = *(undefined4 *)&pPVar14->r3;
+              uVar10 = getCopReg(2,0x16);
+              *(undefined4 *)&pPVar16->r3 = uVar10;
+              *(undefined4 *)&pPVar16->r1 = *(undefined4 *)&pPVar16->r3;
             }
             else {
               if ((sd->nightFlags & 1U) != 0) {
@@ -4850,10 +4825,10 @@ void DrawW_OnyxLinePrim__FP8CCOORD16P8Trk_LineiP25Draw_tGiveShelbyMoreCache( (CC
                 setCopControlWord(2,0x2800,(sd->matNight).t[0]);
                 setCopControlWord(2,0x3000,(sd->matNight).t[1]);
                 setCopControlWord(2,0x3800,(sd->matNight).t[2]);
-                setCopReg(2,in_zero,uVar10);
+                setCopReg(2,in_zero,uVar12);
                 setCopReg(2,in_at,local_54);
                 copFunction(2,0x480012);
-                local_48.vx = getCopReg(2,0x19);
+                local_48.vx = (CVECTOR)getCopReg(2,0x19);
                 local_48.vy = getCopReg(2,0x1a);
                 local_48.vz = getCopReg(2,0x1b);
                 setCopReg(2,in_zero,local_50);
@@ -4861,14 +4836,14 @@ void DrawW_OnyxLinePrim__FP8CCOORD16P8Trk_LineiP25Draw_tGiveShelbyMoreCache( (CC
                 copFunction(2,0x480012);
                 Night_NightCalc__FP6VECTORPsP25Draw_tGiveShelbyMoreCache
                           (&local_48,(short *)((int)&local_54 + 2),sd);
-                local_48.vx = getCopReg(2,0x19);
+                local_48.vx = (CVECTOR)getCopReg(2,0x19);
                 local_48.vy = getCopReg(2,0x1a);
                 local_48.vz = getCopReg(2,0x1b);
-                pDVar12 = sd;
+                pDVar14 = sd;
                 Night_NightCalc__FP6VECTORPsP25Draw_tGiveShelbyMoreCache
                           (&local_48,(short *)((int)&local_4c + 2),sd);
               }
-              if (false) {
+              if (BW_gCopCarObj != (Car_tObj *)0x0) {
                 setCopControlWord(2,0,*(undefined4 *)(sd->matCop).m);
                 setCopControlWord(2,0x800,*(undefined4 *)((sd->matCop).m + 2));
                 setCopControlWord(2,0x1000,*(undefined4 *)((sd->matCop).m + 4));
@@ -4877,27 +4852,27 @@ void DrawW_OnyxLinePrim__FP8CCOORD16P8Trk_LineiP25Draw_tGiveShelbyMoreCache( (CC
                 setCopControlWord(2,0x2800,(sd->matCop).t[0]);
                 setCopControlWord(2,0x3000,(sd->matCop).t[1]);
                 setCopControlWord(2,0x3800,(sd->matCop).t[2]);
-                setCopReg(2,in_zero,uVar10);
+                setCopReg(2,in_zero,uVar12);
                 setCopReg(2,in_at,local_54);
                 copFunction(2,0x480012);
-                local_48.vx = getCopReg(2,0x19);
+                local_48.vx = (CVECTOR)getCopReg(2,0x19);
                 local_48.vy = getCopReg(2,0x1a);
                 local_48.vz = getCopReg(2,0x1b);
                 setCopReg(2,in_zero,local_50);
                 setCopReg(2,in_at,local_4c);
                 copFunction(2,0x480012);
                 Night_NightCopCalc__FP6VECTORPs(&local_48,(short *)((int)&local_54 + 2));
-                local_48.vx = getCopReg(2,0x19);
+                local_48.vx = (CVECTOR)getCopReg(2,0x19);
                 local_48.vy = getCopReg(2,0x1a);
                 local_48.vz = getCopReg(2,0x1b);
                 Night_NightCopCalc__FP6VECTORPs(&local_48,(short *)((int)&local_4c + 2));
               }
-              uVar7 = *(undefined4 *)((int)local_54._2_2_ * 4 + _Chunk_lightTable);
-              uVar9 = *(undefined4 *)((int)local_4c._2_2_ * 4 + _Chunk_lightTable);
-              *(undefined4 *)&pPVar14->r3 = uVar7;
-              *(undefined4 *)&pPVar14->r1 = uVar7;
-              *(undefined4 *)&pPVar14->r2 = uVar9;
-              *(undefined4 *)&pPVar14->r0 = uVar9;
+              CVar7 = Chunk_lightTable[(int)local_54._2_2_];
+              CVar9 = Chunk_lightTable[(int)local_4c._2_2_];
+              *(CVECTOR *)&pPVar16->r3 = CVar7;
+              *(CVECTOR *)&pPVar16->r1 = CVar7;
+              *(CVECTOR *)&pPVar16->r2 = CVar9;
+              *(CVECTOR *)&pPVar16->r0 = CVar9;
               setCopControlWord(2,0,*(undefined4 *)(sd->matB).m);
               setCopControlWord(2,0x800,*(undefined4 *)((sd->matB).m + 2));
               setCopControlWord(2,0x1000,*(undefined4 *)((sd->matB).m + 4));
@@ -4907,16 +4882,16 @@ void DrawW_OnyxLinePrim__FP8CCOORD16P8Trk_LineiP25Draw_tGiveShelbyMoreCache( (CC
               setCopControlWord(2,0x3000,(sd->matB).t[1]);
               setCopControlWord(2,0x3800,(sd->matB).t[2]);
             }
-            pPVar14->code = '>';
-            *(undefined *)((int)&pPVar14->tag + 3) = 0xc;
-            uVar7 = puVar15[1];
-            uVar9 = puVar15[2];
-            uVar10 = puVar15[3];
-            *(undefined4 *)&pPVar14->u0 = *puVar15;
-            *(undefined4 *)&pPVar14->u1 = uVar7;
-            *(undefined4 *)&pPVar14->u2 = uVar9;
-            *(undefined4 *)&pPVar14->u3 = uVar10;
-            if (pPVar14->clut == 0xffff) {
+            pPVar16->code = '>';
+            *(undefined *)((int)&pPVar16->tag + 3) = 0xc;
+            uVar10 = *(undefined4 *)&pDVar17->u1;
+            uVar11 = *(undefined4 *)&pDVar17->u2;
+            uVar12 = *(undefined4 *)&pDVar17->u3;
+            *(undefined4 *)&pPVar16->u0 = *(undefined4 *)pDVar17;
+            *(undefined4 *)&pPVar16->u1 = uVar10;
+            *(undefined4 *)&pPVar16->u2 = uVar11;
+            *(undefined4 *)&pPVar16->u3 = uVar12;
+            if (pPVar16->clut == 0xffff) {
               iVar6 = ((iVar6 >> 1) - (int)sd->startfog) * 0x10 >> ((int)sd->distfog & 0x1fU);
               if (iVar6 < 0) {
                 iVar6 = 0;
@@ -4926,9 +4901,7 @@ void DrawW_OnyxLinePrim__FP8CCOORD16P8Trk_LineiP25Draw_tGiveShelbyMoreCache( (CC
                   iVar6 = 0xf;
                 }
               }
-              pPVar14->clut =
-                   *(ushort *)
-                    (&gClutDepth + iVar6 * 2 + (uint)*(ushort *)((int)puVar15 + 10) * 0x20);
+              pPVar16->clut = (&gClutDepth)[(uint)pDVar17->pad2 * 0x10 + iVar6];
             }
             if (local_2c != 0) {
               setCopControlWord(2,0,*(undefined4 *)(sd->identMat).m);
@@ -4939,15 +4912,15 @@ void DrawW_OnyxLinePrim__FP8CCOORD16P8Trk_LineiP25Draw_tGiveShelbyMoreCache( (CC
               setCopControlWord(2,0x2800,(sd->identMat).t[0]);
               setCopControlWord(2,0x3000,(sd->identMat).t[1]);
               setCopControlWord(2,0x3800,(sd->identMat).t[2]);
-              if (iGp000012d0 == 0) {
+              if (DAT_000012d0 == 0) {
                 DrawW_SetUpSubdividFacet_Line__FP25Draw_tGiveShelbyMoreCache(sd);
               }
               else {
-                uGp000012e4 = SetSp(uGp000012e4);
-                iGp000012d0 = 0;
+                DAT_000012e4 = SetSp();
+                DAT_000012d0 = 0;
                 DrawW_SetUpSubdividFacet_Line__FP25Draw_tGiveShelbyMoreCache(sd);
-                uGp000012e4 = SetSp(uGp000012e4);
-                iGp000012d0 = 1;
+                DAT_000012e4 = SetSp();
+                DAT_000012d0 = 1;
               }
               setCopControlWord(2,0,*(undefined4 *)(sd->matB).m);
               setCopControlWord(2,0x800,*(undefined4 *)((sd->matB).m + 2));
@@ -4961,20 +4934,17 @@ void DrawW_OnyxLinePrim__FP8CCOORD16P8Trk_LineiP25Draw_tGiveShelbyMoreCache( (CC
           }
         }
       }
-      iVar16 = iVar16 + 1;
+      iVar18 = iVar18 + 1;
       lineQuad = lineQuad + 1;
       geomVertices = geomVertices + 2;
       pCVar5 = pCVar5 + 2;
     }
-    iVar16 = iVar16 + 1;
+    iVar18 = iVar18 + 1;
     lineQuad = lineQuad + 1;
     geomVertices = geomVertices + 2;
   }
   return;
-
-
 }
-
 
 
 
@@ -5036,7 +5006,9 @@ void DrawW_OnyxLinePrim__FP8CCOORD16P8Trk_LineiP25Draw_tGiveShelbyMoreCache( (CC
 	// End offset: 0x800CA1D0
 	// End Line: 3393
 
-void DrawW_BuildChunkCenterLineFacets__FP5ChunkP5GroupP25Draw_tGiveShelbyMoreCacheP7COORD16( (Chunk *chunkDat,Group *group,Draw_tGiveShelbyMoreCache *sd,COORD16 *trans)
+void DrawW_BuildChunkCenterLineFacets__FP5ChunkP5GroupP25Draw_tGiveShelbyMoreCacheP7COORD16
+               (Chunk *chunkDat,Group *group,Draw_tGiveShelbyMoreCache *sd,COORD16 *trans)
+
 {
   byte bVar1;
   byte bVar2;
@@ -5053,55 +5025,54 @@ void DrawW_BuildChunkCenterLineFacets__FP5ChunkP5GroupP25Draw_tGiveShelbyMoreCac
   short sVar13;
   int *piVar14;
   int *piVar15;
-  Group *pGVar16;
-  int iVar17;
-  Group *pGVar18;
-  undefined2 *puVar19;
+  Trk_NewSlice *pTVar16;
+  Group *pGVar17;
+  Trk_NewSlice *pTVar18;
+  Group *pGVar19;
   short *psVar20;
-  Group *pGVar21;
-  int iVar22;
+  CCOORD16 *pCVar21;
+  Group *pGVar22;
+  int iVar23;
   
-  psVar20 = &gVertex3d;
-  pGVar21 = group + 1;
-  iVar22 = 0;
-  puVar19 = &DAT_8011f766;
+  pTVar16 = BWorldSm_slices;
+  pCVar21 = &gVertex3d;
+  pGVar22 = group + 1;
+  iVar23 = 0;
+  psVar20 = &gVertex3d.light;
   sVar3 = chunkDat->firstSimSliceInd;
   sVar4 = trans->x;
   sVar5 = trans->y;
   sVar6 = trans->z;
-  pGVar16 = chunkDat->vertexBuf;
-  while (bVar10 = iVar22 < group->m_num_elements << 1, iVar22 = iVar22 + 2, bVar10) {
-    piVar14 = &pGVar21->m_num_elements;
-    piVar15 = &pGVar21->m_num_elements;
-    pGVar21 = pGVar21 + 1;
-    iVar17 = ((int)sVar3 + (uint)*(byte *)((int)piVar15 + 1)) * 0x20;
-    pGVar18 = pGVar16 + (uint)*(byte *)piVar14 * 2 + 1;
-    bVar1 = *(byte *)(iVar17 + 0x13);
-    bVar2 = *(byte *)(iVar17 + 0x14);
-    sVar7 = *(short *)&pGVar18->m_num_elements;
-    sVar8 = *(short *)((int)&pGVar18->m_num_elements + 2);
-    sVar9 = *(short *)&pGVar18[1].m_num_elements;
-    sVar11 = (short)((int)((uint)*(byte *)(iVar17 + 0x12) << 0x18) >> 0x1b);
-    *psVar20 = sVar4 + (sVar7 - sVar11);
+  pGVar17 = chunkDat->vertexBuf;
+  while (bVar10 = iVar23 < group->m_num_elements << 1, iVar23 = iVar23 + 2, bVar10) {
+    piVar14 = &pGVar22->m_num_elements;
+    piVar15 = &pGVar22->m_num_elements;
+    pGVar22 = pGVar22 + 1;
+    pTVar18 = pTVar16 + (int)sVar3 + (uint)*(byte *)((int)piVar15 + 1);
+    pGVar19 = pGVar17 + (uint)*(byte *)piVar14 * 2 + 1;
+    bVar1 = pTVar18->right[1];
+    bVar2 = pTVar18->right[2];
+    sVar7 = *(short *)&pGVar19->m_num_elements;
+    sVar8 = *(short *)((int)&pGVar19->m_num_elements + 2);
+    sVar9 = *(short *)&pGVar19[1].m_num_elements;
+    sVar11 = (short)((int)((uint)(byte)pTVar18->right[0] << 0x18) >> 0x1b);
+    pCVar21->x = sVar4 + (sVar7 - sVar11);
     sVar12 = (short)((int)((uint)bVar1 << 0x18) >> 0x1b);
-    puVar19[-2] = sVar5 + (sVar8 - sVar12);
+    psVar20[-2] = sVar5 + (sVar8 - sVar12);
     sVar13 = (short)((int)((uint)bVar2 << 0x18) >> 0x1b);
-    puVar19[-1] = sVar6 + (sVar9 - sVar13);
-    *puVar19 = *(undefined2 *)((int)&pGVar18[1].m_num_elements + 2);
-    psVar20[4] = sVar4 + sVar7 + sVar11;
-    puVar19[2] = sVar5 + sVar8 + sVar12;
-    puVar19[3] = sVar6 + sVar9 + sVar13;
+    psVar20[-1] = sVar6 + (sVar9 - sVar13);
+    *psVar20 = *(short *)((int)&pGVar19[1].m_num_elements + 2);
+    pCVar21[1].x = sVar4 + sVar7 + sVar11;
+    psVar20[2] = sVar5 + sVar8 + sVar12;
+    psVar20[3] = sVar6 + sVar9 + sVar13;
+    pCVar21 = pCVar21 + 2;
+    psVar20[4] = *(short *)((int)&pGVar19[1].m_num_elements + 2);
     psVar20 = psVar20 + 8;
-    puVar19[4] = *(undefined2 *)((int)&pGVar18[1].m_num_elements + 2);
-    puVar19 = puVar19 + 8;
   }
   DrawW_OnyxLinePrim__FP8CCOORD16P8Trk_LineiP25Draw_tGiveShelbyMoreCache
-            ((CCOORD16 *)&gVertex3d,(Trk_Line *)(group + 1),group->m_num_elements,sd);
+            (&gVertex3d,(Trk_Line *)(group + 1),group->m_num_elements,sd);
   return;
-
-
 }
-
 
 
 
@@ -5209,11 +5180,13 @@ void DrawW_BuildChunkCenterLineFacets__FP5ChunkP5GroupP25Draw_tGiveShelbyMoreCac
 	// End offset: 0x800CA4F0
 	// End Line: 3468
 
-void DrawW_DoLines__FP13DRender_tViewP11tBuildEntryP11Draw_DCache( (DRender_tView *Vi,tBuildEntry *buildList,Draw_DCache *sd)
+void DrawW_DoLines__FP13DRender_tViewP11tBuildEntryP11Draw_DCache
+               (DRender_tView *Vi,tBuildEntry *buildList,Draw_DCache *sd)
+
 {
   byte bVar1;
+  coorddef *pcVar2;
   Chunk *chunkDat;
-  int *piVar2;
   Group *group;
   int iVar3;
   COORD16 local_58;
@@ -5234,28 +5207,25 @@ void DrawW_DoLines__FP13DRender_tViewP11tBuildEntryP11Draw_DCache( (DRender_tVie
   iVar3 = 0;
   while (iVar3 < local_30) {
     if (buildList->geomRez == '\x04') {
-      chunkDat = (Chunk *)((int)buildList->chunkInd * 0x70);
+      chunkDat = Track_chunkList + (int)buildList->chunkInd;
       group = chunkDat->lineBuf;
       if ((group != (Group *)0x0) && ((buildList->enableBits & 4U) != 0)) {
-        if (false) {
+        if (gNight_renderNight != (uchar *)0x0) {
           bVar1 = *(byte *)((int)sd[1].matB.t + 2);
           *(byte *)((int)sd[1].matB.t + 2) = bVar1 | 4;
-          if ((*(byte *)((&_Cars_gList)[Vi->player] + 0x447) & 6) != 0) {
+          if ((((&__Cars_gList_9__)[Vi->player]->control).lights & 6U) != 0) {
             *(byte *)((int)sd[1].matB.t + 2) = bVar1 | 5;
           }
-          local_50 = (Vi->cview).translation.x - *(int *)((&DAT_8010f2b0)[Vi->player * 0x44] + 0xa0)
-          ;
-          local_4c = (Vi->cview).translation.y - *(int *)((&DAT_8010f2b0)[Vi->player * 0x44] + 0xa4)
-          ;
-          local_48 = (Vi->cview).translation.z - *(int *)((&DAT_8010f2b0)[Vi->player * 0x44] + 0xa8)
-          ;
-          transform(&local_50,&gNightMat,&cStack64);
+          local_50 = (Vi->cview).translation.x - (((&Camera_gInfo)[Vi->player].target)->position).x;
+          local_4c = (Vi->cview).translation.y - (((&Camera_gInfo)[Vi->player].target)->position).y;
+          local_48 = (Vi->cview).translation.z - (((&Camera_gInfo)[Vi->player].target)->position).z;
+          transform(&local_50,(int *)&gNightMat,(int *)&cStack64);
           DrawW_WorldSetUpTranslation__FP8coorddefP6MATRIX(&cStack64,&sd->matNight);
-          if (false) {
-            local_50 = (Vi->cview).translation.x - _LAB_000000a0;
-            local_4c = (Vi->cview).translation.y - iRam000000a4;
-            local_48 = (Vi->cview).translation.z - iRam000000a8;
-            transform(&local_50,&gCopMat,&cStack64);
+          if (BW_gCopCarObj != (Car_tObj *)0x0) {
+            local_50 = (Vi->cview).translation.x - (BW_gCopCarObj->N).position.x;
+            local_4c = (Vi->cview).translation.y - (BW_gCopCarObj->N).position.y;
+            local_48 = (Vi->cview).translation.z - (BW_gCopCarObj->N).position.z;
+            transform(&local_50,(int *)&gCopMat,(int *)&cStack64);
             DrawW_WorldSetUpTranslation__FP8coorddefP6MATRIX(&cStack64,&sd->matCop);
           }
           (sd->matB).t[2] = 0;
@@ -5265,10 +5235,10 @@ void DrawW_DoLines__FP13DRender_tViewP11tBuildEntryP11Draw_DCache( (DRender_tVie
           setCopControlWord(2,0x3000,(sd->matB).t[1]);
           setCopControlWord(2,0x3800,(sd->matB).t[2]);
         }
-        piVar2 = (int *)(_Chunk_chunkCenters + (int)buildList->chunkInd * 0xc);
-        local_58.x = (short)(*piVar2 - (Vi->cview).translation.x >> 10);
-        local_58.y = (short)(piVar2[1] - (Vi->cview).translation.y >> 10);
-        local_58.z = (short)(piVar2[2] - (Vi->cview).translation.z >> 10);
+        pcVar2 = Chunk_chunkCenters + (int)buildList->chunkInd;
+        local_58.x = (short)(pcVar2->x - (Vi->cview).translation.x >> 10);
+        local_58.y = (short)(pcVar2->y - (Vi->cview).translation.y >> 10);
+        local_58.z = (short)(pcVar2->z - (Vi->cview).translation.z >> 10);
         DrawW_BuildChunkCenterLineFacets__FP5ChunkP5GroupP25Draw_tGiveShelbyMoreCacheP7COORD16
                   (chunkDat,group,(Draw_tGiveShelbyMoreCache *)sd,&local_58);
       }
@@ -5277,10 +5247,7 @@ void DrawW_DoLines__FP13DRender_tViewP11tBuildEntryP11Draw_DCache( (DRender_tVie
     iVar3 = iVar3 + 1;
   }
   return;
-
-
 }
-
 
 
 
@@ -5322,7 +5289,9 @@ void DrawW_DoLines__FP13DRender_tViewP11tBuildEntryP11Draw_DCache( (DRender_tVie
 	// End offset: 0x800CA85C
 	// End Line: 3778
 
-void DrawW_BuildSpikeBelt__FP13DRender_tViewiP11Draw_DCache( (DRender_tView *Vi,int scale,Draw_DCache *sd)
+void DrawW_BuildSpikeBelt__FP13DRender_tViewiP11Draw_DCache
+               (DRender_tView *Vi,int scale,Draw_DCache *sd)
+
 {
   short sVar1;
   short sVar2;
@@ -5330,12 +5299,14 @@ void DrawW_BuildSpikeBelt__FP13DRender_tViewiP11Draw_DCache( (DRender_tView *Vi,
   uint uVar4;
   uint uVar5;
   uint uVar6;
-  int iVar7;
-  short *psVar8;
-  int iVar9;
+  uint uVar7;
+  Trk_NewSlice *pTVar8;
+  short *psVar9;
   int iVar10;
-  short sVar11;
-  short sVar12;
+  int iVar11;
+  int iVar12;
+  short sVar13;
+  short sVar14;
   short local_1b8;
   short local_1b6;
   short local_1b4;
@@ -5361,111 +5332,113 @@ void DrawW_BuildSpikeBelt__FP13DRender_tViewiP11Draw_DCache( (DRender_tView *Vi,
   short local_48;
   short local_40;
   short local_38;
-  int *local_30;
+  Trk_NewSlice *local_30;
   
-  local_30 = (int *)0x0;
+  iVar10 = gSpikeBeltSlice;
+  local_30 = BWorldSm_slices + gSpikeBeltSlice;
   if (scale < 0) {
     scale = scale + 7;
   }
   scale = scale >> 3;
-  uVar4 = fixedmult((int)cRam00000012 << 9,scale);
-  uVar5 = fixedmult((int)cRam00000013 << 9,scale);
-  uVar6 = fixedmult((int)cRam00000014 << 9,scale);
-  sVar12 = (short)((int)cRam0000000f >> 1);
-  sVar11 = (short)((int)DAT_00000010 >> 1);
-  local_1b4 = (short)((int)cRam00000011 >> 1);
-  local_58 = sVar12;
-  local_50 = sVar11;
+  uVar4 = fixedmult((int)local_30->right[0] << 9,scale);
+  uVar5 = fixedmult((int)BWorldSm_slices[iVar10].right[1] << 9,scale);
+  uVar6 = fixedmult((int)BWorldSm_slices[iVar10].right[2] << 9,scale);
+  pTVar8 = BWorldSm_slices + iVar10;
+  sVar14 = (short)((int)pTVar8->forward[0] >> 1);
+  sVar13 = (short)((int)pTVar8->forward[1] >> 1);
+  local_1b4 = (short)((int)pTVar8->forward[2] >> 1);
+  local_58 = sVar14;
+  local_50 = sVar13;
   local_48 = local_1b4;
-  iVar7 = fixedmult(0,(int)cRam00000012 << 9);
-  local_1b8 = (short)(iVar7 >> 10);
+  uVar7 = fixedmult(gSpikeBeltX,(int)pTVar8->right[0] << 9);
+  local_1b8 = (short)((int)uVar7 >> 10);
   local_40 = local_1b8;
-  iVar7 = fixedmult(0,(int)cRam00000013 << 9);
-  local_1b6 = (short)(iVar7 >> 10);
+  uVar7 = fixedmult(gSpikeBeltX,(int)BWorldSm_slices[iVar10].right[1] << 9);
+  local_1b6 = (short)((int)uVar7 >> 10);
   local_38 = local_1b6;
-  iVar7 = fixedmult(0,(int)cRam00000014 << 9);
-  iVar9 = 1;
-  psVar8 = &local_1b8;
-  local_1b8 = local_1b8 - sVar12;
-  local_1b6 = local_1b6 - sVar11;
-  local_16c = (short)(iVar7 >> 10);
+  uVar7 = fixedmult(gSpikeBeltX,(int)BWorldSm_slices[iVar10].right[2] << 9);
+  iVar11 = 1;
+  psVar9 = &local_1b8;
+  local_1b8 = local_1b8 - sVar14;
+  local_1b6 = local_1b6 - sVar13;
+  local_16c = (short)((int)uVar7 >> 10);
   local_1b4 = local_16c - local_1b4;
   local_1b2 = 0;
-  iVar7 = 0;
+  iVar10 = 0;
   do {
-    psVar8 = psVar8 + 4;
-    sVar12 = (short)(uVar4 >> 10);
-    *psVar8 = *(short *)((int)&local_1b8 + iVar7) + sVar12;
+    psVar9 = psVar9 + 4;
+    sVar14 = (short)(uVar4 >> 10);
+    *psVar9 = *(short *)((int)&local_1b8 + iVar10) + sVar14;
     sVar1 = (short)(uVar5 >> 10);
-    psVar8[1] = *(short *)((int)&local_1b8 + iVar7 + 2) + sVar1;
-    sVar11 = *(short *)((int)&local_1b8 + iVar7 + 4);
-    iVar9 = iVar9 + 1;
-    psVar8[3] = 0;
+    psVar9[1] = *(short *)((int)&local_1b8 + iVar10 + 2) + sVar1;
+    sVar13 = *(short *)((int)&local_1b8 + iVar10 + 4);
+    iVar11 = iVar11 + 1;
+    psVar9[3] = 0;
     sVar2 = (short)(uVar6 >> 10);
-    psVar8[2] = sVar11 + sVar2;
-    iVar7 = iVar7 + 8;
-  } while (iVar9 < 9);
-  iVar9 = 1;
-  iVar10 = 0x50;
+    psVar9[2] = sVar13 + sVar2;
+    iVar10 = iVar10 + 8;
+  } while (iVar11 < 9);
+  iVar11 = 1;
+  iVar12 = 0x50;
   local_16a = 0;
   local_16e = local_38 + 0x19;
   local_170 = local_40;
-  iVar7 = 0x48;
+  iVar10 = 0x48;
   do {
-    *(short *)((int)&local_1b8 + iVar10) = *(short *)((int)&local_1b8 + iVar7) + sVar12;
-    *(short *)((int)&local_1b8 + iVar10 + 2) = *(short *)((int)&local_1b8 + iVar7 + 2) + sVar1;
-    sVar11 = *(short *)((int)&local_1b8 + iVar7 + 4);
-    iVar9 = iVar9 + 1;
-    *(undefined2 *)((int)&local_1b8 + iVar10 + 6) = 0;
-    *(short *)((int)&local_1b8 + iVar10 + 4) = sVar11 + sVar2;
+    *(short *)((int)&local_1b8 + iVar12) = *(short *)((int)&local_1b8 + iVar10) + sVar14;
+    *(short *)((int)&local_1b8 + iVar12 + 2) = *(short *)((int)&local_1b8 + iVar10 + 2) + sVar1;
+    sVar13 = *(short *)((int)&local_1b8 + iVar10 + 4);
+    iVar11 = iVar11 + 1;
+    *(undefined2 *)((int)&local_1b8 + iVar12 + 6) = 0;
+    *(short *)((int)&local_1b8 + iVar12 + 4) = sVar13 + sVar2;
+    iVar12 = iVar12 + 8;
     iVar10 = iVar10 + 8;
-    iVar7 = iVar7 + 8;
-  } while (iVar9 < 9);
-  iVar9 = 1;
+  } while (iVar11 < 9);
+  iVar11 = 1;
   local_128 = local_40 + local_58;
   local_126 = local_38 + local_50;
-  iVar10 = 0x98;
+  iVar12 = 0x98;
   local_122 = 0;
   local_124 = local_16c + local_48;
-  iVar7 = 0x90;
+  iVar10 = 0x90;
   do {
-    *(short *)((int)&local_1b8 + iVar10) = *(short *)((int)&local_1b8 + iVar7) + sVar12;
-    *(short *)((int)&local_1b8 + iVar10 + 2) = *(short *)((int)&local_1b8 + iVar7 + 2) + sVar1;
-    sVar11 = *(short *)((int)&local_1b8 + iVar7 + 4);
-    iVar9 = iVar9 + 1;
-    *(undefined2 *)((int)&local_1b8 + iVar10 + 6) = 0;
-    *(short *)((int)&local_1b8 + iVar10 + 4) = sVar11 + sVar2;
+    *(short *)((int)&local_1b8 + iVar12) = *(short *)((int)&local_1b8 + iVar10) + sVar14;
+    *(short *)((int)&local_1b8 + iVar12 + 2) = *(short *)((int)&local_1b8 + iVar10 + 2) + sVar1;
+    sVar13 = *(short *)((int)&local_1b8 + iVar10 + 4);
+    iVar11 = iVar11 + 1;
+    *(undefined2 *)((int)&local_1b8 + iVar12 + 6) = 0;
+    *(short *)((int)&local_1b8 + iVar12 + 4) = sVar13 + sVar2;
+    iVar12 = iVar12 + 8;
     iVar10 = iVar10 + 8;
-    iVar7 = iVar7 + 8;
-  } while (iVar9 < 9);
-  iVar9 = 0;
-  iVar7 = 0;
+  } while (iVar11 < 9);
+  iVar11 = 0;
+  iVar10 = 0;
   do {
-    iVar9 = iVar9 + iVar7;
-    iVar10 = iVar7 + 1;
-    cVar3 = (char)iVar7;
-    iVar7 = iVar7 + 8;
-    *(char *)((int)local_e0 + iVar9 * 2 + 5) = cVar3;
-    local_e0[iVar9] = 0;
-    *(char *)(local_e0 + iVar9 + 1) = (char)iVar10;
-    *(char *)((int)local_e0 + iVar9 * 2 + 3) = cVar3 + '\n';
-    *(char *)(local_e0 + iVar9 + 2) = cVar3 + '\t';
-    local_e0[iVar7 * 3] = 0;
-    *(char *)((int)local_e0 + iVar7 * 6 + 3) = cVar3 + '\t';
-    *(char *)(local_e0 + iVar7 * 3 + 2) = cVar3 + '\n';
-    *(char *)((int)local_e0 + iVar7 * 6 + 5) = cVar3 + '\x13';
-    *(char *)(local_e0 + iVar7 * 3 + 1) = cVar3 + '\x12';
-    iVar9 = iVar10 * 2;
-    iVar7 = iVar10;
-  } while (iVar10 < 8);
+    iVar11 = iVar11 + iVar10;
+    iVar12 = iVar10 + 1;
+    cVar3 = (char)iVar10;
+    iVar10 = iVar10 + 8;
+    *(char *)((int)local_e0 + iVar11 * 2 + 5) = cVar3;
+    local_e0[iVar11] = 0;
+    *(char *)(local_e0 + iVar11 + 1) = (char)iVar12;
+    *(char *)((int)local_e0 + iVar11 * 2 + 3) = cVar3 + '\n';
+    *(char *)(local_e0 + iVar11 + 2) = cVar3 + '\t';
+    local_e0[iVar10 * 3] = 0;
+    *(char *)((int)local_e0 + iVar10 * 6 + 3) = cVar3 + '\t';
+    *(char *)(local_e0 + iVar10 * 3 + 2) = cVar3 + '\n';
+    *(char *)((int)local_e0 + iVar10 * 6 + 5) = cVar3 + '\x13';
+    *(char *)(local_e0 + iVar10 * 3 + 1) = cVar3 + '\x12';
+    iVar11 = iVar12 * 2;
+    iVar10 = iVar12;
+  } while (iVar12 < 8);
   local_80 = 0;
   local_7f = 0;
-  local_7e = (short)DAT_8011e160 + -1;
+  local_7e = (short)gInitialArt.shapeCount + -1;
   *(undefined *)((int)sd[1].matB.t + 2) = 0;
-  local_78 = *local_30 - (Vi->cview).translation.x;
-  local_74 = local_30[1] - (Vi->cview).translation.y;
-  local_70 = local_30[2] - (Vi->cview).translation.z;
-  transform(&local_78,&gWorldMat,&cStack104);
+  local_78 = local_30->center[0] - (Vi->cview).translation.x;
+  local_74 = local_30->center[1] - (Vi->cview).translation.y;
+  local_70 = local_30->center[2] - (Vi->cview).translation.z;
+  transform(&local_78,(int *)&gWorldMat,(int *)&cStack104);
   DrawW_WorldSetUpTranslation__FP8coorddefP6MATRIX(&cStack104,&sd->matB);
   *(short **)&sd[1].head.cprim.PrimPtr = &local_1b8;
   *(undefined *)((int)&sd[1].head.cprim.MPrimPtr + 3) = 0x10;
@@ -5478,10 +5451,7 @@ void DrawW_BuildSpikeBelt__FP13DRender_tViewiP11Draw_DCache( (DRender_tView *Vi,
   sd->light = -1;
   DrawW_kCtrlWorld_High__FP25Draw_tGiveShelbyMoreCache((Draw_tGiveShelbyMoreCache *)sd);
   return;
-
-
 }
-
 
 
 
@@ -5496,15 +5466,16 @@ void DrawW_BuildSpikeBelt__FP13DRender_tViewiP11Draw_DCache( (DRender_tView *Vi,
 	// End offset: 0x800CA950
 	// End Line: 3831
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void DepthCue_Init__Fv(void)
+
 {
-  SetFogNear(DAT_80123370 << 6,0xa0);
-  SetFarColor((uint)(byte)DAT_8012336c,(uint)DAT_8012336c._1_1_,(uint)DAT_8012336c._2_1_);
+  SetFogNear(TrackSpec_gSpec.depthcuespec.distance << 6,0xa0);
+  SetFarColor((uint)TrackSpec_gSpec.depthcuespec.color.r,(uint)TrackSpec_gSpec.depthcuespec.color.g,
+              (uint)TrackSpec_gSpec.depthcuespec.color.b);
   return;
-
-
 }
-
 
 
 

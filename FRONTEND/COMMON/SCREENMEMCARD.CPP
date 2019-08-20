@@ -12,18 +12,20 @@
 	// End offset: 0x80046320
 	// End Line: 66
 
-void GetShapeInfo__14tScreenMemcardRsT1PPcT3( (tScreenMemcard *this,short *numPermShapes,short *numSwapShapes,char **permFileName, char **swapFileName)
+/* WARNING: Control flow encountered bad instruction data */
+
+void GetShapeInfo__14tScreenMemcardRsT1PPcT3
+               (tScreenMemcard *this,short *numPermShapes,short *numSwapShapes,char **permFileName,
+               char **swapFileName)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -47,18 +49,20 @@ void GetShapeInfo__14tScreenMemcardRsT1PPcT3( (tScreenMemcard *this,short *numPe
 	// End offset: 0x800463EC
 	// End Line: 101
 
-void DrawIcon__14tScreenMemcardP8shapetbliiiis( (tScreenMemcard *this,shapetbl *icon,int x,int y,int destwidth,int destheight, int fFade)
+/* WARNING: Control flow encountered bad instruction data */
+
+void DrawIcon__14tScreenMemcardP8shapetbliiiis
+               (tScreenMemcard *this,shapetbl *icon,int x,int y,int destwidth,int destheight,
+               int fFade)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -70,7 +74,7 @@ void DrawIcon__14tScreenMemcardP8shapetbliiiis( (tScreenMemcard *this,shapetbl *
 		// Start line: 146
 		// Start offset: 0x8004653C
 		// Variables:
-	// 		unsigned int done; // $s7
+	// 		void * done; // $s7
 	// 		int clutx; // stack offset -56
 	// 		int cluty; // stack offset -52
 	// 		int i; // $s1
@@ -99,18 +103,18 @@ void DrawIcon__14tScreenMemcardP8shapetbliiiis( (tScreenMemcard *this,shapetbl *
 	// End offset: 0x80046868
 	// End Line: 259
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void LoadIcon__14tScreenMemcardi(tScreenMemcard *this,int filenum)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -125,18 +129,19 @@ void LoadIcon__14tScreenMemcardi(tScreenMemcard *this,int filenum)
 	// End offset: 0x800468D4
 	// End Line: 270
 
-void DrawVerticalLine__14tScreenMemcardssss( (tScreenMemcard *this,short x,short y,short gridpos,int dir)
+/* WARNING: Control flow encountered bad instruction data */
+
+void DrawVerticalLine__14tScreenMemcardssss
+               (tScreenMemcard *this,short x,short y,short gridpos,int dir)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -151,18 +156,19 @@ void DrawVerticalLine__14tScreenMemcardssss( (tScreenMemcard *this,short x,short
 	// End offset: 0x800469D8
 	// End Line: 278
 
-void DrawHorizontalLine__14tScreenMemcardssss( (tScreenMemcard *this,short x,short y,short gridpos,int dir)
+/* WARNING: Control flow encountered bad instruction data */
+
+void DrawHorizontalLine__14tScreenMemcardssss
+               (tScreenMemcard *this,short x,short y,short gridpos,int dir)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -225,18 +231,18 @@ void DrawHorizontalLine__14tScreenMemcardssss( (tScreenMemcard *this,short x,sho
 	// End offset: 0x80046D30
 	// End Line: 315
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void PlaceIcons__14tScreenMemcardii(tScreenMemcard *this,int i,int fadeval)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -309,18 +315,18 @@ void PlaceIcons__14tScreenMemcardii(tScreenMemcard *this,int i,int fadeval)
 	// End offset: 0x80047298
 	// End Line: 492
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void DrawMemCardStuff__14tScreenMemcards(tScreenMemcard *this,short fadeval)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -332,7 +338,7 @@ void DrawMemCardStuff__14tScreenMemcards(tScreenMemcard *this,short fadeval)
 		// Start line: 518
 		// Start offset: 0x800472BC
 		// Variables:
-	// 		unsigned int DontChangeEnablings; // $a1
+	// 		void * DontChangeEnablings; // $a1
 
 		/* begin block 1.1 */
 			// Start line: 518
@@ -486,18 +492,18 @@ void DrawMemCardStuff__14tScreenMemcards(tScreenMemcard *this,short fadeval)
 	// End offset: 0x80047460
 	// End Line: 557
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void SetEnablings__14tScreenMemcard(tScreenMemcard *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -625,18 +631,18 @@ void SetEnablings__14tScreenMemcard(tScreenMemcard *this)
 	// End offset: 0x80047AA8
 	// End Line: 687
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void DrawBackground__14tScreenMemcard(tScreenMemcard *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -660,18 +666,18 @@ void DrawBackground__14tScreenMemcard(tScreenMemcard *this)
 	// End offset: 0x80047B60
 	// End Line: 699
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void DrawForeground__14tScreenMemcard(tScreenMemcard *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -686,18 +692,18 @@ void DrawForeground__14tScreenMemcard(tScreenMemcard *this)
 	// End offset: 0x80047B74
 	// End Line: 705
 
+/* WARNING: Control flow encountered bad instruction data */
+
 tScreenMemcard * __14tScreenMemcard(tScreenMemcard *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -714,18 +720,18 @@ tScreenMemcard * __14tScreenMemcard(tScreenMemcard *this)
 	// End offset: 0x80047C18
 	// End Line: 728
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void ReleaseIcons__14tScreenMemcard(tScreenMemcard *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -791,18 +797,18 @@ void ReleaseIcons__14tScreenMemcard(tScreenMemcard *this)
 	// End offset: 0x80047DA8
 	// End Line: 829
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void Initialize__14tScreenMemcard(tScreenMemcard *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -845,18 +851,18 @@ void Initialize__14tScreenMemcard(tScreenMemcard *this)
 	// End offset: 0x80047DD8
 	// End Line: 834
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void Cleanup__14tScreenMemcard(tScreenMemcard *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 

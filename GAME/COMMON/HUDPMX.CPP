@@ -15,22 +15,17 @@
 	// End Line: 25
 
 void HudPmx_LoadShape__FPcP13HudPmx_tShape(char *n,HudPmx_tShape *s)
+
 {
-  char *f;
   int iVar1;
-  uint uVar2;
   
-  iVar1 = locateshape(_gShpfile,n);
-  f = _gShpfile;
-  uVar2 = (uint)loadShapeXOff;
+  iVar1 = locateshape((int)pcGp0000185c,(int *)n);
   s->width = *(short *)(iVar1 + 4);
   s->height = *(short *)(iVar1 + 6);
-  Texture_LoadPmx__FPcT0iiiiiP12Draw_tPixMap(f,n,0x41,uVar2 + 0x80,0x80,-1,-1,(Draw_tPixMap *)s);
+  Texture_LoadPmx__FPcT0iiiiiP12Draw_tPixMap
+            (pcGp0000185c,n,0x41,(uint)bGp00001860 + 0x80,0x80,-1,-1,(Draw_tPixMap *)s);
   return;
-
-
 }
-
 
 
 
@@ -46,10 +41,10 @@ void HudPmx_LoadShape__FPcP13HudPmx_tShape(char *n,HudPmx_tShape *s)
 	// 		int carType1; // $a1
 	// 		char name[256]; // stack offset -1608
 	// 		int i; // $s1
-	// 		char *tachs[29]; // stack offset -1352
-	// 		char *ntachs[29]; // stack offset -1232
+	// 		char (*tachs[29]); // stack offset -1352
+	// 		char (*ntachs[29]); // stack offset -1232
 	// 		char mapname[5]; // stack offset -1112
-	// 		char *shapes[132]; // stack offset -1104
+	// 		char (*shapes[132]); // stack offset -1104
 
 		/* begin block 1.1 */
 			// Start line: 102
@@ -113,7 +108,10 @@ void HudPmx_LoadShape__FPcP13HudPmx_tShape(char *n,HudPmx_tShape *s)
 	// End offset: 0x80092F08
 	// End Line: 205
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void HudPmx_InitTextures__Fv(void)
+
 {
   undefined **ppuVar1;
   char **ppcVar2;
@@ -121,7 +119,7 @@ void HudPmx_InitTextures__Fv(void)
   char *n;
   char *pcVar4;
   char *pcVar5;
-  undefined4 *puVar6;
+  HudPmx_tUV *pHVar6;
   HudPmx_tShape *s;
   int iVar7;
   int iVar8;
@@ -266,8 +264,8 @@ void HudPmx_InitTextures__Fv(void)
   char *local_3c;
   undefined *local_38;
   char *local_34;
-  undefined local_30 [4];
-  undefined local_2c [4];
+  uchar local_30 [4];
+  uchar local_2c [4];
   int iStack40;
   int iStack36;
   int aiStack32 [2];
@@ -285,7 +283,7 @@ void HudPmx_InitTextures__Fv(void)
     ppuVar1 = ppuVar1 + 4;
     ppcVar2 = ppcVar2 + 4;
   } while (ppuVar1 != &PTR_DAT_80055ac4);
-  *ppcVar2 = "tbon";
+  *ppcVar2 = PTR_DAT_80055ac4;
   ppcVar2 = local_4d0;
   ppuVar1 = &PTR_DAT_80055ac8;
   do {
@@ -300,11 +298,11 @@ void HudPmx_InitTextures__Fv(void)
     ppcVar2 = ppcVar2 + 4;
   } while (ppuVar1 != &PTR_DAT_80055b38);
   local_60 = acStack1112;
-  *ppcVar2 = "nbon";
-  sprintf(local_60,"mp%02d",0);
+  *ppcVar2 = PTR_DAT_80055b38;
+  sprintf(local_60,s_mp_02d_8013c95c,GameSetup_gData.track);
   ppcVar3 = &local_450;
   ppcVar2 = &local_240;
-  local_240 = "cmra";
+  local_240 = &DAT_8013c964;
   local_23c = &DAT_8013c96c;
   local_238 = &DAT_8013c974;
   local_234 = &DAT_8013c97c;
@@ -447,54 +445,54 @@ void HudPmx_InitTextures__Fv(void)
     ppcVar3 = ppcVar3 + 4;
   } while (ppcVar2 != (char **)local_30);
   iVar7 = 0;
-  loadShapeXOff = 0;
-  sprintf(acStack1608,"%sfont.pfn",0);
-  _gHudFont = (char *)loadfileadrz(acStack1608,0);
-  Font_LoadFont__FPciic(_gHudFont,0x80,0x80,'\x01');
-  puVar6 = &HudPmx_gHudNumberUV;
+  uGp00001860 = 0;
+  sprintf(acStack1608,s__sfont_pfn_80055b3c,PTR_801164d0);
+  pcGp00001858 = (char *)loadfileadrz(acStack1608,0);
+  Font_LoadFont__FPciic(pcGp00001858,0x80,0x80,'\x01');
+  pHVar6 = &HudPmx_gHudNumberUV;
   while (iVar7 < 10) {
     Font_GetUVWH__FcPiN41
               ((char)iVar7 + '0',(int *)local_30,(int *)local_2c,&iStack40,&iStack36,aiStack32);
-    *(undefined *)puVar6 = local_30[0];
-    *(undefined *)((int)puVar6 + 1) = local_2c[0];
+    pHVar6->u0 = local_30[0];
+    pHVar6->v0 = local_2c[0];
     iVar7 = iVar7 + 1;
-    *(undefined2 *)((int)puVar6 + 2) = 0;
-    puVar6 = puVar6 + 1;
+    pHVar6->clut = gFontClut;
+    pHVar6 = pHVar6 + 1;
   }
-  sprintf(acStack1608,"%shud.psh",0);
-  _gShpfile = loadfileadr(acStack1608,0);
+  sprintf(acStack1608,s__shud_psh_80055b48,PTR_801164d0);
+  iGp0000185c = loadfileadr(acStack1608,0);
   Texture_ResetPaletteSharing__Fv();
-  if (DAT_80113240 == 0) {
-    if (false) {
-      local_24c = "tbon";
+  if (GameSetup_gData.Time == 0) {
+    if (0x1d < GameSetup_gData.carInfo[0].carType) {
+      local_24c = &DAT_8013c8cc;
     }
     else {
-      local_24c = local_548[0];
+      local_24c = local_548[GameSetup_gData.carInfo[0].carType];
     }
-    if (true) {
-      local_244 = local_548[0];
+    if (GameSetup_gData.carInfo[1].carType < 0x1e) {
+      local_244 = local_548[GameSetup_gData.carInfo[1].carType];
     }
     else {
-      local_244 = "tbon";
+      local_244 = &DAT_8013c8cc;
     }
   }
   else {
-    if (false) {
-      local_24c = "nbon";
+    if (0x1d < GameSetup_gData.carInfo[0].carType) {
+      local_24c = &DAT_8013c94c;
     }
     else {
-      local_24c = local_4d0[0];
+      local_24c = local_4d0[GameSetup_gData.carInfo[0].carType];
     }
-    if (true) {
-      local_244 = local_4d0[0];
+    if (GameSetup_gData.carInfo[1].carType < 0x1e) {
+      local_244 = local_4d0[GameSetup_gData.carInfo[1].carType];
     }
     else {
-      local_244 = "nbon";
+      local_244 = &DAT_8013c94c;
     }
   }
   iVar7 = 0;
   ppcVar2 = &local_450;
-  s = (HudPmx_tShape *)&HudPmx_gShapes;
+  s = &HudPmx_gShapes;
   do {
     n = *ppcVar2;
     ppcVar2 = ppcVar2 + 1;
@@ -503,32 +501,32 @@ void HudPmx_InitTextures__Fv(void)
     s = s + 1;
   } while (iVar7 < 0x83);
   iVar7 = 0x84;
-  s = (HudPmx_tShape *)&DAT_801116e8;
+  s = &HudPmx_tShape_801116e8;
   while (iVar7 < 0x9e) {
-    DAT_8013cd37 = (char)iVar7 + -0x43;
-    HudPmx_LoadShape__FPcP13HudPmx_tShape("alpX",s);
+    cGp000007eb = (char)iVar7 + -0x43;
+    HudPmx_LoadShape__FPcP13HudPmx_tShape(&DAT_8013cd34,s);
     s = s + 1;
     iVar7 = iVar7 + 1;
   }
   iVar7 = 0x9e;
-  s = (HudPmx_tShape *)&DAT_801118f0;
+  s = &HudPmx_tShape_801118f0;
   while (iVar7 < 0xa8) {
-    DAT_8013cd3f = (char)iVar7 + -0x6e;
-    HudPmx_LoadShape__FPcP13HudPmx_tShape("alpX",s);
+    cGp000007f3 = (char)iVar7 + -0x6e;
+    HudPmx_LoadShape__FPcP13HudPmx_tShape(&DAT_8013cd3c,s);
     s = s + 1;
     iVar7 = iVar7 + 1;
   }
-  HudPmx_LoadShape__FPcP13HudPmx_tShape("alTR",(HudPmx_tShape *)&DAT_801119b8);
-  HudPmx_LoadShape__FPcP13HudPmx_tShape("alCI",(HudPmx_tShape *)&DAT_801119cc);
-  HudPmx_LoadShape__FPcP13HudPmx_tShape("alSQ",(HudPmx_tShape *)&DAT_801119e0);
-  HudPmx_LoadShape__FPcP13HudPmx_tShape("negA",(HudPmx_tShape *)&DAT_801119f4);
-  HudPmx_LoadShape__FPcP13HudPmx_tShape("negB",(HudPmx_tShape *)&DAT_80111a08);
-  HudPmx_LoadShape__FPcP13HudPmx_tShape("neg2",(HudPmx_tShape *)&DAT_80111a1c);
-  HudPmx_LoadShape__FPcP13HudPmx_tShape("alUP",(HudPmx_tShape *)&DAT_80111a30);
+  HudPmx_LoadShape__FPcP13HudPmx_tShape(&DAT_8013cd44,&HudPmx_tShape_801119b8);
+  HudPmx_LoadShape__FPcP13HudPmx_tShape(&DAT_8013cd4c,&HudPmx_tShape_801119cc);
+  HudPmx_LoadShape__FPcP13HudPmx_tShape(&DAT_8013cd54,&HudPmx_tShape_801119e0);
+  HudPmx_LoadShape__FPcP13HudPmx_tShape(&DAT_8013cd5c,&HudPmx_tShape_801119f4);
+  HudPmx_LoadShape__FPcP13HudPmx_tShape(&DAT_8013cd64,&HudPmx_tShape_80111a08);
+  HudPmx_LoadShape__FPcP13HudPmx_tShape(&DAT_8013cd6c,&HudPmx_tShape_80111a1c);
+  HudPmx_LoadShape__FPcP13HudPmx_tShape(&DAT_8013cd74,&HudPmx_tShape_80111a30);
   iVar8 = 0;
   ppcVar2 = local_328;
   iVar7 = 0x128;
-  s = (HudPmx_tShape *)&DAT_80111260;
+  s = &HudPmx_tShape_80111260;
   do {
     iVar8 = iVar8 + 1;
     HudPmx_LoadShape__FPcP13HudPmx_tShape(*ppcVar2,s);
@@ -536,19 +534,16 @@ void HudPmx_InitTextures__Fv(void)
     iVar7 = iVar7 + 4;
     s = s + 1;
   } while (iVar8 < 0x1c);
-  HudPmx_LoadShape__FPcP13HudPmx_tShape("a229",(HudPmx_tShape *)&DAT_801114a4);
-  HudPmx_LoadShape__FPcP13HudPmx_tShape("ahyp",(HudPmx_tShape *)&DAT_80111238);
-  HudPmx_LoadShape__FPcP13HudPmx_tShape("acol",(HudPmx_tShape *)&DAT_8011124c);
-  if (DashHUD_gInfo != 0) {
-    loadShapeXOff = 0x16;
-    HudPmx_LoadShape__FPcP13HudPmx_tShape(local_244,(HudPmx_tShape *)&DAT_801116d4);
+  HudPmx_LoadShape__FPcP13HudPmx_tShape(&DAT_8013cd7c,&HudPmx_tShape_801114a4);
+  HudPmx_LoadShape__FPcP13HudPmx_tShape(&DAT_8013cba4,&HudPmx_tShape_80111238);
+  HudPmx_LoadShape__FPcP13HudPmx_tShape(&DAT_8013cbac,&HudPmx_tShape_8011124c);
+  if (DashHUD_gInfo.splitscreen != 0) {
+    uGp00001860 = 0x16;
+    HudPmx_LoadShape__FPcP13HudPmx_tShape(local_244,&HudPmx_tShape_801116d4);
   }
-  purgememadr(_gShpfile);
+  purgememadr(iGp0000185c);
   return;
-
-
 }
-
 
 
 
@@ -563,14 +558,14 @@ void HudPmx_InitTextures__Fv(void)
 	// End offset: 0x80092F30
 	// End Line: 210
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void HudPmx_Kill__Fv(void)
+
 {
-  purgememadr(uGp00001858);
+  purgememadr(DAT_00001858);
   return;
-
-
 }
-
 
 
 

@@ -15,18 +15,19 @@
 	// End offset: 0x80025BE0
 	// End Line: 67
 
+/* WARNING: Control flow encountered bad instruction data */
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void DisplayLoadingText__7tScreen(void)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -41,18 +42,19 @@ void DisplayLoadingText__7tScreen(void)
 	// End offset: 0x80025BF8
 	// End Line: 145
 
+/* WARNING: Control flow encountered bad instruction data */
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void GoNonInterlaced__7tScreen(void)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -70,18 +72,19 @@ void GoNonInterlaced__7tScreen(void)
 	// End offset: 0x80025D74
 	// End Line: 198
 
-void DrawBackgroundImage__7tScreeniiP18tTexture_ShapeInfoi( (tScreen *this,int startShape,int numShapes,tTexture_ShapeInfo *shapes,int flip_axis)
+/* WARNING: Control flow encountered bad instruction data */
+
+void DrawBackgroundImage__7tScreeniiP18tTexture_ShapeInfoi
+               (tScreen *this,int startShape,int numShapes,tTexture_ShapeInfo *shapes,int flip_axis)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -96,18 +99,18 @@ void DrawBackgroundImage__7tScreeniiP18tTexture_ShapeInfoi( (tScreen *this,int s
 	// End offset: 0x80025D98
 	// End Line: 202
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void AsyncLoadPermanentShapeFile__7tScreenPc(tScreen *this,char *fileName)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -124,48 +127,48 @@ void AsyncLoadPermanentShapeFile__7tScreenPc(tScreen *this,char *fileName)
 	// End offset: 0x80025DFC
 	// End Line: 215
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void AsyncLoadSwapShapeFile__7tScreenPc(tScreen *this,char *fileName)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// unsigned int /*$ra*/ IsShapeFileLoaded__7tScreenR17tShapeInformation(struct tScreen *this /*$s2*/, struct tShapeInformation *shapes /*$s0*/)
+// void * /*$ra*/ IsShapeFileLoaded__7tScreenR17tShapeInformation(struct tScreen *this /*$s2*/, struct tShapeInformation *shapes /*$s0*/)
  // line 218, offset 0x80025e0c
 	/* begin block 1 */
 		// Start line: 219
 		// Start offset: 0x80025E0C
 		// Variables:
-	// 		unsigned int result; // $s1
+	// 		void * result; // $s1
 	// 		int async_status; // $v1
 	// 		char *bogus; // $v0
 	/* end block 1 */
 	// End offset: 0x80025F68
 	// End Line: 271
 
-uint IsShapeFileLoaded__7tScreenR17tShapeInformation(tScreen *this,tShapeInformation *shapes)
+/* WARNING: Control flow encountered bad instruction data */
+
+void * IsShapeFileLoaded__7tScreenR17tShapeInformation(tScreen *this,tShapeInformation *shapes)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -180,18 +183,18 @@ uint IsShapeFileLoaded__7tScreenR17tShapeInformation(tScreen *this,tShapeInforma
 	// End offset: 0x80025F84
 	// End Line: 285
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void UploadPermanentShapes__7tScreeni(tScreen *this,int numPermanentShapes)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -206,18 +209,18 @@ void UploadPermanentShapes__7tScreeni(tScreen *this,int numPermanentShapes)
 	// End offset: 0x80025FD0
 	// End Line: 291
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void UploadSwapShapes__7tScreeni(tScreen *this,int numSwapShapes)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -232,18 +235,20 @@ void UploadSwapShapes__7tScreeni(tScreen *this,int numSwapShapes)
 	// End offset: 0x80026008
 	// End Line: 322
 
-void GetShapeInfo__7tScreenRsT1PPcT3( (tScreen *this,short *numPermShapes,short *numSwapShapes,char **permFileName, char **swapFileName)
+/* WARNING: Control flow encountered bad instruction data */
+
+void GetShapeInfo__7tScreenRsT1PPcT3
+               (tScreen *this,short *numPermShapes,short *numSwapShapes,char **permFileName,
+               char **swapFileName)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -258,25 +263,25 @@ void GetShapeInfo__7tScreenRsT1PPcT3( (tScreen *this,short *numPermShapes,short 
 	// End offset: 0x80026020
 	// End Line: 333
 
+/* WARNING: Control flow encountered bad instruction data */
+
 tScreen * __7tScreen(tScreen *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
 
 
 
-
-// autogenerated function stub: 
+// decompiled code
+// original method signature: 
 // void /*$ra*/ _._7tScreen(struct tScreen *this /*$a0*/, int __in_chrg /*$a1*/)
-void _._7tScreen _._7tScreen(tScreen *this /*$a0*/this, int __in_chrg /*$a1*/ __in_chrg)
-{ // line 341, offset 0x80026078
+ // line 341, offset 0x80026078
 	/* begin block 1 */
 		// Start line: 342
 		// Start offset: 0x80026078
@@ -284,7 +289,19 @@ void _._7tScreen _._7tScreen(tScreen *this /*$a0*/this, int __in_chrg /*$a1*/ __
 	// End offset: 0x80026078
 	// End Line: 342
 
+/* WARNING: Control flow encountered bad instruction data */
+
+void ___7tScreen(tScreen *this,int __in_chrg)
+
+{
+  undefined4 in_v1;
+  undefined4 in_t5;
+  
+  special2(in_v1,in_t5,5,0x13);
+                    /* WARNING: Bad instruction - Truncating control flow here */
+  halt_baddata();
 }
+
 
 
 // decompiled code
@@ -299,23 +316,23 @@ void _._7tScreen _._7tScreen(tScreen *this /*$a0*/this, int __in_chrg /*$a1*/ __
 	// 		short numSwapShapes; // stack offset -30
 	// 		char *permFileName; // stack offset -28
 	// 		char *swapFileName; // stack offset -24
-	// 		unsigned int shapesLoaded; // $s0
+	// 		void * shapesLoaded; // $s0
 	/* end block 1 */
 	// End offset: 0x80026178
 	// End Line: 372
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void Initialize__7tScreen(tScreen *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -330,24 +347,24 @@ void Initialize__7tScreen(tScreen *this)
 	// End offset: 0x800261A0
 	// End Line: 386
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void Cleanup__7tScreen(tScreen *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// void /*$ra*/ Draw__7tScreenb(struct tScreen *this /*$v1*/, unsigned int drawBackground /*$a1*/)
+// void /*$ra*/ Draw__7tScreenb(struct tScreen *this /*$v1*/, void * drawBackground /*$a1*/)
  // line 397, offset 0x800261ec
 	/* begin block 1 */
 		// Start line: 398
@@ -356,18 +373,18 @@ void Cleanup__7tScreen(tScreen *this)
 	// End offset: 0x80026230
 	// End Line: 402
 
-void Draw__7tScreenb(tScreen *this,uint drawBackground)
+/* WARNING: Control flow encountered bad instruction data */
+
+void Draw__7tScreenb(tScreen *this,void *drawBackground)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -384,18 +401,19 @@ void Draw__7tScreenb(tScreen *this,uint drawBackground)
 	// End offset: 0x8002633C
 	// End Line: 452
 
-void AsyncLoadShapeFile__7tScreenPcR17tShapeInformation( (tScreen *this,char *name,tShapeInformation *data)
+/* WARNING: Control flow encountered bad instruction data */
+
+void AsyncLoadShapeFile__7tScreenPcR17tShapeInformation
+               (tScreen *this,char *name,tShapeInformation *data)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -410,18 +428,18 @@ void AsyncLoadShapeFile__7tScreenPcR17tShapeInformation( (tScreen *this,char *na
 	// End offset: 0x800263DC
 	// End Line: 480
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void CancelAsyncLoad__7tScreenR17tShapeInformation(tScreen *this,tShapeInformation *data)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -438,18 +456,19 @@ void CancelAsyncLoad__7tScreenR17tShapeInformation(tScreen *this,tShapeInformati
 	// End offset: 0x80026480
 	// End Line: 510
 
-void InitializeShapes__7tScreenR17tShapeInformationUi( (tScreen *this,tShapeInformation *data,uint numShapes)
+/* WARNING: Control flow encountered bad instruction data */
+
+void InitializeShapes__7tScreenR17tShapeInformationUi
+               (tScreen *this,tShapeInformation *data,uint numShapes)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -467,18 +486,18 @@ void InitializeShapes__7tScreenR17tShapeInformationUi( (tScreen *this,tShapeInfo
 	// End offset: 0x800265DC
 	// End Line: 556
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void FreeShapes__7tScreenR17tShapeInformation(tScreen *this,tShapeInformation *data)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -495,18 +514,19 @@ void FreeShapes__7tScreenR17tShapeInformation(tScreen *this,tShapeInformation *d
 	// End offset: 0x80026750
 	// End Line: 597
 
-void UploadShapes__7tScreenR17tShapeInformationssss( (tScreen *this,tShapeInformation *data,short x,short y,int numShapes,int index)
+/* WARNING: Control flow encountered bad instruction data */
+
+void UploadShapes__7tScreenR17tShapeInformationssss
+               (tScreen *this,tShapeInformation *data,short x,short y,int numShapes,int index)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -526,18 +546,18 @@ void UploadShapes__7tScreenR17tShapeInformationssss( (tScreen *this,tShapeInform
 	// End offset: 0x80026780
 	// End Line: 601
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void PreLoad__7tScreen(tScreen *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -566,18 +586,19 @@ void PreLoad__7tScreen(tScreen *this)
 	// End offset: 0x80026804
 	// End Line: 623
 
-void TransitionOff__7tScreen22tScreen_TransitionTypeP5tMenu( (tScreen *this,tScreen_TransitionType type)
+/* WARNING: Control flow encountered bad instruction data */
+
+void TransitionOff__7tScreen22tScreen_TransitionTypeP5tMenu
+               (tScreen *this,tScreen_TransitionType type)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -606,18 +627,19 @@ void TransitionOff__7tScreen22tScreen_TransitionTypeP5tMenu( (tScreen *this,tScr
 	// End offset: 0x80026824
 	// End Line: 631
 
-void TransitionOn__7tScreen22tScreen_TransitionTypeP5tMenu( (tScreen *this,tScreen_TransitionType type)
+/* WARNING: Control flow encountered bad instruction data */
+
+void TransitionOn__7tScreen22tScreen_TransitionTypeP5tMenu
+               (tScreen *this,tScreen_TransitionType type)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -632,24 +654,24 @@ void TransitionOn__7tScreen22tScreen_TransitionTypeP5tMenu( (tScreen *this,tScre
 	// End offset: 0x800268B8
 	// End Line: 647
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void UpdateTransition__7tScreen(tScreen *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// unsigned int /*$ra*/ TransitionIsFinished__7tScreen(struct tScreen *this /*$a0*/)
+// void * /*$ra*/ TransitionIsFinished__7tScreen(struct tScreen *this /*$a0*/)
  // line 651, offset 0x800268c0
 	/* begin block 1 */
 		// Start line: 652
@@ -658,18 +680,18 @@ void UpdateTransition__7tScreen(tScreen *this)
 	// End offset: 0x800268C0
 	// End Line: 653
 
-uint TransitionIsFinished__7tScreen(tScreen *this)
+/* WARNING: Control flow encountered bad instruction data */
+
+void * TransitionIsFinished__7tScreen(tScreen *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -684,18 +706,19 @@ uint TransitionIsFinished__7tScreen(tScreen *this)
 	// End offset: 0x800268D8
 	// End Line: 664
 
-void ProcessInput__7tScreen7tPlayerR13tInputKeyTypeR12tMenuCommand( (tScreen *this,tPlayer fromPlayer,tInputKeyType *keyval,tMenuCommand *command)
+/* WARNING: Control flow encountered bad instruction data */
+
+void ProcessInput__7tScreen7tPlayerR13tInputKeyTypeR12tMenuCommand
+               (tScreen *this,tPlayer fromPlayer,tInputKeyType *keyval,tMenuCommand *command)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 

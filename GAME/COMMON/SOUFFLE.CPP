@@ -13,6 +13,7 @@
 	// End Line: 45
 
 void GetGustWind__FP17Souffle_tISouffle(Souffle_tISouffle *is)
+
 {
   uint uVar1;
   
@@ -23,10 +24,7 @@ void GetGustWind__FP17Souffle_tISouffle(Souffle_tISouffle *is)
   uVar1 = random();
   (is->motion).y = (uVar1 & 0x3ff) + 0x7ff;
   return;
-
-
 }
-
 
 
 
@@ -42,6 +40,7 @@ void GetGustWind__FP17Souffle_tISouffle(Souffle_tISouffle *is)
 	// End Line: 54
 
 void GetAngleWind__FP17Souffle_tISouffle(Souffle_tISouffle *is)
+
 {
   long lVar1;
   uint uVar2;
@@ -51,10 +50,7 @@ void GetAngleWind__FP17Souffle_tISouffle(Souffle_tISouffle *is)
   uVar2 = random();
   is->aspeed = (uVar2 & 0x7f) - 0x3f;
   return;
-
-
 }
-
 
 
 
@@ -70,6 +66,7 @@ void GetAngleWind__FP17Souffle_tISouffle(Souffle_tISouffle *is)
 	// End Line: 67
 
 void MoveAngleWind__FP17Souffle_tISouffle(Souffle_tISouffle *is)
+
 {
   int iVar1;
   
@@ -83,10 +80,7 @@ void MoveAngleWind__FP17Souffle_tISouffle(Souffle_tISouffle *is)
     is->aspeed = iVar1 + -1;
   }
   return;
-
-
 }
-
 
 
 
@@ -130,7 +124,10 @@ void MoveAngleWind__FP17Souffle_tISouffle(Souffle_tISouffle *is)
 	// End offset: 0x800B78D0
 	// End Line: 164
 
-Souffle_tISouffle * Souffle_Add__FP8coorddefiT0iii( (coorddef *soufflept,int type,coorddef *vec,int velVX,int ground,int colour)
+Souffle_tISouffle *
+Souffle_Add__FP8coorddefiT0iii
+          (coorddef *soufflept,int type,coorddef *vec,int velVX,int ground,int colour)
+
 {
   int iVar1;
   byte bVar2;
@@ -140,10 +137,10 @@ Souffle_tISouffle * Souffle_Add__FP8coorddefiT0iii( (coorddef *soufflept,int typ
   coorddef local_18;
   
   iVar3 = 0;
-  if (iGp00000f00 == 0x3c) {
+  if (DAT_00000f00 == 0x3c) {
     iVar1 = 1;
-    bVar2 = *(byte *)(iGp00000efc + 3);
-    iVar4 = iGp00000efc;
+    bVar2 = *(byte *)(DAT_00000efc + 3);
+    iVar4 = DAT_00000efc;
     do {
       if (*(byte *)(iVar4 + 0x47) < bVar2) {
         iVar3 = iVar1;
@@ -154,10 +151,10 @@ Souffle_tISouffle * Souffle_Add__FP8coorddefiT0iii( (coorddef *soufflept,int typ
     } while (iVar1 < 0x3c);
   }
   else {
-    iVar3 = iGp00000f00;
-    iGp00000f00 = iGp00000f00 + 1;
+    iVar3 = DAT_00000f00;
+    DAT_00000f00 = DAT_00000f00 + 1;
   }
-  is = (Souffle_tISouffle *)(iGp00000efc + iVar3 * 0x44);
+  is = (Souffle_tISouffle *)(DAT_00000efc + iVar3 * 0x44);
   iVar4 = soufflept->y;
   iVar1 = soufflept->z;
   (is->source).x = soufflept->x;
@@ -212,10 +209,7 @@ LAB_800b7894:
 LAB_800b78d0:
   Sfx_Add__FP17Souffle_tISouffle(is);
   return is;
-
-
 }
-
 
 
 
@@ -313,43 +307,46 @@ LAB_800b78d0:
 	// End offset: 0x800B7D6C
 	// End Line: 296
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Souffle_DoSouffle__Fv(void)
+
 {
   char cVar1;
-  undefined4 uVar2;
+  undefined *puVar2;
   undefined4 *puVar3;
   uint uVar4;
   int iVar5;
-  int iVar6;
-  undefined4 *puVar7;
+  undefined4 *puVar6;
+  undefined4 uVar7;
   undefined4 uVar8;
   undefined4 uVar9;
   Souffle_tISouffle *is;
   int iVar10;
   int iVar11;
-  int local_48;
+  uint local_48;
   int local_44;
-  int local_40;
+  uint local_40;
   int local_38;
   int local_34;
   int local_30;
   int local_28;
   int local_20;
   
-  if (iGp00000f04 < 0) {
-    iGp00000f04 = 0;
+  if (0 < simGlobal.gameTicks - DAT_00000f04) {
+    DAT_00000f04 = simGlobal.gameTicks;
     iVar10 = 0;
-    if (iGp00000f00 != 0) {
-      iGp00000f08 = iGp00000f08 + 2;
-      uVar2 = fastintcos();
-      local_48 = fixedmult(uVar2,0xccc);
-      uVar2 = fastintsin(iGp00000f08);
-      local_40 = fixedmult(uVar2,0xccc);
+    if (DAT_00000f00 != 0) {
+      DAT_00000f08 = DAT_00000f08 + 2;
+      puVar2 = fastintcos(DAT_00000f08);
+      local_48 = fixedmult((int)puVar2,0xccc);
+      puVar2 = fastintsin(DAT_00000f08);
+      local_40 = fixedmult((int)puVar2,0xccc);
       local_44 = 0;
     }
     iVar11 = 0;
-    while (iVar10 < iGp00000f00) {
-      is = (Souffle_tISouffle *)(iGp00000efc + iVar11);
+    while (iVar10 < DAT_00000f00) {
+      is = (Souffle_tISouffle *)(DAT_00000efc + iVar11);
       local_38 = (is->motion).x;
       local_34 = (is->motion).y;
       local_30 = (is->motion).z;
@@ -359,7 +356,7 @@ void Souffle_DoSouffle__Fv(void)
         local_30 = local_30 + local_40;
       }
       if (Replay_ReplayMode == 2) {
-        uVar4 = 2 - DAT_80117030;
+        uVar4 = 2 - Replay_ReplayInterface.speed;
         if (0 < (int)uVar4) {
           local_38 = local_38 >> (uVar4 & 0x1f);
           local_30 = local_30 >> (uVar4 & 0x1f);
@@ -401,9 +398,9 @@ void Souffle_DoSouffle__Fv(void)
       if (is->type == '\r') {
         local_28 = (is->extramotion).x;
         local_20 = (is->extramotion).z;
-        iVar5 = fastintsin(is->angle);
+        puVar2 = fastintsin(is->angle);
         if (Replay_ReplayMode == 2) {
-          uVar4 = 2 - DAT_80117030;
+          uVar4 = 2 - Replay_ReplayInterface.speed;
           if (0 < (int)uVar4) {
             local_28 = local_28 >> (uVar4 & 0x1f);
             local_20 = local_20 >> (uVar4 & 0x1f);
@@ -413,17 +410,17 @@ void Souffle_DoSouffle__Fv(void)
             local_20 = local_20 << 1;
           }
         }
-        (is->source).x = (is->source).x + (local_28 * iVar5 >> 0x11);
-        iVar6 = (is->extramotion).x;
-        (is->source).z = (is->source).z + (local_20 * iVar5 >> 0x11);
-        if (iVar6 < 0) {
-          (is->extramotion).x = iVar6 + 0x147;
-          if (0 < iVar6 + 0x147) {
+        (is->source).x = (is->source).x + (local_28 * (int)puVar2 >> 0x11);
+        iVar5 = (is->extramotion).x;
+        (is->source).z = (is->source).z + (local_20 * (int)puVar2 >> 0x11);
+        if (iVar5 < 0) {
+          (is->extramotion).x = iVar5 + 0x147;
+          if (0 < iVar5 + 0x147) {
             (is->extramotion).x = 0;
           }
         }
         else {
-          if ((0 < iVar6) && ((is->extramotion).x = iVar6 + -0x147, iVar6 + -0x147 < 0)) {
+          if ((0 < iVar5) && ((is->extramotion).x = iVar5 + -0x147, iVar5 + -0x147 < 0)) {
             (is->extramotion).x = 0;
           }
         }
@@ -456,39 +453,36 @@ void Souffle_DoSouffle__Fv(void)
       iVar10 = iVar10 + 1;
     }
     iVar10 = 0;
-    if (0 < iGp00000f00) {
+    if (0 < DAT_00000f00) {
       iVar11 = 0;
       do {
-        puVar7 = (undefined4 *)(iVar11 + iGp00000efc);
-        if (*(char *)puVar7 == '\0') {
-          iVar5 = iGp00000f00 * 0x44 + iGp00000efc;
+        puVar6 = (undefined4 *)(iVar11 + DAT_00000efc);
+        if (*(char *)puVar6 == '\0') {
+          iVar5 = DAT_00000f00 * 0x44 + DAT_00000efc;
           puVar3 = (undefined4 *)(iVar5 + -0x44);
           do {
             uVar8 = puVar3[1];
             uVar9 = puVar3[2];
-            uVar2 = puVar3[3];
-            *puVar7 = *puVar3;
-            puVar7[1] = uVar8;
-            puVar7[2] = uVar9;
-            puVar7[3] = uVar2;
+            uVar7 = puVar3[3];
+            *puVar6 = *puVar3;
+            puVar6[1] = uVar8;
+            puVar6[2] = uVar9;
+            puVar6[3] = uVar7;
             puVar3 = puVar3 + 4;
-            puVar7 = puVar7 + 4;
+            puVar6 = puVar6 + 4;
           } while (puVar3 != (undefined4 *)(iVar5 + -4));
           iVar11 = iVar11 + -0x44;
           iVar10 = iVar10 + -1;
-          *puVar7 = *puVar3;
-          iGp00000f00 = iGp00000f00 + -1;
+          *puVar6 = *puVar3;
+          DAT_00000f00 = DAT_00000f00 + -1;
         }
         iVar10 = iVar10 + 1;
         iVar11 = iVar11 + 0x44;
-      } while (iVar10 < iGp00000f00);
+      } while (iVar10 < DAT_00000f00);
     }
   }
   return;
-
-
 }
-
 
 
 
@@ -516,6 +510,7 @@ void Souffle_DoSouffle__Fv(void)
 	// End Line: 315
 
 int Souffle_CircleClip__FP8coorddefT0i(coorddef *pt1,coorddef *pt2,int r)
+
 {
   int iVar1;
   int iVar2;
@@ -535,10 +530,7 @@ int Souffle_CircleClip__FP8coorddefT0i(coorddef *pt1,coorddef *pt2,int r)
     iVar2 = iVar1 + (iVar2 >> 2);
   }
   return (uint)(iVar2 < r);
-
-
 }
-
 
 
 
@@ -572,6 +564,7 @@ int Souffle_CircleClip__FP8coorddefT0i(coorddef *pt1,coorddef *pt2,int r)
 	// End Line: 349
 
 void Souffle_InsertFacet__FP13DRender_tView(DRender_tView *Vi)
+
 {
   int iVar1;
   Souffle_tISouffle *is;
@@ -581,11 +574,12 @@ void Souffle_InsertFacet__FP13DRender_tView(DRender_tView *Vi)
   iVar3 = 0;
   iVar2 = 0;
   do {
-    if (iGp00000f00 <= iVar3) {
+    if (DAT_00000f00 <= iVar3) {
       return;
     }
-    is = (Souffle_tISouffle *)(iGp00000efc + iVar2);
-    iVar1 = Souffle_CircleClip__FP8coorddefT0i(&is->source,(coorddef *)&Vi->cview,0x320000);
+    is = (Souffle_tISouffle *)(DAT_00000efc + iVar2);
+    iVar1 = Souffle_CircleClip__FP8coorddefT0i
+                      (&is->source,(coorddef *)&Vi->cview,(int)&DAT_00320000);
     if (iVar1 != 0) {
       if (is->type != '\n') {
         Sfx_Transform__FP8coorddefP7SVECTORT0(&is->source,&is->trans,(coorddef *)&Vi->cview);
@@ -601,10 +595,7 @@ LAB_800b7ea4:
     iVar2 = iVar2 + 0x44;
     iVar3 = iVar3 + 1;
   } while( true );
-
-
 }
-
 
 
 
@@ -619,17 +610,17 @@ LAB_800b7ea4:
 	// End offset: 0x800B7ED4
 	// End Line: 360
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Souffle_InitTrackSouffle__Fv(void)
+
 {
-  uGp00000f08 = 0;
-  uGp00000f00 = 0;
-  uGp00000f04 = 0;
-  uGp00000efc = reservememadr("souffle",0xff0,0);
+  DAT_00000f08 = 0;
+  DAT_00000f00 = 0;
+  DAT_00000f04 = simGlobal.gameTicks;
+  DAT_00000efc = reservememadr(s_souffle_8013d440,0xff0,0);
   return;
-
-
 }
-
 
 
 
@@ -644,16 +635,16 @@ void Souffle_InitTrackSouffle__Fv(void)
 	// End offset: 0x800B7F14
 	// End Line: 379
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Souffle_RestartTrackSouffle__Fv(void)
+
 {
-  uGp00000f00 = 0;
-  uGp00000f04 = 0;
-  uGp00000f08 = 0;
+  DAT_00000f00 = 0;
+  DAT_00000f04 = simGlobal.gameTicks;
+  DAT_00000f08 = 0;
   return;
-
-
 }
-
 
 
 
@@ -668,17 +659,17 @@ void Souffle_RestartTrackSouffle__Fv(void)
 	// End offset: 0x800B7F48
 	// End Line: 389
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Souffle_KillTrackSouffle__Fv(void)
+
 {
-  if (iGp00000efc != 0) {
-    purgememadr();
+  if (DAT_00000efc != 0) {
+    purgememadr(DAT_00000efc);
   }
-  iGp00000efc = 0;
+  DAT_00000efc = 0;
   return;
-
-
 }
-
 
 
 

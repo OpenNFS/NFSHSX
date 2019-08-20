@@ -12,18 +12,20 @@
 	// End offset: 0x800421F8
 	// End Line: 47
 
-void GetShapeInfo__16tScreenTrackInfoRsT1PPcT3( (tScreenTrackInfo *this,short *numPermShapes,short *numSwapShapes,char **permFileName ,char **swapFileName)
+/* WARNING: Control flow encountered bad instruction data */
+
+void GetShapeInfo__16tScreenTrackInfoRsT1PPcT3
+               (tScreenTrackInfo *this,short *numPermShapes,short *numSwapShapes,char **permFileName
+               ,char **swapFileName)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -70,18 +72,18 @@ void GetShapeInfo__16tScreenTrackInfoRsT1PPcT3( (tScreenTrackInfo *this,short *n
 	// End offset: 0x800423C8
 	// End Line: 78
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void DrawBackground__16tScreenTrackInfo(tScreenTrackInfo *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -96,18 +98,18 @@ void DrawBackground__16tScreenTrackInfo(tScreenTrackInfo *this)
 	// End offset: 0x80042520
 	// End Line: 98
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void Initialize__16tScreenTrackInfo(tScreenTrackInfo *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -192,18 +194,20 @@ void Initialize__16tScreenTrackInfo(tScreenTrackInfo *this)
 	// End offset: 0x80042618
 	// End Line: 119
 
-void ProcessInput__16tScreenTrackInfo7tPlayerR13tInputKeyTypeR12tMenuCommand( (tScreenTrackInfo *this,tPlayer fromPlayer,tInputKeyType *keyval, tMenuCommand *command)
+/* WARNING: Control flow encountered bad instruction data */
+
+void ProcessInput__16tScreenTrackInfo7tPlayerR13tInputKeyTypeR12tMenuCommand
+               (tScreenTrackInfo *this,tPlayer fromPlayer,tInputKeyType *keyval,
+               tMenuCommand *command)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 

@@ -13,12 +13,10 @@
 	// End Line: 114
 
 void AudioClc_SndError__Fi(int shandle)
+
 {
   return;
-
-
 }
-
 
 
 
@@ -37,37 +35,35 @@ void AudioClc_SndError__Fi(int shandle)
 	// End Line: 242
 
 void AudioClc_SetHorn__FP8Car_tObji(Car_tObj *car,int state)
+
 {
-  undefined4 *puVar1;
-  Car_tObj **ppCVar2;
+  int *piVar1;
+  AudioClc_tSource *pAVar2;
   int iVar3;
   
   iVar3 = 0;
-  ppCVar2 = (Car_tObj **)&AudioClc_gClosest;
-  puVar1 = &DAT_8010e374;
+  pAVar2 = &AudioClc_gClosest;
+  piVar1 = &AudioClc_gClosest.hornCount;
   do {
-    if (*ppCVar2 == car) {
+    if (pAVar2->car == car) {
       if (state == 0) {
-        if (puVar1[-3] != 0) {
-          puVar1[-3] = 1;
-          puVar1[-2] = 1;
-          *puVar1 = 1;
+        if (piVar1[-3] != 0) {
+          piVar1[-3] = 1;
+          piVar1[-2] = 1;
+          *piVar1 = 1;
         }
       }
       else {
-        puVar1[-3] = 1;
-        puVar1[-2] = 0;
+        piVar1[-3] = 1;
+        piVar1[-2] = 0;
       }
     }
     iVar3 = iVar3 + 1;
-    puVar1 = puVar1 + 0xe;
-    ppCVar2 = ppCVar2 + 0xe;
+    piVar1 = piVar1 + 0xe;
+    pAVar2 = pAVar2 + 1;
   } while (iVar3 < 4);
   return;
-
-
 }
-
 
 
 
@@ -86,16 +82,17 @@ void AudioClc_SetHorn__FP8Car_tObji(Car_tObj *car,int state)
 	// End Line: 273
 
 void AudioClc_HonkHorn__FP8Car_tObjiii(Car_tObj *car,int numBeeps,int ticksOn,int ticksOff)
+
 {
   int *piVar1;
-  Car_tObj **ppCVar2;
+  AudioClc_tSource *pAVar2;
   int iVar3;
   
   iVar3 = 0;
-  ppCVar2 = (Car_tObj **)&AudioClc_gClosest;
-  piVar1 = &DAT_8010e374;
+  pAVar2 = &AudioClc_gClosest;
+  piVar1 = &AudioClc_gClosest.hornCount;
   do {
-    if ((*ppCVar2 == car) && (piVar1[-3] == 0)) {
+    if ((pAVar2->car == car) && (piVar1[-3] == 0)) {
       piVar1[-3] = ticksOn;
       piVar1[-2] = ticksOn;
       piVar1[-1] = -ticksOff;
@@ -103,13 +100,10 @@ void AudioClc_HonkHorn__FP8Car_tObjiii(Car_tObj *car,int numBeeps,int ticksOn,in
     }
     iVar3 = iVar3 + 1;
     piVar1 = piVar1 + 0xe;
-    ppCVar2 = ppCVar2 + 0xe;
+    pAVar2 = pAVar2 + 1;
   } while (iVar3 < 4);
   return;
-
-
 }
-
 
 
 
@@ -125,6 +119,7 @@ void AudioClc_HonkHorn__FP8Car_tObjiii(Car_tObj *car,int numBeeps,int ticksOn,in
 	// End Line: 281
 
 void AudioClc_InitSource__FP16AudioClc_tSourceP8Car_tObj(AudioClc_tSource *s,Car_tObj *car)
+
 {
   s->distToCamera = -1;
   s->dopplerShift = -1;
@@ -136,10 +131,7 @@ void AudioClc_InitSource__FP16AudioClc_tSourceP8Car_tObj(AudioClc_tSource *s,Car
   s->pursuit = 0;
   s->yelled = 0;
   return;
-
-
 }
-
 
 
 
@@ -158,58 +150,61 @@ void AudioClc_InitSource__FP16AudioClc_tSourceP8Car_tObj(AudioClc_tSource *s,Car
 	// End offset: 0x80074968
 	// End Line: 337
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void AudioClc_StartUp__Fv(void)
+
 {
-  int iVar1;
+  AudioClc_tPlayer *pAVar1;
+  int iVar2;
   AudioClc_tSource *s;
-  undefined4 *puVar2;
-  Car_tObj **ppCVar3;
+  AudioClc_tPlayer *pAVar3;
+  Car_tObj **ppCVar4;
   AudioClc_tSource *s_00;
   
-  puVar2 = &AudioClc_gPlayer;
-  s_00 = (AudioClc_tSource *)&AudioClc_gClosest;
-  iVar1 = 0;
-  s = (AudioClc_tSource *)&DAT_8010e2c0;
-  ppCVar3 = (Car_tObj **)&_Cars_gHumanRaceCarList;
-  uGp000000c0 = 0;
-  uGp000000c4 = 0;
-  uGp000000c8 = 0;
-  uGp000000cc = 0xffffffff;
-  uGp000000d0 = 0xffffffff;
-  uGp000000d4 = 0xffffffff;
-  uGp000000d8 = 0xffffffff;
+  pAVar3 = &AudioClc_gPlayer;
+  s_00 = &AudioClc_gClosest;
+  iVar2 = 0;
+  pAVar1 = &AudioClc_gPlayer;
+  ppCVar4 = &__Cars_gHumanRaceCarList_9__;
+                    /* WARNING: Read-only address (ram,0x000000c0) is written */
+  uRam000000c0 = 0;
+  DAT_000000c4 = 0;
+  DAT_000000c8 = 0;
+  DAT_000000cc = 0xffffffff;
+  DAT_000000d0 = 0xffffffff;
+  DAT_000000d4 = 0xffffffff;
+  DAT_000000d8 = 0xffffffff;
   do {
-    *puVar2 = 0xffffffff;
+    s = &pAVar1->source;
+    pAVar3->cameraMode = -1;
     s->relVelocity = 0;
     s->gameTicks = 0;
     AudioClc_InitSource__FP16AudioClc_tSourceP8Car_tObj(s,(Car_tObj *)0x0);
-    if (DAT_801131f8 < 2) {
-      if (iVar1 < Cars_gNumHumanRaceCars) {
-        s->car = *ppCVar3;
+    if (GameSetup_gData.commMode < 2) {
+      if (iVar2 < Cars_gNumHumanRaceCars) {
+        s->car = *ppCVar4;
       }
     }
     else {
-      if ((iVar1 == 0) && (DAT_80113208 < Cars_gNumHumanRaceCars)) {
-        s->car = (Car_tObj *)(&_Cars_gHumanRaceCarList)[DAT_80113208];
+      if ((iVar2 == 0) && (GameSetup_gData.localCar < Cars_gNumHumanRaceCars)) {
+        s->car = (&__Cars_gHumanRaceCarList_9__)[GameSetup_gData.localCar];
       }
     }
-    ppCVar3 = ppCVar3 + 1;
-    iVar1 = iVar1 + 1;
-    s = (AudioClc_tSource *)&s[1].frequency;
-    puVar2 = puVar2 + 0x14;
-  } while (iVar1 < 2);
-  iVar1 = 0;
+    ppCVar4 = ppCVar4 + 1;
+    iVar2 = iVar2 + 1;
+    pAVar1 = (AudioClc_tPlayer *)(s + 1);
+    pAVar3 = pAVar3 + 1;
+  } while (iVar2 < 2);
+  iVar2 = 0;
   do {
     AudioClc_InitSource__FP16AudioClc_tSourceP8Car_tObj(s_00,(Car_tObj *)0x0);
-    iVar1 = iVar1 + 1;
+    iVar2 = iVar2 + 1;
     s_00 = s_00 + 1;
-  } while (iVar1 < 4);
-  uGp000000bc = 0;
+  } while (iVar2 < 4);
+  DAT_000000bc = 0;
   return;
-
-
 }
-
 
 
 
@@ -230,6 +225,7 @@ void AudioClc_StartUp__Fv(void)
 	// End Line: 367
 
 int AudioClc_CalcDopplerShiftRatio__FP8coorddefT0(coorddef *objectPos,coorddef *objectVel)
+
 {
   int *piVar1;
   int iVar2;
@@ -241,10 +237,10 @@ int AudioClc_CalcDopplerShiftRatio__FP8coorddefT0(coorddef *objectPos,coorddef *
   int iVar8;
   coorddef local_20;
   
-  piVar1 = piGp000000bc;
-  local_20.x = objectPos->x >> 8;
-  local_20.y = objectPos->y >> 8;
-  local_20.z = objectPos->z >> 8;
+  piVar1 = DAT_000000bc;
+  local_20.x = objectPos->x - AudioClc_gRenderView.translation.x >> 8;
+  local_20.y = objectPos->y - AudioClc_gRenderView.translation.y >> 8;
+  local_20.z = objectPos->z - AudioClc_gRenderView.translation.z >> 8;
   Math_NormalizeVector__FP8coorddef(&local_20);
   iVar8 = 0;
   if (objectVel != (coorddef *)0x0) {
@@ -304,10 +300,7 @@ int AudioClc_CalcDopplerShiftRatio__FP8coorddefT0(coorddef *objectPos,coorddef *
   }
   iVar8 = fixeddiv(0x1540000,iVar8 + 0x1540000);
   return iVar8;
-
-
 }
-
 
 
 
@@ -329,6 +322,7 @@ int AudioClc_CalcDopplerShiftRatio__FP8coorddefT0(coorddef *objectPos,coorddef *
 	// End Line: 387
 
 int AudioClc_CalcDistance__FP17DRender_tCalcViewP8coorddef(DRender_tCalcView *view,coorddef *object)
+
 {
   int iVar1;
   int iVar2;
@@ -356,10 +350,7 @@ int AudioClc_CalcDistance__FP17DRender_tCalcViewP8coorddef(DRender_tCalcView *vi
     return iVar2 + (iVar3 >> 2);
   }
   return iVar3 + (iVar2 >> 2);
-
-
 }
-
 
 
 
@@ -379,6 +370,7 @@ int AudioClc_CalcDistance__FP17DRender_tCalcViewP8coorddef(DRender_tCalcView *vi
 	// End Line: 408
 
 int AudioClc_CalcAzimuth__FP17DRender_tCalcViewP8coorddef(DRender_tCalcView *view,coorddef *object)
+
 {
   int iVar1;
   int iVar2;
@@ -389,23 +381,19 @@ int AudioClc_CalcAzimuth__FP17DRender_tCalcViewP8coorddef(DRender_tCalcView *vie
   int iVar7;
   int iVar8;
   int iVar9;
-  int iVar10;
-  int iVar11;
   
-  iVar10 = object->x - (view->translation).x;
-  iVar11 = object->y - (view->translation).y;
+  iVar8 = object->x - (view->translation).x;
+  iVar9 = object->y - (view->translation).y;
   iVar6 = object->z - (view->translation).z;
-  iVar8 = iVar10;
-  if (iVar10 < 0) {
-    iVar8 = iVar10 + 0xff;
+  if (iVar8 < 0) {
+    iVar8 = iVar8 + 0xff;
   }
   iVar1 = (view->mrotation).m[0];
   if (iVar1 < 0) {
     iVar1 = iVar1 + 0xff;
   }
-  iVar9 = iVar11;
-  if (iVar11 < 0) {
-    iVar9 = iVar11 + 0xff;
+  if (iVar9 < 0) {
+    iVar9 = iVar9 + 0xff;
   }
   iVar2 = (view->mrotation).m[1];
   if (iVar2 < 0) {
@@ -435,17 +423,14 @@ int AudioClc_CalcAzimuth__FP17DRender_tCalcViewP8coorddef(DRender_tCalcView *vie
   if (iVar7 < 0) {
     iVar7 = iVar7 + 0xff;
   }
-  if (false) {
+  if (GameSetup_gData.mirrorTrack != 0) {
     iVar1 = -iVar1;
   }
   uVar5 = intatan(iVar1 >> 8,
                   (iVar8 >> 8) * (iVar4 >> 8) + (iVar9 >> 8) * (iVar2 >> 8) +
-                  (iVar6 >> 8) * (iVar7 >> 8) >> 8,iVar6 >> 8,iVar11,iVar10,iVar11);
+                  (iVar6 >> 8) * (iVar7 >> 8) >> 8);
   return (uVar5 & 0x3ff) << 6;
-
-
 }
-
 
 
 
@@ -462,7 +447,9 @@ int AudioClc_CalcAzimuth__FP17DRender_tCalcViewP8coorddef(DRender_tCalcView *vie
 	// End offset: 0x80074E0C
 	// End Line: 422
 
-int AudioClc_CalcCarDirection__FP17DRender_tCalcViewP8Car_tObj( (DRender_tCalcView *view,Car_tObj *car)
+int AudioClc_CalcCarDirection__FP17DRender_tCalcViewP8Car_tObj
+              (DRender_tCalcView *view,Car_tObj *car)
+
 {
   int iVar1;
   int iVar2;
@@ -496,10 +483,7 @@ int AudioClc_CalcCarDirection__FP17DRender_tCalcViewP8Car_tObj( (DRender_tCalcVi
     iVar3 = iVar3 + 0xff;
   }
   return (iVar4 >> 8) * (iVar1 >> 8) + (iVar6 >> 8) * (iVar2 >> 8) + (iVar5 >> 8) * (iVar3 >> 8);
-
-
 }
-
 
 
 
@@ -517,7 +501,9 @@ int AudioClc_CalcCarDirection__FP17DRender_tCalcViewP8Car_tObj( (DRender_tCalcVi
 	// End offset: 0x80074F3C
 	// End Line: 440
 
-int AudioClc_CalcTrackAzimuth__FP17DRender_tCalcViewP8Car_tObj( (DRender_tCalcView *view,Car_tObj *car)
+int AudioClc_CalcTrackAzimuth__FP17DRender_tCalcViewP8Car_tObj
+              (DRender_tCalcView *view,Car_tObj *car)
+
 {
   int iVar1;
   int iVar2;
@@ -565,17 +551,14 @@ int AudioClc_CalcTrackAzimuth__FP17DRender_tCalcViewP8Car_tObj( (DRender_tCalcVi
   if (iVar3 < 0) {
     iVar3 = iVar3 + 0xff;
   }
-  if (false) {
+  if (GameSetup_gData.mirrorTrack != 0) {
     iVar1 = -iVar1;
   }
   uVar5 = intatan(iVar1 >> 8,
                   (iVar8 >> 8) * (iVar4 >> 8) + (iVar7 >> 8) * (iVar2 >> 8) +
                   (iVar6 >> 8) * (iVar3 >> 8) >> 8);
   return (uVar5 & 0x3ff) << 6;
-
-
 }
-
 
 
 
@@ -597,23 +580,21 @@ int AudioClc_CalcTrackAzimuth__FP17DRender_tCalcViewP8Car_tObj( (DRender_tCalcVi
 	// End Line: 516
 
 void AudioClc_SoundOpponentHorn__Fiiii(int closestIndex,int azimuth,int dop,int dsquare)
+
 {
   int iSFXnum;
+  int iVar1;
   
+  iVar1 = ((&AudioClc_gClosest)[closestIndex].car)->carInfo->carType;
   iSFXnum = 10;
-  if (**(int **)((&AudioClc_gClosest)[closestIndex * 0xe] + 0x288) == 0x30) {
+  if (iVar1 == 0x30) {
     iSFXnum = 0xb;
   }
   AudioCmn_PlaySFX__Fiiiiii
-            (closestIndex + 0x25,iSFXnum,
-             (uint)(byte)(&DAT_8010e274)
-                         [**(int **)((&AudioClc_gClosest)[closestIndex * 0xe] + 0x288)],dop,
-             ((0x1324 - dsquare) * 0x7f) / 0x1324,azimuth);
+            (closestIndex + 0x25,iSFXnum,(uint)(byte)(&DAT_8010e274)[iVar1],dop,
+             ((int)((int)&DAT_00001324 - dsquare) * 0x7f) / 0x1324,azimuth);
   return;
-
-
 }
-
 
 
 
@@ -629,13 +610,11 @@ void AudioClc_SoundOpponentHorn__Fiiii(int closestIndex,int azimuth,int dop,int 
 	// End Line: 524
 
 void AudioClc_SilenceOpponentHorn__Fi(int closestIndex)
+
 {
   freeVoiceChannel__Fi(closestIndex + 0x25);
   return;
-
-
 }
-
 
 
 
@@ -699,24 +678,26 @@ void AudioClc_SilenceOpponentHorn__Fi(int closestIndex)
 	// End Line: 670
 
 void AudioClc_SoundCloseCar__Fii(int playerIndex,int closestIndex)
+
 {
   int doppler;
-  int dst;
+  uint dst;
+  uint uVar1;
   int dir;
-  int dsquare;
-  int local_38;
-  int relvel;
-  undefined4 uVar1;
-  s_type surface1;
+  int sndPlayer;
   int force;
+  int relvel;
+  s_type surface1;
   s_type surface2;
   coorddef *objectPos;
   int *piVar2;
   Car_tObj *car;
   int azimuth;
-  int iVar3;
+  undefined4 *dsquare;
+  undefined4 *puVar3;
+  undefined4 *local_38;
   
-  car = (Car_tObj *)(&AudioClc_gClosest)[closestIndex * 0xe];
+  car = (&AudioClc_gClosest)[closestIndex].car;
   objectPos = &(car->N).position;
   if (car == (Car_tObj *)0x0) {
     return;
@@ -725,33 +706,28 @@ void AudioClc_SoundCloseCar__Fii(int playerIndex,int closestIndex)
   if (doppler < 0) {
     return;
   }
-  dst = AudioClc_CalcDistance__FP17DRender_tCalcViewP8coorddef
-                  ((DRender_tCalcView *)&AudioClc_gRenderView,objectPos);
-  dir = AudioClc_CalcCarDirection__FP17DRender_tCalcViewP8Car_tObj
-                  ((DRender_tCalcView *)&AudioClc_gRenderView,car);
-  dir = fixeddiv(dir,dst);
+  dst = AudioClc_CalcDistance__FP17DRender_tCalcViewP8coorddef(&AudioClc_gRenderView,objectPos);
+  uVar1 = AudioClc_CalcCarDirection__FP17DRender_tCalcViewP8Car_tObj(&AudioClc_gRenderView,car);
+  dir = fixeddiv(uVar1,dst);
   if (dir < 0x10001) {
-    dir = AudioClc_CalcCarDirection__FP17DRender_tCalcViewP8Car_tObj
-                    ((DRender_tCalcView *)&AudioClc_gRenderView,car);
-    dir = fixeddiv(dir,dst);
+    uVar1 = AudioClc_CalcCarDirection__FP17DRender_tCalcViewP8Car_tObj(&AudioClc_gRenderView,car);
+    dir = fixeddiv(uVar1,dst);
     if (-0x10001 < dir) goto LAB_800750fc;
     dir = -0x10000;
   }
   else {
 LAB_800750fc:
-    dir = AudioClc_CalcCarDirection__FP17DRender_tCalcViewP8Car_tObj
-                    ((DRender_tCalcView *)&AudioClc_gRenderView,car);
-    dir = fixeddiv(dir,dst);
+    uVar1 = AudioClc_CalcCarDirection__FP17DRender_tCalcViewP8Car_tObj(&AudioClc_gRenderView,car);
+    dir = fixeddiv(uVar1,dst);
     if (dir < 0x10001) {
-      dir = AudioClc_CalcCarDirection__FP17DRender_tCalcViewP8Car_tObj
-                      ((DRender_tCalcView *)&AudioClc_gRenderView,car);
-      dir = fixeddiv(dir,dst);
+      uVar1 = AudioClc_CalcCarDirection__FP17DRender_tCalcViewP8Car_tObj(&AudioClc_gRenderView,car);
+      dir = fixeddiv(uVar1,dst);
     }
     else {
       dir = 0x10000;
     }
   }
-  if (DAT_801131f8 == 1) {
+  if (GameSetup_gData.commMode == 1) {
     azimuth = 0x3fff;
     if (playerIndex == 0) {
       azimuth = 0xc000;
@@ -759,37 +735,39 @@ LAB_800750fc:
   }
   else {
     azimuth = AudioClc_CalcAzimuth__FP17DRender_tCalcViewP8coorddef
-                        ((DRender_tCalcView *)&AudioClc_gRenderView,&(car->N).position);
+                        (&AudioClc_gRenderView,&(car->N).position);
   }
-  dsquare = dst;
-  if (dst < 0) {
-    dsquare = dst + 0xffff;
+  uVar1 = dst;
+  if ((int)dst < 0) {
+    uVar1 = dst + 0xffff;
   }
-  iVar3 = (dsquare >> 0x10) * (dsquare >> 0x10);
-  dsquare = 0x1324;
-  if (iVar3 < 0x1324) {
-    dsquare = iVar3;
+  puVar3 = (undefined4 *)(((int)uVar1 >> 0x10) * ((int)uVar1 >> 0x10));
+  dsquare = &DAT_00001324;
+  if ((int)puVar3 < 0x1324) {
+    dsquare = puVar3;
   }
-  if (iGp000000bc == 0) {
-    local_38 = car->carInLane;
-    if (local_38 < 0) {
-      local_38 = -local_38;
+  if (DAT_000000bc == 0) {
+    sndPlayer = (car->script).lastActionTime;
+    if (sndPlayer < 0) {
+      sndPlayer = -sndPlayer;
     }
   }
   else {
-    local_38 = car->carInLane - *(int *)((&DAT_8010e2c0)[playerIndex * 0x14] + 0x564);
-    if (local_38 < 1) {
-      local_38 = *(int *)((&DAT_8010e2c0)[playerIndex * 0x14] + 0x564) - car->carInLane;
+    relvel = (car->script).lastActionTime;
+    force = (((&AudioClc_gPlayer)[playerIndex].source.car)->script).lastActionTime;
+    sndPlayer = relvel - force;
+    if (sndPlayer < 1) {
+      sndPlayer = force - relvel;
     }
   }
-  *(int *)(&DAT_8010e354 + closestIndex * 0x38) = local_38;
-  *(int *)(&DAT_8010e35c + closestIndex * 0x38) = dsquare;
-  local_38 = car->specs->redline;
+  (&AudioClc_gClosest)[closestIndex].relVelocity = sndPlayer;
+  *(undefined4 **)&(&AudioClc_gClosest)[closestIndex].distSq = dsquare;
+  sndPlayer = car->specs->redline;
   force = car->flywheelRpm << 0x10;
-  if (local_38 == 0) {
+  if (sndPlayer == 0) {
     trap(0x1c00);
   }
-  if ((local_38 == -1) && (force == -0x80000000)) {
+  if ((sndPlayer == -1) && (force == -0x80000000)) {
     trap(0x1800);
   }
   relvel = (car->linearVel_ch).z;
@@ -797,91 +775,89 @@ LAB_800750fc:
     relvel = -relvel;
   }
   AudioCmn_TrafficSFX__Fiiiiiiii
-            (closestIndex + 6,car->carInfo->carType,force / local_38,doppler,dst,azimuth,relvel,dir)
-  ;
-  dst = car->topSpeedUpgradeMult + -1;
-  if (-1 < dst) {
-    piVar2 = &(car->N).objID + dst * 6;
+            (closestIndex + 6,car->carInfo->carType,force / sndPlayer,doppler,dst,azimuth,relvel,dir
+            );
+  dir = car->gripFactor + -1;
+  if (-1 < dir) {
+    piVar2 = &(car->N).objID + dir * 6;
     do {
-      dir = closestIndex + 0x20;
+      sndPlayer = closestIndex + 0x20;
       if (piVar2[0x1e7] < 0) {
         surface1 = piVar2[0x1e8];
         surface2 = piVar2[0x1e9];
         force = piVar2[0x1ea];
-        dir = -1;
+        sndPlayer = -1;
         local_38 = dsquare;
       }
       else {
         surface1 = piVar2[0x1e8];
         surface2 = piVar2[0x1e9];
         force = piVar2[0x1ea];
-        local_38 = iVar3;
+        local_38 = puVar3;
       }
-      piVar2 = piVar2 + 0x22c;
-      AudioCmn_TrafficSkidSFX__Fi6s_typeT1iii(dir,surface1,surface2,force,local_38,azimuth);
-      dst = dst + -1;
-    } while (-1 < dst);
+      piVar2 = piVar2 + 0x3e;
+      AudioCmn_TrafficSkidSFX__Fi6s_typeT1iii
+                (sndPlayer,surface1,surface2,force,(int)local_38,azimuth);
+      dir = dir + -1;
+    } while (-1 < dir);
   }
   if ((car->carFlags & 4U) == 0) {
-    dst = (&DAT_8010e368)[closestIndex * 0xe];
-    if (0 < dst) {
-      if (0 < (int)(&DAT_8010e36c)[closestIndex * 0xe]) {
-        (&DAT_8010e368)[closestIndex * 0xe] = dst + -1;
+    dir = (&AudioClc_gClosest)[closestIndex].horn;
+    if (0 < dir) {
+      if (0 < (&AudioClc_gClosest)[closestIndex].hornOn) {
+        (&AudioClc_gClosest)[closestIndex].horn = dir + -1;
       }
-      if ((&DAT_8010e368)[closestIndex * 0xe] == 0) {
+      if ((&AudioClc_gClosest)[closestIndex].horn == 0) {
         (car->control).horn = '\0';
         AudioClc_SilenceOpponentHorn__Fi(closestIndex);
-        dst = (&DAT_8010e374)[closestIndex * 0xe];
-        (&DAT_8010e374)[closestIndex * 0xe] = dst + -1;
-        if (dst + -1 != 0) {
-          (&DAT_8010e368)[closestIndex * 0xe] = (&DAT_8010e370)[closestIndex * 0xe];
+        dir = (&AudioClc_gClosest)[closestIndex].hornCount + -1;
+        (&AudioClc_gClosest)[closestIndex].hornCount = dir;
+        if (dir != 0) {
+          (&AudioClc_gClosest)[closestIndex].horn = (&AudioClc_gClosest)[closestIndex].hornOff;
         }
       }
       else {
         (car->control).horn = '\x01';
-        AudioClc_SoundOpponentHorn__Fiiii(closestIndex,azimuth,doppler,dsquare);
+        AudioClc_SoundOpponentHorn__Fiiii(closestIndex,azimuth,doppler,(int)dsquare);
       }
       goto LAB_800753f8;
     }
-    if ((-1 < dst) || ((&DAT_8010e368)[closestIndex * 0xe] = dst + 1, dst + 1 != 0))
+    if ((-1 < dir) || ((&AudioClc_gClosest)[closestIndex].horn = dir + 1, dir + 1 != 0))
     goto LAB_800753f8;
-    uVar1 = (&DAT_8010e36c)[closestIndex * 0xe];
+    dir = (&AudioClc_gClosest)[closestIndex].hornOn;
   }
   else {
     if ((car->control).horn == '\0') {
-      if ((&DAT_8010e368)[closestIndex * 0xe] != 0) {
+      if ((&AudioClc_gClosest)[closestIndex].horn != 0) {
         AudioClc_SilenceOpponentHorn__Fi(closestIndex);
-        (&DAT_8010e368)[closestIndex * 0xe] = 0;
+        (&AudioClc_gClosest)[closestIndex].horn = 0;
       }
       goto LAB_800753f8;
     }
-    AudioClc_SoundOpponentHorn__Fiiii(closestIndex,azimuth,doppler,dsquare);
-    uVar1 = 1;
+    AudioClc_SoundOpponentHorn__Fiiii(closestIndex,azimuth,doppler,(int)dsquare);
+    dir = 1;
   }
-  (&DAT_8010e368)[closestIndex * 0xe] = uVar1;
+  (&AudioClc_gClosest)[closestIndex].horn = dir;
 LAB_800753f8:
   if (car->carInfo->carType - 0x16U < 6) {
-    if ((car->desiredLatPos & 2U) == 0) {
-      if (*(int *)(&bSirenOn + closestIndex * 4) != 0) {
+    if (((car->speechInfo).speechSource & 2) == 0) {
+      if ((&bSirenOn)[closestIndex] != 0) {
         SirenOff__Fi(closestIndex);
         freeVoiceChannel__Fi(closestIndex + 0x2b);
       }
     }
     else {
-      if (*(int *)(&bSirenOn + closestIndex * 4) == 0) {
+      if ((&bSirenOn)[closestIndex] == 0) {
         SirenOn__Fii(closestIndex,car->carFlags & 0x40);
       }
       else {
-        UpdateSiren__Fiiiii(closestIndex,((0x1324 - dsquare) * 0x7f) / 0x1324,doppler,azimuth,
-                            car->carFlags & 0x40);
+        UpdateSiren__Fiiiii(closestIndex,((int)((int)&DAT_00001324 - (int)dsquare) * 0x7f) / 0x1324,
+                            doppler,azimuth,car->carFlags & 0x40);
       }
     }
   }
   return;
-
-
 }
-
 
 
 
@@ -958,107 +934,105 @@ LAB_800753f8:
 	// End Line: 874
 
 void AudioClc_SoundPlayersCar__Fi(int playerIndex)
+
 {
   int iVar1;
-  int dst;
+  uint uVar2;
+  uint uVar3;
   int Distsq;
   int trkazi;
-  int sirennum;
-  uint uVar2;
+  uint dst;
   int local_3c;
   coorddef *objectPos;
+  undefined4 *sndPlayer;
   int doppler;
-  int *piVar3;
+  int *piVar4;
   Car_tObj *car;
   int cardir;
   int azimuth;
   
-  sirennum = playerIndex * 0x50;
-  car = (Car_tObj *)(&DAT_8010e2c0)[playerIndex * 0x14];
+  car = (&AudioClc_gPlayer)[playerIndex].source.car;
   if (car == (Car_tObj *)0x0) {
     return;
   }
   doppler = 0;
   if ((car->carFlags & 0x200U) == 0) {
-    azimuth = fixedmult((car->N).orientMat.m[6],
-                        (int)*(char *)((int)(car->N).simRoadInfo.slice * 0x20 + 0xf));
-    dst = fixedmult((car->N).orientMat.m[7],
-                    (int)*(char *)((int)(car->N).simRoadInfo.slice * 0x20 + 0x10));
-    doppler = fixedmult((car->N).orientMat.m[8],
-                        (int)*(char *)((int)(car->N).simRoadInfo.slice * 0x20 + 0x11));
-    doppler = azimuth + dst + doppler;
-    if (false) {
+    dst = fixedmult((car->N).orientMat.m[6],
+                    (int)BWorldSm_slices[(int)(car->N).simRoadInfo.slice].forward[0]);
+    uVar3 = fixedmult((car->N).orientMat.m[7],
+                      (int)BWorldSm_slices[(int)(car->N).simRoadInfo.slice].forward[1]);
+    uVar2 = fixedmult((car->N).orientMat.m[8],
+                      (int)BWorldSm_slices[(int)(car->N).simRoadInfo.slice].forward[2]);
+    doppler = dst + uVar3 + uVar2;
+    if (GameSetup_gData.reverseTrack != 0) {
       doppler = -doppler;
     }
   }
   else {
-    if ((car->speechInfo).speechIntensity != (car->speechInfo).speechSource) {
+    if ((car->script).lastReactionIndex[2] != (car->script).lastReactionIndex[3]) {
       doppler = -1;
     }
   }
   if (((car->stats).finishType == 2) ||
-     (((((GameSetup_gData == 1 || (GameSetup_gData == 5)) &&
-        (((uRam00000260 & 0x200) != 0 ||
-         ((Cars_gNumHumanRaceCars == 2 && ((uRam00000260 & 0x200) != 0)))))) &&
+     (((((GameSetup_gData.raceType == 1 || (GameSetup_gData.raceType == 5)) &&
+        (((__Cars_gHumanRaceCarList_9__->carFlags & 0x200U) != 0 ||
+         ((Cars_gNumHumanRaceCars == 2 && ((PTR_8010fa4c->carFlags & 0x200U) != 0)))))) &&
        ((car->carFlags & 0x204U) == 4)) ||
       (((car->RSControl != 0 || (car->pullOver != 0)) || (-1 < doppler)))))) {
     car->wrongway = 0;
   }
   else {
-    if (((car->N).flightTime == 0) && (car->AISlot == 0)) {
-      uVar2 = car->wrongway + 1;
-      car->wrongway = uVar2;
-      if (((0x3f < (int)uVar2) && ((uVar2 & 0x1f) == 0)) && (((int)uVar2 < 0x94 || (false)))) {
+    if (((car->N).flightTime == 0) && (car->lookAheadSlice == 0)) {
+      dst = car->wrongway + 1;
+      car->wrongway = dst;
+      if (((0x3f < (int)dst) && ((dst & 0x1f) == 0)) &&
+         (((int)dst < 0x94 || (Hud_BeTheCop != (void *)0x0)))) {
         AudioCmn_PlayWrongWaySFX__Fv();
       }
     }
   }
   objectPos = &(car->N).position;
   doppler = AudioClc_CalcDopplerShiftRatio__FP8coorddefT0(objectPos,&(car->N).linearVel);
-  if (DAT_801131f8 == 1) {
+  if (GameSetup_gData.commMode == 1) {
     azimuth = 0xc000;
     if (playerIndex != 0) {
       azimuth = 0x3fff;
     }
   }
   else {
-    if ((&DAT_8010f31c)[playerIndex * 0x88] == 0) {
+    if ((&Camera_gInfo)[playerIndex].mode == 0) {
       azimuth = 0;
     }
     else {
       azimuth = AudioClc_CalcAzimuth__FP17DRender_tCalcViewP8coorddef
-                          ((DRender_tCalcView *)&AudioClc_gRenderView,objectPos);
+                          (&AudioClc_gRenderView,objectPos);
     }
   }
   dst = AudioClc_CalcDistance__FP17DRender_tCalcViewP8coorddef
-                  ((DRender_tCalcView *)&AudioClc_gRenderView,&(car->N).position);
-  Distsq = AudioClc_CalcCarDirection__FP17DRender_tCalcViewP8Car_tObj
-                     ((DRender_tCalcView *)&AudioClc_gRenderView,car);
-  Distsq = fixeddiv(Distsq,dst);
+                  (&AudioClc_gRenderView,&(car->N).position);
+  uVar3 = AudioClc_CalcCarDirection__FP17DRender_tCalcViewP8Car_tObj(&AudioClc_gRenderView,car);
+  Distsq = fixeddiv(uVar3,dst);
   if (Distsq < 0x10001) {
-    Distsq = AudioClc_CalcCarDirection__FP17DRender_tCalcViewP8Car_tObj
-                       ((DRender_tCalcView *)&AudioClc_gRenderView,car);
-    Distsq = fixeddiv(Distsq,dst);
+    uVar3 = AudioClc_CalcCarDirection__FP17DRender_tCalcViewP8Car_tObj(&AudioClc_gRenderView,car);
+    Distsq = fixeddiv(uVar3,dst);
     cardir = -0x10000;
     if (-0x10001 < Distsq) goto LAB_80075824;
   }
   else {
 LAB_80075824:
-    Distsq = AudioClc_CalcCarDirection__FP17DRender_tCalcViewP8Car_tObj
-                       ((DRender_tCalcView *)&AudioClc_gRenderView,car);
-    Distsq = fixeddiv(Distsq,dst);
+    uVar3 = AudioClc_CalcCarDirection__FP17DRender_tCalcViewP8Car_tObj(&AudioClc_gRenderView,car);
+    Distsq = fixeddiv(uVar3,dst);
     cardir = 0x10000;
     if (Distsq < 0x10001) {
-      Distsq = AudioClc_CalcCarDirection__FP17DRender_tCalcViewP8Car_tObj
-                         ((DRender_tCalcView *)&AudioClc_gRenderView,car);
-      cardir = fixeddiv(Distsq,dst);
+      uVar3 = AudioClc_CalcCarDirection__FP17DRender_tCalcViewP8Car_tObj(&AudioClc_gRenderView,car);
+      cardir = fixeddiv(uVar3,dst);
     }
   }
-  Distsq = dst;
-  if (dst < 0) {
-    Distsq = dst + 0xffff;
+  uVar3 = dst;
+  if ((int)dst < 0) {
+    uVar3 = dst + 0xffff;
   }
-  Distsq = (Distsq >> 0x10) * (Distsq >> 0x10);
+  Distsq = ((int)uVar3 >> 0x10) * ((int)uVar3 >> 0x10);
   if (car->carInfo->Transmission == 1) {
     local_3c = car->specs->redline + 1000;
   }
@@ -1075,102 +1049,97 @@ LAB_80075824:
   if ((local_3c == -1) && (iVar1 == -0x80000000)) {
     trap(0x1800);
   }
-  if (iGp000000bc == 0) {
-    trkazi = car->carInLane;
+  if (DAT_000000bc == 0) {
+    trkazi = (car->script).lastActionTime;
     if (trkazi < 0) {
       trkazi = -trkazi;
     }
-    *(int *)(&DAT_8010e2cc + sirennum) = trkazi;
+    (&AudioClc_gPlayer)[playerIndex].source.relVelocity = trkazi;
   }
   else {
-    *(undefined4 *)(&DAT_8010e2cc + sirennum) = 0;
+    (&AudioClc_gPlayer)[playerIndex].source.relVelocity = 0;
   }
-  trkazi = AudioClc_CalcTrackAzimuth__FP17DRender_tCalcViewP8Car_tObj
-                     ((DRender_tCalcView *)&AudioClc_gRenderView,car);
+  trkazi = AudioClc_CalcTrackAzimuth__FP17DRender_tCalcViewP8Car_tObj(&AudioClc_gRenderView,car);
   AudioTrk_SoundTrack__FP8Car_tObji(car,trkazi);
   AudioCmn_SoundCar__FP8Car_tObjiiiiiii
-            (car,dst,iVar1 / local_3c,doppler,azimuth,trkazi,*(int *)(&DAT_8010e2cc + sirennum),
-             cardir);
+            (car,dst,iVar1 / local_3c,doppler,azimuth,trkazi,
+             (&AudioClc_gPlayer)[playerIndex].source.relVelocity,cardir);
   if (gMasterSFXLevel == 0) {
     return;
   }
-  dst = car->topSpeedUpgradeMult + -1;
-  if (-1 < dst) {
-    piVar3 = &(car->N).objID + dst * 6;
+  cardir = car->gripFactor + -1;
+  if (-1 < cardir) {
+    piVar4 = &(car->N).objID + cardir * 6;
     do {
-      cardir = piVar3[0x1e7];
-      if (cardir == 0x12) {
-        cardir = 0x12;
+      sndPlayer = (undefined4 *)piVar4[0x1e7];
+      if (sndPlayer == (undefined4 *)((int)&DAT_00000010 + 2)) {
+        sndPlayer = (undefined4 *)((int)&DAT_00000010 + 2);
         if (playerIndex != 0) {
-          cardir = 0x13;
+          sndPlayer = (undefined4 *)((int)&DAT_00000010 + 3);
         }
       }
       else {
-        if ((cardir == 0x14) && (cardir = 0x14, playerIndex != 0)) {
-          cardir = 0x15;
+        if ((sndPlayer == &DAT_00000014) && (sndPlayer = &DAT_00000014, playerIndex != 0)) {
+          sndPlayer = (undefined4 *)((int)&DAT_00000014 + 1);
         }
       }
-      if (((piVar3[0x1e6] == 5) || (piVar3[0x1e6] == 3)) && (-1 < cardir)) {
-        freeVoiceChannel__Fi(cardir);
-        if (cardir - 0x12U < 2) {
-          freeVoiceChannel__Fi(cardir + 4);
+      if (((piVar4[0x1e6] == 5) || (piVar4[0x1e6] == 3)) && (-1 < (int)sndPlayer)) {
+        freeVoiceChannel__Fi((int)sndPlayer);
+        if ((int)sndPlayer - 2U < 2) {
+          freeVoiceChannel__Fi((int)(sndPlayer + 1));
         }
       }
       else {
         local_3c = azimuth;
-        if (((cardir < 0) && (local_3c = azimuth, DAT_801131f8 != 1)) &&
-           ((local_3c = azimuth, piVar3[0x1e8] != 10 && (local_3c = azimuth, piVar3[0x1e8] != 8))))
+        if ((((int)sndPlayer < 0) && (local_3c = azimuth, GameSetup_gData.commMode != 1)) &&
+           ((local_3c = azimuth, piVar4[0x1e8] != 10 && (local_3c = azimuth, piVar4[0x1e8] != 8))))
         {
           local_3c = AudioClc_CalcAzimuth__FP17DRender_tCalcViewP8coorddef
-                               ((DRender_tCalcView *)&AudioClc_gRenderView,
-                                &(car->N).collision.collisionPoint);
+                               (&AudioClc_gRenderView,&(car->N).collision.collisionPoint);
         }
         AudioCmn_SFX__Fi6s_typeT1iii
-                  (cardir,piVar3[0x1e8],piVar3[0x1e9],piVar3[0x1ea],Distsq,local_3c);
+                  ((int)sndPlayer,piVar4[0x1e8],piVar4[0x1e9],piVar4[0x1ea],Distsq,local_3c);
       }
-      piVar3 = piVar3 + 0x22c;
-      dst = dst + -1;
-    } while (-1 < dst);
+      piVar4 = piVar4 + 0x3e;
+      cardir = cardir + -1;
+    } while (-1 < cardir);
   }
   if ((car->control).horn == '\0') {
-    if (*(int *)(&DAT_8010e2e0 + sirennum) == 0) goto LAB_80075b0c;
-    dst = AudioCmn_PlayerHornOff__Fi(car->carIndex);
+    if ((&AudioClc_gPlayer)[playerIndex].source.horn == 0) goto LAB_80075b0c;
+    cardir = AudioCmn_PlayerHornOff__Fi(car->carIndex);
   }
   else {
     AudioCmn_PlayerHornOn__Fiiiii(car->carIndex,Distsq,0x40,azimuth,doppler);
-    dst = 1;
+    cardir = 1;
   }
-  *(int *)(&DAT_8010e2e0 + sirennum) = dst;
+  (&AudioClc_gPlayer)[playerIndex].source.horn = cardir;
 LAB_80075b0c:
   if (car->carInfo->carType - 0x16U < 6) {
-    if ((car->desiredLatPos & 2U) == 0) {
-      sirennum = car->carIndex + 4;
-      if (*(int *)(&bSirenOn + sirennum * 4) != 0) {
-        SirenOff__Fi(sirennum);
+    if (((car->speechInfo).speechSource & 2) == 0) {
+      doppler = car->carIndex + 4;
+      if ((&bSirenOn)[doppler] != 0) {
+        SirenOff__Fi(doppler);
         freeVoiceChannel__Fi(car->carIndex + 0x2f);
       }
     }
     else {
       if (Distsq < 0x1324) {
-        sirennum = ((0x1324 - Distsq) * 0x7f) / 0x1324;
+        Distsq = ((int)((int)&DAT_00001324 - Distsq) * 0x7f) / 0x1324;
       }
       else {
-        sirennum = 0;
+        Distsq = 0;
       }
-      dst = car->carIndex + 4;
-      if (*(int *)(&bSirenOn + dst * 4) == 0) {
-        SirenOn__Fii(dst,car->carFlags & 0x40);
+      cardir = car->carIndex + 4;
+      if ((&bSirenOn)[cardir] == 0) {
+        SirenOn__Fii(cardir,car->carFlags & 0x40);
       }
       else {
-        UpdateSiren__Fiiiii(dst,sirennum,doppler,azimuth,car->carFlags & 0x40);
+        UpdateSiren__Fiiiii(cardir,Distsq,doppler,azimuth,car->carFlags & 0x40);
       }
     }
   }
   return;
-
-
 }
-
 
 
 
@@ -1186,26 +1155,23 @@ LAB_80075b0c:
 	// End Line: 901
 
 void AudioClc_ResetClosest__FiP8Car_tObji(int closestIndex,Car_tObj *car,int playerIndex)
+
 {
-  if ((&AudioClc_gClosest)[closestIndex * 0xe] != 0) {
+  if ((&AudioClc_gClosest)[closestIndex].car != (Car_tObj *)0x0) {
     if (car == (Car_tObj *)0x0) {
       freeVoiceChannel__Fi(closestIndex + 6);
       freeVoiceChannel__Fi(closestIndex + 10);
       freeVoiceChannel__Fi(closestIndex + 0xe);
     }
-    if (*(int *)(&bSirenOn + closestIndex * 4) != 0) {
+    if ((&bSirenOn)[closestIndex] != 0) {
       SirenOff__Fi(closestIndex);
     }
     freeVoiceChannel__Fi(closestIndex + 0x20);
     freeVoiceChannel__Fi(closestIndex + 0x25);
   }
-  AudioClc_InitSource__FP16AudioClc_tSourceP8Car_tObj
-            ((AudioClc_tSource *)(&AudioClc_gClosest + closestIndex * 0xe),car);
+  AudioClc_InitSource__FP16AudioClc_tSourceP8Car_tObj(&AudioClc_gClosest + closestIndex,car);
   return;
-
-
 }
-
 
 
 
@@ -1227,7 +1193,7 @@ void AudioClc_ResetClosest__FiP8Car_tObji(int closestIndex,Car_tObj *car,int pla
 	// 		int distance1; // $s0
 	// 		struct Car_tObj **car; // $s3
 	// 		struct AudioClc_tSource *closest; // stack offset -48
-	// 		struct AudioClc_tCLCache *cl[0]; // $s6
+	// 		struct AudioClc_tCLCache (*cl)[0]; // $s6
 
 		/* begin block 1.1 */
 			// Start line: 936
@@ -1264,169 +1230,168 @@ void AudioClc_ResetClosest__FiP8Car_tObji(int closestIndex,Car_tObj *car,int pla
 	// End offset: 0x800760FC
 	// End Line: 1030
 
+/* WARNING: Type propagation algorithm not settling */
+
 void AudioClc_GetClosestCars__Fiii(int playerIndex,int closestIndex,int numclosest)
+
 {
   int iVar1;
-  int **ppiVar2;
-  int ***pppiVar3;
-  int iVar4;
-  int **ppiVar5;
-  int *piVar6;
+  Car_tObj *pCVar2;
+  Car_tObj **ppCVar3;
   int patch;
-  int iVar7;
-  int **ppiVar8;
-  int ***pppiVar9;
-  int iVar10;
-  int iVar11;
+  Car_tObj *pCVar4;
+  int iVar5;
+  Car_tObj **ppCVar6;
+  Car_tObj **ppCVar7;
+  int iVar8;
+  int iVar9;
+  undefined *puVar10;
   undefined auStack64 [16];
-  int **local_30 [2];
+  Car_tObj *local_30 [2];
   
   iVar1 = -((uint)(numclosest << 6) >> 3);
-  iVar10 = 0;
-  local_30[0] = (int **)(&AudioClc_gClosest + closestIndex * 0xe);
-  pppiVar9 = (int ***)((int)local_30 + iVar1);
-  pppiVar3 = pppiVar9;
+  iVar9 = 0;
+  local_30[0] = (Car_tObj *)(&AudioClc_gClosest + closestIndex);
+  ppCVar7 = (Car_tObj **)((int)local_30 + iVar1);
+  ppCVar3 = ppCVar7;
   if (0 < numclosest) {
     do {
-      *pppiVar3 = (int **)0x0;
-      pppiVar3[1] = (int **)0x12c0000;
-      iVar10 = iVar10 + 1;
-      pppiVar3 = pppiVar3 + 2;
-    } while (iVar10 < numclosest);
+      *ppCVar3 = (Car_tObj *)0x0;
+      ppCVar3[1] = (Car_tObj *)0x12c0000;
+      iVar9 = iVar9 + 1;
+      ppCVar3 = ppCVar3 + 2;
+    } while (iVar9 < numclosest);
   }
-  iVar10 = 0;
-  ppiVar5 = (int **)&_Cars_gList;
+  iVar9 = 0;
+  ppCVar3 = &__Cars_gList_9__;
 LAB_80075da0:
-  if (Cars_gNumCars <= iVar10) {
-    iVar10 = 0;
-    ppiVar5 = local_30[0];
+  if (Cars_gNumCars <= iVar9) {
+    iVar9 = 0;
+    pCVar4 = local_30[0];
     if (0 < numclosest) {
       do {
-        if (*ppiVar5 != (int *)0x0) {
-          iVar11 = 0;
-          pppiVar3 = pppiVar9;
+        if ((pCVar4->N).objID != 0) {
+          iVar5 = 0;
+          ppCVar3 = ppCVar7;
           if (0 < numclosest) {
             do {
-              if (*pppiVar3 == (int **)*ppiVar5) {
-                *pppiVar3 = (int **)0x0;
+              if (*ppCVar3 == (Car_tObj *)(pCVar4->N).objID) {
+                *ppCVar3 = (Car_tObj *)0x0;
                 break;
               }
-              iVar11 = iVar11 + 1;
-              pppiVar3 = pppiVar3 + 2;
-            } while (iVar11 < numclosest);
+              iVar5 = iVar5 + 1;
+              ppCVar3 = ppCVar3 + 2;
+            } while (iVar5 < numclosest);
           }
-          if (iVar11 == numclosest) {
-            *ppiVar5 = (int *)0xffffffff;
+          if (iVar5 == numclosest) {
+            (pCVar4->N).objID = -1;
           }
         }
-        iVar10 = iVar10 + 1;
-        ppiVar5 = ppiVar5 + 0xe;
-      } while (iVar10 < numclosest);
+        iVar9 = iVar9 + 1;
+        pCVar4 = (Car_tObj *)&(pCVar4->N).simRoadInfo.quadPts[3].y;
+      } while (iVar9 < numclosest);
     }
-    iVar10 = 0;
+    iVar9 = 0;
     if (0 < numclosest) {
       do {
-        if ((*pppiVar9 != (int **)0x0) && (iVar11 = 0, ppiVar5 = local_30[0], 0 < numclosest)) {
+        if ((*ppCVar7 != (Car_tObj *)0x0) && (iVar5 = 0, pCVar4 = local_30[0], 0 < numclosest)) {
           do {
-            if ((*ppiVar5 == (int *)0x0) || (*ppiVar5 == (int *)0xffffffff)) {
+            iVar8 = (pCVar4->N).objID;
+            if ((iVar8 == 0) || (iVar8 == -1)) {
               AudioClc_ResetClosest__FiP8Car_tObji
-                        (iVar11 + closestIndex,*pppiVar9,playerIndex,auStack64[iVar1]);
+                        (iVar5 + closestIndex,*ppCVar7,playerIndex,auStack64[iVar1]);
               break;
             }
-            iVar11 = iVar11 + 1;
-            ppiVar5 = ppiVar5 + 0xe;
-          } while (iVar11 < numclosest);
+            iVar5 = iVar5 + 1;
+            pCVar4 = (Car_tObj *)&(pCVar4->N).simRoadInfo.quadPts[3].y;
+          } while (iVar5 < numclosest);
         }
-        pppiVar9 = pppiVar9 + 2;
-        iVar10 = iVar10 + 1;
-      } while (iVar10 < numclosest);
+        ppCVar7 = ppCVar7 + 2;
+        iVar9 = iVar9 + 1;
+      } while (iVar9 < numclosest);
     }
-    iVar10 = 0;
-    ppiVar5 = local_30[0];
+    iVar9 = 0;
+    pCVar4 = local_30[0];
     if (0 < numclosest) {
       do {
-        if (*ppiVar5 == (int *)0xffffffff) {
-          AudioClc_ResetClosest__FiP8Car_tObji(iVar10 + closestIndex,0,playerIndex,auStack64[iVar1])
-          ;
+        if ((pCVar4->N).objID == -1) {
+          AudioClc_ResetClosest__FiP8Car_tObji(iVar9 + closestIndex,0,playerIndex,auStack64[iVar1]);
         }
-        iVar10 = iVar10 + 1;
-        ppiVar5 = ppiVar5 + 0xe;
-      } while (iVar10 < numclosest);
+        iVar9 = iVar9 + 1;
+        pCVar4 = (Car_tObj *)&(pCVar4->N).simRoadInfo.quadPts[3].y;
+      } while (iVar9 < numclosest);
     }
     return;
   }
-  if (DAT_801131f8 == 1) {
-    if (((*ppiVar5)[0x98] & 4U) == 0) {
+  if (GameSetup_gData.commMode == 1) {
+    if (((*ppCVar3)->carFlags & 4U) == 0) {
 LAB_80075e18:
-      piVar6 = *ppiVar5;
-      if (*(char *)((int)piVar6 + 0x91) != '\0') {
-        iVar11 = 0x12c0000;
-        if ((piVar6[0x98] & 0x10U) != 0) {
-          iVar11 = 0x320000;
+      pCVar4 = *ppCVar3;
+      if ((pCVar4->N).active != '\0') {
+        puVar10 = (undefined *)0x12c0000;
+        if ((pCVar4->carFlags & 0x10U) != 0) {
+          puVar10 = &DAT_00320000;
         }
-        iVar4 = piVar6[0x28];
-        iVar7 = piVar6[0x29];
-        patch = piVar6[0x2a];
-        if (iVar4 < 0) {
-          iVar4 = -iVar4;
+        iVar5 = (pCVar4->N).position.x - AudioClc_gRenderView.translation.x;
+        if (iVar5 < 0) {
+          iVar5 = -iVar5;
         }
-        if (iVar7 < 0) {
-          iVar7 = -iVar7;
+        iVar8 = (pCVar4->N).position.y - AudioClc_gRenderView.translation.y;
+        patch = (pCVar4->N).position.z - AudioClc_gRenderView.translation.z;
+        if (iVar8 < 0) {
+          iVar8 = -iVar8;
         }
         if (patch < 0) {
           patch = -patch;
         }
-        if (patch < iVar4) {
-          iVar4 = iVar4 + (patch >> 2);
+        if (patch < iVar5) {
+          iVar5 = iVar5 + (patch >> 2);
         }
         else {
-          iVar4 = patch + (iVar4 >> 2);
+          iVar5 = patch + (iVar5 >> 2);
         }
-        if ((iVar4 < 0x1900000) &&
-           (patch = CopSpeak_GetEnginePatch__Fii(*(undefined4 *)(*ppiVar5)[0xa2],0,auStack64[iVar1])
-           , -1 < patch)) {
+        if ((iVar5 < 0x1900000) &&
+           (patch = CopSpeak_GetEnginePatch__Fii((*ppCVar3)->carInfo->carType,0,auStack64[iVar1]),
+           -1 < patch)) {
           AudioCmn_GetAsyncSfx__Fiib(1,patch,0,auStack64[iVar1]);
         }
-        if (iVar4 < iVar11) {
-          if (iVar4 < iVar7) {
-            ppiVar8 = (int **)(iVar7 + (iVar4 >> 2));
+        if (iVar5 < (int)puVar10) {
+          if (iVar5 < iVar8) {
+            pCVar4 = (Car_tObj *)(iVar8 + (iVar5 >> 2));
           }
           else {
-            ppiVar8 = (int **)(iVar4 + (iVar7 >> 2));
+            pCVar4 = (Car_tObj *)(iVar5 + (iVar8 >> 2));
           }
-          if (((int)ppiVar8 < iVar11) && (iVar11 = 0, pppiVar3 = pppiVar9, 0 < numclosest)) {
+          if (((int)pCVar4 < (int)puVar10) && (iVar5 = 0, ppCVar6 = ppCVar7, 0 < numclosest)) {
             do {
-              iVar4 = numclosest + -1;
-              if ((int)ppiVar8 < (int)pppiVar3[1]) goto joined_r0x80075f4c;
-              iVar11 = iVar11 + 1;
-              pppiVar3 = pppiVar3 + 2;
-            } while (iVar11 < numclosest);
+              iVar8 = numclosest + -1;
+              if ((int)pCVar4 < (int)ppCVar6[1]) goto joined_r0x80075f4c;
+              iVar5 = iVar5 + 1;
+              ppCVar6 = ppCVar6 + 2;
+            } while (iVar5 < numclosest);
           }
         }
       }
     }
   }
   else {
-    if (*ppiVar5 != (int *)(&DAT_8010e2c0)[playerIndex * 0x14]) goto LAB_80075e18;
+    if (*ppCVar3 != (&AudioClc_gPlayer)[playerIndex].source.car) goto LAB_80075e18;
   }
   goto LAB_80075fa8;
 joined_r0x80075f4c:
-  while (iVar11 < iVar4) {
-    pppiVar9[iVar4 * 2] = pppiVar9[(iVar4 + -1) * 2];
-    (pppiVar9 + iVar4 * 2)[1] = (pppiVar9 + (iVar4 + -1) * 2)[1];
-    iVar4 = iVar4 + -1;
+  while (iVar5 < iVar8) {
+    ppCVar7[iVar8 * 2] = ppCVar7[(iVar8 + -1) * 2];
+    (ppCVar7 + iVar8 * 2)[1] = (ppCVar7 + (iVar8 + -1) * 2)[1];
+    iVar8 = iVar8 + -1;
   }
-  ppiVar2 = (int **)*ppiVar5;
-  pppiVar3[1] = ppiVar8;
-  *pppiVar3 = ppiVar2;
+  pCVar2 = *ppCVar3;
+  ppCVar6[1] = pCVar4;
+  *ppCVar6 = pCVar2;
 LAB_80075fa8:
-  iVar10 = iVar10 + 1;
-  ppiVar5 = ppiVar5 + 1;
+  iVar9 = iVar9 + 1;
+  ppCVar3 = ppCVar3 + 1;
   goto LAB_80075da0;
-
-
 }
-
 
 
 
@@ -1441,16 +1406,16 @@ LAB_80075fa8:
 	// End offset: 0x80076130
 	// End Line: 1039
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void AudioClc_SoundSpeech__Fv(void)
+
 {
   AudioCmn_SetLevels__Fv();
   Speech_Server__Fv();
   CopSpeak_Server__Fv();
   return;
-
-
 }
-
 
 
 
@@ -1488,58 +1453,58 @@ void AudioClc_SoundSpeech__Fv(void)
 	// End offset: 0x80076408
 	// End Line: 1120
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void AudioClc_SoundCars__Fv(void)
+
 {
   int patch;
-  undefined4 *puVar1;
+  GameSetup_tData *pGVar1;
   int iVar2;
   
   AudioClc_SoundSpeech__Fv();
   AudioCmn_UpdateThunder__Fv();
-  puVar1 = &GameSetup_gData;
-  if ((((GameSetup_gData == 1) || (GameSetup_gData == 5)) &&
-      (((uRam00000260 & 0x200) != 0 ||
-       ((Cars_gNumHumanRaceCars == 2 && ((uRam00000260 & 0x200) != 0)))))) &&
-     ((false && (iVar2 = 0, false)))) {
+  pGVar1 = &GameSetup_gData;
+  if ((((GameSetup_gData.raceType == 1) || (GameSetup_gData.raceType == 5)) &&
+      (((__Cars_gHumanRaceCarList_9__->carFlags & 0x200U) != 0 ||
+       ((Cars_gNumHumanRaceCars == 2 && ((PTR_8010fa4c->carFlags & 0x200U) != 0)))))) &&
+     ((HudBustedOverlay != (void *)0x0 && (iVar2 = 0, 0 < GameSetup_gData.numPerps)))) {
     do {
       iVar2 = iVar2 + 1;
-      patch = CopSpeak_GetEnginePatch__Fii(puVar1[0x6f],0);
-      AudioCmn_GetAsyncSfx__Fiib(1,patch,0);
-      patch = CopSpeak_GetEnginePatch__Fii(puVar1[0x6f],1);
-      AudioCmn_GetAsyncSfx__Fiib(1,patch,0);
-      puVar1 = puVar1 + 0xd;
-    } while (iVar2 < 0);
+      patch = CopSpeak_GetEnginePatch__Fii(pGVar1->perpInfo[0].CarType,0);
+      AudioCmn_GetAsyncSfx__Fiib(1,patch,(void *)0x0);
+      patch = CopSpeak_GetEnginePatch__Fii(pGVar1->perpInfo[0].CarType,1);
+      AudioCmn_GetAsyncSfx__Fiib(1,patch,(void *)0x0);
+      pGVar1 = (GameSetup_tData *)&pGVar1->measurement;
+    } while (iVar2 < GameSetup_gData.numPerps);
   }
-  if (DAT_801131f8 == 1) {
+  if (GameSetup_gData.commMode == 1) {
     Camera_GetAudioViewInfo__FiP17DRender_tCalcViewPP8coorddef
-              (0,(DRender_tCalcView *)&AudioClc_gRenderView,(coorddef **)&_AudioClc_gCameraVelocity)
-    ;
+              (0,&AudioClc_gRenderView,&AudioClc_gCameraVelocity);
     AudioClc_GetClosestCars__Fiii(0,0,2);
     AudioClc_SoundPlayersCar__Fi(0);
     if (0 < gMasterAmbientLevel) {
       AudioClc_SoundCloseCar__Fii(0,0);
       AudioClc_SoundCloseCar__Fii(0,1);
     }
-    DAT_8010e2b4 = 0;
-    DAT_8010e2b8 = 0;
-    DAT_8010e2bc = 0;
+    AudioClc_gPlayer.lastview.x = AudioClc_gRenderView.translation.x;
+    AudioClc_gPlayer.lastview.y = AudioClc_gRenderView.translation.y;
+    AudioClc_gPlayer.lastview.z = AudioClc_gRenderView.translation.z;
     Camera_GetAudioViewInfo__FiP17DRender_tCalcViewPP8coorddef
-              (1,(DRender_tCalcView *)&AudioClc_gRenderView,(coorddef **)&_AudioClc_gCameraVelocity)
-    ;
+              (1,&AudioClc_gRenderView,&AudioClc_gCameraVelocity);
     AudioClc_GetClosestCars__Fiii(1,2,2);
     AudioClc_SoundPlayersCar__Fi(1);
     if (0 < gMasterAmbientLevel) {
       AudioClc_SoundCloseCar__Fii(1,2);
       AudioClc_SoundCloseCar__Fii(1,3);
     }
-    DAT_8010e304 = 0;
-    DAT_8010e308 = 0;
-    DAT_8010e30c = 0;
+    AudioClc_tPlayer_8010e2f8.lastview.x = AudioClc_gRenderView.translation.x;
+    AudioClc_tPlayer_8010e2f8.lastview.y = AudioClc_gRenderView.translation.y;
+    AudioClc_tPlayer_8010e2f8.lastview.z = AudioClc_gRenderView.translation.z;
   }
   else {
     Camera_GetAudioViewInfo__FiP17DRender_tCalcViewPP8coorddef
-              (0,(DRender_tCalcView *)&AudioClc_gRenderView,(coorddef **)&_AudioClc_gCameraVelocity)
-    ;
+              (0,&AudioClc_gRenderView,&AudioClc_gCameraVelocity);
     AudioClc_GetClosestCars__Fiii(0,0,4);
     AudioClc_SoundPlayersCar__Fi(0);
     if (0 < gMasterAmbientLevel) {
@@ -1548,15 +1513,12 @@ void AudioClc_SoundCars__Fv(void)
       AudioClc_SoundCloseCar__Fii(0,2);
       AudioClc_SoundCloseCar__Fii(0,3);
     }
-    DAT_8010e2b4 = 0;
-    DAT_8010e2b8 = 0;
-    DAT_8010e2bc = 0;
+    AudioClc_gPlayer.lastview.x = AudioClc_gRenderView.translation.x;
+    AudioClc_gPlayer.lastview.y = AudioClc_gRenderView.translation.y;
+    AudioClc_gPlayer.lastview.z = AudioClc_gRenderView.translation.z;
   }
   return;
-
-
 }
-
 
 
 

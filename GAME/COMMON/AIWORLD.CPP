@@ -16,23 +16,22 @@
 	// End Line: 30
 
 int AIWorld_ZSplineDistance__FP8Car_tObjT0(Car_tObj *carObj,Car_tObj *otherCarObj)
+
 {
   int iVar1;
-  int iVar2;
-  int iVar3;
+  uint uVar2;
+  uint uVar3;
   int iVar4;
+  int iVar5;
   
   iVar1 = (carObj->N).position.z;
-  iVar3 = (otherCarObj->N).position.z;
-  iVar4 = (carObj->N).roadMatrix.m[8];
-  iVar2 = fixedmult((carObj->N).position.x - (otherCarObj->N).position.x,(carObj->N).roadMatrix.m[6]
+  iVar4 = (otherCarObj->N).position.z;
+  iVar5 = (carObj->N).roadMatrix.m[8];
+  uVar2 = fixedmult((carObj->N).position.x - (otherCarObj->N).position.x,(carObj->N).roadMatrix.m[6]
                    );
-  iVar1 = fixedmult(iVar1 - iVar3,iVar4);
-  return iVar2 + iVar1;
-
-
+  uVar3 = fixedmult(iVar1 - iVar4,iVar5);
+  return uVar2 + uVar3;
 }
-
 
 
 
@@ -50,23 +49,23 @@ int AIWorld_ZSplineDistance__FP8Car_tObjT0(Car_tObj *carObj,Car_tObj *otherCarOb
 	// End offset: 0x80073024
 	// End Line: 39
 
-int AIWorld_ZSplineDistance__FP8coorddefT0P10matrixtdef( (coorddef *pos1,coorddef *pos2,matrixtdef *roadMatrix)
+int AIWorld_ZSplineDistance__FP8coorddefT0P10matrixtdef
+              (coorddef *pos1,coorddef *pos2,matrixtdef *roadMatrix)
+
 {
   int iVar1;
-  int iVar2;
-  int iVar3;
+  uint uVar2;
+  uint uVar3;
   int iVar4;
+  int iVar5;
   
   iVar1 = pos1->z;
-  iVar3 = pos2->z;
-  iVar4 = roadMatrix->m[8];
-  iVar2 = fixedmult(pos1->x - pos2->x,roadMatrix->m[6]);
-  iVar1 = fixedmult(iVar1 - iVar3,iVar4);
-  return iVar2 + iVar1;
-
-
+  iVar4 = pos2->z;
+  iVar5 = roadMatrix->m[8];
+  uVar2 = fixedmult(pos1->x - pos2->x,roadMatrix->m[6]);
+  uVar3 = fixedmult(iVar1 - iVar4,iVar5);
+  return uVar2 + uVar3;
 }
-
 
 
 
@@ -87,12 +86,28 @@ int AIWorld_ZSplineDistance__FP8coorddefT0P10matrixtdef( (coorddef *pos1,coordde
 	// End Line: 64
 
 int AIWorld_ApxSplineDistance__FP8Car_tObjT0(Car_tObj *carObj,Car_tObj *otherCarObj)
+
 {
-  return ((int)(carObj->N).simRoadInfo.slice - (int)(otherCarObj->N).simRoadInfo.slice) * 0x60000;
-
-
+  int iVar1;
+  int iVar2;
+  int iVar3;
+  
+  iVar2 = (int)(carObj->N).simRoadInfo.slice - (int)(otherCarObj->N).simRoadInfo.slice;
+  iVar3 = (int)(gNumSlices + ((uint)gNumSlices >> 0x1f)) >> 1;
+  if ((iVar2 < 1) || (iVar2 <= iVar3)) {
+    iVar1 = iVar2 * 2;
+    if (-1 < iVar2) goto LAB_8007311c;
+    if (iVar2 < -iVar3) {
+      iVar2 = iVar2 + gNumSlices;
+    }
+  }
+  else {
+    iVar2 = iVar2 - gNumSlices;
+  }
+  iVar1 = iVar2 << 1;
+LAB_8007311c:
+  return (iVar1 + iVar2) * 0x20000;
 }
-
 
 
 
@@ -112,12 +127,27 @@ int AIWorld_ApxSplineDistance__FP8Car_tObjT0(Car_tObj *carObj,Car_tObj *otherCar
 	// End Line: 79
 
 int AIWorld_ApxSplineDistance__FP8Car_tObji(Car_tObj *carObj,int location)
+
 {
-  return ((int)(carObj->N).simRoadInfo.slice - location) * 0x60000;
-
-
+  int iVar1;
+  int iVar2;
+  
+  location = (int)(carObj->N).simRoadInfo.slice - location;
+  iVar2 = (int)(gNumSlices + ((uint)gNumSlices >> 0x1f)) >> 1;
+  if ((location < 1) || (location <= iVar2)) {
+    iVar1 = location * 2;
+    if (-1 < location) goto LAB_80073188;
+    if (location < -iVar2) {
+      location = location + gNumSlices;
+    }
+  }
+  else {
+    location = location - gNumSlices;
+  }
+  iVar1 = location << 1;
+LAB_80073188:
+  return (iVar1 + location) * 0x20000;
 }
-
 
 
 
@@ -133,15 +163,13 @@ int AIWorld_ApxSplineDistance__FP8Car_tObji(Car_tObj *carObj,int location)
 	// End Line: 83
 
 int AIWorld_ApxSplineDistance__FiP8Car_tObj(int location,Car_tObj *carObj)
+
 {
   int iVar1;
   
   iVar1 = AIWorld_ApxSplineDistance__FP8Car_tObji(carObj,location);
   return -iVar1;
-
-
 }
-
 
 
 
@@ -160,12 +188,27 @@ int AIWorld_ApxSplineDistance__FiP8Car_tObj(int location,Car_tObj *carObj)
 	// End Line: 97
 
 int AIWorld_ApxSplineDistance__Fii(int locationA,int locationB)
+
 {
-  return (locationA - locationB) * 0x60000;
-
-
+  int iVar1;
+  int iVar2;
+  
+  locationA = locationA - locationB;
+  iVar2 = (int)(gNumSlices + ((uint)gNumSlices >> 0x1f)) >> 1;
+  if ((locationA < 1) || (locationA <= iVar2)) {
+    iVar1 = locationA * 2;
+    if (-1 < locationA) goto LAB_80073218;
+    if (locationA < -iVar2) {
+      locationA = locationA + gNumSlices;
+    }
+  }
+  else {
+    locationA = locationA - gNumSlices;
+  }
+  iVar1 = locationA << 1;
+LAB_80073218:
+  return (iVar1 + locationA) * 0x20000;
 }
-
 
 
 
@@ -183,6 +226,7 @@ int AIWorld_ApxSplineDistance__Fii(int locationA,int locationB)
 	// End Line: 116
 
 int AIWorld_SplineDistance__FP8Car_tObjT0(Car_tObj *carObj,Car_tObj *otherCarObj)
+
 {
   int iVar1;
   
@@ -191,10 +235,7 @@ int AIWorld_SplineDistance__FP8Car_tObjT0(Car_tObj *carObj,Car_tObj *otherCarObj
     iVar1 = AIWorld_ZSplineDistance__FP8Car_tObjT0(carObj,otherCarObj);
   }
   return iVar1;
-
-
 }
-
 
 
 
@@ -212,6 +253,7 @@ int AIWorld_SplineDistance__FP8Car_tObjT0(Car_tObj *carObj,Car_tObj *otherCarObj
 	// End Line: 127
 
 int AIWorld_SplineDistance__FP8Car_tObjiP8coorddef(Car_tObj *carObj,int location,coorddef *position)
+
 {
   int iVar1;
   
@@ -221,10 +263,7 @@ int AIWorld_SplineDistance__FP8Car_tObjiP8coorddef(Car_tObj *carObj,int location
                       (&(carObj->N).position,position,&(carObj->N).roadMatrix);
   }
   return iVar1;
-
-
 }
-
 
 
 
@@ -240,12 +279,10 @@ int AIWorld_SplineDistance__FP8Car_tObjiP8coorddef(Car_tObj *carObj,int location
 	// End Line: 145
 
 int AIWorld_GameOdometer__FP8Car_tObj(Car_tObj *carObj)
+
 {
   return (uint)(carObj->N).totalSlice * 0x60000;
-
-
 }
-
 
 
 
@@ -282,37 +319,53 @@ int AIWorld_GameOdometer__FP8Car_tObj(Car_tObj *carObj)
 	// End offset: 0x800733A0
 	// End Line: 196
 
-int AIWorld_IsDriveableLaneInSliceRange__Fiiii( (int startSlice,int numSlicesToCheck,int direction,int laneIndex)
+int AIWorld_IsDriveableLaneInSliceRange__Fiiii
+              (int startSlice,int numSlicesToCheck,int direction,int laneIndex)
+
 {
   int iVar1;
   int iVar2;
   int iVar3;
   int iVar4;
+  int iVar5;
+  int iVar6;
   
-  iVar1 = 8 - (7 - laneIndex);
-  iVar2 = iVar1;
-  if (iVar1 < 0) {
-    iVar2 = 0;
+  iVar3 = 8 - (7 - laneIndex);
+  iVar4 = iVar3;
+  if (iVar3 < 0) {
+    iVar4 = 0;
   }
-  if (0xf < iVar1) {
-    iVar2 = 0xf;
+  if (0xf < iVar3) {
+    iVar4 = 0xf;
   }
-  iVar4 = 0;
-  iVar1 = 0;
-  while( true ) {
-    if (numSlicesToCheck <= iVar4) {
+  iVar6 = 0;
+  iVar3 = 0;
+  do {
+    if (numSlicesToCheck <= iVar6) {
       return 1;
     }
-    iVar3 = startSlice + iVar1;
-    iVar1 = iVar1 + direction;
-    if (((int)*(short *)(iVar3 * 0x20 + 0x16) & 1 << (0xfU - iVar2 & 0x1f)) == 0) break;
-    iVar4 = iVar4 + 1;
-  }
-  return 0;
-
-
+    iVar5 = startSlice + iVar3;
+    if (iVar3 < 0) {
+      iVar2 = iVar5 * 0x20;
+      iVar1 = gNumSlices;
+      if (iVar5 < 0) goto LAB_80073374;
+    }
+    else {
+      iVar2 = iVar5 * 0x20;
+      if (gNumSlices <= iVar5) {
+        iVar1 = -gNumSlices;
+LAB_80073374:
+        iVar2 = (iVar5 + iVar1) * 0x20;
+      }
+    }
+    iVar3 = iVar3 + direction;
+    if (((int)*(short *)((int)&BWorldSm_slices->pavedProfile + iVar2) & 1 << (0xfU - iVar4 & 0x1f))
+        == 0) {
+      return 0;
+    }
+    iVar6 = iVar6 + 1;
+  } while( true );
 }
-
 
 
 
@@ -332,6 +385,7 @@ int AIWorld_IsDriveableLaneInSliceRange__Fiiii( (int startSlice,int numSlicesToC
 	// End Line: 218
 
 int AIWorld_IsDriveableLane__Fii(int slice,int laneIndex)
+
 {
   int iVar1;
   
@@ -342,11 +396,8 @@ int AIWorld_IsDriveableLane__Fii(int slice,int laneIndex)
   if (0xf < iVar1) {
     iVar1 = 0xf;
   }
-  return (int)*(short *)(slice * 0x20 + 0x16) & 1 << (0xfU - iVar1 & 0x1f);
-
-
+  return (int)BWorldSm_slices[slice].pavedProfile & 1 << (0xfU - iVar1 & 0x1f);
 }
-
 
 
 
@@ -365,6 +416,7 @@ int AIWorld_IsDriveableLane__Fii(int slice,int laneIndex)
 	// End Line: 241
 
 int AIWorld_GetProfileMask__Fi(int laneIndex)
+
 {
   int iVar1;
   int iVar2;
@@ -378,10 +430,7 @@ int AIWorld_GetProfileMask__Fi(int laneIndex)
     iVar2 = 0xf;
   }
   return 1 << (0xfU - iVar2 & 0x1f);
-
-
 }
-
 
 
 
@@ -397,12 +446,10 @@ int AIWorld_GetProfileMask__Fi(int laneIndex)
 	// End Line: 252
 
 int AIWorld_IsDriveableLane_UsingMask__Fii(int slice,int mask)
+
 {
-  return (int)*(short *)(slice * 0x20 + 0x16) & mask;
-
-
+  return (int)BWorldSm_slices[slice].pavedProfile & mask;
 }
-
 
 
 
@@ -422,22 +469,20 @@ int AIWorld_IsDriveableLane_UsingMask__Fii(int slice,int mask)
 	// End Line: 281
 
 int AIWorld_CheckForBarrierBetweenLanes__Fiii(int slice,int lane0,int lane1)
+
 {
   uint uVar1;
   uint uVar2;
-  uint uVar3;
   
-  uVar3 = 0xe - lane0;
+  uVar2 = 0xe - lane0;
   uVar1 = 0xe - lane1;
-  uVar2 = SEXT24(*(short *)(slice * 0x20 + 0x16));
-  if ((int)uVar3 <= (int)uVar1) {
-    return (int)~uVar2 >> (uVar3 & 0x1f) & ~(-1 << ((uVar1 - uVar3) + 1 & 0x1f));
+  if ((int)uVar2 <= (int)uVar1) {
+    return ~(int)BWorldSm_slices[slice].pavedProfile >> (uVar2 & 0x1f) &
+           ~(-1 << ((uVar1 - uVar2) + 1 & 0x1f));
   }
-  return (int)~uVar2 >> (uVar1 & 0x1f) & ~(-1 << ((uVar3 - uVar1) + 1 & 0x1f));
-
-
+  return ~(int)BWorldSm_slices[slice].pavedProfile >> (uVar1 & 0x1f) &
+         ~(-1 << ((uVar2 - uVar1) + 1 & 0x1f));
 }
-
 
 
 
@@ -455,41 +500,38 @@ int AIWorld_CheckForBarrierBetweenLanes__Fiii(int slice,int lane0,int lane1)
 	// End offset: 0x80073580
 	// End Line: 316
 
+/* WARNING: Removing unreachable block (ram,0x80073528) */
+
 int AIWorld_LaneIndex__Fii(int slice,int position)
+
 {
   byte bVar1;
-  int iVar2;
+  uint uVar2;
   int iVar3;
+  int iVar4;
   
   if (position < 0) {
-    bVar1 = *(byte *)(slice * 0x20 + 0x1e);
-    iVar3 = 6;
+    bVar1 = BWorldSm_slices[slice].avgPavedWidthLf;
+    iVar4 = 6;
   }
   else {
-    bVar1 = *(byte *)(slice * 0x20 + 0x1f);
-    iVar3 = 7;
+    bVar1 = BWorldSm_slices[slice].avgPavedWidthRt;
+    iVar4 = 7;
   }
-  iVar2 = (uint)bVar1 * 0x8000;
-  if (false) {
-    iVar2 = iVar2 + 0x3fff;
+  uVar2 = fixedmult(position,(&inverseLaneWidthTable)[(int)((uint)bVar1 * 0x8000) >> 0xe]);
+  if ((int)uVar2 < 0) {
+    uVar2 = uVar2 + 0xffff;
   }
-  iVar2 = fixedmult(position,(&inverseLaneWidthTable)[iVar2 >> 0xe]);
-  if (iVar2 < 0) {
-    iVar2 = iVar2 + 0xffff;
+  iVar4 = iVar4 + ((int)uVar2 >> 0x10);
+  if (iVar4 < 0) {
+    iVar4 = 0;
   }
-  iVar3 = iVar3 + (iVar2 >> 0x10);
-  if (iVar3 < 0) {
-    iVar3 = 0;
+  iVar3 = 0xd;
+  if (iVar4 < 0xe) {
+    iVar3 = iVar4;
   }
-  iVar2 = 0xd;
-  if (iVar3 < 0xe) {
-    iVar2 = iVar3;
-  }
-  return iVar2;
-
-
+  return iVar3;
 }
-
 
 
 
@@ -509,40 +551,40 @@ int AIWorld_LaneIndex__Fii(int slice,int position)
 	// End Line: 352
 
 void AIWorld_CalculateLaneInfo__FP8Car_tObj(Car_tObj *carObj)
+
 {
   short sVar1;
   uint uVar2;
-  uint uVar3;
+  speechSourceType sVar3;
   int iVar4;
   uint uVar5;
-  int iVar6;
+  uint uVar6;
   int iVar7;
+  int iVar8;
   
-  uVar3 = carObj->desiredLatPos;
-  (carObj->speechInfo).speechMode = SPEECH_MODE_NONE;
-  if ((uVar3 & 4) == 0) {
-    iVar4 = AIWorld_LaneIndex__Fii((int)(carObj->N).simRoadInfo.slice,carObj->desiredSpeed);
+  sVar3 = (carObj->speechInfo).speechSource;
+  (carObj->script).lastReactionIndex[1] = 0;
+  if ((sVar3 & 4) == 0) {
+    iVar4 = AIWorld_LaneIndex__Fii
+                      ((int)(carObj->N).simRoadInfo.slice,(carObj->speechInfo).playerCarIndex);
     sVar1 = (carObj->N).simRoadInfo.slice;
-    iVar7 = carObj->desiredSpeed;
-    iVar6 = carObj->roadSpan;
-    *(int *)(carObj->accTable + 0x6e) = iVar4;
-    uVar3 = AIWorld_LaneIndex__Fii((int)sVar1,(iVar7 - iVar6) + 0x8000);
-    uVar5 = AIWorld_LaneIndex__Fii
+    iVar8 = (carObj->speechInfo).playerCarIndex;
+    iVar7 = carObj->roadSpan;
+    *(int *)(carObj->accTable + 0x60) = iVar4;
+    uVar5 = AIWorld_LaneIndex__Fii((int)sVar1,(iVar8 - iVar7) + 0x8000);
+    uVar6 = AIWorld_LaneIndex__Fii
                       ((int)(carObj->N).simRoadInfo.slice,
-                       carObj->desiredSpeed + carObj->roadSpan + -0x8000);
-    if ((uVar5 < 0xe) && (uVar3 < 0xe)) {
-      while ((int)uVar3 <= (int)uVar5) {
-        uVar2 = uVar3 & 0x1f;
-        uVar3 = uVar3 + 1;
-        (carObj->speechInfo).speechMode = (carObj->speechInfo).speechMode | 1 << uVar2;
+                       (carObj->speechInfo).playerCarIndex + carObj->roadSpan + -0x8000);
+    if ((uVar6 < 0xe) && (uVar5 < 0xe)) {
+      while ((int)uVar5 <= (int)uVar6) {
+        uVar2 = uVar5 & 0x1f;
+        uVar5 = uVar5 + 1;
+        (carObj->script).lastReactionIndex[1] = (carObj->script).lastReactionIndex[1] | 1 << uVar2;
       }
     }
   }
   return;
-
-
 }
-
 
 
 
@@ -576,27 +618,31 @@ void AIWorld_CalculateLaneInfo__FP8Car_tObj(Car_tObj *carObj)
 	// End Line: 510
 
 int AIWorld_CalculateDeltaRoadYaw__FP8Car_tObj(Car_tObj *carObj)
+
 {
+  int slice;
   int iVar1;
   int iVar2;
   
-  iVar1 = 0;
+  slice = 0;
   if ((carObj->carFlags & 8U) != 0) {
+    iVar1 = (int)(carObj->N).simRoadInfo.slice;
     iVar2 = (carObj->N).roadYaw;
-    iVar1 = Newton_CalculateSliceYaw__Fi((int)(carObj->N).simRoadInfo.slice + 1);
-    iVar1 = iVar1 - iVar2;
-    if (0x200 < iVar1) {
-      iVar1 = iVar1 + -0x400;
+    slice = iVar1 + 1;
+    if (gNumSlices <= slice) {
+      slice = iVar1 - (gNumSlices + -1);
     }
-    if (iVar1 < -0x200) {
-      iVar1 = iVar1 + 0x400;
+    slice = Newton_CalculateSliceYaw__Fi(slice);
+    slice = slice - iVar2;
+    if (0x200 < slice) {
+      slice = slice + -0x400;
+    }
+    if (slice < -0x200) {
+      slice = slice + 0x400;
     }
   }
-  return iVar1;
-
-
+  return slice;
 }
-
 
 
 
@@ -615,6 +661,7 @@ int AIWorld_CalculateDeltaRoadYaw__FP8Car_tObj(Car_tObj *carObj)
 	// End Line: 529
 
 int AIWorld_CalcRoadBend__FP8Car_tObji(Car_tObj *carObj,int lookAhead)
+
 {
   int iVar1;
   int iVar2;
@@ -622,29 +669,36 @@ int AIWorld_CalcRoadBend__FP8Car_tObji(Car_tObj *carObj,int lookAhead)
   int iVar4;
   
   iVar4 = (int)(carObj->N).simRoadInfo.slice;
-  iVar1 = (iVar4 + lookAhead) * 0x20;
-  iVar3 = (int)*(char *)(iVar1 + 0xf) * 0x200;
-  iVar4 = iVar4 * 0x20;
-  if (iVar3 < 0) {
-    iVar3 = iVar3 + 0xff;
+  if (lookAhead < 0) {
+    lookAhead = iVar4 + lookAhead;
+    if (lookAhead < 0) {
+      lookAhead = lookAhead + gNumSlices;
+    }
   }
-  iVar2 = (int)*(char *)(iVar4 + 0x12) * 0x200;
+  else {
+    lookAhead = iVar4 + lookAhead;
+    if (gNumSlices <= lookAhead) {
+      lookAhead = lookAhead - gNumSlices;
+    }
+  }
+  iVar2 = (int)BWorldSm_slices[lookAhead].forward[0] * 0x200;
   if (iVar2 < 0) {
     iVar2 = iVar2 + 0xff;
   }
-  iVar1 = (int)*(char *)(iVar1 + 0x11) * 0x200;
+  iVar1 = (int)BWorldSm_slices[iVar4].right[0] * 0x200;
   if (iVar1 < 0) {
     iVar1 = iVar1 + 0xff;
   }
-  iVar4 = (int)*(char *)(iVar4 + 0x14) * 0x200;
+  iVar3 = (int)BWorldSm_slices[lookAhead].forward[2] * 0x200;
+  if (iVar3 < 0) {
+    iVar3 = iVar3 + 0xff;
+  }
+  iVar4 = (int)BWorldSm_slices[iVar4].right[2] * 0x200;
   if (iVar4 < 0) {
     iVar4 = iVar4 + 0xff;
   }
-  return (iVar3 >> 8) * (iVar2 >> 8) + (iVar1 >> 8) * (iVar4 >> 8);
-
-
+  return (iVar2 >> 8) * (iVar1 >> 8) + (iVar3 >> 8) * (iVar4 >> 8);
 }
-
 
 
 
@@ -664,17 +718,18 @@ int AIWorld_CalcRoadBend__FP8Car_tObji(Car_tObj *carObj,int lookAhead)
 	// End Line: 549
 
 int AIWorld_CalcFutureLateralVel__FP8Car_tObji(Car_tObj *carObj,int slicesAhead)
+
 {
   char cVar1;
   char cVar2;
   int iVar3;
-  int iVar4;
-  int local_20;
-  undefined4 in_a2;
-  undefined4 in_a3;
+  uint uVar4;
+  uint uVar5;
+  uint uVar6;
+  Trk_NewSlice *pTVar7;
   
   if ((carObj->carFlags & 0x10U) != 0) {
-    iVar3 = carObj->carInLane;
+    iVar3 = (carObj->script).lastActionTime;
     if (iVar3 < 0) {
       iVar3 = -iVar3;
     }
@@ -682,18 +737,25 @@ int AIWorld_CalcFutureLateralVel__FP8Car_tObji(Car_tObj *carObj,int slicesAhead)
       slicesAhead = 0;
     }
   }
-  iVar3 = ((int)(carObj->N).simRoadInfo.slice + slicesAhead) * 0x20;
-  local_20 = (int)*(char *)(iVar3 + 0x12) << 9;
-  cVar1 = *(char *)(iVar3 + 0x13);
-  cVar2 = *(char *)(iVar3 + 0x14);
-  iVar3 = fixedmult((carObj->N).linearVel.x);
-  local_20 = fixedmult((carObj->N).linearVel.y,(int)cVar1 << 9,in_a2,in_a3,local_20);
-  iVar4 = fixedmult((carObj->N).linearVel.z,(int)cVar2 << 9);
-  return iVar3 + local_20 + iVar4;
-
-
+  iVar3 = (int)(carObj->N).simRoadInfo.slice + slicesAhead;
+  if (slicesAhead < 0) {
+    if (iVar3 < 0) {
+      iVar3 = iVar3 + gNumSlices;
+    }
+  }
+  else {
+    if (gNumSlices <= iVar3) {
+      iVar3 = iVar3 - gNumSlices;
+    }
+  }
+  pTVar7 = BWorldSm_slices + iVar3;
+  cVar1 = pTVar7->right[1];
+  cVar2 = pTVar7->right[2];
+  uVar4 = fixedmult((carObj->N).linearVel.x,(int)pTVar7->right[0] << 9);
+  uVar5 = fixedmult((carObj->N).linearVel.y,(int)cVar1 << 9);
+  uVar6 = fixedmult((carObj->N).linearVel.z,(int)cVar2 << 9);
+  return uVar4 + uVar5 + uVar6;
 }
-
 
 
 
@@ -712,6 +774,7 @@ int AIWorld_CalcFutureLateralVel__FP8Car_tObji(Car_tObj *carObj,int slicesAhead)
 	// End Line: 564
 
 void AIWorld_CalcSpeed__FP8Car_tObj(Car_tObj *carObj)
+
 {
   int iVar1;
   int iVar2;
@@ -725,15 +788,12 @@ void AIWorld_CalcSpeed__FP8Car_tObj(Car_tObj *carObj)
     iVar1 = -iVar1;
   }
   if (iVar1 < iVar2) {
-    carObj->desiredDirection = iVar2 + (iVar1 >> 2);
+    (carObj->speechInfo).speechMode = iVar2 + (iVar1 >> 2);
     return;
   }
-  carObj->desiredDirection = iVar1 + (iVar2 >> 2);
+  (carObj->speechInfo).speechMode = iVar1 + (iVar2 >> 2);
   return;
-
-
 }
-
 
 
 
@@ -751,19 +811,17 @@ void AIWorld_CalcSpeed__FP8Car_tObj(Car_tObj *carObj)
 	// End Line: 568
 
 int AIWorld_CalcLateralVelocity__FP8Car_tObj(Car_tObj *carObj)
+
 {
-  int iVar1;
-  int iVar2;
-  int iVar3;
+  uint uVar1;
+  uint uVar2;
+  uint uVar3;
   
-  iVar1 = fixedmult((carObj->N).linearVel.x,(carObj->N).roadMatrix.m[0]);
-  iVar2 = fixedmult((carObj->N).linearVel.y,(carObj->N).roadMatrix.m[1]);
-  iVar3 = fixedmult((carObj->N).linearVel.z,(carObj->N).roadMatrix.m[2]);
-  return iVar1 + iVar2 + iVar3;
-
-
+  uVar1 = fixedmult((carObj->N).linearVel.x,(carObj->N).roadMatrix.m[0]);
+  uVar2 = fixedmult((carObj->N).linearVel.y,(carObj->N).roadMatrix.m[1]);
+  uVar3 = fixedmult((carObj->N).linearVel.z,(carObj->N).roadMatrix.m[2]);
+  return uVar1 + uVar2 + uVar3;
 }
-
 
 
 
@@ -782,32 +840,34 @@ int AIWorld_CalcLateralVelocity__FP8Car_tObj(Car_tObj *carObj)
 	// End offset: 0x80073A58
 	// End Line: 604
 
-void AIWorld_FindBarrierLessLaneAndPosition__FP8Car_tObjPiT1( (Car_tObj *carObj,int *goodLane,int *goodPosition)
+void AIWorld_FindBarrierLessLaneAndPosition__FP8Car_tObjPiT1
+               (Car_tObj *carObj,int *goodLane,int *goodPosition)
+
 {
-  int iVar1;
+  byte bVar1;
   int iVar2;
+  int iVar3;
+  int iVar4;
   
-  iVar2 = 0;
-  if (true) {
-    *goodLane = 6;
+  iVar4 = (carObj->script).lastReactionIndex[3] * AITune_driveSide;
+  iVar3 = 0;
+  if (iVar4 == 1) {
+    *goodLane = 7;
+    bVar1 = BWorldSm_slices[(int)(carObj->N).simRoadInfo.slice].avgPavedWidthRt;
   }
   else {
-    *goodLane = 7;
+    *goodLane = 6;
+    bVar1 = BWorldSm_slices[(int)(carObj->N).simRoadInfo.slice].avgPavedWidthLf;
   }
-  if (true) {
-    do {
-      iVar1 = AIWorld_IsDriveableLane__Fii((int)(carObj->N).simRoadInfo.slice,*goodLane);
-      if (iVar1 != 0) break;
-      iVar2 = iVar2 + 1;
-      *goodLane = *goodLane;
-    } while (iVar2 < 3);
-  }
-  *goodPosition = 0;
+  do {
+    iVar2 = AIWorld_IsDriveableLane__Fii((int)(carObj->N).simRoadInfo.slice,*goodLane);
+    if (iVar2 != 0) break;
+    iVar3 = iVar3 + 1;
+    *goodLane = *goodLane + iVar4;
+  } while (iVar3 < 3);
+  *goodPosition = iVar4 * ((uint)bVar1 * 0x8000 * iVar3 + ((uint)bVar1 * 0x8000 >> 1));
   return;
-
-
 }
-
 
 
 

@@ -13,6 +13,7 @@
 	// End Line: 129
 
 int xzsquaredist32__FP8coorddefT0(coorddef *c1,coorddef *c2)
+
 {
   int iVar1;
   int iVar2;
@@ -20,10 +21,7 @@ int xzsquaredist32__FP8coorddefT0(coorddef *c1,coorddef *c2)
   iVar1 = c2->x - c1->x >> 0xc;
   iVar2 = c2->z - c1->z >> 0xc;
   return (iVar1 * iVar1 >> 6) + (iVar2 * iVar2 >> 6);
-
-
 }
-
 
 
 
@@ -53,30 +51,28 @@ int xzsquaredist32__FP8coorddefT0(coorddef *c1,coorddef *c2)
 	// End Line: 217
 
 void UpdateContext__FP13DRender_tViewi(DRender_tView *Vi,int contextHandle)
+
 {
   DRender_tCalcView *pt;
   
   SetContext__Fi(contextHandle);
   pt = &Vi->cview;
   if (contextHandle == 0) {
-    iGp00000258 = (int)*(short *)(iGp00000244 + 4);
+    DAT_00000258 = (int)*(short *)(DAT_00000244 + 4);
   }
   BWorldSm_FindClosestQuadRez__FP8coorddefP12BWorldSm_Posi
-            ((coorddef *)pt,(BWorldSm_Pos *)(iGp00000244 + 4),1);
-  if (*(char *)(iGp00000244 + 0x5e) != '\0') {
+            ((coorddef *)pt,(BWorldSm_Pos *)(DAT_00000244 + 4),1);
+  if (*(char *)(DAT_00000244 + 0x5e) != '\0') {
     FindAbsClosestSliceCrude__FP8coorddefP12BWorldSm_Pos
-              ((coorddef *)pt,(BWorldSm_Pos *)(iGp00000244 + 4));
+              ((coorddef *)pt,(BWorldSm_Pos *)(DAT_00000244 + 4));
     BWorldSm_FindClosestQuadRez__FP8coorddefP12BWorldSm_Posi
-              ((coorddef *)pt,(BWorldSm_Pos *)(iGp00000244 + 4),1);
+              ((coorddef *)pt,(BWorldSm_Pos *)(DAT_00000244 + 4),1);
   }
-  if (*(uint *)(iGp00000244 + 0x88) != (uint)*(byte *)(iGp00000244 + 0x79)) {
-    *(uint *)(iGp00000244 + 0x88) = (uint)*(byte *)(iGp00000244 + 0x79);
+  if (*(uint *)(DAT_00000244 + 0x88) != (uint)*(byte *)(DAT_00000244 + 0x79)) {
+    *(uint *)(DAT_00000244 + 0x88) = (uint)*(byte *)(DAT_00000244 + 0x79);
   }
   return;
-
-
 }
-
 
 
 
@@ -206,7 +202,9 @@ void UpdateContext__FP13DRender_tViewi(DRender_tView *Vi,int contextHandle)
 	// End offset: 0x8007D7F4
 	// End Line: 294
 
-void BWorld_BuildGlareEffects__FP13DRender_tViewP11Draw_DCacheP5Group( (DRender_tView *Vi,Draw_DCache *sd,Group *group)
+void BWorld_BuildGlareEffects__FP13DRender_tViewP11Draw_DCacheP5Group
+               (DRender_tView *Vi,Draw_DCache *sd,Group *group)
+
 {
   ushort uVar1;
   bool bVar2;
@@ -229,9 +227,9 @@ void BWorld_BuildGlareEffects__FP13DRender_tViewP11Draw_DCacheP5Group( (DRender_
     }
     uVar1 = *(ushort *)((int)&fpt[1].x + 2);
     if ((int)*(short *)&fpt[1].x == 100) {
-      local_30.x = 0;
-      local_30.y = 0xa0000;
-      local_30.z = 0;
+      local_30.x = DAT_80055880;
+      local_30.y = PTR_LAB_80055884;
+      local_30.z = DAT_80055888;
       TrgSfx_AddEnviroEffect__FiiP8coorddefT2(obj,0x101,fpt,&local_30);
       return;
     }
@@ -260,10 +258,7 @@ void BWorld_BuildGlareEffects__FP13DRender_tViewP11Draw_DCacheP5Group( (DRender_
     fpt = (coorddef *)&fpt[1].y;
     obj = obj + 1;
   } while( true );
-
-
 }
-
 
 
 
@@ -299,36 +294,39 @@ void BWorld_BuildGlareEffects__FP13DRender_tViewP11Draw_DCacheP5Group( (DRender_
 	// End offset: 0x8007D8B8
 	// End Line: 349
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void BWorld_InitSpikeBelt__Fv(void)
+
 {
   int iVar1;
-  byte *pbVar2;
+  int iVar2;
   int iVar3;
-  int iVar4;
+  CVECTOR *pCVar4;
+  int iVar5;
+  int iVar6;
   
-  iVar4 = 0x7fffffff;
-  iGp00000264 = -1;
-  iVar3 = 0;
-  pbVar2 = _Chunk_lightTable;
-  while (iVar3 < 0) {
-    iVar1 = (0x80 - (uint)*pbVar2) * (0x80 - (uint)*pbVar2) +
-            (0x80 - (uint)pbVar2[1]) * (0x80 - (uint)pbVar2[1]) +
-            (0x80 - (uint)pbVar2[2]) * (0x80 - (uint)pbVar2[2]);
-    if (iVar1 < iVar4) {
-      iVar4 = iVar1;
-      iGp00000264 = iVar3;
+  iVar6 = 0x7fffffff;
+  DAT_00000264 = -1;
+  iVar5 = 0;
+  pCVar4 = Chunk_lightTable;
+  while (iVar5 < Chunk_numLight) {
+    iVar1 = 0x80 - (uint)pCVar4->r;
+    iVar2 = 0x80 - (uint)pCVar4->g;
+    iVar3 = 0x80 - (uint)pCVar4->b;
+    iVar1 = iVar1 * iVar1 + iVar2 * iVar2 + iVar3 * iVar3;
+    if (iVar1 < iVar6) {
+      iVar6 = iVar1;
+      DAT_00000264 = iVar5;
     }
-    pbVar2 = pbVar2 + 4;
-    iVar3 = iVar3 + 1;
+    pCVar4 = pCVar4 + 1;
+    iVar5 = iVar5 + 1;
   }
-  uGp00000248 = 0;
-  uGp0000024c = 0;
-  uGp00000250 = 0;
+  DAT_00000248 = 0;
+  DAT_0000024c = 0;
+  DAT_00000250 = 0;
   return;
-
-
 }
-
 
 
 
@@ -344,17 +342,15 @@ void BWorld_InitSpikeBelt__Fv(void)
 	// End Line: 354
 
 void BWorld_SetSpikeBelt__Fiii(int slice,int x,int width)
+
 {
-  uGp00000248 = 1;
-  iGp0000024c = slice;
-  uGp00000250 = (uint)*(byte *)(slice * 0x20 + 0x1c);
-  iGp00000254 = x;
-  iGp00000260 = width;
+  DAT_00000248 = 1;
+  DAT_0000024c = slice;
+  DAT_00000250 = (uint)BWorldSm_slices[slice].chunkIndex;
+  DAT_00000254 = x;
+  DAT_00000260 = width;
   return;
-
-
 }
-
 
 
 
@@ -370,21 +366,19 @@ void BWorld_SetSpikeBelt__Fiii(int slice,int x,int width)
 	// End Line: 375
 
 int BWorld_GetSpikeBelt__FPiN20(int *slice,int *x,int *width)
+
 {
-  if (iGp00000248 != 1) {
+  if (DAT_00000248 != 1) {
     *width = 0;
     *x = 0;
     *slice = 0;
     return 0;
   }
-  *slice = iGp0000024c;
-  *x = iGp00000254;
-  *width = iGp00000260;
+  *slice = DAT_0000024c;
+  *x = DAT_00000254;
+  *width = DAT_00000260;
   return 1;
-
-
 }
-
 
 
 
@@ -517,52 +511,54 @@ int BWorld_GetSpikeBelt__FPiN20(int *slice,int *x,int *width)
 	// End Line: 576
 
 void SetupBuildMatrices__FP13DRender_tViewP11Draw_DCache(DRender_tView *Vi,Draw_DCache *sd)
+
 {
   int iVar1;
   int contextHandle;
   int iVar2;
-  int iVar3;
+  Car_tObj *pCVar3;
   int iVar4;
-  int *piVar5;
+  Car_tObj **ppCVar5;
   matrixtdef mStack96;
   matrixtdef mStack56;
   
-  if ((Vi->id == 0) || (Vi->id == 0)) {
+  if ((Vi->id == Draw_gPlayer1View) || (Vi->id == Draw_gPlayer2View)) {
     contextHandle = Vi->player;
   }
   else {
     contextHandle = 1;
   }
   UpdateContext__FP13DRender_tViewi(Vi,contextHandle);
-  gWorldMat = (Vi->cview).mrotationInv.m[0];
-  DAT_8010ee48 = (Vi->cview).mrotationInv.m[2];
-  DAT_8010ee44 = -(Vi->cview).mrotationInv.m[1];
-  DAT_8010ee4c = (Vi->cview).mrotationInv.m[3];
-  DAT_8010ee54 = (Vi->cview).mrotationInv.m[5];
-  DAT_8010ee50 = -(Vi->cview).mrotationInv.m[4];
-  DAT_8010ee58 = (Vi->cview).mrotationInv.m[6];
-  DAT_8010ee60 = (Vi->cview).mrotationInv.m[8];
-  DAT_8010ee5c = -(Vi->cview).mrotationInv.m[7];
-  if (false) {
-    transpose((&DAT_8010f2b0)[Vi->player * 0x44] + 0xf0,&gNightMat);
-    DAT_8010ee68 = -DAT_8010ee68;
-    DAT_8010ee80 = -DAT_8010ee80;
-    DAT_8010ee74 = -DAT_8010ee74;
-    DrawW_WorldSetUpMatrix__FP10matrixtdefP6MATRIX((matrixtdef *)&gNightMat,&sd->matNight);
-    iGp00000268 = 0;
+  gWorldMat.m[0] = (Vi->cview).mrotationInv.m[0];
+  gWorldMat.m[2] = (Vi->cview).mrotationInv.m[2];
+  gWorldMat.m[1] = -(Vi->cview).mrotationInv.m[1];
+  gWorldMat.m[3] = (Vi->cview).mrotationInv.m[3];
+  gWorldMat.m[5] = (Vi->cview).mrotationInv.m[5];
+  gWorldMat.m[4] = -(Vi->cview).mrotationInv.m[4];
+  gWorldMat.m[6] = (Vi->cview).mrotationInv.m[6];
+  gWorldMat.m[8] = (Vi->cview).mrotationInv.m[8];
+  gWorldMat.m[7] = -(Vi->cview).mrotationInv.m[7];
+  if (gNight_renderNight != (uchar *)0x0) {
+    transpose((undefined4 *)&((&Camera_gInfo)[Vi->player].target)->orientMat,
+              (undefined4 *)&gNightMat);
+    gNightMat.m[1] = -gNightMat.m[1];
+    gNightMat.m[7] = -gNightMat.m[7];
+    gNightMat.m[4] = -gNightMat.m[4];
+    DrawW_WorldSetUpMatrix__FP10matrixtdefP6MATRIX(&gNightMat,&sd->matNight);
+    DAT_00000268 = (Car_tObj *)0x0;
     contextHandle = 0xb40000;
-    if (DAT_801131f8 != 1) {
+    if (GameSetup_gData.commMode != 1) {
       iVar4 = -1;
-      piVar5 = &DAT_8010fab0;
+      ppCVar5 = &PTR_8010fab0;
       while (iVar4 < Cars_gNumCopCars) {
-        iVar3 = _Cars_gList;
+        pCVar3 = __Cars_gList_9__;
         if (-1 < iVar4) {
-          iVar3 = *piVar5;
+          pCVar3 = *ppCVar5;
         }
-        if (((*(char *)(iVar3 + 0x91) != '\0') && ((*(uint *)(iVar3 + 0x570) & 2) != 0)) &&
-           ((*(ushort *)(iVar3 + 0x87e) & 4) == 0)) {
-          iVar2 = *(int *)(iVar3 + 0xa0) - (Vi->cview).translation.x;
-          iVar1 = *(int *)(iVar3 + 0xa8) - (Vi->cview).translation.z;
+        if ((((pCVar3->N).active != '\0') && (((pCVar3->speechInfo).speechSource & 2) != 0)) &&
+           ((*(ushort *)((int)&(pCVar3->render).bodyPitch + 2) & 4) == 0)) {
+          iVar2 = (pCVar3->N).position.x - (Vi->cview).translation.x;
+          iVar1 = (pCVar3->N).position.z - (Vi->cview).translation.z;
           if (iVar2 < 0) {
             iVar2 = -iVar2;
           }
@@ -577,30 +573,27 @@ void SetupBuildMatrices__FP13DRender_tViewP11Draw_DCache(DRender_tView *Vi,Draw_
           }
           if (iVar2 < contextHandle) {
             contextHandle = iVar2;
-            iGp00000268 = iVar3;
+            DAT_00000268 = pCVar3;
           }
         }
-        piVar5 = piVar5 + 1;
+        ppCVar5 = ppCVar5 + 1;
         iVar4 = iVar4 + 1;
       }
-      if (iGp00000268 != 0) {
-        Night_SetCopColor__FP18GameSetup_tCarData(*(GameSetup_tCarData **)(iGp00000268 + 0x288));
-        iGp00000210 = iGp00000210 + 0x40;
-        xformy(&mStack56);
-        transpose(iGp00000268 + 0xf0,&mStack96);
-        Math_fasttransmult__FP10matrixtdefN20(&mStack96,&mStack56,(matrixtdef *)&gCopMat);
-        DAT_8010ee8c = -DAT_8010ee8c;
-        DAT_8010eea4 = -DAT_8010eea4;
-        DAT_8010ee98 = -DAT_8010ee98;
-        DrawW_WorldSetUpMatrix__FP10matrixtdefP6MATRIX((matrixtdef *)&gCopMat,&sd->matCop);
+      if (DAT_00000268 != (Car_tObj *)0x0) {
+        Night_SetCopColor__FP18GameSetup_tCarData(DAT_00000268->carInfo);
+        DAT_00000210 = DAT_00000210 + 0x40;
+        xformy((int *)&mStack56,DAT_00000210);
+        transpose((undefined4 *)&(DAT_00000268->N).orientMat,(undefined4 *)&mStack96);
+        Math_fasttransmult__FP10matrixtdefN20(&mStack96,&mStack56,&gCopMat);
+        gCopMat.m[1] = -gCopMat.m[1];
+        gCopMat.m[7] = -gCopMat.m[7];
+        gCopMat.m[4] = -gCopMat.m[4];
+        DrawW_WorldSetUpMatrix__FP10matrixtdefP6MATRIX(&gCopMat,&sd->matCop);
       }
     }
   }
   return;
-
-
 }
-
 
 
 
@@ -623,48 +616,57 @@ void SetupBuildMatrices__FP13DRender_tViewP11Draw_DCache(DRender_tView *Vi,Draw_
 	// End offset: 0x8007DD44
 	// End Line: 644
 
-int BWorld_CheckChunkVisible__FP12BWorldSm_PosT0( (BWorldSm_Pos *slicePosSource,BWorldSm_Pos *slicePosTest)
+int BWorld_CheckChunkVisible__FP12BWorldSm_PosT0
+              (BWorldSm_Pos *slicePosSource,BWorldSm_Pos *slicePosTest)
+
 {
-  uint uVar1;
+  int iVar1;
   uint uVar2;
   uint uVar3;
   int iVar4;
-  short *psVar5;
+  uint uVar5;
+  int iVar6;
+  short *psVar7;
   
   if (slicePosSource == slicePosTest) {
     return 1;
   }
-  iVar4 = (uint)*(byte *)(uint)slicePosSource->chunk - 1;
-  uVar3 = 0;
-  if (iVar4 != -1) {
-    psVar5 = (short *)(iVar4 * 2 + (int)(byte *)(uint)slicePosSource->chunk * 0x40);
-    do {
-      uVar2 = SEXT24(*psVar5);
-      if ((uVar2 & 0x3ff) == (uint)*(byte *)(((int)slicePosTest->slice + 2) * 0x20 + 0x1c)) {
-        uVar1 = uVar3 ^ 2;
-        if ((uVar2 & 0x800) != 0) goto LAB_8007dd44;
-        uVar3 = uVar3 + 1;
-        uVar1 = uVar3 ^ 2;
-        if (uVar3 != 1) goto LAB_8007dd44;
-      }
-      if ((uVar2 & 0x3ff) == (uint)*(byte *)(((int)slicePosTest->slice + -2) * 0x20 + 0x1c)) {
-        uVar1 = uVar3 ^ 2;
-        if ((uVar2 & 0x800) != 0) goto LAB_8007dd44;
-        uVar3 = uVar3 + 1;
-        uVar1 = uVar3 ^ 2;
-        if (uVar3 != 1) goto LAB_8007dd44;
-      }
-      iVar4 = iVar4 + -1;
-      psVar5 = psVar5 + -1;
-    } while (iVar4 != -1);
+  iVar4 = (int)slicePosTest->slice + 2;
+  if (gNumSlices <= iVar4) {
+    iVar4 = (int)slicePosTest->slice - (gNumSlices + -2);
   }
-  uVar1 = uVar3 ^ 2;
+  iVar1 = (int)slicePosTest->slice + -2;
+  if (iVar1 < 0) {
+    iVar1 = (int)slicePosTest->slice + gNumSlices + -2;
+  }
+  iVar6 = (uint)Track_gInViewCount[(uint)slicePosSource->chunk] - 1;
+  uVar5 = 0;
+  if (iVar6 != -1) {
+    psVar7 = __Track_gInViewList_ + (uint)slicePosSource->chunk * 0x20 + iVar6;
+    do {
+      uVar3 = SEXT24(*psVar7);
+      if ((uVar3 & 0x3ff) == (uint)BWorldSm_slices[iVar4].chunkIndex) {
+        uVar2 = uVar5 ^ 2;
+        if ((uVar3 & 0x800) != 0) goto LAB_8007dd44;
+        uVar5 = uVar5 + 1;
+        uVar2 = uVar5 ^ 2;
+        if (uVar5 != 1) goto LAB_8007dd44;
+      }
+      if ((uVar3 & 0x3ff) == (uint)BWorldSm_slices[iVar1].chunkIndex) {
+        uVar2 = uVar5 ^ 2;
+        if ((uVar3 & 0x800) != 0) goto LAB_8007dd44;
+        uVar5 = uVar5 + 1;
+        uVar2 = uVar5 ^ 2;
+        if (uVar5 != 1) goto LAB_8007dd44;
+      }
+      iVar6 = iVar6 + -1;
+      psVar7 = psVar7 + -1;
+    } while (iVar6 != -1);
+  }
+  uVar2 = uVar5 ^ 2;
 LAB_8007dd44:
-  return (uint)(uVar1 == 0);
-
-
+  return (uint)(uVar2 == 0);
 }
-
 
 
 
@@ -680,12 +682,10 @@ LAB_8007dd44:
 	// End Line: 661
 
 int GetRezIndex__Fi(int dist)
+
 {
-  return ((uint)(*(int *)(iGp00000244 + 0x94) < dist) ^ 1) << 2;
-
-
+  return ((uint)(*(int *)(DAT_00000244 + 0x94) < dist) ^ 1) << 2;
 }
-
 
 
 
@@ -728,10 +728,12 @@ int GetRezIndex__Fi(int dist)
 	// End Line: 844
 
 int SetupChunkBuildList__FP13DRender_tView(DRender_tView *Vi)
+
 {
   int dist;
   coorddef *c1;
-  undefined2 *puVar1;
+  Chunk *s;
+  tBuildEntry *ptVar1;
   uint uVar2;
   ushort *puVar3;
   int iVar4;
@@ -747,42 +749,43 @@ int SetupChunkBuildList__FP13DRender_tView(DRender_tView *Vi)
   coorddef cStack64;
   uint local_30;
   
-  puVar1 = &BWorld_gChunkBuildList;
+  ptVar1 = &BWorld_gChunkBuildList;
   iVar5 = 0;
   iVar4 = 0;
-  puVar3 = (ushort *)((int)*(byte **)(iGp00000244 + 0x88) * 0x40);
-  local_30 = (uint)**(byte **)(iGp00000244 + 0x88);
+  puVar3 = (ushort *)(__Track_gInViewList_ + *(int *)(DAT_00000244 + 0x88) * 0x20);
+  local_30 = (uint)Track_gInViewCount[*(int *)(DAT_00000244 + 0x88)];
   while (iVar4 < (int)local_30) {
     uVar2 = (uint)*puVar3 & 0x3ff;
-    c1 = (coorddef *)(_Chunk_chunkCenters + uVar2 * 0xc);
+    c1 = Chunk_chunkCenters + uVar2;
     dist = xzsquaredist32__FP8coorddefT0(c1,(coorddef *)&Vi->cview);
-    if ((dist <= *(int *)(iGp00000244 + 0x8c)) && ((*puVar3 & 0x800) == 0)) {
+    if ((dist <= *(int *)(DAT_00000244 + 0x8c)) && ((*puVar3 & 0x800) == 0)) {
       local_50.x = c1->x - (Vi->cview).translation.x;
-      local_50.y = *(int *)(uVar2 * 0x100 + 4) - (Vi->cview).translation.y;
+      local_50.y = BWorldSm_slices[uVar2 * 8].center[1] - (Vi->cview).translation.y;
       local_50.z = c1->z - (Vi->cview).translation.z;
+      s = Track_chunkList + uVar2;
       TrsProj_SetPsxTransZero__Fv();
       TrsProj_TransPt__FP8coorddefT0(&local_50,&cStack64);
       TrsProj_SetPsxTrans__FP8coorddef(&cStack64);
-      TrsProj_TransPtN16__FP10RelCoord16P8coorddefi((RelCoord16 *)(uVar2 * 0x70),&local_80,4);
+      TrsProj_TransPtN16__FP10RelCoord16P8coorddefi((RelCoord16 *)s,&local_80,4);
       if (((local_80.x <= local_80.z) ||
           (((local_74 <= local_6c || (local_68 <= local_60)) || (local_5c <= local_54)))) &&
          (((((-local_80.x <= local_80.z || (-local_74 <= local_6c)) || (-local_68 <= local_60)) ||
            (-local_5c <= local_54)) &&
           (((-1 < local_80.z || (-1 < local_6c)) || ((-1 < local_60 || (-1 < local_54)))))))) {
-        *(undefined *)((int)puVar1 + 3) = 3;
-        if (dist < *(int *)(iGp00000244 + 0x98)) {
-          *(undefined *)((int)puVar1 + 3) = 7;
+        ptVar1->enableBits = '\x03';
+        if (dist < *(int *)(DAT_00000244 + 0x98)) {
+          ptVar1->enableBits = '\a';
         }
         if ((*puVar3 & 0x4000) != 0) {
-          *(byte *)((int)puVar1 + 3) = *(byte *)((int)puVar1 + 3) & 0xfd;
+          ptVar1->enableBits = ptVar1->enableBits & 0xfd;
         }
         if ((*puVar3 & 0x2000) != 0) {
-          *(byte *)((int)puVar1 + 3) = *(byte *)((int)puVar1 + 3) & 0xfe;
+          ptVar1->enableBits = ptVar1->enableBits & 0xfe;
         }
         dist = GetRezIndex__Fi(dist);
-        *(char *)(puVar1 + 1) = (char)dist;
-        *puVar1 = (short)uVar2;
-        puVar1 = puVar1 + 2;
+        ptVar1->geomRez = (char)dist;
+        ptVar1->chunkInd = (short)uVar2;
+        ptVar1 = ptVar1 + 1;
         iVar5 = iVar5 + 1;
       }
     }
@@ -790,16 +793,13 @@ int SetupChunkBuildList__FP13DRender_tView(DRender_tView *Vi)
     iVar4 = iVar4 + 1;
   }
   return iVar5;
-
-
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// unsigned int /*$ra*/ BWorld_IsSliceInBuildList__Fi(int slice /*$a0*/)
+// void * /*$ra*/ BWorld_IsSliceInBuildList__Fi(int slice /*$a0*/)
  // line 847, offset 0x8007e0a0
 	/* begin block 1 */
 		// Start line: 848
@@ -819,30 +819,28 @@ int SetupChunkBuildList__FP13DRender_tView(DRender_tView *Vi)
 	// End offset: 0x8007E0EC
 	// End Line: 855
 
-uint BWorld_IsSliceInBuildList__Fi(int slice)
+void * BWorld_IsSliceInBuildList__Fi(int slice)
+
 {
-  short *psVar1;
+  tBuildEntry *ptVar1;
   int iVar2;
   
   iVar2 = 0;
   if (slice < 0) {
     slice = slice + 7;
   }
-  if (0 < BWorld_gChunkCount) {
-    psVar1 = &BWorld_gChunkBuildList;
+  if (0 < iGp0000025c) {
+    ptVar1 = &BWorld_gChunkBuildList;
     do {
       iVar2 = iVar2 + 1;
-      if ((int)*psVar1 == slice >> 3) {
-        return 1;
+      if ((int)ptVar1->chunkInd == slice >> 3) {
+        return &DAT_00000001;
       }
-      psVar1 = psVar1 + 2;
-    } while (iVar2 < BWorld_gChunkCount);
+      ptVar1 = ptVar1 + 1;
+    } while (iVar2 < iGp0000025c);
   }
-  return 0;
-
-
+  return (void *)0x0;
 }
-
 
 
 
@@ -936,78 +934,76 @@ uint BWorld_IsSliceInBuildList__Fi(int slice)
 	// End Line: 1039
 
 void BWorld_OnyxBuildFacets__FP13DRender_tView(DRender_tView *Vi)
+
 {
-  uint uVar1;
-  Group *group;
+  void *pvVar1;
   int iVar2;
-  short *psVar3;
+  tBuildEntry *ptVar3;
   
   Chunk_UpdateSys__FP13DRender_tView(Vi);
-  _gVi2 = Vi;
-  gWSavePtr = SetSp(0x1f8003fc);
+  pDGp0000026c = Vi;
+  gWSavePtr = SetSp();
   stackSpeedUpEnbabledFlag = 1;
-  SetupBuildMatrices__FP13DRender_tViewP11Draw_DCache(_gVi2,(Draw_DCache *)&DAT_1f800000);
-  DrawW_WorldSetUpMatrix__FP10matrixtdefP6MATRIX((matrixtdef *)&gWorldMat,(MATRIX *)&DAT_1f800014);
-  BWorld_gChunkCount = SetupChunkBuildList__FP13DRender_tView(_gVi2);
-  gWSavePtr = SetSp(gWSavePtr);
+  SetupBuildMatrices__FP13DRender_tViewP11Draw_DCache(pDGp0000026c,(Draw_DCache *)&DAT_1f800000);
+  DrawW_WorldSetUpMatrix__FP10matrixtdefP6MATRIX(&gWorldMat,(MATRIX *)&DAT_1f800014);
+  iGp0000025c = SetupChunkBuildList__FP13DRender_tView(pDGp0000026c);
+  gWSavePtr = SetSp();
   stackSpeedUpEnbabledFlag = 0;
-  _DAT_1f8000dc = (undefined2)DAT_80123294;
-  _DAT_1f8000de = 0;
-  DAT_1f80010e = 0;
-  if (DAT_80113240 != 0) {
-    _DAT_1f800108 = (undefined2)Night_gZNear;
-    DAT_1f80010a = (undefined)Night_gXDistShift;
-    DAT_1f80010b = (undefined)Night_gZDistShift;
+  DAT_1f8000dc = (undefined2)TrackSpec_gSpec.fogspec.start;
+  DAT_1f8000de = (undefined2)TrackSpec_gSpec.fogspec.dist2base;
+  DAT_1f80010e = (undefined)TrackSpec_gSpec.fogstate;
+  if (GameSetup_gData.Time != 0) {
+    DAT_1f800108 = Night_gZNear._0_2_;
+    DAT_1f80010a = Night_gXDistShift._0_1_;
+    DAT_1f80010b = Night_gZDistShift._0_1_;
     DAT_1f80010c = Night_gDrawLightning;
-    DAT_1f80010d = 0;
+    DAT_1f80010d = Night_gLightningType._0_1_;
   }
-  gWSavePtr = SetSp(0x1f8003fc);
+  gWSavePtr = SetSp();
   stackSpeedUpEnbabledFlag = 1;
-  DrawW_DoTrough__FP13DRender_tViewP11tBuildEntry(Vi,(tBuildEntry *)&BWorld_gChunkBuildList);
-  gWSavePtr = SetSp(gWSavePtr);
+  DrawW_DoTrough__FP13DRender_tViewP11tBuildEntry(Vi,&BWorld_gChunkBuildList);
+  gWSavePtr = SetSp();
   stackSpeedUpEnbabledFlag = 0;
-  if ((false) || (DAT_80113234 != 1)) {
-    gWSavePtr = SetSp(0x1f8003fc);
+  if ((GameSetup_gData.track != 0) || (GameSetup_gData.Weather != 1)) {
+    gWSavePtr = SetSp();
     stackSpeedUpEnbabledFlag = 1;
     DrawW_DoLines__FP13DRender_tViewP11tBuildEntryP11Draw_DCache
-              (Vi,(tBuildEntry *)&BWorld_gChunkBuildList,(Draw_DCache *)&DAT_1f800000);
-    gWSavePtr = SetSp(gWSavePtr);
+              (Vi,&BWorld_gChunkBuildList,(Draw_DCache *)&DAT_1f800000);
+    gWSavePtr = SetSp();
   }
   stackSpeedUpEnbabledFlag = 0;
-  if ((false) && (iVar2 = 0, 0 < BWorld_gChunkCount)) {
-    psVar3 = &BWorld_gChunkBuildList;
+  if ((iGp00000248 != 0) && (iVar2 = 0, 0 < iGp0000025c)) {
+    ptVar3 = &BWorld_gChunkBuildList;
     do {
-      if (*psVar3 == 0) {
-        DrawW_BuildSpikeBelt__FP13DRender_tViewiP11Draw_DCache(Vi,0,(Draw_DCache *)&DAT_1f800000);
+      if ((int)ptVar3->chunkInd == iGp00000250) {
+        DrawW_BuildSpikeBelt__FP13DRender_tViewiP11Draw_DCache
+                  (Vi,iGp00000260,(Draw_DCache *)&DAT_1f800000);
       }
       iVar2 = iVar2 + 1;
-      psVar3 = psVar3 + 2;
-    } while (iVar2 < BWorld_gChunkCount);
+      ptVar3 = ptVar3 + 1;
+    } while (iVar2 < iGp0000025c);
   }
   iVar2 = 0;
-  if (DAT_801131f8 == 0) {
-    psVar3 = &BWorld_gChunkBuildList;
-    while (iVar2 < BWorld_gChunkCount) {
-      group = *(Group **)((int)*psVar3 * 0x70 + 0x54);
-      if (group != (Group *)0x0) {
+  if (GameSetup_gData.commMode == 0) {
+    ptVar3 = &BWorld_gChunkBuildList;
+    while (iVar2 < iGp0000025c) {
+      if (Track_chunkList[(int)ptVar3->chunkInd].sfxBuf != (Group *)0x0) {
         BWorld_BuildGlareEffects__FP13DRender_tViewP11Draw_DCacheP5Group
-                  (Vi,(Draw_DCache *)&DAT_1f800000,group);
+                  (Vi,(Draw_DCache *)&DAT_1f800000,Track_chunkList[(int)ptVar3->chunkInd].sfxBuf);
       }
-      psVar3 = psVar3 + 2;
+      ptVar3 = ptVar3 + 1;
       iVar2 = iVar2 + 1;
     }
   }
-  if ((false) && (uVar1 = BWorld_IsSliceInBuildList__Fi(Object_customSliceNum), uVar1 != 0)) {
+  if ((Object_customSFXInst != (Group *)0x0) &&
+     (pvVar1 = BWorld_IsSliceInBuildList__Fi(Object_customSliceNum), pvVar1 != (void *)0x0)) {
     BWorld_BuildGlareEffects__FP13DRender_tViewP11Draw_DCacheP5Group
-              (Vi,(Draw_DCache *)&DAT_1f800000,(Group *)0x0);
+              (Vi,(Draw_DCache *)&DAT_1f800000,Object_customSFXInst);
   }
-  DrawW_WorldSetUpMatrix__FP10matrixtdefP6MATRIX((matrixtdef *)&gWorldMat,(MATRIX *)&DAT_1f800014);
-  DrawW_DoObjects__FP13DRender_tViewP11tBuildEntry(Vi,(tBuildEntry *)&BWorld_gChunkBuildList);
+  DrawW_WorldSetUpMatrix__FP10matrixtdefP6MATRIX(&gWorldMat,(MATRIX *)&DAT_1f800014);
+  DrawW_DoObjects__FP13DRender_tViewP11tBuildEntry(Vi,&BWorld_gChunkBuildList);
   return;
-
-
 }
-
 
 
 
@@ -1025,16 +1021,14 @@ void BWorld_OnyxBuildFacets__FP13DRender_tView(DRender_tView *Vi)
 	// End Line: 1108
 
 char * BWAllocMem__Fl(long size)
+
 {
   char *pcVar1;
   
-  DAT_8013c760 = DAT_8013c760 + size;
-  pcVar1 = Platform_GetDCTBuffer__FiPc(size,"bworld");
+  iGp00000214 = iGp00000214 + size;
+  pcVar1 = Platform_GetDCTBuffer__FiPc(size,s_bworld_8013c764);
   return pcVar1;
-
-
 }
-
 
 
 
@@ -1051,25 +1045,25 @@ char * BWAllocMem__Fl(long size)
 	// End offset: 0x8007E458
 	// End Line: 1156
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void BWorld_InitContexts__Fv(void)
+
 {
-  undefined4 *puVar1;
+  int iVar1;
   int iVar2;
   
   iVar2 = 1;
-  puVar1 = &DAT_8010ef48;
-  gContextMan = 1;
-  DAT_8010eeb0 = 0;
+  iVar1 = -0x7fef10b8;
+  gContextMan.initialized = 1;
+  gContextMan.count = 0;
   do {
-    puVar1[2] = 0xffffffff;
+    *(undefined4 *)(iVar1 + 8) = 0xffffffff;
     iVar2 = iVar2 + -1;
-    puVar1 = puVar1 + -0x27;
+    iVar1 = iVar1 + -0x9c;
   } while (-1 < iVar2);
   return;
-
-
 }
-
 
 
 
@@ -1084,14 +1078,14 @@ void BWorld_InitContexts__Fv(void)
 	// End offset: 0x8007E460
 	// End Line: 1166
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void BWorld_DeInitContexts__Fv(void)
+
 {
   BWorld_InitContexts__Fv();
   return;
-
-
 }
-
 
 
 
@@ -1107,13 +1101,11 @@ void BWorld_DeInitContexts__Fv(void)
 	// End Line: 1180
 
 void SetContext__Fi(int contextHandle)
+
 {
-  _gCurrContext = &DAT_8010eeb4 + contextHandle * 0x27;
+  iGp00000244 = contextHandle * 0x9c + -0x7fef114c;
   return;
-
-
 }
-
 
 
 
@@ -1131,39 +1123,37 @@ void SetContext__Fi(int contextHandle)
 	// End Line: 1222
 
 int BWorld_OpenContext__Fii(int contextType,int client)
+
 {
-  int iVar1;
-  undefined4 uVar2;
-  int iVar3;
-  undefined4 uVar4;
+  undefined *puVar1;
+  int iVar2;
+  undefined *puVar3;
+  BW_tContext *pBVar4;
   
-  iVar1 = DAT_8010eeb0;
-  iVar3 = DAT_8010eeb0 * 0x27;
-  (&DAT_8010eeb8)[DAT_8010eeb0 * 0x4e] = 0;
-  (&DAT_8010eeb4)[iVar3] = client;
+  iVar2 = gContextMan.count;
+  pBVar4 = gContextMan.contexts + gContextMan.count;
+  gContextMan.contexts[gContextMan.count].slicePos.slice = 0;
+  pBVar4->client = client;
   if (contextType == 0) {
-    uVar4 = 0xcea40;
-    (&DAT_8010ef44)[iVar1 * 0x27] = 640000;
-    (&DAT_8010ef4c)[iVar1 * 0x27] = 0x4c90;
-    uVar2 = 0xe100;
+    puVar3 = &LAB_000cea40;
+    gContextMan.contexts[iVar2].polyFarZClipSq = 640000;
+    gContextMan.contexts[iVar2].lineFarZClipSq = 0x4c90;
+    puVar1 = &DAT_0000e100;
   }
   else {
     if (contextType != 1) goto LAB_8007e54c;
-    uVar4 = 0x52210;
-    (&DAT_8010ef44)[iVar1 * 0x27] = 0x44944;
-    (&DAT_8010ef4c)[iVar1 * 0x27] = 10000;
-    uVar2 = 0x8d04;
+    puVar3 = &DAT_00052210;
+    gContextMan.contexts[iVar2].polyFarZClipSq = 0x44944;
+    gContextMan.contexts[iVar2].lineFarZClipSq = 10000;
+    puVar1 = &DAT_00008d04;
   }
-  (&DAT_8010ef40)[iVar1 * 0x27] = uVar4;
-  (&DAT_8010ef48)[iVar1 * 0x27] = uVar2;
+  *(undefined **)&gContextMan.contexts[iVar2].chunkFarZClipSq = puVar3;
+  *(undefined **)&gContextMan.contexts[iVar2].lowDetailDistSq = puVar1;
 LAB_8007e54c:
-  iVar3 = DAT_8010eeb0;
-  DAT_8010eeb0 = DAT_8010eeb0 + 1;
-  return iVar3;
-
-
+  iVar2 = gContextMan.count;
+  gContextMan.count = gContextMan.count + 1;
+  return iVar2;
 }
-
 
 
 
@@ -1185,22 +1175,22 @@ LAB_8007e54c:
 	// End offset: 0x8007E564
 	// End Line: 1233
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void BWorld_Restart__Fv(void)
+
 {
   Object_KillStatus__Fv();
   Object_InitStatus__Fv();
   SetContext__Fi(0);
   BWorld_InitSpikeBelt__Fv();
   Anim_Restart__Fv();
-  SceneLoaded = 0;
+  uGp0000020c = 0;
   Object_ClearCustomObjects__Fv();
   Draw_gDoVSync = 0;
   BWorldSm_Restart__Fv();
   return;
-
-
 }
-
 
 
 
@@ -1215,13 +1205,13 @@ void BWorld_Restart__Fv(void)
 	// End offset: 0x8007E5C0
 	// End Line: 1262
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void BWorld_StartLoop__Fv(void)
+
 {
   return;
-
-
 }
-
 
 
 
@@ -1238,7 +1228,10 @@ void BWorld_StartLoop__Fv(void)
 	// End offset: 0x8007E894
 	// End Line: 1376
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void BWorld_Init__Fv(void)
+
 {
   bool bVar1;
   int iVar2;
@@ -1246,102 +1239,100 @@ void BWorld_Init__Fv(void)
   uint contextType;
   
   if (Replay_ReplayMode == 0) {
-    if ((DAT_801131f8 == 1) || (GameSetup_gData == 2)) {
-      DAT_801132c0 = 99;
-      DAT_801132c4 = 99;
-      DAT_801132c8 = 99;
+    if ((GameSetup_gData.commMode == 1) || (GameSetup_gData.raceType == 2)) {
+      GameSetup_gData.SceneNumber = 99;
+      GameSetup_gData.SceneStartLap = 99;
+      GameSetup_gData.SceneEndLap = 99;
     }
     else {
-      DAT_801132c0 = rand();
-      if (DAT_801132c0 < 0) {
-        DAT_801132c0 = DAT_801132c0 + 0x3fff;
+      GameSetup_gData.SceneNumber = rand();
+      if (GameSetup_gData.SceneNumber < 0) {
+        GameSetup_gData.SceneNumber = GameSetup_gData.SceneNumber + 0x3fff;
       }
-      DAT_801132c0 = DAT_801132c0 >> 0xe;
-      DAT_801132c4 = rand();
-      if (DAT_801131f0 < 2) {
-        if (DAT_801132c4 < 0) {
-          DAT_801132c4 = DAT_801132c4 + 0x3fff;
+      GameSetup_gData.SceneNumber = GameSetup_gData.SceneNumber >> 0xe;
+      GameSetup_gData.SceneStartLap = rand();
+      if (GameSetup_gData.numLaps < 2) {
+        if (GameSetup_gData.SceneStartLap < 0) {
+          GameSetup_gData.SceneStartLap = GameSetup_gData.SceneStartLap + 0x3fff;
         }
-        DAT_801132c4 = DAT_801132c4 >> 0xe;
+        GameSetup_gData.SceneStartLap = GameSetup_gData.SceneStartLap >> 0xe;
       }
       else {
-        DAT_801132c4 = DAT_801132c4 * DAT_801131f0;
-        if (DAT_801132c4 < 0) {
-          DAT_801132c4 = DAT_801132c4 + 0x7fff;
+        GameSetup_gData.SceneStartLap = GameSetup_gData.SceneStartLap * GameSetup_gData.numLaps;
+        if (GameSetup_gData.SceneStartLap < 0) {
+          GameSetup_gData.SceneStartLap = GameSetup_gData.SceneStartLap + 0x7fff;
         }
-        DAT_801132c4 = DAT_801132c4 >> 0xf;
+        GameSetup_gData.SceneStartLap = GameSetup_gData.SceneStartLap >> 0xf;
       }
       iVar2 = rand();
-      iVar2 = iVar2 * DAT_801131f0;
+      iVar2 = iVar2 * GameSetup_gData.numLaps;
       if (iVar2 < 0) {
         iVar2 = iVar2 + 0x7fff;
       }
-      DAT_801132c8 = DAT_801132c4 + (iVar2 >> 0xf);
-      if (DAT_801132c4 == DAT_801132c8) {
-        DAT_801132c8 = DAT_801132c4 + 1;
+      GameSetup_gData.SceneEndLap = GameSetup_gData.SceneStartLap + (iVar2 >> 0xf);
+      if (GameSetup_gData.SceneStartLap == GameSetup_gData.SceneEndLap) {
+        GameSetup_gData.SceneEndLap = GameSetup_gData.SceneStartLap + 1;
       }
-      if (DAT_80113234 == 0) {
-        if (DAT_80113204 != 0) {
-          DAT_801132c0 = DAT_801132c0 + 0x14;
+      if (GameSetup_gData.Weather == 0) {
+        if (GameSetup_gData.trafficDensity != 0) {
+          GameSetup_gData.SceneNumber = GameSetup_gData.SceneNumber + 0x14;
         }
       }
       else {
-        DAT_801132c0 = DAT_801132c0 + 10;
-        DAT_801132c8 = DAT_801132c8 + 5;
+        GameSetup_gData.SceneNumber = GameSetup_gData.SceneNumber + 10;
+        GameSetup_gData.SceneEndLap = GameSetup_gData.SceneEndLap + 5;
       }
-      SceneLoaded = 0;
+      uGp0000020c = 0;
     }
   }
   Object_InitStatus__Fv();
-  Track_SetTrackNumber__Fi(0);
+  Track_SetTrackNumber__Fi(GameSetup_gData.track);
   BWorld_InitContexts__Fv();
-  bVar1 = DAT_801131f8 == 1;
+  bVar1 = GameSetup_gData.commMode == 1;
   if (bVar1) {
     BWorld_OpenContext__Fii(1,0);
   }
   contextType = (uint)bVar1;
   BWorld_OpenContext__Fii(contextType,contextType);
   SetContext__Fi(0);
-  if (DAT_80113240 == 0) {
-    if (DAT_80113234 == 0) {
-      ext = ".grp";
+  if (GameSetup_gData.Time == 0) {
+    if (GameSetup_gData.Weather == 0) {
+      ext = &DAT_8013c784;
     }
     else {
-      ext = "W.grp";
+      ext = s_W_grp_8013c77c;
     }
   }
   else {
-    if (DAT_80113234 == 0) {
-      ext = "N.grp";
+    if (GameSetup_gData.Weather == 0) {
+      ext = s_N_grp_8013c774;
     }
     else {
-      ext = "S.grp";
+      ext = s_S_grp_8013c76c;
     }
   }
   ext = Track_MakeTrackPathName__FPc(ext);
   Track_Init__FPc(ext);
   Object_InitCustomObjects__Fv();
   Object_InitIMassObjectInfo__Fv();
-  if (_gPersistObjDef != (int *)0x0) {
-    Scene_Init__Fi(*_gPersistObjDef);
+  if (gPersistObjDef != (Group *)0x0) {
+    Scene_Init__Fi(gPersistObjDef->m_num_elements);
   }
   Loading_UpdateLoadingScreen__Fi(5);
-  ext = Track_MakeTrackDataPathName__FPc("");
+  ext = Track_MakeTrackDataPathName__FPc(&DAT_8013c78c);
   Anim_InitSystem__FPc(ext);
-  if (((DAT_801131f8 != 1) && (GameSetup_gData != 1)) && (GameSetup_gData != 5)) {
-    Scene_LoadSceneFile__Fi(DAT_801132c0);
+  if (((GameSetup_gData.commMode != 1) && (GameSetup_gData.raceType != 1)) &&
+     (GameSetup_gData.raceType != 5)) {
+    Scene_LoadSceneFile__Fi(GameSetup_gData.SceneNumber);
   }
-  contextType = (uint)(DAT_80113240 != 0);
-  if (DAT_80113234 != 0) {
+  contextType = (uint)(GameSetup_gData.Time != 0);
+  if (GameSetup_gData.Weather != 0) {
     contextType = contextType + 2;
   }
   AudList_LoadAudioFile__Fi(contextType);
   BWorld_InitSpikeBelt__Fv();
   return;
-
-
 }
-
 
 
 
@@ -1356,7 +1347,10 @@ void BWorld_Init__Fv(void)
 	// End offset: 0x8007E8B4
 	// End Line: 1390
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void BWorld_DeInit__Fv(void)
+
 {
   Object_KillStatus__Fv();
   Track_DeInit__Fv();
@@ -1364,14 +1358,11 @@ void BWorld_DeInit__Fv(void)
   Object_DeInitIMassObjectInfo__Fv();
   Scene_DeInit__Fv();
   Object_DeInitCustomObjects__Fv();
-  uGp0000020c = 0;
+  DAT_0000020c = 0;
   AudList_PurgeAudio__Fv();
   Anim_DeInitSystem__Fv();
   return;
-
-
 }
-
 
 
 

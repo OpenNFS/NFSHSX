@@ -7,7 +7,7 @@ extern void TrgSfx_AddCarSfx__FiP8coorddefiT1(int car, struct coorddef *skidpt, 
 
 extern void TrgSfx_AddCarWheelSfx__FiiP8coorddefiT2i(int car, int wheel, struct coorddef *skidpt, int type, struct coorddef *vec, int delay); // 0x800BB13C
 
-extern unsigned int TrgSfx_AddCarExtraCheck__Fii(int car, int wheel); // 0x800BB1EC
+extern void * TrgSfx_AddCarExtraCheck__Fii(int car, int wheel); // 0x800BB1EC
 
 extern void TrgSfx_AddCarExtraSfx__FiiP8coorddefiT2iii(int car, int wheel, struct coorddef *skidpt, int type, struct coorddef *vec, int velY, int ground, int colour); // 0x800BB228
 

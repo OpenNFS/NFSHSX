@@ -19,12 +19,13 @@
 	// End Line: 338
 
 void GameSetup_StartUp__FPi(int *FrontEndDataStream)
+
 {
   ushort uVar1;
   int iVar2;
   int iVar3;
-  int *piVar4;
-  int iVar5;
+  FEI_tList *pFVar4;
+  int *piVar5;
   int *piVar6;
   int *piVar7;
   
@@ -33,63 +34,61 @@ void GameSetup_StartUp__FPi(int *FrontEndDataStream)
   piVar7 = FrontEndDataStream;
   do {
     if (iVar3 == 0) {
-      purgememadr(FrontEndDataStream);
+      purgememadr((int)FrontEndDataStream);
       timedwait(100);
       PAD_update();
       uVar1 = PAD_state(0);
       if (uVar1 == 0x909) {
-        DAT_80113224 = 8;
+        GameSetup_gData.sgge = 8;
       }
       uVar1 = PAD_state(0);
       if (uVar1 == 0xa080) {
-        DAT_80113224 = 2;
+        GameSetup_gData.sgge = 2;
       }
       uVar1 = PAD_state(0);
       if (uVar1 == 0xc001) {
-        DAT_80113224 = 4;
+        GameSetup_gData.sgge = 4;
       }
       uVar1 = PAD_state(0);
       if (uVar1 == 0x640) {
-        DAT_80113224 = 0x10;
+        GameSetup_gData.sgge = 0x10;
       }
       uVar1 = PAD_state(0);
       if (uVar1 == 0x610) {
-        DAT_80113224 = 0x20;
+        GameSetup_gData.sgge = 0x20;
       }
       uVar1 = PAD_state(0);
       if (uVar1 == 0x910) {
-        DAT_80113224 = 0x40;
+        GameSetup_gData.sgge = 0x40;
       }
       uVar1 = PAD_state(0);
       if (uVar1 == 0x5010) {
-        DAT_80113224 = 0x80;
+        GameSetup_gData.sgge = 0x80;
       }
       uVar1 = PAD_state(0);
       if (uVar1 == 0x620) {
-        DAT_80113224 = 0x100;
+        GameSetup_gData.sgge = 0x100;
       }
-      gMasterMusicLevel = DAT_801132dc;
-      gMasterSFXLevel = DAT_801132e0;
-      gMasterFENarrationLevel = DAT_801132e8;
-      gMasterEngineLevel = DAT_801132e4;
-      gMasterAmbientLevel = 0;
+      gMasterMusicLevel = GameSetup_gData.userSetting.musicLevel;
+      gMasterSFXLevel = GameSetup_gData.userSetting.sfxLevel;
+      gMasterFENarrationLevel = GameSetup_gData.userSetting.speechLevel;
+      gMasterEngineLevel = GameSetup_gData.userSetting.engineLevel;
+      gMasterAmbientLevel = GameSetup_gData.userSetting.ambientLevel;
       Device_SetHardCodedKeys__Fv();
       return;
     }
     iVar3 = *piVar7;
     if (iVar3 < 0x103) {
-      piVar4 = &FEI_gList;
+      pFVar4 = &FEI_gList;
       if (iVar3 < 0x4d) {
         piVar6 = (int *)0x0;
-        if (true) {
-          iVar5 = 1;
-          do {
-            if (iVar5 == iVar3) {
-              piVar6 = (int *)piVar4[1];
-            }
-            piVar4 = piVar4 + 2;
-            iVar5 = *piVar4;
-          } while (iVar5 != 0);
+        iVar2 = FEI_gList.v;
+        while (iVar2 != 0) {
+          if (iVar2 == iVar3) {
+            piVar6 = pFVar4->p;
+          }
+          pFVar4 = pFVar4 + 1;
+          iVar2 = pFVar4->v;
         }
         if (piVar6 != (int *)0x0) {
           if (*piVar7 < 0x4b) {
@@ -97,13 +96,13 @@ void GameSetup_StartUp__FPi(int *FrontEndDataStream)
           }
           else {
             iVar3 = 0;
-            piVar4 = piVar7;
+            piVar5 = piVar7;
             if (0 < piVar7[1]) {
               do {
                 iVar3 = iVar3 + 1;
-                *piVar6 = piVar4[2];
+                *piVar6 = piVar5[2];
                 piVar6 = piVar6 + 1;
-                piVar4 = piVar4 + 1;
+                piVar5 = piVar5 + 1;
               } while (iVar3 < piVar7[1]);
             }
           }
@@ -113,9 +112,9 @@ void GameSetup_StartUp__FPi(int *FrontEndDataStream)
         }
       }
       else {
-        *(int *)(&DAT_80113ae0 + iVar3 * 4) = piVar7[1];
-        if (*(code **)(&DAT_8011ec20 + (piVar7[1] & 0xffU) * 0xc) != (code *)0x0) {
-          (**(code **)(&DAT_8011ec20 + (piVar7[1] & 0xffU) * 0xc))(piVar7[1] >> 8);
+        (&GameSetup_gData.carInfo[7].BrakeAssist)[iVar3] = piVar7[1];
+        if ((&Device_gDeviceList)[piVar7[1] & 0xff].startupfunc != (_func_41 *)0x0) {
+          (*(&Device_gDeviceList)[piVar7[1] & 0xff].startupfunc)(piVar7[1] >> 8);
           piVar7 = piVar7 + 2;
           goto LAB_8009bf88;
         }
@@ -123,30 +122,25 @@ void GameSetup_StartUp__FPi(int *FrontEndDataStream)
       piVar7 = piVar7 + 2;
     }
     else {
-      piVar4 = &FEI_gList;
-      iVar5 = 0;
-      if (true) {
-        iVar2 = 1;
-        do {
-          if (iVar2 == iVar3) {
-            iVar5 = piVar4[1];
-          }
-          piVar4 = piVar4 + 2;
-          iVar2 = *piVar4;
-        } while (iVar2 != 0);
+      pFVar4 = &FEI_gList;
+      piVar6 = (int *)0x0;
+      iVar2 = FEI_gList.v;
+      while (iVar2 != 0) {
+        if (iVar2 == iVar3) {
+          piVar6 = pFVar4->p;
+        }
+        pFVar4 = pFVar4 + 1;
+        iVar2 = pFVar4->v;
       }
-      if (iVar5 != 0) {
-        *(int *)(iVar5 + piVar7[1] * 0xb4) = piVar7[2];
+      if (piVar6 != (int *)0x0) {
+        piVar6[piVar7[1] * 0x2d] = piVar7[2];
       }
       piVar7 = piVar7 + 3;
     }
 LAB_8009bf88:
     iVar3 = *piVar7;
   } while( true );
-
-
 }
-
 
 
 
@@ -161,13 +155,13 @@ LAB_8009bf88:
 	// End offset: 0x8009C120
 	// End Line: 370
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void GameSetup_CleanUp__Fv(void)
+
 {
   return;
-
-
 }
-
 
 
 

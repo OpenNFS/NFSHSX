@@ -3,7 +3,7 @@
 
 // decompiled code
 // original method signature: 
-// void /*$ra*/ AIScript_Assign__FP10AIScript_tPA7_25AIScript_tReactionDetails(struct AIScript_t *script /*$a0*/, struct AIScript_tReactionDetails *data[7] /*$a1*/)
+// void /*$ra*/ AIScript_Assign__FP10AIScript_tPA7_25AIScript_tReactionDetails(struct AIScript_t *script /*$a0*/, struct AIScript_tReactionDetails (*data)[7] /*$a1*/)
  // line 6, offset 0x8006f6f8
 	/* begin block 1 */
 		// Start line: 7
@@ -12,16 +12,13 @@
 	// End offset: 0x8006F6F8
 	// End Line: 8
 
-void AIScript_Assign__FP10AIScript_tPA7_25AIScript_tReactionDetails( (AIScript_t *script,undefined data)
+void AIScript_Assign__FP10AIScript_tPA7_25AIScript_tReactionDetails
+               (AIScript_t *script,AIScript_tReactionDetails (*data) [7])
+
 {
-  undefined3 in_register_00000015;
-  
-  script->data[0] = (AIScript_tReactionDetails *)CONCAT31(in_register_00000015,data);
+  *(AIScript_tReactionDetails (**) [7])script->data[0].reaction = data;
   return;
-
-
 }
-
 
 
 
@@ -46,6 +43,7 @@ void AIScript_Assign__FP10AIScript_tPA7_25AIScript_tReactionDetails( (AIScript_t
 	// End Line: 16
 
 void AIScript_ClearLastReactionIndex__FP10AIScript_t(AIScript_t *script)
+
 {
   int iVar1;
   int *piVar2;
@@ -58,10 +56,7 @@ void AIScript_ClearLastReactionIndex__FP10AIScript_t(AIScript_t *script)
     piVar2 = piVar2 + -1;
   } while (-1 < iVar1);
   return;
-
-
 }
-
 
 
 
@@ -77,17 +72,15 @@ void AIScript_ClearLastReactionIndex__FP10AIScript_t(AIScript_t *script)
 	// End Line: 19
 
 void AIScript_Startup__FP10AIScript_t(AIScript_t *script)
+
 {
   script->actionIndex = AISCRIPT_PLAYACTION_SENTINAL;
   script->detectAction = AISCRIPT_PLAYACTION_SENTINAL;
   script->reaction = AISCRIPT_AIREACTION_INIT;
   AIScript_ClearLastReactionIndex__FP10AIScript_t(script);
-  script->lastReactionIndex[1] = 0;
+  *(undefined4 *)script->data[4].reaction = 0;
   return;
-
-
 }
-
 
 
 
@@ -102,13 +95,13 @@ void AIScript_Startup__FP10AIScript_t(AIScript_t *script)
 	// End offset: 0x8006F760
 	// End Line: 28
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void AIScript_Cleanup__Fv(void)
+
 {
   return;
-
-
 }
-
 
 
 
@@ -123,24 +116,24 @@ void AIScript_Cleanup__Fv(void)
 	// End offset: 0x8006F7D4
 	// End Line: 51
 
-void AIScript_SubmitPlayerAction__FP10AIScript_ti20AIScript_tPlayActioni( (AIScript_t *script,int humCarIndex,AIScript_tPlayAction playerAction, int currentTime64)
+void AIScript_SubmitPlayerAction__FP10AIScript_ti20AIScript_tPlayActioni
+               (AIScript_t *script,int humCarIndex,AIScript_tPlayAction playerAction,
+               int currentTime64)
+
 {
   AIScript_tPlayAction AVar1;
   
-  if (script->lastReactionIndex[1] < currentTime64 + -0x500) {
+  if (*(int *)script->data[4].reaction < currentTime64 + -0x500) {
     AIScript_ClearLastReactionIndex__FP10AIScript_t(script);
   }
   AVar1 = script->actionIndex;
-  script->lastReactionIndex[1] = currentTime64;
+  *(int *)script->data[4].reaction = currentTime64;
   if ((AVar1 == AISCRIPT_PLAYACTION_SENTINAL) && ((int)playerAction < (int)script->detectAction)) {
     script->detectAction = playerAction;
     script->detectHumCarIndex = humCarIndex;
   }
   return;
-
-
 }
-
 
 
 
@@ -152,7 +145,7 @@ void AIScript_SubmitPlayerAction__FP10AIScript_ti20AIScript_tPlayActioni( (AIScr
 		// Start line: 56
 		// Start offset: 0x8006F7F0
 		// Variables:
-	// 		struct AIScript_tReactionDetails *scriptData[7]; // $t0
+	// 		struct AIScript_tReactionDetails (*scriptData)[7]; // $t0
 
 		/* begin block 1.1 */
 			// Start line: 59
@@ -185,39 +178,40 @@ void AIScript_SubmitPlayerAction__FP10AIScript_ti20AIScript_tPlayActioni( (AIScr
 	// End Line: 144
 
 void AIScript_ProcessActionsAndReactions__FP10AIScript_ti(AIScript_t *script,int elapsedTicks)
+
 {
-  bool bVar1;
-  AIScript_tReactionDetails *pAVar2;
+  byte bVar1;
+  bool bVar2;
   int iVar3;
-  AIScript_tReactionDetails **ppAVar4;
-  AIScript_tReactionDetails *pAVar5;
+  int *piVar4;
+  int iVar5;
   
-  pAVar5 = script->data[0];
+  iVar5 = *(int *)script->data[0].reaction;
   if (script->actionIndex == AISCRIPT_PLAYACTION_SENTINAL) {
-    bVar1 = true;
+    bVar2 = true;
     if (script->detectAction != AISCRIPT_PLAYACTION_SENTINAL) {
       script->actionIndex = script->detectAction;
       script->detectAction = AISCRIPT_PLAYACTION_SENTINAL;
       script->reactionTicksLeft = 0;
-      ppAVar4 = script->data + script->actionIndex + AISCRIPT_PLAYACTION_OPP_WIZZED_BY;
+      piVar4 = (int *)(script->data[0].halfSeconds + script->actionIndex * 4);
       script->actionHumCarIndex = script->detectHumCarIndex;
-      pAVar2 = *ppAVar4;
+      iVar3 = *piVar4;
       script->reaction = AISCRIPT_AIREACTION_INIT;
-      *(AIScript_tReactionDetails **)&script->reactionIndex = pAVar2;
-      while (bVar1) {
+      script->reactionIndex = iVar3;
+      while (bVar2) {
         iVar3 = script->reactionIndex + 1;
         if ((iVar3 < 4) &&
-           (1 << ((uint)(byte)pAVar5[script->actionIndex].reaction[iVar3] & 0x1f) != 2)) {
+           (1 << ((uint)*(byte *)(script->actionIndex * 8 + iVar5 + iVar3) & 0x1f) != 2)) {
           script->reactionIndex = iVar3;
-          *ppAVar4 = (AIScript_tReactionDetails *)((*ppAVar4)->reaction + 1);
+          *piVar4 = *piVar4 + 1;
         }
         script->reaction =
              script->reaction |
-             1 << ((uint)(byte)pAVar5[script->actionIndex].reaction[script->reactionIndex] & 0x1f);
-        if (pAVar5[script->actionIndex].halfSeconds[script->reactionIndex] != 0) {
-          script->reactionTicksLeft =
-               (uint)(byte)pAVar5[script->actionIndex].halfSeconds[script->reactionIndex] << 4;
-          bVar1 = false;
+             1 << ((uint)*(byte *)(script->actionIndex * 8 + iVar5 + script->reactionIndex) & 0x1f);
+        bVar1 = *(byte *)(script->actionIndex * 8 + iVar5 + script->reactionIndex + 4);
+        if (bVar1 != 0) {
+          script->reactionTicksLeft = (uint)bVar1 << 4;
+          bVar2 = false;
         }
         if (script->reaction == AISCRIPT_AIREACTION_INIT) {
           script->actionIndex = AISCRIPT_PLAYACTION_SENTINAL;
@@ -236,10 +230,7 @@ void AIScript_ProcessActionsAndReactions__FP10AIScript_ti(AIScript_t *script,int
   script->actionIndex = AISCRIPT_PLAYACTION_SENTINAL;
   script->detectAction = AISCRIPT_PLAYACTION_SENTINAL;
   return;
-
-
 }
-
 
 
 
@@ -256,7 +247,9 @@ void AIScript_ProcessActionsAndReactions__FP10AIScript_ti(AIScript_t *script,int
 	// End offset: 0x8006F980
 	// End Line: 154
 
-int AIScript_DoReAction__FP10AIScript_t20AIScript_tAIReaction( (AIScript_t *script,AIScript_tAIReaction testReaction)
+int AIScript_DoReAction__FP10AIScript_t20AIScript_tAIReaction
+              (AIScript_t *script,AIScript_tAIReaction testReaction)
+
 {
   int iVar1;
   
@@ -266,10 +259,7 @@ int AIScript_DoReAction__FP10AIScript_t20AIScript_tAIReaction( (AIScript_t *scri
     iVar1 = script->actionHumCarIndex;
   }
   return iVar1;
-
-
 }
-
 
 
 
@@ -285,6 +275,7 @@ int AIScript_DoReAction__FP10AIScript_t20AIScript_tAIReaction( (AIScript_t *scri
 	// End Line: 160
 
 int AIScript_GetReactionTicksLeft__FP10AIScript_t(AIScript_t *script)
+
 {
   int iVar1;
   
@@ -293,10 +284,7 @@ int AIScript_GetReactionTicksLeft__FP10AIScript_t(AIScript_t *script)
     iVar1 = script->reactionTicksLeft;
   }
   return iVar1;
-
-
 }
-
 
 
 

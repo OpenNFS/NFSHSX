@@ -29,18 +29,18 @@
 	// End offset: 0x800459C8
 	// End Line: 41
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void DrawBackground__14tScreenDisplay(tScreenDisplay *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -55,18 +55,20 @@ void DrawBackground__14tScreenDisplay(tScreenDisplay *this)
 	// End offset: 0x800459DC
 	// End Line: 47
 
-void GetShapeInfo__14tScreenDisplayRsT1PPcT3( (tScreenDisplay *this,short *numPermShapes,short *numSwapShapes,char **permFileName, char **swapFileName)
+/* WARNING: Control flow encountered bad instruction data */
+
+void GetShapeInfo__14tScreenDisplayRsT1PPcT3
+               (tScreenDisplay *this,short *numPermShapes,short *numSwapShapes,char **permFileName,
+               char **swapFileName)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 

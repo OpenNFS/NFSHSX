@@ -18,18 +18,18 @@
 	// End offset: 0x8004A980
 	// End Line: 180
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void Stattool_nCreateIndex__FiPiPs(int nNumber,int *nInput,short *nIndex)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -44,18 +44,18 @@ void Stattool_nCreateIndex__FiPiPs(int nNumber,int *nInput,short *nIndex)
 	// End offset: 0x8004A99C
 	// End Line: 191
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void Stattool_ParseTime__FiPc(int nTime,char *sLapTime)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -70,18 +70,18 @@ void Stattool_ParseTime__FiPc(int nTime,char *sLapTime)
 	// End offset: 0x8004ABC8
 	// End Line: 244
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void UserNameUpperCaseOneLetter__FPc(char *c)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -98,18 +98,18 @@ void UserNameUpperCaseOneLetter__FPc(char *c)
 	// End offset: 0x8004AC34
 	// End Line: 265
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void Stattool_SamNelsonsUpperLowerStringConverterForRecords__FPc(char *string)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -124,24 +124,24 @@ void Stattool_SamNelsonsUpperLowerStringConverterForRecords__FPc(char *string)
 	// End offset: 0x8004AC88
 	// End Line: 274
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void StatTool_UpperCaseItKeepingInMindThoseBloodySpecialCharacters__FPc(char *string)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// void /*$ra*/ Stattool_GetAllDefaultRecords__FP13tRecordBufferb(struct tRecordBuffer *TrackRecords /*$s6*/, unsigned int cheatones /*$s0*/)
+// void /*$ra*/ Stattool_GetAllDefaultRecords__FP13tRecordBufferb(struct tRecordBuffer *TrackRecords /*$s6*/, void * cheatones /*$s0*/)
  // line 279, offset 0x8004ac98
 	/* begin block 1 */
 		// Start line: 280
@@ -155,24 +155,24 @@ void StatTool_UpperCaseItKeepingInMindThoseBloodySpecialCharacters__FPc(char *st
 	// End offset: 0x8004AD60
 	// End Line: 302
 
-void Stattool_GetAllDefaultRecords__FP13tRecordBufferb(tRecordBuffer *TrackRecords,uint cheatones)
+/* WARNING: Control flow encountered bad instruction data */
+
+void Stattool_GetAllDefaultRecords__FP13tRecordBufferb(tRecordBuffer *TrackRecords,void *cheatones)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// void /*$ra*/ Stattool_ReadDefaultRecords__FP13tRecordBufferb(struct tRecordBuffer *Records /*$s0*/, unsigned int cheatones /*$a1*/)
+// void /*$ra*/ Stattool_ReadDefaultRecords__FP13tRecordBufferb(struct tRecordBuffer *Records /*$s0*/, void * cheatones /*$a1*/)
  // line 323, offset 0x8004ad90
 	/* begin block 1 */
 		// Start line: 324
@@ -183,18 +183,18 @@ void Stattool_GetAllDefaultRecords__FP13tRecordBufferb(tRecordBuffer *TrackRecor
 	// End offset: 0x8004AE08
 	// End Line: 351
 
-void Stattool_ReadDefaultRecords__FP13tRecordBufferb(tRecordBuffer *Records,uint cheatones)
+/* WARNING: Control flow encountered bad instruction data */
+
+void Stattool_ReadDefaultRecords__FP13tRecordBufferb(tRecordBuffer *Records,void *cheatones)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -209,18 +209,18 @@ void Stattool_ReadDefaultRecords__FP13tRecordBufferb(tRecordBuffer *Records,uint
 	// End offset: 0x8004AE18
 	// End Line: 365
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void Stattool_GetRecords__FsP13tRecordBuffer(short nShowTrack,tRecordBuffer *TrackRecords)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -238,18 +238,18 @@ void Stattool_GetRecords__FsP13tRecordBuffer(short nShowTrack,tRecordBuffer *Tra
 	// End offset: 0x8004AE60
 	// End Line: 378
 
+/* WARNING: Control flow encountered bad instruction data */
+
 int Stattool_ReturnRecordLapTime__Fs(short nTrack)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -267,18 +267,18 @@ int Stattool_ReturnRecordLapTime__Fs(short nTrack)
 	// End offset: 0x8004AF44
 	// End Line: 441
 
+/* WARNING: Control flow encountered bad instruction data */
+
 short Stattool_CheckForHumanCar__FP10Car_tStats(Car_tStats *dummyCars)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -293,18 +293,18 @@ short Stattool_CheckForHumanCar__FP10Car_tStats(Car_tStats *dummyCars)
 	// End offset: 0x8004AF78
 	// End Line: 460
 
+/* WARNING: Control flow encountered bad instruction data */
+
 char * Stattool_GetAINameFromPersonality__F14tPersonalities(tPersonalities personality)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 

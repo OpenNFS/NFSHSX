@@ -12,46 +12,46 @@
 	// End offset: 0x800342A0
 	// End Line: 64
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void ChecksumData__FP12tMemCardData(tMemCardData *memCardData)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// unsigned int /*$ra*/ VerifySuccessfulRead__FP12tMemCardData(struct tMemCardData *memCardData /*$s1*/)
+// void * /*$ra*/ VerifySuccessfulRead__FP12tMemCardData(struct tMemCardData *memCardData /*$s1*/)
  // line 75, offset 0x80034318
 	/* begin block 1 */
 		// Start line: 76
 		// Start offset: 0x80034318
 		// Variables:
-	// 		unsigned int result; // $s0
+	// 		void * result; // $s0
 	/* end block 1 */
 	// End offset: 0x800343D8
 	// End Line: 87
 
-uint VerifySuccessfulRead__FP12tMemCardData(tMemCardData *memCardData)
+/* WARNING: Control flow encountered bad instruction data */
+
+void * VerifySuccessfulRead__FP12tMemCardData(tMemCardData *memCardData)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -66,18 +66,19 @@ uint VerifySuccessfulRead__FP12tMemCardData(tMemCardData *memCardData)
 	// End offset: 0x800343F0
 	// End Line: 91
 
+/* WARNING: Control flow encountered bad instruction data */
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void MakeWayForMemoryCard__Fv(void)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -92,18 +93,19 @@ void MakeWayForMemoryCard__Fv(void)
 	// End offset: 0x80034414
 	// End Line: 109
 
+/* WARNING: Control flow encountered bad instruction data */
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void BringThatBeatBack__Fv(void)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -116,7 +118,7 @@ void BringThatBeatBack__Fv(void)
 		// Start offset: 0x80034438
 		// Variables:
 	// 		struct tDialogYesNoMem MyDialog; // stack offset -192
-	// 		unsigned int putbackon; // $s3
+	// 		void * putbackon; // $s3
 	// 		int ret; // $s2
 
 		/* begin block 1.1 */
@@ -363,18 +365,18 @@ void BringThatBeatBack__Fv(void)
 	// End offset: 0x800345A4
 	// End Line: 162
 
+/* WARNING: Control flow encountered bad instruction data */
+
 int Confirm__Fii(int Text,int yesText)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -389,18 +391,19 @@ int Confirm__Fii(int Text,int yesText)
 	// End offset: 0x800345EC
 	// End Line: 172
 
+/* WARNING: Control flow encountered bad instruction data */
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 int OverwriteConfirm__Fv(void)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -415,18 +418,19 @@ int OverwriteConfirm__Fv(void)
 	// End offset: 0x80034618
 	// End Line: 186
 
+/* WARNING: Control flow encountered bad instruction data */
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 int OverwriteAlwaysYes__Fv(void)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -441,18 +445,19 @@ int OverwriteAlwaysYes__Fv(void)
 	// End offset: 0x80034620
 	// End Line: 192
 
+/* WARNING: Control flow encountered bad instruction data */
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 int FormatConfirm__Fv(void)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -467,18 +472,19 @@ int FormatConfirm__Fv(void)
 	// End offset: 0x8003464C
 	// End Line: 210
 
+/* WARNING: Control flow encountered bad instruction data */
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void LoadingProc__Fv(void)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -493,18 +499,19 @@ void LoadingProc__Fv(void)
 	// End offset: 0x80034654
 	// End Line: 218
 
+/* WARNING: Control flow encountered bad instruction data */
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void LoadingRedrawProc__Fv(void)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -519,24 +526,25 @@ void LoadingRedrawProc__Fv(void)
 	// End offset: 0x8003467C
 	// End Line: 227
 
+/* WARNING: Control flow encountered bad instruction data */
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void SavingProc__Fv(void)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// void /*$ra*/ Init_Memcard__FbT0(unsigned int redraw /*$s1*/, unsigned int pinkslips /*$s0*/)
+// void /*$ra*/ Init_Memcard__FbT0(void * redraw /*$s1*/, void * pinkslips /*$s0*/)
  // line 240, offset 0x800346a4
 	/* begin block 1 */
 		// Start line: 241
@@ -583,18 +591,18 @@ void SavingProc__Fv(void)
 	// End offset: 0x800347EC
 	// End Line: 312
 
-void Init_Memcard__FbT0(uint redraw,uint pinkslips)
+/* WARNING: Control flow encountered bad instruction data */
+
+void Init_Memcard__FbT0(void *redraw,void *pinkslips)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -646,24 +654,25 @@ void Init_Memcard__FbT0(uint redraw,uint pinkslips)
 	// End offset: 0x80034890
 	// End Line: 346
 
+/* WARNING: Control flow encountered bad instruction data */
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void DeInit_Memcard__Fv(void)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// void /*$ra*/ Init_MemcardFile__FR12MCRDFILE_defsb(struct MCRDFILE_def *memCardFile /*$s2*/, short cardnum /*$a1*/, unsigned int notitle /*$s0*/)
+// void /*$ra*/ Init_MemcardFile__FR12MCRDFILE_defsb(struct MCRDFILE_def *memCardFile /*$s2*/, short cardnum /*$a1*/, void * notitle /*$s0*/)
  // line 357, offset 0x800348a0
 	/* begin block 1 */
 		// Start line: 358
@@ -672,24 +681,24 @@ void DeInit_Memcard__Fv(void)
 	// End offset: 0x80034954
 	// End Line: 379
 
-void Init_MemcardFile__FR12MCRDFILE_defsb(MCRDFILE_def *memCardFile,short cardnum,uint notitle)
+/* WARNING: Control flow encountered bad instruction data */
+
+void Init_MemcardFile__FR12MCRDFILE_defsb(MCRDFILE_def *memCardFile,short cardnum,void *notitle)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// unsigned int /*$ra*/ SaveGame__Fs(short player /*$s5*/)
+// void * /*$ra*/ SaveGame__Fs(short player /*$s5*/)
  // line 395, offset 0x80034988
 	/* begin block 1 */
 		// Start line: 396
@@ -702,9 +711,9 @@ void Init_MemcardFile__FR12MCRDFILE_defsb(MCRDFILE_def *memCardFile,short cardnu
 	// 		struct MCRDFILE_def memCardFile; // stack offset -160
 	// 		char *shapeFile; // $s7
 	// 		char shapeFileName[64]; // stack offset -112
-	// 		unsigned int finished; // $s3
+	// 		void * finished; // $s3
 	// 		int event; // $s0
-	// 		unsigned int returnvalue; // $s6
+	// 		void * returnvalue; // $s6
 	// 		int returnmessage; // $s2
 
 		/* begin block 1.1 */
@@ -959,24 +968,24 @@ void Init_MemcardFile__FR12MCRDFILE_defsb(MCRDFILE_def *memCardFile,short cardnu
 	// End offset: 0x80034DA4
 	// End Line: 579
 
-uint SaveGame__Fs(short player)
+/* WARNING: Control flow encountered bad instruction data */
+
+void * SaveGame__Fs(short player)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// short /*$ra*/ LoadGame__FsbT1(short player /*stack -56*/, unsigned int PinkSlips /*stack 4*/, unsigned int WithDialogs /*stack 8*/)
+// short /*$ra*/ LoadGame__FsbT1(short player /*stack -56*/, void * PinkSlips /*stack 4*/, void * WithDialogs /*stack 8*/)
  // line 591, offset 0x80034e18
 	/* begin block 1 */
 		// Start line: 592
@@ -987,7 +996,7 @@ uint SaveGame__Fs(short player)
 	// 		short cardNum; // $s3
 	// 		struct tDialogNoInputMessage WarningDialog; // stack offset -256
 	// 		struct MCRDFILE_def memCardFile; // stack offset -104
-	// 		unsigned int finished; // $s1
+	// 		void * finished; // $s1
 	// 		int result; // $s4
 	// 		int memCardResult; // $s0
 	// 		int count; // $fp
@@ -1282,18 +1291,18 @@ uint SaveGame__Fs(short player)
 	// End offset: 0x800353A8
 	// End Line: 811
 
-short LoadGame__FsbT1(short player,uint PinkSlips,uint WithDialogs)
+/* WARNING: Control flow encountered bad instruction data */
+
+short LoadGame__FsbT1(short player,void *PinkSlips,void *WithDialogs)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -1311,8 +1320,8 @@ short LoadGame__FsbT1(short player,uint PinkSlips,uint WithDialogs)
 	// 		char shapeFileName[64]; // stack offset -168
 	// 		short cardNum; // stack offset -48
 	// 		struct MCRDFILE_def memCardFile; // stack offset -104
-	// 		unsigned int finished; // $s3
-	// 		unsigned int finishedsave; // $s5
+	// 		void * finished; // $s3
+	// 		void * finishedsave; // $s5
 	// 		enum PinkSlipsErrorCode result; // $s2
 	// 		int memCardResult; // $s0
 	// 		int event; // $s0
@@ -1411,18 +1420,18 @@ short LoadGame__FsbT1(short player,uint PinkSlips,uint WithDialogs)
 	// End offset: 0x8003572C
 	// End Line: 1062
 
+/* WARNING: Control flow encountered bad instruction data */
+
 PinkSlipsErrorCode SavePinkSlipsCars__Fss(short player,short withoutCarInGarageNumber)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -1773,18 +1782,20 @@ PinkSlipsErrorCode SavePinkSlipsCars__Fss(short player,short withoutCarInGarageN
 	// End offset: 0x80035A9C
 	// End Line: 1091
 
-PinkSlipsErrorCode SavePinkSlipsCarsWithErrorDialogs__Fsss( (short player,short WillLoseCar,short withoutCarInGarageNumber)
+/* WARNING: Control flow encountered bad instruction data */
+
+PinkSlipsErrorCode
+SavePinkSlipsCarsWithErrorDialogs__Fsss
+          (short player,short WillLoseCar,short withoutCarInGarageNumber)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 

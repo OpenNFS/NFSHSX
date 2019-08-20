@@ -146,18 +146,18 @@
 	// End offset: 0x80045DA8
 	// End Line: 192
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void PlaySound__12tScreenAudio(tScreenAudio *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -197,18 +197,18 @@ void PlaySound__12tScreenAudio(tScreenAudio *this)
 	// End offset: 0x80045EC0
 	// End Line: 213
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void DrawForeground__12tScreenAudio(tScreenAudio *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -305,18 +305,18 @@ void DrawForeground__12tScreenAudio(tScreenAudio *this)
 	// End offset: 0x80046124
 	// End Line: 282
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void DrawBackground__12tScreenAudio(tScreenAudio *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -331,18 +331,20 @@ void DrawBackground__12tScreenAudio(tScreenAudio *this)
 	// End offset: 0x80046140
 	// End Line: 289
 
-void GetShapeInfo__12tScreenAudioRsT1PPcT3( (tScreenAudio *this,short *numPermShapes,short *numSwapShapes,char **permFileName, char **swapFileName)
+/* WARNING: Control flow encountered bad instruction data */
+
+void GetShapeInfo__12tScreenAudioRsT1PPcT3
+               (tScreenAudio *this,short *numPermShapes,short *numSwapShapes,char **permFileName,
+               char **swapFileName)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -357,18 +359,18 @@ void GetShapeInfo__12tScreenAudioRsT1PPcT3( (tScreenAudio *this,short *numPermSh
 	// End offset: 0x80046164
 	// End Line: 298
 
+/* WARNING: Control flow encountered bad instruction data */
+
 tScreenAudio * __12tScreenAudio(tScreenAudio *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -383,18 +385,18 @@ tScreenAudio * __12tScreenAudio(tScreenAudio *this)
 	// End offset: 0x800461A4
 	// End Line: 306
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void Initialize__12tScreenAudio(tScreenAudio *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -430,18 +432,18 @@ void Initialize__12tScreenAudio(tScreenAudio *this)
 	// End offset: 0x800462E8
 	// End Line: 340
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void Cleanup__12tScreenAudio(tScreenAudio *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 

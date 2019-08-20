@@ -12,16 +12,16 @@
 	// End offset: 0x8007B544
 	// End Line: 1145
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void AudList_PurgeAudio__Fv(void)
+
 {
-  if (iGp000001e4 != 0) {
-    purgememadr();
+  if (DAT_000001e4 != 0) {
+    purgememadr(DAT_000001e4);
   }
   return;
-
-
 }
-
 
 
 
@@ -39,18 +39,16 @@ void AudList_PurgeAudio__Fv(void)
 	// End Line: 1149
 
 void AudList_LoadAudioFile__Fi(int AudioFileIndex)
+
 {
   char *pcVar1;
   char acStack136 [128];
   
-  pcVar1 = Track_MakeTrackPathName__FPc("");
-  sprintf(acStack136,"%s%02d.aud",pcVar1,AudioFileIndex);
-  uGp000001e4 = loadfileadrz(acStack136,0);
+  pcVar1 = Track_MakeTrackPathName__FPc(&DAT_8013c72c);
+  sprintf(acStack136,s__s_02d_aud_800557e8,pcVar1,AudioFileIndex);
+  DAT_000001e4 = loadfileadrz(acStack136,0);
   return;
-
-
 }
-
 
 
 

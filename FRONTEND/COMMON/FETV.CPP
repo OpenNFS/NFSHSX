@@ -17,18 +17,18 @@
 	// End offset: 0x80022334
 	// End Line: 78
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void DrawTVLines__FR9tTVConfig(tTVConfig *tv)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -51,23 +51,23 @@ void DrawTVLines__FR9tTVConfig(tTVConfig *tv)
 	// 		short fadeBottom; // $t0
 	// 		unsigned long tint; // $fp
 	// 		short bright; // $a1
-	// 		unsigned int do_tint; // stack offset -48
+	// 		void * do_tint; // stack offset -48
 	/* end block 1 */
 	// End offset: 0x80022FD8
 	// End Line: 282
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void DrawTV__FR9tTVConfig(tTVConfig *tv)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -82,18 +82,19 @@ void DrawTV__FR9tTVConfig(tTVConfig *tv)
 	// End offset: 0x80023008
 	// End Line: 288
 
-void InitTV__FR9tTVConfigP18tTexture_ShapeInfos( (tTVConfig *tv,tTexture_ShapeInfo *textures,short index)
+/* WARNING: Control flow encountered bad instruction data */
+
+void InitTV__FR9tTVConfigP18tTexture_ShapeInfos
+               (tTVConfig *tv,tTexture_ShapeInfo *textures,short index)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -108,18 +109,18 @@ void InitTV__FR9tTVConfigP18tTexture_ShapeInfos( (tTVConfig *tv,tTexture_ShapeIn
 	// End offset: 0x80023218
 	// End Line: 315
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void TurnOffTV__FR9tTVConfig(tTVConfig *tv)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -134,18 +135,18 @@ void TurnOffTV__FR9tTVConfig(tTVConfig *tv)
 	// End offset: 0x80023228
 	// End Line: 321
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void TurnOnTV__FR9tTVConfig(tTVConfig *tv)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 

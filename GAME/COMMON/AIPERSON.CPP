@@ -21,32 +21,32 @@
 	// End offset: 0x80068A2C
 	// End Line: 40
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void AIPerson_LoadGridAndSetPersonalityIndexes__Fv(void)
+
 {
-  undefined4 *puVar1;
+  GameSetup_tCarData *pGVar1;
   int iVar2;
   int iVar3;
-  int *piVar4;
-  undefined4 *puVar5;
+  Car_tObj **ppCVar4;
+  GameSetup_tData *pGVar5;
   
   iVar2 = Cars_gNumCars;
   iVar3 = 0;
   if (0 < Cars_gNumCars) {
-    puVar5 = &GameSetup_gData;
-    piVar4 = &_Cars_gList;
+    pGVar5 = &GameSetup_gData;
+    ppCVar4 = &__Cars_gList_9__;
     do {
-      puVar1 = puVar5 + 0x109;
-      puVar5 = puVar5 + 0x2d;
+      pGVar1 = pGVar5->carInfo;
+      pGVar5 = (GameSetup_tData *)((pGVar5->controllerData).shockImpact + 1);
       iVar3 = iVar3 + 1;
-      *(undefined4 *)(*piVar4 + 0x4ec) = *puVar1;
-      piVar4 = piVar4 + 1;
+      (*ppCVar4)->personalityIndex = pGVar1->Personality;
+      ppCVar4 = ppCVar4 + 1;
     } while (iVar3 < iVar2);
   }
   return;
-
-
 }
-
 
 
 
@@ -62,20 +62,19 @@ void AIPerson_LoadGridAndSetPersonalityIndexes__Fv(void)
 	// End Line: 84
 
 void AIPerson_SetPersonality__FP8Car_tObji(Car_tObj *carObj,int personalityIndex)
+
 {
   if ((carObj->carFlags & 4U) == 0) {
-    strcpy(carObj->carInfo->driver,"Nemesis" + personalityIndex * 8);
+    strcpy(carObj->carInfo->driver,&GameSetup_gPersonalityNames + personalityIndex * 8);
   }
   personalityIndex = personalityIndex % 5;
   carObj->personalityIndex = personalityIndex;
-  carObj->personality = (AIPerson_t *)(&AIPerson_PersonalityData + personalityIndex * 0x15);
+  carObj->personality = &AIPerson_PersonalityData + personalityIndex;
   AIScript_Assign__FP10AIScript_tPA7_25AIScript_tReactionDetails
-            (&carObj->script,(char)personalityIndex * '8' + '\\');
+            (&carObj->script,
+             (AIScript_tReactionDetails (*) [7])(&AIPerson_ScriptData + personalityIndex * 7));
   return;
-
-
 }
-
 
 
 
@@ -108,14 +107,17 @@ void AIPerson_SetPersonality__FP8Car_tObji(Car_tObj *carObj,int personalityIndex
 	// End offset: 0x80068B4C
 	// End Line: 118
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void AIPerson_SetPersonalityPointers__Fv(void)
+
 {
   Car_tObj *carObj;
   Car_tObj **ppCVar1;
   int iVar2;
   
   iVar2 = 0;
-  ppCVar1 = (Car_tObj **)&_Cars_gList;
+  ppCVar1 = &__Cars_gList_9__;
   while (iVar2 < Cars_gNumCars) {
     carObj = *ppCVar1;
     ppCVar1 = ppCVar1 + 1;
@@ -123,10 +125,7 @@ void AIPerson_SetPersonalityPointers__Fv(void)
     AIPerson_SetPersonality__FP8Car_tObji(carObj,carObj->personalityIndex);
   }
   return;
-
-
 }
-
 
 
 
@@ -171,6 +170,7 @@ void AIPerson_SetPersonalityPointers__Fv(void)
 	// End Line: 199
 
 void AIPerson_LoadPersonalityData__FP10Udff_tInfo(Udff_tInfo *handle)
+
 {
   int iVar1;
   int iVar2;
@@ -184,13 +184,13 @@ void AIPerson_LoadPersonalityData__FP10Udff_tInfo(Udff_tInfo *handle)
   int iVar10;
   int iVar11;
   int iVar12;
-  int iVar13;
-  undefined4 uVar14;
-  undefined4 *puVar15;
+  uint uVar13;
+  uint uVar14;
+  AIPerson_t *pAVar15;
   int local_40;
   
   Udff_GetInt__FP10Udff_tInfo(handle);
-  puVar15 = &AIPerson_PersonalityData;
+  pAVar15 = &AIPerson_PersonalityData;
   local_40 = 0;
   while (local_40 < 9) {
     iVar1 = Udff_GetInt__FP10Udff_tInfo(handle);
@@ -206,39 +206,36 @@ void AIPerson_LoadPersonalityData__FP10Udff_tInfo(Udff_tInfo *handle)
     iVar10 = Udff_GetInt__FP10Udff_tInfo(handle);
     iVar11 = Udff_GetInt__FP10Udff_tInfo(handle);
     iVar12 = Udff_GetInt__FP10Udff_tInfo(handle);
-    iVar13 = Udff_GetInt__FP10Udff_tInfo(handle);
-    *puVar15 = *(undefined4 *)(&AIPerson_blockMaxDistance + iVar1 * 4);
-    puVar15[1] = *(undefined4 *)(&AIPerson_blockMinDistance + iVar2 * 4);
-    iVar1 = iVar4 * 0x10;
-    puVar15[2] = *(undefined4 *)(&AIPerson_oncomingLookAhead + iVar3 * 4);
-    puVar15[3] = *(undefined4 *)(&AIPerson_laneSwerve + iVar1);
-    puVar15[4] = *(undefined4 *)(&DAT_8010d600 + iVar1);
-    puVar15[5] = *(undefined4 *)(&DAT_8010d604 + iVar1);
-    puVar15[6] = *(undefined4 *)(&DAT_8010d608 + iVar1);
-    puVar15[7] = *(undefined4 *)(&AIPerson_swerveChangeProb + iVar4 * 4);
-    puVar15[8] = *(undefined4 *)(&AIPerson_brakeMultiplier + iVar5 * 4);
-    puVar15[9] = *(undefined4 *)(&AIPerson_attackActivationHits + iVar6 * 4);
-    puVar15[10] = *(undefined4 *)(&AIPerson_attackTimes + iVar6 * 4);
-    puVar15[0xb] = *(undefined4 *)(&AIPerson_fishtailAngles + iVar7 * 4);
-    puVar15[0xc] = *(undefined4 *)(&AIPerson_minimumWipeOutTicks + (iVar8 + DAT_80113234) * 4);
-    iVar9 = iVar9 * 4;
-    puVar15[0xd] = *(undefined4 *)(&AIPerson_randomWipeOutTicks + (iVar8 + DAT_80113234) * 4);
-    puVar15[0xe] = *(undefined4 *)(&AIPerson_gripLossProbPerSecond + iVar9);
-    puVar15[0xf] = *(undefined4 *)(&AIPerson_gripLossMinFactor + iVar9);
-    puVar15[0x10] = *(undefined4 *)(&AIPerson_gripLossRecoveryPerTick + iVar9);
-    puVar15[0x11] = *(undefined4 *)(&AIPerson_bestLineAbilities + iVar10 * 4);
-    puVar15[0x12] = *(undefined4 *)(&AIPerson_rearEndProbMask + iVar11 * 4);
-    uVar14 = *(undefined4 *)(&AIPerson_smackProbMask + iVar12 * 4);
+    uVar13 = Udff_GetInt__FP10Udff_tInfo(handle);
+    pAVar15->blockMaxDistance = (&AIPerson_blockMaxDistance)[iVar1];
+    pAVar15->blockMinDistance = (&AIPerson_blockMinDistance)[iVar2];
+    pAVar15->oncomingLookAhead = (&AIPerson_oncomingLookAhead)[iVar3];
+    pAVar15->laneSwerve[0] = (&AIPerson_laneSwerve)[iVar4 * 4];
+    pAVar15->laneSwerve[1] = (&INT_8010d600)[iVar4 * 4];
+    pAVar15->laneSwerve[2] = (&INT_8010d604)[iVar4 * 4];
+    pAVar15->laneSwerve[3] = (&INT_8010d608)[iVar4 * 4];
+    pAVar15->swerveChangeProb = (&AIPerson_swerveChangeProb)[iVar4];
+    pAVar15->brakeMultiplier = (&AIPerson_brakeMultiplier)[iVar5];
+    pAVar15->attackActivationHits = (&AIPerson_attackActivationHits)[iVar6];
+    pAVar15->attackTime = (&AIPerson_attackTimes)[iVar6];
+    pAVar15->fishtailAngle = (&AIPerson_fishtailAngles)[iVar7];
+    pAVar15->minimumBetweenWipeoutTicks =
+         (&AIPerson_minimumWipeOutTicks)[iVar8 + GameSetup_gData.Weather];
+    pAVar15->randomBetweenWipeoutTicks =
+         (&AIPerson_randomWipeOutTicks)[iVar8 + GameSetup_gData.Weather];
+    pAVar15->gripLossProbPerSecond = (&AIPerson_gripLossProbPerSecond)[iVar9];
+    pAVar15->gripLossMinFactor = (&AIPerson_gripLossMinFactor)[iVar9];
+    pAVar15->gripLossRecoveryPerTick = (&AIPerson_gripLossRecoveryPerTick)[iVar9];
+    pAVar15->bestLineAbility = (&AIPerson_bestLineAbilities)[iVar10];
+    pAVar15->rearBumpProbMask = (&AIPerson_rearEndProbMask)[iVar11];
+    uVar14 = (&AIPerson_smackProbMask)[iVar12];
     local_40 = local_40 + 1;
-    puVar15[0x14] = iVar13;
-    puVar15[0x13] = uVar14;
-    puVar15 = puVar15 + 0x15;
+    pAVar15->copCollisionFirmness = uVar13;
+    pAVar15->smackProbMask = uVar14;
+    pAVar15 = pAVar15 + 1;
   }
   return;
-
-
 }
-
 
 
 
@@ -295,6 +292,7 @@ void AIPerson_LoadPersonalityData__FP10Udff_tInfo(Udff_tInfo *handle)
 	// End Line: 250
 
 void AIPerson_LoadScriptData__FP10Udff_tInfo(Udff_tInfo *handle)
+
 {
   int iVar1;
   int iVar2;
@@ -307,14 +305,14 @@ void AIPerson_LoadScriptData__FP10Udff_tInfo(Udff_tInfo *handle)
   iVar6 = 0;
   iVar5 = 0;
   while (iVar4 = 0, iVar6 < 9) {
-    while (iVar3 = 0, iVar4 < 7) {
+    while (iVar2 = 0, iVar4 < 7) {
       do {
         iVar1 = Udff_GetInt__FP10Udff_tInfo(handle);
-        iVar2 = iVar3 + iVar4 * 8 + iVar5;
-        (&AIPerson_ScriptData)[iVar2] = (char)iVar1;
+        (&AIPerson_ScriptData)[iVar4].reaction[iVar5 + iVar2] = (char)iVar1;
         iVar1 = Udff_GetInt__FP10Udff_tInfo(handle);
-        iVar3 = iVar3 + 1;
-        (&DAT_8010da60)[iVar2] = (char)iVar1;
+        iVar3 = iVar2 + 1;
+        (&AIPerson_ScriptData)[iVar4].halfSeconds[iVar5 + iVar2] = (char)iVar1;
+        iVar2 = iVar3;
       } while (iVar3 < 4);
       iVar4 = iVar4 + 1;
     }
@@ -322,10 +320,7 @@ void AIPerson_LoadScriptData__FP10Udff_tInfo(Udff_tInfo *handle)
     iVar6 = iVar6 + 1;
   }
   return;
-
-
 }
-
 
 
 
@@ -357,41 +352,39 @@ void AIPerson_LoadScriptData__FP10Udff_tInfo(Udff_tInfo *handle)
 	// End Line: 471
 
 void AIPerson_LoadGlue__FP10Udff_tInfo(Udff_tInfo *handle)
+
 {
-  int iVar1;
-  undefined4 uVar2;
+  uint uVar1;
+  undefined *puVar2;
   int *piVar3;
   int iVar4;
   
   Udff_GetInt__FP10Udff_tInfo(handle);
   Udff_GetBuffer__FP10Udff_tInfoPci(handle,(char *)&AIPerson_glueTable,0x54);
   if ((Cars_gNumCopCars != 0) &&
-     (((GameSetup_gData != 1 && (GameSetup_gData != 5)) ||
-      (((uRam00000260 & 0x200) == 0 &&
-       ((Cars_gNumHumanRaceCars != 2 || ((uRam00000260 & 0x200) == 0)))))))) {
+     (((GameSetup_gData.raceType != 1 && (GameSetup_gData.raceType != 5)) ||
+      (((__Cars_gHumanRaceCarList_9__->carFlags & 0x200U) == 0 &&
+       ((Cars_gNumHumanRaceCars != 2 || ((PTR_8010fa4c->carFlags & 0x200U) == 0)))))))) {
     iVar4 = 0;
     piVar3 = &AIPerson_glueTable;
     do {
-      iVar1 = *piVar3;
-      if (iVar1 < 0x10001) {
-        uVar2 = 0xd999;
-        if (iVar1 < 0x10000) goto LAB_8006905c;
+      uVar1 = *piVar3;
+      if ((int)uVar1 < 0x10001) {
+        puVar2 = &DAT_0000d999;
+        if ((int)uVar1 < 0x10000) goto LAB_8006905c;
       }
       else {
-        uVar2 = 0x12666;
+        puVar2 = &DAT_00012666;
 LAB_8006905c:
-        iVar1 = fixedmult(iVar1,uVar2);
-        *piVar3 = iVar1;
+        uVar1 = fixedmult(uVar1,(int)puVar2);
+        *piVar3 = uVar1;
       }
       iVar4 = iVar4 + 1;
-      piVar3 = piVar3 + 1;
+      piVar3 = (int *)((uint *)piVar3 + 1);
     } while (iVar4 < 0x15);
   }
   return;
-
-
 }
-
 
 
 
@@ -409,44 +402,44 @@ LAB_8006905c:
 	// End offset: 0x800691F0
 	// End Line: 534
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void AIPerson_Startup__Fv(void)
+
 {
   Udff_tInfo *handle;
   char *__format;
   char acStack128 [112];
   
   AIPerson_LoadGridAndSetPersonalityIndexes__Fv();
-  sprintf(acStack128,"%sprsonal.bin",0);
+  sprintf(acStack128,s__sprsonal_bin_80055354,PTR_80116470);
   handle = Udff_Opena__FPcT0i(acStack128,(char *)0x0,1);
   AIPerson_LoadPersonalityData__FP10Udff_tInfo(handle);
   Udff_Close__FP10Udff_tInfo(handle);
-  sprintf(acStack128,"%sscripts.bin",0);
+  sprintf(acStack128,s__sscripts_bin_80055364,PTR_80116470);
   handle = Udff_Opena__FPcT0i(acStack128,(char *)0x0,1);
   AIPerson_LoadScriptData__FP10Udff_tInfo(handle);
   Udff_Close__FP10Udff_tInfo(handle);
-  if (((GameSetup_gData == 1) || (GameSetup_gData == 5)) &&
-     (((uRam00000260 & 0x200) != 0 ||
-      ((Cars_gNumHumanRaceCars == 2 && ((uRam00000260 & 0x200) != 0)))))) {
-    __format = "%sbtcglue.bin";
+  if (((GameSetup_gData.raceType == 1) || (GameSetup_gData.raceType == 5)) &&
+     (((__Cars_gHumanRaceCarList_9__->carFlags & 0x200U) != 0 ||
+      ((Cars_gNumHumanRaceCars == 2 && ((PTR_8010fa4c->carFlags & 0x200U) != 0)))))) {
+    __format = s__sbtcglue_bin_80055374;
   }
   else {
-    if ((GameSetup_gData < 2) && (Cars_gNumAIRaceCars == 1)) {
-      __format = "%shhglue.bin";
+    if (((uint)GameSetup_gData.raceType < 2) && (Cars_gNumAIRaceCars == 1)) {
+      __format = s__shhglue_bin_80055384;
     }
     else {
-      __format = "%sglue.bin";
+      __format = s__sglue_bin_80055394;
     }
   }
-  sprintf(acStack128,__format,0);
+  sprintf(acStack128,__format,PTR_80116470);
   handle = Udff_Opena__FPcT0i(acStack128,(char *)0x0,1);
   AIPerson_LoadGlue__FP10Udff_tInfo(handle);
   Udff_Close__FP10Udff_tInfo(handle);
   AIPerson_SetPersonalityPointers__Fv();
   return;
-
-
 }
-
 
 
 
@@ -461,13 +454,13 @@ void AIPerson_Startup__Fv(void)
 	// End offset: 0x80069230
 	// End Line: 542
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void AIPerson_Cleanup__Fv(void)
+
 {
   return;
-
-
 }
-
 
 
 

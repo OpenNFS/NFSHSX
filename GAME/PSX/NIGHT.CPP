@@ -35,6 +35,7 @@
 	// End Line: 176
 
 int Night_FindClosestColor__FG7CVECTORPi(CVECTOR colorMatch,int *bestIndex)
+
 {
   byte bVar1;
   byte bVar2;
@@ -44,37 +45,38 @@ int Night_FindClosestColor__FG7CVECTORPi(CVECTOR colorMatch,int *bestIndex)
   int iVar6;
   byte *pbVar7;
   int iVar8;
-  int iVar9;
+  undefined *puVar9;
   int iVar10;
+  undefined *puVar11;
+  int iVar12;
   
-  iVar8 = 1;
-  bVar1 = *pbGp00001548;
-  bVar2 = pbGp00001548[1];
-  bVar3 = pbGp00001548[2];
-  iVar9 = 0x2fa03;
-  if (1 < iGp00001514 + 1) {
-    iVar10 = 3;
+  iVar10 = 1;
+  iVar8 = DAT_00001514 + 1;
+  bVar1 = *DAT_00001548;
+  bVar2 = DAT_00001548[1];
+  bVar3 = DAT_00001548[2];
+  puVar11 = &DAT_0002fa03;
+  if (1 < iVar8) {
+    iVar12 = 3;
     do {
       iVar4 = (colorMatch & 0xff) - (uint)bVar1;
       iVar5 = (colorMatch >> 8 & 0xff) - (uint)bVar2;
       iVar6 = (colorMatch >> 0x10 & 0xff) - (uint)bVar3;
-      pbVar7 = pbGp00001548 + iVar10;
+      pbVar7 = DAT_00001548 + iVar12;
       bVar1 = *pbVar7;
       bVar2 = pbVar7[1];
       bVar3 = pbVar7[2];
-      iVar4 = iVar4 * iVar4 + iVar5 * iVar5 + iVar6 * iVar6;
-      if ((iVar4 < iVar9) && (*bestIndex = iVar8 + -1, iVar9 = iVar4, iVar4 < 0x40)) {
-        return iVar4;
+      puVar9 = (undefined *)(iVar4 * iVar4 + iVar5 * iVar5 + iVar6 * iVar6);
+      if (((int)puVar9 < (int)puVar11) &&
+         (*bestIndex = iVar10 + -1, puVar11 = puVar9, (int)puVar9 < 0x40)) {
+        return (int)puVar9;
       }
-      iVar8 = iVar8 + 1;
-      iVar10 = iVar10 + 3;
-    } while (iVar8 < iGp00001514 + 1);
+      iVar10 = iVar10 + 1;
+      iVar12 = iVar12 + 3;
+    } while (iVar10 < iVar8);
   }
-  return iVar9;
-
-
+  return (int)puVar11;
 }
-
 
 
 
@@ -103,6 +105,7 @@ int Night_FindClosestColor__FG7CVECTORPi(CVECTOR colorMatch,int *bestIndex)
 	// End Line: 232
 
 void Night_CreateNightTableElement__FiliPUc(int colorIndex,long colorH,int bright,uchar *colorval)
+
 {
   byte *pbVar1;
   uint uVar2;
@@ -112,7 +115,7 @@ void Night_CreateNightTableElement__FiliPUc(int colorIndex,long colorH,int brigh
   uchar local_18 [8];
   
   bright = bright * 0x111;
-  pbVar1 = (byte *)(colorIndex * 3 + iGp00001548);
+  pbVar1 = (byte *)(colorIndex * 3 + DAT_00001548);
   _bVar4 = (uint)*pbVar1 + ((int)((colorH & 0xffU) * bright) >> 0xc);
   bVar4 = (byte)_bVar4;
   if (0xff < _bVar4) {
@@ -129,27 +132,24 @@ void Night_CreateNightTableElement__FiliPUc(int colorIndex,long colorH,int brigh
   _bVar4 = Night_FindClosestColor__FG7CVECTORPi
                      ((CVECTOR)((uint)(bVar4 & 0xf8) | (uVar3 & 0xf8) << 8 | (uVar2 & 0xf8) << 0x10
                                | (uint)local_1d << 0x18),(int *)local_18);
-  if (((_bVar4 < 0x201) || (3 < colorIndex)) || (0xff < iGp00001514)) {
+  if (((_bVar4 < 0x201) || (Chunk_numLight + 4 <= colorIndex)) || (0xff < DAT_00001514)) {
     *colorval = local_18[0];
   }
   else {
-    *(byte *)(iGp00001514 * 3 + iGp00001548) = bVar4 & 0xf8;
-    *(byte *)(iGp00001514 * 3 + iGp00001548 + 1) = (byte)uVar3 & 0xf8;
-    *(byte *)(iGp00001514 * 3 + iGp00001548 + 2) = (byte)uVar2 & 0xf8;
-    *colorval = (uchar)iGp00001514;
-    iGp00001514 = iGp00001514 + 1;
+    *(byte *)(DAT_00001514 * 3 + DAT_00001548) = bVar4 & 0xf8;
+    *(byte *)(DAT_00001514 * 3 + DAT_00001548 + 1) = (byte)uVar3 & 0xf8;
+    *(byte *)(DAT_00001514 * 3 + DAT_00001548 + 2) = (byte)uVar2 & 0xf8;
+    *colorval = (uchar)DAT_00001514;
+    DAT_00001514 = DAT_00001514 + 1;
   }
   return;
-
-
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// void /*$ra*/ Night_CreateNightTable__FiliPA256_A16_Uc(int colorIndex /*$a0*/, long colorH /*$a1*/, int bright /*$a2*/, unsigned char *tbl[256][16] /*$a3*/)
+// void /*$ra*/ Night_CreateNightTable__FiliPA256_A16_Uc(int colorIndex /*$a0*/, long colorH /*$a1*/, int bright /*$a2*/, unsigned char (*tbl)[256][16] /*$a3*/)
  // line 236, offset 0x800db5a4
 	/* begin block 1 */
 		// Start line: 237
@@ -158,18 +158,14 @@ void Night_CreateNightTableElement__FiliPUc(int colorIndex,long colorH,int brigh
 	// End offset: 0x800DB5A4
 	// End Line: 237
 
-void Night_CreateNightTable__FiliPA256_A16_Uc(int colorIndex,long colorH,int bright,undefined tbl)
+void Night_CreateNightTable__FiliPA256_A16_Uc
+               (int colorIndex,long colorH,int bright,uchar (*tbl) [256] [16])
+
 {
-  undefined3 in_register_0000001d;
-  
-  Night_CreateNightTableElement__FiliPUc
-            (colorIndex,colorH,bright,
-             (uchar *)(CONCAT31(in_register_0000001d,tbl) + colorIndex * 0x10 + bright));
+  Night_CreateNightTableElement__FiliPUc(colorIndex,colorH,bright,*tbl + bright + colorIndex * 0x10)
+  ;
   return;
-
-
 }
-
 
 
 
@@ -184,25 +180,25 @@ void Night_CreateNightTable__FiliPA256_A16_Uc(int colorIndex,long colorH,int bri
 	// End offset: 0x800DB5CC
 	// End Line: 348
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Night_GenerateNextLightningEvent__Fv(void)
+
 {
   uint uVar1;
   long lVar2;
   
   uVar1 = random();
-  iGp0000151c = (uVar1 & 0x7ff) + 0x1f;
+  DAT_0000151c = simGlobal.gameTicks + (uVar1 & 0x7ff) + 0x1f;
   uVar1 = random();
-  iGp00001520 = iGp0000151c + (uVar1 & 0xf) + 0xf;
-  iGp00001524 = iGp0000151c;
-  uGp00001528 = random();
-  uGp00001528 = uGp00001528 & 0xffff;
+  DAT_00001520 = DAT_0000151c + (uVar1 & 0xf) + 0xf;
+  DAT_00001524 = DAT_0000151c;
+  DAT_00001528 = random();
+  DAT_00001528 = DAT_00001528 & 0xffff;
   lVar2 = random();
-  bGp0000152c = (byte)lVar2 & 1;
+  DAT_0000152c = (byte)lVar2 & 1;
   return;
-
-
 }
-
 
 
 
@@ -232,16 +228,19 @@ void Night_GenerateNextLightningEvent__Fv(void)
 	// End Line: 417
 
 void Night_PauseLightningEffect__Fi(int player)
+
 {
-  if (Weather_gType == 0) {
-    uGp0000151c = 0;
-    uGp00001520 = 0;
+  int iVar1;
+  
+  iVar1 = (int)(&Camera_gInfo)[player].slicePos.slice;
+  if (Weather_gType == Weather_kSnow ||
+      (&Night_gLightningPauseAreas)[GameSetup_gData.track * 2] < iVar1 &&
+      iVar1 < (&INT_80120d30)[GameSetup_gData.track * 2]) {
+    DAT_0000151c = simGlobal.gameTicks;
+    DAT_00001520 = simGlobal.gameTicks;
   }
   return;
-
-
 }
-
 
 
 
@@ -259,43 +258,42 @@ void Night_PauseLightningEffect__Fi(int player)
 	// End Line: 468
 
 void Night_DoLightningEffect__FP13DRender_tView(DRender_tView *Vi)
+
 {
-  uint uVar1;
+  void *pvVar1;
+  uint uVar2;
   
-  if (iGp00001518 != 0) {
-    AudioCmn_PlayThunder__Fii(iGp00001530,iGp00001528);
+  if (DAT_00001518 != 0) {
+    AudioCmn_PlayThunder__Fii(DAT_00001530,DAT_00001528);
     Hrz_LightningFlicker__Fi(0);
-    iGp00001518 = 0;
+    DAT_00001518 = 0;
   }
-  if (((iGp0000151c < 0) && (0 < iGp00001520)) && ((int)uGp00001524 < 0)) {
-    uGp000014f8 = random();
-    uGp000014f8 = uGp000014f8 & 1;
+  if (((DAT_0000151c < simGlobal.gameTicks) && (simGlobal.gameTicks < DAT_00001520)) &&
+     (DAT_00001524 < simGlobal.gameTicks)) {
+    DAT_000014f8 = random();
+    DAT_000014f8 = DAT_000014f8 & 1;
     Hrz_LightningFlicker__Fi(1);
-    uVar1 = BWorldSm_TunnelFlagSm__FP12BWorldSm_Pos
-                      ((BWorldSm_Pos *)(&DAT_8010f338 + Vi->player * 0x44));
-    bGp00001494 = uVar1 == 0;
-    iGp00001518 = 1;
-    uGp00001524 = random();
-    uGp00001524 = uGp00001524 & 3;
-    uVar1 = random();
-    iGp00001530 = (uGp000014f8 + 1) * (uVar1 & 0x1f) + 0x40;
-    if (cGp000014b2 != '\0') {
-      if (cGp0000152c != '\0') {
+    pvVar1 = BWorldSm_TunnelFlagSm__FP12BWorldSm_Pos(&(&Camera_gInfo)[Vi->player].slicePos);
+    DAT_00001494 = pvVar1 == (void *)0x0;
+    DAT_00001518 = 1;
+    uVar2 = random();
+    DAT_00001524 = simGlobal.gameTicks + (uVar2 & 3);
+    uVar2 = random();
+    DAT_00001530 = (DAT_000014f8 + 1) * (uVar2 & 0x1f) + 0x40;
+    if (DAT_000014b2 != '\0') {
+      if (DAT_0000152c != '\0') {
         Hrz_SetLightingPosInSky__FP13DRender_tView(Vi);
       }
-      cGp000014b2 = '\0';
+      DAT_000014b2 = '\0';
     }
   }
-  if (iGp00001520 < 0) {
+  if (DAT_00001520 < simGlobal.gameTicks) {
     Night_GenerateNextLightningEvent__Fv();
     Hrz_CalculateLightning__Fv();
-    cGp000014b2 = '\x01';
+    DAT_000014b2 = '\x01';
   }
   return;
-
-
 }
-
 
 
 
@@ -310,7 +308,7 @@ void Night_DoLightningEffect__FP13DRender_tView(DRender_tView *Vi)
 	// 		int cartype; // $v0
 	// 		int country; // $a1
 	// 		int carTable; // $a0
-	// 		unsigned char *copColors[2][256][8]; // stack offset -16
+	// 		unsigned char (*copColors[2])[256][8]; // stack offset -16
 	// 		int col1; // $v0
 	// 		int col2; // $v0
 	/* end block 1 */
@@ -318,18 +316,16 @@ void Night_DoLightningEffect__FP13DRender_tView(DRender_tView *Vi)
 	// End Line: 474
 
 void Night_SetCopColor__FP18GameSetup_tCarData(GameSetup_tCarData *carinfo)
+
 {
   int iVar1;
   undefined4 local_10 [4];
   
   iVar1 = ((uint)(byte)(&DAT_8013d9e2)[carinfo->carType] * 5 + carinfo->Country) * 2;
-  uGp00001500 = local_10[(uint)(byte)(&Night_gCopCountryLightTbl)[iVar1]];
-  uGp00001504 = local_10[(uint)(byte)(&DAT_80120d19)[iVar1]];
+  DAT_00001500 = local_10[(uint)(byte)(&Night_gCopCountryLightTbl)[iVar1]];
+  DAT_00001504 = local_10[(uint)(byte)(&CHAR_01h_80120d19)[iVar1]];
   return;
-
-
 }
-
 
 
 
@@ -345,16 +341,14 @@ void Night_SetCopColor__FP18GameSetup_tCarData(GameSetup_tCarData *carinfo)
 	// End Line: 497
 
 void Night_InitPlayerHeadLightColor__Fi(int player)
+
 {
-  if (iGp00001498 == 0) {
-    iGp00001498 = reservememadr("plnight",0x1000,0);
+  if (DAT_00001498 == (short *)0x0) {
+    DAT_00001498 = reservememadr((char *)&PTR_DAT_8013da00,0x1000,0);
   }
-  *(undefined4 *)(&Night_gPlayerHeadLightColor + player * 4) = 0;
+  (&Night_gPlayerHeadLightColor)[player] = TrackSpec_gSpec.nightspec;
   return;
-
-
 }
-
 
 
 
@@ -370,15 +364,12 @@ void Night_InitPlayerHeadLightColor__Fi(int player)
 	// End Line: 502
 
 void Night_SetPlayerHeadLightColor__Fiii(int player,int colorIndex,int bright)
+
 {
   Night_CreateNightTable__FiliPA256_A16_Uc
-            (colorIndex,*(long *)(&Night_gPlayerHeadLightColor + player * 4),bright,
-             (char)uGp00001498);
+            (colorIndex,(long)(&Night_gPlayerHeadLightColor)[player],bright,DAT_00001498);
   return;
-
-
 }
-
 
 
 
@@ -393,19 +384,19 @@ void Night_SetPlayerHeadLightColor__Fiii(int player,int colorIndex,int bright)
 	// End offset: 0x800DB9C0
 	// End Line: 516
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Night_InitCopLightColors__Fv(void)
+
 {
-  if (iGp0000149c == 0) {
-    iGp0000149c = reservememadr("CopRed",0x800,0);
+  if (DAT_0000149c == (short *)0x0) {
+    DAT_0000149c = reservememadr((char *)&PTR_DAT_8013da08,0x800,0);
   }
-  if (iGp000014a0 == 0) {
-    iGp000014a0 = reservememadr("CopBlue",0x800,0);
+  if (DAT_000014a0 == (short *)0x0) {
+    DAT_000014a0 = reservememadr((char *)&PTR_DAT_8013da10,0x800,0);
   }
   return;
-
-
 }
-
 
 
 
@@ -421,18 +412,16 @@ void Night_InitCopLightColors__Fv(void)
 	// End Line: 520
 
 void Night_SetCopLightColors__Fii(int colorIndex,int brighten)
+
 {
   Night_CreateNightTableElement__FiliPUc
-            (colorIndex,0x602020,brighten,(uchar *)(iGp000014a0 + colorIndex * 8 + (brighten >> 1)))
-  ;
+            (colorIndex,(long)&DAT_00602020,brighten,
+             (uchar *)(DAT_000014a0 + colorIndex * 8 + (brighten >> 1)));
   Night_CreateNightTableElement__FiliPUc
-            (colorIndex,0x101054,brighten,(uchar *)(iGp0000149c + colorIndex * 8 + (brighten >> 1)))
-  ;
+            (colorIndex,(long)&LAB_00101054,brighten,
+             (uchar *)(DAT_0000149c + colorIndex * 8 + (brighten >> 1)));
   return;
-
-
 }
-
 
 
 
@@ -456,29 +445,29 @@ void Night_SetCopLightColors__Fii(int colorIndex,int brighten)
 	// End offset: 0x800DBAA4
 	// End Line: 540
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Night_InitWeatherTables__Fv(void)
+
 {
-  int iVar1;
-  int *piVar2;
+  short *psVar1;
+  uchar **ppuVar2;
   int iVar3;
   
   iVar3 = 0;
-  piVar2 = &_Night_gWeatherLightingTable;
+  ppuVar2 = &__Night_gWeatherLightingTable;
   do {
-    if (*piVar2 == 0) {
-      iVar1 = reservememadr("wtnight",0x100,0);
-      *piVar2 = iVar1;
+    if ((short *)*ppuVar2 == (short *)0x0) {
+      psVar1 = reservememadr((char *)&PTR_DAT_8013da18,0x100,0);
+      *(short **)ppuVar2 = psVar1;
     }
     iVar3 = iVar3 + 1;
-    piVar2 = piVar2 + 1;
+    ppuVar2 = (uchar **)((short **)ppuVar2 + 1);
   } while (iVar3 < 2);
-  uGp0000153c = 0x574054;
-  uGp00001540 = 0x6c4040;
+  DAT_0000153c = &DAT_00574054;
+  DAT_00001540 = &DAT_006c4040;
   return;
-
-
 }
-
 
 
 
@@ -503,29 +492,27 @@ void Night_InitWeatherTables__Fv(void)
 	// End Line: 547
 
 void Night_SetWeatherColors__Fi(int colorIndex)
+
 {
-  long colorH;
-  int iVar1;
-  int *piVar2;
-  long *plVar3;
+  uchar *colorH;
+  uchar *puVar1;
+  uchar **ppuVar2;
+  uchar **ppuVar3;
   int iVar4;
   
   iVar4 = 0;
-  plVar3 = &Night_gWeatherColor;
-  piVar2 = &_Night_gWeatherLightingTable;
+  ppuVar3 = &Night_gWeatherColor;
+  ppuVar2 = &__Night_gWeatherLightingTable;
   do {
-    colorH = *plVar3;
-    plVar3 = plVar3 + 1;
-    iVar1 = *piVar2;
-    piVar2 = piVar2 + 1;
+    colorH = *ppuVar3;
+    ppuVar3 = ppuVar3 + 1;
+    puVar1 = *ppuVar2;
+    ppuVar2 = ppuVar2 + 1;
     iVar4 = iVar4 + 1;
-    Night_CreateNightTableElement__FiliPUc(colorIndex,colorH,0xf,(uchar *)(iVar1 + colorIndex));
+    Night_CreateNightTableElement__FiliPUc(colorIndex,(long)colorH,0xf,puVar1 + colorIndex);
   } while (iVar4 < 2);
   return;
-
-
 }
-
 
 
 
@@ -604,68 +591,69 @@ void Night_SetWeatherColors__Fi(int colorIndex)
 	// End offset: 0x800DBDC4
 	// End Line: 626
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Night_GenerateAllLightTables__Fv(void)
+
 {
   byte bVar1;
   int iVar2;
-  int colorIndex;
-  undefined1 *puVar3;
+  CVECTOR *pCVar3;
   int iVar4;
+  int colorIndex;
   
-  iVar4 = 0;
+  iVar2 = 0;
+  DAT_00001544 = 0x1f800000;
+  DAT_00001548 = 0x1f800000;
+  DAT_00001514 = Chunk_numLight;
   colorIndex = 0;
-  uGp00001544 = 0x1f800000;
-  iGp00001548 = 0x1f800000;
-  iGp00001514 = 0;
   do {
-    iVar2 = iVar4 * 4;
-    iVar4 = iVar4 + 1;
-    *(undefined *)(colorIndex + 0x1f800000) = *(undefined *)(iVar2 + _Chunk_lightTable);
-    *(undefined *)(colorIndex + 0x1f800001) = *(undefined *)(iVar2 + _Chunk_lightTable + 1);
-    *(undefined *)(colorIndex + 0x1f800002) = *(undefined *)(iVar2 + _Chunk_lightTable + 2);
-    colorIndex = colorIndex + 3;
+    iVar4 = colorIndex + 1;
+    *(uchar *)(iVar2 + DAT_00001548) = Chunk_lightTable[colorIndex].r;
+    *(uchar *)(iVar2 + DAT_00001548 + 1) = Chunk_lightTable[colorIndex].g;
+    *(uchar *)(iVar2 + DAT_00001548 + 2) = Chunk_lightTable[colorIndex].b;
+    iVar2 = iVar2 + 3;
+    colorIndex = iVar4;
   } while (iVar4 < 0x100);
   colorIndex = 0;
-  while (colorIndex < iGp00001514) {
-    iVar4 = 0;
-    if (DAT_80113234 == 1) {
+  while (colorIndex < DAT_00001514) {
+    iVar2 = 0;
+    if (GameSetup_gData.Weather == 1) {
       Night_SetWeatherColors__Fi(colorIndex);
-      iVar4 = 0;
+      iVar2 = 0;
     }
-    while (iVar4 < 0x10) {
-      bVar1 = (&DAT_80120dac)[iVar4];
+    while (iVar2 < 0x10) {
+      bVar1 = (&DAT_80120dac)[iVar2];
       Night_SetPlayerHeadLightColor__Fiii(0,colorIndex,(uint)bVar1);
-      if ((DAT_80113200 != 0) && (iVar4 < 8)) {
+      if ((GameSetup_gData.cops != 0) && (iVar2 < 8)) {
         Night_SetCopLightColors__Fii(colorIndex,(uint)bVar1);
       }
-      iVar4 = iVar4 + 1;
+      iVar2 = iVar2 + 1;
     }
     colorIndex = colorIndex + 1;
   }
-  iVar4 = 0;
+  iVar2 = 0;
   colorIndex = 0;
   do {
-    iVar2 = iVar4 * 4;
-    iVar4 = iVar4 + 1;
-    *(undefined *)(iVar2 + _Chunk_lightTable) = *(undefined *)(colorIndex + iGp00001548);
-    *(undefined *)(iVar2 + _Chunk_lightTable + 1) = *(undefined *)(colorIndex + iGp00001548 + 1);
-    *(undefined *)(iVar2 + _Chunk_lightTable + 2) = *(undefined *)(colorIndex + iGp00001548 + 2);
-    colorIndex = colorIndex + 3;
+    iVar4 = colorIndex + 1;
+    Chunk_lightTable[colorIndex].r = *(uchar *)(iVar2 + DAT_00001548);
+    Chunk_lightTable[colorIndex].g = *(uchar *)(iVar2 + DAT_00001548 + 1);
+    Chunk_lightTable[colorIndex].b = *(uchar *)(iVar2 + DAT_00001548 + 2);
+    iVar2 = iVar2 + 3;
+    colorIndex = iVar4;
   } while (iVar4 < 0x100);
   colorIndex = 0;
-  puVar3 = &Night_gAdditiveHeadlightColor;
+  pCVar3 = &Night_gAdditiveHeadlightColor;
   do {
-    *puVar3 = (char)((int)((uint)bGp00001534 * colorIndex) / 0xf);
-    puVar3[1] = 0;
+    pCVar3->r = (uchar)((int)((uint)DAT_00001534 * colorIndex) / 0xf);
+    pCVar3->g = (uchar)((int)((uint)Night_gPlayerHeadLightColor._1_1_ * colorIndex) / 0xf);
+    iVar2 = (uint)Night_gPlayerHeadLightColor._2_1_ * colorIndex;
     colorIndex = colorIndex + 1;
-    puVar3[2] = 0;
-    puVar3 = puVar3 + 4;
+    pCVar3->b = (uchar)(iVar2 / 0xf);
+    pCVar3 = pCVar3 + 1;
   } while (colorIndex < 0x10);
   return;
-
-
 }
-
 
 
 
@@ -697,55 +685,55 @@ void Night_GenerateAllLightTables__Fv(void)
 	// End offset: 0x800DBF6C
 	// End Line: 681
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Night_InitNightDriving__Fv(void)
+
 {
-  undefined4 uVar1;
-  undefined4 uVar2;
+  int iVar1;
+  undefined4 *puVar2;
   uint uVar3;
   char acStack272 [256];
   
-  uGp000014dc = 0;
-  if (DAT_80113240 != 0) {
-    uGp000014dc = (uint)(DAT_801131f8 != 1);
-    if (DAT_801131f8 != 1) goto LAB_800dbe54;
-    DAT_80123370 = 0xff;
-    DAT_8012336c = 0;
+  DAT_000014dc = 0;
+  if (GameSetup_gData.Time != 0) {
+    DAT_000014dc = (uint)(GameSetup_gData.commMode != 1);
+    if (GameSetup_gData.commMode != 1) goto LAB_800dbe54;
+    TrackSpec_gSpec.depthcuespec.distance = 0xff;
+    TrackSpec_gSpec.depthcuespec.color = 0;
   }
-  if (uGp000014dc == 0) {
+  if (DAT_000014dc == 0) {
     return;
   }
 LAB_800dbe54:
-  sprintf(acStack272,"%snight.psh",0);
-  uVar1 = filesize(acStack272);
-  uGp0000154c = reservememadr("night.psh",uVar1,0);
-  uVar1 = loadshapeadr(acStack272,0);
-  uVar2 = filesize(acStack272);
-  blockmove(uVar1,uGp0000154c,uVar2);
-  purgememadr(uVar1);
-  iGp000014f4 = locateshape(uGp0000154c,&DAT_8013da20);
-  iGp000014f4 = iGp000014f4 + 0x10;
+  sprintf(acStack272,s__snight_psh_8005696c,PTR_801164cc);
+  iVar1 = filesize(acStack272);
+  DAT_0000154c = (undefined4 *)reservememadr(s_night_psh_80056978,iVar1,0);
+  puVar2 = (undefined4 *)loadshapeadr(acStack272,0);
+  iVar1 = filesize(acStack272);
+  blockmove(puVar2,DAT_0000154c,iVar1);
+  purgememadr((int)puVar2);
+  DAT_000014f4 = locateshape((int)DAT_0000154c,(int *)&PTR_DAT_8013da20);
+  DAT_000014f4 = DAT_000014f4 + 0x10;
   Night_InitPlayerHeadLightColor__Fi(0);
-  if (DAT_80113200 != 0) {
+  if (GameSetup_gData.cops != 0) {
     Night_InitCopLightColors__Fv();
   }
-  if (DAT_80113234 == 1) {
+  if (GameSetup_gData.Weather == 1) {
     Night_InitWeatherTables__Fv();
   }
   Night_GenerateAllLightTables__Fv();
-  if (DAT_80113234 == 1) {
-    uGp00001518 = 0;
-    uGp0000151c = random();
-    uGp0000151c = uGp0000151c & 0x1ff;
+  if (GameSetup_gData.Weather == 1) {
+    DAT_00001518 = 0;
     uVar3 = random();
-    iGp00001520 = uGp0000151c + (uVar3 & 0x31);
-    uGp00001524 = uGp0000151c;
+    DAT_0000151c = simGlobal.gameTicks + (uVar3 & 0x1ff);
+    uVar3 = random();
+    DAT_00001520 = DAT_0000151c + (uVar3 & 0x31);
+    DAT_00001524 = DAT_0000151c;
     Hrz_CalculateLightning__Fv();
   }
   return;
-
-
 }
-
 
 
 
@@ -760,37 +748,37 @@ LAB_800dbe54:
 	// End offset: 0x800DC010
 	// End Line: 720
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Night_KillNightDriving__Fv(void)
+
 {
-  if (iGp0000154c != 0) {
-    purgememadr();
+  if (DAT_0000154c != 0) {
+    purgememadr(DAT_0000154c);
   }
-  iGp0000154c = 0;
-  if (iGp00001498 != 0) {
-    purgememadr();
+  DAT_0000154c = 0;
+  if (DAT_00001498 != 0) {
+    purgememadr(DAT_00001498);
   }
-  iGp00001498 = 0;
-  if (iGp0000149c != 0) {
-    purgememadr();
+  DAT_00001498 = 0;
+  if (DAT_0000149c != 0) {
+    purgememadr(DAT_0000149c);
   }
-  iGp0000149c = 0;
-  if (iGp000014a0 != 0) {
-    purgememadr();
+  DAT_0000149c = 0;
+  if (DAT_000014a0 != 0) {
+    purgememadr(DAT_000014a0);
   }
-  iGp000014a0 = 0;
-  if (iGp000014a4 != 0) {
-    purgememadr();
+  DAT_000014a0 = 0;
+  if (DAT_000014a4 != 0) {
+    purgememadr(DAT_000014a4);
   }
-  iGp000014a4 = 0;
-  if (iGp000014a8 != 0) {
-    purgememadr();
+  DAT_000014a4 = 0;
+  if (DAT_000014a8 != 0) {
+    purgememadr(DAT_000014a8);
   }
-  iGp000014a8 = 0;
+  DAT_000014a8 = 0;
   return;
-
-
 }
-
 
 
 
@@ -805,24 +793,24 @@ void Night_KillNightDriving__Fv(void)
 	// End offset: 0x800DC098
 	// End Line: 731
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Night_RestartNightDriving__Fv(void)
+
 {
   uint uVar1;
   
-  if ((DAT_80113234 == 1) && (DAT_80113240 != 0)) {
-    uGp00001518 = 0;
-    uGp0000151c = random();
-    uGp0000151c = uGp0000151c & 0x1ff;
+  if ((GameSetup_gData.Weather == 1) && (GameSetup_gData.Time != 0)) {
+    DAT_00001518 = 0;
     uVar1 = random();
-    iGp00001520 = uGp0000151c + (uVar1 & 0x31);
-    uGp00001524 = uGp0000151c;
+    DAT_0000151c = simGlobal.gameTicks + (uVar1 & 0x1ff);
+    uVar1 = random();
+    DAT_00001520 = DAT_0000151c + (uVar1 & 0x31);
+    DAT_00001524 = DAT_0000151c;
     Hrz_LightningFlicker__Fi(0);
   }
   return;
-
-
 }
-
 
 
 
@@ -852,36 +840,35 @@ void Night_RestartNightDriving__Fv(void)
 	// End Line: 805
 
 void Night_SetEnviroment__FP13DRender_tView(DRender_tView *Vi)
+
 {
   int iVar1;
   
-  if (DAT_80113240 != 0) {
-    Night_gDrawLightning = 0;
-    _Night_gCurrentNightColor = 0;
-    if ((DAT_80113234 == 1) && (Night_PauseLightningEffect__Fi(Vi->player), Vi->player == 0)) {
+  if (GameSetup_gData.Time != 0) {
+    uGp00001494 = 0;
+    uGp000014fc = uGp00001498;
+    if ((GameSetup_gData.Weather == 1) &&
+       (Night_PauseLightningEffect__Fi(Vi->player), Vi->player == 0)) {
       Night_DoLightningEffect__FP13DRender_tView(Vi);
     }
-    Night_gXDistShift = 10;
-    Night_gZDistShift = 0xc;
-    Night_gZNear = 0x80;
-    if ((*(byte *)((&DAT_8010f2b0)[Vi->player * 0x44] + 0x447) & 4) != 0) {
-      Night_gZDistShift = 0xd;
-      Night_gXDistShift = 0xb;
+    uGp000014ec = 10;
+    uGp000014f0 = 0xc;
+    uGp000014e4 = 0x80;
+    if ((*(byte *)((int)&(&Camera_gInfo)[Vi->player].target[1].shadowCoord[2].y + 3) & 4) != 0) {
+      uGp000014f0 = 0xd;
+      uGp000014ec = 0xb;
     }
     iVar1 = Camera_GetMode__Fi(Vi->player);
     if (iVar1 == 0) {
-      Night_gZNear = 0xfffffe00;
+      uGp000014e4 = 0xfffffe00;
     }
-    Night_gXDist = 1 << (Night_gXDistShift & 0x1f);
-    Night_gZDist = 1 << (Night_gZDistShift & 0x1f);
-    Night_gZDistShift = Night_gZDistShift - 6;
-    Night_gXDistShift = Night_gXDistShift - 5;
+    iGp000014e0 = 1 << (uGp000014ec & 0x1f);
+    iGp000014e8 = 1 << (uGp000014f0 & 0x1f);
+    uGp000014f0 = uGp000014f0 - 6;
+    uGp000014ec = uGp000014ec - 5;
   }
   return;
-
-
 }
-
 
 
 
@@ -939,36 +926,38 @@ void Night_SetEnviroment__FP13DRender_tView(DRender_tView *Vi)
 	// End Line: 862
 
 void Night_AdditiveNightCalc__FP6VECTORP7CVECTOR(VECTOR *v,CVECTOR *color)
+
 {
   uchar uVar1;
   uchar uVar2;
   int iVar3;
-  uint uVar4;
+  CVECTOR CVar4;
   uchar uVar5;
   int iVar6;
   int iVar7;
   
   iVar3 = v->vz;
-  if ((Night_gZNear < iVar3) && (iVar3 < Night_gZNear + (1 << (Night_gZDistShift + 6 & 0x1f)))) {
+  if ((iGp000014e4 < iVar3) && (iVar3 < iGp000014e4 + (1 << (uGp000014f0 + 6 & 0x1f)))) {
     iVar6 = v->vx;
-    iVar7 = 1 << (Night_gXDistShift + 5 & 0x1f);
+    iVar7 = 1 << (uGp000014ec + 5 & 0x1f);
     if ((-iVar7 < iVar6) && (iVar6 < iVar7)) {
-      uVar4 = *(uint *)(&Night_gAdditiveHeadlightColor +
-                       (uint)*(byte *)((iVar3 - Night_gZNear >> (Night_gZDistShift & 0x1f)) * 0x40 +
-                                      (iVar6 + iVar7 >> (Night_gXDistShift & 0x1f))) * 4);
-      _uVar5 = (uint)color->r + (uVar4 & 0xff);
+      CVar4 = (&Night_gAdditiveHeadlightColor)
+              [(uint)*(byte *)(iGp000014f4 +
+                              (iVar3 - iGp000014e4 >> (uGp000014f0 & 0x1f)) * 0x40 +
+                              (iVar6 + iVar7 >> (uGp000014ec & 0x1f)))];
+      _uVar5 = (uint)color->r + ((uint)CVar4 & 0xff);
       uVar5 = (uchar)_uVar5;
-      _uVar1 = (uint)color->g + ((int)(uVar4 & 0xff00) >> 8);
+      _uVar1 = (uint)color->g + ((int)((uint)CVar4 & 0xff00) >> 8);
       uVar1 = (uchar)_uVar1;
-      uVar4 = (uint)color->b + (uVar4 >> 0x10 & 0xff);
-      uVar2 = (uchar)uVar4;
+      _uVar2 = (uint)color->b + ((uint)CVar4 >> 0x10 & 0xff);
+      uVar2 = (uchar)_uVar2;
       if (0xff < _uVar5) {
         uVar5 = -1;
       }
       if (0xff < _uVar1) {
         uVar1 = -1;
       }
-      if (0xff < uVar4) {
+      if (0xff < _uVar2) {
         uVar2 = -1;
       }
       color->r = uVar5;
@@ -977,10 +966,7 @@ void Night_AdditiveNightCalc__FP6VECTORP7CVECTOR(VECTOR *v,CVECTOR *color)
     }
   }
   return;
-
-
 }
-
 
 
 

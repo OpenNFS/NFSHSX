@@ -1,5 +1,10 @@
-#include "NFS4.H"
-#include "FESCREEN.H"
+#ifndef FESCREEN_H
+#define FESCREEN_H
+
+extern void DrawBackground__7tScreen(struct tScreen *this); // 0x800268E8
+
+extern void DrawForeground__7tScreen(struct tScreen *this); // 0x800268E0
+
 
 // decompiled code
 // original method signature: 
@@ -12,18 +17,18 @@
 	// End offset: 0x800268E8
 	// End Line: 97
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void DrawBackground__7tScreen(tScreen *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -38,19 +43,20 @@ void DrawBackground__7tScreen(tScreen *this)
 	// End offset: 0x800268E0
 	// End Line: 98
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void DrawForeground__7tScreen(tScreen *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
 
 
 
 
-
+#endif

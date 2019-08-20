@@ -55,13 +55,13 @@ extern void Hud_InitTables__Fv(); // 0x800D39EC
 
 extern void Hud_BuildETimeString__FP4SPRTi(struct SPRT *sprt, int time); // 0x800D3A18
 
-extern unsigned int Hud_BuildDistanceString__FP4SPRTi(struct SPRT *sprt, int player); // 0x800D3BA4
+extern void * Hud_BuildDistanceString__FP4SPRTi(struct SPRT *sprt, int player); // 0x800D3BA4
 
 extern void Hud_BuildTimeString__FP4SPRTi(struct SPRT *sprt, int time); // 0x800D3D44
 
 extern void Hud_BuildTach__Fi(int player); // 0x800D3E94
 
-extern int Hud_BuildString__FPciiiib(char *str, int x, int y, int color, int player, unsigned int justwidth); // 0x800D42C8
+extern int Hud_BuildString__FPciiiib(char *str, int x, int y, int color, int player, void * justwidth); // 0x800D42C8
 
 extern void Hud_BuildNumbers0__Fi(int player); // 0x800D4624
 
@@ -109,9 +109,9 @@ extern void Hud_Render__Fv(); // 0x800D9058
 
 extern void Hud_PositionMap__Fv(); // 0x800D94C0
 
-extern void Hud_BTC_Update__FPcib(char *perpname, int timeleft, unsigned int userHasControl); // 0x800D95C8
+extern void Hud_BTC_Update__FPcib(char *perpname, int timeleft, void * userHasControl); // 0x800D95C8
 
-extern void Hud_BustedOverlayOn__FiPcbs(int time, char *name, unsigned int caught, short player); // 0x800D962C
+extern void Hud_BustedOverlayOn__FiPcbs(int time, char *name, void * caught, short player); // 0x800D962C
 
 extern void Hud_BustedOverlayOff__Fv(); // 0x800D97E4
 

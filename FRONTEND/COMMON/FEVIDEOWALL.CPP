@@ -28,18 +28,20 @@
 	// End offset: 0x80036838
 	// End Line: 89
 
-void Initialize__10tVideoWallP9tTVConfigP18tTexture_ShapeInfossPss( (tVideoWall *this,tTVConfig *tvs,tTexture_ShapeInfo *shapes,short firstTV,int numTVs, short *tvOrdering,int flip_axis)
+/* WARNING: Control flow encountered bad instruction data */
+
+void Initialize__10tVideoWallP9tTVConfigP18tTexture_ShapeInfossPss
+               (tVideoWall *this,tTVConfig *tvs,tTexture_ShapeInfo *shapes,short firstTV,int numTVs,
+               short *tvOrdering,int flip_axis)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -56,18 +58,18 @@ void Initialize__10tVideoWallP9tTVConfigP18tTexture_ShapeInfossPss( (tVideoWall 
 	// End offset: 0x8003696C
 	// End Line: 115
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void UpdateImages__10tVideoWall(tVideoWall *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -82,18 +84,18 @@ void UpdateImages__10tVideoWall(tVideoWall *this)
 	// End offset: 0x8003698C
 	// End Line: 123
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void SetAvailableText__10tVideoWallsss(tVideoWall *this,short textID,short x,short y)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -108,18 +110,20 @@ void SetAvailableText__10tVideoWallsss(tVideoWall *this,short textID,short x,sho
 	// End offset: 0x800369A8
 	// End Line: 135
 
-void SetAvailableIcon__10tVideoWallssssP18tTexture_ShapeInfo( (tVideoWall *this,short icon,short numFrames,short x,int y, tTexture_ShapeInfo *iconImages)
+/* WARNING: Control flow encountered bad instruction data */
+
+void SetAvailableIcon__10tVideoWallssssP18tTexture_ShapeInfo
+               (tVideoWall *this,short icon,short numFrames,short x,int y,
+               tTexture_ShapeInfo *iconImages)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -134,18 +138,18 @@ void SetAvailableIcon__10tVideoWallssssP18tTexture_ShapeInfo( (tVideoWall *this,
 	// End offset: 0x800369C8
 	// End Line: 148
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void SetOffset__10tVideoWallss(tVideoWall *this,short x,short y)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -160,18 +164,18 @@ void SetOffset__10tVideoWallss(tVideoWall *this,short x,short y)
 	// End offset: 0x800369D4
 	// End Line: 156
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void SetAvailable__10tVideoWalls(tVideoWall *this,short avail)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -186,18 +190,18 @@ void SetAvailable__10tVideoWalls(tVideoWall *this,short avail)
 	// End offset: 0x800369DC
 	// End Line: 164
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void SetValid__10tVideoWalls(tVideoWall *this,short valid)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -271,18 +275,18 @@ void SetValid__10tVideoWalls(tVideoWall *this,short valid)
 	// End offset: 0x80036B98
 	// End Line: 198
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void UpdateTransition__10tVideoWall(tVideoWall *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -357,18 +361,18 @@ void UpdateTransition__10tVideoWall(tVideoWall *this)
 	// End offset: 0x80036E40
 	// End Line: 255
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void Draw__10tVideoWall(tVideoWall *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -411,18 +415,18 @@ void Draw__10tVideoWall(tVideoWall *this)
 	// End offset: 0x80036E74
 	// End Line: 266
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void TurnOff__10tVideoWall(tVideoWall *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -439,18 +443,18 @@ void TurnOff__10tVideoWall(tVideoWall *this)
 	// End offset: 0x80036EE4
 	// End Line: 281
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void TurnOffInstant__10tVideoWall(tVideoWall *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -493,18 +497,18 @@ void TurnOffInstant__10tVideoWall(tVideoWall *this)
 	// End offset: 0x80036F14
 	// End Line: 291
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void TurnOn__10tVideoWall(tVideoWall *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 

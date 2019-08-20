@@ -11,9 +11,9 @@ extern void Stattool_SamNelsonsUpperLowerStringConverterForRecords__FPc(char *st
 
 extern void StatTool_UpperCaseItKeepingInMindThoseBloodySpecialCharacters__FPc(char *string); // 0x8004AC4C
 
-extern void Stattool_GetAllDefaultRecords__FP13tRecordBufferb(struct tRecordBuffer *TrackRecords, unsigned int cheatones); // 0x8004AC98
+extern void Stattool_GetAllDefaultRecords__FP13tRecordBufferb(struct tRecordBuffer *TrackRecords, void * cheatones); // 0x8004AC98
 
-extern void Stattool_ReadDefaultRecords__FP13tRecordBufferb(struct tRecordBuffer *Records, unsigned int cheatones); // 0x8004AD90
+extern void Stattool_ReadDefaultRecords__FP13tRecordBufferb(struct tRecordBuffer *Records, void * cheatones); // 0x8004AD90
 
 extern void Stattool_GetRecords__FsP13tRecordBuffer(short nShowTrack, struct tRecordBuffer *TrackRecords); // 0x8004AE18
 

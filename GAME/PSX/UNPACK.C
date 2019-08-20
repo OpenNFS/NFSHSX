@@ -15,40 +15,39 @@
 	// End Line: 101
 
 long unpackz(void *src,void *dst)
+
 {
-  long lVar1;
-  byte bVar2;
+  int iVar1;
+  uint uVar2;
+  byte bVar3;
   
   if ((*(char *)((int)src + 1) != -5) && (*(char *)((int)src + 1) != '2')) {
     return 0;
   }
-  bVar2 = *(byte *)src & 0xfe;
-  if (bVar2 != 0x32) {
-    if (bVar2 < 0x33) {
-      if (bVar2 == 0x10) {
-        lVar1 = unrefpack(src,dst,1);
-        return lVar1;
+  bVar3 = *(byte *)src & 0xfe;
+  if (bVar3 != 0x32) {
+    if (bVar3 < 0x33) {
+      if (bVar3 == 0x10) {
+        iVar1 = unrefpack((int *)src,(undefined *)dst,1);
+        return iVar1;
       }
-      if (bVar2 != 0x30) {
+      if (bVar3 != 0x30) {
         return 0;
       }
     }
     else {
-      if (bVar2 != 0x34) {
-        if (bVar2 != 0x46) {
+      if (bVar3 != 0x34) {
+        if (bVar3 != 0x46) {
           return 0;
         }
-        lVar1 = unbtree();
-        return lVar1;
+        iVar1 = unbtree((byte *)src,(byte *)dst);
+        return iVar1;
       }
     }
   }
-  lVar1 = unhuff(src,dst,1);
-  return lVar1;
-
-
+  uVar2 = unhuff((byte *)src,(byte *)dst,1);
+  return uVar2;
 }
-
 
 
 
@@ -64,15 +63,13 @@ long unpackz(void *src,void *dst)
 	// End Line: 105
 
 long unpack(void *src,void *dst)
+
 {
   long lVar1;
   
   lVar1 = unpackz(src,dst);
   return lVar1;
-
-
 }
-
 
 
 
@@ -90,8 +87,9 @@ long unpack(void *src,void *dst)
 	// End Line: 193
 
 long unpacksizez(void *src)
+
 {
-  long lVar1;
+  uint uVar1;
   byte bVar2;
   
   if ((*(char *)((int)src + 1) != -5) && (*(char *)((int)src + 1) != '2')) {
@@ -128,12 +126,9 @@ long unpacksizez(void *src)
       }
     }
   }
-  lVar1 = getm((int)src + 2,3);
-  return lVar1;
-
-
+  uVar1 = getm((byte *)((int)src + 2),3);
+  return uVar1;
 }
-
 
 
 
@@ -149,15 +144,13 @@ long unpacksizez(void *src)
 	// End Line: 197
 
 long unpacksize(void *src)
+
 {
   long lVar1;
   
   lVar1 = unpacksizez(src);
   return lVar1;
-
-
 }
-
 
 
 

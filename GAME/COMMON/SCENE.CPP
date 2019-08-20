@@ -13,15 +13,13 @@
 	// End Line: 1016
 
 void Scene_Init__Fi(int numObjDefs)
+
 {
   if (0 < numObjDefs) {
-    uGp00000ebc = 0;
+    DAT_00000ebc = 0;
   }
   return;
-
-
 }
-
 
 
 
@@ -36,14 +34,14 @@ void Scene_Init__Fi(int numObjDefs)
 	// End offset: 0x800B5F90
 	// End Line: 1030
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Scene_DeInit__Fv(void)
+
 {
   Scene_PurgeScene__Fv();
   return;
-
-
 }
-
 
 
 
@@ -58,18 +56,18 @@ void Scene_DeInit__Fv(void)
 	// End offset: 0x800B5FCC
 	// End Line: 1056
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Scene_PurgeScene__Fv(void)
+
 {
-  if (iGp00000ebc != 0) {
-    purgememadr();
-    iGp00000ebc = 0;
+  if (DAT_00000ebc != 0) {
+    purgememadr(DAT_00000ebc);
+    DAT_00000ebc = 0;
   }
   Object_ClearCustomObjects__Fv();
   return;
-
-
 }
-
 
 
 
@@ -125,7 +123,10 @@ void Scene_PurgeScene__Fv(void)
 	// End offset: 0x800B6068
 	// End Line: 1108
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 int Scene_BuildCustomSceneList__Fv(void)
+
 {
   int iVar1;
   SceneElem *objectData;
@@ -133,26 +134,23 @@ int Scene_BuildCustomSceneList__Fv(void)
   
   Object_ClearCustomObjects__Fv();
   iVar2 = -1;
-  if (iGp00000ebc != 0) {
-    objectData = (SceneElem *)(iGp00000ebc + 0x10);
-    iVar2 = *(int *)(iGp00000ebc + 8);
+  if (DAT_00000ebc != 0) {
+    objectData = (SceneElem *)(DAT_00000ebc + 0x10);
+    iVar2 = *(int *)(DAT_00000ebc + 8);
     iVar1 = 0;
     Object_customSliceNum = iVar2;
-    if (0 < *(int *)(iGp00000ebc + 4)) {
+    if (0 < *(int *)(DAT_00000ebc + 4)) {
       do {
         if ((objectData->type < 3) && (-1 < objectData->type)) {
           Object_AddCustomObject__FP9SceneElemi(objectData,1);
         }
         iVar1 = iVar1 + 1;
         objectData = objectData + 1;
-      } while (iVar1 < *(int *)(iGp00000ebc + 4));
+      } while (iVar1 < *(int *)(DAT_00000ebc + 4));
     }
   }
   return iVar2;
-
-
 }
-
 
 
 
@@ -171,23 +169,21 @@ int Scene_BuildCustomSceneList__Fv(void)
 	// End Line: 1112
 
 void Scene_LoadSceneFile__Fi(int sceneFileIndex)
+
 {
   char acStack144 [128];
-  undefined4 local_10 [2];
+  uint local_10 [2];
   
   Object_ClearCustomObjects__Fv();
   local_10[0] = 0;
-  sprintf(acStack144,"%sscene.viv",0);
+  sprintf(acStack144,s__sscene_viv_80056598,PTR_80116480);
   FILE_addbigsync(acStack144,0x10,100,local_10);
-  sprintf(acStack144,"tr%02d%02d.scn",0,sceneFileIndex);
-  _gGameSceneList = 0;
-  _gGameSceneList = loadfileadr(acStack144,0);
+  sprintf(acStack144,s_tr_02d_02d_scn_800565a4,GameSetup_gData.track,sceneFileIndex);
+  uGp00000ebc = 0;
+  uGp00000ebc = loadfileadr(acStack144,0);
   FILE_delbigsync(local_10[0],100);
   return;
-
-
 }
-
 
 
 
@@ -205,24 +201,23 @@ void Scene_LoadSceneFile__Fi(int sceneFileIndex)
 	// End Line: 1143
 
 int GetPlaneY__FPC8coorddefN20(coorddef *norm,coorddef *pointOnPlane,coorddef *testPoint)
+
 {
-  int iVar1;
-  int iVar2;
-  int iVar3;
-  int iVar4;
-  int iVar5;
+  uint uVar1;
+  uint uVar2;
+  uint uVar3;
+  uint uVar4;
+  uint uVar5;
+  int iVar6;
   
-  iVar1 = fixedmult(norm->x,pointOnPlane->x);
-  iVar2 = fixedmult(norm->y,pointOnPlane->y);
-  iVar3 = fixedmult(norm->z,pointOnPlane->z);
-  iVar4 = fixedmult(norm->x,testPoint->x);
-  iVar5 = fixedmult(norm->z,testPoint->z);
-  iVar1 = fixeddiv(-((iVar4 + iVar5) - (iVar1 + iVar2 + iVar3)),norm->y);
-  return iVar1;
-
-
+  uVar1 = fixedmult(norm->x,pointOnPlane->x);
+  uVar2 = fixedmult(norm->y,pointOnPlane->y);
+  uVar3 = fixedmult(norm->z,pointOnPlane->z);
+  uVar4 = fixedmult(norm->x,testPoint->x);
+  uVar5 = fixedmult(norm->z,testPoint->z);
+  iVar6 = fixeddiv(-((uVar4 + uVar5) - (uVar1 + uVar2 + uVar3)),norm->y);
+  return iVar6;
 }
-
 
 
 

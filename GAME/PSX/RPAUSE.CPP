@@ -15,22 +15,26 @@
 	// End offset: 0x800DCEC4
 	// End Line: 26
 
+/* WARNING: Could not reconcile some variable overlaps */
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void RPause_CopyBackToFrontBuffer__Fv(void)
+
 {
   DRAWENV *pDVar1;
   undefined4 local_10;
   undefined4 local_c;
   
-  pDVar1 = Draw_GetDRAWENV__Fii(0,1);
-  local_10 = *(undefined4 *)&pDVar1->clip;
-  local_c = 0;
-  pDVar1 = Draw_GetDRAWENV__Fii(0,0);
-  MoveImage(&local_10,(int)(pDVar1->clip).x,(int)(pDVar1->clip).y);
+  pDVar1 = Draw_GetDRAWENV__Fii(Draw_gPlayer1View,1);
+  local_10._0_2_ = (short)*(undefined4 *)&pDVar1->clip;
+  local_c = CONCAT22(gPauseMenuRect.h,gPauseMenuRect.w);
+  local_10 = CONCAT22((short)((uint)*(undefined4 *)&pDVar1->clip >> 0x10) + gPauseMenuRect.y,
+                      (short)local_10 + gPauseMenuRect.x);
+  pDVar1 = Draw_GetDRAWENV__Fii(Draw_gPlayer1View,0);
+  MoveImage(&local_10,(int)(pDVar1->clip).x + (int)gPauseMenuRect.x,
+            (int)(pDVar1->clip).y + (int)gPauseMenuRect.y);
   return;
-
-
 }
-
 
 
 
@@ -45,14 +49,14 @@ void RPause_CopyBackToFrontBuffer__Fv(void)
 	// End offset: 0x800DCF84
 	// End Line: 47
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void RPause_StartPauseMenu__Fv(void)
+
 {
   Draw_StartFrameRender__Fv();
   return;
-
-
 }
-
 
 
 
@@ -67,20 +71,21 @@ void RPause_StartPauseMenu__Fv(void)
 	// End offset: 0x800DCFA4
 	// End Line: 53
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void RPause_StopPauseMenu__Fv(void)
+
 {
-  PutDispEnv(&DAT_8011f43c);
+  PutDispEnv((ushort *)&dflip_8011f43c);
   DrawSync(0);
   VSync(0);
   RPause_CopyBackToFrontBuffer__Fv();
-  DrawOTag((&DAT_8011ed14)[gFlip] + Draw_gView * 4 + -4);
+  DrawOTag((&Draw_gView)[Render_gPauseMenuView].ot[gFlip] +
+           (&Draw_gView)[Render_gPauseMenuView].otsize * 4 + -4);
   systemtask(0);
   gFlip = 1 - gFlip;
   return;
-
-
 }
-
 
 
 

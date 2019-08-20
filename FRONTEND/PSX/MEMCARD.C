@@ -14,18 +14,18 @@
 	// End offset: 0x8004F45C
 	// End Line: 118
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void MCRD_init(int fMultitap)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -42,18 +42,18 @@ void MCRD_init(int fMultitap)
 	// End offset: 0x8004F4C8
 	// End Line: 144
 
+/* WARNING: Control flow encountered bad instruction data */
+
 int iMCRD_InitCard(int card)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -61,18 +61,19 @@ int iMCRD_InitCard(int card)
 // original method signature: 
 // void /*$ra*/ MCRD_restore()
  // line 174, offset 0x8004f4d8
+/* WARNING: Control flow encountered bad instruction data */
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void MCRD_restore(void)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -80,18 +81,18 @@ void MCRD_restore(void)
 // original method signature: 
 // void /*$ra*/ MCRD_getopts(struct MCRDOPTS_def *pOPT /*$a0*/)
  // line 215, offset 0x8004f51c
+/* WARNING: Control flow encountered bad instruction data */
+
 void MCRD_getopts(MCRDOPTS_def *pOPT)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -99,18 +100,18 @@ void MCRD_getopts(MCRDOPTS_def *pOPT)
 // original method signature: 
 // void /*$ra*/ MCRD_setopts(struct MCRDOPTS_def *pOPT /*$s1*/)
  // line 280, offset 0x8004f594
+/* WARNING: Control flow encountered bad instruction data */
+
 void MCRD_setopts(MCRDOPTS_def *pOPT)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -127,18 +128,18 @@ void MCRD_setopts(MCRDOPTS_def *pOPT)
 	// End offset: 0x8004F708
 	// End Line: 418
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void MCRD_loadfile(int card,MCRDFILE_def *pFILE,int bNameHasProductCode)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -160,18 +161,18 @@ void MCRD_loadfile(int card,MCRDFILE_def *pFILE,int bNameHasProductCode)
 	// End offset: 0x8004FA20
 	// End Line: 526
 
+/* WARNING: Control flow encountered bad instruction data */
+
 int iMCRD_DoFileLoad(int card)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -190,18 +191,18 @@ int iMCRD_DoFileLoad(int card)
 	// End offset: 0x8004FC68
 	// End Line: 749
 
+/* WARNING: Control flow encountered bad instruction data */
+
 int MCRD_savefile(int card,MCRDFILE_def *pFILE)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -221,18 +222,18 @@ int MCRD_savefile(int card,MCRDFILE_def *pFILE)
 	// End offset: 0x8004FDD0
 	// End Line: 854
 
+/* WARNING: Control flow encountered bad instruction data */
+
 int iMCRD_DoFileWrite(int card)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -250,18 +251,18 @@ int iMCRD_DoFileWrite(int card)
 	// End offset: 0x8004FE64
 	// End Line: 929
 
+/* WARNING: Control flow encountered bad instruction data */
+
 int iMCRD_DoFileDelete(int card)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -282,18 +283,18 @@ int iMCRD_DoFileDelete(int card)
 	// End offset: 0x800501B4
 	// End Line: 1169
 
+/* WARNING: Control flow encountered bad instruction data */
+
 int MCRD_handlecardevents(int card)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -312,18 +313,18 @@ int MCRD_handlecardevents(int card)
 	// End offset: 0x80050230
 	// End Line: 1331
 
+/* WARNING: Control flow encountered bad instruction data */
+
 int MCRD_fileexists(int card,char *name)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -331,18 +332,18 @@ int MCRD_fileexists(int card,char *name)
 // original method signature: 
 // struct CARDINFO_def * /*$ra*/ MCRD_getcard(int card /*$a0*/)
  // line 1364, offset 0x80050244
+/* WARNING: Control flow encountered bad instruction data */
+
 CARDINFO_def * MCRD_getcard(int card)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -359,18 +360,19 @@ CARDINFO_def * MCRD_getcard(int card)
 	// End offset: 0x800502B4
 	// End Line: 1542
 
+/* WARNING: Control flow encountered bad instruction data */
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void iMCRD_timersub(void)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -389,18 +391,18 @@ void iMCRD_timersub(void)
 	// End offset: 0x8005032C
 	// End Line: 1561
 
+/* WARNING: Control flow encountered bad instruction data */
+
 int garyMemCardGrabBlocks(int card,int filenum)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -420,18 +422,18 @@ int garyMemCardGrabBlocks(int card,int filenum)
 	// End offset: 0x80050428
 	// End Line: 1694
 
+/* WARNING: Control flow encountered bad instruction data */
+
 int iMCRD_LoadCard(int card)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -449,18 +451,18 @@ int iMCRD_LoadCard(int card)
 	// End offset: 0x800504A8
 	// End Line: 1732
 
+/* WARNING: Control flow encountered bad instruction data */
+
 int iMCRD_FormatCard(int card)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -488,18 +490,18 @@ int iMCRD_FormatCard(int card)
 	// End offset: 0x800506C8
 	// End Line: 1896
 
+/* WARNING: Control flow encountered bad instruction data */
+
 int iMCRD_HandleError(int func,int opResult,int card)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -507,18 +509,19 @@ int iMCRD_HandleError(int func,int opResult,int card)
 // original method signature: 
 // int /*$ra*/ iMCRD_DefaultCBProc1()
  // line 1898, offset 0x800506e8
+/* WARNING: Control flow encountered bad instruction data */
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 int iMCRD_DefaultCBProc1(void)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -537,18 +540,18 @@ int iMCRD_DefaultCBProc1(void)
 	// End offset: 0x80050808
 	// End Line: 2097
 
+/* WARNING: Control flow encountered bad instruction data */
+
 short ascii2sjis(uchar ascii_code)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -566,18 +569,18 @@ short ascii2sjis(uchar ascii_code)
 	// End offset: 0x800508B8
 	// End Line: 2123
 
+/* WARNING: Control flow encountered bad instruction data */
+
 uchar sjis2ascii(short sjis_code)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 

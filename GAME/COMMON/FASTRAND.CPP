@@ -12,13 +12,13 @@
 	// End offset: 0x8009B3C8
 	// End Line: 14
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void FastRandom_CleanUp__Fv(void)
+
 {
   return;
-
-
 }
-
 
 
 
@@ -47,27 +47,25 @@ void FastRandom_CleanUp__Fv(void)
 	// End Line: 34
 
 void FastRandom_StartUp__FUi(uint seeder)
+
 {
   int iVar1;
   int iVar2;
   
-  uGp00000bb0 = 0x3ade68b1;
+  DAT_00000bb0 = 0x3ade68b1;
   iVar1 = seeder + (((uint)((ulonglong)seeder * 0x10624dd3 >> 0x20) & 0xffffffe0) * 4 +
                    (seeder / 500) * -3) * -4;
   iVar2 = 0;
   if (0 < iVar1) {
     do {
-      uGp00000bb4 = uGp00000bb0 * 0x75bcd15;
+      DAT_00000bb4 = DAT_00000bb0 * 0x75bcd15;
       iVar2 = iVar2 + 1;
-      uGp00000bb0 = uGp00000bb4 & 0xffff;
+      DAT_00000bb0 = DAT_00000bb4 & 0xffff;
     } while (iVar2 < iVar1);
   }
-  uGp00000bb8 = 0x75bcd15;
+  DAT_00000bb8 = 0x75bcd15;
   return;
-
-
 }
-
 
 
 

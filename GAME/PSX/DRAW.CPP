@@ -17,34 +17,32 @@
 	// End Line: 73
 
 int Draw_SetView__Fiiiiiiiii(int x0,int y0,int x1,int y1,int w,int h,int dtd,int isbg,int otsize)
+
 {
   int iVar1;
   int iVar2;
-  int iVar3;
+  Draw_tView *pDVar3;
   
-  iVar3 = iGp00001260 * 200;
-  iVar1 = iGp00001260 * 0x32;
-  SetDefDrawEnv(&DAT_8011ec5c + iVar3,x0,y0,w,h);
-  SetDefDrawEnv(&UNK_8011ecb8 + iVar3,x1,y1,w,h);
-  (&DAT_8011ec75)[iVar3] = 0;
-  (&DAT_8011ec76)[iVar3] = 0;
-  (&DAT_8011ec77)[iVar3] = 0;
-  (&DAT_8011ecd1)[iVar3] = 0;
-  (&DAT_8011ecd2)[iVar3] = 0;
-  (&DAT_8011ecd3)[iVar3] = 0;
-  (&DAT_8011ecd0)[iVar3] = (char)isbg;
-  (&DAT_8011ec74)[iVar3] = (char)isbg;
-  (&DAT_8011ecce)[iVar3] = (char)dtd;
-  (&DAT_8011ec72)[iVar3] = (char)dtd;
-  iVar2 = iGp00001260;
-  (&Draw_gView)[iVar1] = otsize;
-  *(undefined4 *)(&DAT_8011ec58 + iVar3) = 0;
-  iGp00001260 = iGp00001260 + 1;
+  iVar1 = DAT_00001260;
+  pDVar3 = &Draw_gView + DAT_00001260;
+  SetDefDrawEnv((undefined2 *)(&Draw_gView)[DAT_00001260].drawenv,(short)x0,(short)y0,(short)w,h);
+  SetDefDrawEnv((undefined2 *)((&Draw_gView)[iVar1].drawenv + 1),(short)x1,(short)y1,(short)w,h);
+  (&Draw_gView)[iVar1].drawenv[0].r0 = '\0';
+  (&Draw_gView)[iVar1].drawenv[0].g0 = '\0';
+  (&Draw_gView)[iVar1].drawenv[0].b0 = '\0';
+  (&Draw_gView)[iVar1].drawenv[1].r0 = '\0';
+  (&Draw_gView)[iVar1].drawenv[1].g0 = '\0';
+  (&Draw_gView)[iVar1].drawenv[1].b0 = '\0';
+  (&Draw_gView)[iVar1].drawenv[1].isbg = (uchar)isbg;
+  (&Draw_gView)[iVar1].drawenv[0].isbg = (uchar)isbg;
+  (&Draw_gView)[iVar1].drawenv[1].dtd = (uchar)dtd;
+  (&Draw_gView)[iVar1].drawenv[0].dtd = (uchar)dtd;
+  iVar2 = DAT_00001260;
+  pDVar3->otsize = otsize;
+  (&Draw_gView)[iVar1].membudget = 0;
+  DAT_00001260 = DAT_00001260 + 1;
   return iVar2;
-
-
 }
-
 
 
 
@@ -59,14 +57,14 @@ int Draw_SetView__Fiiiiiiiii(int x0,int y0,int x1,int y1,int w,int h,int dtd,int
 	// End offset: 0x800BDBD4
 	// End Line: 115
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Draw_InitViews__Fv(void)
+
 {
-  uGp00001260 = 0;
+  DAT_00001260 = 0;
   return;
-
-
 }
-
 
 
 
@@ -97,27 +95,27 @@ void Draw_InitViews__Fv(void)
 	// End offset: 0x800BDC50
 	// End Line: 135
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Draw_InitViewOT__Fv(void)
+
 {
-  int iVar1;
-  int *piVar2;
+  short *psVar1;
+  Draw_tView *pDVar2;
   int iVar3;
   
   iVar3 = 0;
-  piVar2 = &Draw_gView;
-  while (iVar3 < iGp00001260) {
+  pDVar2 = &Draw_gView;
+  while (iVar3 < DAT_00001260) {
     iVar3 = iVar3 + 1;
-    iVar1 = reservememadr(&DAT_8013d798,*piVar2 << 2,0x10);
-    piVar2[0x30] = iVar1;
-    iVar1 = reservememadr(&DAT_8013d79c,*piVar2 << 2,0x10);
-    piVar2[0x31] = iVar1;
-    piVar2 = piVar2 + 0x32;
+    psVar1 = reservememadr((char *)&PTR_DAT_8013d798,pDVar2->otsize << 2,0x10);
+    *(short **)pDVar2->ot = psVar1;
+    psVar1 = reservememadr((char *)&PTR_DAT_8013d79c,pDVar2->otsize << 2,0x10);
+    *(short **)(pDVar2->ot + 1) = psVar1;
+    pDVar2 = pDVar2 + 1;
   }
   return;
-
-
 }
-
 
 
 
@@ -148,27 +146,29 @@ void Draw_InitViewOT__Fv(void)
 	// End offset: 0x800BDCCC
 	// End Line: 146
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Draw_InitViewOTInGame__Fv(void)
+
 {
-  char *pcVar1;
-  int *piVar2;
+  _func_42 *p_Var1;
+  Draw_tView *pDVar2;
   int iVar3;
   
   iVar3 = 0;
-  piVar2 = &Draw_gView;
-  while (iVar3 < iGp00001260) {
+  pDVar2 = &Draw_gView;
+  while (iVar3 < DAT_00001260) {
     iVar3 = iVar3 + 1;
-    pcVar1 = Platform_ReserveMemory__FiPc(*piVar2 << 2,"ot0");
-    *(char **)(piVar2 + 0x30) = pcVar1;
-    pcVar1 = Platform_ReserveMemory__FiPc(*piVar2 << 2,"ot1");
-    *(char **)(piVar2 + 0x31) = pcVar1;
-    piVar2 = piVar2 + 0x32;
+    p_Var1 = (_func_42 *)Platform_ReserveMemory__FiPc(pDVar2->otsize << 2,(char *)&PTR_DAT_8013d798)
+    ;
+    pDVar2->ot[0] = p_Var1;
+    p_Var1 = (_func_42 *)Platform_ReserveMemory__FiPc(pDVar2->otsize << 2,(char *)&PTR_DAT_8013d79c)
+    ;
+    pDVar2->ot[1] = p_Var1;
+    pDVar2 = pDVar2 + 1;
   }
   return;
-
-
 }
-
 
 
 
@@ -199,30 +199,30 @@ void Draw_InitViewOTInGame__Fv(void)
 	// End offset: 0x800BDD54
 	// End Line: 169
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Draw_DeInitViews__Fv(void)
+
 {
-  undefined4 *puVar1;
+  Draw_tView *pDVar1;
   int iVar2;
   
   iVar2 = 0;
-  puVar1 = &Draw_gView;
-  while (iVar2 < iGp00001260) {
-    if (puVar1[0x30] != 0) {
-      purgememadr();
+  pDVar1 = &Draw_gView;
+  while (iVar2 < DAT_00001260) {
+    if (pDVar1->ot[0] != (_func_42 *)0x0) {
+      purgememadr((int)pDVar1->ot[0]);
     }
-    if (puVar1[0x31] != 0) {
-      purgememadr();
+    if (pDVar1->ot[1] != (_func_42 *)0x0) {
+      purgememadr((int)pDVar1->ot[1]);
     }
-    puVar1[0x30] = 0;
-    puVar1[0x31] = 0;
-    puVar1 = puVar1 + 0x32;
+    pDVar1->ot[0] = (_func_42 *)0x0;
+    pDVar1->ot[1] = (_func_42 *)0x0;
+    pDVar1 = pDVar1 + 1;
     iVar2 = iVar2 + 1;
   }
   return;
-
-
 }
-
 
 
 
@@ -253,24 +253,26 @@ void Draw_DeInitViews__Fv(void)
 	// End offset: 0x800BDD94
 	// End Line: 184
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Draw_DeInitViewsInGame__Fv(void)
+
 {
   bool bVar1;
-  undefined4 *puVar2;
-  int iVar3;
+  int iVar2;
+  Draw_tView *pDVar3;
+  int iVar4;
   
-  iVar3 = 0;
-  puVar2 = &Draw_gView;
-  while (bVar1 = iVar3 < iGp00001260, iVar3 = iVar3 + 1, bVar1) {
-    puVar2[0x30] = 0;
-    puVar2[0x31] = 0;
-    puVar2 = puVar2 + 0x32;
+  iVar2 = DAT_00001260;
+  iVar4 = 0;
+  pDVar3 = &Draw_gView;
+  while (bVar1 = iVar4 < iVar2, iVar4 = iVar4 + 1, bVar1) {
+    pDVar3->ot[0] = (_func_42 *)0x0;
+    pDVar3->ot[1] = (_func_42 *)0x0;
+    pDVar3 = pDVar3 + 1;
   }
   return;
-
-
 }
-
 
 
 
@@ -286,12 +288,10 @@ void Draw_DeInitViewsInGame__Fv(void)
 	// End Line: 189
 
 DRAWENV * Draw_GetDRAWENV__Fii(int viewid,int page)
+
 {
-  return (DRAWENV *)(&DAT_8011ec5c + page * 0x5c + viewid * 200);
-
-
+  return (DRAWENV *)(viewid * 200 + -0x7fee13a4 + page * 0x5c);
 }
-
 
 
 
@@ -307,13 +307,11 @@ DRAWENV * Draw_GetDRAWENV__Fii(int viewid,int page)
 	// End Line: 199
 
 void Draw_SetViewMemBudget__Fii(int viewid,int totalmem)
+
 {
-  *(int *)(&DAT_8011ec58 + viewid * 200) = totalmem;
+  (&Draw_gView)[viewid].membudget = totalmem;
   return;
-
-
 }
-
 
 
 
@@ -331,23 +329,20 @@ void Draw_SetViewMemBudget__Fii(int viewid,int totalmem)
 	// End Line: 220
 
 void Draw_SetViewColor__Fiiii(int viewid,int r,int g,int b)
+
 {
-  viewid = viewid * 200;
-  if ((&DAT_8011ec74)[viewid] != '\0') {
-    (&DAT_8011ec75)[viewid] = (char)r;
-    (&DAT_8011ec76)[viewid] = (char)g;
-    (&DAT_8011ec77)[viewid] = (char)b;
+  if ((&Draw_gView)[viewid].drawenv[0].isbg != '\0') {
+    (&Draw_gView)[viewid].drawenv[0].r0 = (uchar)r;
+    (&Draw_gView)[viewid].drawenv[0].g0 = (uchar)g;
+    (&Draw_gView)[viewid].drawenv[0].b0 = (uchar)b;
   }
-  if ((&DAT_8011ecd0)[viewid] != '\0') {
-    (&DAT_8011ecd1)[viewid] = (char)r;
-    (&DAT_8011ecd2)[viewid] = (char)g;
-    (&DAT_8011ecd3)[viewid] = (char)b;
+  if ((&Draw_gView)[viewid].drawenv[1].isbg != '\0') {
+    (&Draw_gView)[viewid].drawenv[1].r0 = (uchar)r;
+    (&Draw_gView)[viewid].drawenv[1].g0 = (uchar)g;
+    (&Draw_gView)[viewid].drawenv[1].b0 = (uchar)b;
   }
   return;
-
-
 }
-
 
 
 
@@ -388,34 +383,40 @@ void Draw_SetViewColor__Fiiii(int viewid,int r,int g,int b)
 	// End offset: 0x800BDF8C
 	// End Line: 293
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void AllocatePrimitivesBuffer__Fv(void)
+
 {
   int iVar1;
+  undefined *puVar2;
   
-  if (DAT_801131f8 == 1) {
+  if (GameSetup_gData.commMode == 1) {
     Draw_InitViewOT__Fv();
   }
   else {
     Draw_InitViewOTInGame__Fv();
   }
-  if (DAT_801131f8 == 1) {
-    iGp00001278 = 0x22500;
+  if (GameSetup_gData.commMode == 1) {
+    DAT_00001278 = &DAT_00022500;
   }
   else {
-    iGp00001278 = 0x1f600;
+    DAT_00001278 = &DAT_0001f600;
   }
-  DAT_8011f438 = Platform_ReserveMemory__FiPc(iGp00001278,"ps0");
-  DAT_8011f450 = Platform_ReserveMemory__FiPc(iGp00001278,"ps1");
-  iVar1 = iGp00001278;
-  if (DAT_801131f8 == 1) {
-    iVar1 = iGp00001278 >> 1;
+  gEnviro.server = Platform_ReserveMemory__FiPc((int)DAT_00001278,(char *)&PTR_DAT_8013d7a0);
+  dflip_8011f43c.server = Platform_ReserveMemory__FiPc((int)DAT_00001278,(char *)&PTR_DAT_8013d7a4);
+  iVar1 = Draw_gPlayer2View;
+  if (GameSetup_gData.commMode == 1) {
+    puVar2 = (undefined *)(((int)DAT_00001278 >> 1) + -0x1a00);
+    *(undefined **)&(&Draw_gView)[Draw_gPlayer1View].membudget = puVar2;
   }
-  _DAT_8011ec58 = iVar1 + -0x1a00;
+  else {
+    puVar2 = DAT_00001278 + -0x1a00;
+    iVar1 = Draw_gPlayer1View;
+  }
+  *(undefined **)&(&Draw_gView)[iVar1].membudget = puVar2;
   return;
-
-
 }
-
 
 
 
@@ -430,23 +431,23 @@ void AllocatePrimitivesBuffer__Fv(void)
 	// End offset: 0x800BDFE8
 	// End Line: 319
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void ClearPrimitivesBuffer__Fv(void)
+
 {
   DrawSync(0);
-  if (DAT_8011f438 != 0) {
-    purgememadr();
+  if (gEnviro.server != (char *)0x0) {
+    purgememadr((int)gEnviro.server);
   }
-  if (DAT_8011f450 != 0) {
-    purgememadr();
+  if (dflip_8011f43c.server != (char *)0x0) {
+    purgememadr((int)dflip_8011f43c.server);
   }
-  DAT_8011f450 = 0;
-  DAT_8011f438 = 0;
+  dflip_8011f43c.server = (char *)0x0;
+  gEnviro.server = (char *)0x0;
   Draw_DeInitViews__Fv();
   return;
-
-
 }
-
 
 
 
@@ -461,22 +462,22 @@ void ClearPrimitivesBuffer__Fv(void)
 	// End offset: 0x800BE050
 	// End Line: 340
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void ClearPlatformPrimitivesBuffer__Fv(void)
+
 {
   DrawSync(0);
-  DAT_8011f450 = 0;
-  DAT_8011f438 = 0;
-  if (DAT_801131f8 == 1) {
+  dflip_8011f43c.server = (char *)0x0;
+  gEnviro.server = (char *)0x0;
+  if (GameSetup_gData.commMode == 1) {
     Draw_DeInitViews__Fv();
   }
   else {
     Draw_DeInitViewsInGame__Fv();
   }
   return;
-
-
 }
-
 
 
 
@@ -495,32 +496,28 @@ void ClearPlatformPrimitivesBuffer__Fv(void)
 	// End Line: 375
 
 void Draw_StartRenderingView__Fi(int viewid)
+
 {
   int iVar1;
-  int iVar2;
   
-  iVar1 = viewid * 200;
-  Draw_gViewOtSize = (&Draw_gView)[viewid * 0x32];
-  iVar2 = Draw_gViewOtSize * 7;
-  if (iVar2 < 0) {
-    iVar2 = iVar2 + 7;
+  iGp00001264 = (&Draw_gView)[viewid].otsize;
+  iVar1 = iGp00001264 * 7;
+  if (iVar1 < 0) {
+    iVar1 = iVar1 + 7;
   }
-  if ((viewid == 0) || (viewid == 0)) {
-    _DAT_1f800008 = _DAT_1f800004 + *(int *)(&DAT_8011ec58 + iVar1);
+  if ((viewid == Draw_gPlayer1View) || (viewid == Draw_gPlayer2View)) {
+    DAT_1f800008 = DAT_1f800004 + (&Draw_gView)[viewid].membudget;
   }
   else {
-    _DAT_1f800008 = _Draw_gMaxPrim;
+    DAT_1f800008 = iGp00001274;
   }
-  _DAT_1f800000 = (&Draw_gView + viewid * 0x32)[gFlip + 0x30];
-  _DAT_1f80000c = 0;
-  _DAT_1f800010 = *(undefined2 *)(&DAT_8011ec60 + iVar1);
-  _DAT_1f800012 = *(undefined2 *)(&DAT_8011ec62 + iVar1);
-  Draw_gMidGroundOtz = iVar2 >> 3;
+  DAT_1f800000 = (&(&Draw_gView)[viewid].otsize)[iGp00001268 + 0x30];
+  DAT_1f80000c = 0;
+  DAT_1f800010 = (&Draw_gView)[viewid].drawenv[0].clip.w;
+  DAT_1f800012 = (&Draw_gView)[viewid].drawenv[0].clip.h;
+  iGp00001270 = iVar1 >> 3;
   return;
-
-
 }
-
 
 
 
@@ -540,56 +537,52 @@ void Draw_StartRenderingView__Fi(int viewid)
 	// End Line: 397
 
 void Draw_StopRenderingView__Fi(int viewid)
+
 {
   uint *puVar1;
   int *piVar2;
   int *piVar3;
   int *piVar4;
-  int *piVar5;
+  Draw_tView *pDVar5;
   uint uVar6;
   int *piVar7;
   int iVar8;
   int iVar9;
   int iVar10;
-  int iVar11;
   int local_68 [24];
   
-  piVar5 = &Draw_gView + viewid * 0x32;
-  iVar9 = gFlip * 0x17;
-  piVar4 = piVar5 + iVar9 + 2;
+  pDVar5 = &Draw_gView + viewid;
+  piVar4 = &pDVar5->otsize + iGp00001268 * 0x17 + 2;
   piVar2 = local_68;
   do {
     piVar7 = piVar2;
     piVar3 = piVar4;
     iVar8 = piVar3[1];
-    iVar10 = piVar3[2];
-    iVar11 = piVar3[3];
+    iVar9 = piVar3[2];
+    iVar10 = piVar3[3];
     *piVar7 = *piVar3;
     piVar7[1] = iVar8;
-    piVar7[2] = iVar10;
-    piVar7[3] = iVar11;
+    piVar7[2] = iVar9;
+    piVar7[3] = iVar10;
     piVar4 = piVar3 + 4;
     piVar2 = piVar7 + 4;
-  } while (piVar4 != piVar5 + iVar9 + 0x16);
-  iVar9 = piVar3[5];
-  iVar8 = piVar3[6];
+  } while (piVar4 != &pDVar5->otsize + iGp00001268 * 0x17 + 0x16);
+  iVar8 = piVar3[5];
+  iVar9 = piVar3[6];
   piVar7[4] = *piVar4;
-  piVar7[5] = iVar9;
-  piVar7[6] = iVar8;
-  puVar1 = _DAT_1f800004;
-  iVar9 = _DAT_1f800000;
-  *_DAT_1f800004 =
-       *_DAT_1f800004 & 0xff000000 | *(uint *)(*piVar5 * 4 + _DAT_1f800000 + -4) & 0xffffff;
-  iVar9 = *piVar5 * 4 + iVar9;
-  uVar6 = (uint)_DAT_1f800004 & 0xffffff;
-  _DAT_1f800004 = _DAT_1f800004 + 0x10;
-  *(uint *)(iVar9 + -4) = *(uint *)(iVar9 + -4) & 0xff000000 | uVar6;
-  SetDrawEnv(puVar1,local_68);
+  piVar7[5] = iVar8;
+  piVar7[6] = iVar9;
+  puVar1 = DAT_1f800004;
+  iVar8 = DAT_1f800000;
+  *DAT_1f800004 =
+       *DAT_1f800004 & 0xff000000 | *(uint *)(pDVar5->otsize * 4 + DAT_1f800000 + -4) & 0xffffff;
+  iVar8 = pDVar5->otsize * 4 + iVar8;
+  uVar6 = (uint)DAT_1f800004 & 0xffffff;
+  DAT_1f800004 = DAT_1f800004 + 0x10;
+  *(uint *)(iVar8 + -4) = *(uint *)(iVar8 + -4) & 0xff000000 | uVar6;
+  SetDrawEnv((int)puVar1,(ushort *)local_68);
   return;
-
-
 }
-
 
 
 
@@ -604,19 +597,19 @@ void Draw_StopRenderingView__Fi(int viewid)
 	// End offset: 0x800BE2B0
 	// End Line: 420
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Draw_CheckFirstFrameRender__Fv(void)
+
 {
-  if (gFlip == -1) {
+  if (iGp00001268 == -1) {
     Draw_DirectSetEnvironment__Fiiiiiiiiii(0x140,0x100,0x140,0xf0,1,0,1,0,0,0);
     Draw_DirectSetEnvironment__Fiiiiiiiiii(0,0x100,0x140,0xf0,1,1,1,0,0,0);
-    gFlip = 1;
+    iGp00001268 = 1;
     AllocatePrimitivesBuffer__Fv();
   }
   return;
-
-
 }
-
 
 
 
@@ -647,29 +640,29 @@ void Draw_CheckFirstFrameRender__Fv(void)
 	// End offset: 0x800BE314
 	// End Line: 442
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Draw_StartFrameRender__Fv(void)
+
 {
-  undefined4 *puVar1;
-  bool bVar2;
-  undefined4 uVar3;
-  undefined4 *puVar4;
+  bool bVar1;
+  int *piVar2;
+  int *piVar3;
+  Draw_tView *pDVar4;
   int iVar5;
   
   iVar5 = 0;
-  puVar4 = &Draw_gView;
-  while (bVar2 = iVar5 < 0, iVar5 = iVar5 + 1, bVar2) {
-    uVar3 = *puVar4;
-    puVar1 = puVar4 + gFlip + 0x30;
-    puVar4 = puVar4 + 0x32;
-    ClearOTagR(*puVar1,uVar3);
+  pDVar4 = &Draw_gView;
+  while (bVar1 = iVar5 < iGp00001260, iVar5 = iVar5 + 1, bVar1) {
+    piVar2 = &pDVar4->otsize;
+    piVar3 = &pDVar4->otsize;
+    pDVar4 = pDVar4 + 1;
+    ClearOTagR((undefined4 *)piVar3[iGp00001268 + 0x30],*piVar2);
   }
-  _DAT_1f800004 = (&DAT_8011f438)[gFlip * 6];
-  _Draw_gMaxPrim = (&DAT_8011f438)[gFlip * 6];
+  DAT_1f800004 = (&gEnviro)[iGp00001268].server;
+  pcGp00001274 = (&gEnviro)[iGp00001268].server + iGp00001278;
   return;
-
-
 }
-
 
 
 
@@ -684,14 +677,12 @@ void Draw_StartFrameRender__Fv(void)
 	// End offset: 0x800BE360
 	// End Line: 450
 
-void Draw_SetDrawSyncCallback__FPFv_v(p *p)
+void Draw_SetDrawSyncCallback__FPFv_v(TDRFuncPtr_Draw_SetDrawSyncCallback__FPFv_v0p p)
+
 {
-  Draw_gSyncCallback = p;
+  pTGp0000189c = p;
   return;
-
-
 }
-
 
 
 
@@ -722,33 +713,33 @@ void Draw_SetDrawSyncCallback__FPFv_v(p *p)
 	// End offset: 0x800BE42C
 	// End Line: 488
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Draw_StopFrameRender__Fv(void)
+
 {
   bool bVar1;
-  int *piVar2;
+  Draw_tView *pDVar2;
   int iVar3;
   
   DrawSync(0);
-  gLoop = gLoop + 1;
-  if (Draw_gSyncCallback != (code *)0x0) {
-    (*Draw_gSyncCallback)();
+  iGp0000126c = iGp0000126c + 1;
+  if (pcGp0000189c != (code *)0x0) {
+    (*pcGp0000189c)();
   }
-  if (Draw_gDoVSync != 0) {
+  if (iGp0000125c != 0) {
     VSync(0);
   }
   iVar3 = 0;
-  PutDispEnv(&gEnviro + gFlip * 0x18);
-  piVar2 = &Draw_gView;
-  while (bVar1 = iVar3 < 0, iVar3 = iVar3 + 1, bVar1) {
-    DrawOTag(piVar2[gFlip + 0x30] + *piVar2 * 4 + -4);
-    piVar2 = piVar2 + 0x32;
+  PutDispEnv((ushort *)(&gEnviro + iGp00001268));
+  pDVar2 = &Draw_gView;
+  while (bVar1 = iVar3 < iGp00001260, iVar3 = iVar3 + 1, bVar1) {
+    DrawOTag((&pDVar2->otsize)[iGp00001268 + 0x30] + pDVar2->otsize * 4 + -4);
+    pDVar2 = pDVar2 + 1;
   }
-  gFlip = 1 - gFlip;
+  iGp00001268 = 1 - iGp00001268;
   return;
-
-
 }
-
 
 
 
@@ -764,13 +755,11 @@ void Draw_StopFrameRender__Fv(void)
 	// End Line: 494
 
 void Draw_DrawDirectScreen__FP8shapetblii(shapetbl *tile,int x,int y)
+
 {
   Texture_Vramcf__FP8shapetbliiii(tile,x,y + 0x100,0,0);
   return;
-
-
 }
-
 
 
 
@@ -817,16 +806,18 @@ void Draw_DrawDirectScreen__FP8shapetblii(shapetbl *tile,int x,int y)
 	// End offset: 0x800BE558
 	// End Line: 547
 
-void Draw_DirectSetEnvironment__Fiiiiiiiiii( (int x,int y,int w,int h,int edraw,int edisplay,int erase,int r,int g,int b)
+void Draw_DirectSetEnvironment__Fiiiiiiiiii
+               (int x,int y,int w,int h,int edraw,int edisplay,int erase,int r,int g,int b)
+
 {
-  undefined auStack128 [24];
+  undefined4 auStack128 [6];
   bool local_68;
   undefined local_67;
   undefined local_66;
   undefined local_65;
   
   if (edraw != 0) {
-    SetDefDrawEnv(auStack128,x,y,w,h);
+    SetDefDrawEnv((undefined2 *)auStack128,(short)x,(short)y,(short)w,h);
     local_68 = erase != 0;
     if (local_68) {
       local_67 = (undefined)r;
@@ -836,17 +827,14 @@ void Draw_DirectSetEnvironment__Fiiiiiiiiii( (int x,int y,int w,int h,int edraw,
     PutDrawEnv(auStack128);
   }
   if (edisplay != 0) {
-    SetDefDispEnv(auStack128,x,y,w,h);
+    SetDefDispEnv((undefined2 *)auStack128,(short)x,(short)y,(short)w,h);
     SetDispMask(0);
-    PutDispEnv(auStack128);
-    timedwait(timerhz >> 1);
+    PutDispEnv((ushort *)auStack128);
+    timedwait((int)timerhz >> 1);
     SetDispMask(1);
   }
   return;
-
-
 }
-
 
 
 
@@ -862,13 +850,11 @@ void Draw_DirectSetEnvironment__Fiiiiiiiiii( (int x,int y,int w,int h,int edraw,
 	// End Line: 552
 
 void Draw_SetEnvironment__Fiiiiiiii(int w,int h,int edraw,int edisplay,int erase,int r,int g,int b)
+
 {
   Draw_DirectSetEnvironment__Fiiiiiiiiii(0,0x100,w,h,edraw,edisplay,erase,r,g,b);
   return;
-
-
 }
-
 
 
 
@@ -884,18 +870,16 @@ void Draw_SetEnvironment__Fiiiiiiii(int w,int h,int edraw,int edisplay,int erase
 	// End Line: 578
 
 void Draw_InitRenderEngine__Fiiiiii(int x0,int y0,int x1,int y1,int w,int h)
+
 {
-  gFlip = 0xffffffff;
-  DAT_8011f438 = 0;
-  DAT_8011f450 = 0;
-  SetDefDispEnv(&gEnviro,x0,y0,w,h);
-  SetDefDispEnv(&DAT_8011f43c,x1,y1,w,h);
-  Draw_SetDrawSyncCallback__FPFv_v((p *)0x0);
+  uGp00001268 = 0xffffffff;
+  gEnviro.server = (char *)0x0;
+  dflip_8011f43c.server = (char *)0x0;
+  SetDefDispEnv((undefined2 *)&gEnviro,(short)x0,(short)y0,(short)w,h);
+  SetDefDispEnv((undefined2 *)&dflip_8011f43c,(short)x1,(short)y1,(short)w,h);
+  Draw_SetDrawSyncCallback__FPFv_v((TDRFuncPtr_Draw_SetDrawSyncCallback__FPFv_v0p)0x0);
   return;
-
-
 }
-
 
 
 
@@ -910,13 +894,13 @@ void Draw_InitRenderEngine__Fiiiiii(int x0,int y0,int x1,int y1,int w,int h)
 	// End offset: 0x800BE67C
 	// End Line: 597
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Draw_RestartRenderEngine__Fv(void)
+
 {
   return;
-
-
 }
-
 
 
 
@@ -931,15 +915,15 @@ void Draw_RestartRenderEngine__Fv(void)
 	// End offset: 0x800BE684
 	// End Line: 601
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Draw_DeInitRenderEngine__Fv(void)
+
 {
   ClearPlatformPrimitivesBuffer__Fv();
-  gFlip = 0xffffffff;
+  uGp00001268 = 0xffffffff;
   return;
-
-
 }
-
 
 
 
@@ -954,15 +938,15 @@ void Draw_DeInitRenderEngine__Fv(void)
 	// End offset: 0x800BE6A8
 	// End Line: 610
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Draw_InitLibRender__Fv(void)
+
 {
-  gLoop = 1;
+  uGp0000126c = 1;
   InitGeom();
   return;
-
-
 }
-
 
 
 

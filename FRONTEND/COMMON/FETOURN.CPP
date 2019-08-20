@@ -42,18 +42,18 @@
 	// End offset: 0x800322DC
 	// End Line: 59
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void Initialize__18tTournamentManager(tTournamentManager *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -75,18 +75,18 @@ void Initialize__18tTournamentManager(tTournamentManager *this)
 	// End offset: 0x8003250C
 	// End Line: 140
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void LoadDescription__18tTournamentManager(tTournamentManager *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -101,18 +101,18 @@ void LoadDescription__18tTournamentManager(tTournamentManager *this)
 	// End offset: 0x80032574
 	// End Line: 150
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void ReleaseDescription__18tTournamentManager(tTournamentManager *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -132,18 +132,18 @@ void ReleaseDescription__18tTournamentManager(tTournamentManager *this)
 	// End offset: 0x80032644
 	// End Line: 210
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void UpdateTrackList__18tTournamentManagerss(tTournamentManager *this,short tier,short tournament)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -158,18 +158,18 @@ void UpdateTrackList__18tTournamentManagerss(tTournamentManager *this,short tier
 	// End offset: 0x80032654
 	// End Line: 235
 
+/* WARNING: Control flow encountered bad instruction data */
+
 short * GetTrackList__18tTournamentManagerss(tTournamentManager *this,short tier,short tournament)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -200,18 +200,18 @@ short * GetTrackList__18tTournamentManagerss(tTournamentManager *this,short tier
 	// End offset: 0x8003268C
 	// End Line: 244
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void GetTrackToRace__18tTournamentManagerR10tTrackInfo(tTournamentManager *this,tTrackInfo *track)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -246,18 +246,19 @@ void GetTrackToRace__18tTournamentManagerR10tTrackInfo(tTournamentManager *this,
 	// End offset: 0x80032994
 	// End Line: 325
 
-void StartNewTournament__18tTournamentManagerUcUc( (tTournamentManager *this,uchar tier,uchar tournament)
+/* WARNING: Control flow encountered bad instruction data */
+
+void StartNewTournament__18tTournamentManagerUcUc
+               (tTournamentManager *this,uchar tier,uchar tournament)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -288,18 +289,18 @@ void StartNewTournament__18tTournamentManagerUcUc( (tTournamentManager *this,uch
 	// End offset: 0x80032A48
 	// End Line: 345
 
+/* WARNING: Control flow encountered bad instruction data */
+
 short IsTournamentFinished__18tTournamentManager(tTournamentManager *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -345,18 +346,18 @@ short IsTournamentFinished__18tTournamentManager(tTournamentManager *this)
 	// End offset: 0x80032AD4
 	// End Line: 366
 
+/* WARNING: Control flow encountered bad instruction data */
+
 int tournPointsCompare__FPcT0(char *p1,char *p2)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -390,18 +391,18 @@ int tournPointsCompare__FPcT0(char *p1,char *p2)
 	// End offset: 0x80032BF0
 	// End Line: 399
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void UpdateTournFinishMoney__18tTournamentManager(tTournamentManager *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -432,24 +433,24 @@ void UpdateTournFinishMoney__18tTournamentManager(tTournamentManager *this)
 	// End offset: 0x80032C5C
 	// End Line: 415
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void UpdateTrackFinishMoney__18tTournamentManager(tTournamentManager *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// void /*$ra*/ CalcTrackFinishDamageBill__18tTournamentManagerbRlT2(struct tTournamentManager *this /*$a0*/, unsigned int recalculate /*$a1*/, long *bill /*$s1*/, long *bonus /*$s2*/)
+// void /*$ra*/ CalcTrackFinishDamageBill__18tTournamentManagerbRlT2(struct tTournamentManager *this /*$a0*/, void * recalculate /*$a1*/, long *bill /*$s1*/, long *bonus /*$s2*/)
  // line 422, offset 0x80032c6c
 	/* begin block 1 */
 		// Start line: 423
@@ -502,18 +503,19 @@ void UpdateTrackFinishMoney__18tTournamentManager(tTournamentManager *this)
 	// End offset: 0x80032DF8
 	// End Line: 464
 
-void CalcTrackFinishDamageBill__18tTournamentManagerbRlT2( (tTournamentManager *this,uint recalculate,long *bill,long *bonus)
+/* WARNING: Control flow encountered bad instruction data */
+
+void CalcTrackFinishDamageBill__18tTournamentManagerbRlT2
+               (tTournamentManager *this,void *recalculate,long *bill,long *bonus)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -563,18 +565,18 @@ void CalcTrackFinishDamageBill__18tTournamentManagerbRlT2( (tTournamentManager *
 	// End offset: 0x80033038
 	// End Line: 554
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void UpdateTrackFinishPoints__18tTournamentManager(tTournamentManager *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -683,18 +685,18 @@ void UpdateTrackFinishPoints__18tTournamentManager(tTournamentManager *this)
 	// End offset: 0x8003346C
 	// End Line: 701
 
+/* WARNING: Control flow encountered bad instruction data */
+
 short AdvanceToNextTrack__18tTournamentManager(tTournamentManager *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -725,18 +727,18 @@ short AdvanceToNextTrack__18tTournamentManager(tTournamentManager *this)
 	// End offset: 0x8003348C
 	// End Line: 707
 
+/* WARNING: Control flow encountered bad instruction data */
+
 short GetLastTrackRaced__18tTournamentManager(tTournamentManager *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -753,18 +755,19 @@ short GetLastTrackRaced__18tTournamentManager(tTournamentManager *this)
 	// End offset: 0x8003353C
 	// End Line: 763
 
-void SaveTournament__18tTournamentManagerR15tSaveTournament( (tTournamentManager *this,tSaveTournament *save)
+/* WARNING: Control flow encountered bad instruction data */
+
+void SaveTournament__18tTournamentManagerR15tSaveTournament
+               (tTournamentManager *this,tSaveTournament *save)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -781,18 +784,19 @@ void SaveTournament__18tTournamentManagerR15tSaveTournament( (tTournamentManager
 	// End offset: 0x80033584
 	// End Line: 792
 
-void LoadTournament__18tTournamentManagerR15tSaveTournament( (tTournamentManager *this,tSaveTournament *load)
+/* WARNING: Control flow encountered bad instruction data */
+
+void LoadTournament__18tTournamentManagerR15tSaveTournament
+               (tTournamentManager *this,tSaveTournament *load)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -823,18 +827,18 @@ void LoadTournament__18tTournamentManagerR15tSaveTournament( (tTournamentManager
 	// End offset: 0x8003358C
 	// End Line: 804
 
+/* WARNING: Control flow encountered bad instruction data */
+
 short GetNumCompetitors__18tTournamentManager(tTournamentManager *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -852,18 +856,18 @@ short GetNumCompetitors__18tTournamentManager(tTournamentManager *this)
 	// End offset: 0x80033678
 	// End Line: 835
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void UpdateCarLineup__18tTournamentManager(tTournamentManager *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -914,18 +918,18 @@ void UpdateCarLineup__18tTournamentManager(tTournamentManager *this)
 	// End offset: 0x80033840
 	// End Line: 891
 
+/* WARNING: Control flow encountered bad instruction data */
+
 long GetTrackFinishPrize__18tTournamentManagers(tTournamentManager *this,short position)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -970,18 +974,18 @@ long GetTrackFinishPrize__18tTournamentManagers(tTournamentManager *this,short p
 	// End offset: 0x800338CC
 	// End Line: 906
 
+/* WARNING: Control flow encountered bad instruction data */
+
 long GetTournamentFinishPrize__18tTournamentManagers(tTournamentManager *this,short position)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -996,18 +1000,19 @@ long GetTournamentFinishPrize__18tTournamentManagers(tTournamentManager *this,sh
 	// End offset: 0x80033908
 	// End Line: 915
 
-void GetAwardInformation__18tTournamentManagerR17tAwardInformation( (tTournamentManager *this,tAwardInformation *info)
+/* WARNING: Control flow encountered bad instruction data */
+
+void GetAwardInformation__18tTournamentManagerR17tAwardInformation
+               (tTournamentManager *this,tAwardInformation *info)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -1025,18 +1030,18 @@ void GetAwardInformation__18tTournamentManagerR17tAwardInformation( (tTournament
 	// End offset: 0x80033A78
 	// End Line: 950
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void UpdateAwardInformation__18tTournamentManager(tTournamentManager *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -1051,18 +1056,18 @@ void UpdateAwardInformation__18tTournamentManager(tTournamentManager *this)
 	// End offset: 0x80033A8C
 	// End Line: 959
 
+/* WARNING: Control flow encountered bad instruction data */
+
 short TournPointTotal__18tTournamentManagerPs(tTournamentManager *this,short *p)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -1079,18 +1084,18 @@ short TournPointTotal__18tTournamentManagerPs(tTournamentManager *this,short *p)
 	// End offset: 0x80033B24
 	// End Line: 974
 
+/* WARNING: Control flow encountered bad instruction data */
+
 short PlayerRanking__18tTournamentManagers(tTournamentManager *this,short pos)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -1105,18 +1110,18 @@ short PlayerRanking__18tTournamentManagers(tTournamentManager *this,short pos)
 	// End offset: 0x80033B38
 	// End Line: 981
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void CalcTierFinishPrize__18tTournamentManager(tTournamentManager *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -1149,31 +1154,33 @@ void CalcTierFinishPrize__18tTournamentManager(tTournamentManager *this)
 	// End offset: 0x80033BF0
 	// End Line: 1057
 
-void GetTrophyName__18tTournamentManagerP12tTourneyInfo11tTrophySizePci( (tTournamentManager *this,tTourneyInfo *tourn,tTrophySize size,char *buffer,int place )
+/* WARNING: Control flow encountered bad instruction data */
+
+void GetTrophyName__18tTournamentManagerP12tTourneyInfo11tTrophySizePci
+               (tTournamentManager *this,tTourneyInfo *tourn,tTrophySize size,char *buffer,int place
+               )
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// unsigned int /*$ra*/ ValidCar__18tTournamentManagerR8tCarInfo(struct tTournamentManager *this /*$s2*/, struct tCarInfo *carInfo /*$s3*/)
+// void * /*$ra*/ ValidCar__18tTournamentManagerR8tCarInfo(struct tTournamentManager *this /*$s2*/, struct tCarInfo *carInfo /*$s3*/)
  // line 1063, offset 0x80033c24
 	/* begin block 1 */
 		// Start line: 1064
 		// Start offset: 0x80033C24
 		// Variables:
 	// 		struct tTourneyInfo *tourney; // $s1
-	// 		unsigned int result; // $s0
+	// 		void * result; // $s0
 
 		/* begin block 1.1 */
 			// Start line: 1064
@@ -1194,18 +1201,18 @@ void GetTrophyName__18tTournamentManagerP12tTourneyInfo11tTrophySizePci( (tTourn
 	// End offset: 0x80033D7C
 	// End Line: 1103
 
-uint ValidCar__18tTournamentManagerR8tCarInfo(tTournamentManager *this,tCarInfo *carInfo)
+/* WARNING: Control flow encountered bad instruction data */
+
+void * ValidCar__18tTournamentManagerR8tCarInfo(tTournamentManager *this,tCarInfo *carInfo)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -1220,25 +1227,27 @@ uint ValidCar__18tTournamentManagerR8tCarInfo(tTournamentManager *this,tCarInfo 
 	// End offset: 0x80033D9C
 	// End Line: 1110
 
-tListIteratorTournament * __23tListIteratorTournamentPcP18tTournamentManager( (tListIteratorTournament *this,char *valPtr,tTournamentManager *tournManager)
+/* WARNING: Control flow encountered bad instruction data */
+
+tListIteratorTournament *
+__23tListIteratorTournamentPcP18tTournamentManager
+          (tListIteratorTournament *this,char *valPtr,tTournamentManager *tournManager)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
 
 
 
-
-// autogenerated function stub: 
+// decompiled code
+// original method signature: 
 // void /*$ra*/ _._23tListIteratorTournament(struct tListIteratorTournament *this /*$a0*/, int __in_chrg /*$a1*/)
-void _._23tListIteratorTournament _._23tListIteratorTournament(tListIteratorTournament *this /*$a0*/this, int __in_chrg /*$a1*/ __in_chrg)
-{ // line 1115, offset 0x80033dec
+ // line 1115, offset 0x80033dec
 	/* begin block 1 */
 		// Start line: 1116
 		// Start offset: 0x80033DEC
@@ -1246,7 +1255,19 @@ void _._23tListIteratorTournament _._23tListIteratorTournament(tListIteratorTour
 	// End offset: 0x80033DEC
 	// End Line: 1116
 
+/* WARNING: Control flow encountered bad instruction data */
+
+void ___23tListIteratorTournament(tListIteratorTournament *this,int __in_chrg)
+
+{
+  undefined4 in_v1;
+  undefined4 in_t5;
+  
+  special2(in_v1,in_t5,5,0x13);
+                    /* WARNING: Bad instruction - Truncating control flow here */
+  halt_baddata();
 }
+
 
 
 // decompiled code
@@ -1260,18 +1281,18 @@ void _._23tListIteratorTournament _._23tListIteratorTournament(tListIteratorTour
 	// End offset: 0x80033E14
 	// End Line: 1121
 
+/* WARNING: Control flow encountered bad instruction data */
+
 char Value__23tListIteratorTournament7tPlayer(tListIteratorTournament *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -1288,18 +1309,18 @@ char Value__23tListIteratorTournament7tPlayer(tListIteratorTournament *this)
 	// End offset: 0x80033E28
 	// End Line: 1129
 
+/* WARNING: Control flow encountered bad instruction data */
+
 short TextValue__23tListIteratorTournament7tPlayer(tListIteratorTournament *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -1316,18 +1337,18 @@ short TextValue__23tListIteratorTournament7tPlayer(tListIteratorTournament *this
 	// End offset: 0x80033F0C
 	// End Line: 1145
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void Increment__23tListIteratorTournament7tPlayer(tListIteratorTournament *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -1344,24 +1365,24 @@ void Increment__23tListIteratorTournament7tPlayer(tListIteratorTournament *this)
 	// End offset: 0x80033F9C
 	// End Line: 1159
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void Decrement__23tListIteratorTournament7tPlayer(tListIteratorTournament *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// unsigned int /*$ra*/ ValidTournament__23tListIteratorTournamentc(struct tListIteratorTournament *this /*$a0*/, char tourn /*$a1*/)
+// void * /*$ra*/ ValidTournament__23tListIteratorTournamentc(struct tListIteratorTournament *this /*$a0*/, char tourn /*$a1*/)
  // line 1162, offset 0x80033fb0
 	/* begin block 1 */
 		// Start line: 1163
@@ -1369,23 +1390,23 @@ void Decrement__23tListIteratorTournament7tPlayer(tListIteratorTournament *this)
 		// Variables:
 	// 		struct tTierInfo *currentTier; // $v0
 	// 		struct tTourneyInfo *currentTourn; // $a0
-	// 		unsigned int result; // $v1
+	// 		void * result; // $v1
 	/* end block 1 */
 	// End offset: 0x80034054
 	// End Line: 1185
 
-uint ValidTournament__23tListIteratorTournamentc(tListIteratorTournament *this,char tourn)
+/* WARNING: Control flow encountered bad instruction data */
+
+void * ValidTournament__23tListIteratorTournamentc(tListIteratorTournament *this,char tourn)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 

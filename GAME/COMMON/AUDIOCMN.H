@@ -21,7 +21,7 @@ extern int AudioCmn_RemoveOldestAsyncSfx__Fi(int bank); // 0x80076674
 
 extern void AudioCmn_LoadAsyncSfx__FiiPvi(int bank, int patch, void *pbank, int size); // 0x8007675C
 
-extern int AudioCmn_GetAsyncSfx__Fiib(int bank, int patch, unsigned int checkonly); // 0x80076900
+extern int AudioCmn_GetAsyncSfx__Fiib(int bank, int patch, void * checkonly); // 0x80076900
 
 extern void AudioCmn_Init__Fv(); // 0x80076A74
 

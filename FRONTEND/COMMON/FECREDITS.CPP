@@ -12,18 +12,18 @@
 	// End offset: 0x80035AE8
 	// End Line: 34
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void Setup__14tCreditManager(tCreditManager *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -40,18 +40,18 @@ void Setup__14tCreditManager(tCreditManager *this)
 	// End offset: 0x80035BC8
 	// End Line: 99
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void Init__14tCreditManageri(tCreditManager *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -66,18 +66,18 @@ void Init__14tCreditManageri(tCreditManager *this)
 	// End offset: 0x80035BD8
 	// End Line: 104
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void DeInit__14tCreditManager(tCreditManager *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -92,24 +92,24 @@ void DeInit__14tCreditManager(tCreditManager *this)
 	// End offset: 0x80035C14
 	// End Line: 117
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void RealDeInit__14tCreditManager(tCreditManager *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// void /*$ra*/ Draw__14tCreditManagerb(struct tCreditManager *this /*$s0*/, unsigned int selected /*$a1*/)
+// void /*$ra*/ Draw__14tCreditManagerb(struct tCreditManager *this /*$s0*/, void * selected /*$a1*/)
  // line 120, offset 0x80035c24
 	/* begin block 1 */
 		// Start line: 121
@@ -127,18 +127,18 @@ void RealDeInit__14tCreditManager(tCreditManager *this)
 	// End offset: 0x80035D58
 	// End Line: 150
 
-void Draw__14tCreditManagerb(tCreditManager *this,uint selected)
+/* WARNING: Control flow encountered bad instruction data */
+
+void Draw__14tCreditManagerb(tCreditManager *this,void *selected)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -346,18 +346,18 @@ void Draw__14tCreditManagerb(tCreditManager *this,uint selected)
 	// End offset: 0x80036070
 	// End Line: 239
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void SetupCurrCredit__14tCreditManager(tCreditManager *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -400,9 +400,9 @@ void SetupCurrCredit__14tCreditManager(tCreditManager *this)
 			// Start line: 338
 			// Start offset: 0x8003639C
 			// Variables:
-		// 		unsigned int hidden; // $s6
-		// 		unsigned int jaguar; // $s5
-		// 		unsigned int rollthedice; // $s2
+		// 		void * hidden; // $s6
+		// 		void * jaguar; // $s5
+		// 		void * rollthedice; // $s2
 
 			/* begin block 1.2.1 */
 				// Start line: 369
@@ -493,18 +493,18 @@ void SetupCurrCredit__14tCreditManager(tCreditManager *this)
 	// End offset: 0x80036760
 	// End Line: 449
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void DrawCurrCredit__14tCreditManager(tCreditManager *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 

@@ -13,15 +13,13 @@
 	// End Line: 17
 
 void * __builtin_new(uint size)
+
 {
-  void *pvVar1;
+  short *psVar1;
   
-  pvVar1 = (void *)reservememadr(0,size,0);
-  return pvVar1;
-
-
+  psVar1 = reservememadr((char *)0x0,size,0);
+  return psVar1;
 }
-
 
 
 
@@ -37,15 +35,13 @@ void * __builtin_new(uint size)
 	// End Line: 32
 
 void * __builtin_vec_new(uint size)
+
 {
-  void *pvVar1;
+  short *psVar1;
   
-  pvVar1 = (void *)reservememadr(0,size,0);
-  return pvVar1;
-
-
+  psVar1 = reservememadr((char *)0x0,size,0);
+  return psVar1;
 }
-
 
 
 
@@ -61,13 +57,11 @@ void * __builtin_vec_new(uint size)
 	// End Line: 47
 
 void __builtin_delete(void *deleteMe)
+
 {
-  purgememadr();
+  purgememadr((int)deleteMe);
   return;
-
-
 }
-
 
 
 
@@ -83,13 +77,11 @@ void __builtin_delete(void *deleteMe)
 	// End Line: 52
 
 void __builtin_vec_delete(void *deleteMe)
+
 {
-  purgememadr();
+  purgememadr((int)deleteMe);
   return;
-
-
 }
-
 
 
 

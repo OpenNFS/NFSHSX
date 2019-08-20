@@ -1,9 +1,14 @@
-#include "NFS4.H"
-#include "PAUSEMENU.H"
+#ifndef PAUSEMENU_H
+#define PAUSEMENU_H
+
+extern void * IsDisabled__10tPMenuItem(struct tPMenuItem *this); // 0x800A86BC
+
+extern void * IsEnabled__10tPMenuItem(struct tPMenuItem *this); // 0x800A86A8
+
 
 // decompiled code
 // original method signature: 
-// unsigned int /*$ra*/ IsDisabled__10tPMenuItem(struct tPMenuItem *this /*$a0*/)
+// void * /*$ra*/ IsDisabled__10tPMenuItem(struct tPMenuItem *this /*$a0*/)
  // line 115, offset 0x800a86bc
 	/* begin block 1 */
 		// Start line: 116
@@ -12,19 +17,17 @@
 	// End offset: 0x800A86BC
 	// End Line: 116
 
-uint IsDisabled__10tPMenuItem(tPMenuItem *this)
+void * IsDisabled__10tPMenuItem(tPMenuItem *this)
+
 {
-  return this->fFlags & 1;
-
-
+  return (void *)(this->fFlags & 1);
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// unsigned int /*$ra*/ IsEnabled__10tPMenuItem(struct tPMenuItem *this /*$a0*/)
+// void * /*$ra*/ IsEnabled__10tPMenuItem(struct tPMenuItem *this /*$a0*/)
  // line 116, offset 0x800a86a8
 	/* begin block 1 */
 		// Start line: 117
@@ -33,14 +36,13 @@ uint IsDisabled__10tPMenuItem(tPMenuItem *this)
 	// End offset: 0x800A86A8
 	// End Line: 117
 
-uint IsEnabled__10tPMenuItem(tPMenuItem *this)
+void * IsEnabled__10tPMenuItem(tPMenuItem *this)
+
 {
-  return (this->fFlags ^ 1) & 1;
-
-
+  return (void *)((this->fFlags ^ 1) & 1);
 }
 
 
 
 
-
+#endif

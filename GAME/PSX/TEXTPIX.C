@@ -35,33 +35,32 @@
 	// End Line: 98
 
 int textnpixels(char *str,int n)
+
 {
-  int iVar1;
-  int iVar2;
+  uint uVar1;
+  int *piVar2;
   int iVar3;
+  int iVar4;
   char *local_res0;
   
+  iVar4 = 0;
   iVar3 = 0;
-  iVar2 = 0;
   local_res0 = str;
   if (0 < n) {
     do {
-      iVar1 = (*DAT_80135c40)(register0x00000074);
-      iVar3 = iVar3 + 1;
-      if (iVar1 == 0) {
-        return iVar2;
+      uVar1 = (*DAT_80135c40)(register0x00000074);
+      iVar4 = iVar4 + 1;
+      if (uVar1 == 0) {
+        return iVar3;
       }
-      iVar1 = getcharacter(iVar1);
-      if (iVar1 != 0) {
-        iVar2 = iVar2 + (int)*(char *)(iVar1 + 8);
+      piVar2 = getcharacter(uVar1);
+      if (piVar2 != (int *)0x0) {
+        iVar3 = iVar3 + (int)*(char *)(piVar2 + 2);
       }
-    } while (iVar3 < n);
+    } while (iVar4 < n);
   }
-  return iVar2;
-
-
+  return iVar3;
 }
-
 
 
 
@@ -70,15 +69,13 @@ int textnpixels(char *str,int n)
 // int /*$ra*/ textpixels(char *string /*$a0*/)
  // line 101, offset 0x800e3e20
 int textpixels(char *string)
+
 {
   int iVar1;
   
   iVar1 = textnpixels(string,0x100);
   return iVar1;
-
-
 }
-
 
 
 

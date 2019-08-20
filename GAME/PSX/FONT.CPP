@@ -13,17 +13,15 @@
 	// End Line: 85
 
 void Font_TextColor__Fi(int color)
+
 {
   uint uVar1;
   
-  uVar1 = (uint)uGp00001308 + color * 0x10;
+  uVar1 = (uint)(ushort)DAT_00001308 + color * 0x10;
+  DAT_00001318 = DAT_8011fdbe << 6 | (ushort)(uVar1 >> 4) & 0x3f;
   DAT_8011fdbc = (short)uVar1;
-  uGp00001318 = DAT_8011fdbe << 6 | (ushort)(uVar1 >> 4) & 0x3f;
   return;
-
-
 }
-
 
 
 
@@ -39,13 +37,11 @@ void Font_TextColor__Fi(int color)
 	// End Line: 91
 
 void Font_TextTint__Fi(int rgb)
+
 {
-  uGp00001310 = rgb & 0xffffffU | 0x66000000;
+  DAT_00001310 = rgb & 0xffffffU | 0x66000000;
   return;
-
-
 }
-
 
 
 
@@ -61,15 +57,16 @@ void Font_TextTint__Fi(int rgb)
 	// End Line: 97
 
 void Font_SetABR__Fi(int abr)
+
 {
-  iGp00001314 = abr;
-  uGp0000131c = GetTPage((uint)*DAT_80135c28 & 3,abr,(*(int *)(DAT_80135c28 + 0xc) << 0x14) >> 0x14,
-                         (*(int *)(DAT_80135c28 + 0xc) << 4) >> 0x14);
+  uint uVar1;
+  
+  DAT_00001314 = abr;
+  uVar1 = GetTPage((uint)*DAT_80135c28 & 3,abr,(*(int *)(DAT_80135c28 + 0xc) << 0x14) >> 0x14,
+                   (*(int *)(DAT_80135c28 + 0xc) << 4) >> 0x14);
+  DAT_0000131c = (short)uVar1;
   return;
-
-
 }
-
 
 
 
@@ -90,6 +87,7 @@ void Font_SetABR__Fi(int abr)
 	// End Line: 129
 
 void Font_Blit__FiiPviiP12charactertbli(int x,int y,void *src,int u,int v,charactertbl *ch)
+
 {
   byte bVar1;
   byte bVar2;
@@ -98,26 +96,25 @@ void Font_Blit__FiiPviiP12charactertbli(int x,int y,void *src,int u,int v,charac
   int iVar5;
   uint uVar6;
   
-  puVar4 = _DAT_1f800004;
-  puVar3 = _DAT_1f800000;
+  puVar4 = DAT_1f800004;
+  puVar3 = DAT_1f800000;
   iVar5 = *(int *)((int)src + 0xc);
   bVar1 = ch->width;
   bVar2 = ch->height;
-  *_DAT_1f800004 = *_DAT_1f800004 & 0xff000000 | *_DAT_1f800000 & 0xffffff;
-  uVar6 = (uint)_DAT_1f800004 & 0xffffff;
-  _DAT_1f800004 = _DAT_1f800004 + 5;
+  *DAT_1f800004 = *DAT_1f800004 & 0xff000000 | *DAT_1f800000 & 0xffffff;
+  uVar6 = (uint)DAT_1f800004 & 0xffffff;
+  DAT_1f800004 = DAT_1f800004 + 5;
   *puVar3 = *puVar3 & 0xff000000 | uVar6;
   *(undefined *)((int)puVar4 + 3) = 4;
+  uVar6 = DAT_00001310;
   puVar4[2] = y << 0x10 | x;
-  puVar4[1] = uGp00001310;
+  puVar4[1] = uVar6;
+  uVar6 = (uint)DAT_00001318;
   puVar4[4] = (uint)bVar2 << 0x10 | (uint)bVar1;
-  puVar4[3] = (uint)uGp00001318 << 0x10 | (((iVar5 << 4) >> 0x14) + v & 0xffU) << 8 | u;
-  SetSemiTrans(puVar4,1);
+  puVar4[3] = uVar6 << 0x10 | (((iVar5 << 4) >> 0x14) + v & 0xffU) << 8 | u;
+  SetSemiTrans((int)puVar4,1);
   return;
-
-
 }
-
 
 
 
@@ -150,7 +147,10 @@ void Font_Blit__FiiPviiP12charactertbli(int x,int y,void *src,int u,int v,charac
 	// End offset: 0x800CB64C
 	// End Line: 255
 
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
 void Font_ComputeColors__Fiiic(int colour,int forecolour,int backcolour,char in_game)
+
 {
   uint uVar1;
   ushort uVar2;
@@ -172,8 +172,8 @@ void Font_ComputeColors__Fiiic(int colour,int forecolour,int backcolour,char in_
   DAT_8011fdb8 = 0;
   DAT_8011fdba = 0;
   _shpfontclut = 0x23;
-  DAT_8011fdbc = (undefined2)iGp00001308;
-  DAT_8011fdbe = (undefined2)iGp0000130c;
+  DAT_8011fdbc = (undefined2)DAT_00001308;
+  DAT_8011fdbe = DAT_0000130c;
   uVar1 = (int)((uint)bStack62 * 0x1f) / 0xff;
   uVar5 = ((int)((forecolour & 0xffU) * 0x1f) / 0xff) * 0x400;
   uVar3 = ((int)((uint)bStack63 * 0x1f) / 0xff) * 0x20;
@@ -211,16 +211,13 @@ LAB_800cb62c:
     puVar8 = puVar8 + 2;
     if (0xf < iVar7) {
       Texture_Vramf__FP8shapetbliiii
-                ((shapetbl *)&shpfontclut,iGp00001308,iGp0000130c,iGp00001308 + colour * 0x10,
-                 iGp0000130c);
+                ((shapetbl *)&shpfontclut,DAT_00001308,_DAT_0000130c,DAT_00001308 + colour * 0x10,
+                 _DAT_0000130c);
       DrawSync(0);
       return;
     }
   } while( true );
-
-
 }
-
 
 
 
@@ -240,20 +237,22 @@ LAB_800cb62c:
 	// End Line: 281
 
 charactertbl * Font_textbsearch__FiPcUlUl(int key,char *base,ulong nmemb,ulong size)
+
 {
   int iVar1;
-  charactertbl *pcVar2;
+  uint uVar2;
+  charactertbl *pcVar3;
   
   if (nmemb != 0) {
     iVar1 = (int)nmemb >> 1;
     do {
-      pcVar2 = (charactertbl *)((uchar *)base + iVar1 * size);
-      iVar1 = geti(pcVar2,2);
-      if (key == iVar1) {
-        return pcVar2;
+      pcVar3 = (charactertbl *)((uchar *)base + iVar1 * size);
+      uVar2 = geti((int *)pcVar3,2);
+      if (key == uVar2) {
+        return pcVar3;
       }
-      if (0 < key - iVar1) {
-        base = (char *)(pcVar2->index + size);
+      if (0 < (int)(key - uVar2)) {
+        base = (char *)(pcVar3->index + size);
         nmemb = nmemb - 1;
       }
       nmemb = (int)nmemb >> 1;
@@ -261,10 +260,7 @@ charactertbl * Font_textbsearch__FiPcUlUl(int key,char *base,ulong nmemb,ulong s
     } while (nmemb != 0);
   }
   return (charactertbl *)0x0;
-
-
 }
-
 
 
 
@@ -283,22 +279,20 @@ charactertbl * Font_textbsearch__FiPcUlUl(int key,char *base,ulong nmemb,ulong s
 	// End Line: 300
 
 charactertbl * Font_Getcharacter__Fi(int targetindex)
+
 {
   char *base;
-  int iVar1;
+  uint uVar1;
   charactertbl *pcVar2;
   
   base = DAT_80135c24;
   pcVar2 = (charactertbl *)(DAT_80135c24 + (targetindex + -0x20) * 0xb);
-  iVar1 = geti(pcVar2);
-  if (iVar1 != targetindex) {
+  uVar1 = geti((int *)pcVar2,2);
+  if (uVar1 != targetindex) {
     pcVar2 = Font_textbsearch__FiPcUlUl(targetindex,base,DAT_80135c14,0xb);
   }
   return pcVar2;
-
-
 }
-
 
 
 
@@ -313,14 +307,13 @@ charactertbl * Font_Getcharacter__Fi(int targetindex)
 	// End offset: 0x800CB7CC
 	// End Line: 307
 
-void Font_SetBlitter__FPFiiPviiP12charactertbli_v(blitter *blitter)
+void Font_SetBlitter__FPFiiPviiP12charactertbli_v
+               (TDRFuncPtr_Font_SetBlitter__FPFiiPviiP12charactertbli_v0blitter blitter)
+
 {
-  pbGp000018a0 = blitter;
+  DAT_000018a0 = blitter;
   return;
-
-
 }
-
 
 
 
@@ -335,14 +328,14 @@ void Font_SetBlitter__FPFiiPviiP12charactertbli_v(blitter *blitter)
 	// End offset: 0x800CB7D8
 	// End Line: 313
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Font_ReSetBlitter__Fv(void)
+
 {
-  pcGp000018a0 = Font_Blit__FiiPviiP12charactertbli;
+  DAT_000018a0 = Font_Blit__FiiPviiP12charactertbli;
   return;
-
-
 }
-
 
 
 
@@ -358,23 +351,23 @@ void Font_ReSetBlitter__Fv(void)
 	// End Line: 318
 
 void Font_SwitchFont__FPc(char *f1)
+
 {
-  charactertbl *pcVar1;
+  uint uVar1;
+  charactertbl *pcVar2;
   
-  setfont();
+  setfont((int)f1);
   DAT_80135c34 = 0;
   DAT_80135c38 = 0;
   DAT_80135c3c = 0;
-  uGp0000131c = GetTPage((uint)*DAT_80135c28 & 3,uGp00001314,
-                         (*(int *)(DAT_80135c28 + 0xc) << 0x14) >> 0x14,
-                         (*(int *)(DAT_80135c28 + 0xc) << 4) >> 0x14);
-  pcVar1 = Font_Getcharacter__Fi(0x20);
-  cGp0000131a = pcVar1->advance;
+  uVar1 = GetTPage((uint)*DAT_80135c28 & 3,DAT_00001314,
+                   (*(int *)(DAT_80135c28 + 0xc) << 0x14) >> 0x14,
+                   (*(int *)(DAT_80135c28 + 0xc) << 4) >> 0x14);
+  DAT_0000131c = (undefined2)uVar1;
+  pcVar2 = Font_Getcharacter__Fi(0x20);
+  DAT_0000131a = pcVar2->advance;
   return;
-
-
 }
-
 
 
 
@@ -389,18 +382,19 @@ void Font_SwitchFont__FPc(char *f1)
 	// End offset: 0x800CB890
 	// End Line: 338
 
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Font_DeInit__Fv(void)
+
 {
-  if (iGp00001308 != -1) {
-    Texture_MenuReleaseClutId__Fs((short)uGp0000130c << 6 | (ushort)(iGp00001308 >> 4) & 0x3f);
+  if (DAT_00001308 != -1) {
+    Texture_MenuReleaseClutId__Fs(DAT_0000130c << 6 | (ushort)(DAT_00001308 >> 4) & 0x3f);
   }
-  iGp00001308 = 0xffffffff;
-  uGp0000130c = 0xffffffff;
+  DAT_00001308 = 0xffffffff;
+  _DAT_0000130c = 0xffffffff;
   return;
-
-
 }
-
 
 
 
@@ -415,15 +409,16 @@ void Font_DeInit__Fv(void)
 	// End offset: 0x800CB8A8
 	// End Line: 344
 
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Font_ExitFromGame__Fv(void)
+
 {
-  uGp00001308 = 0xffffffff;
-  uGp0000130c = 0xffffffff;
+  DAT_00001308 = 0xffffffff;
+  _DAT_0000130c = 0xffffffff;
   return;
-
-
 }
-
 
 
 
@@ -442,17 +437,20 @@ void Font_ExitFromGame__Fv(void)
 	// End offset: 0x800CBA24
 	// End Line: 390
 
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
 int Font_LoadFont__FPciic(char *f1,int x,int y,char in_game)
+
 {
   shapetbl *shp;
   shapetbl *psVar1;
   int colour;
   int iVar2;
   int forecolour;
-  int *piVar3;
+  long *plVar3;
   uint uVar4;
   
-  setfont();
+  setfont((int)f1);
   shp = DAT_80135c28;
   uVar4 = (int)*(short *)&DAT_80135c28->field_0x4 *
           (int)*(short *)((int)&DAT_80135c28->field_0x4 + 2);
@@ -468,11 +466,11 @@ int Font_LoadFont__FPciic(char *f1,int x,int y,char in_game)
       psVar1 = (shapetbl *)((int)&shp->field_0x0 + colour);
     } while (colour < forecolour);
   }
-  if (iGp00001308 == -1) {
-    Texture_GetClutId__FiPiT1(1,(int *)&font_clutx,(int *)&font_cluty);
+  if (DAT_00001308 == -1) {
+    Texture_GetClutId__FiPiT1(1,&font_clutx,&font_cluty);
   }
   colour = 0;
-  Texture_Vramf__FP8shapetbliiii(shp,x,y,iGp00001308,iGp0000130c);
+  Texture_Vramf__FP8shapetbliiii(shp,x,y,DAT_00001308,_DAT_0000130c);
   waitdraw();
   shp->field_0x0 = (uint)*(byte *)&shp->field_0x0 | (int)(&shpfontclut + -(int)shp) * 0x100;
   psVar1 = shp;
@@ -485,25 +483,22 @@ int Font_LoadFont__FPciic(char *f1,int x,int y,char in_game)
       psVar1 = (shapetbl *)((int)&shp->field_0x0 + colour);
     } while (colour < forecolour);
   }
-  piVar3 = &colourRGB;
+  plVar3 = &colourRGB;
   colour = 0;
   do {
-    forecolour = *piVar3;
-    piVar3 = piVar3 + 1;
+    forecolour = *plVar3;
+    plVar3 = plVar3 + 1;
     iVar2 = colour + 1;
     Font_ComputeColors__Fiiic(colour,forecolour,0,in_game);
     colour = iVar2;
   } while (iVar2 < 0x10);
   Font_ReSetBlitter__Fv();
   Font_SwitchFont__FPc(f1);
-  resizememadr(f1,(shapetbl *)((int)DAT_80135c28 - (int)(f1 + -0x10)));
+  resizememadr((int)f1,(int)((int)DAT_80135c28 - (int)(f1 + -0x10)));
   Font_TextTint__Fi(0x808080);
   Font_TextColor__Fi(2);
   return y + (int)*(short *)((int)&shp->field_0x4 + 2);
-
-
 }
-
 
 
 
@@ -569,44 +564,43 @@ int Font_LoadFont__FPciic(char *f1,int x,int y,char in_game)
 	// End Line: 453
 
 void Font_TextXY__FPcii(char *string,int x,int y)
+
 {
   byte bVar1;
   uint *puVar2;
   uint *puVar3;
   charactertbl *pcVar4;
-  undefined4 uVar5;
-  undefined4 uVar6;
+  uint uVar5;
+  uint uVar6;
   uint targetindex;
   
   targetindex = 0xffffffff;
-  while (puVar3 = _DAT_1f800004, puVar2 = _DAT_1f800000, targetindex != 0) {
+  while (puVar3 = DAT_1f800004, puVar2 = DAT_1f800000, targetindex != 0) {
     bVar1 = *string;
     targetindex = (uint)bVar1;
     string = (char *)((byte *)string + 1);
     if (bVar1 < 0x21) {
-      x = x + (uint)bGp0000131a;
+      x = x + (uint)DAT_0000131a;
     }
     else {
       pcVar4 = Font_Getcharacter__Fi(targetindex);
       if (pcVar4 != (charactertbl *)0x0) {
-        uVar5 = geti(pcVar4->u,2);
-        uVar6 = geti(pcVar4->v,2);
-        (*pcGp000018a0)(x + (int)pcVar4->xoffset,y + (int)pcVar4->yoffset,DAT_80135c28,uVar5,uVar6,
+        uVar5 = geti((int *)pcVar4->u,2);
+        uVar6 = geti((int *)pcVar4->v,2);
+        (*DAT_000018a0)(x + (int)pcVar4->xoffset,y + (int)pcVar4->yoffset,DAT_80135c28,uVar5,uVar6,
                         pcVar4,DAT_80135c18);
         x = x + (int)pcVar4->advance;
       }
     }
   }
-  *_DAT_1f800004 = *_DAT_1f800004 & 0xff000000 | *_DAT_1f800000 & 0xffffff;
-  targetindex = (uint)_DAT_1f800004 & 0xffffff;
-  _DAT_1f800004 = _DAT_1f800004 + 3;
+  uVar5 = (uint)DAT_0000131c;
+  *DAT_1f800004 = *DAT_1f800004 & 0xff000000 | *DAT_1f800000 & 0xffffff;
+  targetindex = (uint)DAT_1f800004 & 0xffffff;
+  DAT_1f800004 = DAT_1f800004 + 3;
   *puVar2 = *puVar2 & 0xff000000 | targetindex;
-  SetDrawMode(puVar3,0,0,(uint)uGp0000131c,0);
+  SetDrawMode((int)puVar3,0,0,uVar5,(byte *)0x0);
   return;
-
-
 }
-
 
 
 
@@ -624,23 +618,21 @@ void Font_TextXY__FPcii(char *string,int x,int y)
 	// End Line: 542
 
 void Font_GetUVWH__FcPiN41(char code,int *u,int *v,int *w,int *h,int *yoff)
+
 {
   charactertbl *pcVar1;
-  int iVar2;
+  uint uVar2;
   
   pcVar1 = Font_Getcharacter__Fi((uint)(byte)code);
-  iVar2 = geti(pcVar1->u,2);
-  *u = iVar2;
-  iVar2 = geti(pcVar1->v,2);
-  *v = ((*(int *)(DAT_80135c28 + 0xc) << 0x14) >> 0x14) + iVar2;
+  uVar2 = geti((int *)pcVar1->u,2);
+  *u = uVar2;
+  uVar2 = geti((int *)pcVar1->v,2);
+  *v = ((*(int *)(DAT_80135c28 + 0xc) << 0x14) >> 0x14) + uVar2;
   *w = (uint)pcVar1->width;
   *h = (uint)pcVar1->height;
   *yoff = (int)pcVar1->yoffset;
   return;
-
-
 }
-
 
 
 

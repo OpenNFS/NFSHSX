@@ -15,18 +15,18 @@
 	// End offset: 0x800398B0
 	// End Line: 66
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void DrawMoney__Fiiilii(int x,int y,int numplaces,long number,int colfore,int colback)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -41,18 +41,18 @@ void DrawMoney__Fiiilii(int x,int y,int numplaces,long number,int colfore,int co
 	// End offset: 0x80039928
 	// End Line: 81
 
+/* WARNING: Control flow encountered bad instruction data */
+
 tScreenTournamentStandings * __26tScreenTournamentStandings(tScreenTournamentStandings *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -132,18 +132,18 @@ tScreenTournamentStandings * __26tScreenTournamentStandings(tScreenTournamentSta
 	// End offset: 0x80039AC8
 	// End Line: 119
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void Initialize__26tScreenTournamentStandings(tScreenTournamentStandings *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -158,18 +158,18 @@ void Initialize__26tScreenTournamentStandings(tScreenTournamentStandings *this)
 	// End offset: 0x80039AEC
 	// End Line: 125
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void Cleanup__26tScreenTournamentStandings(tScreenTournamentStandings *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -184,18 +184,20 @@ void Cleanup__26tScreenTournamentStandings(tScreenTournamentStandings *this)
 	// End offset: 0x80039B0C
 	// End Line: 134
 
-void GetShapeInfo__26tScreenTournamentStandingsRsT1PPcT3( (tScreenTournamentStandings *this,short *numPermShapes,short *numSwapShapes, char **permFileName,char **swapFileName)
+/* WARNING: Control flow encountered bad instruction data */
+
+void GetShapeInfo__26tScreenTournamentStandingsRsT1PPcT3
+               (tScreenTournamentStandings *this,short *numPermShapes,short *numSwapShapes,
+               char **permFileName,char **swapFileName)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -210,18 +212,20 @@ void GetShapeInfo__26tScreenTournamentStandingsRsT1PPcT3( (tScreenTournamentStan
 	// End offset: 0x80039B30
 	// End Line: 143
 
-void GetShapeInfo__31tScreenTournamentStandings3itemRsT1PPcT3( (tScreenTournamentStandings3item *this,short *numPermShapes,short *numSwapShapes, char **permFileName,char **swapFileName)
+/* WARNING: Control flow encountered bad instruction data */
+
+void GetShapeInfo__31tScreenTournamentStandings3itemRsT1PPcT3
+               (tScreenTournamentStandings3item *this,short *numPermShapes,short *numSwapShapes,
+               char **permFileName,char **swapFileName)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -236,18 +240,19 @@ void GetShapeInfo__31tScreenTournamentStandings3itemRsT1PPcT3( (tScreenTournamen
 	// End offset: 0x80039B7C
 	// End Line: 159
 
-void ProcessInput__26tScreenTournamentStandings7tPlayerR13tInputKeyTypeR12tMenuCommand( (tScreenTournamentStandings *this,tInputKeyType *keyval)
+/* WARNING: Control flow encountered bad instruction data */
+
+void ProcessInput__26tScreenTournamentStandings7tPlayerR13tInputKeyTypeR12tMenuCommand
+               (tScreenTournamentStandings *this,tInputKeyType *keyval)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -388,18 +393,18 @@ void ProcessInput__26tScreenTournamentStandings7tPlayerR13tInputKeyTypeR12tMenuC
 	// End offset: 0x8003A360
 	// End Line: 309
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void DrawBackground__26tScreenTournamentStandings(tScreenTournamentStandings *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -456,18 +461,18 @@ void DrawBackground__26tScreenTournamentStandings(tScreenTournamentStandings *th
 	// End offset: 0x8003A794
 	// End Line: 396
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void DrawBackground__24tScreenPinkSlipStandings(tScreenPinkSlipStandings *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 

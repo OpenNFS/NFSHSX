@@ -30,7 +30,9 @@
 	// End offset: 0x800CF6AC
 	// End Line: 157
 
-void Horizon_InterpolateLineSCoords__FP7DVECTORN20Piii( (DVECTOR *sc,DVECTOR *s0,DVECTOR *s1,int *percentage,int n,int bPercentageArray)
+void Horizon_InterpolateLineSCoords__FP7DVECTORN20Piii
+               (DVECTOR *sc,DVECTOR *s0,DVECTOR *s1,int *percentage,int n,int bPercentageArray)
+
 {
   int iVar1;
   int iVar2;
@@ -86,10 +88,7 @@ void Horizon_InterpolateLineSCoords__FP7DVECTORN20Piii( (DVECTOR *sc,DVECTOR *s0
     }
   }
   return;
-
-
 }
-
 
 
 
@@ -141,63 +140,59 @@ void Horizon_InterpolateLineSCoords__FP7DVECTORN20Piii( (DVECTOR *sc,DVECTOR *s0
 	// End offset: 0x800CF878
 	// End Line: 212
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Sky_InitStars__Fv(void)
+
 {
-  undefined2 uVar1;
-  undefined2 uVar2;
-  long lVar3;
-  uint uVar4;
+  long lVar1;
+  uint uVar2;
+  uint uVar3;
+  undefined *puVar4;
   uint uVar5;
-  undefined4 uVar6;
-  undefined4 uVar7;
-  uint uVar8;
-  undefined2 *puVar9;
-  int iVar10;
-  int iVar11;
+  uint uVar6;
+  short *psVar7;
+  int iVar8;
   
-  if (iGp0000132c == 0) {
-    iVar11 = 0;
-    lVar3 = random();
-    seedrandom(*(undefined4 *)(iGp00001340 + 0x5c));
-    iGp0000132c = reservememadr("stars",*(int *)(iGp00001340 + 0x44) << 3,0);
-    iGp00001330 = reservememadr("starCols",*(int *)(iGp00001340 + 0x44) << 2,0);
-    while (iVar11 < *(int *)(iGp00001340 + 0x44)) {
-      uVar4 = random();
-      uVar5 = random();
-      uVar8 = *(int *)(iGp00001340 + 0x4c) - *(int *)(iGp00001340 + 0x48);
-      if (uVar8 == 0) {
+  if (DAT_0000132c == (short *)0x0) {
+    lVar1 = random();
+    seedrandom(*(int *)(DAT_00001340 + 0x5c));
+    DAT_0000132c = reservememadr(s_stars_8013d880,*(int *)(DAT_00001340 + 0x44) << 3,0);
+    DAT_00001330 = reservememadr(s_starCols_800568b4,*(int *)(DAT_00001340 + 0x44) << 2,0);
+    iVar8 = 0;
+    while (iVar8 < *(int *)(DAT_00001340 + 0x44)) {
+      uVar2 = random();
+      uVar3 = random();
+      uVar6 = *(int *)(DAT_00001340 + 0x4c) - *(int *)(DAT_00001340 + 0x48);
+      if (uVar6 == 0) {
         trap(0x1c00);
       }
-      iVar10 = *(int *)(iGp00001340 + 0x48) + uVar5 % uVar8;
-      uVar6 = fixedsin(iVar10);
-      uVar1 = fixedmult(uVar6,1000);
-      uVar6 = fixedcos(iVar10);
-      uVar6 = fixedmult(uVar6,1000);
-      uVar7 = fixedsin(uVar4 & 0xffff);
-      uVar2 = fixedmult(uVar7,uVar6);
-      puVar9 = (undefined2 *)(iVar11 * 8 + iGp0000132c);
-      *puVar9 = uVar2;
-      puVar9[1] = uVar1;
-      uVar7 = fixedcos(uVar4 & 0xffff);
-      uVar1 = fixedmult(uVar7,uVar6);
-      *(undefined2 *)(iVar11 * 8 + iGp0000132c + 4) = uVar1;
-      uVar4 = random();
-      uVar5 = *(int *)(iGp00001340 + 0x54) - *(int *)(iGp00001340 + 0x50);
-      if (uVar5 == 0) {
+      uVar6 = *(int *)(DAT_00001340 + 0x48) + uVar3 % uVar6;
+      puVar4 = fixedsin(uVar6);
+      uVar3 = fixedmult((int)puVar4,1000);
+      puVar4 = fixedcos(uVar6);
+      uVar6 = fixedmult((int)puVar4,1000);
+      puVar4 = fixedsin(uVar2 & 0xffff);
+      uVar5 = fixedmult((int)puVar4,uVar6);
+      psVar7 = DAT_0000132c + iVar8 * 4;
+      *psVar7 = (short)uVar5;
+      psVar7[1] = (short)uVar3;
+      puVar4 = fixedcos(uVar2 & 0xffff);
+      uVar2 = fixedmult((int)puVar4,uVar6);
+      DAT_0000132c[iVar8 * 4 + 2] = (short)uVar2;
+      uVar2 = random();
+      uVar3 = *(int *)(DAT_00001340 + 0x54) - *(int *)(DAT_00001340 + 0x50);
+      if (uVar3 == 0) {
         trap(0x1c00);
       }
-      iVar10 = iVar11 * 4;
-      iVar11 = iVar11 + 1;
-      uVar4 = *(int *)(iGp00001340 + 0x50) + uVar4 % uVar5;
-      *(uint *)(iVar10 + iGp00001330) = uVar4 * 0x10000 | uVar4 * 0x100 | uVar4;
+      uVar2 = *(int *)(DAT_00001340 + 0x50) + uVar2 % uVar3;
+      *(uint *)(DAT_00001330 + iVar8 * 2) = uVar2 * 0x10000 | uVar2 * 0x100 | uVar2;
+      iVar8 = iVar8 + 1;
     }
-    seedrandom(lVar3);
+    seedrandom(lVar1);
   }
   return;
-
-
 }
-
 
 
 
@@ -212,21 +207,21 @@ void Sky_InitStars__Fv(void)
 	// End offset: 0x800CF8CC
 	// End Line: 222
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Sky_KillStars__Fv(void)
+
 {
-  if (iGp0000132c != 0) {
-    purgememadr();
+  if (DAT_0000132c != 0) {
+    purgememadr(DAT_0000132c);
   }
-  if (iGp00001330 != 0) {
-    purgememadr();
+  if (DAT_00001330 != 0) {
+    purgememadr(DAT_00001330);
   }
-  iGp0000132c = 0;
-  iGp00001330 = 0;
+  DAT_0000132c = 0;
+  DAT_00001330 = 0;
   return;
-
-
 }
-
 
 
 
@@ -279,14 +274,17 @@ void Sky_KillStars__Fv(void)
 	// End offset: 0x800CFA34
 	// End Line: 253
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Hrz_InitSkyColor__Fv(void)
+
 {
   int iVar1;
   int iVar2;
   int iVar3;
   int iVar4;
   char cVar5;
-  char *pcVar6;
+  CVECTOR *pCVar6;
   int iVar7;
   int iVar8;
   uint uVar9;
@@ -298,8 +296,8 @@ void Hrz_InitSkyColor__Fv(void)
   iVar8 = 0;
   iVar7 = 0;
   while (iVar8 < 5) {
-    uVar9 = *(uint *)(iGp00001340 + iVar8 * 4 + 0x1c);
-    uVar10 = *(uint *)(iGp00001340 + iVar8 * 4 + 8);
+    uVar9 = *(uint *)(DAT_00001340 + iVar8 * 4 + 0x1c);
+    uVar10 = *(uint *)(DAT_00001340 + iVar8 * 4 + 8);
     local_8 = (char)uVar10;
     iVar1 = (uVar9 & 0xff) - (uVar10 & 0xff);
     if (iVar1 < 0) {
@@ -316,27 +314,24 @@ void Hrz_InitSkyColor__Fv(void)
       iVar3 = iVar3 + 7;
     }
     iVar4 = 0;
-    pcVar6 = &gSkyColor + iVar7 * 4;
+    pCVar6 = &gSkyColor + iVar7;
     while( true ) {
       cVar5 = (char)iVar4;
       if (0x10 < iVar4) break;
       if (8 < iVar4) {
         cVar5 = '\x10' - cVar5;
       }
-      *pcVar6 = local_8 + (char)(iVar1 >> 3) * cVar5;
-      pcVar6[1] = bStack7 + (char)(iVar2 >> 3) * cVar5;
+      pCVar6->r = local_8 + (char)(iVar1 >> 3) * cVar5;
+      pCVar6->g = bStack7 + (char)(iVar2 >> 3) * cVar5;
       iVar4 = iVar4 + 1;
       iVar7 = iVar7 + 1;
-      pcVar6[2] = bStack6 + (char)(iVar3 >> 3) * cVar5;
-      pcVar6 = pcVar6 + 4;
+      pCVar6->b = bStack6 + (char)(iVar3 >> 3) * cVar5;
+      pCVar6 = pCVar6 + 1;
     }
     iVar8 = iVar8 + 1;
   }
   return;
-
-
 }
-
 
 
 
@@ -358,98 +353,110 @@ void Hrz_InitSkyColor__Fv(void)
 	// End offset: 0x800CFD4C
 	// End Line: 333
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Hrz_InitSky__Fv(void)
+
 {
-  short sVar1;
-  undefined2 uVar2;
-  undefined4 uVar3;
-  undefined4 uVar4;
-  int iVar5;
+  int *piVar1;
+  undefined *puVar2;
+  uint uVar3;
+  uint uVar4;
+  uint uVar5;
   int iVar6;
-  undefined2 *puVar7;
+  uint uVar7;
   int iVar8;
-  int iVar9;
+  SVECTOR *pSVar9;
+  int iVar10;
+  int viewid;
   
-  uVar3 = fixedcos(piGp00001340[0xd]);
-  uGp000018a4 = fixedmult(uVar3,1000);
-  uVar3 = fixedsin(piGp00001340[0xd]);
-  uGp000018a8 = fixedmult(uVar3,1000);
-  uGp000018a6 = 0;
-  uVar3 = fixedcos(piGp00001340[0xf]);
-  uGp000018ac = fixedmult(uVar3,1000);
-  uVar3 = fixedsin(piGp00001340[0xf]);
-  uGp000018b0 = fixedmult(uVar3,1000);
-  uGp000018ae = 0;
-  if (DAT_801131f8 == 1) {
+  puVar2 = fixedcos(DAT_00001340[0xd]);
+  uVar3 = fixedmult((int)puVar2,1000);
+  DAT_000018a4 = (undefined2)uVar3;
+  puVar2 = fixedsin(DAT_00001340[0xd]);
+  uVar3 = fixedmult((int)puVar2,1000);
+  DAT_000018a8 = (undefined2)uVar3;
+  DAT_000018a6 = (short)TrackSpec_gSpec.skyspec.sunHeightInSky +
+                 (short)TrackSpec_gSpec.skyspec.yoffset;
+  puVar2 = fixedcos(DAT_00001340[0xf]);
+  uVar3 = fixedmult((int)puVar2,1000);
+  DAT_000018ac = (undefined2)uVar3;
+  puVar2 = fixedsin(DAT_00001340[0xf]);
+  uVar3 = fixedmult((int)puVar2,1000);
+  DAT_000018b0 = (undefined2)uVar3;
+  DAT_000018ae = (short)TrackSpec_gSpec.skyspec.moonHeightInSky +
+                 (short)TrackSpec_gSpec.skyspec.yoffset;
+  viewid = Draw_gPlayer1View;
+  if (GameSetup_gData.commMode == 1) {
     Draw_SetViewColor__Fiiii
-              (0,(uint)*(byte *)(piGp00001340 + 0xc),(uint)*(byte *)((int)piGp00001340 + 0x31),
-               (uint)*(byte *)((int)piGp00001340 + 0x32));
+              (Draw_gPlayer1View,(uint)*(byte *)(DAT_00001340 + 0xc),
+               (uint)*(byte *)((int)DAT_00001340 + 0x31),(uint)*(byte *)((int)DAT_00001340 + 0x32));
+    viewid = Draw_gPlayer2View;
   }
-  iVar8 = 0;
+  iVar10 = 0;
   Draw_SetViewColor__Fiiii
-            (0,(uint)*(byte *)(piGp00001340 + 0xc),(uint)*(byte *)((int)piGp00001340 + 0x31),
-             (uint)*(byte *)((int)piGp00001340 + 0x32));
-  iVar9 = 0;
+            (viewid,(uint)*(byte *)(DAT_00001340 + 0xc),(uint)*(byte *)((int)DAT_00001340 + 0x31),
+             (uint)*(byte *)((int)DAT_00001340 + 0x32));
+  viewid = 0;
   do {
-    if ((piGp00001340[1] & 0x80U) == 0) {
-      if (((piGp00001340[1] & 2U) == 0) || (iVar5 = iVar8 << 0xb, 3 < iVar8)) {
-        iVar5 = iVar8 << 0xc;
+    if ((DAT_00001340[1] & 0x80U) == 0) {
+      if (((DAT_00001340[1] & 2U) == 0) || (uVar3 = iVar10 << 0xb, 3 < iVar10)) {
+        uVar3 = iVar10 << 0xc;
       }
-      uVar3 = fixedcos(iVar5);
-      uVar3 = fixedmult(uVar3,1000);
+      puVar2 = fixedcos(uVar3);
+      uVar4 = fixedmult((int)puVar2,1000);
     }
     else {
-      uVar3 = fixedcos(piGp00001340[iVar8 + 0x20]);
-      uVar3 = fixedmult(uVar3,1000);
-      iVar5 = piGp00001340[iVar8 + 0x20];
+      puVar2 = fixedcos(DAT_00001340[iVar10 + 0x20]);
+      uVar4 = fixedmult((int)puVar2,1000);
+      uVar3 = DAT_00001340[iVar10 + 0x20];
     }
-    iVar6 = 0;
-    uVar4 = fixedsin(iVar5);
-    sVar1 = fixedmult(uVar4,1000);
-    puVar7 = &gSkyMesh + iVar9 * 4;
+    iVar8 = 0;
+    puVar2 = fixedsin(uVar3);
+    uVar3 = fixedmult((int)puVar2,1000);
+    pSVar9 = &gSkyMesh + viewid;
     do {
-      iVar5 = iVar6 * 0x1000;
-      iVar6 = iVar6 + 1;
-      iVar5 = (iVar5 - piGp00001340[0xd]) + 0x4000;
-      uVar4 = fixedsin(iVar5);
-      uVar2 = fixedmult(uVar4,uVar3);
-      iVar9 = iVar9 + 1;
-      *puVar7 = uVar2;
-      puVar7[1] = *(short *)(piGp00001340 + 0x1a) + sVar1;
-      uVar4 = fixedcos(iVar5);
-      uVar2 = fixedmult(uVar4,uVar3);
-      puVar7[2] = uVar2;
-      puVar7 = puVar7 + 4;
-    } while (iVar6 < 0x11);
-    iVar8 = iVar8 + 1;
-  } while (iVar8 < 5);
-  iVar8 = 0;
-  if (*piGp00001340 == 1) {
-    iVar9 = 0;
-    do {
-      iVar5 = 0;
-      do {
-        iVar6 = iVar5;
-        if (iVar5 < 0) {
-          iVar6 = iVar5 + 3;
-        }
-        iVar6 = iVar5 + (iVar6 >> 2) * -4;
-        iVar5 = iVar5 + 1;
-        (&gSkyPixmapIndex)[iVar9] = *(char *)((int)piGp00001340 + iVar6 + iVar8 * 4 + 0x6c) + '\b';
-        iVar9 = iVar9 + 1;
-      } while (iVar5 < 0x10);
+      iVar6 = iVar8 * 0x1000;
       iVar8 = iVar8 + 1;
-    } while (iVar8 < 4);
-    if ((*piGp00001340 == 1) && ((piGp00001340[1] & 0x20U) == 0)) goto LAB_800cfd4c;
+      uVar7 = (iVar6 - DAT_00001340[0xd]) + 0x4000;
+      puVar2 = fixedsin(uVar7);
+      uVar5 = fixedmult((int)puVar2,uVar4);
+      piVar1 = DAT_00001340;
+      viewid = viewid + 1;
+      pSVar9->vx = (short)uVar5;
+      pSVar9->vy = *(short *)(piVar1 + 0x1a) + (short)uVar3;
+      puVar2 = fixedcos(uVar7);
+      uVar5 = fixedmult((int)puVar2,uVar4);
+      pSVar9->vz = (short)uVar5;
+      pSVar9 = pSVar9 + 1;
+    } while (iVar8 < 0x11);
+    iVar10 = iVar10 + 1;
+  } while (iVar10 < 5);
+  viewid = 0;
+  if (*DAT_00001340 == 1) {
+    iVar10 = 0;
+    do {
+      iVar8 = 0;
+      do {
+        iVar6 = iVar8;
+        if (iVar8 < 0) {
+          iVar6 = iVar8 + 3;
+        }
+        iVar6 = iVar8 + (iVar6 >> 2) * -4;
+        iVar8 = iVar8 + 1;
+        (&gSkyPixmapIndex)[iVar10] = *(char *)((int)DAT_00001340 + iVar6 + viewid * 4 + 0x6c) + '\b'
+        ;
+        iVar10 = iVar10 + 1;
+      } while (iVar8 < 0x10);
+      viewid = viewid + 1;
+    } while (viewid < 4);
+    if ((*DAT_00001340 == 1) && ((DAT_00001340[1] & 0x20U) == 0)) goto LAB_800cfd4c;
   }
   Hrz_InitSkyColor__Fv();
 LAB_800cfd4c:
   Flare_InitLensFlare__Fv();
   return;
-
-
 }
-
 
 
 
@@ -527,23 +534,28 @@ LAB_800cfd4c:
 	// End offset: 0x800D0038
 	// End Line: 410
 
+/* WARNING: Could not reconcile some variable overlaps */
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Hrz_Init2DRing__Fv(void)
+
 {
-  undefined2 uVar1;
-  undefined4 uVar2;
-  int iVar3;
-  undefined2 *puVar4;
-  uint uVar5;
-  int *piVar6;
+  undefined *puVar1;
+  uint uVar2;
+  Draw_tPixMap *pDVar3;
+  int iVar4;
+  undefined2 *puVar5;
+  Draw_tPixMap **ppDVar6;
   uint *puVar7;
   int iVar8;
   char cVar9;
-  uint uVar10;
+  int *piVar10;
   int iVar11;
-  undefined4 *puVar12;
-  int iVar13;
+  CVECTOR *pCVar12;
+  uint uVar13;
   int iVar14;
   int iVar15;
+  int iVar16;
   uint local_50 [2];
   undefined4 local_48;
   char local_40;
@@ -552,98 +564,96 @@ void Hrz_Init2DRing__Fv(void)
   
   iVar15 = 0;
   do {
-    iVar13 = iVar15 * 0x1000 + *(int *)(iGp0000133c + 4);
-    uVar2 = fixedsin(iVar13);
-    uVar1 = fixedmult(uVar2,32000);
+    uVar13 = iVar15 * 0x1000 + *(int *)(DAT_0000133c + 4);
+    puVar1 = fixedsin(uVar13);
+    uVar2 = fixedmult((int)puVar1,(int)&DAT_00007d00);
     iVar14 = iVar15 * 8;
-    puVar4 = (undefined2 *)(iVar14 + iGp00001344);
-    *puVar4 = uVar1;
-    puVar4[1] = 0;
-    uVar2 = fixedcos(iVar13);
-    uVar1 = fixedmult(uVar2,32000);
+    puVar5 = (undefined2 *)(iVar14 + DAT_00001344);
+    *puVar5 = (short)uVar2;
+    puVar5[1] = 0;
+    puVar1 = fixedcos(uVar13);
+    uVar2 = fixedmult((int)puVar1,(int)&DAT_00007d00);
     iVar15 = iVar15 + 1;
-    *(undefined2 *)(iVar14 + iGp00001344 + 4) = uVar1;
-    uVar10 = 1;
+    *(undefined2 *)(iVar14 + DAT_00001344 + 4) = (short)uVar2;
+    iVar14 = DAT_0000133c;
+    uVar2 = 1;
   } while (iVar15 < 0x11);
   iVar15 = 0;
   puVar7 = local_50;
-  piVar6 = &_gpPmx;
+  ppDVar6 = &__gpPmx_16__;
   while (iVar15 < 0x10) {
-    iVar13 = *(int *)(&_gHorizonPixmap + ((uint)*(byte *)(iGp0000133c + iVar15 + 0x20) & 7) * 4);
-    *piVar6 = iVar13;
-    uVar5 = (uint)*(byte *)(iVar13 + 9) - (uint)*(byte *)(iVar13 + 5);
-    *puVar7 = uVar5;
-    if ((int)uVar10 < (int)uVar5) {
-      uVar10 = uVar5;
+    pDVar3 = (&__gHorizonPixmap_16__)[(uint)*(byte *)(iVar14 + iVar15 + 0x20) & 7];
+    *ppDVar6 = pDVar3;
+    uVar13 = (uint)pDVar3->v2 - (uint)pDVar3->v1;
+    *puVar7 = uVar13;
+    if ((int)uVar2 < (int)uVar13) {
+      uVar2 = uVar13;
     }
     puVar7 = puVar7 + 1;
-    piVar6 = piVar6 + 1;
+    ppDVar6 = ppDVar6 + 1;
     iVar15 = iVar15 + 1;
   }
   iVar15 = 0;
-  piVar6 = &gfxPmxHeightPercentage;
+  piVar10 = &gfxPmxHeightPercentage;
   puVar7 = local_50;
   do {
-    uVar5 = *puVar7;
-    if (uVar10 == 0) {
+    uVar13 = *puVar7;
+    if (uVar2 == 0) {
       trap(0x1c00);
     }
-    if ((uVar10 == 0xffffffff) && (uVar5 << 0x10 == -0x80000000)) {
+    if ((uVar2 == 0xffffffff) && (uVar13 << 0x10 == -0x80000000)) {
       trap(0x1800);
     }
     puVar7 = puVar7 + 1;
     iVar15 = iVar15 + 1;
-    *piVar6 = (int)(uVar5 << 0x10) / (int)uVar10;
-    piVar6 = piVar6 + 1;
+    *piVar10 = (int)(uVar13 << 0x10) / (int)uVar2;
+    piVar10 = piVar10 + 1;
   } while (iVar15 < 0x10);
   iVar15 = 0;
-  puVar12 = (undefined4 *)&gHrzRingColor;
-  iVar13 = 0;
-  while (iVar14 = 0, iVar15 < 2) {
-    local_50[0] = *(uint *)(iGp0000133c + iVar15 * 4 + 0x18);
-    local_48 = *(uint *)(iGp0000133c + iVar15 * 4 + 0x10);
-    iVar11 = iVar13;
+  pCVar12 = &gHrzRingColor;
+  iVar14 = 0;
+  while (iVar16 = 0, iVar15 < 2) {
+    local_50[0] = *(uint *)(DAT_0000133c + iVar15 * 4 + 0x18);
+    local_48 = *(uint *)(DAT_0000133c + iVar15 * 4 + 0x10);
+    iVar11 = iVar14;
     while( true ) {
-      cVar9 = (char)iVar14;
-      if (0xf < iVar14) break;
-      if (8 < iVar14) {
+      cVar9 = (char)iVar16;
+      if (0xf < iVar16) break;
+      if (8 < iVar16) {
         cVar9 = '\x10' - cVar9;
       }
-      iVar3 = (local_50[0] & 0xff) - (local_48 & 0xff);
-      if (iVar3 < 0) {
-        iVar3 = iVar3 + 7;
+      iVar4 = (local_50[0] & 0xff) - (local_48 & 0xff);
+      if (iVar4 < 0) {
+        iVar4 = iVar4 + 7;
       }
       local_48._1_1_ = (byte)(local_48 >> 8);
-      local_40 = (char)(iVar3 >> 3);
-      iVar3 = (local_50[0] >> 8 & 0xff) - (uint)local_48._1_1_;
-      if (iVar3 < 0) {
-        iVar3 = iVar3 + 7;
+      local_40 = (char)(iVar4 >> 3);
+      iVar4 = (local_50[0] >> 8 & 0xff) - (uint)local_48._1_1_;
+      if (iVar4 < 0) {
+        iVar4 = iVar4 + 7;
       }
       local_48._2_1_ = (byte)(local_48 >> 0x10);
       iVar8 = (local_50[0] >> 0x10 & 0xff) - (uint)local_48._2_1_;
-      local_3f = (char)(iVar3 >> 3);
+      local_3f = (char)(iVar4 >> 3);
       if (iVar8 < 0) {
         iVar8 = iVar8 + 7;
       }
       local_3e = (char)(iVar8 >> 3);
-      (&gHrzRingColor)[iVar11] = (char)local_48 + local_40 * cVar9;
-      (&DAT_801207f5)[iVar11] = local_48._1_1_ + local_3f * cVar9;
-      iVar14 = iVar14 + 1;
-      (&DAT_801207f6)[iVar11] = local_48._2_1_ + local_3e * cVar9;
+      (&gHrzRingColor.r)[iVar11] = (char)local_48 + local_40 * cVar9;
+      (&gHrzRingColor.g)[iVar11] = local_48._1_1_ + local_3f * cVar9;
+      iVar16 = iVar16 + 1;
+      (&gHrzRingColor.b)[iVar11] = local_48._2_1_ + local_3e * cVar9;
       iVar11 = iVar11 + 4;
     }
-    puVar12[0x10] = *puVar12;
-    puVar12 = puVar12 + 0x11;
-    iVar13 = iVar13 + 0x44;
+    pCVar12[0x10] = *pCVar12;
+    pCVar12 = pCVar12 + 0x11;
+    iVar14 = iVar14 + 0x44;
     iVar15 = iVar15 + 1;
   }
   Hrz_InitSky__Fv();
-  _DAT_8013e384 = *(undefined4 *)(iGp00001340 + 8);
+  CVECTOR_8013e384 = *(undefined4 *)(DAT_00001340 + 8);
   return;
-
-
 }
-
 
 
 
@@ -661,6 +671,7 @@ void Hrz_Init2DRing__Fv(void)
 	// End Line: 429
 
 void Hrz_GetHorizonPixMap__FP12Draw_tPixMap(Draw_tPixMap *p)
+
 {
   Draw_tPixMap **ppDVar1;
   Draw_tPixMap *rpmx;
@@ -669,7 +680,7 @@ void Hrz_GetHorizonPixMap__FP12Draw_tPixMap(Draw_tPixMap *p)
   int iVar4;
   
   iVar2 = 0xb;
-  ppDVar1 = (Draw_tPixMap **)&DAT_80120324;
+  ppDVar1 = &PTR_80120324;
   p = p + 0xb;
   do {
     *ppDVar1 = p;
@@ -679,23 +690,20 @@ void Hrz_GetHorizonPixMap__FP12Draw_tPixMap(Draw_tPixMap *p)
   } while (-1 < iVar2);
   iVar2 = 0;
   iVar4 = 0x30;
-  rpmx = (Draw_tPixMap *)&gHorizonExtraSkyPixmaps;
+  rpmx = &gHorizonExtraSkyPixmaps;
   iVar3 = 0x20;
   do {
-    ppDVar1 = (Draw_tPixMap **)(&_gHorizonPixmap + iVar3);
+    ppDVar1 = (Draw_tPixMap **)((int)&__gHorizonPixmap_16__ + iVar3);
     iVar3 = iVar3 + 4;
     iVar2 = iVar2 + 1;
     Texture_CloneUVPmx__FP12Draw_tPixMapiT0(*ppDVar1,0,rpmx);
-    ppDVar1 = (Draw_tPixMap **)(&_gHorizonPixmap + iVar4);
+    ppDVar1 = (Draw_tPixMap **)((int)&__gHorizonPixmap_16__ + iVar4);
     iVar4 = iVar4 + 4;
     *ppDVar1 = rpmx;
     rpmx = rpmx + 1;
   } while (iVar2 < 4);
   return;
-
-
 }
-
 
 
 
@@ -710,20 +718,20 @@ void Hrz_GetHorizonPixMap__FP12Draw_tPixMap(Draw_tPixMap *p)
 	// End offset: 0x800D0174
 	// End Line: 444
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Hrz_InitHorizon__Fv(void)
+
 {
-  _Hrz_gTrackSpec = &DAT_801232a4;
-  _Sky_gTrackSpec = &DAT_801232d4;
-  _gRngCoordTop = reservememadr("gRngCoordTop",0x88,0);
+  uGp0000133c = 0x801232a4;
+  uGp00001340 = 0x801232d4;
+  psGp00001344 = reservememadr(s_gRngCoordTop_800568c0,0x88,0);
   Hrz_Init2DRing__Fv();
-  if (false) {
+  if ((TrackSpec_gSpec.skyspec.flags & 0x10U) != 0) {
     Sky_InitStars__Fv();
   }
   return;
-
-
 }
-
 
 
 
@@ -738,15 +746,15 @@ void Hrz_InitHorizon__Fv(void)
 	// End offset: 0x800D0184
 	// End Line: 448
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Hrz_KillHorizon__Fv(void)
+
 {
-  purgememadr(_gRngCoordTop);
+  purgememadr(iGp00001344);
   Sky_KillStars__Fv();
   return;
-
-
 }
-
 
 
 
@@ -765,84 +773,80 @@ void Hrz_KillHorizon__Fv(void)
 	// End Line: 823
 
 void Hrz_LightningAddFork__FScScSc(char direction,char column,char row)
+
 {
   byte bVar1;
   int iVar2;
-  int iVar3;
-  long lVar4;
+  long lVar3;
+  uint uVar4;
   uint uVar5;
   uint uVar6;
   uint uVar7;
-  uint uVar8;
   char row_00;
-  uint uVar9;
+  uint uVar8;
   
-  uVar9 = (uint)(byte)row;
-  uVar7 = (uint)(byte)column;
-  uVar5 = (uint)(byte)direction;
+  uVar8 = (uint)(byte)row;
+  uVar6 = (uint)(byte)column;
+  uVar4 = (uint)(byte)direction;
   if (row == '\0') {
-    uVar8 = 3;
+    uVar7 = 3;
   }
   else {
-    uVar8 = 2;
+    uVar7 = 2;
     if (row < '\x03') {
-      uVar8 = random();
-      uVar8 = uVar8 - (((uint)((ulonglong)uVar8 * 0xaaaaaaab >> 0x20) & 0xfffffffe) + uVar8 / 3);
+      uVar7 = random();
+      uVar7 = uVar7 - (((uint)((ulonglong)uVar7 * 0xaaaaaaab >> 0x20) & 0xfffffffe) + uVar7 / 3);
     }
   }
-  uVar6 = (uint)DAT_80120920;
-  DAT_80120920 = DAT_80120920 + 1;
-  iVar2 = uVar6 * 6;
-  (&gHrz_Lightning)[uVar6 * 3] = (short)column * 0xf;
-  uVar8 = uVar8 & 0xff;
-  (&DAT_801208be)[uVar6 * 3] = (short)row * 0xf;
-  if (uVar8 == 1) {
-    row_00 = (char)((uVar9 + 1) * 0x1000000 >> 0x18);
-    Hrz_LightningAddFork__FScScSc(-1,(char)((uVar7 - 1) * 0x1000000 >> 0x18),row_00);
-    Hrz_LightningAddFork__FScScSc('\x01',(char)((uVar7 + 1) * 0x1000000 >> 0x18),row_00);
+  uVar5 = (uint)(byte)gHrz_Lightning.numForks;
+  gHrz_Lightning.numForks = gHrz_Lightning.numForks + '\x01';
+  gHrz_Lightning.forks[uVar5].pos.vx = (short)column * 0xf;
+  uVar7 = uVar7 & 0xff;
+  gHrz_Lightning.forks[uVar5].pos.vy = (short)row * 0xf;
+  if (uVar7 == 1) {
+    row_00 = (char)((uVar8 + 1) * 0x1000000 >> 0x18);
+    Hrz_LightningAddFork__FScScSc(-1,(char)((uVar6 - 1) * 0x1000000 >> 0x18),row_00);
+    Hrz_LightningAddFork__FScScSc('\x01',(char)((uVar6 + 1) * 0x1000000 >> 0x18),row_00);
     bVar1 = 6;
   }
   else {
-    if (uVar8 < 2) {
-      if (uVar8 != 0) {
-        iVar3 = uVar5 << 0x18;
+    if (uVar7 < 2) {
+      if (uVar7 != 0) {
+        iVar2 = uVar4 << 0x18;
         goto LAB_800d0390;
       }
       Hrz_LightningAddFork__FScScSc
-                (direction,(char)((uVar7 + uVar5) * 0x1000000 >> 0x18),
-                 (char)((uVar9 + 1) * 0x1000000 >> 0x18));
-      lVar4 = random();
-      bVar1 = ((byte)lVar4 & 1) + 2;
+                (direction,(char)((uVar6 + uVar4) * 0x1000000 >> 0x18),
+                 (char)((uVar8 + 1) * 0x1000000 >> 0x18));
+      lVar3 = random();
+      bVar1 = ((byte)lVar3 & 1) + 2;
     }
     else {
-      if (uVar8 == 2) {
-        lVar4 = random();
-        bVar1 = ((byte)lVar4 & 1) + 4;
+      if (uVar7 == 2) {
+        lVar3 = random();
+        bVar1 = ((byte)lVar3 & 1) + 4;
       }
       else {
-        iVar3 = uVar5 << 0x18;
-        if (uVar8 != 3) goto LAB_800d0390;
-        uVar5 = random();
-        uVar5 = (uVar5 & 1) * -2 + 1;
+        iVar2 = uVar4 << 0x18;
+        if (uVar7 != 3) goto LAB_800d0390;
+        uVar4 = random();
+        uVar4 = (uVar4 & 1) * -2 + 1;
         Hrz_LightningAddFork__FScScSc
-                  ((char)(uVar5 * 0x1000000 >> 0x18),(char)((uVar7 + uVar5) * 0x1000000 >> 0x18),
-                   (char)((uVar9 + 1) * 0x1000000 >> 0x18));
-        lVar4 = random();
-        bVar1 = (byte)lVar4 & 1;
+                  ((char)(uVar4 * 0x1000000 >> 0x18),(char)((uVar6 + uVar4) * 0x1000000 >> 0x18),
+                   (char)((uVar8 + 1) * 0x1000000 >> 0x18));
+        lVar3 = random();
+        bVar1 = (byte)lVar3 & 1;
       }
     }
   }
-  (&DAT_801208c0)[iVar2] = bVar1;
-  iVar3 = uVar5 << 0x18;
+  gHrz_Lightning.forks[uVar5].pmxIndex = bVar1;
+  iVar2 = uVar4 << 0x18;
 LAB_800d0390:
-  if (iVar3 < 0) {
-    (&DAT_801208c0)[iVar2] = (&DAT_801208c0)[iVar2] + '\b';
+  if (iVar2 < 0) {
+    gHrz_Lightning.forks[uVar5].pmxIndex = gHrz_Lightning.forks[uVar5].pmxIndex + '\b';
   }
   return;
-
-
 }
-
 
 
 
@@ -857,16 +861,16 @@ LAB_800d0390:
 	// End offset: 0x800D03C8
 	// End Line: 827
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Hrz_CalculateLightning__Fv(void)
+
 {
-  DAT_80120920 = 0;
-  DAT_8012091c = 200;
+  gHrz_Lightning.numForks = '\0';
+  gHrz_Lightning.brightness = 200;
   Hrz_LightningAddFork__FScScSc('\x01','\0','\0');
   return;
-
-
 }
-
 
 
 
@@ -896,21 +900,23 @@ void Hrz_CalculateLightning__Fv(void)
 	// End Line: 837
 
 void Hrz_TextureQuad__FP7DVECTORccP11Draw_DCache(DVECTOR *pt,char type,char bright,Draw_DCache *sd)
+
 {
   int iVar1;
   uint *puVar2;
-  uint uVar3;
+  Draw_tPixMap *pDVar3;
   uint uVar4;
-  uint *puVar5;
-  uint uVar6;
+  uint uVar5;
+  uint *puVar6;
+  uint uVar7;
   
-  puVar2 = _DAT_1f800004;
-  iVar1 = _DAT_1f800000;
-  *_DAT_1f800004 = *_DAT_1f800004 & 0xff000000 | *(uint *)(sd->otz * 4 + _DAT_1f800000) & 0xffffff;
-  puVar5 = (uint *)(sd->otz * 4 + iVar1);
-  uVar6 = (uint)_DAT_1f800004 & 0xffffff;
-  _DAT_1f800004 = _DAT_1f800004 + 10;
-  *puVar5 = *puVar5 & 0xff000000 | uVar6;
+  puVar2 = DAT_1f800004;
+  iVar1 = DAT_1f800000;
+  *DAT_1f800004 = *DAT_1f800004 & 0xff000000 | *(uint *)(sd->otz * 4 + DAT_1f800000) & 0xffffff;
+  puVar6 = (uint *)(sd->otz * 4 + iVar1);
+  uVar7 = (uint)DAT_1f800004 & 0xffffff;
+  DAT_1f800004 = DAT_1f800004 + 10;
+  *puVar6 = *puVar6 & 0xff000000 | uVar7;
   *(undefined *)((int)puVar2 + 3) = 9;
   *(undefined *)((int)puVar2 + 7) = 0x2e;
   *(char *)((int)puVar2 + 6) = bright;
@@ -924,19 +930,16 @@ void Hrz_TextureQuad__FP7DVECTORccP11Draw_DCache(DVECTOR *pt,char type,char brig
   *(short *)((int)puVar2 + 0x12) = pt->vy;
   *(short *)(puVar2 + 8) = pt->vx + 0x10;
   *(short *)((int)puVar2 + 0x22) = pt->vy + 0x10;
-  puVar5 = (uint *)(&_gLightningPixmap)[(uint)(byte)type];
-  uVar3 = puVar5[1];
-  uVar4 = puVar5[2];
-  uVar6 = puVar5[3];
-  puVar2[3] = *puVar5;
-  puVar2[5] = uVar3;
-  puVar2[7] = uVar4;
-  puVar2[9] = uVar6;
+  pDVar3 = (&__gLightningPixmap_16__)[(uint)(byte)type];
+  uVar4 = *(uint *)&pDVar3->u1;
+  uVar5 = *(uint *)&pDVar3->u2;
+  uVar7 = *(uint *)&pDVar3->u3;
+  puVar2[3] = *(uint *)pDVar3;
+  puVar2[5] = uVar4;
+  puVar2[7] = uVar5;
+  puVar2[9] = uVar7;
   return;
-
-
 }
-
 
 
 
@@ -954,6 +957,7 @@ void Hrz_TextureQuad__FP7DVECTORccP11Draw_DCache(DVECTOR *pt,char type,char brig
 	// End Line: 863
 
 void Hrz_SetLightingPosInSky__FP13DRender_tView(DRender_tView *Vi)
+
 {
   uint uVar1;
   int iVar2;
@@ -964,17 +968,13 @@ void Hrz_SetLightingPosInSky__FP13DRender_tView(DRender_tView *Vi)
   iVar3 = (Vi->cview).mrotation.m[7];
   iVar4 = (Vi->cview).mrotation.m[8];
   uVar1 = random();
-  Hrz_gLightningPosInSky =
-       (short)(iVar2 >> 2) + (short)uVar1 + (short)(uVar1 / 8000) * -8000 + -4000;
+  sGp00001348 = (short)(iVar2 >> 2) + (short)uVar1 + (short)(uVar1 / 8000) * -8000 + -4000;
   uVar1 = random();
-  DAT_8013d896 = (short)(iVar3 >> 2) + 8000 + (short)uVar1 + (short)(uVar1 / 3000) * -3000;
+  sGp0000134a = (short)(iVar3 >> 2) + 8000 + (short)uVar1 + (short)(uVar1 / 3000) * -3000;
   uVar1 = random();
-  DAT_8013d898 = (short)(iVar4 >> 2) + (short)uVar1 + (short)(uVar1 / 8000) * -8000 + -4000;
+  sGp0000134c = (short)(iVar4 >> 2) + (short)uVar1 + (short)(uVar1 / 8000) * -8000 + -4000;
   return;
-
-
 }
-
 
 
 
@@ -995,7 +995,10 @@ void Hrz_SetLightingPosInSky__FP13DRender_tView(DRender_tView *Vi)
 	// End offset: 0x800D0748
 	// End Line: 898
 
+/* WARNING: Could not reconcile some variable overlaps */
+
 void Hrz_BuildForkLightning__FP11Draw_DCache(Draw_DCache *sd)
+
 {
   undefined4 in_zero;
   undefined4 in_at;
@@ -1005,32 +1008,30 @@ void Hrz_BuildForkLightning__FP11Draw_DCache(Draw_DCache *sd)
   undefined4 local_28;
   coorddef cStack32;
   
-  if (0 < DAT_8012091c) {
+  if (0 < gHrz_Lightning.brightness) {
     sd->otz = Draw_gViewOtSize + -2;
     memset(&cStack32,0,0xc);
     HrzSetPsxTranslation__FP8coorddef(&cStack32);
-    setCopReg(2,in_zero,_Hrz_gLightningPosInSky);
-    setCopReg(2,in_at,_DAT_8013d898);
+    setCopReg(2,in_zero,Hrz_gLightningPosInSky._0_4_);
+    setCopReg(2,in_at,Hrz_gLightningPosInSky._4_4_);
     copFunction(2,0x180001);
     local_28 = getCopReg(2,0xe);
     bVar2 = 0;
-    if (DAT_80120920 != 0) {
+    if (gHrz_Lightning.numForks != '\0') {
       do {
         uVar1 = (uint)bVar2;
         bVar2 = bVar2 + 1;
-        local_30[0].vx = (&gHrz_Lightning)[uVar1 * 3] + (short)local_28;
-        local_30[0].vy = (&DAT_801208be)[uVar1 * 3] + local_28._2_2_;
+        local_30[0].vx = gHrz_Lightning.forks[uVar1].pos.vx + (short)local_28;
+        local_30[0].vy = gHrz_Lightning.forks[uVar1].pos.vy + local_28._2_2_;
         Hrz_TextureQuad__FP7DVECTORccP11Draw_DCache
-                  (local_30,(&DAT_801208c0)[uVar1 * 6],(char)DAT_8012091c,sd);
-      } while (bVar2 < DAT_80120920);
+                  (local_30,gHrz_Lightning.forks[uVar1].pmxIndex,(char)gHrz_Lightning.brightness,sd)
+        ;
+      } while (bVar2 < (byte)gHrz_Lightning.numForks);
     }
-    DAT_8012091c = DAT_8012091c + -0x10;
+    gHrz_Lightning.brightness = gHrz_Lightning.brightness + -0x10;
   }
   return;
-
-
 }
-
 
 
 
@@ -1062,45 +1063,43 @@ void Hrz_BuildForkLightning__FP11Draw_DCache(Draw_DCache *sd)
 	// End Line: 955
 
 void Hrz_LightningFlicker__Fi(int on)
+
 {
-  undefined4 *puVar1;
+  CVECTOR *pCVar1;
   int iVar2;
   
   if (on == 0) {
-    *(undefined4 *)(_Sky_gTrackSpec + 8) = _DAT_8013e384;
+    *(undefined4 *)(iGp00001340 + 8) = CVECTOR_8013e384;
     Hrz_InitSkyColor__Fv();
   }
   else {
     if (on == 1) {
-      if (true) {
+      if ((char)Night_gShowForks == '\0') {
         iVar2 = 0x54;
-        puVar1 = &DAT_80120770;
-        *(undefined4 *)(_Sky_gTrackSpec + 8) = 0xffc0c0;
+        pCVar1 = &CVECTOR_80120770;
+        *(undefined4 *)(iGp00001340 + 8) = 0xffc0c0;
         do {
-          *puVar1 = 0xffc0c0;
+          *pCVar1 = (CVECTOR)0xffc0c0;
           iVar2 = iVar2 + -1;
-          puVar1 = puVar1 + -1;
+          pCVar1 = pCVar1 + -1;
         } while (-1 < iVar2);
       }
     }
     else {
-      if (true) {
+      if ((char)Night_gShowForks == '\0') {
         iVar2 = 0x54;
-        puVar1 = &DAT_80120770;
-        *(undefined4 *)(_Sky_gTrackSpec + 8) = 0xc02828;
+        pCVar1 = &CVECTOR_80120770;
+        *(undefined4 *)(iGp00001340 + 8) = 0xc02828;
         do {
-          *puVar1 = 0xc02828;
+          *pCVar1 = (CVECTOR)0xc02828;
           iVar2 = iVar2 + -1;
-          puVar1 = puVar1 + -1;
+          pCVar1 = pCVar1 + -1;
         } while (-1 < iVar2);
       }
     }
   }
   return;
-
-
 }
-
 
 
 
@@ -1163,6 +1162,7 @@ void Hrz_LightningFlicker__Fi(int on)
 	// End Line: 983
 
 void HrzSetPsxMatrix__FP10matrixtdef(matrixtdef *m)
+
 {
   uint local_44;
   uint local_38;
@@ -1175,10 +1175,7 @@ void HrzSetPsxMatrix__FP10matrixtdef(matrixtdef *m)
   setCopControlWord(2,0x1800,m->m[2] >> 4 & 0xffffU | (m->m[5] >> 4) << 0x10);
   setCopControlWord(2,0x2000,local_38);
   return;
-
-
 }
-
 
 
 
@@ -1196,15 +1193,13 @@ void HrzSetPsxMatrix__FP10matrixtdef(matrixtdef *m)
 	// End Line: 1022
 
 void HrzSetPsxTranslation__FP8coorddef(coorddef *t)
+
 {
   setCopControlWord(2,0x2800,t->x >> 10);
   setCopControlWord(2,0x3000,t->y >> 10);
   setCopControlWord(2,0x3800,t->z >> 10);
   return;
-
-
 }
-
 
 
 
@@ -1220,6 +1215,7 @@ void HrzSetPsxTranslation__FP8coorddef(coorddef *t)
 	// End Line: 1046
 
 void Hrz_RotProj16__FiP7SVECTORPiP7DVECTOR(int n,SVECTOR *s,int *z,DVECTOR *p)
+
 {
   DVECTOR DVar1;
   int iVar2;
@@ -1244,10 +1240,7 @@ void Hrz_RotProj16__FiP7SVECTORPiP7DVECTOR(int n,SVECTOR *s,int *z,DVECTOR *p)
     } while (iVar3 != -1);
   }
   return;
-
-
 }
-
 
 
 
@@ -1265,23 +1258,21 @@ void Hrz_RotProj16__FiP7SVECTORPiP7DVECTOR(int n,SVECTOR *s,int *z,DVECTOR *p)
 	// End Line: 1051
 
 void Hrz_SetDitheringPrim__Fii(int dither,int otz)
+
 {
   uint *puVar1;
   uint *puVar2;
   uint uVar3;
   
-  puVar1 = _DAT_1f800004;
-  puVar2 = (uint *)(otz * 4 + _DAT_1f800000);
-  *_DAT_1f800004 = *_DAT_1f800004 & 0xff000000 | *puVar2 & 0xffffff;
-  uVar3 = (uint)_DAT_1f800004 & 0xffffff;
-  _DAT_1f800004 = _DAT_1f800004 + 3;
+  puVar1 = DAT_1f800004;
+  puVar2 = (uint *)(otz * 4 + DAT_1f800000);
+  *DAT_1f800004 = *DAT_1f800004 & 0xff000000 | *puVar2 & 0xffffff;
+  uVar3 = (uint)DAT_1f800004 & 0xffffff;
+  DAT_1f800004 = DAT_1f800004 + 3;
   *puVar2 = *puVar2 & 0xff000000 | uVar3;
-  SetDrawMode(puVar1,0,dither,0x100,0);
+  SetDrawMode((int)puVar1,0,dither,0x100,(byte *)0x0);
   return;
-
-
 }
-
 
 
 
@@ -1403,225 +1394,220 @@ void Hrz_SetDitheringPrim__Fii(int dither,int otz)
 	// End offset: 0x800D1140
 	// End Line: 1278
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Hrz_BuildSky__Fv(void)
+
 {
-  undefined4 uVar1;
-  uint *puVar2;
+  CVECTOR *pCVar1;
+  undefined4 uVar2;
+  int *piVar3;
+  uint *puVar4;
   undefined4 in_zero;
   undefined4 in_at;
-  int iVar3;
-  undefined4 *puVar4;
-  undefined4 *puVar5;
-  uint uVar6;
+  uint uVar5;
+  undefined4 *puVar6;
   undefined4 *puVar7;
-  undefined4 *puVar8;
+  CVECTOR CVar8;
   int iVar9;
-  int iVar10;
-  uint *puVar11;
-  uint *puVar12;
-  undefined4 *puVar13;
-  byte *pbVar14;
-  short sVar15;
+  undefined4 *puVar10;
+  SVECTOR *pSVar11;
+  int iVar12;
+  int iVar13;
+  Draw_tPixMap *pDVar14;
+  undefined4 *puVar15;
+  char *pcVar16;
+  short sVar17;
   coorddef cStack56;
   undefined4 local_28;
   int local_24;
   undefined4 local_20;
   
-  sVar15 = 0x78;
-  if (DAT_801131f8 == 1) {
-    sVar15 = 0x3c;
+  sVar17 = 0x78;
+  if (GameSetup_gData.commMode == 1) {
+    sVar17 = 0x3c;
   }
-  if ((piGp00001340[1] & 1U) == 0) {
+  if ((DAT_00001340[1] & 1U) == 0) {
     memset(&cStack56,0,0xc);
     HrzSetPsxTranslation__FP8coorddef(&cStack56);
-    puVar8 = (undefined4 *)&gSkyMesh;
-    puVar7 = (undefined4 *)0x1f800164;
-    iVar9 = 0x54;
-    puVar5 = (undefined4 *)&DAT_1f800010;
+    pSVar11 = &gSkyMesh;
+    puVar10 = (undefined4 *)0x1f800164;
+    iVar12 = 0x54;
+    puVar7 = (undefined4 *)&DAT_1f800010;
     do {
-      setCopReg(2,in_zero,*puVar8);
-      setCopReg(2,in_at,puVar8[1]);
+      setCopReg(2,in_zero,*(undefined4 *)pSVar11);
+      setCopReg(2,in_at,*(undefined4 *)&pSVar11->vz);
       copFunction(2,0x180001);
-      puVar8 = puVar8 + 2;
-      puVar7 = puVar7 + 1;
+      pSVar11 = pSVar11 + 1;
+      puVar10 = puVar10 + 1;
       local_28 = getCopReg(2,0x19);
       local_24 = getCopReg(2,0x1a);
       local_20 = getCopReg(2,0x1b);
-      uVar1 = getCopReg(2,0xe);
-      puVar5[1] = uVar1;
-      *(short *)((int)puVar5 + 6) = (short)(local_24 >> 2) + sVar15;
-      uVar1 = getCopReg(2,0x13);
-      *puVar7 = uVar1;
-      iVar9 = iVar9 + -1;
-      puVar5 = puVar5 + 1;
-    } while (iVar9 != -1);
+      uVar2 = getCopReg(2,0xe);
+      puVar7[1] = uVar2;
+      *(short *)((int)puVar7 + 6) = (short)(local_24 >> 2) + sVar17;
+      uVar2 = getCopReg(2,0x13);
+      *puVar10 = uVar2;
+      iVar12 = iVar12 + -1;
+      puVar7 = puVar7 + 1;
+    } while (iVar12 != -1);
   }
   else {
     memset(&cStack56,0,0xc);
     HrzSetPsxTranslation__FP8coorddef(&cStack56);
-    puVar8 = (undefined4 *)&gSkyMesh;
-    puVar5 = (undefined4 *)0x1f80015c;
-    puVar7 = (undefined4 *)&DAT_1f800008;
-    iVar9 = 0x55;
+    pSVar11 = &gSkyMesh;
+    puVar7 = (undefined4 *)0x1f80015c;
+    puVar10 = &DAT_1f800008;
+    iVar12 = 0x55;
     do {
-      iVar10 = iVar9;
-      setCopReg(2,in_zero,*puVar8);
-      setCopReg(2,in_at,puVar8[1]);
-      setCopReg(2,puVar8 + 4,puVar8[2]);
-      setCopReg(2,puVar8 + 2,puVar8[3]);
-      setCopReg(2,puVar5,puVar8[4]);
-      setCopReg(2,puVar7,puVar8[5]);
+      iVar13 = iVar12;
+      setCopReg(2,in_zero,*(undefined4 *)pSVar11);
+      setCopReg(2,in_at,*(undefined4 *)&pSVar11->vz);
+      setCopReg(2,pSVar11 + 2,*(undefined4 *)(pSVar11 + 1));
+      setCopReg(2,pSVar11 + 1,*(undefined4 *)&pSVar11[1].vz);
+      setCopReg(2,puVar7,*(undefined4 *)(pSVar11 + 2));
+      setCopReg(2,puVar10,*(undefined4 *)&pSVar11[2].vz);
       copFunction(2,0x280030);
-      puVar8 = puVar8 + 6;
-      iVar9 = iVar10 + -3;
-      puVar13 = puVar7 + 5;
-      uVar1 = getCopReg(2,0xc);
-      puVar7[3] = uVar1;
-      uVar1 = getCopReg(2,0xd);
-      puVar7[4] = uVar1;
-      uVar1 = getCopReg(2,0xe);
-      *puVar13 = uVar1;
-      puVar4 = puVar5 + 5;
-      uVar1 = getCopReg(2,0x11);
-      puVar5[3] = uVar1;
-      uVar1 = getCopReg(2,0x12);
-      puVar5[4] = uVar1;
-      uVar1 = getCopReg(2,0x13);
-      *puVar4 = uVar1;
-      puVar5 = puVar5 + 3;
+      pSVar11 = pSVar11 + 3;
+      iVar12 = iVar13 + -3;
+      puVar15 = puVar10 + 5;
+      uVar2 = getCopReg(2,0xc);
+      puVar10[3] = uVar2;
+      uVar2 = getCopReg(2,0xd);
+      puVar10[4] = uVar2;
+      uVar2 = getCopReg(2,0xe);
+      *puVar15 = uVar2;
+      puVar6 = puVar7 + 5;
+      uVar2 = getCopReg(2,0x11);
+      puVar7[3] = uVar2;
+      uVar2 = getCopReg(2,0x12);
+      puVar7[4] = uVar2;
+      uVar2 = getCopReg(2,0x13);
+      *puVar6 = uVar2;
       puVar7 = puVar7 + 3;
-    } while (2 < iVar9);
-    iVar10 = iVar10 + -4;
-    while (iVar10 != -1) {
-      setCopReg(2,in_zero,*puVar8);
-      setCopReg(2,in_at,puVar8[1]);
+      puVar10 = puVar10 + 3;
+    } while (2 < iVar12);
+    iVar13 = iVar13 + -4;
+    while (iVar13 != -1) {
+      setCopReg(2,in_zero,*(undefined4 *)pSVar11);
+      setCopReg(2,in_at,*(undefined4 *)&pSVar11->vz);
       copFunction(2,0x180001);
-      puVar8 = puVar8 + 2;
-      puVar13 = puVar13 + 1;
-      puVar4 = puVar4 + 1;
-      uVar1 = getCopReg(2,0xe);
-      *puVar13 = uVar1;
-      uVar1 = getCopReg(2,0x13);
-      *puVar4 = uVar1;
-      iVar10 = iVar10 + -1;
+      pSVar11 = pSVar11 + 1;
+      puVar15 = puVar15 + 1;
+      puVar6 = puVar6 + 1;
+      uVar2 = getCopReg(2,0xe);
+      *puVar15 = uVar2;
+      uVar2 = getCopReg(2,0x13);
+      *puVar6 = uVar2;
+      iVar13 = iVar13 + -1;
     }
   }
-  if ((piGp00001340[1] & 0x40U) != 0) {
+  if ((DAT_00001340[1] & 0x40U) != 0) {
     Hrz_SetDitheringPrim__Fii(0,Draw_gViewOtSize + -2);
   }
-  uVar1 = _DAT_1f800094;
-  if (false) {
+  uVar2 = DAT_1f800094;
+  if ((TrackSpec_gSpec.skyspec.flags & 4U) != 0) {
     Flare_Sun__FP7SVECTORP15Draw_FlareCache
               ((SVECTOR *)&sunPosInSky,(Draw_FlareCache *)&DAT_1f800000);
   }
-  iVar9 = 0;
-  pbVar14 = &gSkyPixmapIndex;
-  _DAT_1f800094 = uVar1;
+  iVar12 = 0;
+  pcVar16 = &gSkyPixmapIndex;
+  DAT_1f800094 = uVar2;
   do {
-    puVar2 = _DAT_1f800004;
-    if (0x3f < iVar9) {
-      if ((piGp00001340[1] & 0x40U) != 0) {
+    puVar4 = DAT_1f800004;
+    piVar3 = DAT_00001340;
+    if (0x3f < iVar12) {
+      if ((DAT_00001340[1] & 0x40U) != 0) {
         Hrz_SetDitheringPrim__Fii(1,Draw_gViewOtSize + -2);
       }
       return;
     }
-    iVar10 = iVar9 * 0x11;
-    if (iVar10 < 0) {
-      iVar10 = iVar10 + 0xf;
+    iVar13 = iVar12 * 0x11;
+    if (iVar13 < 0) {
+      iVar13 = iVar13 + 0xf;
     }
-    iVar10 = iVar10 >> 4;
-    iVar3 = iVar10 * 4;
-    if ((((*(int *)(&DAT_1f8001ac + iVar3) != 0) || (*(int *)(&DAT_1f8001b0 + iVar3) != 0)) ||
-        (*(int *)(&DAT_1f80016c + iVar3) != 0)) || (*(int *)(&DAT_1f800168 + iVar3) != 0)) {
-      iVar3 = iVar10 * 4;
-      if (((*(short *)(&DAT_1f800058 + iVar3) <= _DAT_1f800010) ||
-          (*(short *)(&DAT_1f80005c + iVar3) <= _DAT_1f800010)) ||
-         ((*(short *)(&DAT_1f800018 + iVar3) <= _DAT_1f800010 ||
-          (*(short *)(&DAT_1f800014 + iVar3) <= _DAT_1f800010)))) {
-        iVar3 = iVar10 * 4;
-        if ((((-1 < *(short *)(&DAT_1f800058 + iVar3)) || (-1 < *(short *)(&DAT_1f80005c + iVar3)))
-            || ((-1 < *(short *)(&DAT_1f800018 + iVar3) || (-1 < *(short *)(&DAT_1f800014 + iVar3)))
-               )) && (((((iVar3 = iVar10 * 4, *(short *)(&DAT_1f80005a + iVar3) <= _DAT_1f800012 ||
-                         (*(short *)(&DAT_1f80005e + iVar3) <= _DAT_1f800012)) ||
-                        (*(short *)(&DAT_1f80001a + iVar3) <= _DAT_1f800012)) ||
-                       (*(short *)(&DAT_1f800016 + iVar3) <= _DAT_1f800012)) &&
-                      (((iVar3 = iVar10 * 4, -1 < *(short *)(&DAT_1f80005a + iVar3) ||
-                        (-1 < *(short *)(&DAT_1f80005e + iVar3))) ||
-                       ((-1 < *(short *)(&DAT_1f80001a + iVar3) ||
-                        (-1 < (int)((uint)*(ushort *)(&DAT_1f800016 + iVar3) << 0x10))))))))) {
-          if (*piGp00001340 == 1) {
-            if ((piGp00001340[1] & 0x20U) != 0) {
-              iVar3 = Draw_gViewOtSize * 4 + _DAT_1f800000;
-              puVar11 = *(uint **)(&_gHorizonPixmap + (uint)*pbVar14 * 4);
-              *_DAT_1f800004 = *_DAT_1f800004 & 0xff000000 | *(uint *)(iVar3 + -8) & 0xffffff;
-              *(uint *)(iVar3 + -8) =
-                   *(uint *)(iVar3 + -8) & 0xff000000 | (uint)_DAT_1f800004 & 0xffffff;
-              iVar3 = iVar10 * 4;
-              puVar12 = _DAT_1f800004 + 1;
-              _DAT_1f800004 = _DAT_1f800004 + 0xd;
-              *puVar12 = (&DAT_80120664)[iVar10];
-              puVar2[4] = (&DAT_80120668)[iVar10];
-              puVar2[7] = *(uint *)(&gSkyColor + iVar3);
-              uVar6 = (&DAT_80120624)[iVar10];
-              *(undefined *)((int)puVar2 + 3) = 0xc;
-              *(undefined *)((int)puVar2 + 7) = 0x3c;
-              puVar2[10] = uVar6;
-              puVar2[3] = *puVar11;
-              puVar2[6] = puVar11[1];
-              puVar2[9] = puVar11[2];
-              puVar2[0xc] = puVar11[3];
-              puVar2[2] = *(uint *)(&DAT_1f800058 + iVar3);
-              puVar2[5] = *(uint *)(&DAT_1f80005c + iVar3);
-              puVar2[8] = *(uint *)(&DAT_1f800014 + iVar3);
-              puVar2[0xb] = *(uint *)(&DAT_1f800018 + iVar3);
-              goto LAB_800d1108;
-            }
-            iVar3 = Draw_gViewOtSize * 4 + _DAT_1f800000;
-            puVar12 = *(uint **)(&_gHorizonPixmap + (uint)*pbVar14 * 4);
-            *_DAT_1f800004 = *_DAT_1f800004 & 0xff000000 | *(uint *)(iVar3 + -8) & 0xffffff;
-            uVar6 = (uint)_DAT_1f800004 & 0xffffff;
-            _DAT_1f800004 = _DAT_1f800004 + 10;
-            *(uint *)(iVar3 + -8) = *(uint *)(iVar3 + -8) & 0xff000000 | uVar6;
-            uVar6 = piGp00001340[2];
-            *(undefined *)((int)puVar2 + 3) = 9;
-            puVar2[1] = uVar6;
-            *(undefined *)((int)puVar2 + 7) = 0x2c;
-            puVar2[3] = *puVar12;
-            puVar2[5] = puVar12[1];
-            puVar2[7] = puVar12[2];
-            puVar2[9] = puVar12[3];
-          }
-          else {
-            iVar3 = Draw_gViewOtSize * 4 + _DAT_1f800000;
-            *_DAT_1f800004 = *_DAT_1f800004 & 0xff000000 | *(uint *)(iVar3 + -8) & 0xffffff;
-            *(uint *)(iVar3 + -8) =
-                 *(uint *)(iVar3 + -8) & 0xff000000 | (uint)_DAT_1f800004 & 0xffffff;
-            puVar12 = _DAT_1f800004 + 1;
-            _DAT_1f800004 = _DAT_1f800004 + 9;
-            *puVar12 = (&DAT_80120664)[iVar10];
-            puVar2[3] = (&DAT_80120668)[iVar10];
-            puVar2[5] = *(uint *)(&gSkyColor + iVar10 * 4);
-            uVar6 = (&DAT_80120624)[iVar10];
-            *(undefined *)((int)puVar2 + 3) = 8;
-            *(undefined *)((int)puVar2 + 7) = 0x38;
-            puVar2[7] = uVar6;
-          }
-          iVar10 = iVar10 * 4;
-          puVar2[2] = *(uint *)(&DAT_1f800058 + iVar10);
-          puVar2[4] = *(uint *)(&DAT_1f80005c + iVar10);
-          puVar2[6] = *(uint *)(&DAT_1f800014 + iVar10);
-          puVar2[8] = *(uint *)(&DAT_1f800018 + iVar10);
+    iVar13 = iVar13 >> 4;
+    if ((((((&DAT_1f8001ac)[iVar13] != 0) || ((&DAT_1f8001b0)[iVar13] != 0)) ||
+         ((&DAT_1f80016c)[iVar13] != 0)) || ((&DAT_1f800168)[iVar13] != 0)) &&
+       ((((((short)(&DAT_1f800058)[iVar13 * 2] <= DAT_1f800010 ||
+           (*(short *)(&DAT_1f80005c + iVar13) <= DAT_1f800010)) ||
+          (((short)(&DAT_1f800018)[iVar13 * 2] <= DAT_1f800010 ||
+           ((short)(&DAT_1f800014)[iVar13 * 2] <= DAT_1f800010)))) &&
+         (((-1 < (short)(&DAT_1f800058)[iVar13 * 2] || (-1 < *(short *)(&DAT_1f80005c + iVar13))) ||
+          ((-1 < (short)(&DAT_1f800018)[iVar13 * 2] || (-1 < (short)(&DAT_1f800014)[iVar13 * 2])))))
+         ) && ((((((short)(&DAT_1f80005a)[iVar13 * 2] <= DAT_1f800012 ||
+                  (*(short *)((int)&DAT_1f80005c + iVar13 * 4 + 2) <= DAT_1f800012)) ||
+                 ((short)(&DAT_1f80001a)[iVar13 * 2] <= DAT_1f800012)) ||
+                ((short)(&DAT_1f800016)[iVar13 * 2] <= DAT_1f800012)) &&
+               (((-1 < (short)(&DAT_1f80005a)[iVar13 * 2] ||
+                 (-1 < *(short *)((int)&DAT_1f80005c + iVar13 * 4 + 2))) ||
+                ((-1 < (short)(&DAT_1f80001a)[iVar13 * 2] ||
+                 (-1 < (int)((uint)(ushort)(&DAT_1f800016)[iVar13 * 2] << 0x10))))))))))) {
+      if (*DAT_00001340 == 1) {
+        if ((DAT_00001340[1] & 0x20U) != 0) {
+          iVar9 = Draw_gViewOtSize * 4 + DAT_1f800000;
+          pDVar14 = (&__gHorizonPixmap_16__)[(uint)(byte)*pcVar16];
+          *DAT_1f800004 = *DAT_1f800004 & 0xff000000 | *(uint *)(iVar9 + -8) & 0xffffff;
+          *(uint *)(iVar9 + -8) = *(uint *)(iVar9 + -8) & 0xff000000 | (uint)DAT_1f800004 & 0xffffff
+          ;
+          pCVar1 = (CVECTOR *)(DAT_1f800004 + 1);
+          DAT_1f800004 = DAT_1f800004 + 0xd;
+          *pCVar1 = (&CVECTOR_80120664)[iVar13];
+          *(CVECTOR *)(puVar4 + 4) = (&CVECTOR_80120668)[iVar13];
+          *(CVECTOR *)(puVar4 + 7) = (&gSkyColor)[iVar13];
+          CVar8 = (&CVECTOR_80120624)[iVar13];
+          *(undefined *)((int)puVar4 + 3) = 0xc;
+          *(undefined *)((int)puVar4 + 7) = 0x3c;
+          *(CVECTOR *)(puVar4 + 10) = CVar8;
+          puVar4[3] = *(uint *)pDVar14;
+          puVar4[6] = *(uint *)&pDVar14->u1;
+          puVar4[9] = *(uint *)&pDVar14->u2;
+          puVar4[0xc] = *(uint *)&pDVar14->u3;
+          puVar4[2] = *(uint *)(&DAT_1f800058 + iVar13 * 2);
+          puVar4[5] = (&DAT_1f80005c)[iVar13];
+          puVar4[8] = *(uint *)(&DAT_1f800014 + iVar13 * 2);
+          puVar4[0xb] = *(uint *)(&DAT_1f800018 + iVar13 * 2);
+          goto LAB_800d1108;
         }
+        iVar9 = Draw_gViewOtSize * 4 + DAT_1f800000;
+        pDVar14 = (&__gHorizonPixmap_16__)[(uint)(byte)*pcVar16];
+        *DAT_1f800004 = *DAT_1f800004 & 0xff000000 | *(uint *)(iVar9 + -8) & 0xffffff;
+        uVar5 = (uint)DAT_1f800004 & 0xffffff;
+        DAT_1f800004 = DAT_1f800004 + 10;
+        *(uint *)(iVar9 + -8) = *(uint *)(iVar9 + -8) & 0xff000000 | uVar5;
+        uVar5 = piVar3[2];
+        *(undefined *)((int)puVar4 + 3) = 9;
+        puVar4[1] = uVar5;
+        *(undefined *)((int)puVar4 + 7) = 0x2c;
+        puVar4[3] = *(uint *)pDVar14;
+        puVar4[5] = *(uint *)&pDVar14->u1;
+        puVar4[7] = *(uint *)&pDVar14->u2;
+        puVar4[9] = *(uint *)&pDVar14->u3;
       }
+      else {
+        iVar9 = Draw_gViewOtSize * 4 + DAT_1f800000;
+        *DAT_1f800004 = *DAT_1f800004 & 0xff000000 | *(uint *)(iVar9 + -8) & 0xffffff;
+        *(uint *)(iVar9 + -8) = *(uint *)(iVar9 + -8) & 0xff000000 | (uint)DAT_1f800004 & 0xffffff;
+        pCVar1 = (CVECTOR *)(DAT_1f800004 + 1);
+        DAT_1f800004 = DAT_1f800004 + 9;
+        *pCVar1 = (&CVECTOR_80120664)[iVar13];
+        *(CVECTOR *)(puVar4 + 3) = (&CVECTOR_80120668)[iVar13];
+        *(CVECTOR *)(puVar4 + 5) = (&gSkyColor)[iVar13];
+        CVar8 = (&CVECTOR_80120624)[iVar13];
+        *(undefined *)((int)puVar4 + 3) = 8;
+        *(undefined *)((int)puVar4 + 7) = 0x38;
+        *(CVECTOR *)(puVar4 + 7) = CVar8;
+      }
+      puVar4[2] = *(uint *)(&DAT_1f800058 + iVar13 * 2);
+      puVar4[4] = (&DAT_1f80005c)[iVar13];
+      puVar4[6] = *(uint *)(&DAT_1f800014 + iVar13 * 2);
+      puVar4[8] = *(uint *)(&DAT_1f800018 + iVar13 * 2);
     }
 LAB_800d1108:
-    pbVar14 = pbVar14 + 1;
-    iVar9 = iVar9 + 1;
+    pcVar16 = (char *)((byte *)pcVar16 + 1);
+    iVar12 = iVar12 + 1;
   } while( true );
-
-
 }
-
 
 
 
@@ -1645,7 +1631,10 @@ LAB_800d1108:
 	// End offset: 0x800D1300
 	// End Line: 1331
 
+/* WARNING: Could not reconcile some variable overlaps */
+
 void Sky_RenderStars__FP13Draw_SkyCachei(Draw_SkyCache *sd,int otz)
+
 {
   uint *puVar1;
   undefined4 in_zero;
@@ -1659,17 +1648,17 @@ void Sky_RenderStars__FP13Draw_SkyCachei(Draw_SkyCache *sd,int otz)
   coorddef cStack72;
   uint local_38;
   
-  puVar6 = puGp0000132c;
+  puVar6 = DAT_0000132c;
   iVar7 = 0x78;
-  if (DAT_801131f8 == 1) {
+  if (GameSetup_gData.commMode == 1) {
     iVar7 = 0x3c;
   }
   memset(&cStack72,0,0xc);
   HrzSetPsxTranslation__FP8coorddef(&cStack72);
   iVar5 = 0;
-  if (0 < *(int *)(iGp00001340 + 0x44)) {
+  if (0 < *(int *)(DAT_00001340 + 0x44)) {
     do {
-      puVar1 = _DAT_1f800004;
+      puVar1 = DAT_1f800004;
       setCopReg(2,in_zero,*puVar6);
       setCopReg(2,in_at,puVar6[1]);
       copFunction(2,0x180001);
@@ -1685,12 +1674,12 @@ void Sky_RenderStars__FP13Draw_SkyCachei(Draw_SkyCache *sd,int otz)
         local_38 = uVar2 & 0xffff | iVar3 * 0x10000;
         if (((((short)local_38 <= (sd->head).clipW) && (-1 < (short)local_38)) &&
             (iVar3 = iVar3 * 0x10000 >> 0x10, iVar3 <= (int)(sd->head).clipH)) && (-1 < iVar3)) {
-          puVar4 = (uint *)(otz * 4 + _DAT_1f800000);
-          *_DAT_1f800004 = *_DAT_1f800004 & 0xff000000 | *puVar4 & 0xffffff;
-          uVar2 = (uint)_DAT_1f800004 & 0xffffff;
-          _DAT_1f800004 = _DAT_1f800004 + 3;
+          puVar4 = (uint *)(otz * 4 + DAT_1f800000);
+          *DAT_1f800004 = *DAT_1f800004 & 0xff000000 | *puVar4 & 0xffffff;
+          uVar2 = (uint)DAT_1f800004 & 0xffffff;
+          DAT_1f800004 = DAT_1f800004 + 3;
           *puVar4 = *puVar4 & 0xff000000 | uVar2;
-          uVar2 = *(uint *)(iVar5 * 4 + iGp00001330);
+          uVar2 = *(uint *)(iVar5 * 4 + DAT_00001330);
           *(undefined *)((int)puVar1 + 3) = 2;
           puVar1[1] = uVar2;
           *(undefined *)((int)puVar1 + 7) = 0x68;
@@ -1698,13 +1687,10 @@ void Sky_RenderStars__FP13Draw_SkyCachei(Draw_SkyCache *sd,int otz)
         }
       }
       iVar5 = iVar5 + 1;
-    } while (iVar5 < *(int *)(iGp00001340 + 0x44));
+    } while (iVar5 < *(int *)(DAT_00001340 + 0x44));
   }
   return;
-
-
 }
-
 
 
 
@@ -1808,7 +1794,10 @@ void Sky_RenderStars__FP13Draw_SkyCachei(Draw_SkyCache *sd,int otz)
 	// End offset: 0x800D1A50
 	// End Line: 1557
 
+/* WARNING: Could not reconcile some variable overlaps */
+
 void Hrz_BuildHorizon__FP13DRender_tView(DRender_tView *Vi)
+
 {
   uint *puVar1;
   short sVar2;
@@ -1834,23 +1823,22 @@ void Hrz_BuildHorizon__FP13DRender_tView(DRender_tView *Vi)
   int local_40;
   int local_3c;
   uint local_38;
-  int local_34;
-  int local_30;
+  undefined *local_34;
+  long local_30;
   
-  local_34 = 0x107ae;
+  local_34 = &DAT_000107ae;
   memset(&cStack104,0,0xc);
   local_30 = 0;
-  if (false) {
-    local_30 = 0xbe;
+  if (700 < Camera_gGeomScreen) {
+    local_30 = Camera_gGeomScreen;
     SetGeomScreen(700);
   }
   HrzSetPsxMatrix__FP10matrixtdef(&(Vi->cview).mrotationInv);
   HrzSetPsxTranslation__FP8coorddef(&cStack104);
-  Hrz_RotProj16__FiP7SVECTORPiP7DVECTOR
-            (0x11,pSGp00001344,(int *)&DAT_1f800124,(DVECTOR *)&DAT_1f800058);
+  Hrz_RotProj16__FiP7SVECTORPiP7DVECTOR(0x11,DAT_00001344,&DAT_1f800124,(DVECTOR *)&DAT_1f800058);
   iVar10 = 0;
   iVar8 = 0;
-  piVar5 = (int *)&DAT_1f800124;
+  piVar5 = &DAT_1f800124;
   iVar9 = 0;
   do {
     if (iVar8 < *piVar5) {
@@ -1860,10 +1848,10 @@ void Hrz_BuildHorizon__FP13DRender_tView(DRender_tView *Vi)
     iVar9 = iVar9 + 1;
     piVar5 = piVar5 + 1;
   } while (iVar9 < 0x10);
-  pSVar6 = pSGp00001344 + iVar10;
-  local_58 = CONCAT22(*(short *)(iGp0000133c + 8) + *(short *)(iGp0000133c + 0xc),pSVar6->vx);
+  pSVar6 = DAT_00001344 + iVar10;
+  local_58 = CONCAT22(*(short *)(DAT_0000133c + 8) + *(short *)(DAT_0000133c + 0xc),pSVar6->vx);
   local_54 = CONCAT22(local_54._2_2_,pSVar6->vz);
-  local_50 = CONCAT22(*(undefined2 *)(iGp0000133c + 8),pSVar6->vx);
+  local_50 = CONCAT22(*(undefined2 *)(DAT_0000133c + 8),pSVar6->vx);
   local_4c = CONCAT22(local_4c._2_2_,pSVar6->vz);
   setCopReg(2,in_zero,local_50);
   setCopReg(2,in_at,local_4c);
@@ -1877,9 +1865,9 @@ void Hrz_BuildHorizon__FP13DRender_tView(DRender_tView *Vi)
   local_48 = getCopReg(2,0xe);
   iVar9 = 0;
   iVar8 = 0x1f800000;
-  sVar2 = *(short *)(&DAT_1f800058 + iVar10 * 4);
+  sVar2 = (&DAT_1f800058)[iVar10 * 2];
   local_48.vy = (short)(local_48 >> 0x10);
-  sVar3 = *(short *)(&DAT_1f80005a + iVar10 * 4);
+  sVar3 = (&DAT_1f80005a)[iVar10 * 2];
   do {
     if (0 < *(int *)(iVar8 + 0x124)) {
       *(short *)(iVar8 + 0x14) = *(short *)(iVar8 + 0x58) + (local_48.vx - sVar2);
@@ -1890,9 +1878,9 @@ void Hrz_BuildHorizon__FP13DRender_tView(DRender_tView *Vi)
   } while (iVar9 < 0x11);
   iVar9 = 0;
   iVar8 = 0x1f800000;
-  sVar2 = *(short *)(&DAT_1f800058 + iVar10 * 4);
+  sVar2 = (&DAT_1f800058)[iVar10 * 2];
   local_44._2_2_ = (short)((uint)local_44 >> 0x10);
-  sVar3 = *(short *)(&DAT_1f80005a + iVar10 * 4);
+  sVar3 = (&DAT_1f80005a)[iVar10 * 2];
   do {
     if (0 < *(int *)(iVar8 + 0x124)) {
       *(short *)(iVar8 + 0x58) = *(short *)(iVar8 + 0x58) + ((short)local_44 - sVar2);
@@ -1909,53 +1897,53 @@ void Hrz_BuildHorizon__FP13DRender_tView(DRender_tView *Vi)
             ((DVECTOR *)&DAT_1f8000e0,(DVECTOR *)&DAT_1f80005c,(DVECTOR *)&DAT_1f800018,
              &gfxPmxHeightPercentage,0x10,1);
   iVar8 = 0;
-  if (false) {
+  if (TrackSpec_gSpec.horizonstate != 0) {
     iVar9 = 0x1f800000;
     iVar10 = 0;
     iVar12 = 4;
     while (iVar8 < 0x10) {
-      if ((15999 < *(int *)(iVar9 + 0x124)) || (15999 < *(int *)(&DAT_1f800124 + iVar12))) {
+      if ((15999 < *(int *)(iVar9 + 0x124)) || (15999 < *(int *)((int)&DAT_1f800124 + iVar12))) {
         local_58 = *(int *)(iVar9 + 0x9c);
         local_54 = *(int *)(iVar9 + 0xe0);
-        local_50 = *(int *)(&DAT_1f800058 + iVar12);
+        local_50 = *(int *)((int)&DAT_1f800058 + iVar12);
         local_4c = *(undefined4 *)(iVar9 + 0x58);
         if (((((-1 < (short)local_58) ||
               (((-1 < (short)local_54 || (-1 < (short)local_50)) || (-1 < (short)local_4c)))) &&
-             (((((short)local_58 <= _DAT_1f800010 || ((short)local_54 <= _DAT_1f800010)) ||
-               ((short)local_50 <= _DAT_1f800010)) || ((short)local_4c <= _DAT_1f800010)))) &&
+             (((((short)local_58 <= DAT_1f800010 || ((short)local_54 <= DAT_1f800010)) ||
+               ((short)local_50 <= DAT_1f800010)) || ((short)local_4c <= DAT_1f800010)))) &&
             (((local_58._2_2_ = (short)((uint)local_58 >> 0x10),
               local_54._2_2_ = (short)((uint)local_54 >> 0x10),
               local_50._2_2_ = (short)((uint)local_50 >> 0x10),
               local_4c._2_2_ = (short)((uint)local_4c >> 0x10), -1 < local_58._2_2_ ||
               (-1 < local_54._2_2_)) || ((-1 < local_50._2_2_ || (-1 < local_4c._2_2_)))))) &&
-           ((((local_58._2_2_ <= _DAT_1f800012 || (local_54._2_2_ <= _DAT_1f800012)) ||
-             (local_50._2_2_ <= _DAT_1f800012)) || (local_4c._2_2_ <= _DAT_1f800012)))) {
+           ((((local_58._2_2_ <= DAT_1f800012 || (local_54._2_2_ <= DAT_1f800012)) ||
+             (local_50._2_2_ <= DAT_1f800012)) || (local_4c._2_2_ <= DAT_1f800012)))) {
           Horizon_InterpolateLineSCoords__FP7DVECTORN20Piii
-                    (&local_48,(DVECTOR *)(&DAT_1f80009c + iVar10),
-                     (DVECTOR *)(&DAT_1f8000e0 + iVar10),&local_34,1,0);
-          puVar4 = _DAT_1f800004;
-          puVar11 = *(uint **)((int)&_gpPmx + iVar10);
-          if (*(char *)(iGp0000133c + iVar8 + 0x20) != '\x10') {
-            iVar7 = Draw_gViewOtSize * 4 + _DAT_1f800000;
-            *_DAT_1f800004 = *_DAT_1f800004 & 0xff000000 | *(uint *)(iVar7 + -8) & 0xffffff;
+                    (&local_48,(DVECTOR *)((int)&DAT_1f80009c + iVar10),
+                     (DVECTOR *)((int)&DAT_1f8000e0 + iVar10),(int *)&local_34,1,0);
+          puVar4 = DAT_1f800004;
+          puVar11 = *(uint **)((int)&__gpPmx_16__ + iVar10);
+          if (*(char *)(DAT_0000133c + iVar8 + 0x20) != '\x10') {
+            iVar7 = Draw_gViewOtSize * 4 + DAT_1f800000;
+            *DAT_1f800004 = *DAT_1f800004 & 0xff000000 | *(uint *)(iVar7 + -8) & 0xffffff;
             *(uint *)(iVar7 + -8) =
-                 *(uint *)(iVar7 + -8) & 0xff000000 | (uint)_DAT_1f800004 & 0xffffff;
-            puVar1 = _DAT_1f800004 + 1;
-            _DAT_1f800004 = _DAT_1f800004 + 0xd;
+                 *(uint *)(iVar7 + -8) & 0xff000000 | (uint)DAT_1f800004 & 0xffffff;
+            puVar1 = DAT_1f800004 + 1;
+            DAT_1f800004 = DAT_1f800004 + 0xd;
             *puVar1 = *(uint *)((int)&DAT_80120838 + iVar10);
             puVar4[4] = *(uint *)((int)&DAT_8012083c + iVar10);
-            puVar4[7] = *(uint *)(&gHrzRingColor + iVar10);
-            puVar4[10] = *(uint *)((int)&DAT_801207f8 + iVar10);
-            SetPolyGT4(puVar4);
+            puVar4[7] = *(uint *)(&gHrzRingColor.r + iVar10);
+            puVar4[10] = *(uint *)(&CVECTOR_801207f8.r + iVar10);
+            SetPolyGT4((int)puVar4);
             puVar4[3] = *puVar11;
             puVar4[6] = puVar11[1];
             puVar4[9] = puVar11[2];
             puVar4[0xc] = puVar11[3];
-            if (*(byte *)(iGp0000133c + iVar8 + 0x20) < 8) {
-              puVar4[2] = *(uint *)(&DAT_1f80009c + iVar10);
+            if (*(byte *)(DAT_0000133c + iVar8 + 0x20) < 8) {
+              puVar4[2] = *(uint *)((int)&DAT_1f80009c + iVar10);
               puVar4[5] = local_48;
-              puVar4[8] = *(uint *)(&DAT_1f800058 + iVar10);
-              puVar4[0xb] = *(uint *)(&DAT_1f80005c + iVar10);
+              puVar4[8] = *(uint *)((int)&DAT_1f800058 + iVar10);
+              puVar4[0xb] = *(uint *)((int)&DAT_1f80005c + iVar10);
             }
             else {
               puVar4[2] = local_48;
@@ -1972,29 +1960,26 @@ void Hrz_BuildHorizon__FP13DRender_tView(DRender_tView *Vi)
       iVar8 = iVar8 + 1;
     }
   }
-  if ((false) && (false)) {
+  if ((Night_gLightning != (uchar *)0x0) && ((char)Night_gShowForks != '\0')) {
     Hrz_BuildForkLightning__FP11Draw_DCache((Draw_DCache *)&DAT_1f800000);
   }
-  if (false) {
+  if ((TrackSpec_gSpec.skyspec.flags & 8U) != 0) {
     memset((coorddef *)&local_58,0,0xc);
     HrzSetPsxTranslation__FP8coorddef((coorddef *)&local_58);
     Flare_Moon__FP7SVECTORP15Draw_FlareCache
               ((SVECTOR *)&moonPosInSky,(Draw_FlareCache *)&DAT_1f800000);
   }
-  if (false) {
+  if ((TrackSpec_gSpec.skyspec.flags & 0x10U) != 0) {
     Sky_RenderStars__FP13Draw_SkyCachei((Draw_SkyCache *)&DAT_1f800000,Draw_gViewOtSize + -2);
   }
-  if (false) {
+  if (TrackSpec_gSpec.skystate != 0) {
     Hrz_BuildSky__Fv();
   }
   if (local_30 != 0) {
     SetGeomScreen(local_30);
   }
   return;
-
-
 }
-
 
 
 

@@ -13,15 +13,13 @@
 	// End Line: 70
 
 int CalcObjYawAngle__FP8CCOORD16(CCOORD16 *pts)
+
 {
   int iVar1;
   
   iVar1 = fixedatan((int)pts[1].x - (int)pts->x,(int)pts[1].z - (int)pts->z);
   return iVar1 + -0x4000 >> 8;
-
-
 }
-
 
 
 
@@ -42,7 +40,9 @@ int CalcObjYawAngle__FP8CCOORD16(CCOORD16 *pts)
 	// End offset: 0x800A4B1C
 	// End Line: 79
 
-void CalcObjExtentPoints__FP8coorddefP8CCOORD16T0P5tQuat( (coorddef *cp,CCOORD16 *pts,coorddef *resultPts,tQuat *quat)
+void CalcObjExtentPoints__FP8coorddefP8CCOORD16T0P5tQuat
+               (coorddef *cp,CCOORD16 *pts,coorddef *resultPts,tQuat *quat)
+
 {
   int iVar1;
   int iVar2;
@@ -62,18 +62,15 @@ void CalcObjExtentPoints__FP8coorddefP8CCOORD16T0P5tQuat( (coorddef *cp,CCOORD16
   resultPts->x = iVar2;
   resultPts->z = iVar3;
   Quatern_QuatToMat__FP5tQuatP10matrixtdef(quat,&mStack88);
-  transform(local_30,&mStack88,resultPts + 1);
-  transform(local_20,&mStack88,resultPts + 2);
+  transform(local_30,(int *)&mStack88,(int *)(resultPts + 1));
+  transform(local_20,(int *)&mStack88,(int *)(resultPts + 2));
   resultPts[1].x = resultPts[1].x + iVar2;
   iVar1 = resultPts[2].x;
   resultPts[1].z = resultPts[1].z + iVar3;
   resultPts[2].x = iVar1 + iVar2;
   resultPts[2].z = resultPts[2].z + iVar3;
   return;
-
-
 }
-
 
 
 
@@ -92,25 +89,24 @@ void CalcObjExtentPoints__FP8coorddefP8CCOORD16T0P5tQuat( (coorddef *cp,CCOORD16
 	// End offset: 0x800A4BE8
 	// End Line: 122
 
-void BuildObjCollisionMatrix__FiiiP10matrixtdef( (int weight,int objAngle,int impactAngle,matrixtdef *mat)
+void BuildObjCollisionMatrix__FiiiP10matrixtdef
+               (int weight,int objAngle,int impactAngle,matrixtdef *mat)
+
 {
-  int iVar1;
-  int iVar2;
+  uint uVar1;
+  uint uVar2;
   matrixtdef mStack144;
   matrixtdef mStack104;
   matrixtdef mStack64;
   
-  iVar1 = fixedmult(-impactAngle,0x10000 - weight);
-  iVar2 = fixedmult(-objAngle,weight);
-  fixedxformy(&mStack104,iVar1 + iVar2);
-  fixedxformy(&mStack144,impactAngle);
+  uVar1 = fixedmult(-impactAngle,0x10000 - weight);
+  uVar2 = fixedmult(-objAngle,weight);
+  fixedxformy((int *)&mStack104,uVar1 + uVar2);
+  fixedxformy((int *)&mStack144,impactAngle);
   Math_fasttransmult__FP10matrixtdefN20(&mStack104,mat,&mStack64);
   Math_fasttransmult__FP10matrixtdefN20(&mStack64,&mStack144,mat);
   return;
-
-
 }
-
 
 
 
@@ -225,6 +221,7 @@ void BuildObjCollisionMatrix__FiiiP10matrixtdef( (int weight,int objAngle,int im
 	// End Line: 177
 
 Trk_SimpleInst * FindObjInstanceFromSerialNum__FP5Groupi(Group *group,int index)
+
 {
   int iVar1;
   Trk_SimpleInst *pTVar2;
@@ -234,9 +231,9 @@ Trk_SimpleInst * FindObjInstanceFromSerialNum__FP5Groupi(Group *group,int index)
       iVar1 = group->m_num_elements;
     }
     else {
-      iVar1 = pGGp00000d7c->m_num_elements;
+      iVar1 = DAT_00000d7c->m_num_elements;
       index = index & 0xffffff7f;
-      group = pGGp00000d7c;
+      group = DAT_00000d7c;
     }
     if (index < iVar1) {
       pTVar2 = (Trk_SimpleInst *)(group + 1);
@@ -247,10 +244,7 @@ Trk_SimpleInst * FindObjInstanceFromSerialNum__FP5Groupi(Group *group,int index)
     }
   }
   return (Trk_SimpleInst *)0x0;
-
-
 }
-
 
 
 
@@ -367,54 +361,57 @@ Trk_SimpleInst * FindObjInstanceFromSerialNum__FP5Groupi(Group *group,int index)
 	// End offset: 0x800A4F04
 	// End Line: 243
 
-void Object_InitCollisionCheckLoop__FP12BWorldSm_PosP18Object_tSimObjListPi( (BWorldSm_Pos *slicePos,Object_tSimObjList *objList,int *numObj)
+void Object_InitCollisionCheckLoop__FP12BWorldSm_PosP18Object_tSimObjListPi
+               (BWorldSm_Pos *slicePos,Object_tSimObjList *objList,int *numObj)
+
 {
   byte bVar1;
-  int *piVar2;
-  int iVar3;
-  uint uVar4;
+  int iVar2;
+  uint uVar3;
   
-  piVar2 = *(int **)((uint)slicePos->chunk * 0x70 + 0x50);
-  if (piVar2 == (int *)0x0) {
+  if (Track_chunkList[(uint)slicePos->chunk].simObjBuf == (Group *)0x0) {
     objList->numObjects = 0;
   }
   else {
-    objList->numObjects = *piVar2;
+    objList->numObjects = (Track_chunkList[(uint)slicePos->chunk].simObjBuf)->m_num_elements;
   }
   bVar1 = slicePos->chunk;
   objList->numObjects2 = 0;
   objList->chunk = (uint)bVar1;
-  uVar4 = (uint)*(byte *)(((int)slicePos->slice + 1) * 0x20 + 0x1c);
-  if ((uVar4 == (uint)slicePos->chunk) ||
-     (piVar2 = *(int **)(uVar4 * 0x70 + 0x50), piVar2 == (int *)0x0)) {
-    uVar4 = (uint)*(byte *)(((int)slicePos->slice + -1) * 0x20 + 0x1c);
-    if ((uVar4 == (uint)slicePos->chunk) ||
-       (piVar2 = *(int **)(uVar4 * 0x70 + 0x50), piVar2 == (int *)0x0)) {
-      iVar3 = objList->numObjects;
+  iVar2 = (int)slicePos->slice + 1;
+  if (gNumSlices <= iVar2) {
+    iVar2 = (int)slicePos->slice - (gNumSlices + -1);
+  }
+  uVar3 = (uint)BWorldSm_slices[iVar2].chunkIndex;
+  if ((uVar3 == (uint)slicePos->chunk) || (Track_chunkList[uVar3].simObjBuf == (Group *)0x0)) {
+    iVar2 = (int)slicePos->slice + -1;
+    if (iVar2 < 0) {
+      iVar2 = (int)slicePos->slice + gNumSlices + -1;
+    }
+    uVar3 = (uint)BWorldSm_slices[iVar2].chunkIndex;
+    if ((uVar3 == (uint)slicePos->chunk) || (Track_chunkList[uVar3].simObjBuf == (Group *)0x0)) {
+      iVar2 = objList->numObjects;
     }
     else {
-      objList->numObjects2 = *piVar2;
-      objList->chunk2 = uVar4;
-      iVar3 = objList->numObjects + objList->numObjects2;
+      objList->numObjects2 = (Track_chunkList[uVar3].simObjBuf)->m_num_elements;
+      objList->chunk2 = uVar3;
+      iVar2 = objList->numObjects + objList->numObjects2;
     }
   }
   else {
-    objList->numObjects2 = *piVar2;
-    objList->chunk2 = uVar4;
-    iVar3 = objList->numObjects + objList->numObjects2;
+    objList->numObjects2 = (Track_chunkList[uVar3].simObjBuf)->m_num_elements;
+    objList->chunk2 = uVar3;
+    iVar2 = objList->numObjects + objList->numObjects2;
   }
-  *numObj = iVar3;
-  if (((piGp00000d80 != (int *)0x0) && (0 < *piGp00000d80)) &&
-     (iVar3 = Math_DistXZ__FP8coorddefT0
-                        ((coorddef *)(iGp00000d88 * 0x20),(coorddef *)((int)slicePos->slice * 0x20))
-     , iVar3 < 0xc00000)) {
-    *numObj = *numObj + *piGp00000d80;
+  *numObj = iVar2;
+  if (((DAT_00000d80 != (int *)0x0) && (0 < *DAT_00000d80)) &&
+     (iVar2 = Math_DistXZ__FP8coorddefT0
+                        ((coorddef *)(BWorldSm_slices + DAT_00000d88),
+                         (coorddef *)(BWorldSm_slices + (int)slicePos->slice)), iVar2 < 0xc00000)) {
+    *numObj = *numObj + *DAT_00000d80;
   }
   return;
-
-
 }
-
 
 
 
@@ -497,34 +494,35 @@ void Object_InitCollisionCheckLoop__FP12BWorldSm_PosP18Object_tSimObjListPi( (BW
 	// End offset: 0x800A4FE0
 	// End Line: 291
 
-Trk_SimObject * GetSimObj__FiP18Object_tSimObjListPi(int objIndex,Object_tSimObjList *objList,int *chunk)
+Trk_SimObject *
+GetSimObj__FiP18Object_tSimObjListPi(int objIndex,Object_tSimObjList *objList,int *chunk)
+
 {
   int iVar1;
-  Trk_SimObject *pTVar2;
-  int iVar3;
+  int iVar2;
+  Trk_SimObject *pTVar3;
+  int iVar4;
   
-  iVar1 = objList->numObjects;
-  iVar3 = objList->numObjects2;
-  pTVar2 = (Trk_SimObject *)0x0;
-  if (iVar1 + iVar3 <= objIndex) {
+  iVar1 = DAT_00000d80;
+  iVar2 = objList->numObjects;
+  iVar4 = objList->numObjects2;
+  pTVar3 = (Trk_SimObject *)0x0;
+  if (iVar2 + iVar4 <= objIndex) {
     *chunk = -1;
-    return (Trk_SimObject *)(iGp00000d80 + 4 + ((objIndex - iVar1) - iVar3) * 0x14);
+    return (Trk_SimObject *)(iVar1 + 4 + ((objIndex - iVar2) - iVar4) * 0x14);
   }
   *chunk = objList->chunk;
   if (objList->numObjects <= objIndex) {
     objIndex = objIndex - objList->numObjects;
     *chunk = objList->chunk2;
   }
-  iVar1 = *(int *)(*chunk * 0x70 + 0x50);
-  if ((iVar1 != 0) &&
-     (pTVar2 = (Trk_SimObject *)(iVar1 + 4 + objIndex * 0x14), pTVar2->type == '\x10')) {
-    pTVar2 = (Trk_SimObject *)0x0;
+  if ((Track_chunkList[*chunk].simObjBuf != (Group *)0x0) &&
+     (pTVar3 = (Trk_SimObject *)(Track_chunkList[*chunk].simObjBuf + objIndex * 5 + 1),
+     pTVar3->type == '\x10')) {
+    pTVar3 = (Trk_SimObject *)0x0;
   }
-  return pTVar2;
-
-
+  return pTVar3;
 }
-
 
 
 
@@ -573,7 +571,9 @@ Trk_SimObject * GetSimObj__FiP18Object_tSimObjListPi(int objIndex,Object_tSimObj
 	// End offset: 0x800A50D8
 	// End Line: 331
 
-int Object_GetRadiusCollisionData__FP18Object_tSimObjListiP8coorddefPi( (Object_tSimObjList *objList,int objIndex,coorddef *pos,int *radius)
+int Object_GetRadiusCollisionData__FP18Object_tSimObjListiP8coorddefPi
+              (Object_tSimObjList *objList,int objIndex,coorddef *pos,int *radius)
+
 {
   Trk_SimObject *pt;
   Trk_SimpleInst *animInst;
@@ -587,11 +587,13 @@ int Object_GetRadiusCollisionData__FP18Object_tSimObjListiP8coorddefPi( (Object_
     *radius = 0;
   }
   else {
-    if (((pt->type & 0x80) != 0) && ((&_gSimObjAnims)[(int)pt->serialNum] == 0)) {
+    if (((pt->type & 0x80) != 0) &&
+       ((&__gSimObjAnims_450__)[(int)pt->serialNum] == (ObjectAnim *)0x0)) {
       animInst = FindObjInstanceFromSerialNum__FP5Groupi
-                           (*(Group **)(local_18 * 0x70 + 0x40),(uint)pt->instIndex);
+                           (Track_chunkList[local_18].objInstanceBuf,(uint)pt->instIndex);
       Anim_GetPos__FP15Trk_AnimateInstiiP8coorddefPiT4
-                ((Trk_AnimateInst *)animInst,1,0,(coorddef *)pt,&iStack20,&iStack20);
+                ((Trk_AnimateInst *)animInst,1,simGlobal.gameTicks,(coorddef *)pt,&iStack20,
+                 &iStack20);
     }
     iVar1 = pt->point[1];
     iVar2 = pt->point[2];
@@ -601,10 +603,7 @@ int Object_GetRadiusCollisionData__FP18Object_tSimObjListiP8coorddefPi( (Object_
     *radius = (int)pt->radius << 7;
   }
   return 0;
-
-
 }
-
 
 
 
@@ -668,7 +667,9 @@ int Object_GetRadiusCollisionData__FP18Object_tSimObjListiP8coorddefPi( (Object_
 	// End offset: 0x800A5218
 	// End Line: 382
 
-void Object_GetPointsCollisionData__FP18Object_tSimObjListiPiP8coorddef( (Object_tSimObjList *objList,int objIndex,int *numPoints,coorddef *resultPoints)
+void Object_GetPointsCollisionData__FP18Object_tSimObjListiPiP8coorddef
+               (Object_tSimObjList *objList,int objIndex,int *numPoints,coorddef *resultPoints)
+
 {
   byte bVar1;
   Trk_SimObject *cp;
@@ -689,7 +690,7 @@ void Object_GetPointsCollisionData__FP18Object_tSimObjListiPiP8coorddef( (Object
     }
     else {
       bVar1 = cp->instIndex;
-      group = *(Group **)(local_18[0] * 0x70 + 0x40);
+      group = Track_chunkList[local_18[0]].objInstanceBuf;
     }
     pTVar2 = FindObjInstanceFromSerialNum__FP5Groupi(group,(uint)bVar1);
     if (pTVar2 == (Trk_SimpleInst *)0x0) {
@@ -703,8 +704,7 @@ void Object_GetPointsCollisionData__FP18Object_tSimObjListiPiP8coorddef( (Object
     else {
       if ((pTVar2->type == '\x05') && (*(char *)((int)&pTVar2[1].y + 3) == '\0')) {
         CalcObjExtentPoints__FP8coorddefP8CCOORD16T0P5tQuat
-                  ((coorddef *)cp,
-                   (CCOORD16 *)(*(int *)((int)pTVar2->pad * 4 + __Track_gObjDefs) + 4),resultPoints,
+                  ((coorddef *)cp,(CCOORD16 *)(Track_gObjDefs[(int)pTVar2->pad] + 1),resultPoints,
                    (tQuat *)(pTVar2 + 1));
         *numPoints = 3;
       }
@@ -719,10 +719,7 @@ void Object_GetPointsCollisionData__FP18Object_tSimObjListiPiP8coorddef( (Object
     }
   }
   return;
-
-
 }
-
 
 
 
@@ -739,23 +736,23 @@ void Object_GetPointsCollisionData__FP18Object_tSimObjListiPiP8coorddef( (Object
 	// End offset: 0x800A5250
 	// End Line: 405
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Object_InitStatus__Fv(void)
+
 {
-  undefined4 *puVar1;
+  ObjectAnim **ppOVar1;
   int iVar2;
   
   iVar2 = 0x1c1;
-  puVar1 = &DAT_80116464;
+  ppOVar1 = &PTR_80116464;
   do {
-    *puVar1 = 0;
+    *ppOVar1 = (ObjectAnim *)0x0;
     iVar2 = iVar2 + -1;
-    puVar1 = puVar1 + -1;
+    ppOVar1 = ppOVar1 + -1;
   } while (-1 < iVar2);
   return;
-
-
 }
-
 
 
 
@@ -772,27 +769,29 @@ void Object_InitStatus__Fv(void)
 	// End offset: 0x800A52B0
 	// End Line: 416
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Object_KillStatus__Fv(void)
+
 {
-  int *piVar1;
-  int **ppiVar2;
-  int iVar3;
+  uint uVar1;
+  ObjectAnim *pOVar2;
+  ObjectAnim **ppOVar3;
+  int iVar4;
   
-  iVar3 = 0;
-  ppiVar2 = (int **)&_gSimObjAnims;
+  iVar4 = 0;
+  ppOVar3 = &__gSimObjAnims_450__;
   do {
-    piVar1 = *ppiVar2;
-    if (piVar1 != (int *)0x0) {
-      (**(code **)(*piVar1 + 0xc))((int)piVar1 + (int)*(short *)(*piVar1 + 8),3);
+    pOVar2 = *ppOVar3;
+    if (pOVar2 != (ObjectAnim *)0x0) {
+      uVar1 = pOVar2->_vf[0].value;
+      (**(code **)(uVar1 + 0xc))((int)&pOVar2->_vf[0].value + (int)*(short *)(uVar1 + 8),3);
     }
-    iVar3 = iVar3 + 1;
-    ppiVar2 = ppiVar2 + 1;
-  } while (iVar3 < 0x1c2);
+    iVar4 = iVar4 + 1;
+    ppOVar3 = ppOVar3 + 1;
+  } while (iVar4 < 0x1c2);
   return;
-
-
 }
-
 
 
 
@@ -808,15 +807,13 @@ void Object_KillStatus__Fv(void)
 	// End Line: 431
 
 ObjectAnim * Object_GetAnim__FP13Trk_SimObject(Trk_SimObject *simObj)
+
 {
   if (simObj != (Trk_SimObject *)0x0) {
-    return (ObjectAnim *)(&_gSimObjAnims)[(int)simObj->serialNum];
+    return (&__gSimObjAnims_450__)[(int)simObj->serialNum];
   }
   return (ObjectAnim *)0x0;
-
-
 }
-
 
 
 
@@ -976,7 +973,9 @@ ObjectAnim * Object_GetAnim__FP13Trk_SimObject(Trk_SimObject *simObj)
 	// End offset: 0x800A555C
 	// End Line: 558
 
-int Object_CheckCollisionResults__FP18Object_tSimObjListiP13BO_tNewtonObj( (Object_tSimObjList *objList,int objIndex,BO_tNewtonObj *N)
+int Object_CheckCollisionResults__FP18Object_tSimObjListiP13BO_tNewtonObj
+              (Object_tSimObjList *objList,int objIndex,BO_tNewtonObj *N)
+
 {
   int iVar1;
   Trk_SimObject *simObj;
@@ -1002,30 +1001,30 @@ int Object_CheckCollisionResults__FP18Object_tSimObjListiP13BO_tNewtonObj( (Obje
   simObj = GetSimObj__FiP18Object_tSimObjListPi(objIndex,objList,local_28);
   bVar3 = simObj->type & 0xf;
   if (bVar3 == 2) {
-    if ((&_gSimObjAnims)[(int)simObj->serialNum] != 0) {
+    if ((&__gSimObjAnims_450__)[(int)simObj->serialNum] != (ObjectAnim *)0x0) {
       return 0;
     }
     if (-1 < iVar2 + iVar1 >> 0x10) {
       objCollideInstance =
            (Trk_CollideBoomInst *)
            FindObjInstanceFromSerialNum__FP5Groupi
-                     (*(Group **)(local_28[0] * 0x70 + 0x40),(uint)simObj->instIndex);
+                     (Track_chunkList[local_28[0]].objInstanceBuf,(uint)simObj->instIndex);
       if (objCollideInstance->type == '\x06') {
         bVar3 = *(byte *)((int)&objCollideInstance->y + 1);
       }
       else {
         bVar3 = objCollideInstance->boomIndex;
       }
-      def = (AnimDef *)(&gAnimDefs + (uint)bVar3 * 0x14);
-      if (*(int *)(&DAT_80115c58 + (uint)bVar3 * 0x14) == 0) {
-        objDef = *(Trk_ObjectDef **)((int)objCollideInstance->pad * 4 + __Track_gObjDefs);
+      def = &gAnimDefs + (uint)bVar3;
+      if ((&gAnimDefs)[(uint)bVar3].animIndex == 0) {
+        objDef = Track_gObjDefs[(int)objCollideInstance->pad];
       }
       else {
-        objDef = (Trk_ObjectDef *)(_gPersistObjDef + 4);
+        objDef = (Trk_ObjectDef *)(gPersistObjDef + 1);
       }
       if (def->type == 0) {
         finishedAnim_00 = (ObjectFinishedSignAnim *)__builtin_new(0x30);
-        (finishedAnim_00->ObjectAnim)._vf[0] = (__vtbl_ptr_type *)0x800560a0;
+        (finishedAnim_00->ObjectAnim)._vf[0].value = 0x800560a0;
         this_00 = (ObjectSignAnim *)__builtin_new(0x30);
         iVar2 = fixedatan((N->linearVel).x >> 8,(N->linearVel).z >> 8);
         this_00 = 
@@ -1038,14 +1037,14 @@ int Object_CheckCollisionResults__FP18Object_tSimObjListiP13BO_tNewtonObj( (Obje
           return -1;
         }
         finishedAnim = (ObjectFinishedMultiAnim *)__builtin_new(4);
-        (finishedAnim->ObjectAnim)._vf[0] = (__vtbl_ptr_type *)0x800560d0;
+        (finishedAnim->ObjectAnim)._vf[0].value = 0x800560d0;
         this = (ObjectMultiAnim *)__builtin_new(0x30);
         this_00 = (ObjectSignAnim *)
                                     
                   __15ObjectMultiAnimP8coorddefP7AnimDefP19Trk_CollideBoomInstP13Trk_ObjectDefP13Trk_SimObjectP23ObjectFinishedMultiAnim
                             (this,&N->linearVel,def,objCollideInstance,objDef,simObj,finishedAnim);
       }
-      *(ObjectSignAnim **)(&_gSimObjAnims + (int)simObj->serialNum) = this_00;
+      *(ObjectSignAnim **)(&__gSimObjAnims_450__ + (int)simObj->serialNum) = this_00;
       return -1;
     }
   }
@@ -1061,10 +1060,7 @@ int Object_CheckCollisionResults__FP18Object_tSimObjListiP13BO_tNewtonObj( (Obje
     }
   }
   return 1;
-
-
 }
-
 
 
 
@@ -1093,21 +1089,24 @@ int Object_CheckCollisionResults__FP18Object_tSimObjListiP13BO_tNewtonObj( (Obje
 	// End offset: 0x800A5588
 	// End Line: 582
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Object_InitCustomObjects__Fv(void)
+
 {
-  puGp00000d7c = (undefined4 *)reservememadr("Custom Objects",0x400,0);
-  *puGp00000d7c = 0;
-  puGp00000d80 = (undefined4 *)reservememadr("Custom SimObjects",0x400,0);
-  *puGp00000d80 = 0;
-  blockfill(puGp00000d80 + 1,0x3fc,0);
-  puGp00000d84 = (undefined4 *)reservememadr("Custom SimObjects",0x400,0);
-  *puGp00000d84 = 0;
-  uGp00000d88 = 0;
+  undefined4 *puVar1;
+  
+  DAT_00000d7c = (undefined4 *)reservememadr(s_Custom_Objects_80056054,0x400,0);
+  *DAT_00000d7c = 0;
+  DAT_00000d80 = (undefined4 *)reservememadr(s_Custom_SimObjects_80056064,0x400,0);
+  puVar1 = DAT_00000d80 + 1;
+  *DAT_00000d80 = 0;
+  blockfill((undefined *)puVar1,0x3fc,0);
+  DAT_00000d84 = (undefined4 *)reservememadr(s_Custom_SimObjects_80056064,0x400,0);
+  *DAT_00000d84 = 0;
+  DAT_00000d88 = 0;
   return;
-
-
 }
-
 
 
 
@@ -1122,25 +1121,25 @@ void Object_InitCustomObjects__Fv(void)
 	// End offset: 0x800A5654
 	// End Line: 609
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Object_DeInitCustomObjects__Fv(void)
+
 {
-  if (iGp00000d7c != 0) {
-    purgememadr();
+  if (DAT_00000d7c != 0) {
+    purgememadr(DAT_00000d7c);
   }
-  if (iGp00000d84 != 0) {
-    purgememadr();
+  if (DAT_00000d84 != 0) {
+    purgememadr(DAT_00000d84);
   }
-  if (iGp00000d80 != 0) {
-    purgememadr();
+  if (DAT_00000d80 != 0) {
+    purgememadr(DAT_00000d80);
   }
-  iGp00000d7c = 0;
-  iGp00000d80 = 0;
-  iGp00000d84 = 0;
+  DAT_00000d7c = 0;
+  DAT_00000d80 = 0;
+  DAT_00000d84 = 0;
   return;
-
-
 }
-
 
 
 
@@ -1164,43 +1163,47 @@ void Object_DeInitCustomObjects__Fv(void)
 	// End offset: 0x800A572C
 	// End Line: 636
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Object_ClearCustomObjects__Fv(void)
+
 {
-  int iVar1;
-  int *piVar2;
+  undefined4 *puVar1;
+  undefined4 *puVar2;
   int iVar3;
+  Car_tObj **ppCVar4;
+  int iVar5;
   
-  iVar1 = Cars_gNumTrafficCars;
-  iVar3 = 0;
-  *puGp00000d7c = 0;
-  *puGp00000d80 = 0;
-  *puGp00000d84 = 0;
-  if (0 < iVar1) {
-    piVar2 = &_Cars_gTrafficCarList;
+  iVar3 = Cars_gNumTrafficCars;
+  puVar2 = DAT_00000d84;
+  puVar1 = DAT_00000d80;
+  iVar5 = 0;
+  *DAT_00000d7c = 0;
+  *puVar1 = 0;
+  *puVar2 = 0;
+  if (0 < iVar3) {
+    ppCVar4 = &__Cars_gTrafficCarList_9__;
     do {
-      iVar3 = iVar3 + 1;
-      *(uint *)(*piVar2 + 0x260) = *(uint *)(*piVar2 + 0x260) & 0xfffffbff;
-      piVar2 = piVar2 + 1;
-    } while (iVar3 < iVar1);
+      iVar5 = iVar5 + 1;
+      (*ppCVar4)->carFlags = (*ppCVar4)->carFlags & 0xfffffbff;
+      ppCVar4 = ppCVar4 + 1;
+    } while (iVar5 < iVar3);
   }
-  iVar1 = Cars_gNumCopCars;
-  iVar3 = 0;
+  iVar3 = Cars_gNumCopCars;
+  iVar5 = 0;
   if (0 < Cars_gNumCopCars) {
-    piVar2 = &_Cars_gCopCarList;
+    ppCVar4 = &__Cars_gCopCarList_9__;
     do {
-      iVar3 = iVar3 + 1;
-      *(uint *)(*piVar2 + 0x260) = *(uint *)(*piVar2 + 0x260) & 0xfffffbff;
-      piVar2 = piVar2 + 1;
-    } while (iVar3 < iVar1);
+      iVar5 = iVar5 + 1;
+      (*ppCVar4)->carFlags = (*ppCVar4)->carFlags & 0xfffffbff;
+      ppCVar4 = ppCVar4 + 1;
+    } while (iVar5 < iVar3);
   }
-  if (false) {
-    RestoreAll__11SaveSurface((SaveSurface *)0x0);
+  if (Track_gSaveSurface != (SaveSurface *)0x0) {
+    RestoreAll__11SaveSurface(Track_gSaveSurface);
   }
   return;
-
-
 }
-
 
 
 
@@ -1216,20 +1219,18 @@ void Object_ClearCustomObjects__Fv(void)
 	// End Line: 658
 
 void SetCautionSurface__FP8coorddefP12BWorldSm_Pos(coorddef *pt,BWorldSm_Pos *slicePos)
+
 {
   Trk_NewSimQuad *simQuad;
   
   BWorldSm_FindClosestQuadRez__FP8coorddefP12BWorldSm_Posi(pt,slicePos,1);
   simQuad = slicePos->simQuad;
   if ((simQuad != (Trk_NewSimQuad *)0x0) && ((simQuad->surface & 0x40) == 0)) {
-    Save__11SaveSurfaceP14Trk_NewSimQuad((SaveSurface *)0x0,simQuad);
+    Save__11SaveSurfaceP14Trk_NewSimQuad(Track_gSaveSurface,simQuad);
     slicePos->simQuad->surface = slicePos->simQuad->surface | 0x40;
   }
   return;
-
-
 }
-
 
 
 
@@ -1279,6 +1280,7 @@ void SetCautionSurface__FP8coorddefP12BWorldSm_Pos(coorddef *pt,BWorldSm_Pos *sl
 	// End Line: 719
 
 int Object_AddCustomSimObject__FP9SceneElemii(SceneElem *objectData,int serialNum,int instIndex)
+
 {
   undefined uVar1;
   int iVar2;
@@ -1287,7 +1289,7 @@ int Object_AddCustomSimObject__FP9SceneElemii(SceneElem *objectData,int serialNu
   coorddef local_30;
   
   if (objectData->type == 0) {
-    piVar3 = piGp00000d80 + *piGp00000d80 * 5 + 1;
+    piVar3 = DAT_00000d80 + *DAT_00000d80 * 5 + 1;
     *piVar3 = (objectData->cp).x;
     piVar3[1] = (objectData->cp).y;
     piVar3[2] = (objectData->cp).z;
@@ -1305,7 +1307,7 @@ int Object_AddCustomSimObject__FP9SceneElemii(SceneElem *objectData,int serialNu
     SetCautionSurface__FP8coorddefP12BWorldSm_Pos(&local_30,&local_b8);
     local_30.z = local_30.z + 0x80000;
     SetCautionSurface__FP8coorddefP12BWorldSm_Pos(&local_30,&local_b8);
-    iGp00000d88 = (int)local_b8.slice;
+    DAT_00000d88 = (int)local_b8.slice;
     iVar2 = objectData->scalar2;
     *(short *)((int)piVar3 + 0xe) = (short)serialNum + 400;
     *(short *)(piVar3 + 3) = (short)(iVar2 >> 9);
@@ -1315,13 +1317,10 @@ int Object_AddCustomSimObject__FP9SceneElemii(SceneElem *objectData,int serialNu
       uVar1 = 1;
     }
     *(undefined *)((int)piVar3 + 0x13) = uVar1;
-    *piGp00000d80 = *piGp00000d80 + 1;
+    *DAT_00000d80 = *DAT_00000d80 + 1;
   }
-  return *piGp00000d80 + -1;
-
-
+  return *DAT_00000d80 + -1;
 }
-
 
 
 
@@ -1337,15 +1336,13 @@ int Object_AddCustomSimObject__FP9SceneElemii(SceneElem *objectData,int serialNu
 	// End Line: 791
 
 int Object_GetObjDefID__Fi(int index)
+
 {
-  if ((_gPersistObjDef != (int *)0x0) && (index < *_gPersistObjDef)) {
-    return (int)**(short **)(index * 4 + __Track_gObjDefs);
+  if ((gPersistObjDef != (Group *)0x0) && (index < gPersistObjDef->m_num_elements)) {
+    return (int)Track_gObjDefs[index]->id;
   }
   return 0;
-
-
 }
-
 
 
 
@@ -1393,27 +1390,25 @@ int Object_GetObjDefID__Fi(int index)
 	// End Line: 801
 
 int Object_FindDefWithThisID__Fi(int ID)
+
 {
-  short *psVar1;
+  Trk_ObjectDef *pTVar1;
   int iVar2;
-  short **ppsVar3;
+  Trk_ObjectDef **ppTVar3;
   
   iVar2 = 0;
-  ppsVar3 = __Track_gObjDefs;
+  ppTVar3 = Track_gObjDefs;
   while( true ) {
-    if (*_gPersistObjDef <= iVar2) {
+    if (gPersistObjDef->m_num_elements <= iVar2) {
       return -1;
     }
-    psVar1 = *ppsVar3;
-    ppsVar3 = ppsVar3 + 1;
-    if (ID == (int)*psVar1) break;
+    pTVar1 = *ppTVar3;
+    ppTVar3 = ppTVar3 + 1;
+    if (ID == (int)pTVar1->id) break;
     iVar2 = iVar2 + 1;
   }
   return iVar2;
-
-
 }
-
 
 
 
@@ -1568,117 +1563,118 @@ int Object_FindDefWithThisID__Fi(int ID)
 	// End Line: 1002
 
 void Object_AddCustomObject__FP9SceneElemi(SceneElem *objectData,int setupSimDataFlag)
+
 {
   short sVar1;
   undefined2 uVar2;
-  int *piVar3;
+  Group *pGVar3;
   undefined uVar4;
-  int iVar5;
-  int *piVar6;
+  int *piVar5;
+  int iVar6;
+  Car_tObj **ppCVar7;
+  int *piVar8;
   tQuat local_18;
   
-  iVar5 = objectData->type;
-  if (iVar5 == 1) {
-    iVar5 = 0;
+  piVar8 = DAT_00000d84;
+  iVar6 = objectData->type;
+  if (iVar6 == 1) {
+    iVar6 = 0;
     if (((objectData->subType == 0) && (Cars_gNumTrafficCars != 0)) && (0 < Cars_gNumTrafficCars)) {
-      piVar6 = &_Cars_gTrafficCarList;
+      ppCVar7 = &__Cars_gTrafficCarList_9__;
       do {
-        if (((*(uint *)(*piVar6 + 0x260) & 0x400) == 0) &&
-           ((int)*(short *)(*piVar6 + 0x8bc) == objectData->scalar3)) break;
-        iVar5 = iVar5 + 1;
-        piVar6 = piVar6 + 1;
-      } while (iVar5 < Cars_gNumTrafficCars);
-      if (iVar5 < Cars_gNumTrafficCars) {
+        if ((((*ppCVar7)->carFlags & 0x400U) == 0) &&
+           ((int)((*ppCVar7)->render).palNum == objectData->scalar3)) break;
+        iVar6 = iVar6 + 1;
+        ppCVar7 = ppCVar7 + 1;
+      } while (iVar6 < Cars_gNumTrafficCars);
+      if (iVar6 < Cars_gNumTrafficCars) {
         *(SceneElem **)
-         ((&_highLevelAIObjs)[*(int *)((&_Cars_gTrafficCarList)[iVar5] + 0x254)] + 0x20) =
+         &(&__highLevelAIObjs_9__)[(&__Cars_gTrafficCarList_9__)[iVar6]->carIndex][1].carObj_ =
              objectData;
       }
     }
   }
   else {
-    if (iVar5 < 2) {
-      if (iVar5 == 0) {
-        iVar5 = *piGp00000d7c + -1;
-        piVar6 = piGp00000d7c + 1;
-        if (iVar5 != -1) {
+    if (iVar6 < 2) {
+      if (iVar6 == 0) {
+        iVar6 = *DAT_00000d7c + -1;
+        piVar8 = DAT_00000d7c + 1;
+        if (iVar6 != -1) {
           do {
-            iVar5 = iVar5 + -1;
-            piVar6 = (int *)((int)piVar6 + (int)*(short *)(piGp00000d7c + 1));
-          } while (iVar5 != -1);
+            iVar6 = iVar6 + -1;
+            piVar8 = (int *)((int)piVar8 + (int)*(short *)(DAT_00000d7c + 1));
+          } while (iVar6 != -1);
         }
-        *(undefined2 *)piVar6 = 0x24;
+        *(undefined2 *)piVar8 = 0x24;
         uVar4 = 5;
         if (8 < objectData->scalar1) {
           uVar4 = 2;
         }
-        *(undefined *)((int)piVar6 + 2) = uVar4;
-        *(undefined *)(piVar6 + 1) = 3;
-        *(undefined *)((int)piVar6 + 5) = 0;
-        piVar6[2] = (objectData->cp).x;
-        piVar6[3] = (objectData->cp).y;
-        iVar5 = (objectData->cp).z;
-        *(undefined *)((int)piVar6 + 3) = 0;
-        piVar3 = _gPersistObjDef;
-        piVar6[4] = iVar5;
+        *(undefined *)((int)piVar8 + 2) = uVar4;
+        *(undefined *)(piVar8 + 1) = 3;
+        *(undefined *)((int)piVar8 + 5) = 0;
+        piVar8[2] = (objectData->cp).x;
+        piVar8[3] = (objectData->cp).y;
+        iVar6 = (objectData->cp).z;
+        *(undefined *)((int)piVar8 + 3) = 0;
+        pGVar3 = gPersistObjDef;
+        piVar8[4] = iVar6;
         sVar1 = *(short *)&objectData->subTypeIndex;
-        *(short *)((int)piVar6 + 6) = sVar1;
-        if (*piVar3 <= (int)sVar1) {
-          *(undefined2 *)((int)piVar6 + 6) = 0;
+        *(short *)((int)piVar8 + 6) = sVar1;
+        if (pGVar3->m_num_elements <= (int)sVar1) {
+          *(undefined2 *)((int)piVar8 + 6) = 0;
         }
         if ((objectData->committed != 0) && (objectData->visible != 0)) {
-          iVar5 = Object_GetObjDefID__Fi((int)*(short *)((int)piVar6 + 6));
-          if (iVar5 != objectData->scalar1) {
+          iVar6 = Object_GetObjDefID__Fi((int)*(short *)((int)piVar8 + 6));
+          if (iVar6 != objectData->scalar1) {
             Object_FindDefWithThisID__Fi(objectData->scalar1);
-            iVar5 = Object_FindDefWithThisID__Fi(objectData->scalar1);
-            if (iVar5 == -1) {
-              iVar5 = Object_GetObjDefID__Fi((int)*(short *)((int)piVar6 + 6));
-              objectData->scalar1 = iVar5;
+            iVar6 = Object_FindDefWithThisID__Fi(objectData->scalar1);
+            if (iVar6 == -1) {
+              iVar6 = Object_GetObjDefID__Fi((int)*(short *)((int)piVar8 + 6));
+              objectData->scalar1 = iVar6;
             }
             else {
-              *(undefined2 *)((int)piVar6 + 6) = (short)iVar5;
-              objectData->subTypeIndex = iVar5;
+              *(undefined2 *)((int)piVar8 + 6) = (short)iVar6;
+              objectData->subTypeIndex = iVar6;
               Object_FindDefWithThisID__Fi(objectData->scalar1);
             }
           }
         }
         Quatern_MatToQuat__FP10matrixtdefP5tQuat(&objectData->orient,&local_18);
-        *(short *)((int)piVar6 + 0x1a) = local_18.w;
-        *(short *)(piVar6 + 5) = local_18.x;
-        *(short *)((int)piVar6 + 0x16) = local_18.y;
-        *(undefined2 *)(piVar6 + 7) = 0x100;
-        *(undefined2 *)((int)piVar6 + 0x1e) = 0x100;
-        *(undefined2 *)(piVar6 + 8) = 0x100;
-        *(short *)(piVar6 + 6) = local_18.z;
+        *(short *)((int)piVar8 + 0x1a) = local_18.w;
+        *(short *)(piVar8 + 5) = local_18.x;
+        *(short *)((int)piVar8 + 0x16) = local_18.y;
+        *(undefined2 *)(piVar8 + 7) = 0x100;
+        *(undefined2 *)((int)piVar8 + 0x1e) = 0x100;
+        *(undefined2 *)(piVar8 + 8) = 0x100;
+        *(short *)(piVar8 + 6) = local_18.z;
         if (setupSimDataFlag == 0) {
-          *(undefined *)((int)piVar6 + 0x22) = 0;
-          *(undefined *)((int)piVar6 + 0x23) = 0;
+          *(undefined *)((int)piVar8 + 0x22) = 0;
+          *(undefined *)((int)piVar8 + 0x23) = 0;
         }
         else {
-          iVar5 = Object_AddCustomSimObject__FP9SceneElemii(objectData,*piGp00000d7c,*piGp00000d7c);
-          *(char *)((int)piVar6 + 0x22) = (char)iVar5;
-          *(undefined *)((int)piVar6 + 0x23) = *(undefined *)&objectData->scalar1;
+          iVar6 = Object_AddCustomSimObject__FP9SceneElemii(objectData,*DAT_00000d7c,*DAT_00000d7c);
+          *(char *)((int)piVar8 + 0x22) = (char)iVar6;
+          *(undefined *)((int)piVar8 + 0x23) = *(undefined *)&objectData->scalar1;
         }
-        *piGp00000d7c = *piGp00000d7c + 1;
+        *DAT_00000d7c = *DAT_00000d7c + 1;
       }
     }
     else {
-      if (iVar5 == 2) {
-        piVar6 = piGp00000d84 + *piGp00000d84 * 4 + 1;
-        *piVar6 = (objectData->cp).x;
-        piVar6[1] = (objectData->cp).y;
-        piVar6[2] = (objectData->cp).z;
+      if (iVar6 == 2) {
+        piVar5 = DAT_00000d84 + *DAT_00000d84 * 4 + 1;
+        *piVar5 = (objectData->cp).x;
+        piVar5[1] = (objectData->cp).y;
+        piVar5[2] = (objectData->cp).z;
         uVar2 = *(undefined2 *)&objectData->subType;
-        *(undefined2 *)((int)piVar6 + 0xe) = 0;
-        *(undefined2 *)(piVar6 + 3) = uVar2;
-        *piGp00000d84 = *piGp00000d84 + 1;
+        *(undefined2 *)((int)piVar5 + 0xe) = 0;
+        *(undefined2 *)(piVar5 + 3) = uVar2;
+        *piVar8 = *piVar8 + 1;
       }
     }
   }
   return;
-
-
 }
-
 
 
 
@@ -1706,7 +1702,9 @@ void Object_AddCustomObject__FP9SceneElemi(SceneElem *objectData,int setupSimDat
 	// End offset: 0x800A5E74
 	// End Line: 1047
 
-void GetObjMaxDimensions__FPP13Trk_ObjectDefP14Trk_SimpleInstP8coorddef( (Trk_ObjectDef **pObjDefs,Trk_SimpleInst *objInstance,coorddef *dimensions)
+void GetObjMaxDimensions__FPP13Trk_ObjectDefP14Trk_SimpleInstP8coorddef
+               (Trk_ObjectDef **pObjDefs,Trk_SimpleInst *objInstance,coorddef *dimensions)
+
 {
   short sVar1;
   short sVar2;
@@ -1758,10 +1756,7 @@ void GetObjMaxDimensions__FPP13Trk_ObjectDefP14Trk_SimpleInstP8coorddef( (Trk_Ob
   dimensions->y = ((int)sVar2 - (int)local_1e) * 0x200;
   dimensions->z = ((int)sVar3 - (int)local_1c) * 0x200;
   return;
-
-
 }
-
 
 
 
@@ -1786,45 +1781,46 @@ void GetObjMaxDimensions__FPP13Trk_ObjectDefP14Trk_SimpleInstP8coorddef( (Trk_Ob
 	// End offset: 0x800A5FC8
 	// End Line: 1086
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Object_InitIMassObjectInfo__Fv(void)
+
 {
   Trk_ObjectDef **pObjDefs;
   Trk_SimpleInst **ppTVar1;
-  int iVar2;
+  short *psVar2;
   Trk_SimpleInst *objInstance;
   int iVar3;
   
-  iGp00000d90 = 0;
-  iGp00000d8c = 0;
-  if ((_gPersistObjInst != (int *)0x0) && (_gPersistObjDef != 0)) {
-    iGp00000d8c = reservememadr("IMObj info",*_gPersistObjInst << 5,0);
+  DAT_00000d90 = 0;
+  DAT_00000d8c = (short *)0x0;
+  if ((gPersistObjInst != (Group *)0x0) && (gPersistObjDef != (Group *)0x0)) {
+    DAT_00000d8c = reservememadr(s_IMObj_info_80056078,gPersistObjInst->m_num_elements << 5,0);
     iVar3 = 0;
-    if ((iGp00000d8c != 0) &&
-       (objInstance = (Trk_SimpleInst *)(_gPersistObjInst + 1), 0 < *_gPersistObjInst)) {
+    if ((DAT_00000d8c != (short *)0x0) &&
+       (objInstance = (Trk_SimpleInst *)(gPersistObjInst + 1), 0 < gPersistObjInst->m_num_elements))
+    {
       do {
-        pObjDefs = __Track_gObjDefs;
+        pObjDefs = Track_gObjDefs;
         if (objInstance->type == '\a') {
-          ppTVar1 = (Trk_SimpleInst **)(iGp00000d90 * 0x20 + iGp00000d8c);
+          ppTVar1 = (Trk_SimpleInst **)(DAT_00000d8c + DAT_00000d90 * 0x10);
           *ppTVar1 = objInstance;
           GetObjMaxDimensions__FPP13Trk_ObjectDefP14Trk_SimpleInstP8coorddef
                     (pObjDefs,objInstance,(coorddef *)(ppTVar1 + 1));
-          iVar2 = iGp00000d90 * 0x20 + iGp00000d8c;
-          iGp00000d90 = iGp00000d90 + 1;
-          *(undefined4 *)(iVar2 + 0x10) = 0;
-          *(undefined4 *)(iVar2 + 0x14) = 0;
-          *(undefined4 *)(iVar2 + 0x18) = 0;
-          *(undefined4 *)(iVar2 + 0x1c) = 0;
+          psVar2 = DAT_00000d8c + DAT_00000d90 * 0x10;
+          DAT_00000d90 = DAT_00000d90 + 1;
+          *(undefined4 *)(psVar2 + 8) = 0;
+          *(undefined4 *)(psVar2 + 10) = 0;
+          *(undefined4 *)(psVar2 + 0xc) = 0;
+          *(undefined4 *)(psVar2 + 0xe) = 0;
         }
         iVar3 = iVar3 + 1;
         objInstance = (Trk_SimpleInst *)((int)&objInstance->size + (int)objInstance->size);
-      } while (iVar3 < *_gPersistObjInst);
+      } while (iVar3 < gPersistObjInst->m_num_elements);
     }
   }
   return;
-
-
 }
-
 
 
 
@@ -1839,16 +1835,16 @@ void Object_InitIMassObjectInfo__Fv(void)
 	// End offset: 0x800A5FF4
 	// End Line: 1096
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Object_DeInitIMassObjectInfo__Fv(void)
+
 {
-  if (iGp00000d8c != 0) {
-    purgememadr();
+  if (DAT_00000d8c != 0) {
+    purgememadr(DAT_00000d8c);
   }
   return;
-
-
 }
-
 
 
 
@@ -1863,13 +1859,13 @@ void Object_DeInitIMassObjectInfo__Fv(void)
 	// End offset: 0x800A6004
 	// End Line: 1103
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 int Object_GetNumIMassObjects__Fv(void)
+
 {
-  return iGp00000d90;
-
-
+  return DAT_00000d90;
 }
-
 
 
 
@@ -1885,22 +1881,20 @@ int Object_GetNumIMassObjects__Fv(void)
 	// End Line: 1112
 
 void Object_GetIMassObjectDimensions__FiP8coorddef(int objIndex,coorddef *dimensions)
+
 {
   int iVar1;
   int iVar2;
   int iVar3;
   
-  iVar1 = objIndex * 0x20 + iGp00000d8c;
+  iVar1 = objIndex * 0x20 + DAT_00000d8c;
   iVar2 = *(int *)(iVar1 + 8);
   iVar3 = *(int *)(iVar1 + 0xc);
   dimensions->x = *(int *)(iVar1 + 4);
   dimensions->y = iVar2;
   dimensions->z = iVar3;
   return;
-
-
 }
-
 
 
 
@@ -1925,26 +1919,29 @@ void Object_GetIMassObjectDimensions__FiP8coorddef(int objIndex,coorddef *dimens
 	// End offset: 0x800A61A8
 	// End Line: 1143
 
-void Object_GetIMassObjectMotion__FiP8coorddefP10matrixtdefT1( (int objIndex,coorddef *cpoint,matrixtdef *orientMat,coorddef *velocity)
+void Object_GetIMassObjectMotion__FiP8coorddefP10matrixtdefT1
+               (int objIndex,coorddef *cpoint,matrixtdef *orientMat,coorddef *velocity)
+
 {
   int ticks;
   int iVar1;
   int iVar2;
   int iVar3;
+  int iVar4;
   
-  iVar3 = objIndex * 0x20;
-  ticks = DrawW_GetAnimationTime__FP15Trk_AnimateInst(*(Trk_AnimateInst **)(iVar3 + iGp00000d8c));
+  iVar4 = objIndex * 0x20;
+  ticks = DrawW_GetAnimationTime__FP15Trk_AnimateInst(*(Trk_AnimateInst **)(iVar4 + DAT_00000d8c));
   Anim_GetRotPos__FP15Trk_AnimateInstiiP8coorddefP10matrixtdef
-            (*(Trk_AnimateInst **)(iVar3 + iGp00000d8c),1,ticks,cpoint,orientMat);
-  iVar3 = iVar3 + iGp00000d8c;
-  iVar2 = ticks - *(int *)(iVar3 + 0x1c);
+            (*(Trk_AnimateInst **)(iVar4 + DAT_00000d8c),1,ticks,cpoint,orientMat);
+  iVar4 = iVar4 + DAT_00000d8c;
+  iVar2 = ticks - *(int *)(iVar4 + 0x1c);
   if (iVar2 < 1) {
     velocity->x = 0;
     velocity->y = 0;
     velocity->z = 0;
   }
   else {
-    iVar1 = cpoint->x - *(int *)(iVar3 + 0x10);
+    iVar1 = cpoint->x - *(int *)(iVar4 + 0x10);
     if (iVar2 == 0) {
       trap(0x1c00);
     }
@@ -1952,7 +1949,7 @@ void Object_GetIMassObjectMotion__FiP8coorddefP10matrixtdefT1( (int objIndex,coo
       trap(0x1800);
     }
     velocity->x = iVar1 / iVar2 << 6;
-    iVar1 = cpoint->y - *(int *)(iVar3 + 0x14);
+    iVar1 = cpoint->y - *(int *)(iVar4 + 0x14);
     if (iVar2 == 0) {
       trap(0x1c00);
     }
@@ -1960,27 +1957,25 @@ void Object_GetIMassObjectMotion__FiP8coorddefP10matrixtdefT1( (int objIndex,coo
       trap(0x1800);
     }
     velocity->y = iVar1 / iVar2 << 6;
-    iVar3 = cpoint->z - *(int *)(iVar3 + 0x18);
+    iVar4 = cpoint->z - *(int *)(iVar4 + 0x18);
     if (iVar2 == 0) {
       trap(0x1c00);
     }
-    if ((iVar2 == -1) && (iVar3 == -0x80000000)) {
+    if ((iVar2 == -1) && (iVar4 == -0x80000000)) {
       trap(0x1800);
     }
-    velocity->z = iVar3 / iVar2 << 6;
+    velocity->z = iVar4 / iVar2 << 6;
   }
-  iVar2 = objIndex * 0x20 + iGp00000d8c;
-  iVar3 = cpoint->y;
-  iVar1 = cpoint->z;
+  iVar2 = objIndex * 0x20 + DAT_00000d8c;
+  iVar4 = objIndex * 0x20 + DAT_00000d8c;
+  iVar1 = cpoint->y;
+  iVar3 = cpoint->z;
   *(int *)(iVar2 + 0x10) = cpoint->x;
-  *(int *)(iVar2 + 0x14) = iVar3;
-  *(int *)(iVar2 + 0x18) = iVar1;
-  *(int *)(objIndex * 0x20 + iGp00000d8c + 0x1c) = ticks;
+  *(int *)(iVar2 + 0x14) = iVar1;
+  *(int *)(iVar2 + 0x18) = iVar3;
+  *(int *)(iVar4 + 0x1c) = ticks;
   return;
-
-
 }
-
 
 
 
@@ -1995,13 +1990,12 @@ void Object_GetIMassObjectMotion__FiP8coorddefP10matrixtdefT1( (int objIndex,coo
 	// End offset: 0x800A61F8
 	// End Line: 1162
 
-int Draw__23ObjectFinishedMultiAnimP13DRender_tViewP11Draw_DCachei( (ObjectFinishedMultiAnim *this,DRender_tView *Vi,Draw_DCache *sd,int offset)
+int Draw__23ObjectFinishedMultiAnimP13DRender_tViewP11Draw_DCachei
+              (ObjectFinishedMultiAnim *this,DRender_tView *Vi,Draw_DCache *sd,int offset)
+
 {
   return 2;
-
-
 }
-
 
 
 
@@ -2032,16 +2026,22 @@ int Draw__23ObjectFinishedMultiAnimP13DRender_tViewP11Draw_DCachei( (ObjectFinis
 	// End offset: 0x800A62CC
 	// End Line: 1183
 
-ObjectMultiAnim * __15ObjectMultiAnimP8coorddefP7AnimDefP19Trk_CollideBoomInstP13Trk_ObjectDefP13Trk_SimObjectP23ObjectFinishedMultiAnim( (ObjectMultiAnim *this,coorddef *impactVel,AnimDef *def, Trk_CollideBoomInst *objCollideInstance,Trk_ObjectDef *objDef,Trk_SimObject *simObj, ObjectFinishedMultiAnim *finishedAnim)
+ObjectMultiAnim *
+
+__15ObjectMultiAnimP8coorddefP7AnimDefP19Trk_CollideBoomInstP13Trk_ObjectDefP13Trk_SimObjectP23ObjectFinishedMultiAnim
+          (ObjectMultiAnim *this,coorddef *impactVel,AnimDef *def,
+          Trk_CollideBoomInst *objCollideInstance,Trk_ObjectDef *objDef,Trk_SimObject *simObj,
+          ObjectFinishedMultiAnim *finishedAnim)
+
 {
   byte bVar1;
   int iVar2;
   Trk_CollideBoomInst *pTVar3;
   AnimScript *this_00;
   
-  (this->ObjectAnim)._vf[0] = (__vtbl_ptr_type *)0x800560b8;
-  (this->ObjectAnim)._vf[1] = (__vtbl_ptr_type *)(impactVel->x >> 6);
-  (this->ObjectAnim)._vf[2] = (__vtbl_ptr_type *)(impactVel->y >> 6);
+  (this->ObjectAnim)._vf[0].value = 0x800560b8;
+  (this->ObjectAnim)._vf[1].value = impactVel->x >> 6;
+  (this->ObjectAnim)._vf[2].value = impactVel->y >> 6;
   iVar2 = impactVel->z;
   *(AnimDef **)&this->objCollideInstance = def;
   *(Trk_CollideBoomInst **)&(this->impactVel).z = objCollideInstance;
@@ -2058,16 +2058,13 @@ ObjectMultiAnim * __15ObjectMultiAnimP8coorddefP7AnimDefP19Trk_CollideBoomInstP1
     pTVar3 = this->objCollideInstance;
     bVar1 = objCollideInstance->boomIndex;
   }
-  this_00 = __10AnimScriptP5Groupiii
-                      (this_00,_gPersistObjInst,8,(uint)bVar1,*(int *)&pTVar3->zoffset);
+  this_00 = __10AnimScriptP5Groupiii(this_00,gPersistObjInst,8,(uint)bVar1,*(int *)&pTVar3->zoffset)
+  ;
   *(AnimScript **)&this->objectAngle = this_00;
   SetAnimAttrib__10AnimScripti((AnimScript *)this->objectAngle,2);
   *(ObjectFinishedMultiAnim **)&this->impactAngle = finishedAnim;
   return this;
-
-
 }
-
 
 
 
@@ -2156,17 +2153,21 @@ ObjectMultiAnim * __15ObjectMultiAnimP8coorddefP7AnimDefP19Trk_CollideBoomInstP1
 	// End offset: 0x800A66EC
 	// End Line: 1297
 
-int Draw__15ObjectMultiAnimP13DRender_tViewP11Draw_DCachei( (ObjectMultiAnim *this,DRender_tView *Vi,Draw_DCache *sd,int offset)
+int Draw__15ObjectMultiAnimP13DRender_tViewP11Draw_DCachei
+              (ObjectMultiAnim *this,DRender_tView *Vi,Draw_DCache *sd,int offset)
+
 {
   short sVar1;
   int iVar2;
-  int *piVar3;
+  uint uVar3;
   int *piVar4;
-  int iVar5;
-  short *psVar6;
+  ObjectAnim *pOVar5;
+  ObjectAnim *pOVar6;
   int iVar7;
+  Group *pGVar8;
+  int iVar9;
   int index;
-  int iVar8;
+  int iVar10;
   matrixtdef mStack176;
   coorddef local_88;
   coorddef local_78;
@@ -2180,28 +2181,30 @@ int Draw__15ObjectMultiAnimP13DRender_tViewP11Draw_DCachei( (ObjectMultiAnim *th
   iVar2 = GetTimedAnimPosRot__10AnimScriptiP8coorddefP10matrixtdef
                     ((AnimScript *)this->objectAngle,0,&local_88,&mStack176);
   if (iVar2 + 1U < 2) {
-    piVar4 = (int *)this->impactAngle;
+    pOVar6 = (ObjectAnim *)this->impactAngle;
     sVar1 = *(short *)((this->impactVel).y + 0xe);
     this->impactAngle = 0;
-    piVar3 = (int *)(&_gSimObjAnims)[(int)sVar1];
-    if (piVar3 != (int *)0x0) {
-      (**(code **)(*piVar3 + 0xc))((int)piVar3 + (int)*(short *)(*piVar3 + 8),3);
+    pOVar5 = (&__gSimObjAnims_450__)[(int)sVar1];
+    if (pOVar5 != (ObjectAnim *)0x0) {
+      uVar3 = pOVar5->_vf[0].value;
+      (**(code **)(uVar3 + 0xc))((int)&pOVar5->_vf[0].value + (int)*(short *)(uVar3 + 8),3);
     }
-    *(int **)(&_gSimObjAnims + (int)sVar1) = piVar4;
-    iVar2 = (**(code **)(*piVar4 + 0x14))
-                      ((int)piVar4 + (int)*(short *)(*piVar4 + 0x10),Vi,sd,offset);
+    (&__gSimObjAnims_450__)[(int)sVar1] = pOVar6;
+    uVar3 = pOVar6->_vf[0].value;
+    iVar2 = (**(code **)(uVar3 + 0x14))
+                      ((int)&pOVar6->_vf[0].value + (int)*(short *)(uVar3 + 0x10),Vi,sd,offset);
   }
   else {
     iVar2 = *(int *)((int *)this->objectAngle)[4];
-    local_60 = -*(int *)this->objectAngle;
-    iVar8 = *(int *)&this->objCollideInstance->zoffset;
+    local_60 = simGlobal.gameTicks - *(int *)this->objectAngle;
+    iVar10 = *(int *)&this->objCollideInstance->zoffset;
     iVar2 = (int)*(short *)(iVar2 + 10) * (int)*(short *)(iVar2 + 8) >> 1;
     index = 0;
     if (iVar2 < local_60) {
       local_60 = iVar2;
     }
-    local_68 = (int)(this->ObjectAnim)._vf[1] * local_60;
-    local_64 = (int)(this->ObjectAnim)._vf[2] * local_60;
+    local_68 = (this->ObjectAnim)._vf[1].value * local_60;
+    local_64 = (this->ObjectAnim)._vf[2].value * local_60;
     local_60 = (this->impactVel).x * local_60;
     iVar2 = (this->impactVel).z;
     if (*(char *)(iVar2 + 2) != '\x06') {
@@ -2209,40 +2212,41 @@ int Draw__15ObjectMultiAnimP13DRender_tViewP11Draw_DCachei( (ObjectMultiAnim *th
       local_2c = *(undefined4 *)(iVar2 + 0x18);
       Quatern_QuatToMat__FP5tQuatP10matrixtdef((tQuat *)&local_30,&local_58);
       iVar2 = (this->impactVel).z;
-      iVar5 = (int)*(short *)(iVar2 + 0x1c) << 8;
-      iVar7 = (int)*(short *)(iVar2 + 0x1e) << 8;
+      iVar7 = (int)*(short *)(iVar2 + 0x1c) << 8;
+      iVar9 = (int)*(short *)(iVar2 + 0x1e) << 8;
       iVar2 = (int)*(short *)(iVar2 + 0x20) << 8;
-      local_58.m[0] = fixedmult(local_58.m[0],iVar5);
-      local_58.m[3] = fixedmult(local_58.m[3],iVar5);
-      local_58.m[6] = fixedmult(local_58.m[6],iVar5);
-      local_58.m[1] = fixedmult(local_58.m[1],iVar7);
-      local_58.m[4] = fixedmult(local_58.m[4],iVar7);
-      local_58.m[7] = fixedmult(local_58.m[7],iVar7);
+      local_58.m[0] = fixedmult(local_58.m[0],iVar7);
+      local_58.m[3] = fixedmult(local_58.m[3],iVar7);
+      local_58.m[6] = fixedmult(local_58.m[6],iVar7);
+      local_58.m[1] = fixedmult(local_58.m[1],iVar9);
+      local_58.m[4] = fixedmult(local_58.m[4],iVar9);
+      local_58.m[7] = fixedmult(local_58.m[7],iVar9);
       local_58.m[2] = fixedmult(local_58.m[2],iVar2);
       local_58.m[5] = fixedmult(local_58.m[5],iVar2);
       local_58.m[8] = fixedmult(local_58.m[8],iVar2);
     }
-    psVar6 = (short *)(_gPersistObjInst + 4);
-    if (0 < iVar8) {
+    pGVar8 = gPersistObjInst + 1;
+    if (0 < iVar10) {
 LAB_800a659c:
       GetTimedAnimPosRot__10AnimScriptiP8coorddefP10matrixtdef
                 ((AnimScript *)this->objectAngle,index,&local_88,&mStack176);
       if (*(char *)((this->impactVel).z + 2) != '\x06') {
         Math_fasttransmult__FP10matrixtdefN20(&mStack176,&local_58,&mStack176);
       }
-      piVar3 = (int *)(this->impactVel).y;
-      local_78.y = piVar3[1] + local_88.y;
-      local_78.x = *piVar3 + local_88.x + local_68;
-      local_78.z = piVar3[2] + local_88.z + local_60;
+      piVar4 = (int *)(this->impactVel).y;
+      local_78.y = piVar4[1] + local_88.y;
+      local_78.x = *piVar4 + local_88.x + local_68;
+      local_78.z = piVar4[2] + local_88.z + local_60;
       do {
-        if (*(char *)(psVar6 + 1) == '\b') {
+        if (*(char *)((int)&pGVar8->m_num_elements + 2) == '\b') {
           iVar2 = (this->impactVel).z;
           if (((*(char *)(iVar2 + 2) != '\x05') ||
-              (*(char *)((int)psVar6 + 0xd) == *(char *)(iVar2 + 0x23))) &&
+              (*(char *)((int)&pGVar8[3].m_num_elements + 1) == *(char *)(iVar2 + 0x23))) &&
              ((*(char *)(iVar2 + 2) != '\x06' ||
-              (*(char *)((int)psVar6 + 0xd) == *(char *)(iVar2 + 0xd))))) goto LAB_800a6694;
+              (*(char *)((int)&pGVar8[3].m_num_elements + 1) == *(char *)(iVar2 + 0xd)))))
+          goto LAB_800a6694;
         }
-        psVar6 = (short *)((int)psVar6 + (int)*psVar6);
+        pGVar8 = (Group *)((int)&pGVar8->m_num_elements + (int)*(short *)&pGVar8->m_num_elements);
       } while( true );
     }
 LAB_800a66e8:
@@ -2251,16 +2255,13 @@ LAB_800a66e8:
   return iVar2;
 LAB_800a6694:
   DrawObjectTransform__FP13DRender_tViewP11Draw_DCacheP10matrixtdefP13Trk_ObjectDefP8coorddefis
-            (Vi,sd,&mStack176,*(Trk_ObjectDef **)((int)psVar6[3] * 4 + __Track_gObjDefs),&local_78,
-             offset,-1);
+            (Vi,sd,&mStack176,Track_gObjDefs[(int)*(short *)((int)&pGVar8[1].m_num_elements + 2)],
+             &local_78,offset,-1);
   index = index + 1;
-  psVar6 = (short *)((int)psVar6 + (int)*psVar6);
-  if (iVar8 <= index) goto LAB_800a66e8;
+  pGVar8 = (Group *)((int)&pGVar8->m_num_elements + (int)*(short *)&pGVar8->m_num_elements);
+  if (iVar10 <= index) goto LAB_800a66e8;
   goto LAB_800a659c;
-
-
 }
-
 
 
 
@@ -2275,17 +2276,16 @@ LAB_800a6694:
 	// End offset: 0x800A671C
 	// End Line: 1303
 
-int Draw__22ObjectFinishedSignAnimP13DRender_tViewP11Draw_DCachei( (ObjectFinishedSignAnim *this,DRender_tView *Vi,Draw_DCache *sd,int offset)
+int Draw__22ObjectFinishedSignAnimP13DRender_tViewP11Draw_DCachei
+              (ObjectFinishedSignAnim *this,DRender_tView *Vi,Draw_DCache *sd,int offset)
+
 {
   DrawObjectTransform__FP13DRender_tViewP11Draw_DCacheP10matrixtdefP13Trk_ObjectDefP8coorddefis
             (Vi,sd,(matrixtdef *)((this->ObjectAnim)._vf + 1),
              (Trk_ObjectDef *)(this->finalMatrix).m[7],(coorddef *)((this->finalMatrix).m[8] + 8),
              offset,-1);
   return 2;
-
-
 }
-
 
 
 
@@ -2333,12 +2333,20 @@ int Draw__22ObjectFinishedSignAnimP13DRender_tViewP11Draw_DCachei( (ObjectFinish
 	// End offset: 0x800A6864
 	// End Line: 1326
 
-ObjectSignAnim * __14ObjectSignAnimP8coorddefiP7AnimDefP19Trk_CollideBoomInstP13Trk_ObjectDefP13Trk_SimObjectT1P22ObjectFinishedSignAnim( (ObjectSignAnim *this,coorddef *impactVel,int impactAngle,AnimDef *def, Trk_CollideBoomInst *objCollideInstance,Trk_ObjectDef *objDef,Trk_SimObject *simObj, coorddef *roadNormal,ObjectFinishedSignAnim *finishedAnim)
+ObjectSignAnim *
+
+__14ObjectSignAnimP8coorddefiP7AnimDefP19Trk_CollideBoomInstP13Trk_ObjectDefP13Trk_SimObjectT1P22ObjectFinishedSignAnim
+          (ObjectSignAnim *this,coorddef *impactVel,int impactAngle,AnimDef *def,
+          Trk_CollideBoomInst *objCollideInstance,Trk_ObjectDef *objDef,Trk_SimObject *simObj,
+          coorddef *roadNormal,ObjectFinishedSignAnim *finishedAnim)
+
 {
   int numParts;
   AnimScript *this_00;
-  __vtbl_ptr_type *p_Var1;
-  int iVar2;
+  uint uVar1;
+  uint uVar2;
+  uint uVar3;
+  int iVar4;
   int num;
   matrixtdef *m2;
   matrixtdef mStack200;
@@ -2346,14 +2354,14 @@ ObjectSignAnim * __14ObjectSignAnimP8coorddefiP7AnimDefP19Trk_CollideBoomInstP13
   matrixtdef mStack120;
   matrixtdef mStack80;
   
-  (this->ObjectAnim)._vf[0] = (__vtbl_ptr_type *)0x80056088;
+  (this->ObjectAnim)._vf[0].value = 0x80056088;
   num = impactVel->x;
   numParts = impactVel->z;
-  p_Var1 = (__vtbl_ptr_type *)impactVel->y;
-  iVar2 = impactVel->z;
-  (this->ObjectAnim)._vf[1] = (__vtbl_ptr_type *)impactVel->x;
-  (this->ObjectAnim)._vf[2] = p_Var1;
-  (this->impactVel).x = iVar2;
+  uVar3 = impactVel->y;
+  iVar4 = impactVel->z;
+  (this->ObjectAnim)._vf[1].value = impactVel->x;
+  (this->ObjectAnim)._vf[2].value = uVar3;
+  (this->impactVel).x = iVar4;
   this->animParms = (AnimDef *)(impactAngle << 8);
   *(AnimDef **)&this->objCollideInstance = def;
   if (num < 0) {
@@ -2365,8 +2373,8 @@ ObjectSignAnim * __14ObjectSignAnimP8coorddefiP7AnimDefP19Trk_CollideBoomInstP13
   *(Trk_CollideBoomInst **)&(this->impactVel).z = objCollideInstance;
   *(Trk_ObjectDef **)&this->simObj = objDef;
   *(Trk_SimObject **)&(this->impactVel).y = simObj;
-  iVar2 = CalcObjYawAngle__FP8CCOORD16((CCOORD16 *)(objDef + 1));
-  this->objDef = (Trk_ObjectDef *)(iVar2 << 8);
+  iVar4 = CalcObjYawAngle__FP8CCOORD16((CCOORD16 *)(objDef + 1));
+  this->objDef = (Trk_ObjectDef *)(iVar4 << 8);
   if (num + numParts >> 0x10 < 10) {
     this_00 = (AnimScript *)__builtin_new(0x14);
     num = this->objCollideInstance->y;
@@ -2390,39 +2398,36 @@ ObjectSignAnim * __14ObjectSignAnimP8coorddefiP7AnimDefP19Trk_CollideBoomInstP13
   (finishedAnim->finalMatrix).m[5] = 0;
   (finishedAnim->finalMatrix).m[6] = 0x10000;
   m2 = (matrixtdef *)((finishedAnim->ObjectAnim)._vf + 1);
-  num = fixedmult((finishedAnim->finalMatrix).m[2]);
-  numParts = fixedmult((finishedAnim->finalMatrix).m[3],(finishedAnim->finalMatrix).m[5]);
-  (finishedAnim->ObjectAnim)._vf[1] = (__vtbl_ptr_type *)(num - numParts);
-  num = fixedmult((finishedAnim->finalMatrix).m[3],(finishedAnim->finalMatrix).m[4]);
-  numParts = fixedmult((finishedAnim->finalMatrix).m[1],(finishedAnim->finalMatrix).m[6]);
-  (finishedAnim->ObjectAnim)._vf[2] = (__vtbl_ptr_type *)(num - numParts);
-  num = fixedmult((finishedAnim->finalMatrix).m[1],(finishedAnim->finalMatrix).m[5]);
-  numParts = fixedmult((finishedAnim->finalMatrix).m[2],(finishedAnim->finalMatrix).m[4]);
-  p_Var1 = (finishedAnim->ObjectAnim)._vf[2];
-  (finishedAnim->finalMatrix).m[0] = num - numParts;
-  num = fixedmult(p_Var1,(finishedAnim->finalMatrix).m[3]);
-  numParts = fixedmult((finishedAnim->finalMatrix).m[0],(finishedAnim->finalMatrix).m[2]);
-  (finishedAnim->finalMatrix).m[4] = num - numParts;
-  num = fixedmult((finishedAnim->finalMatrix).m[0],(finishedAnim->finalMatrix).m[1]);
-  numParts = fixedmult((finishedAnim->ObjectAnim)._vf[1],(finishedAnim->finalMatrix).m[3]);
-  (finishedAnim->finalMatrix).m[5] = num - numParts;
-  num = fixedmult((finishedAnim->ObjectAnim)._vf[1],(finishedAnim->finalMatrix).m[2]);
-  numParts = fixedmult((finishedAnim->ObjectAnim)._vf[2],(finishedAnim->finalMatrix).m[1]);
-  (finishedAnim->finalMatrix).m[6] = num - numParts;
-  reorthogonalize(m2);
-  fixedxformx(&mStack80,0x4000);
-  fixedxformy(&mStack160,-(int)this->objDef);
-  fixedxformy(&mStack200,this->animParms);
+  uVar3 = fixedmult((finishedAnim->finalMatrix).m[2],0x10000);
+  uVar1 = fixedmult((finishedAnim->finalMatrix).m[3],(finishedAnim->finalMatrix).m[5]);
+  (finishedAnim->ObjectAnim)._vf[1].value = uVar3 - uVar1;
+  uVar3 = fixedmult((finishedAnim->finalMatrix).m[3],(finishedAnim->finalMatrix).m[4]);
+  uVar1 = fixedmult((finishedAnim->finalMatrix).m[1],(finishedAnim->finalMatrix).m[6]);
+  (finishedAnim->ObjectAnim)._vf[2].value = uVar3 - uVar1;
+  uVar3 = fixedmult((finishedAnim->finalMatrix).m[1],(finishedAnim->finalMatrix).m[5]);
+  uVar1 = fixedmult((finishedAnim->finalMatrix).m[2],(finishedAnim->finalMatrix).m[4]);
+  uVar2 = (finishedAnim->ObjectAnim)._vf[2].value;
+  (finishedAnim->finalMatrix).m[0] = uVar3 - uVar1;
+  uVar3 = fixedmult(uVar2,(finishedAnim->finalMatrix).m[3]);
+  uVar1 = fixedmult((finishedAnim->finalMatrix).m[0],(finishedAnim->finalMatrix).m[2]);
+  (finishedAnim->finalMatrix).m[4] = uVar3 - uVar1;
+  uVar3 = fixedmult((finishedAnim->finalMatrix).m[0],(finishedAnim->finalMatrix).m[1]);
+  uVar1 = fixedmult((finishedAnim->ObjectAnim)._vf[1].value,(finishedAnim->finalMatrix).m[3]);
+  (finishedAnim->finalMatrix).m[5] = uVar3 - uVar1;
+  uVar3 = fixedmult((finishedAnim->ObjectAnim)._vf[1].value,(finishedAnim->finalMatrix).m[2]);
+  uVar1 = fixedmult((finishedAnim->ObjectAnim)._vf[2].value,(finishedAnim->finalMatrix).m[1]);
+  (finishedAnim->finalMatrix).m[6] = uVar3 - uVar1;
+  reorthogonalize((int *)m2);
+  fixedxformx((undefined4 *)&mStack80,0x4000);
+  fixedxformy((int *)&mStack160,-(int)this->objDef);
+  fixedxformy((int *)&mStack200,(uint)this->animParms);
   Math_fasttransmult__FP10matrixtdefN20(&mStack160,&mStack80,&mStack120);
   Math_fasttransmult__FP10matrixtdefN20(&mStack120,&mStack200,&mStack120);
   Math_fasttransmult__FP10matrixtdefN20(&mStack120,m2,m2);
   *(Trk_ObjectDef **)((finishedAnim->finalMatrix).m + 7) = objDef;
   *(Trk_CollideBoomInst **)((finishedAnim->finalMatrix).m + 8) = objCollideInstance;
   return this;
-
-
 }
-
 
 
 
@@ -2469,12 +2474,15 @@ ObjectSignAnim * __14ObjectSignAnimP8coorddefiP7AnimDefP19Trk_CollideBoomInstP13
 	// End offset: 0x800A6BF0
 	// End Line: 1402
 
-int Draw__14ObjectSignAnimP13DRender_tViewP11Draw_DCachei( (ObjectSignAnim *this,DRender_tView *Vi,Draw_DCache *sd,int offset)
+int Draw__14ObjectSignAnimP13DRender_tViewP11Draw_DCachei
+              (ObjectSignAnim *this,DRender_tView *Vi,Draw_DCache *sd,int offset)
+
 {
   short sVar1;
   int iVar2;
-  int *piVar3;
-  int *piVar4;
+  uint uVar3;
+  ObjectAnim *pOVar4;
+  ObjectAnim *pOVar5;
   Trk_SimObject *objDef;
   matrixtdef mStack104;
   coorddef local_40;
@@ -2485,16 +2493,18 @@ int Draw__14ObjectSignAnimP13DRender_tViewP11Draw_DCachei( (ObjectSignAnim *this
   iVar2 = GetTimedAnimPosRot__10AnimScriptiP8coorddefP10matrixtdef
                     ((AnimScript *)this->objectAngle,0,&local_40,&mStack104);
   if (iVar2 + 1U < 2) {
-    piVar4 = (int *)this->impactAngle;
+    pOVar5 = (ObjectAnim *)this->impactAngle;
     sVar1 = *(short *)((this->impactVel).y + 0xe);
     this->impactAngle = 0;
-    piVar3 = (int *)(&_gSimObjAnims)[(int)sVar1];
-    if (piVar3 != (int *)0x0) {
-      (**(code **)(*piVar3 + 0xc))((int)piVar3 + (int)*(short *)(*piVar3 + 8),3);
+    pOVar4 = (&__gSimObjAnims_450__)[(int)sVar1];
+    if (pOVar4 != (ObjectAnim *)0x0) {
+      uVar3 = pOVar4->_vf[0].value;
+      (**(code **)(uVar3 + 0xc))((int)&pOVar4->_vf[0].value + (int)*(short *)(uVar3 + 8),3);
     }
-    *(int **)(&_gSimObjAnims + (int)sVar1) = piVar4;
-    iVar2 = (**(code **)(*piVar4 + 0x14))
-                      ((int)piVar4 + (int)*(short *)(*piVar4 + 0x10),Vi,sd,offset);
+    (&__gSimObjAnims_450__)[(int)sVar1] = pOVar5;
+    uVar3 = pOVar5->_vf[0].value;
+    iVar2 = (**(code **)(uVar3 + 0x14))
+                      ((int)&pOVar5->_vf[0].value + (int)*(short *)(uVar3 + 0x10),Vi,sd,offset);
   }
   else {
     objDef = this->simObj;
@@ -2518,10 +2528,7 @@ int Draw__14ObjectSignAnimP13DRender_tViewP11Draw_DCachei( (ObjectSignAnim *this
     iVar2 = 4;
   }
   return iVar2;
-
-
 }
-
 
 
 

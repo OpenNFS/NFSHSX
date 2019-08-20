@@ -13,12 +13,10 @@
 	// End Line: 57
 
 int StatusCount__Q26Speech15DispatchSpeaker(DispatchSpeaker *this)
+
 {
-  return (int)(this->Speaker)._vf[1];
-
-
+  return (this->Speaker)._vf[1].value;
 }
-
 
 
 
@@ -34,12 +32,10 @@ int StatusCount__Q26Speech15DispatchSpeaker(DispatchSpeaker *this)
 	// End Line: 58
 
 Speaker * StatusSub__Q26Speech15DispatchSpeaker(DispatchSpeaker *this)
+
 {
-  return (Speaker *)(this->Speaker)._vf[2];
-
-
+  return (Speaker *)(this->Speaker)._vf[2].value;
 }
-
 
 
 
@@ -55,13 +51,11 @@ Speaker * StatusSub__Q26Speech15DispatchSpeaker(DispatchSpeaker *this)
 	// End Line: 59
 
 void PurgeStatusSub__Q26Speech15DispatchSpeaker(DispatchSpeaker *this)
+
 {
-  (this->Speaker)._vf[2] = (__vtbl_ptr_type *)0x0;
+  (this->Speaker)._vf[2].value = 0;
   return;
-
-
 }
-
 
 
 
@@ -91,12 +85,10 @@ void PurgeStatusSub__Q26Speech15DispatchSpeaker(DispatchSpeaker *this)
 	// End Line: 66
 
 CarBank * GetCarBank__Q26Speech15DispatchSpeakeri(DispatchSpeaker *this,int carIndex)
+
 {
-  return (CarBank *)(iGp00000838 + carIndex * 0xc + 0x6c);
-
-
+  return (CarBank *)(DAT_00000838 + carIndex * 0xc + 0x6c);
 }
-
 
 
 
@@ -129,16 +121,14 @@ CarBank * GetCarBank__Q26Speech15DispatchSpeakeri(DispatchSpeaker *this,int carI
 	// End Line: 70
 
 LocationBank * FindClosestLocationTo__Q26Speech15DispatchSpeakeri(DispatchSpeaker *this,int slice)
+
 {
   LocationBank *pLVar1;
   
   pLVar1 = FindClosestLocationTo__6SpeechPQ26Speech12LocationBanki
-                     (pSGp00000838,(pSGp00000838->fLocationBank).Dispatch,slice);
+                     (DAT_00000838,(DAT_00000838->fLocationBank).Dispatch,slice);
   return pLVar1;
-
-
 }
-
 
 
 
@@ -170,18 +160,16 @@ LocationBank * FindClosestLocationTo__Q26Speech15DispatchSpeakeri(DispatchSpeake
 	// End Line: 74
 
 CallSignBank * CallSign__Q26Speech15DispatchSpeaker(DispatchSpeaker *this)
+
 {
-  return (CallSignBank *)(iGp00000838 + 0x31c);
-
-
+  return (CallSignBank *)(DAT_00000838 + 0x31c);
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// unsigned int /*$ra*/ IsSuper__Q26Speech13MobileSpeaker(struct MobileSpeaker *this /*$a0*/)
+// void * /*$ra*/ IsSuper__Q26Speech13MobileSpeaker(struct MobileSpeaker *this /*$a0*/)
  // line 106, offset 0x800992d8
 	/* begin block 1 */
 		// Start line: 107
@@ -190,13 +178,11 @@ CallSignBank * CallSign__Q26Speech15DispatchSpeaker(DispatchSpeaker *this)
 	// End offset: 0x800992D8
 	// End Line: 107
 
-uint IsSuper__Q26Speech13MobileSpeaker(MobileSpeaker *this)
+void * IsSuper__Q26Speech13MobileSpeaker(MobileSpeaker *this)
+
 {
-  return *(uint *)((this->Speaker)._vf[5] + 0x260) >> 6 & 1;
-
-
+  return (void *)(*(uint *)((this->Speaker)._vf[5].value + 0x260) >> 6 & 1);
 }
-
 
 
 
@@ -212,12 +198,10 @@ uint IsSuper__Q26Speech13MobileSpeaker(MobileSpeaker *this)
 	// End Line: 115
 
 Car_tObj * CarObj__Q26Speech13MobileSpeaker(MobileSpeaker *this)
+
 {
-  return (Car_tObj *)(this->Speaker)._vf[5];
-
-
+  return (Car_tObj *)(this->Speaker)._vf[5].value;
 }
-
 
 
 
@@ -247,12 +231,10 @@ Car_tObj * CarObj__Q26Speech13MobileSpeaker(MobileSpeaker *this)
 	// End Line: 123
 
 CarBank * GetCarBank__Q26Speech13MobileSpeakeri(MobileSpeaker *this,int carIndex)
+
 {
-  return (CarBank *)(iGp00000838 + carIndex * 0xc);
-
-
+  return (CarBank *)(DAT_00000838 + carIndex * 0xc);
 }
-
 
 
 
@@ -285,16 +267,14 @@ CarBank * GetCarBank__Q26Speech13MobileSpeakeri(MobileSpeaker *this,int carIndex
 	// End Line: 127
 
 LocationBank * FindClosestLocationTo__Q26Speech13MobileSpeakeri(MobileSpeaker *this,int slice)
+
 {
   LocationBank *pLVar1;
   
   pLVar1 = FindClosestLocationTo__6SpeechPQ26Speech12LocationBanki
-                     (pSGp00000838,(LocationBank *)&pSGp00000838->fLocationBank,slice);
+                     (DAT_00000838,(LocationBank *)&DAT_00000838->fLocationBank,slice);
   return pLVar1;
-
-
 }
-
 
 
 
@@ -326,12 +306,10 @@ LocationBank * FindClosestLocationTo__Q26Speech13MobileSpeakeri(MobileSpeaker *t
 	// End Line: 131
 
 CallSignBank * CallSign__Q26Speech13MobileSpeaker(MobileSpeaker *this)
+
 {
-  return (CallSignBank *)(iGp00000838 + 0x2d8);
-
-
+  return (CallSignBank *)(DAT_00000838 + 0x2d8);
 }
-
 
 
 
@@ -347,12 +325,10 @@ CallSignBank * CallSign__Q26Speech13MobileSpeaker(MobileSpeaker *this)
 	// End Line: 136
 
 int Unit__Q26Speech13MobileSpeaker(MobileSpeaker *this)
+
 {
-  return (int)(this->Speaker)._vf[4];
-
-
+  return (this->Speaker)._vf[4].value;
 }
-
 
 
 
@@ -368,12 +344,10 @@ int Unit__Q26Speech13MobileSpeaker(MobileSpeaker *this)
 	// End Line: 148
 
 Car_tObj * Perp__Q26Speech13MobileSpeaker(MobileSpeaker *this)
+
 {
-  return (Car_tObj *)(this->Speaker)._vf[6];
-
-
+  return (Car_tObj *)(this->Speaker)._vf[6].value;
 }
-
 
 
 
@@ -389,15 +363,13 @@ Car_tObj * Perp__Q26Speech13MobileSpeaker(MobileSpeaker *this)
 	// End Line: 170
 
 char * Speech_AllocateRAM__FlPc(long numBytes,char *message)
+
 {
-  char *pcVar1;
+  short *psVar1;
   
-  pcVar1 = (char *)reservememadr(message,numBytes,0);
-  return pcVar1;
-
-
+  psVar1 = reservememadr(message,numBytes,0);
+  return (char *)psVar1;
 }
-
 
 
 
@@ -413,13 +385,11 @@ char * Speech_AllocateRAM__FlPc(long numBytes,char *message)
 	// End Line: 175
 
 void Speech_PurgeRAM__FPc(char *memPtr)
+
 {
-  purgememadr();
+  purgememadr((int)memPtr);
   return;
-
-
 }
-
 
 
 
@@ -435,15 +405,13 @@ void Speech_PurgeRAM__FPc(char *memPtr)
 	// End Line: 180
 
 long Speech_HandleRequest__Fllll(long bank,long localoffset,long size,long event)
+
 {
   long lVar1;
   
   lVar1 = SubmitRequest__6Speechlll(bank,localoffset,size);
   return lVar1;
-
-
 }
-
 
 
 
@@ -462,40 +430,38 @@ long Speech_HandleRequest__Fllll(long bank,long localoffset,long size,long event
 	// End Line: 245
 
 void SetCar__Q26Speech11CarBankNamei(CarBankName *this,int carIndex)
+
 {
   int iVar1;
   int iVar2;
-  undefined **ppuVar3;
+  Speech_tCarDescription *pSVar3;
   
-  ppuVar3 = &Speech_gCarDescription;
-  iVar1 = (&DAT_801135c0)[carIndex * 0x2d];
-  if (true) {
+  pSVar3 = &Speech_gCarDescription;
+  iVar1 = GameSetup_gData.carInfo[carIndex].carType;
+  if (Speech_gCarDescription.game != (char *)0x0) {
     do {
-      iVar2 = strncmp(&GameSetup_gCarNames + iVar1 * 5,*ppuVar3,4);
+      iVar2 = strncmp(&GameSetup_gCarNames + iVar1 * 5,pSVar3->game,4);
       if (iVar2 == 0) break;
-      ppuVar3 = ppuVar3 + 4;
-    } while (*ppuVar3 != (char *)0x0);
+      pSVar3 = pSVar3 + 1;
+    } while (pSVar3->game != (char *)0x0);
   }
-  this->fFull = ppuVar3[1];
-  this->fMake = ppuVar3[2];
-  this->fModel = ppuVar3[3];
+  this->fFull = pSVar3->full;
+  this->fMake = pSVar3->make;
+  this->fModel = pSVar3->model;
   return;
-
-
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// unsigned int /*$ra*/ Check__Q26Speech7CarBankPciPQ26Speech11CarBankName(struct CarBank *this /*$s3*/, char *name /*$s2*/, int id /*$s4*/, struct CarBankName *bankname /*$s1*/)
+// void * /*$ra*/ Check__Q26Speech7CarBankPciPQ26Speech11CarBankName(struct CarBank *this /*$s3*/, char *name /*$s2*/, int id /*$s4*/, struct CarBankName *bankname /*$s1*/)
  // line 257, offset 0x8009441c
 	/* begin block 1 */
 		// Start line: 258
 		// Start offset: 0x8009441C
 		// Variables:
-	// 		unsigned int match; // $s0
+	// 		void * match; // $s0
 
 		/* begin block 1.1 */
 			// Start line: 258
@@ -572,12 +538,14 @@ void SetCar__Q26Speech11CarBankNamei(CarBankName *this,int carIndex)
 	// End offset: 0x80094500
 	// End Line: 276
 
-uint Check__Q26Speech7CarBankPciPQ26Speech11CarBankName( (CarBank *this,char *name,int id,CarBankName *bankname)
+void * Check__Q26Speech7CarBankPciPQ26Speech11CarBankName
+                 (CarBank *this,char *name,int id,CarBankName *bankname)
+
 {
   bool bVar1;
   size_t __n;
   int iVar2;
-  uint uVar3;
+  undefined *puVar3;
   
   bVar1 = false;
   if (bankname->fFull != (char *)0x0) {
@@ -588,7 +556,7 @@ uint Check__Q26Speech7CarBankPciPQ26Speech11CarBankName( (CarBank *this,char *na
   if (bVar1) {
     this->fFull = id;
   }
-  uVar3 = (uint)bVar1;
+  puVar3 = (undefined *)(uint)bVar1;
   bVar1 = false;
   if (bankname->fMake != (char *)0x0) {
     __n = strlen(bankname->fMake);
@@ -597,7 +565,7 @@ uint Check__Q26Speech7CarBankPciPQ26Speech11CarBankName( (CarBank *this,char *na
   }
   if (bVar1) {
     this->fMake = id;
-    uVar3 = 1;
+    puVar3 = &DAT_00000001;
   }
   bVar1 = false;
   if (bankname->fModel != (char *)0x0) {
@@ -607,25 +575,22 @@ uint Check__Q26Speech7CarBankPciPQ26Speech11CarBankName( (CarBank *this,char *na
   }
   if (bVar1) {
     this->fModel = id;
-    uVar3 = 1;
+    puVar3 = &DAT_00000001;
   }
-  return uVar3;
-
-
+  return puVar3;
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// unsigned int /*$ra*/ CheckCarBank__6SpeechPQ26Speech7CarBankPciPQ26Speech11CarBankName(struct Speech *this /*$s4*/, struct CarBank *carbank /*$a0*/, char *name /*$s5*/, int id /*$s6*/, struct CarBankName *bankname /*stack 16*/)
+// void * /*$ra*/ CheckCarBank__6SpeechPQ26Speech7CarBankPciPQ26Speech11CarBankName(struct Speech *this /*$s4*/, struct CarBank *carbank /*$a0*/, char *name /*$s5*/, int id /*$s6*/, struct CarBankName *bankname /*stack 16*/)
  // line 281, offset 0x80094524
 	/* begin block 1 */
 		// Start line: 282
 		// Start offset: 0x80094524
 		// Variables:
-	// 		unsigned int match; // $s3
+	// 		void * match; // $s3
 
 		/* begin block 1.1 */
 			// Start line: 282
@@ -639,30 +604,29 @@ uint Check__Q26Speech7CarBankPciPQ26Speech11CarBankName( (CarBank *this,char *na
 	// End offset: 0x800945AC
 	// End Line: 296
 
-uint CheckCarBank__6SpeechPQ26Speech7CarBankPciPQ26Speech11CarBankName( (Speech *this,CarBank *carbank,char *name,int id,CarBankName *bankname)
+void * CheckCarBank__6SpeechPQ26Speech7CarBankPciPQ26Speech11CarBankName
+                 (Speech *this,CarBank *carbank,char *name,int id,CarBankName *bankname)
+
 {
-  uint uVar1;
+  void *pvVar1;
   int iVar2;
-  uint uVar3;
+  undefined *puVar3;
   
   iVar2 = 0;
-  uVar3 = 0;
+  puVar3 = (undefined *)0x0;
   if (0 < this->fCarCount) {
     do {
-      uVar1 = Check__Q26Speech7CarBankPciPQ26Speech11CarBankName(carbank,name,id,bankname);
-      if (uVar1 != 0) {
-        uVar3 = 1;
+      pvVar1 = Check__Q26Speech7CarBankPciPQ26Speech11CarBankName(carbank,name,id,bankname);
+      if (pvVar1 != (void *)0x0) {
+        puVar3 = &DAT_00000001;
       }
       bankname = bankname + 1;
       iVar2 = iVar2 + 1;
       carbank = carbank + 1;
     } while (iVar2 < this->fCarCount);
   }
-  return uVar3;
-
-
+  return puVar3;
 }
-
 
 
 
@@ -848,49 +812,51 @@ uint CheckCarBank__6SpeechPQ26Speech7CarBankPciPQ26Speech11CarBankName( (Speech 
 	// End Line: 374
 
 void SetCar__Q26Speech7SpeakerP8Car_tObj(Speaker *this,Car_tObj *car)
+
 {
   int *piVar1;
   Speaker *pSVar2;
   int iVar3;
   uint uVar4;
+  uint uVar5;
   
-  uVar4 = 1 << (car->carInfo->SpeechColour & 0x1fU);
-  piVar1 = (int *)(**(code **)(this->_vf[0] + 0xe4))
-                            ((int)&(this->fPosition).flags + (int)*(short *)(this->_vf[0] + 0xe0),
+  uVar4 = this->_vf[0].value;
+  uVar5 = 1 << (car->carInfo->SpeechColour & 0x1fU);
+  piVar1 = (int *)(**(code **)(uVar4 + 0xe4))
+                            ((int)&(this->fPosition).flags + (int)*(short *)(uVar4 + 0xe0),
                              car->carIndex);
   if (*piVar1 == -1) {
     this->fCar = 0;
     (this->fColour).flags = 0;
   }
   else {
-    if (*(int *)(fgSpeech + 0x388) == 0) {
-      (this->fColour).flags = uVar4 | 0x78020;
+    if (*(int *)(iGp00000838 + 0x388) == 0) {
+      (this->fColour).flags = uVar5 | 0x78020;
     }
     else {
-      (this->fColour).flags = uVar4;
+      (this->fColour).flags = uVar5;
     }
     pSVar2 = Dispatch__6Speech();
-    iVar3 = (**(code **)(pSVar2->_vf[0] + 0x94))
-                      ((int)&(pSVar2->fPosition).flags + (int)*(short *)(pSVar2->_vf[0] + 0x90),car)
-    ;
+    uVar4 = pSVar2->_vf[0].value;
+    iVar3 = (**(code **)(uVar4 + 0x94))
+                      ((int)&(pSVar2->fPosition).flags + (int)*(short *)(uVar4 + 0x90),car);
     if (iVar3 == 0) {
-      piVar1 = (int *)(**(code **)(this->_vf[0] + 0xe4))
-                                ((int)&(this->fPosition).flags +
-                                 (int)*(short *)(this->_vf[0] + 0xe0),car->carIndex);
+      uVar4 = this->_vf[0].value;
+      piVar1 = (int *)(**(code **)(uVar4 + 0xe4))
+                                ((int)&(this->fPosition).flags + (int)*(short *)(uVar4 + 0xe0),
+                                 car->carIndex);
       this->fCar = *piVar1;
     }
     else {
-      iVar3 = (**(code **)(this->_vf[0] + 0xe4))
-                        ((int)&(this->fPosition).flags + (int)*(short *)(this->_vf[0] + 0xe0),
-                         car->carIndex);
+      uVar4 = this->_vf[0].value;
+      iVar3 = (**(code **)(uVar4 + 0xe4))
+                        ((int)&(this->fPosition).flags + (int)*(short *)(uVar4 + 0xe0),car->carIndex
+                        );
       this->fCar = *(int *)(iVar3 + 8);
     }
   }
   return;
-
-
 }
-
 
 
 
@@ -908,40 +874,38 @@ void SetCar__Q26Speech7SpeakerP8Car_tObj(Speaker *this,Car_tObj *car)
 	// End Line: 533
 
 void CountLocations__6Speech(Speech *this)
+
 {
-  undefined *puVar1;
-  undefined **ppuVar2;
+  int iVar1;
+  int *piVar2;
   
   this->fLocationCount = 0;
-  ppuVar2 = &Speech_gLocationDescription00;
-  if (true) {
-    puVar1 = &DAT_8013ce9c;
-    while (puVar1 != (undefined *)0x0) {
-      ppuVar2 = ppuVar2 + 2;
+  piVar2 = (int *)(&__Speech_gLocationDescription_11__)[GameSetup_gData.track];
+  if (piVar2 != (int *)0x0) {
+    iVar1 = *piVar2;
+    while (iVar1 != 0) {
+      piVar2 = piVar2 + 2;
       if (0xf < this->fLocationCount) {
         return;
       }
       this->fLocationCount = this->fLocationCount + 1;
-      puVar1 = *ppuVar2;
+      iVar1 = *piVar2;
     }
   }
   return;
-
-
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// unsigned int /*$ra*/ CheckLocationBank__6SpeechPQ26Speech12LocationBankPci(struct Speech *this /*$s5*/, struct LocationBank *locationbank /*$a1*/, char *name /*$s6*/, int id /*$s7*/)
+// void * /*$ra*/ CheckLocationBank__6SpeechPQ26Speech12LocationBankPci(struct Speech *this /*$s5*/, struct LocationBank *locationbank /*$a1*/, char *name /*$s6*/, int id /*$s7*/)
  // line 539, offset 0x80094768
 	/* begin block 1 */
 		// Start line: 540
 		// Start offset: 0x80094768
 		// Variables:
-	// 		unsigned int match; // $s4
+	// 		void * match; // $s4
 	// 		struct Speech_tLocationDescription *d; // $s1
 
 		/* begin block 1.1 */
@@ -1008,50 +972,49 @@ void CountLocations__6Speech(Speech *this)
 	// End offset: 0x8009483C
 	// End Line: 562
 
-uint CheckLocationBank__6SpeechPQ26Speech12LocationBankPci( (Speech *this,LocationBank *locationbank,char *name,int id)
+void * CheckLocationBank__6SpeechPQ26Speech12LocationBankPci
+                 (Speech *this,LocationBank *locationbank,char *name,int id)
+
 {
   short sVar1;
   short sVar2;
   size_t __n;
   int iVar3;
   char *pcVar4;
-  undefined **ppuVar5;
+  char **ppcVar5;
   short *psVar6;
   int iVar7;
-  uint uVar8;
+  undefined *puVar8;
   
-  ppuVar5 = &Speech_gLocationDescription00;
-  uVar8 = 0;
-  if (false) {
-    uVar8 = 0;
+  ppcVar5 = (char **)(&__Speech_gLocationDescription_11__)[GameSetup_gData.track];
+  puVar8 = (undefined *)0x0;
+  if (ppcVar5 == (char **)0x0) {
+    puVar8 = (undefined *)0x0;
   }
   else {
     iVar7 = 0;
-    psVar6 = (short *)&UNK_80111b3a;
+    psVar6 = (short *)((int)ppcVar5 + 6);
     while (iVar7 < this->fLocationCount) {
-      __n = strlen(*ppuVar5);
-      iVar3 = strncmp(name,*ppuVar5,__n);
+      __n = strlen(*ppcVar5);
+      iVar3 = strncmp(name,*ppcVar5,__n);
       if (iVar3 == 0) {
         sVar1 = psVar6[-1];
         sVar2 = *psVar6;
-        pcVar4 = *ppuVar5;
-        uVar8 = 1;
+        pcVar4 = *ppcVar5;
+        puVar8 = &DAT_00000001;
         locationbank->fBankId = id;
         locationbank->fStartSlice = (int)sVar1;
         locationbank->fEndSlice = (int)sVar2;
         locationbank->fName = pcVar4;
       }
       psVar6 = psVar6 + 4;
-      ppuVar5 = ppuVar5 + 2;
+      ppcVar5 = ppcVar5 + 2;
       locationbank = locationbank + 1;
       iVar7 = iVar7 + 1;
     }
   }
-  return uVar8;
-
-
+  return puVar8;
 }
-
 
 
 
@@ -1067,39 +1030,38 @@ uint CheckLocationBank__6SpeechPQ26Speech12LocationBankPci( (Speech *this,Locati
 	// End Line: 588
 
 int Distance__Q26Speech12LocationBanki(LocationBank *this,int slice)
+
 {
   int iVar1;
   int iVar2;
   int iVar3;
+  int iVar4;
   
-  iVar3 = this->fStartSlice;
-  iVar1 = this->fEndSlice;
-  if (iVar1 < iVar3) {
-    if ((iVar3 <= slice) || (slice <= iVar1)) {
+  iVar4 = this->fStartSlice;
+  iVar2 = this->fEndSlice;
+  if (iVar2 < iVar4) {
+    if ((iVar4 <= slice) || (iVar1 = slice - iVar2, slice <= iVar2)) {
       return 0;
     }
   }
   else {
-    if (iVar3 <= slice) {
-      iVar2 = slice - iVar1;
-      if (slice <= iVar1) {
+    if (iVar4 <= slice) {
+      iVar3 = slice - iVar2;
+      if (slice <= iVar2) {
         return 0;
       }
-      iVar1 = iVar3 - slice;
+      iVar1 = (iVar4 + gNumSlices) - slice;
       goto LAB_80094898;
     }
+    iVar1 = (slice + gNumSlices) - iVar2;
   }
-  iVar1 = slice - iVar1;
-  iVar2 = iVar3 - slice;
+  iVar3 = iVar4 - slice;
 LAB_80094898:
-  if (iVar2 < iVar1) {
-    iVar1 = iVar2;
+  if (iVar3 < iVar1) {
+    iVar1 = iVar3;
   }
   return iVar1;
-
-
 }
-
 
 
 
@@ -1173,12 +1135,14 @@ LAB_80094898:
 	// End offset: 0x800949AC
 	// End Line: 619
 
-LocationBank * FindClosestLocationTo__6SpeechPQ26Speech12LocationBanki(Speech *this,LocationBank *bank,int slice)
+LocationBank *
+FindClosestLocationTo__6SpeechPQ26Speech12LocationBanki(Speech *this,LocationBank *bank,int slice)
+
 {
-  int iVar1;
+  undefined *puVar1;
   LocationBank *this_00;
   int iVar2;
-  int iVar3;
+  undefined *puVar3;
   LocationBank *pLVar4;
   
   if (this->fLocationCount == 0) {
@@ -1186,23 +1150,21 @@ LocationBank * FindClosestLocationTo__6SpeechPQ26Speech12LocationBanki(Speech *t
   }
   else {
     pLVar4 = (LocationBank *)0x0;
-    iVar3 = 10000;
+    puVar3 = &DAT_00002710;
     iVar2 = 0;
     while (iVar2 < this->fLocationCount) {
       this_00 = bank + iVar2;
       if ((this_00->fBankId != -1) &&
-         (iVar1 = Distance__Q26Speech12LocationBanki(this_00,slice), iVar1 < iVar3)) {
-        iVar3 = iVar1;
+         (puVar1 = (undefined *)Distance__Q26Speech12LocationBanki(this_00,slice),
+         (int)puVar1 < (int)puVar3)) {
+        puVar3 = puVar1;
         pLVar4 = this_00;
       }
       iVar2 = iVar2 + 1;
     }
   }
   return pLVar4;
-
-
 }
-
 
 
 
@@ -1942,129 +1904,130 @@ LocationBank * FindClosestLocationTo__6SpeechPQ26Speech12LocationBanki(Speech *t
 	// End Line: 789
 
 void FindLocation__Q26Speech7SpeakerP8Car_tObj(Speaker *this,Car_tObj *car)
+
 {
   int in_zero;
-  int slice;
+  uint uVar1;
   LocationBank *this_00;
-  int iVar1;
-  ulong uVar2;
-  int iVar3;
+  int iVar2;
+  ulong uVar3;
+  int slice;
   undefined8 uVar4;
   
-  slice = fixedmult(car->carInLane,0x50000);
-  if ((slice / 6 + (slice >> 0x1f) >> 0x10) - (slice >> 0x1f) < 0) {
-    slice = fixedmult(car->carInLane,0x50000);
+  uVar1 = fixedmult((car->script).lastActionTime,(int)&DAT_00050000);
+  if (((int)uVar1 / 6 + ((int)uVar1 >> 0x1f) >> 0x10) - ((int)uVar1 >> 0x1f) < 0) {
+    uVar1 = fixedmult((car->script).lastActionTime,(int)&DAT_00050000);
     if (-1 < (int)(car->N).simRoadInfo.slice +
-             ((slice / 6 + (slice >> 0x1f) >> 0x10) - (slice >> 0x1f))) goto LAB_80094b04;
-    slice = fixedmult(car->carInLane,0x50000);
+             (((int)uVar1 / 6 + ((int)uVar1 >> 0x1f) >> 0x10) - ((int)uVar1 >> 0x1f)))
+    goto LAB_80094b04;
+    uVar1 = fixedmult((car->script).lastActionTime,(int)&DAT_00050000);
     slice = (int)(car->N).simRoadInfo.slice +
-            ((slice / 6 + (slice >> 0x1f) >> 0x10) - (slice >> 0x1f));
+            (((int)uVar1 / 6 + ((int)uVar1 >> 0x1f) >> 0x10) - ((int)uVar1 >> 0x1f)) + gNumSlices;
   }
   else {
-    slice = fixedmult(car->carInLane,0x50000);
-    if ((int)(car->N).simRoadInfo.slice + ((slice / 6 + (slice >> 0x1f) >> 0x10) - (slice >> 0x1f))
-        < 0) {
+    uVar1 = fixedmult((car->script).lastActionTime,(int)&DAT_00050000);
+    if ((int)(car->N).simRoadInfo.slice +
+        (((int)uVar1 / 6 + ((int)uVar1 >> 0x1f) >> 0x10) - ((int)uVar1 >> 0x1f)) < gNumSlices) {
 LAB_80094b04:
-      slice = fixedmult(car->carInLane,0x50000);
+      uVar1 = fixedmult((car->script).lastActionTime,(int)&DAT_00050000);
       slice = (int)(car->N).simRoadInfo.slice +
-              ((slice / 6 + (slice >> 0x1f) >> 0x10) - (slice >> 0x1f));
+              (((int)uVar1 / 6 + ((int)uVar1 >> 0x1f) >> 0x10) - ((int)uVar1 >> 0x1f));
     }
     else {
-      slice = fixedmult(car->carInLane,0x50000);
-      slice = (int)(car->N).simRoadInfo.slice +
-              ((slice / 6 + (slice >> 0x1f) >> 0x10) - (slice >> 0x1f));
+      uVar1 = fixedmult((car->script).lastActionTime,(int)&DAT_00050000);
+      slice = ((int)(car->N).simRoadInfo.slice +
+              (((int)uVar1 / 6 + ((int)uVar1 >> 0x1f) >> 0x10) - ((int)uVar1 >> 0x1f))) - gNumSlices
+      ;
     }
   }
+  uVar1 = this->_vf[0].value;
   this_00 = (LocationBank *)
-            (**(code **)(this->_vf[0] + 0xec))
-                      ((int)&(this->fPosition).flags + (int)*(short *)(this->_vf[0] + 0xe8),slice);
+            (**(code **)(uVar1 + 0xec))
+                      ((int)&(this->fPosition).flags + (int)*(short *)(uVar1 + 0xe8),slice);
   if (this_00 == (LocationBank *)0x0) {
     (this->fDistance).flags = 0;
     (this->fPosition).flags = 0;
     this->fLocation = *(int *)(in_zero + 8);
     return;
   }
-  iVar1 = Distance__Q26Speech12LocationBanki(this_00,(int)(car->N).simRoadInfo.slice);
-  slice = Distance__Q26Speech12LocationBanki(this_00,slice);
-  uVar2 = 4;
-  if (slice == 0) {
+  iVar2 = Distance__Q26Speech12LocationBanki(this_00,(int)(car->N).simRoadInfo.slice);
+  uVar1 = Distance__Q26Speech12LocationBanki(this_00,slice);
+  uVar3 = 4;
+  if (uVar1 == 0) {
     (this->fDistance).flags = 0;
     goto LAB_80094ca4;
   }
-  uVar4 = __floatsidf(slice);
-  iVar3 = __ltdf2((int)((ulonglong)uVar4 >> 0x20),(int)uVar4,0xaaaaaaab,0x4040aaaa);
-  if (iVar3 < 0) {
+  uVar4 = __floatsidf(uVar1);
+  slice = __ltdf2((uint)((ulonglong)uVar4 >> 0x20),(uint)uVar4,0xaaaaaaab,0x4040aaaa);
+  if (slice < 0) {
     (this->fDistance).flags = 0;
-    if (slice + 2 < iVar1) {
+    if ((int)(uVar1 + 2) < iVar2) {
       (this->fPosition).flags = 9;
     }
-    if (slice + -2 < iVar1) {
+    if ((int)(uVar1 - 2) < iVar2) {
       (this->fPosition).flags = 8;
       goto LAB_80094ca8;
     }
 LAB_80094ca0:
-    uVar2 = 2;
+    uVar3 = 2;
   }
   else {
-    if (false) {
-      if (slice < 0xa6) {
+    if (GameSetup_gData.measurement == 1) {
+      if ((int)uVar1 < 0xa6) {
         (this->fDistance).flags = 8;
-        if (slice + -2 < iVar1) {
+        if ((int)(uVar1 - 2) < iVar2) {
           (this->fPosition).flags = 0x10;
           goto LAB_80094ca8;
         }
       }
       else {
-        uVar2 = 0x10;
+        uVar3 = 0x10;
         (this->fDistance).flags = 0x10;
-        if (slice + -2 < iVar1) {
+        if ((int)(uVar1 - 2) < iVar2) {
 LAB_80094c40:
-          (this->fPosition).flags = uVar2;
+          (this->fPosition).flags = uVar3;
           goto LAB_80094ca8;
         }
       }
       goto LAB_80094ca0;
     }
-    if (slice < 0x86) {
+    if ((int)uVar1 < 0x86) {
       (this->fDistance).flags = 1;
-      if (iVar1 <= slice + -2) goto LAB_80094ca0;
-      uVar2 = 0x10;
+      if (iVar2 <= (int)(uVar1 - 2)) goto LAB_80094ca0;
+      uVar3 = 0x10;
     }
     else {
-      uVar2 = 2;
-      if (slice < 0x10c) {
+      uVar3 = 2;
+      if ((int)uVar1 < 0x10c) {
         (this->fDistance).flags = 2;
-        if (iVar1 <= slice + -2) goto LAB_80094c40;
-        uVar2 = 0x10;
+        if (iVar2 <= (int)(uVar1 - 2)) goto LAB_80094c40;
+        uVar3 = 0x10;
       }
       else {
         (this->fDistance).flags = 4;
-        uVar2 = 0x10;
-        if (iVar1 <= slice + -2) goto LAB_80094ca0;
+        uVar3 = 0x10;
+        if (iVar2 <= (int)(uVar1 - 2)) goto LAB_80094ca0;
       }
     }
   }
 LAB_80094ca4:
-  (this->fPosition).flags = uVar2;
+  (this->fPosition).flags = uVar3;
 LAB_80094ca8:
   this->fLocation = this_00->fBankId;
   return;
-
-
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// unsigned int /*$ra*/ CheckCallSignBank__6SpeechPQ26Speech12CallSignBankPci(struct Speech *this /*$a0*/, struct CallSignBank *bank /*$s1*/, char *name /*$s4*/, int id /*$s5*/)
+// void * /*$ra*/ CheckCallSignBank__6SpeechPQ26Speech12CallSignBankPci(struct Speech *this /*$a0*/, struct CallSignBank *bank /*$s1*/, char *name /*$s4*/, int id /*$s5*/)
  // line 852, offset 0x80094cd0
 	/* begin block 1 */
 		// Start line: 853
 		// Start offset: 0x80094CD0
 		// Variables:
-	// 		unsigned int match; // $s3
+	// 		void * match; // $s3
 	// 		struct Speech_tCallSignDescription *d; // $s6
 	// 		int dispatchName; // $a0
 
@@ -2181,50 +2144,50 @@ LAB_80094ca8:
 	// End offset: 0x80094DE0
 	// End Line: 885
 
-uint CheckCallSignBank__6SpeechPQ26Speech12CallSignBankPci( (Speech *this,CallSignBank *bank,char *name,int id)
+void * CheckCallSignBank__6SpeechPQ26Speech12CallSignBankPci
+                 (Speech *this,CallSignBank *bank,char *name,int id)
+
 {
   size_t __n;
   int iVar1;
-  undefined **ppuVar2;
+  Speech_tCallSignDescription *pSVar2;
   int iVar3;
-  uint uVar4;
+  undefined *puVar4;
   
-  __n = strlen("all.");
-  ppuVar2 = &Speech_gCallSignDescription;
-  iVar1 = strncmp(name,"all.",__n);
+  __n = strlen(Speech_gCallSignDescription.AllUnits);
+  pSVar2 = &Speech_gCallSignDescription;
+  iVar1 = strncmp(name,Speech_gCallSignDescription.AllUnits,__n);
   if (iVar1 == 0) {
     bank->fAllUnits = id;
   }
-  uVar4 = (uint)(iVar1 == 0);
-  __n = strlen("dis.");
-  iVar1 = strncmp(name,"dis.",__n);
+  puVar4 = (undefined *)(uint)(iVar1 == 0);
+  iVar1 = GameSetup_gData.track % 5;
+  __n = strlen((char *)Speech_gCallSignDescription.Dispatch[iVar1]);
+  iVar1 = strncmp(name,(char *)Speech_gCallSignDescription.Dispatch[iVar1],__n);
   iVar3 = 0;
   if (iVar1 == 0) {
     bank->fDispatch = id;
-    uVar4 = 1;
+    puVar4 = &DAT_00000001;
   }
   while (iVar3 < 0xf) {
-    __n = strlen(ppuVar2[6]);
-    iVar1 = strncmp(name,ppuVar2[6],__n);
+    __n = strlen((char *)pSVar2->Mobile[0]);
+    iVar1 = strncmp(name,(char *)pSVar2->Mobile[0],__n);
     if (iVar1 == 0) {
       bank->fMobile[0] = id;
-      uVar4 = 1;
+      puVar4 = &DAT_00000001;
     }
     bank = (CallSignBank *)&bank->fDispatch;
-    ppuVar2 = ppuVar2 + 1;
+    pSVar2 = (Speech_tCallSignDescription *)pSVar2->Dispatch;
     iVar3 = iVar3 + 1;
   }
-  return uVar4;
-
-
+  return puVar4;
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// unsigned int /*$ra*/ CheckMultiBank__6SpeechPciPQ26Speech11CarBankName(struct Speech *this /*$s1*/, char *name /*$s0*/, int id /*$s2*/, struct CarBankName *bn /*$s3*/)
+// void * /*$ra*/ CheckMultiBank__6SpeechPciPQ26Speech11CarBankName(struct Speech *this /*$s1*/, char *name /*$s0*/, int id /*$s2*/, struct CarBankName *bn /*$s3*/)
  // line 889, offset 0x80094e08
 	/* begin block 1 */
 		// Start line: 890
@@ -2233,74 +2196,73 @@ uint CheckCallSignBank__6SpeechPQ26Speech12CallSignBankPci( (Speech *this,CallSi
 	// End offset: 0x80094F8C
 	// End Line: 925
 
-uint CheckMultiBank__6SpeechPciPQ26Speech11CarBankName( (Speech *this,char *name,int id,CarBankName *bn)
+void * CheckMultiBank__6SpeechPciPQ26Speech11CarBankName
+                 (Speech *this,char *name,int id,CarBankName *bn)
+
 {
   int iVar1;
-  uint uVar2;
+  void *pvVar2;
   __127 *bank;
   Speech *carbank;
   __126 *locationbank;
   
-  iVar1 = strncmp(name,"j:id\\",5);
+  iVar1 = strncmp(name,s_j_id__8013d04c,5);
   if (iVar1 == 0) {
     bank = (__127 *)&(this->fCallSignBank).Dispatch;
     name = name + 5;
 LAB_80094ed0:
-    uVar2 = CheckCallSignBank__6SpeechPQ26Speech12CallSignBankPci(this,(CallSignBank *)bank,name,id)
-    ;
+    pvVar2 = CheckCallSignBank__6SpeechPQ26Speech12CallSignBankPci
+                       (this,(CallSignBank *)bank,name,id);
   }
   else {
-    iVar1 = strncmp(name,"j:cars\\",7);
+    iVar1 = strncmp(name,s_j_cars__8013d054,7);
     if (iVar1 == 0) {
       name = name + 7;
       carbank = (Speech *)(this->fCarBank).Dispatch;
 LAB_80094f08:
-      uVar2 = CheckCarBank__6SpeechPQ26Speech7CarBankPciPQ26Speech11CarBankName
-                        (this,(CarBank *)carbank,name,id,bn);
-      return uVar2;
+      pvVar2 = CheckCarBank__6SpeechPQ26Speech7CarBankPciPQ26Speech11CarBankName
+                         (this,(CarBank *)carbank,name,id,bn);
+      return pvVar2;
     }
-    iVar1 = strncmp(name,"j:location\\",0xb);
+    iVar1 = strncmp(name,s_j_location__80055b60,0xb);
     if (iVar1 == 0) {
       locationbank = (__126 *)(this->fLocationBank).Dispatch;
     }
     else {
-      iVar1 = strncmp(name,"j:cid\\",6);
+      iVar1 = strncmp(name,s_j_cid__8013d05c,6);
       if (iVar1 == 0) {
         bank = &this->fCallSignBank;
         name = name + 6;
         goto LAB_80094ed0;
       }
-      iVar1 = strncmp(name,"j:ccars\\",8);
+      iVar1 = strncmp(name,s_j_ccars__80055b6c,8);
       if (iVar1 == 0) {
         name = name + 8;
         carbank = this;
         goto LAB_80094f08;
       }
-      iVar1 = strncmp(name,"j:clocaton\\",0xb);
+      iVar1 = strncmp(name,s_j_clocaton__80055b78,0xb);
       if (iVar1 != 0) {
-        iVar1 = strncmp(name,"j:clip.",7);
+        iVar1 = strncmp(name,s_j_clip__8013d064,7);
         if (iVar1 == 0) {
           this->fBlpClpBank = id;
         }
         else {
-          iVar1 = strncmp(name,"j:silenc.",9);
+          iVar1 = strncmp(name,s_j_silenc__80055b84,9);
           if (iVar1 != 0) {
-            return 1;
+            return &DAT_00000001;
           }
           this->fStaticBank = id;
         }
-        return 1;
+        return &DAT_00000001;
       }
       locationbank = &this->fLocationBank;
     }
-    uVar2 = CheckLocationBank__6SpeechPQ26Speech12LocationBankPci
-                      (this,(LocationBank *)locationbank,name + 0xb,id);
+    pvVar2 = CheckLocationBank__6SpeechPQ26Speech12LocationBankPci
+                       (this,(LocationBank *)locationbank,name + 0xb,id);
   }
-  return uVar2;
-
-
+  return pvVar2;
 }
-
 
 
 
@@ -2448,7 +2410,9 @@ LAB_80094f08:
 	// End offset: 0x80095184
 	// End Line: 984
 
-int CalculateBankSize__6SpeechPcPQ26Speech11CarBankNamePlT3( (Speech *this,char *header,CarBankName *bn,long *hoffset,long *hsize)
+int CalculateBankSize__6SpeechPcPQ26Speech11CarBankNamePlT3
+              (Speech *this,char *header,CarBankName *bn,long *hoffset,long *hsize)
+
 {
   char cVar1;
   char cVar2;
@@ -2457,31 +2421,32 @@ int CalculateBankSize__6SpeechPcPQ26Speech11CarBankNamePlT3( (Speech *this,char 
   char cVar5;
   bool bVar6;
   int iVar7;
-  uint uVar8;
+  void *pvVar8;
   char *pcVar9;
   char *pcVar10;
   char *pcVar11;
   char *name;
   int id;
-  int iVar12;
-  int local_30;
-  int local_2c;
+  uint uVar12;
+  uint local_30;
+  uint local_2c;
   
   id = 0;
-  iVar7 = locatebigentry(header,"j:eventdat\\event.dat",0,&local_30,&local_2c);
+  iVar7 = locatebigentry((byte *)header,(byte *)s_j_eventdat_event_dat_80055b90,0,&local_30,
+                         &local_2c);
   pcVar11 = header + 0x10;
   if (iVar7 == 0) {
-    iVar7 = 0;
+    uVar12 = 0;
   }
   else {
-    iVar12 = 0;
+    iVar7 = 0;
     pcVar9 = header + 0xf;
     cVar1 = header[8];
     cVar2 = header[9];
     cVar3 = header[10];
     cVar4 = header[0xb];
-    iVar7 = local_2c;
-    while (iVar12 < CONCAT31(CONCAT21(CONCAT11(cVar1,cVar2),cVar3),cVar4)) {
+    uVar12 = local_2c;
+    while (iVar7 < CONCAT31(CONCAT21(CONCAT11(cVar1,cVar2),cVar3),cVar4)) {
       name = pcVar11 + 8;
       local_30 = CONCAT31(CONCAT21(CONCAT11(*pcVar11,pcVar9[2]),pcVar9[3]),pcVar9[4]);
       pcVar10 = pcVar9 + 8;
@@ -2502,23 +2467,20 @@ int CalculateBankSize__6SpeechPcPQ26Speech11CarBankNamePlT3( (Speech *this,char 
           *hoffset = local_30;
         }
         *hsize = (local_30 + local_2c) - *hoffset;
-        uVar8 = CheckMultiBank__6SpeechPciPQ26Speech11CarBankName(this,name,id,bn);
-        if (uVar8 != 0) {
+        pvVar8 = CheckMultiBank__6SpeechPciPQ26Speech11CarBankName(this,name,id,bn);
+        if (pvVar8 != (void *)0x0) {
           id = id + 1;
-          iVar7 = iVar7 + local_2c;
+          uVar12 = uVar12 + local_2c;
         }
       }
       pcVar9 = pcVar10 + 1;
       pcVar11 = pcVar11 + 1;
-      iVar12 = iVar12 + 1;
+      iVar7 = iVar7 + 1;
     }
   }
   this->fBankCount = id;
-  return iVar7;
-
-
+  return uVar12;
 }
-
 
 
 
@@ -2751,12 +2713,14 @@ int CalculateBankSize__6SpeechPcPQ26Speech11CarBankNamePlT3( (Speech *this,char 
 	// End offset: 0x800955AC
 	// End Line: 1102
 
-void LoadBankHeaders__6SpeechPcPQ26Speech11CarBankNamell( (Speech *this,char *header,CarBankName *bn,long hoffset,long hsize)
+void LoadBankHeaders__6SpeechPcPQ26Speech11CarBankNamell
+               (Speech *this,char *header,CarBankName *bn,long hoffset,long hsize)
+
 {
   char cVar1;
   bool bVar2;
   bool bVar3;
-  uint uVar4;
+  void *pvVar4;
   int iVar5;
   int iVar6;
   char **ppcVar7;
@@ -2765,27 +2729,27 @@ void LoadBankHeaders__6SpeechPcPQ26Speech11CarBankNamell( (Speech *this,char *he
   char *name;
   long *plVar10;
   void *__dest;
-  long local_48;
+  uint local_48;
   size_t local_44;
   int local_40;
   int local_3c;
   int local_38;
-  int local_34;
+  short *local_34;
   char **local_30;
   int local_2c;
   
   local_40 = 0;
   local_3c = 0;
   plVar10 = this->fBankOffset + this->fBankCount;
-  locatebigentry(header,"j:eventdat\\event.dat",0,&local_48,&local_44);
+  locatebigentry((byte *)header,(byte *)s_j_eventdat_event_dat_80055b90,0,&local_48,&local_44);
   FILE_readsync(this->fFileHandle,local_48,plVar10,local_44,100);
-  SPCH_ResolveData(plVar10);
+  SPCH_ResolveData((ushort *)plVar10);
   pcVar9 = header + 0x10;
   __dest = (void *)((int)plVar10 + local_44);
   local_38 = CONCAT31(CONCAT21(CONCAT11(header[8],header[9]),header[10]),header[0xb]);
-  local_34 = reservememadr("spch temp",hsize,0x10);
+  local_34 = reservememadr(s_spch_temp_80055ba8,hsize,0x10);
   FILE_readsync(this->fFileHandle,hoffset,local_34,hsize,100);
-  local_30 = (char **)reservememadr("spch temp",this->fBankCount << 2,0x10);
+  local_30 = (char **)reservememadr(s_spch_temp_80055ba8,this->fBankCount << 2,0x10);
   iVar6 = 0;
   ppcVar7 = local_30;
   if (0 < this->fBankCount) {
@@ -2820,15 +2784,15 @@ void LoadBankHeaders__6SpeechPcPQ26Speech11CarBankNamell( (Speech *this,char *he
         bVar2 = *header == 'r';
       }
       if ((bVar2) &&
-         (uVar4 = CheckMultiBank__6SpeechPciPQ26Speech11CarBankName(this,name,local_40,bn),
-         uVar4 != 0)) {
+         (pvVar4 = CheckMultiBank__6SpeechPciPQ26Speech11CarBankName(this,name,local_40,bn),
+         pvVar4 != (void *)0x0)) {
         bVar3 = true;
       }
       iVar8 = local_3c;
       if (bVar3) {
         local_40 = local_40 + 1;
-        memcpy(__dest,(void *)((local_34 + local_48) - hoffset),local_44);
-        iVar6 = SPCH_AddBank(__dest);
+        memcpy(__dest,(void *)((int)local_34 + (local_48 - hoffset)),local_44);
+        iVar6 = SPCH_AddBank((int)__dest);
         __dest = (void *)((int)__dest + local_44);
         local_30[iVar6] = name;
       }
@@ -2867,13 +2831,10 @@ void LoadBankHeaders__6SpeechPcPQ26Speech11CarBankNamell( (Speech *this,char *he
     pcVar9 = pcVar9 + 1;
     local_2c = local_2c + 1;
   }
-  purgememadr(local_34);
-  purgememadr(local_30);
+  purgememadr((int)local_34);
+  purgememadr((int)local_30);
   return;
-
-
 }
-
 
 
 
@@ -3064,23 +3025,25 @@ void LoadBankHeaders__6SpeechPcPQ26Speech11CarBankNamell( (Speech *this,char *he
 	// End Line: 1228
 
 Speech * __6Speech(Speech *this)
+
 {
-  int *piVar1;
-  DispatchSpeaker *pDVar2;
-  MobileSpeaker *pMVar3;
-  int iVar4;
+  bool bVar1;
+  int *piVar2;
+  DispatchSpeaker *pDVar3;
+  _func_29 *p_Var4;
+  int iVar5;
   char *header;
-  long *plVar5;
-  undefined4 uVar6;
-  __126 *p_Var7;
-  LocationBank *pLVar8;
+  long *plVar6;
+  uint uVar7;
+  __126 *p_Var8;
+  LocationBank *pLVar9;
   int carIndex;
-  undefined4 *puVar9;
-  Speech *pSVar10;
-  CarBank *pCVar11;
-  int iVar12;
+  GameSetup_tData *pGVar10;
+  Speech *pSVar11;
+  CarBank *pCVar12;
   int iVar13;
-  undefined *puVar14;
+  int iVar14;
+  undefined **ppuVar15;
   CarBankName *this_00;
   CarBankName aCStack248 [9];
   char acStack136 [104];
@@ -3088,79 +3051,79 @@ Speech * __6Speech(Speech *this)
   long local_1c;
   
   carIndex = 8;
-  piVar1 = &(this->fCarBank).Mobile[0].fModel;
-  pSVar10 = this;
+  piVar2 = &(this->fCarBank).Mobile[0].fModel;
+  pSVar11 = this;
   do {
-    (pSVar10->fCarBank).Mobile[0].fFull = -1;
-    piVar1[-1] = -1;
-    *piVar1 = -1;
-    piVar1 = piVar1 + 3;
+    (pSVar11->fCarBank).Mobile[0].fFull = -1;
+    piVar2[-1] = -1;
+    *piVar2 = -1;
+    piVar2 = piVar2 + 3;
     carIndex = carIndex + -1;
-    pSVar10 = (Speech *)((pSVar10->fCarBank).Mobile + 1);
+    pSVar11 = (Speech *)((pSVar11->fCarBank).Mobile + 1);
   } while (carIndex != -1);
-  pCVar11 = (this->fCarBank).Dispatch;
+  pCVar12 = (this->fCarBank).Dispatch;
   carIndex = 8;
-  piVar1 = &(this->fCarBank).Dispatch[0].fModel;
+  piVar2 = &(this->fCarBank).Dispatch[0].fModel;
   do {
-    pCVar11->fFull = -1;
-    piVar1[-1] = -1;
-    *piVar1 = -1;
-    piVar1 = piVar1 + 3;
+    pCVar12->fFull = -1;
+    piVar2[-1] = -1;
+    *piVar2 = -1;
+    piVar2 = piVar2 + 3;
     carIndex = carIndex + -1;
-    pCVar11 = pCVar11 + 1;
+    pCVar12 = pCVar12 + 1;
   } while (carIndex != -1);
-  p_Var7 = &this->fLocationBank;
+  p_Var8 = &this->fLocationBank;
   carIndex = 0xf;
   do {
-    p_Var7->Mobile[0].fBankId = -1;
+    p_Var8->Mobile[0].fBankId = -1;
     carIndex = carIndex + -1;
-    p_Var7 = (__126 *)(p_Var7->Mobile + 1);
+    p_Var8 = (__126 *)(p_Var8->Mobile + 1);
   } while (carIndex != -1);
-  pLVar8 = (this->fLocationBank).Dispatch;
+  pLVar9 = (this->fLocationBank).Dispatch;
   carIndex = 0xf;
   do {
-    pLVar8->fBankId = -1;
+    pLVar9->fBankId = -1;
     carIndex = carIndex + -1;
-    pLVar8 = pLVar8 + 1;
+    pLVar9 = pLVar9 + 1;
   } while (carIndex != -1);
-  pDVar2 = (DispatchSpeaker *)__builtin_new(100);
+  pDVar3 = (DispatchSpeaker *)__builtin_new(100);
   carIndex = 0;
-  (pDVar2->Speaker)._vf[0] = (__vtbl_ptr_type *)&table;
-  (pDVar2->Speaker).fSub = (Speaker *)0x0;
-  (pDVar2->Speaker)._vf[0] = (__vtbl_ptr_type *)&table;
-  this->fDispatch = pDVar2;
-  pSVar10 = this;
-  while (iVar13 = 0, carIndex < 4) {
-    pMVar3 = (MobileSpeaker *)__builtin_new(0x68);
-    (pMVar3->Speaker)._vf[0] = (__vtbl_ptr_type *)&table;
-    (pMVar3->Speaker).fSub = (Speaker *)0x0;
-    (pMVar3->Speaker)._vf[0] = (__vtbl_ptr_type *)&table;
-    (pMVar3->Speaker)._vf[5] = (__vtbl_ptr_type *)0x0;
-    pSVar10->fMobile[0] = pMVar3;
-    pSVar10 = (Speech *)&(pSVar10->fCarBank).Mobile[0].fMake;
+  (pDVar3->Speaker)._vf[0].value = 0x80055dc4;
+  (pDVar3->Speaker).fSub = (Speaker *)0x0;
+  (pDVar3->Speaker)._vf[0].value = 0x80055ccc;
+  this->fDispatch = pDVar3;
+  pSVar11 = this;
+  while (iVar14 = 0, carIndex < 4) {
+    p_Var4 = (_func_29 *)__builtin_new(0x68);
+    *(undefined4 *)(p_Var4 + 0x4c) = 0x80055dc4;
+    *(undefined4 *)(p_Var4 + 0x48) = 0;
+    *(undefined4 *)(p_Var4 + 0x4c) = 0x80055bd4;
+    *(undefined4 *)(p_Var4 + 0x60) = 0;
+    pSVar11->fMobile[0] = p_Var4;
+    pSVar11 = (Speech *)&(pSVar11->fCarBank).Mobile[0].fMake;
     carIndex = carIndex + 1;
   }
-  iVar12 = 0;
-  puVar9 = &GameSetup_gData;
-  this->fFileOpen = 0;
+  iVar13 = 0;
+  pGVar10 = &GameSetup_gData;
+  this->fFileOpen = (void *)0x0;
   this->fBankOffset = (long *)0x0;
   carIndex = 0;
-  if (false) {
+  if (0 < GameSetup_gData.numCars) {
     do {
-      iVar4 = puVar9[0xf6];
-      if ((iVar4 == 1) || (iVar4 == 2)) {
+      iVar5 = pGVar10->carInfo[0].carClass;
+      if ((iVar5 == 1) || (iVar5 == 2)) {
         carIndex = carIndex + 1;
       }
       else {
-        if (iVar4 == 0x41) {
-          iVar13 = iVar13 + 1;
+        if (iVar5 == 0x41) {
+          iVar14 = iVar14 + 1;
         }
       }
-      iVar12 = iVar12 + 1;
-      puVar9 = puVar9 + 0x2d;
-    } while (iVar12 < 0);
+      iVar13 = iVar13 + 1;
+      pGVar10 = (GameSetup_tData *)((pGVar10->controllerData).shockImpact + 1);
+    } while (iVar13 < GameSetup_gData.numCars);
   }
-  if ((iVar13 == 0) && (1 < carIndex)) {
+  if ((iVar14 == 0) && (1 < carIndex)) {
     this->fMultiplePerps = 1;
   }
   else {
@@ -3168,8 +3131,9 @@ Speech * __6Speech(Speech *this)
   }
   carIndex = 0;
   gettick();
-  this->fCarCount = 0;
-  if (false) {
+  bVar1 = 0 < GameSetup_gData.numCars;
+  this->fCarCount = GameSetup_gData.numCars;
+  if (bVar1) {
     this_00 = aCStack248;
     do {
       SetCar__Q26Speech11CarBankNamei(this_00,carIndex);
@@ -3180,28 +3144,28 @@ Speech * __6Speech(Speech *this)
   CountLocations__6Speech(this);
   this->fBankCount = 0;
   carIndex = 0;
-  if (false) {
-    puVar14 = &DAT_8013d06c;
+  if (GameSetup_gData.languageSpeech == 2) {
+    ppuVar15 = &PTR_DAT_8013d06c;
   }
   else {
-    if (false) {
-      if (false) {
-        puVar14 = &DAT_8013d074;
+    if (GameSetup_gData.languageSpeech < 3) {
+      if (GameSetup_gData.languageSpeech == 1) {
+        ppuVar15 = &PTR_DAT_8013d070;
       }
       else {
-        puVar14 = &DAT_8013d078;
+        ppuVar15 = &PTR_DAT_8013d078;
       }
     }
     else {
-      if (false) {
-        puVar14 = &DAT_8013d070;
+      if (GameSetup_gData.languageSpeech == 6) {
+        ppuVar15 = &PTR_DAT_8013d074;
       }
       else {
-        puVar14 = &DAT_8013d078;
+        ppuVar15 = &PTR_DAT_8013d078;
       }
     }
   }
-  sprintf(acStack136,"%szzzz%s.viv",0,puVar14);
+  sprintf(acStack136,s__szzzz_s_viv_80055bb4,PTR_801164dc,ppuVar15);
   header = (char *)loadbigfileheader(acStack136,0x10);
   local_20 = 0;
   local_1c = 0;
@@ -3210,26 +3174,23 @@ Speech * __6Speech(Speech *this)
                          (this,header,aCStack248,&local_20,&local_1c);
   }
   if (0 < carIndex) {
-    plVar5 = (long *)reservememadr("spch index",this->fBankCount * 4 + carIndex,0);
-    this->fBankOffset = plVar5;
+    plVar6 = (long *)reservememadr(s_spch_index_80055bc4,this->fBankCount * 4 + carIndex,0);
+    this->fBankOffset = plVar6;
   }
   if (this->fBankOffset != (long *)0x0) {
-    uVar6 = SPCH_GetSampleDataRate(0x2b11,0x10,2);
-    SPCH_Init(Speech_HandleRequest__Fllll,0x12345678,uVar6);
-    SPCH_InitBankMem(Speech_AllocateRAM__FlPc,Speech_PurgeRAM__FPc,this->fBankCount);
-    carIndex = FILE_opensync(acStack136,1,100,&this->fFileHandle);
-    this->fFileOpen = (uint)(carIndex != 0);
+    carIndex = SPCH_GetSampleDataRate((int)&DAT_00002b11,0x10,2);
+    SPCH_Init(Speech_HandleRequest__Fllll,0x12345678,carIndex);
+    SPCH_InitBankMem((int)Speech_AllocateRAM__FlPc,(int)Speech_PurgeRAM__FPc,this->fBankCount);
+    uVar7 = FILE_opensync(acStack136,1,100,(uint *)&this->fFileHandle);
+    this->fFileOpen = (void *)(uint)(uVar7 != 0);
     LoadBankHeaders__6SpeechPcPQ26Speech11CarBankNamell(this,header,aCStack248,local_20,local_1c);
   }
   if (header != (char *)0x0) {
-    purgememadr(header);
+    purgememadr((int)header);
   }
   gettick();
   return this;
-
-
 }
-
 
 
 
@@ -3276,47 +3237,52 @@ Speech * __6Speech(Speech *this)
 	// End offset: 0x80095B20
 	// End Line: 1260
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Reset__6Speech(void)
+
 {
   int *piVar1;
   bool bVar2;
   int iVar3;
   int iVar4;
+  DispatchSpeaker *this;
   uint uVar5;
+  uint uVar6;
+  uint uVar7;
   
-  if (iGp00000838 != 0) {
+  if (DAT_00000838 != 0) {
     iVar4 = 0;
-    iVar3 = iGp00000838;
+    iVar3 = DAT_00000838;
     while (bVar2 = iVar4 < 4, iVar4 = iVar4 + 1, bVar2) {
       piVar1 = (int *)(iVar3 + 0x390);
       iVar3 = iVar3 + 4;
       *(undefined4 *)(*piVar1 + 0x60) = 0;
     }
     SPCH_ClearEventQueue();
-    randtemp = fastRandom;
-    uVar5 = fastRandom & 0xffff00;
-    fastRandom = fastRandom & 0xffff;
-    iSPCH_EACseedrandom(uVar5 >> 8);
-    uVar5 = fastRandom & 0xffff;
-    randtemp = uVar5;
-    *(uint *)(iGp00000838 + 0x380) = ((fastRandom & 0xffff00) >> 8) % 9;
-    fastRandom = uVar5;
-    *(uint *)(iGp00000838 + 900) = (uVar5 >> 8) % 6;
-    Activate__Q26Speech15DispatchSpeakeri
-              (*(DispatchSpeaker **)(iGp00000838 + 0x3a0),(uVar5 >> 8) % 7);
+    randtemp = fastRandom * randSeed;
+    fastRandom = randtemp & 0xffff;
+    iSPCH_EACseedrandom((randtemp & 0xffff00) >> 8);
+    iVar3 = DAT_00000838;
+    uVar6 = fastRandom * randSeed;
+    uVar7 = (uVar6 & 0xffff) * randSeed;
+    randtemp = (uVar7 & 0xffff) * randSeed;
+    this = *(DispatchSpeaker **)(DAT_00000838 + 0x3a0);
+    uVar5 = randtemp & 0xffff00;
+    fastRandom = randtemp & 0xffff;
+    *(uint *)(DAT_00000838 + 0x380) = ((uVar6 & 0xffff00) >> 8) % 9;
+    *(uint *)(iVar3 + 900) = ((uVar7 & 0xffff00) >> 8) % 6;
+    Activate__Q26Speech15DispatchSpeakeri(this,(uVar5 >> 8) % 7);
   }
   return;
-
-
 }
 
 
 
-
-// autogenerated function stub: 
+// decompiled code
+// original method signature: 
 // void /*$ra*/ _._6Speech(struct Speech *this /*$s2*/, int __in_chrg /*$s3*/)
-void _._6Speech _._6Speech(Speech *this /*$s2*/this, int __in_chrg /*$s3*/ __in_chrg)
-{ // line 1267, offset 0x80095b30
+ // line 1267, offset 0x80095b30
 	/* begin block 1 */
 		// Start line: 1268
 		// Start offset: 0x80095B30
@@ -3325,7 +3291,7 @@ void _._6Speech _._6Speech(Speech *this /*$s2*/this, int __in_chrg /*$s3*/ __in_
 			// Start line: 1281
 			// Start offset: 0x80095B8C
 			// Variables:
-				int i; // $s1
+		// 		int i; // $s1
 		/* end block 1.1 */
 		// End offset: 0x80095BB8
 		// End Line: 1284
@@ -3333,7 +3299,35 @@ void _._6Speech _._6Speech(Speech *this /*$s2*/this, int __in_chrg /*$s3*/ __in_
 	// End offset: 0x80095BB8
 	// End Line: 1284
 
+void ___6Speech(Speech *this,int __in_chrg)
+
+{
+  _func_29 **pp_Var1;
+  Speech *pSVar2;
+  int iVar3;
+  
+  if (this->fBankOffset != (long *)0x0) {
+    SPCH_Deinit();
+    purgememadr((int)this->fBankOffset);
+  }
+  if (this->fFileOpen != (void *)0x0) {
+    FILE_closesync(this->fFileHandle,100);
+  }
+  iVar3 = 0;
+  __builtin_delete(this->fDispatch);
+  pSVar2 = this;
+  do {
+    pp_Var1 = pSVar2->fMobile;
+    pSVar2 = (Speech *)&(pSVar2->fCarBank).Mobile[0].fMake;
+    iVar3 = iVar3 + 1;
+    __builtin_delete(*pp_Var1);
+  } while (iVar3 < 4);
+  if ((__in_chrg & 1U) != 0) {
+    __builtin_delete(this);
+  }
+  return;
 }
+
 
 
 // decompiled code
@@ -3348,6 +3342,7 @@ void _._6Speech _._6Speech(Speech *this /*$s2*/this, int __in_chrg /*$s3*/ __in_
 	// End Line: 1308
 
 int BankPatch__6SpeechlP8Car_tObj(Speech *this,long bank,Car_tObj *car)
+
 {
   int iVar1;
   
@@ -3359,10 +3354,7 @@ int BankPatch__6SpeechlP8Car_tObj(Speech *this,long bank,Car_tObj *car)
     iVar1 = 0x14;
   }
   return iVar1;
-
-
 }
-
 
 
 
@@ -3485,42 +3477,42 @@ int BankPatch__6SpeechlP8Car_tObj(Speech *this,long bank,Car_tObj *car)
 	// End Line: 1343
 
 long SubmitRequest__6Speechlll(long bank,long localoffset,long size)
+
 {
+  Speech *this;
   int patch;
-  int iVar1;
+  long lVar1;
   Car_tObj *car;
   
-  if (pSGp00000838 == (Speech *)0x0) {
-    localoffset = 0;
+  this = DAT_00000838;
+  if (DAT_00000838 == (Speech *)0x0) {
+    lVar1 = 0;
   }
   else {
-    (pSGp00000838->fDispatch->Speaker)._vf[2] = (__vtbl_ptr_type *)0x0;
-    (pSGp00000838->fDispatch->Speaker)._vf[1] = (__vtbl_ptr_type *)0x200;
-    car = pSGp00000838->fSpeakerCar;
-    patch = BankPatch__6SpeechlP8Car_tObj(pSGp00000838,bank,car);
-    if ((bank < 0) || (pSGp00000838->fBankCount <= bank)) {
-      iVar1 = 0;
+    (DAT_00000838->fDispatch->Speaker)._vf[2].value = 0;
+    (this->fDispatch->Speaker)._vf[1].value = 0x200;
+    car = this->fSpeakerCar;
+    patch = BankPatch__6SpeechlP8Car_tObj(this,bank,car);
+    if ((bank < 0) || (DAT_00000838->fBankCount <= bank)) {
+      lVar1 = 0;
     }
     else {
-      iVar1 = pSGp00000838->fBankOffset[bank];
+      lVar1 = DAT_00000838->fBankOffset[bank];
     }
     if (patch < 0) {
-      if (iVar1 != 0) {
+      if (lVar1 != 0) {
         CopSpeak_DirectRequest__FillP8Car_tObjPc
-                  (pSGp00000838->fFileHandle,iVar1 + localoffset,size,car,(char *)0x0);
+                  (DAT_00000838->fFileHandle,lVar1 + localoffset,size,car,(char *)0x0);
       }
-      localoffset = iVar1 + localoffset;
+      lVar1 = lVar1 + localoffset;
     }
     else {
       CopSpeak_GenericBankRequest__FiP8Car_tObj(patch,car);
-      localoffset = iVar1 + localoffset;
+      lVar1 = lVar1 + localoffset;
     }
   }
-  return localoffset;
-
-
+  return lVar1;
 }
-
 
 
 
@@ -3536,12 +3528,10 @@ long SubmitRequest__6Speechlll(long bank,long localoffset,long size)
 	// End Line: 1353
 
 void Report__Q26Speech7SpeakerP8Car_tObj(Speaker *this,Car_tObj *cop)
+
 {
   return;
-
-
 }
-
 
 
 
@@ -3557,12 +3547,10 @@ void Report__Q26Speech7SpeakerP8Car_tObj(Speaker *this,Car_tObj *cop)
 	// End Line: 1364
 
 void Deny__Q26Speech7Speaker(Speaker *this)
+
 {
   return;
-
-
 }
-
 
 
 
@@ -3578,12 +3566,10 @@ void Deny__Q26Speech7Speaker(Speaker *this)
 	// End Line: 1372
 
 void Grant__Q26Speech7Speaker(Speaker *this)
+
 {
   return;
-
-
 }
-
 
 
 
@@ -3599,12 +3585,10 @@ void Grant__Q26Speech7Speaker(Speaker *this)
 	// End Line: 1380
 
 void Ready__Q26Speech7SpeakerP8Car_tObj(Speaker *this,Car_tObj *wing)
+
 {
   return;
-
-
 }
-
 
 
 
@@ -3620,12 +3604,10 @@ void Ready__Q26Speech7SpeakerP8Car_tObj(Speaker *this,Car_tObj *wing)
 	// End Line: 1395
 
 void Engage__Q26Speech7SpeakerP8Car_tObj(Speaker *this,Car_tObj *perp)
+
 {
   return;
-
-
 }
-
 
 
 
@@ -3641,12 +3623,10 @@ void Engage__Q26Speech7SpeakerP8Car_tObj(Speaker *this,Car_tObj *perp)
 	// End Line: 1403
 
 void Lose__Q26Speech7Speaker(Speaker *this)
+
 {
   return;
-
-
 }
-
 
 
 
@@ -3662,12 +3642,10 @@ void Lose__Q26Speech7Speaker(Speaker *this)
 	// End Line: 1411
 
 void Accident__Q26Speech7Speakeri(Speaker *this,int slice)
+
 {
   return;
-
-
 }
-
 
 
 
@@ -3683,12 +3661,10 @@ void Accident__Q26Speech7Speakeri(Speaker *this,int slice)
 	// End Line: 1419
 
 void Catch__Q26Speech7Speakeri(Speaker *this,int ticket)
+
 {
   return;
-
-
 }
-
 
 
 
@@ -3704,12 +3680,10 @@ void Catch__Q26Speech7Speakeri(Speaker *this,int ticket)
 	// End Line: 1427
 
 void RoadBlock__Q26Speech7Speaker(Speaker *this)
+
 {
   return;
-
-
 }
-
 
 
 
@@ -3725,12 +3699,10 @@ void RoadBlock__Q26Speech7Speaker(Speaker *this)
 	// End Line: 1435
 
 void SpikeBelt__Q26Speech7Speaker(Speaker *this)
+
 {
   return;
-
-
 }
-
 
 
 
@@ -3746,12 +3718,10 @@ void SpikeBelt__Q26Speech7Speaker(Speaker *this)
 	// End Line: 1443
 
 void Backup__Q26Speech7Speaker(Speaker *this)
+
 {
   return;
-
-
 }
-
 
 
 
@@ -3767,12 +3737,10 @@ void Backup__Q26Speech7Speaker(Speaker *this)
 	// End Line: 1451
 
 void ReportBlockade__Q26Speech7Speaker(Speaker *this)
+
 {
   return;
-
-
 }
-
 
 
 
@@ -3788,12 +3756,10 @@ void ReportBlockade__Q26Speech7Speaker(Speaker *this)
 	// End Line: 1460
 
 void Roger__Q26Speech7Speaker(Speaker *this)
+
 {
   return;
-
-
 }
-
 
 
 
@@ -3809,12 +3775,10 @@ void Roger__Q26Speech7Speaker(Speaker *this)
 	// End Line: 1468
 
 void Bullhorn__Q26Speech7Speaker(Speaker *this)
+
 {
   return;
-
-
 }
-
 
 
 
@@ -3830,12 +3794,10 @@ void Bullhorn__Q26Speech7Speaker(Speaker *this)
 	// End Line: 1476
 
 void Purge__Q26Speech7Speaker(Speaker *this)
+
 {
   return;
-
-
 }
-
 
 
 
@@ -3984,6 +3946,7 @@ void Purge__Q26Speech7Speaker(Speaker *this)
 	// End Line: 1495
 
 void Promote__Q26Speech7Speaker(Speaker *this)
+
 {
   Speaker *pSVar1;
   Speaker *pSVar2;
@@ -3999,10 +3962,7 @@ void Promote__Q26Speech7Speaker(Speaker *this)
   pSVar1 = Dispatch__6Speech();
   pSVar1->fSub = this;
   return;
-
-
 }
-
 
 
 
@@ -4017,18 +3977,19 @@ void Promote__Q26Speech7Speaker(Speaker *this)
 	// End offset: 0x80095DF8
 	// End Line: 1540
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Speech_Server__Fv(void)
+
 {
   Speaker *pSVar1;
+  uint uVar2;
   
   pSVar1 = Dispatch__6Speech();
-  (**(code **)(pSVar1->_vf[0] + 0x14))
-            ((int)&(pSVar1->fPosition).flags + (int)*(short *)(pSVar1->_vf[0] + 0x10));
+  uVar2 = pSVar1->_vf[0].value;
+  (**(code **)(uVar2 + 0x14))((int)&(pSVar1->fPosition).flags + (int)*(short *)(uVar2 + 0x10));
   return;
-
-
 }
-
 
 
 
@@ -4044,14 +4005,15 @@ void Speech_Server__Fv(void)
 	// End Line: 1548
 
 void SetDelayedStatus__6SpeechPQ26Speech7Speakeri(Speech *this,Speaker *sub,int delay)
+
 {
-  *(Speaker **)(*(int *)(iGp00000838 + 0x3a0) + 0x54) = sub;
-  *(int *)(*(int *)(iGp00000838 + 0x3a0) + 0x50) = delay;
+  int iVar1;
+  
+  iVar1 = DAT_00000838;
+  *(Speaker **)(*(int *)(DAT_00000838 + 0x3a0) + 0x54) = sub;
+  *(int *)(*(int *)(iVar1 + 0x3a0) + 0x50) = delay;
   return;
-
-
 }
-
 
 
 
@@ -4186,36 +4148,35 @@ void SetDelayedStatus__6SpeechPQ26Speech7Speakeri(Speech *this,Speaker *sub,int 
 	// End Line: 1569
 
 void Activate__Q26Speech15DispatchSpeakeri(DispatchSpeaker *this,int seedupdatecount)
+
 {
-  __vtbl_ptr_type *p_Var1;
+  uint uVar1;
   int iVar2;
   SPCHNFSType_DISTANCE *pSVar3;
   int iVar4;
   
-  p_Var1 = (this->Speaker)._vf[0];
-  iVar2 = (**(code **)(p_Var1 + 0xf4))
-                    ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(p_Var1 + 0xf0));
+  uVar1 = (this->Speaker)._vf[0].value;
+  iVar2 = (**(code **)(uVar1 + 0xf4))
+                    ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(uVar1 + 0xf0));
   iVar4 = 1;
   pSVar3 = &(this->Speaker).fDistance;
   (this->Speaker).fFrom = *(int *)(iVar2 + 4);
+  iVar2 = GameSetup_gData.track;
   (this->Speaker).fConfirm.flags = 0xff;
   (this->Speaker).fPerpName.flags = 0xf;
   (this->Speaker).fSub = (Speaker *)0x0;
-  (this->Speaker).fReverse.flags = 0;
+  (this->Speaker).fReverse.flags = iVar2 & 1;
   do {
     pSVar3[0x17].flags = 0;
     iVar4 = iVar4 + -1;
     pSVar3 = pSVar3 + -1;
   } while (-1 < iVar4);
-  (this->Speaker)._vf[1] = (__vtbl_ptr_type *)0x200;
-  (this->Speaker)._vf[2] = (__vtbl_ptr_type *)0x0;
-  *(int *)((this->Speaker)._vf + 3) = seedupdatecount;
-  (this->Speaker).fHavePerp = 0;
+  (this->Speaker)._vf[1].value = 0x200;
+  (this->Speaker)._vf[2].value = 0;
+  (this->Speaker)._vf[3].value = seedupdatecount;
+  (this->Speaker).fHavePerp = (void *)0x0;
   return;
-
-
 }
-
 
 
 
@@ -4232,16 +4193,16 @@ void Activate__Q26Speech15DispatchSpeakeri(DispatchSpeaker *this,int seedupdatec
 	// End offset: 0x80095F20
 	// End Line: 1587
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 Speaker * Dispatch__6Speech(void)
+
 {
-  if ((iGp00000838 != 0) && (*(int *)(iGp00000838 + 0x36c) != 0)) {
-    return *(Speaker **)(iGp00000838 + 0x3a0);
+  if ((DAT_00000838 != 0) && (*(int *)(DAT_00000838 + 0x36c) != 0)) {
+    return *(Speaker **)(DAT_00000838 + 0x3a0);
   }
-  return pSGp0000083c;
-
-
+  return DAT_0000083c;
 }
-
 
 
 
@@ -4907,22 +4868,24 @@ Speaker * Dispatch__6Speech(void)
 	// End Line: 1630
 
 void Roger__Q26Speech15DispatchSpeaker(DispatchSpeaker *this)
+
 {
   bool bVar1;
+  uint uVar2;
   int ID_UNIT;
-  __vtbl_ptr_type *p_Var2;
   int iVar3;
   Car_tObj *car;
   Speaker *pSVar4;
   SPCHNFSType_COLOUR *COLOUR;
   
-  *(undefined4 *)(iGp00000838 + 0x38c) = 0;
+  *(undefined4 *)(DAT_00000838 + 0x38c) = 0;
   pSVar4 = (this->Speaker).fSub;
   bVar1 = false;
   if (((pSVar4 == (Speaker *)0x0) ||
-      (ID_UNIT = (**(code **)(pSVar4->_vf[0] + 0xdc))
-                           ((int)&(pSVar4->fPosition).flags + (int)*(short *)(pSVar4->_vf[0] + 0xd8)
-                           ), ID_UNIT == 0)) || ((((this->Speaker).fSub)->fBlockade).flags != 0)) {
+      (uVar2 = pSVar4->_vf[0].value,
+      ID_UNIT = (**(code **)(uVar2 + 0xdc))
+                          ((int)&(pSVar4->fPosition).flags + (int)*(short *)(uVar2 + 0xd8)),
+      ID_UNIT == 0)) || ((((this->Speaker).fSub)->fBlockade).flags != 0)) {
     bVar1 = true;
   }
   if (bVar1) {
@@ -4935,31 +4898,31 @@ void Roger__Q26Speech15DispatchSpeaker(DispatchSpeaker *this)
         SPCHNFS_D_A_CONFIRM(&(this->Speaker).fConfirm);
         SPCH_PlaySpeech();
         pSVar4 = (this->Speaker).fSub;
-        p_Var2 = pSVar4->_vf[0];
+        uVar2 = pSVar4->_vf[0].value;
         car = (Car_tObj *)
-              (**(code **)(p_Var2 + 0xdc))
-                        ((int)&(pSVar4->fPosition).flags + (int)*(short *)(p_Var2 + 0xd8));
+              (**(code **)(uVar2 + 0xdc))
+                        ((int)&(pSVar4->fPosition).flags + (int)*(short *)(uVar2 + 0xd8));
         SetCar__Q26Speech7SpeakerP8Car_tObj((Speaker *)this,car);
         SPCHNFS_D_C_PERP_LOST_CONFIRM(&(this->Speaker).fColour,(this->Speaker).fCar);
       }
       else {
+        uVar2 = pSVar4->_vf[0].value;
         car = (Car_tObj *)
-              (**(code **)(pSVar4->_vf[0] + 0xdc))
-                        ((int)&(pSVar4->fPosition).flags + (int)*(short *)(pSVar4->_vf[0] + 0xd8));
+              (**(code **)(uVar2 + 0xdc))
+                        ((int)&(pSVar4->fPosition).flags + (int)*(short *)(uVar2 + 0xd8));
         SetCar__Q26Speech7SpeakerP8Car_tObj((Speaker *)this,car);
-        p_Var2 = (this->Speaker)._vf[0];
-        ID_UNIT = (**(code **)(p_Var2 + 0xf4))
-                            ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(p_Var2 + 0xf0))
-        ;
+        uVar2 = (this->Speaker)._vf[0].value;
+        ID_UNIT = (**(code **)(uVar2 + 0xf4))
+                            ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(uVar2 + 0xf0));
         pSVar4 = (this->Speaker).fSub;
-        p_Var2 = pSVar4->_vf[0];
-        iVar3 = (**(code **)(p_Var2 + 0x8c))
-                          ((int)&(pSVar4->fPosition).flags + (int)*(short *)(p_Var2 + 0x88));
+        uVar2 = pSVar4->_vf[0].value;
+        iVar3 = (**(code **)(uVar2 + 0x8c))
+                          ((int)&(pSVar4->fPosition).flags + (int)*(short *)(uVar2 + 0x88));
         pSVar4 = (this->Speaker).fSub;
         (this->Speaker).fTo = *(int *)(ID_UNIT + iVar3 * 4 + 8);
-        p_Var2 = pSVar4->_vf[0];
-        ID_UNIT = (**(code **)(p_Var2 + 0xc4))
-                            ((int)&(pSVar4->fPosition).flags + (int)*(short *)(p_Var2 + 0xc0));
+        uVar2 = pSVar4->_vf[0].value;
+        ID_UNIT = (**(code **)(uVar2 + 0xc4))
+                            ((int)&(pSVar4->fPosition).flags + (int)*(short *)(uVar2 + 0xc0));
         COLOUR = &(this->Speaker).fColour;
         if (ID_UNIT < 0x280000) {
           SPCHNFS_D_C_IN_PURS_NEAR_PERP_CONFIRM
@@ -4974,13 +4937,13 @@ void Roger__Q26Speech15DispatchSpeaker(DispatchSpeaker *this)
       }
     }
     else {
-      p_Var2 = (this->Speaker)._vf[0];
-      ID_UNIT = (**(code **)(p_Var2 + 0xf4))
-                          ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(p_Var2 + 0xf0));
+      uVar2 = (this->Speaker)._vf[0].value;
+      ID_UNIT = (**(code **)(uVar2 + 0xf4))
+                          ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(uVar2 + 0xf0));
       pSVar4 = (this->Speaker).fSub;
-      p_Var2 = pSVar4->_vf[0];
-      iVar3 = (**(code **)(p_Var2 + 0x8c))
-                        ((int)&(pSVar4->fPosition).flags + (int)*(short *)(p_Var2 + 0x88));
+      uVar2 = pSVar4->_vf[0].value;
+      iVar3 = (**(code **)(uVar2 + 0x8c))
+                        ((int)&(pSVar4->fPosition).flags + (int)*(short *)(uVar2 + 0x88));
       ID_UNIT = *(int *)(ID_UNIT + iVar3 * 4 + 8);
       (this->Speaker).fTo = ID_UNIT;
       SPCHNFS_D_C_PERP_APPREHENSION_REPLY
@@ -4989,10 +4952,7 @@ void Roger__Q26Speech15DispatchSpeaker(DispatchSpeaker *this)
   }
   SPCH_PlaySpeech();
   return;
-
-
 }
-
 
 
 
@@ -6306,10 +6266,11 @@ void Roger__Q26Speech15DispatchSpeaker(DispatchSpeaker *this)
 	// End Line: 1713
 
 void StatusReply__Q26Speech15DispatchSpeaker(DispatchSpeaker *this)
+
 {
   bool bVar1;
+  uint uVar2;
   int ID_UNIT;
-  __vtbl_ptr_type *p_Var2;
   int ID_UNIT1;
   int *piVar3;
   Car_tObj *car;
@@ -6320,34 +6281,34 @@ void StatusReply__Q26Speech15DispatchSpeaker(DispatchSpeaker *this)
   pSVar4 = (this->Speaker).fSub;
   bVar1 = false;
   if ((pSVar4 == (Speaker *)0x0) ||
-     (ID_UNIT = (**(code **)(pSVar4->_vf[0] + 0xdc))
-                          ((int)&(pSVar4->fPosition).flags + (int)*(short *)(pSVar4->_vf[0] + 0xd8))
-     , ID_UNIT == 0)) {
+     (uVar2 = pSVar4->_vf[0].value,
+     ID_UNIT = (**(code **)(uVar2 + 0xdc))
+                         ((int)&(pSVar4->fPosition).flags + (int)*(short *)(uVar2 + 0xd8)),
+     ID_UNIT == 0)) {
     bVar1 = true;
   }
-  ID_UNIT = fgSpeech;
   if (bVar1) {
     return;
   }
-  *(undefined4 *)(fgSpeech + 0x38c) = 0;
+  *(undefined4 *)(iGp00000838 + 0x38c) = 0;
   pSVar4 = (this->Speaker).fSub;
   pSVar6 = (Speaker *)0x0;
   if ((pSVar4->fBlockade).flags == 0) {
-    p_Var2 = (this->Speaker)._vf[0];
-    ID_UNIT = (**(code **)(p_Var2 + 0xf4))
-                        ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(p_Var2 + 0xf0));
+    uVar2 = (this->Speaker)._vf[0].value;
+    ID_UNIT = (**(code **)(uVar2 + 0xf4))
+                        ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(uVar2 + 0xf0));
     pSVar4 = (this->Speaker).fSub;
-    p_Var2 = pSVar4->_vf[0];
-    ID_UNIT1 = (**(code **)(p_Var2 + 0x8c))
-                         ((int)&(pSVar4->fPosition).flags + (int)*(short *)(p_Var2 + 0x88));
+    uVar2 = pSVar4->_vf[0].value;
+    ID_UNIT1 = (**(code **)(uVar2 + 0x8c))
+                         ((int)&(pSVar4->fPosition).flags + (int)*(short *)(uVar2 + 0x88));
     ID_UNIT = *(int *)(ID_UNIT + ID_UNIT1 * 4 + 8);
     ID_UNIT1 = (this->Speaker).fFrom;
     (this->Speaker).fTo = ID_UNIT;
   }
   else {
-    if (*(int *)(ID_UNIT + 0x388) != 0) {
-      (**(code **)(pSVar4->_vf[0] + 0x6c))
-                ((int)&(pSVar4->fPosition).flags + (int)*(short *)(pSVar4->_vf[0] + 0x68));
+    if (*(int *)(iGp00000838 + 0x388) != 0) {
+      uVar2 = pSVar4->_vf[0].value;
+      (**(code **)(uVar2 + 0x6c))((int)&(pSVar4->fPosition).flags + (int)*(short *)(uVar2 + 0x68));
       return;
     }
     pSVar6 = pSVar4->fSub;
@@ -6356,26 +6317,26 @@ void StatusReply__Q26Speech15DispatchSpeaker(DispatchSpeaker *this)
       bVar1 = (pSVar6->fBlockade).flags != 0;
     }
     if (bVar1) {
-      p_Var2 = (this->Speaker)._vf[0];
-      ID_UNIT = (**(code **)(p_Var2 + 0xf4))
-                          ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(p_Var2 + 0xf0));
+      uVar2 = (this->Speaker)._vf[0].value;
+      ID_UNIT = (**(code **)(uVar2 + 0xf4))
+                          ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(uVar2 + 0xf0));
       pSVar4 = (this->Speaker).fSub;
-      p_Var2 = pSVar4->_vf[0];
-      ID_UNIT1 = (**(code **)(p_Var2 + 0x8c))
-                           ((int)&(pSVar4->fPosition).flags + (int)*(short *)(p_Var2 + 0x88));
+      uVar2 = pSVar4->_vf[0].value;
+      ID_UNIT1 = (**(code **)(uVar2 + 0x8c))
+                           ((int)&(pSVar4->fPosition).flags + (int)*(short *)(uVar2 + 0x88));
       (this->Speaker).fTo = *(int *)(ID_UNIT + ID_UNIT1 * 4 + 8);
       pSVar4 = pSVar6;
     }
     else {
-      p_Var2 = (this->Speaker)._vf[0];
-      piVar3 = (int *)(**(code **)(p_Var2 + 0xf4))
+      uVar2 = (this->Speaker)._vf[0].value;
+      piVar3 = (int *)(**(code **)(uVar2 + 0xf4))
                                 ((int)&(this->Speaker).fPosition.flags +
-                                 (int)*(short *)(p_Var2 + 0xf0));
+                                 (int)*(short *)(uVar2 + 0xf0));
       (this->Speaker).fTo = *piVar3;
     }
-    (**(code **)(pSVar4->_vf[0] + 0x6c))
-              ((int)&(pSVar4->fPosition).flags + (int)*(short *)(pSVar4->_vf[0] + 0x68));
-    *(undefined4 *)(fgSpeech + 0x38c) = 0;
+    uVar2 = pSVar4->_vf[0].value;
+    (**(code **)(uVar2 + 0x6c))((int)&(pSVar4->fPosition).flags + (int)*(short *)(uVar2 + 0x68));
+    *(undefined4 *)(iGp00000838 + 0x38c) = 0;
     SPCHNFS_D_A_CONFIRM(&(this->Speaker).fConfirm);
     SPCH_PlaySpeech();
     ID_UNIT = (this->Speaker).fTo;
@@ -6385,19 +6346,19 @@ void StatusReply__Q26Speech15DispatchSpeaker(DispatchSpeaker *this)
   SPCHNFS_D_C_INTRO_CALL(ID_UNIT,ID_UNIT1,&(this->Speaker).fReverse);
   SPCH_PlaySpeech();
   pSVar4 = (this->Speaker).fSub;
-  p_Var2 = pSVar4->_vf[0];
+  uVar2 = pSVar4->_vf[0].value;
   car = (Car_tObj *)
-        (**(code **)(p_Var2 + 0xcc))
-                  ((int)&(pSVar4->fPosition).flags + (int)*(short *)(p_Var2 + 200));
+        (**(code **)(uVar2 + 0xcc))((int)&(pSVar4->fPosition).flags + (int)*(short *)(uVar2 + 200));
   FindLocation__Q26Speech7SpeakerP8Car_tObj((Speaker *)this,car);
   pSVar4 = (this->Speaker).fSub;
   uVar5 = (pSVar4->fBlockade).flags;
   if (uVar5 == 1) {
-    p_Var2 = (this->Speaker)._vf[0];
-    ID_UNIT = (**(code **)(p_Var2 + 0xf4))
-                        ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(p_Var2 + 0xf0));
-    ID_UNIT1 = (**(code **)(pSVar6->_vf[0] + 0x8c))
-                         ((int)&(pSVar6->fPosition).flags + (int)*(short *)(pSVar6->_vf[0] + 0x88));
+    uVar2 = (this->Speaker)._vf[0].value;
+    ID_UNIT = (**(code **)(uVar2 + 0xf4))
+                        ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(uVar2 + 0xf0));
+    uVar2 = pSVar6->_vf[0].value;
+    ID_UNIT1 = (**(code **)(uVar2 + 0x8c))
+                         ((int)&(pSVar6->fPosition).flags + (int)*(short *)(uVar2 + 0x88));
     ID_UNIT = *(int *)(ID_UNIT + ID_UNIT1 * 4 + 8);
     ID_UNIT1 = (this->Speaker).fLocation;
     (this->Speaker).fSpikeSide.flags = 4;
@@ -6409,14 +6370,13 @@ void StatusReply__Q26Speech15DispatchSpeaker(DispatchSpeaker *this)
   else {
     if (uVar5 != 2) {
       if (pSVar4->fSub != (Speaker *)0x0) {
-        p_Var2 = (this->Speaker)._vf[0];
-        ID_UNIT = (**(code **)(p_Var2 + 0xf4))
-                            ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(p_Var2 + 0xf0))
-        ;
+        uVar2 = (this->Speaker)._vf[0].value;
+        ID_UNIT = (**(code **)(uVar2 + 0xf4))
+                            ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(uVar2 + 0xf0));
         pSVar4 = ((this->Speaker).fSub)->fSub;
-        p_Var2 = pSVar4->_vf[0];
-        ID_UNIT1 = (**(code **)(p_Var2 + 0x8c))
-                             ((int)&(pSVar4->fPosition).flags + (int)*(short *)(p_Var2 + 0x88));
+        uVar2 = pSVar4->_vf[0].value;
+        ID_UNIT1 = (**(code **)(uVar2 + 0x8c))
+                             ((int)&(pSVar4->fPosition).flags + (int)*(short *)(uVar2 + 0x88));
         ID_UNIT = *(int *)(ID_UNIT + ID_UNIT1 * 4 + 8);
         (this->Speaker).fWing = ID_UNIT;
         SPCHNFS_D_C_BKUP_REQUEST_GRANT_REPLY
@@ -6424,14 +6384,14 @@ void StatusReply__Q26Speech15DispatchSpeaker(DispatchSpeaker *this)
                    ,ID_UNIT);
         SPCH_PlaySpeech();
         pSVar4 = (this->Speaker).fSub;
-        p_Var2 = pSVar4->_vf[0];
-        (**(code **)(p_Var2 + 0x74))
-                  ((int)&(pSVar4->fPosition).flags + (int)*(short *)(p_Var2 + 0x70));
+        uVar2 = pSVar4->_vf[0].value;
+        (**(code **)(uVar2 + 0x74))((int)&(pSVar4->fPosition).flags + (int)*(short *)(uVar2 + 0x70))
+        ;
         pSVar4 = ((this->Speaker).fSub)->fSub;
-        p_Var2 = (this->Speaker)._vf[3];
-        (this->Speaker)._vf[1] = (__vtbl_ptr_type *)0x140;
-        (this->Speaker)._vf[3] = p_Var2 + 1;
-        *(Speaker **)((this->Speaker)._vf + 2) = pSVar4;
+        uVar2 = (this->Speaker)._vf[3].value;
+        (this->Speaker)._vf[1].value = 0x140;
+        (this->Speaker)._vf[3].value = uVar2 + 1;
+        *(Speaker **)&(this->Speaker)._vf[2].value = pSVar4;
       }
       goto LAB_80096588;
     }
@@ -6441,8 +6401,8 @@ void StatusReply__Q26Speech15DispatchSpeaker(DispatchSpeaker *this)
   SPCH_PlaySpeech();
   pSVar4 = (this->Speaker).fSub;
   if (pSVar6 != pSVar4) {
-    (**(code **)(pSVar4->_vf[0] + 0x74))
-              ((int)&(pSVar4->fPosition).flags + (int)*(short *)(pSVar4->_vf[0] + 0x70));
+    uVar2 = pSVar4->_vf[0].value;
+    (**(code **)(uVar2 + 0x74))((int)&(pSVar4->fPosition).flags + (int)*(short *)(uVar2 + 0x70));
   }
 LAB_80096588:
   pSVar6 = (this->Speaker).fSub;
@@ -6455,10 +6415,7 @@ LAB_80096588:
     (pSVar6->fBlockade).flags = 0;
   }
   return;
-
-
 }
-
 
 
 
@@ -7563,12 +7520,15 @@ LAB_80096588:
 	// End offset: 0x80096B70
 	// End Line: 1847
 
+/* WARNING: Type propagation algorithm not settling */
+
 void Status__Q26Speech15DispatchSpeaker(DispatchSpeaker *this)
+
 {
   short sVar1;
   bool bVar2;
+  uint uVar3;
   int ID_UNIT;
-  __vtbl_ptr_type *p_Var3;
   undefined4 uVar4;
   int iVar5;
   Car_tObj *perp;
@@ -7576,56 +7536,56 @@ void Status__Q26Speech15DispatchSpeaker(DispatchSpeaker *this)
   code *pcVar7;
   Speaker *pSVar8;
   DispatchSpeaker *pDVar9;
-  uint uVar10;
   
   pSVar8 = (this->Speaker).fSub;
   bVar2 = false;
   if ((pSVar8 == (Speaker *)0x0) ||
-     (ID_UNIT = (**(code **)(pSVar8->_vf[0] + 0xdc))
-                          ((int)&(pSVar8->fPosition).flags + (int)*(short *)(pSVar8->_vf[0] + 0xd8))
-     , ID_UNIT == 0)) {
+     (uVar3 = pSVar8->_vf[0].value,
+     ID_UNIT = (**(code **)(uVar3 + 0xdc))
+                         ((int)&(pSVar8->fPosition).flags + (int)*(short *)(uVar3 + 0xd8)),
+     ID_UNIT == 0)) {
     bVar2 = true;
   }
   if (bVar2) {
     return;
   }
   pSVar8 = (this->Speaker).fSub;
-  p_Var3 = pSVar8->_vf[0];
-  ID_UNIT = (**(code **)(p_Var3 + 0xcc))
-                      ((int)&(pSVar8->fPosition).flags + (int)*(short *)(p_Var3 + 200));
+  uVar3 = pSVar8->_vf[0].value;
+  ID_UNIT = (**(code **)(uVar3 + 0xcc))
+                      ((int)&(pSVar8->fPosition).flags + (int)*(short *)(uVar3 + 200));
   if ((*(uint *)(ID_UNIT + 0x260) & 0x200) != 0) {
     pSVar8 = (this->Speaker).fSub;
-    p_Var3 = pSVar8->_vf[0];
-    ID_UNIT = (**(code **)(p_Var3 + 0xc4))
-                        ((int)&(pSVar8->fPosition).flags + (int)*(short *)(p_Var3 + 0xc0));
+    uVar3 = pSVar8->_vf[0].value;
+    ID_UNIT = (**(code **)(uVar3 + 0xc4))
+                        ((int)&(pSVar8->fPosition).flags + (int)*(short *)(uVar3 + 0xc0));
     pSVar8 = (this->Speaker).fSub;
-    if (pSVar8->fHavePerp == 0) {
+    if (pSVar8->fHavePerp == (void *)0x0) {
       if (ID_UNIT < 0x640000) {
-        p_Var3 = pSVar8->_vf[0];
-        sVar1 = *(short *)(p_Var3 + 0x30);
-        uVar4 = (**(code **)(p_Var3 + 0xdc))
-                          ((int)&(pSVar8->fPosition).flags + (int)*(short *)(p_Var3 + 0xd8));
-        (**(code **)(p_Var3 + 0x34))((int)&(pSVar8->fPosition).flags + (int)sVar1,uVar4);
+        uVar3 = pSVar8->_vf[0].value;
+        sVar1 = *(short *)(uVar3 + 0x30);
+        uVar4 = (**(code **)(uVar3 + 0xdc))
+                          ((int)&(pSVar8->fPosition).flags + (int)*(short *)(uVar3 + 0xd8));
+        (**(code **)(uVar3 + 0x34))((int)&(pSVar8->fPosition).flags + (int)sVar1,uVar4);
       }
     }
     else {
       if (0x15e0000 < ID_UNIT) {
-        pSVar8->fHavePerp = 0;
+        pSVar8->fHavePerp = (void *)0x0;
         (((this->Speaker).fSub)->fUpdate).flags = 0;
         pSVar8 = (this->Speaker).fSub;
-        p_Var3 = pSVar8->_vf[0];
-        (**(code **)(p_Var3 + 0x14))
-                  ((int)&(pSVar8->fPosition).flags + (int)*(short *)(p_Var3 + 0x10));
+        uVar3 = pSVar8->_vf[0].value;
+        (**(code **)(uVar3 + 0x14))((int)&(pSVar8->fPosition).flags + (int)*(short *)(uVar3 + 0x10))
+        ;
       }
     }
   }
-  if ((this->Speaker)._vf[2] != (__vtbl_ptr_type *)0x0) {
-    p_Var3 = (this->Speaker)._vf[1] + -1;
-    (this->Speaker)._vf[1] = p_Var3;
-    if (p_Var3 != (__vtbl_ptr_type *)0x0) {
+  if ((this->Speaker)._vf[2].value != 0) {
+    uVar3 = (this->Speaker)._vf[1].value - 1;
+    (this->Speaker)._vf[1].value = uVar3;
+    if (uVar3 != 0) {
       return;
     }
-    pDVar9 = (DispatchSpeaker *)(this->Speaker)._vf[2];
+    pDVar9 = (DispatchSpeaker *)(this->Speaker)._vf[2].value;
     if (pDVar9 == this) {
       StatusReply__Q26Speech15DispatchSpeaker(this);
       return;
@@ -7636,23 +7596,23 @@ void Status__Q26Speech15DispatchSpeaker(DispatchSpeaker *this)
       bVar2 = pDVar9 == (DispatchSpeaker *)pSVar8->fSub;
     }
     if (bVar2) {
-      p_Var3 = (pDVar9->Speaker)._vf[0];
-      (**(code **)(p_Var3 + 0x14))
-                ((int)&(pDVar9->Speaker).fPosition.flags + (int)*(short *)(p_Var3 + 0x10));
+      uVar3 = (pDVar9->Speaker)._vf[0].value;
+      (**(code **)(uVar3 + 0x14))
+                ((int)&(pDVar9->Speaker).fPosition.flags + (int)*(short *)(uVar3 + 0x10));
       return;
     }
-    p_Var3 = (pDVar9->Speaker)._vf[0];
-    (**(code **)(p_Var3 + 0x14))
-              ((int)&(pDVar9->Speaker).fPosition.flags + (int)*(short *)(p_Var3 + 0x10));
-    *(undefined4 *)(fgSpeech + 0x38c) = 0;
-    p_Var3 = (this->Speaker)._vf[0];
-    (**(code **)(p_Var3 + 0x74))
-              ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(p_Var3 + 0x70));
+    uVar3 = (pDVar9->Speaker)._vf[0].value;
+    (**(code **)(uVar3 + 0x14))
+              ((int)&(pDVar9->Speaker).fPosition.flags + (int)*(short *)(uVar3 + 0x10));
+    *(undefined4 *)(iGp00000838 + 0x38c) = 0;
+    uVar3 = (this->Speaker)._vf[0].value;
+    (**(code **)(uVar3 + 0x74))
+              ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(uVar3 + 0x70));
     return;
   }
-  p_Var3 = (this->Speaker)._vf[1];
-  if (0 < (int)p_Var3) {
-    (this->Speaker)._vf[1] = p_Var3 + -1;
+  uVar3 = (this->Speaker)._vf[1].value;
+  if (0 < (int)uVar3) {
+    (this->Speaker)._vf[1].value = uVar3 - 1;
     return;
   }
   pSVar8 = (this->Speaker).fSub;
@@ -7666,74 +7626,77 @@ void Status__Q26Speech15DispatchSpeaker(DispatchSpeaker *this)
   pSVar8 = pSVar8->fSub;
   bVar2 = false;
   if (pSVar8 != (Speaker *)0x0) {
-    ID_UNIT = (**(code **)(pSVar8->_vf[0] + 0xdc))
-                        ((int)&(pSVar8->fPosition).flags + (int)*(short *)(pSVar8->_vf[0] + 0xd8));
+    uVar3 = pSVar8->_vf[0].value;
+    ID_UNIT = (**(code **)(uVar3 + 0xdc))
+                        ((int)&(pSVar8->fPosition).flags + (int)*(short *)(uVar3 + 0xd8));
     pSVar8 = (this->Speaker).fSub;
-    p_Var3 = pSVar8->_vf[0];
-    iVar5 = (**(code **)(p_Var3 + 0xdc))
-                      ((int)&(pSVar8->fPosition).flags + (int)*(short *)(p_Var3 + 0xd8));
+    uVar3 = pSVar8->_vf[0].value;
+    iVar5 = (**(code **)(uVar3 + 0xdc))
+                      ((int)&(pSVar8->fPosition).flags + (int)*(short *)(uVar3 + 0xd8));
     bVar2 = ID_UNIT != iVar5;
   }
   if (bVar2) {
     Promote__Q26Speech7Speaker(((this->Speaker).fSub)->fSub);
   }
-  uVar10 = (uint)(this->Speaker)._vf[3] & 3;
-  if (uVar10 == 1) {
+  uVar3 = (this->Speaker)._vf[3].value & 3;
+  if (uVar3 == 1) {
 LAB_80096abc:
     pSVar8 = (this->Speaker).fSub;
     uVar6 = 1;
   }
   else {
-    if (uVar10 < 2) {
-      if (uVar10 != 0) goto LAB_80096ac8;
+    if (uVar3 < 2) {
+      if (uVar3 != 0) goto LAB_80096ac8;
     }
     else {
-      if (uVar10 != 2) {
-        if (uVar10 != 3) goto LAB_80096ac8;
+      if (uVar3 != 2) {
+        if (uVar3 != 3) goto LAB_80096ac8;
         pSVar8 = (this->Speaker).fSub;
-        p_Var3 = pSVar8->_vf[0];
-        ID_UNIT = (**(code **)(p_Var3 + 0xa4))
-                            ((int)&(pSVar8->fPosition).flags + (int)*(short *)(p_Var3 + 0xa0));
-        if ((ID_UNIT != 0) && ((this->Speaker)._vf[3] == (__vtbl_ptr_type *)0x7)) {
+        uVar3 = pSVar8->_vf[0].value;
+        ID_UNIT = (**(code **)(uVar3 + 0xa4))
+                            ((int)&(pSVar8->fPosition).flags + (int)*(short *)(uVar3 + 0xa0));
+        if ((ID_UNIT != 0) && ((this->Speaker)._vf[3].value == 7)) {
           (((this->Speaker).fSub)->fUpdate).flags = 0;
           pSVar8 = (this->Speaker).fSub;
-          sVar1 = *(short *)(pSVar8->_vf[0] + 0x10);
-          pcVar7 = *(code **)(pSVar8->_vf[0] + 0x14);
+          uVar3 = pSVar8->_vf[0].value;
+          sVar1 = *(short *)(uVar3 + 0x10);
+          pcVar7 = *(code **)(uVar3 + 0x14);
 code_r0x80096aa0:
           (*pcVar7)((int)&(pSVar8->fPosition).flags + (int)sVar1);
-          (this->Speaker)._vf[3] = (this->Speaker)._vf[3] + 1;
+          (this->Speaker)._vf[3].value = (this->Speaker)._vf[3].value + 1;
           return;
         }
         pSVar8 = (this->Speaker).fSub;
-        p_Var3 = pSVar8->_vf[0];
-        ID_UNIT = (**(code **)(p_Var3 + 0xc4))
-                            ((int)&(pSVar8->fPosition).flags + (int)*(short *)(p_Var3 + 0xc0));
+        uVar3 = pSVar8->_vf[0].value;
+        ID_UNIT = (**(code **)(uVar3 + 0xc4))
+                            ((int)&(pSVar8->fPosition).flags + (int)*(short *)(uVar3 + 0xc0));
         if (ID_UNIT < 0x140000) {
           pSVar8 = (this->Speaker).fSub;
-          sVar1 = *(short *)(pSVar8->_vf[0] + 0x78);
-          pcVar7 = *(code **)(pSVar8->_vf[0] + 0x7c);
+          uVar3 = pSVar8->_vf[0].value;
+          sVar1 = *(short *)(uVar3 + 0x78);
+          pcVar7 = *(code **)(uVar3 + 0x7c);
           goto code_r0x80096aa0;
         }
         goto LAB_80096abc;
       }
       pSVar8 = (this->Speaker).fSub;
-      p_Var3 = pSVar8->_vf[0];
+      uVar3 = pSVar8->_vf[0].value;
       bVar2 = false;
-      ID_UNIT = (**(code **)(p_Var3 + 0xc4))
-                          ((int)&(pSVar8->fPosition).flags + (int)*(short *)(p_Var3 + 0xc0));
+      ID_UNIT = (**(code **)(uVar3 + 0xc4))
+                          ((int)&(pSVar8->fPosition).flags + (int)*(short *)(uVar3 + 0xc0));
       if (ID_UNIT < 0x280000) {
         pSVar8 = (this->Speaker).fSub;
-        p_Var3 = pSVar8->_vf[0];
+        uVar3 = pSVar8->_vf[0].value;
         perp = (Car_tObj *)
-               (**(code **)(p_Var3 + 0xcc))
-                         ((int)&(pSVar8->fPosition).flags + (int)*(short *)(p_Var3 + 200));
+               (**(code **)(uVar3 + 0xcc))
+                         ((int)&(pSVar8->fPosition).flags + (int)*(short *)(uVar3 + 200));
         ID_UNIT = CalcMph__Q26Speech7SpeakerP8Car_tObj((Speaker *)this,perp);
         if (0x32 < ID_UNIT) {
           pSVar8 = (this->Speaker).fSub;
-          p_Var3 = pSVar8->_vf[0];
+          uVar3 = pSVar8->_vf[0].value;
           perp = (Car_tObj *)
-                 (**(code **)(p_Var3 + 0xdc))
-                           ((int)&(pSVar8->fPosition).flags + (int)*(short *)(p_Var3 + 0xd8));
+                 (**(code **)(uVar3 + 0xdc))
+                           ((int)&(pSVar8->fPosition).flags + (int)*(short *)(uVar3 + 0xd8));
           ID_UNIT = CalcMph__Q26Speech7SpeakerP8Car_tObj((Speaker *)this,perp);
           bVar2 = 0x32 < ID_UNIT;
         }
@@ -7748,14 +7711,14 @@ code_r0x80096aa0:
   }
   (pSVar8->fUpdate).flags = uVar6;
 LAB_80096ac8:
-  *(undefined4 *)(fgSpeech + 0x38c) = 0;
-  p_Var3 = (this->Speaker)._vf[0];
-  ID_UNIT = (**(code **)(p_Var3 + 0xf4))
-                      ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(p_Var3 + 0xf0));
+  *(undefined4 *)(iGp00000838 + 0x38c) = 0;
+  uVar3 = (this->Speaker)._vf[0].value;
+  ID_UNIT = (**(code **)(uVar3 + 0xf4))
+                      ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(uVar3 + 0xf0));
   pSVar8 = (this->Speaker).fSub;
-  p_Var3 = pSVar8->_vf[0];
-  iVar5 = (**(code **)(p_Var3 + 0x8c))
-                    ((int)&(pSVar8->fPosition).flags + (int)*(short *)(p_Var3 + 0x88));
+  uVar3 = pSVar8->_vf[0].value;
+  iVar5 = (**(code **)(uVar3 + 0x8c))
+                    ((int)&(pSVar8->fPosition).flags + (int)*(short *)(uVar3 + 0x88));
   ID_UNIT = *(int *)(ID_UNIT + iVar5 * 4 + 8);
   (this->Speaker).fTo = ID_UNIT;
   SPCHNFS_D_C_INTRO_CALL(ID_UNIT,(this->Speaker).fFrom,&(this->Speaker).fReverse);
@@ -7763,15 +7726,12 @@ LAB_80096ac8:
   SPCHNFS_D_C_IN_PURS_NEAR_PERP(&((this->Speaker).fSub)->fUpdate);
   SPCH_PlaySpeech();
   pSVar8 = (this->Speaker).fSub;
-  p_Var3 = (this->Speaker)._vf[3];
-  (this->Speaker)._vf[1] = (__vtbl_ptr_type *)0x60;
-  *(Speaker **)((this->Speaker)._vf + 2) = pSVar8;
-  (this->Speaker)._vf[3] = p_Var3 + 1;
+  uVar3 = (this->Speaker)._vf[3].value;
+  (this->Speaker)._vf[1].value = 0x60;
+  *(Speaker **)&(this->Speaker)._vf[2].value = pSVar8;
+  (this->Speaker)._vf[3].value = uVar3 + 1;
   return;
-
-
 }
-
 
 
 
@@ -9641,10 +9601,11 @@ LAB_80096ac8:
 	// End Line: 1947
 
 void Status__Q26Speech13MobileSpeaker(MobileSpeaker *this)
+
 {
   bool bVar1;
   bool bVar2;
-  __vtbl_ptr_type *p_Var3;
+  uint uVar3;
   int ID_UNIT;
   Car_tObj *car;
   Speaker *pSVar4;
@@ -9653,17 +9614,17 @@ void Status__Q26Speech13MobileSpeaker(MobileSpeaker *this)
   SPCHNFSType_VOICE *VOICE;
   Speaker *pSVar7;
   
-  p_Var3 = (this->Speaker)._vf[0];
-  ID_UNIT = (**(code **)(p_Var3 + 0xdc))
-                      ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(p_Var3 + 0xd8));
+  uVar3 = (this->Speaker)._vf[0].value;
+  ID_UNIT = (**(code **)(uVar3 + 0xdc))
+                      ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(uVar3 + 0xd8));
   if (ID_UNIT == 0) {
     return;
   }
-  *(__vtbl_ptr_type **)(iGp00000838 + 0x38c) = (this->Speaker)._vf[5];
+  *(uint *)(DAT_00000838 + 0x38c) = (this->Speaker)._vf[5].value;
   if ((this->Speaker).fArrest.flags == 1) {
-    p_Var3 = (this->Speaker)._vf[0];
-    ID_UNIT = (**(code **)(p_Var3 + 0xf4))
-                        ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(p_Var3 + 0xf0));
+    uVar3 = (this->Speaker)._vf[0].value;
+    ID_UNIT = (**(code **)(uVar3 + 0xf4))
+                        ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(uVar3 + 0xf0));
     VOICE = (SPCHNFSType_VOICE *)((this->Speaker)._vf + 1);
     ID_UNIT = *(int *)(ID_UNIT + 4);
     (this->Speaker).fTo = ID_UNIT;
@@ -9672,29 +9633,30 @@ void Status__Q26Speech13MobileSpeaker(MobileSpeaker *this)
     SPCHNFS_C_D_PERP_APPREHENSION(VOICE,&(this->Speaker).fPerpName);
   }
   else {
-    p_Var3 = (this->Speaker)._vf[0];
-    ID_UNIT = (**(code **)(p_Var3 + 0xcc))
-                        ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(p_Var3 + 200));
+    uVar3 = (this->Speaker)._vf[0].value;
+    ID_UNIT = (**(code **)(uVar3 + 0xcc))
+                        ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(uVar3 + 200));
     bVar1 = false;
     if ((*(uint *)(ID_UNIT + 0x260) & 0x200) != 0) {
       bVar1 = (this->Speaker).fUpdate.flags == 0;
     }
     bVar2 = false;
     if (bVar1) {
-      p_Var3 = (this->Speaker)._vf[0];
-      ID_UNIT = (**(code **)(p_Var3 + 0xf4))
-                          ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(p_Var3 + 0xf0));
+      uVar3 = (this->Speaker)._vf[0].value;
+      ID_UNIT = (**(code **)(uVar3 + 0xf4))
+                          ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(uVar3 + 0xf0));
       VOICE = (SPCHNFSType_VOICE *)((this->Speaker)._vf + 1);
       ID_UNIT = *(int *)(ID_UNIT + 4);
       (this->Speaker).fTo = ID_UNIT;
       SPCHNFS_C_A_INTRO(VOICE,ID_UNIT,(this->Speaker).fFrom,&(this->Speaker).fReverse);
       SPCH_PlaySpeech();
-      p_Var3 = (this->Speaker)._vf[0];
+      uVar3 = (this->Speaker)._vf[0].value;
       car = (Car_tObj *)
-            (**(code **)(p_Var3 + 0xdc))
-                      ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(p_Var3 + 0xd8));
+            (**(code **)(uVar3 + 0xdc))
+                      ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(uVar3 + 0xd8));
       SetCar__Q26Speech7SpeakerP8Car_tObj((Speaker *)this,car);
-      FindLocation__Q26Speech7SpeakerP8Car_tObj((Speaker *)this,(Car_tObj *)(this->Speaker)._vf[5]);
+      FindLocation__Q26Speech7SpeakerP8Car_tObj
+                ((Speaker *)this,(Car_tObj *)(this->Speaker)._vf[5].value);
       SPCHNFS_C_D_PERP_LOST
                 (VOICE,&(this->Speaker).fColour,(this->Speaker).fCar,(SPCHNFSType_POSITION *)this,
                  (this->Speaker).fLocation,&(this->Speaker).fDistance,&(this->Speaker).fPerpName);
@@ -9704,26 +9666,27 @@ void Status__Q26Speech13MobileSpeaker(MobileSpeaker *this)
       pSVar4 = Dispatch__6Speech();
       *(MobileSpeaker **)&pSVar4->fSub = this;
       pSVar4 = Dispatch__6Speech();
-      (**(code **)(pSVar4->_vf[0] + 0x74))
-                ((int)&(pSVar4->fPosition).flags + (int)*(short *)(pSVar4->_vf[0] + 0x70));
+      uVar3 = pSVar4->_vf[0].value;
+      (**(code **)(uVar3 + 0x74))((int)&(pSVar4->fPosition).flags + (int)*(short *)(uVar3 + 0x70));
       pSVar4 = Dispatch__6Speech();
       pSVar4->fSub = pSVar7;
       return;
     }
-    p_Var3 = (this->Speaker)._vf[0];
-    ID_UNIT = (**(code **)(p_Var3 + 0xa4))
-                        ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(p_Var3 + 0xa0));
+    uVar3 = (this->Speaker)._vf[0].value;
+    ID_UNIT = (**(code **)(uVar3 + 0xa4))
+                        ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(uVar3 + 0xa0));
     if (((ID_UNIT != 0) && ((this->Speaker).fUpdate.flags == 0)) &&
        (pSVar4 = (this->Speaker).fSub, pSVar4 != (Speaker *)0x0)) {
-      ID_UNIT = (**(code **)(pSVar4->_vf[0] + 0xcc))
-                          ((int)&(pSVar4->fPosition).flags + (int)*(short *)(pSVar4->_vf[0] + 200));
+      uVar3 = pSVar4->_vf[0].value;
+      ID_UNIT = (**(code **)(uVar3 + 0xcc))
+                          ((int)&(pSVar4->fPosition).flags + (int)*(short *)(uVar3 + 200));
       bVar2 = (*(uint *)(ID_UNIT + 0x260) & 0x40) == 0;
     }
     if (bVar2) {
-      p_Var3 = (this->Speaker)._vf[0];
-      piVar5 = (int *)(**(code **)(p_Var3 + 0xf4))
+      uVar3 = (this->Speaker)._vf[0].value;
+      piVar5 = (int *)(**(code **)(uVar3 + 0xf4))
                                 ((int)&(this->Speaker).fPosition.flags +
-                                 (int)*(short *)(p_Var3 + 0xf0));
+                                 (int)*(short *)(uVar3 + 0xf0));
       VOICE = (SPCHNFSType_VOICE *)((this->Speaker)._vf + 1);
       ID_UNIT = *piVar5;
       (this->Speaker).fTo = ID_UNIT;
@@ -9742,38 +9705,37 @@ void Status__Q26Speech13MobileSpeaker(MobileSpeaker *this)
         SPCHNFS_C_C_NEW_OFFICER_ENGAGING
                   ((SPCHNFSType_VOICE *)((this->Speaker)._vf + 1),(this->Speaker).fFrom);
         pSVar4 = Dispatch__6Speech();
-        p_Var3 = pSVar4->fSub->_vf[0];
-        (**(code **)(p_Var3 + 0x74))
-                  ((int)&(pSVar4->fSub->fPosition).flags + (int)*(short *)(p_Var3 + 0x70));
+        uVar3 = pSVar4->fSub->_vf[0].value;
+        (**(code **)(uVar3 + 0x74))
+                  ((int)&(pSVar4->fSub->fPosition).flags + (int)*(short *)(uVar3 + 0x70));
         return;
       }
-      p_Var3 = (this->Speaker)._vf[0];
-      ID_UNIT = (**(code **)(p_Var3 + 0xf4))
-                          ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(p_Var3 + 0xf0));
+      uVar3 = (this->Speaker)._vf[0].value;
+      ID_UNIT = (**(code **)(uVar3 + 0xf4))
+                          ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(uVar3 + 0xf0));
       VOICE = (SPCHNFSType_VOICE *)((this->Speaker)._vf + 1);
       ID_UNIT = *(int *)(ID_UNIT + 4);
       (this->Speaker).fTo = ID_UNIT;
       SPCHNFS_C_A_INTRO(VOICE,ID_UNIT,(this->Speaker).fFrom,&(this->Speaker).fReverse);
       SPCH_PlaySpeech();
-      p_Var3 = (this->Speaker)._vf[0];
+      uVar3 = (this->Speaker)._vf[0].value;
       car = (Car_tObj *)
-            (**(code **)(p_Var3 + 0xdc))
-                      ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(p_Var3 + 0xd8));
+            (**(code **)(uVar3 + 0xdc))
+                      ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(uVar3 + 0xd8));
       SetCar__Q26Speech7SpeakerP8Car_tObj((Speaker *)this,car);
-      p_Var3 = (this->Speaker)._vf[0];
+      uVar3 = (this->Speaker)._vf[0].value;
       car = (Car_tObj *)
-            (**(code **)(p_Var3 + 0xcc))
-                      ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(p_Var3 + 200));
+            (**(code **)(uVar3 + 0xcc))
+                      ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(uVar3 + 200));
       FindLocation__Q26Speech7SpeakerP8Car_tObj((Speaker *)this,car);
-      SetSpeed__Q26Speech13MobileSpeakerP8Car_tObj(this,(Car_tObj *)(this->Speaker)._vf[6]);
-      p_Var3 = (this->Speaker)._vf[0];
-      ID_UNIT = (**(code **)(p_Var3 + 0xc4))
-                          ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(p_Var3 + 0xc0));
+      SetSpeed__Q26Speech13MobileSpeakerP8Car_tObj(this,(Car_tObj *)(this->Speaker)._vf[6].value);
+      uVar3 = (this->Speaker)._vf[0].value;
+      ID_UNIT = (**(code **)(uVar3 + 0xc4))
+                          ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(uVar3 + 0xc0));
       if (ID_UNIT < 0x280000) {
-        p_Var3 = (this->Speaker)._vf[0];
-        ID_UNIT = (**(code **)(p_Var3 + 0xdc))
-                            ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(p_Var3 + 0xd8))
-        ;
+        uVar3 = (this->Speaker)._vf[0].value;
+        ID_UNIT = (**(code **)(uVar3 + 0xdc))
+                            ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(uVar3 + 0xd8));
         if (0x40 < *(ushort *)(ID_UNIT + 0x17c)) {
           SPCHNFS_C_D_IN_PURS_PERP_AIRBORN(VOICE);
           goto LAB_80097104;
@@ -9793,7 +9755,7 @@ void Status__Q26Speech13MobileSpeaker(MobileSpeaker *this)
         }
       }
       else {
-        if ((this->Speaker).fHavePerp == 0) {
+        if ((this->Speaker).fHavePerp == (void *)0x0) {
           uVar6 = (this->Speaker).fUpdate.flags;
           if (uVar6 == 1) {
             SPCHNFS_C_D_IN_PURS_LOOK_PERP_REPLY_LOC
@@ -9827,17 +9789,14 @@ void Status__Q26Speech13MobileSpeaker(MobileSpeaker *this)
         }
       }
       SPCHNFS_C_D_IN_PURS_NEAR_PERP_REP_SPD
-                (VOICE,(int)(this->Speaker)._vf[3],
+                (VOICE,(this->Speaker)._vf[3].value,
                  (SPCHNFSType_vs_KMH_MPH *)((this->Speaker)._vf + 2));
     }
   }
 LAB_80097104:
   SPCH_PlaySpeech();
   return;
-
-
 }
-
 
 
 
@@ -9862,28 +9821,26 @@ LAB_80097104:
 	// End Line: 1959
 
 void ClearPerp__Q26Speech15DispatchSpeakerP8Car_tObj(DispatchSpeaker *this,Car_tObj *car)
+
 {
   int iVar1;
   
   iVar1 = 0;
   do {
-    if ((Car_tObj *)(this->Speaker)._vf[4] == car) {
-      (this->Speaker)._vf[4] = (__vtbl_ptr_type *)0x0;
+    if ((Car_tObj *)(this->Speaker)._vf[4].value == car) {
+      (this->Speaker)._vf[4].value = 0;
     }
     iVar1 = iVar1 + 1;
     this = (DispatchSpeaker *)&(this->Speaker).fDistance;
   } while (iVar1 < 2);
   return;
-
-
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// unsigned int /*$ra*/ KnownPerp__Q26Speech15DispatchSpeakerP8Car_tObj(struct DispatchSpeaker *this /*$a0*/, struct Car_tObj *car /*$a1*/)
+// void * /*$ra*/ KnownPerp__Q26Speech15DispatchSpeakerP8Car_tObj(struct DispatchSpeaker *this /*$a0*/, struct Car_tObj *car /*$a1*/)
  // line 1964, offset 0x80097150
 	/* begin block 1 */
 		// Start line: 1965
@@ -9901,23 +9858,21 @@ void ClearPerp__Q26Speech15DispatchSpeakerP8Car_tObj(DispatchSpeaker *this,Car_t
 	// End offset: 0x80097178
 	// End Line: 1970
 
-uint KnownPerp__Q26Speech15DispatchSpeakerP8Car_tObj(DispatchSpeaker *this,Car_tObj *car)
+void * KnownPerp__Q26Speech15DispatchSpeakerP8Car_tObj(DispatchSpeaker *this,Car_tObj *car)
+
 {
   int iVar1;
   
   iVar1 = 0;
   do {
     iVar1 = iVar1 + 1;
-    if ((Car_tObj *)(this->Speaker)._vf[4] == car) {
-      return 1;
+    if ((Car_tObj *)(this->Speaker)._vf[4].value == car) {
+      return &DAT_00000001;
     }
     this = (DispatchSpeaker *)&(this->Speaker).fDistance;
   } while (iVar1 < 2);
-  return 0;
-
-
+  return (void *)0x0;
 }
-
 
 
 
@@ -9942,22 +9897,20 @@ uint KnownPerp__Q26Speech15DispatchSpeakerP8Car_tObj(DispatchSpeaker *this,Car_t
 	// End Line: 1981
 
 void AddPerp__Q26Speech15DispatchSpeakerP8Car_tObj(DispatchSpeaker *this,Car_tObj *car)
+
 {
   int iVar1;
   
   iVar1 = 0;
   do {
-    if ((this->Speaker)._vf[4] == (__vtbl_ptr_type *)0x0) {
-      *(Car_tObj **)((this->Speaker)._vf + 4) = car;
+    if ((this->Speaker)._vf[4].value == 0) {
+      *(Car_tObj **)&(this->Speaker)._vf[4].value = car;
     }
     iVar1 = iVar1 + 1;
     this = (DispatchSpeaker *)&(this->Speaker).fDistance;
   } while (iVar1 < 2);
   return;
-
-
 }
-
 
 
 
@@ -10334,31 +10287,32 @@ void AddPerp__Q26Speech15DispatchSpeakerP8Car_tObj(DispatchSpeaker *this,Car_tOb
 	// End Line: 2032
 
 void Report__Q26Speech15DispatchSpeakerP8Car_tObj(DispatchSpeaker *this,Car_tObj *perp)
+
 {
   bool bVar1;
-  __vtbl_ptr_type *p_Var2;
+  uint uVar2;
   int ID_UNIT;
   int iVar3;
   int *piVar4;
   Speaker *pSVar5;
   
   bVar1 = false;
-  *(undefined4 *)(iGp00000838 + 0x38c) = 0;
-  p_Var2 = (this->Speaker)._vf[0];
-  ID_UNIT = (**(code **)(p_Var2 + 0x94))
-                      ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(p_Var2 + 0x90));
+  *(undefined4 *)(DAT_00000838 + 0x38c) = 0;
+  uVar2 = (this->Speaker)._vf[0].value;
+  ID_UNIT = (**(code **)(uVar2 + 0x94))
+                      ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(uVar2 + 0x90));
   if (ID_UNIT != 0) {
     bVar1 = (this->Speaker).fSub != (Speaker *)0x0;
   }
   if (bVar1) {
-    if (*(int *)(iGp00000838 + 0x388) == 0) {
-      p_Var2 = (this->Speaker)._vf[0];
-      ID_UNIT = (**(code **)(p_Var2 + 0xf4))
-                          ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(p_Var2 + 0xf0));
+    if (*(int *)(DAT_00000838 + 0x388) == 0) {
+      uVar2 = (this->Speaker)._vf[0].value;
+      ID_UNIT = (**(code **)(uVar2 + 0xf4))
+                          ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(uVar2 + 0xf0));
       pSVar5 = (this->Speaker).fSub;
-      p_Var2 = pSVar5->_vf[0];
-      iVar3 = (**(code **)(p_Var2 + 0x8c))
-                        ((int)&(pSVar5->fPosition).flags + (int)*(short *)(p_Var2 + 0x88));
+      uVar2 = pSVar5->_vf[0].value;
+      iVar3 = (**(code **)(uVar2 + 0x8c))
+                        ((int)&(pSVar5->fPosition).flags + (int)*(short *)(uVar2 + 0x88));
       ID_UNIT = *(int *)(ID_UNIT + iVar3 * 4 + 8);
       (this->Speaker).fTo = ID_UNIT;
       SPCHNFS_D_C_PERP_SIGHTED_CONFIRM(&(this->Speaker).fConfirm,ID_UNIT);
@@ -10366,11 +10320,11 @@ void Report__Q26Speech15DispatchSpeakerP8Car_tObj(DispatchSpeaker *this,Car_tObj
     }
   }
   else {
-    if (*(int *)(iGp00000838 + 0x388) == 0) {
-      p_Var2 = (this->Speaker)._vf[0];
-      piVar4 = (int *)(**(code **)(p_Var2 + 0xf4))
+    if (*(int *)(DAT_00000838 + 0x388) == 0) {
+      uVar2 = (this->Speaker)._vf[0].value;
+      piVar4 = (int *)(**(code **)(uVar2 + 0xf4))
                                 ((int)&(this->Speaker).fPosition.flags +
-                                 (int)*(short *)(p_Var2 + 0xf0));
+                                 (int)*(short *)(uVar2 + 0xf0));
       ID_UNIT = *piVar4;
       (this->Speaker).fTo = ID_UNIT;
       SPCHNFS_D_C_INTRO_CALL(ID_UNIT,(this->Speaker).fFrom,&(this->Speaker).fReverse);
@@ -10383,13 +10337,10 @@ void Report__Q26Speech15DispatchSpeakerP8Car_tObj(DispatchSpeaker *this,Car_tObj
       SPCH_PlaySpeech();
     }
     AddPerp__Q26Speech15DispatchSpeakerP8Car_tObj(this,perp);
-    (this->Speaker)._vf[1] = (__vtbl_ptr_type *)0x2a0;
+    (this->Speaker)._vf[1].value = 0x2a0;
   }
   return;
-
-
 }
-
 
 
 
@@ -10405,12 +10356,10 @@ void Report__Q26Speech15DispatchSpeakerP8Car_tObj(DispatchSpeaker *this,Car_tObj
 	// End Line: 2040
 
 void Accident__Q26Speech15DispatchSpeakeri(DispatchSpeaker *this,int slice)
+
 {
   return;
-
-
 }
-
 
 
 
@@ -10679,21 +10628,22 @@ void Accident__Q26Speech15DispatchSpeakeri(DispatchSpeaker *this,int slice)
 	// End Line: 2073
 
 void Deny__Q26Speech15DispatchSpeaker(DispatchSpeaker *this)
+
 {
-  __vtbl_ptr_type *p_Var1;
+  uint uVar1;
   int ID_UNIT;
   int iVar2;
   Speaker *pSVar3;
   
   if ((this->Speaker).fSub != (Speaker *)0x0) {
-    *(undefined4 *)(iGp00000838 + 0x38c) = 0;
-    p_Var1 = (this->Speaker)._vf[0];
-    ID_UNIT = (**(code **)(p_Var1 + 0xf4))
-                        ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(p_Var1 + 0xf0));
+    *(undefined4 *)(DAT_00000838 + 0x38c) = 0;
+    uVar1 = (this->Speaker)._vf[0].value;
+    ID_UNIT = (**(code **)(uVar1 + 0xf4))
+                        ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(uVar1 + 0xf0));
     pSVar3 = (this->Speaker).fSub;
-    p_Var1 = pSVar3->_vf[0];
-    iVar2 = (**(code **)(p_Var1 + 0x8c))
-                      ((int)&(pSVar3->fPosition).flags + (int)*(short *)(p_Var1 + 0x88));
+    uVar1 = pSVar3->_vf[0].value;
+    iVar2 = (**(code **)(uVar1 + 0x8c))
+                      ((int)&(pSVar3->fPosition).flags + (int)*(short *)(uVar1 + 0x88));
     ID_UNIT = *(int *)(ID_UNIT + iVar2 * 4 + 8);
     (this->Speaker).fTo = ID_UNIT;
     SPCHNFS_D_C_INTRO_CALL(ID_UNIT,(this->Speaker).fFrom,&(this->Speaker).fReverse);
@@ -10709,10 +10659,7 @@ void Deny__Q26Speech15DispatchSpeaker(DispatchSpeaker *this)
     (((this->Speaker).fSub)->fBlockade).flags = 0;
   }
   return;
-
-
 }
-
 
 
 
@@ -10894,21 +10841,21 @@ void Deny__Q26Speech15DispatchSpeaker(DispatchSpeaker *this)
 	// End Line: 2097
 
 void Grant__Q26Speech15DispatchSpeaker(DispatchSpeaker *this)
+
 {
-  Speaker *pSVar1;
+  int *piVar1;
+  Speaker *pSVar2;
   
-  pSVar1 = (this->Speaker).fSub;
-  if (((pSVar1 != (Speaker *)0x0) && (pSVar1 != (Speaker *)0xffffffec)) &&
-     (*(undefined4 *)(iGp00000838 + 0x38c) = 0, *(int *)(iGp00000838 + 0x388) == 0)) {
+  pSVar2 = (this->Speaker).fSub;
+  if (((pSVar2 != (Speaker *)0x0) && (pSVar2 != (Speaker *)0xffffffec)) &&
+     (piVar1 = (int *)(DAT_00000838 + 0x388), *(undefined4 *)(DAT_00000838 + 0x38c) = 0,
+     *piVar1 == 0)) {
     SPCHNFS_D_C_RDBLK_SPBLT_GRANT_REPLY
               (&((this->Speaker).fSub)->fBlockade,&(this->Speaker).fConfirm);
     SPCH_PlaySpeech();
   }
   return;
-
-
 }
-
 
 
 
@@ -11035,9 +10982,10 @@ void Grant__Q26Speech15DispatchSpeaker(DispatchSpeaker *this)
 	// End Line: 2122
 
 void Ready__Q26Speech15DispatchSpeakerP8Car_tObj(DispatchSpeaker *this,Car_tObj *carObj)
+
 {
   Speaker *pSVar1;
-  __vtbl_ptr_type *p_Var2;
+  uint uVar2;
   undefined4 uVar3;
   Speaker *pSVar4;
   
@@ -11046,19 +10994,17 @@ void Ready__Q26Speech15DispatchSpeakerP8Car_tObj(DispatchSpeaker *this,Car_tObj 
   if (pSVar4 != (Speaker *)0x0 && pSVar1 != pSVar4) {
     (pSVar1->fBlockade).flags = (pSVar4->fBlockade).flags;
     pSVar4 = (this->Speaker).fSub;
-    p_Var2 = pSVar4->_vf[0];
-    uVar3 = (**(code **)(p_Var2 + 0xdc))
-                      ((int)&(pSVar4->fPosition).flags + (int)*(short *)(p_Var2 + 0xd8));
-    (**(code **)(pSVar1->_vf[0] + 0x34))
-              ((int)&(pSVar1->fPosition).flags + (int)*(short *)(pSVar1->_vf[0] + 0x30),uVar3);
+    uVar2 = pSVar4->_vf[0].value;
+    uVar3 = (**(code **)(uVar2 + 0xdc))
+                      ((int)&(pSVar4->fPosition).flags + (int)*(short *)(uVar2 + 0xd8));
+    uVar2 = pSVar1->_vf[0].value;
+    (**(code **)(uVar2 + 0x34))
+              ((int)&(pSVar1->fPosition).flags + (int)*(short *)(uVar2 + 0x30),uVar3);
   }
-  *(DispatchSpeaker **)((this->Speaker)._vf + 2) = this;
-  (this->Speaker)._vf[1] = (__vtbl_ptr_type *)0x80;
+  *(DispatchSpeaker **)&(this->Speaker)._vf[2].value = this;
+  (this->Speaker)._vf[1].value = 0x80;
   return;
-
-
 }
-
 
 
 
@@ -11074,6 +11020,7 @@ void Ready__Q26Speech15DispatchSpeakerP8Car_tObj(DispatchSpeaker *this,Car_tObj 
 	// End Line: 2151
 
 int PickVoice__6SpeechP8Car_tObj(Speech *this,Car_tObj *carObj)
+
 {
   int iVar1;
   
@@ -11088,10 +11035,7 @@ int PickVoice__6SpeechP8Car_tObj(Speech *this,Car_tObj *carObj)
     return iVar1 % 9;
   }
   return 0;
-
-
 }
-
 
 
 
@@ -11107,15 +11051,13 @@ int PickVoice__6SpeechP8Car_tObj(Speech *this,Car_tObj *carObj)
 	// End Line: 2157
 
 int GetVoice__6SpeechP8Car_tObj(Car_tObj *carObj)
+
 {
   int iVar1;
   
-  iVar1 = PickVoice__6SpeechP8Car_tObj(pSGp00000838,carObj);
+  iVar1 = PickVoice__6SpeechP8Car_tObj(DAT_00000838,carObj);
   return iVar1;
-
-
 }
-
 
 
 
@@ -11363,39 +11305,38 @@ int GetVoice__6SpeechP8Car_tObj(Car_tObj *carObj)
 	// End Line: 2178
 
 void Activate__Q26Speech13MobileSpeakerP8Car_tObj(MobileSpeaker *this,Car_tObj *carObj)
+
 {
-  __vtbl_ptr_type *p_Var1;
+  uint uVar1;
   int iVar2;
   
-  *(Car_tObj **)((this->Speaker)._vf + 5) = carObj;
-  p_Var1 = (__vtbl_ptr_type *)GetVoice__6SpeechP8Car_tObj(carObj);
-  (this->Speaker)._vf[4] = p_Var1;
+  *(Car_tObj **)&(this->Speaker)._vf[5].value = carObj;
+  uVar1 = GetVoice__6SpeechP8Car_tObj(carObj);
+  (this->Speaker)._vf[4].value = uVar1;
   if ((carObj->carFlags & 0x40U) == 0) {
-    p_Var1 = *(__vtbl_ptr_type **)(&Speech_gCopAttr + (int)p_Var1 * 8);
+    uVar1 = (&Speech_gCopAttr)[uVar1].voice;
   }
   else {
-    (this->Speaker)._vf[4] = p_Var1 + 9;
-    p_Var1 = (__vtbl_ptr_type *)0x8;
+    (this->Speaker)._vf[4].value = uVar1 + 9;
+    uVar1 = 8;
   }
-  (this->Speaker)._vf[1] = p_Var1;
-  p_Var1 = (this->Speaker)._vf[0];
-  iVar2 = (**(code **)(p_Var1 + 0xf4))
-                    ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(p_Var1 + 0xf0));
-  (this->Speaker).fFrom = *(int *)(iVar2 + (int)(this->Speaker)._vf[4] * 4 + 8);
+  (this->Speaker)._vf[1].value = uVar1;
+  uVar1 = (this->Speaker)._vf[0].value;
+  iVar2 = (**(code **)(uVar1 + 0xf4))
+                    ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(uVar1 + 0xf0));
+  (this->Speaker).fFrom = *(int *)(iVar2 + (this->Speaker)._vf[4].value * 4 + 8);
+  iVar2 = GameSetup_gData.track;
   (this->Speaker).fConfirm.flags = 0xff;
   (this->Speaker).fPerpName.flags = 0xf;
   (this->Speaker).fBlockade.flags = 0;
   (this->Speaker).fArrest.flags = 0;
   (this->Speaker).fUpdate.flags = 0;
-  (this->Speaker)._vf[6] = (__vtbl_ptr_type *)0x0;
+  (this->Speaker)._vf[6].value = 0;
   (this->Speaker).fSub = (Speaker *)0x0;
-  (this->Speaker).fHavePerp = 0;
-  (this->Speaker).fReverse.flags = 0;
+  (this->Speaker).fHavePerp = (void *)0x0;
+  (this->Speaker).fReverse.flags = iVar2 & 1;
   return;
-
-
 }
-
 
 
 
@@ -11499,31 +11440,29 @@ void Activate__Q26Speech13MobileSpeakerP8Car_tObj(MobileSpeaker *this,Car_tObj *
 	// End Line: 2213
 
 void ReActivate__Q26Speech13MobileSpeaker(MobileSpeaker *this)
+
 {
-  __vtbl_ptr_type *p_Var1;
-  __vtbl_ptr_type *p_Var2;
+  uint uVar1;
+  uint uVar2;
   int iVar3;
   
-  p_Var2 = (__vtbl_ptr_type *)GetVoice__6SpeechP8Car_tObj((Car_tObj *)(this->Speaker)._vf[5]);
-  p_Var1 = (this->Speaker)._vf[5];
-  (this->Speaker)._vf[4] = p_Var2;
-  if ((*(uint *)(p_Var1 + 0x260) & 0x40) == 0) {
-    p_Var2 = *(__vtbl_ptr_type **)(&Speech_gCopAttr + (int)p_Var2 * 8);
+  uVar1 = GetVoice__6SpeechP8Car_tObj((Car_tObj *)(this->Speaker)._vf[5].value);
+  uVar2 = (this->Speaker)._vf[5].value;
+  (this->Speaker)._vf[4].value = uVar1;
+  if ((*(uint *)(uVar2 + 0x260) & 0x40) == 0) {
+    uVar1 = (&Speech_gCopAttr)[uVar1].voice;
   }
   else {
-    (this->Speaker)._vf[4] = p_Var2 + 9;
-    p_Var2 = (__vtbl_ptr_type *)0x8;
+    (this->Speaker)._vf[4].value = uVar1 + 9;
+    uVar1 = 8;
   }
-  (this->Speaker)._vf[1] = p_Var2;
-  p_Var2 = (this->Speaker)._vf[0];
-  iVar3 = (**(code **)(p_Var2 + 0xf4))
-                    ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(p_Var2 + 0xf0));
-  (this->Speaker).fFrom = *(int *)(iVar3 + (int)(this->Speaker)._vf[4] * 4 + 8);
+  (this->Speaker)._vf[1].value = uVar1;
+  uVar1 = (this->Speaker)._vf[0].value;
+  iVar3 = (**(code **)(uVar1 + 0xf4))
+                    ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(uVar1 + 0xf0));
+  (this->Speaker).fFrom = *(int *)(iVar3 + (this->Speaker)._vf[4].value * 4 + 8);
   return;
-
-
 }
-
 
 
 
@@ -11618,8 +11557,9 @@ void ReActivate__Q26Speech13MobileSpeaker(MobileSpeaker *this)
 	// End Line: 2238
 
 Speaker * FindMobile__6SpeechP8Car_tObj(Speech *this,Car_tObj *carObj)
+
 {
-  MobileSpeaker **ppMVar1;
+  Speaker **ppSVar1;
   int iVar2;
   Speech *pSVar3;
   int iVar4;
@@ -11627,27 +11567,24 @@ Speaker * FindMobile__6SpeechP8Car_tObj(Speech *this,Car_tObj *carObj)
   iVar4 = 0;
   pSVar3 = this;
   while (iVar2 = 0, iVar4 < 4) {
-    ppMVar1 = pSVar3->fMobile;
+    ppSVar1 = (Speaker **)pSVar3->fMobile;
     pSVar3 = (Speech *)&(pSVar3->fCarBank).Mobile[0].fMake;
-    if (carObj == (Car_tObj *)((*ppMVar1)->Speaker)._vf[5]) {
-      return (Speaker *)*ppMVar1;
+    if (carObj == (Car_tObj *)(*ppSVar1)->_vf[5].value) {
+      return *ppSVar1;
     }
     iVar4 = iVar4 + 1;
   }
   while( true ) {
     if (3 < iVar2) {
-      return pSGp0000083c;
+      return DAT_0000083c;
     }
-    if ((this->fMobile[0]->Speaker)._vf[5] == (__vtbl_ptr_type *)0x0) break;
+    if ((((MobileSpeaker *)this->fMobile[0])->Speaker)._vf[5].value == 0) break;
     this = (Speech *)&(this->fCarBank).Mobile[0].fMake;
     iVar2 = iVar2 + 1;
   }
-  Activate__Q26Speech13MobileSpeakerP8Car_tObj(this->fMobile[0],carObj);
+  Activate__Q26Speech13MobileSpeakerP8Car_tObj((MobileSpeaker *)this->fMobile[0],carObj);
   return (Speaker *)this->fMobile[0];
-
-
 }
-
 
 
 
@@ -11663,19 +11600,17 @@ Speaker * FindMobile__6SpeechP8Car_tObj(Speech *this,Car_tObj *carObj)
 	// End Line: 2251
 
 Speaker * Mobile__6SpeechP8Car_tObj(Car_tObj *carObj)
+
 {
   Speaker *pSVar1;
   
-  pSVar1 = pSGp0000083c;
-  if ((pSGp00000838 != (Speech *)0x0) &&
-     (pSVar1 = pSGp0000083c, pSGp00000838->fBankOffset != (long *)0x0)) {
-    pSVar1 = FindMobile__6SpeechP8Car_tObj(pSGp00000838,carObj);
+  pSVar1 = DAT_0000083c;
+  if ((DAT_00000838 != (Speech *)0x0) &&
+     (pSVar1 = DAT_0000083c, DAT_00000838->fBankOffset != (long *)0x0)) {
+    pSVar1 = FindMobile__6SpeechP8Car_tObj(DAT_00000838,carObj);
   }
   return pSVar1;
-
-
 }
-
 
 
 
@@ -11691,22 +11626,21 @@ Speaker * Mobile__6SpeechP8Car_tObj(Car_tObj *carObj)
 	// End Line: 2258
 
 int CalcMph__Q26Speech7SpeakerP8Car_tObj(Speaker *this,Car_tObj *perp)
+
 {
-  int iVar1;
+  uint uVar1;
+  int iVar2;
   
-  iVar1 = (perp->linearVel_ch).z;
-  if (iVar1 < 0) {
-    iVar1 = -iVar1;
+  iVar2 = (perp->linearVel_ch).z;
+  if (iVar2 < 0) {
+    iVar2 = -iVar2;
   }
-  iVar1 = fixedmult(0x23ca5,iVar1);
-  if (iVar1 < 0) {
-    iVar1 = iVar1 + 0xffff;
+  uVar1 = fixedmult((int)&DAT_00023ca5,iVar2);
+  if ((int)uVar1 < 0) {
+    uVar1 = uVar1 + 0xffff;
   }
-  return iVar1 >> 0x10;
-
-
+  return (int)uVar1 >> 0x10;
 }
-
 
 
 
@@ -11775,49 +11709,47 @@ int CalcMph__Q26Speech7SpeakerP8Car_tObj(Speaker *this,Car_tObj *perp)
 	// End Line: 2273
 
 void SetSpeed__Q26Speech13MobileSpeakerP8Car_tObj(MobileSpeaker *this,Car_tObj *perp)
+
 {
-  __vtbl_ptr_type *p_Var1;
-  undefined4 uVar2;
+  uint uVar1;
+  undefined *puVar2;
   int iVar3;
   
-  if (true) {
-    (this->Speaker)._vf[2] = (__vtbl_ptr_type *)0x2;
+  if (GameSetup_gData.measurement == 1) {
+    (this->Speaker)._vf[2].value = 1;
     iVar3 = (perp->linearVel_ch).z;
     if (iVar3 < 0) {
       iVar3 = -iVar3;
     }
-    iVar3 = fixedmult(0x23ca5,iVar3);
-    if (iVar3 / 0xa0000 + -3 < 0) goto LAB_800979f8;
-    iVar3 = (perp->linearVel_ch).z;
-    uVar2 = 0x23ca5;
-  }
-  else {
-    (this->Speaker)._vf[2] = (__vtbl_ptr_type *)0x1;
-    iVar3 = (perp->linearVel_ch).z;
-    if (iVar3 < 0) {
-      iVar3 = -iVar3;
-    }
-    iVar3 = fixedmult(0x39999,iVar3);
-    if (iVar3 / 0xa0000 + -3 < 0) {
+    uVar1 = fixedmult((int)&DAT_00039999,iVar3);
+    if ((int)uVar1 / 0xa0000 + -3 < 0) {
 LAB_800979f8:
-      p_Var1 = (__vtbl_ptr_type *)0x0;
+      uVar1 = 0;
       goto LAB_800979fc;
     }
     iVar3 = (perp->linearVel_ch).z;
-    uVar2 = 0x39999;
+    puVar2 = &DAT_00039999;
+  }
+  else {
+    (this->Speaker)._vf[2].value = 2;
+    iVar3 = (perp->linearVel_ch).z;
+    if (iVar3 < 0) {
+      iVar3 = -iVar3;
+    }
+    uVar1 = fixedmult((int)&DAT_00023ca5,iVar3);
+    if ((int)uVar1 / 0xa0000 + -3 < 0) goto LAB_800979f8;
+    iVar3 = (perp->linearVel_ch).z;
+    puVar2 = &DAT_00023ca5;
   }
   if (iVar3 < 0) {
     iVar3 = -iVar3;
   }
-  iVar3 = fixedmult(uVar2,iVar3);
-  p_Var1 = (__vtbl_ptr_type *)(iVar3 / 0xa0000 + -3);
+  uVar1 = fixedmult((int)puVar2,iVar3);
+  uVar1 = (int)uVar1 / 0xa0000 - 3;
 LAB_800979fc:
-  (this->Speaker)._vf[3] = p_Var1;
+  (this->Speaker)._vf[3].value = uVar1;
   return;
-
-
 }
-
 
 
 
@@ -11837,59 +11769,60 @@ LAB_800979fc:
 	// End Line: 2287
 
 int DistToPerp__Q26Speech13MobileSpeaker(MobileSpeaker *this)
+
 {
   short sVar1;
-  __vtbl_ptr_type *p_Var2;
+  uint uVar2;
   int iVar3;
   int iVar4;
   code *pcVar5;
   int iVar6;
   
-  p_Var2 = (this->Speaker)._vf[0];
-  iVar3 = (**(code **)(p_Var2 + 0xcc))
-                    ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(p_Var2 + 200));
-  p_Var2 = (this->Speaker)._vf[0];
-  iVar4 = (**(code **)(p_Var2 + 0xdc))
-                    ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(p_Var2 + 0xd8));
+  uVar2 = (this->Speaker)._vf[0].value;
+  iVar3 = (**(code **)(uVar2 + 0xcc))
+                    ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(uVar2 + 200));
+  uVar2 = (this->Speaker)._vf[0].value;
+  iVar4 = (**(code **)(uVar2 + 0xdc))
+                    ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(uVar2 + 0xd8));
   if (*(int *)(iVar3 + 0xa0) - *(int *)(iVar4 + 0xa0) < 1) {
-    p_Var2 = (this->Speaker)._vf[0];
-    iVar3 = (**(code **)(p_Var2 + 0xdc))
-                      ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(p_Var2 + 0xd8));
-    p_Var2 = (this->Speaker)._vf[0];
-    sVar1 = *(short *)(p_Var2 + 200);
-    pcVar5 = *(code **)(p_Var2 + 0xcc);
+    uVar2 = (this->Speaker)._vf[0].value;
+    iVar3 = (**(code **)(uVar2 + 0xdc))
+                      ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(uVar2 + 0xd8));
+    uVar2 = (this->Speaker)._vf[0].value;
+    sVar1 = *(short *)(uVar2 + 200);
+    pcVar5 = *(code **)(uVar2 + 0xcc);
   }
   else {
-    p_Var2 = (this->Speaker)._vf[0];
-    iVar3 = (**(code **)(p_Var2 + 0xcc))
-                      ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(p_Var2 + 200));
-    p_Var2 = (this->Speaker)._vf[0];
-    sVar1 = *(short *)(p_Var2 + 0xd8);
-    pcVar5 = *(code **)(p_Var2 + 0xdc);
+    uVar2 = (this->Speaker)._vf[0].value;
+    iVar3 = (**(code **)(uVar2 + 0xcc))
+                      ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(uVar2 + 200));
+    uVar2 = (this->Speaker)._vf[0].value;
+    sVar1 = *(short *)(uVar2 + 0xd8);
+    pcVar5 = *(code **)(uVar2 + 0xdc);
   }
   iVar4 = (*pcVar5)((int)&(this->Speaker).fPosition.flags + (int)sVar1);
   iVar6 = *(int *)(iVar3 + 0xa0) - *(int *)(iVar4 + 0xa0);
-  p_Var2 = (this->Speaker)._vf[0];
-  iVar3 = (**(code **)(p_Var2 + 0xcc))
-                    ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(p_Var2 + 200));
-  p_Var2 = (this->Speaker)._vf[0];
-  iVar4 = (**(code **)(p_Var2 + 0xdc))
-                    ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(p_Var2 + 0xd8));
+  uVar2 = (this->Speaker)._vf[0].value;
+  iVar3 = (**(code **)(uVar2 + 0xcc))
+                    ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(uVar2 + 200));
+  uVar2 = (this->Speaker)._vf[0].value;
+  iVar4 = (**(code **)(uVar2 + 0xdc))
+                    ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(uVar2 + 0xd8));
   if (*(int *)(iVar3 + 0xa8) - *(int *)(iVar4 + 0xa8) < 1) {
-    p_Var2 = (this->Speaker)._vf[0];
-    iVar3 = (**(code **)(p_Var2 + 0xdc))
-                      ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(p_Var2 + 0xd8));
-    p_Var2 = (this->Speaker)._vf[0];
-    sVar1 = *(short *)(p_Var2 + 200);
-    pcVar5 = *(code **)(p_Var2 + 0xcc);
+    uVar2 = (this->Speaker)._vf[0].value;
+    iVar3 = (**(code **)(uVar2 + 0xdc))
+                      ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(uVar2 + 0xd8));
+    uVar2 = (this->Speaker)._vf[0].value;
+    sVar1 = *(short *)(uVar2 + 200);
+    pcVar5 = *(code **)(uVar2 + 0xcc);
   }
   else {
-    p_Var2 = (this->Speaker)._vf[0];
-    iVar3 = (**(code **)(p_Var2 + 0xcc))
-                      ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(p_Var2 + 200));
-    p_Var2 = (this->Speaker)._vf[0];
-    sVar1 = *(short *)(p_Var2 + 0xd8);
-    pcVar5 = *(code **)(p_Var2 + 0xdc);
+    uVar2 = (this->Speaker)._vf[0].value;
+    iVar3 = (**(code **)(uVar2 + 0xcc))
+                      ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(uVar2 + 200));
+    uVar2 = (this->Speaker)._vf[0].value;
+    sVar1 = *(short *)(uVar2 + 0xd8);
+    pcVar5 = *(code **)(uVar2 + 0xdc);
   }
   iVar4 = (*pcVar5)((int)&(this->Speaker).fPosition.flags + (int)sVar1);
   iVar3 = *(int *)(iVar3 + 0xa8) - *(int *)(iVar4 + 0xa8);
@@ -11900,10 +11833,7 @@ int DistToPerp__Q26Speech13MobileSpeaker(MobileSpeaker *this)
     iVar6 = iVar3 + (iVar6 >> 2);
   }
   return iVar6;
-
-
 }
-
 
 
 
@@ -12207,22 +12137,23 @@ int DistToPerp__Q26Speech13MobileSpeaker(MobileSpeaker *this)
 	// End Line: 2296
 
 void Report__Q26Speech13MobileSpeakerP8Car_tObj(MobileSpeaker *this,Car_tObj *perp)
+
 {
-  __vtbl_ptr_type *p_Var1;
+  uint uVar1;
   int ID_UNIT;
   Speaker *pSVar2;
   SPCHNFSType_VOICE *VOICE;
   
-  *(__vtbl_ptr_type **)(iGp00000838 + 0x38c) = (this->Speaker)._vf[5];
-  p_Var1 = (this->Speaker)._vf[0];
-  ID_UNIT = (**(code **)(p_Var1 + 0xf4))
-                      ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(p_Var1 + 0xf0));
+  *(uint *)(DAT_00000838 + 0x38c) = (this->Speaker)._vf[5].value;
+  uVar1 = (this->Speaker)._vf[0].value;
+  ID_UNIT = (**(code **)(uVar1 + 0xf4))
+                      ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(uVar1 + 0xf0));
   VOICE = (SPCHNFSType_VOICE *)((this->Speaker)._vf + 1);
   ID_UNIT = *(int *)(ID_UNIT + 4);
   (this->Speaker).fTo = ID_UNIT;
   SPCHNFS_C_A_INTRO(VOICE,ID_UNIT,(this->Speaker).fFrom,&(this->Speaker).fReverse);
   SPCH_PlaySpeech();
-  *(__vtbl_ptr_type **)(iGp00000838 + 0x38c) = (this->Speaker)._vf[5];
+  *(uint *)(DAT_00000838 + 0x38c) = (this->Speaker)._vf[5].value;
   SetCar__Q26Speech7SpeakerP8Car_tObj((Speaker *)this,perp);
   FindLocation__Q26Speech7SpeakerP8Car_tObj((Speaker *)this,perp);
   SetSpeed__Q26Speech13MobileSpeakerP8Car_tObj(this,perp);
@@ -12233,10 +12164,7 @@ void Report__Q26Speech13MobileSpeakerP8Car_tObj(MobileSpeaker *this,Car_tObj *pe
   pSVar2 = Dispatch__6Speech();
   *(MobileSpeaker **)&pSVar2->fSub = this;
   return;
-
-
 }
-
 
 
 
@@ -13788,7 +13716,10 @@ void Report__Q26Speech13MobileSpeakerP8Car_tObj(MobileSpeaker *this,Car_tObj *pe
 	// End offset: 0x80098418
 	// End Line: 2451
 
+/* WARNING: Type propagation algorithm not settling */
+
 void Engage__Q26Speech13MobileSpeakerP8Car_tObj(MobileSpeaker *this,Car_tObj *perp)
+
 {
   short sVar1;
   bool bVar2;
@@ -13800,45 +13731,45 @@ void Engage__Q26Speech13MobileSpeakerP8Car_tObj(MobileSpeaker *this,Car_tObj *pe
   int *piVar6;
   Speaker *pSVar7;
   undefined4 uVar8;
-  __vtbl_ptr_type *p_Var9;
-  __vtbl_ptr_type *p_Var10;
+  uint uVar9;
+  uint uVar10;
   SPCHNFSType_VOICE *VOICE;
   
-  *(__vtbl_ptr_type **)(iGp00000838 + 0x38c) = (this->Speaker)._vf[5];
-  p_Var9 = (this->Speaker)._vf[0];
-  (this->Speaker).fHavePerp = 1;
+  *(uint *)(DAT_00000838 + 0x38c) = (this->Speaker)._vf[5].value;
+  uVar9 = (this->Speaker)._vf[0].value;
+  *(undefined **)&(this->Speaker).fHavePerp = &DAT_00000001;
   car = (Car_tObj *)
-        (**(code **)(p_Var9 + 0xdc))
-                  ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(p_Var9 + 0xd8));
+        (**(code **)(uVar9 + 0xdc))
+                  ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(uVar9 + 0xd8));
   if (perp == car) {
     bVar2 = false;
-    if (*(int *)(iGp00000838 + 0x388) == 0) {
+    if (*(int *)(DAT_00000838 + 0x388) == 0) {
       pSVar5 = Dispatch__6Speech();
-      ID_UNIT = (**(code **)(pSVar5->_vf[0] + 0xac))
-                          ((int)&(pSVar5->fPosition).flags + (int)*(short *)(pSVar5->_vf[0] + 0xa8))
-      ;
+      uVar9 = pSVar5->_vf[0].value;
+      ID_UNIT = (**(code **)(uVar9 + 0xac))
+                          ((int)&(pSVar5->fPosition).flags + (int)*(short *)(uVar9 + 0xa8));
       bVar2 = ID_UNIT < 0x160;
     }
     if (!bVar2) {
       return;
     }
-    p_Var9 = (this->Speaker)._vf[0];
+    uVar9 = (this->Speaker)._vf[0].value;
     car = (Car_tObj *)
-          (**(code **)(p_Var9 + 0xdc))
-                    ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(p_Var9 + 0xd8));
+          (**(code **)(uVar9 + 0xdc))
+                    ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(uVar9 + 0xd8));
     SetCar__Q26Speech7SpeakerP8Car_tObj((Speaker *)this,car);
-    p_Var9 = (this->Speaker)._vf[0];
-    ID_UNIT = (**(code **)(p_Var9 + 0xf4))
-                        ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(p_Var9 + 0xf0));
+    uVar9 = (this->Speaker)._vf[0].value;
+    ID_UNIT = (**(code **)(uVar9 + 0xf4))
+                        ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(uVar9 + 0xf0));
     VOICE = (SPCHNFSType_VOICE *)((this->Speaker)._vf + 1);
     ID_UNIT = *(int *)(ID_UNIT + 4);
     (this->Speaker).fTo = ID_UNIT;
     SPCHNFS_C_A_INTRO(VOICE,ID_UNIT,(this->Speaker).fFrom,&(this->Speaker).fReverse);
     SPCH_PlaySpeech();
-    p_Var9 = (this->Speaker)._vf[0];
+    uVar9 = (this->Speaker)._vf[0].value;
     car = (Car_tObj *)
-          (**(code **)(p_Var9 + 0xdc))
-                    ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(p_Var9 + 0xd8));
+          (**(code **)(uVar9 + 0xdc))
+                    ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(uVar9 + 0xd8));
     FindLocation__Q26Speech7SpeakerP8Car_tObj((Speaker *)this,car);
     SPCHNFS_C_C_PERP_REAQUIRED
               (VOICE,&(this->Speaker).fColour,(this->Speaker).fCar,(SPCHNFSType_POSITION *)this,
@@ -13847,15 +13778,15 @@ LAB_80098410:
     SPCH_PlaySpeech();
     return;
   }
-  p_Var9 = (this->Speaker)._vf[0];
-  *(Car_tObj **)((this->Speaker)._vf + 6) = perp;
+  uVar9 = (this->Speaker)._vf[0].value;
+  *(Car_tObj **)&(this->Speaker)._vf[6].value = perp;
   car = (Car_tObj *)
-        (**(code **)(p_Var9 + 0xdc))
-                  ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(p_Var9 + 0xd8));
+        (**(code **)(uVar9 + 0xdc))
+                  ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(uVar9 + 0xd8));
   SetCar__Q26Speech7SpeakerP8Car_tObj((Speaker *)this,car);
-  p_Var9 = (this->Speaker)._vf[0];
-  ID_UNIT = (**(code **)(p_Var9 + 0xcc))
-                      ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(p_Var9 + 200));
+  uVar9 = (this->Speaker)._vf[0].value;
+  ID_UNIT = (**(code **)(uVar9 + 0xcc))
+                      ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(uVar9 + 200));
   if ((*(uint *)(ID_UNIT + 0x260) & 0x200) == 0) {
     pMVar4 = (MobileSpeaker *)Dispatch__6Speech();
     do {
@@ -13870,24 +13801,24 @@ LAB_80097dc8:
   pSVar5 = Dispatch__6Speech();
   bVar2 = false;
   if ((MobileSpeaker *)pSVar5->fSub == this) {
-    p_Var9 = (this->Speaker)._vf[0];
-    ID_UNIT = (**(code **)(p_Var9 + 0xcc))
-                        ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(p_Var9 + 200));
+    uVar9 = (this->Speaker)._vf[0].value;
+    ID_UNIT = (**(code **)(uVar9 + 0xcc))
+                        ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(uVar9 + 200));
     if ((*(uint *)(ID_UNIT + 0x260) & 0x200) == 0) {
       return;
     }
     pSVar5 = Dispatch__6Speech();
-    (**(code **)(pSVar5->_vf[0] + 0xc))
-              ((int)&(pSVar5->fPosition).flags + (int)*(short *)(pSVar5->_vf[0] + 8),perp);
-    *(__vtbl_ptr_type **)(iGp00000838 + 0x38c) = (this->Speaker)._vf[5];
-    p_Var9 = (this->Speaker)._vf[0];
-    ID_UNIT = (**(code **)(p_Var9 + 0xf4))
-                        ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(p_Var9 + 0xf0));
-    p_Var9 = (this->Speaker)._vf[0];
+    uVar9 = pSVar5->_vf[0].value;
+    (**(code **)(uVar9 + 0xc))((int)&(pSVar5->fPosition).flags + (int)*(short *)(uVar9 + 8),perp);
+    *(uint *)(DAT_00000838 + 0x38c) = (this->Speaker)._vf[5].value;
+    uVar9 = (this->Speaker)._vf[0].value;
+    ID_UNIT = (**(code **)(uVar9 + 0xf4))
+                        ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(uVar9 + 0xf0));
+    uVar9 = (this->Speaker)._vf[0].value;
     (this->Speaker).fTo = *(int *)(ID_UNIT + 4);
     car = (Car_tObj *)
-          (**(code **)(p_Var9 + 0xdc))
-                    ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(p_Var9 + 0xd8));
+          (**(code **)(uVar9 + 0xdc))
+                    ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(uVar9 + 0xd8));
     FindLocation__Q26Speech7SpeakerP8Car_tObj((Speaker *)this,car);
     SPCHNFS_C_D_ENGAGE_PURS_REP_SPDR_REPLY
               ((SPCHNFSType_VOICE *)((this->Speaker)._vf + 1),(this->Speaker).fTo,
@@ -13895,19 +13826,19 @@ LAB_80097dc8:
                (SPCHNFSType_POSITION *)this,(this->Speaker).fLocation,&(this->Speaker).fConfirm);
     goto LAB_80098410;
   }
-  p_Var9 = (this->Speaker)._vf[0];
-  ID_UNIT = (**(code **)(p_Var9 + 0xa4))
-                      ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(p_Var9 + 0xa0));
+  uVar9 = (this->Speaker)._vf[0].value;
+  ID_UNIT = (**(code **)(uVar9 + 0xa4))
+                      ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(uVar9 + 0xa0));
   if (((ID_UNIT != 0) &&
-      (p_Var9 = (this->Speaker)._vf[0],
-      ID_UNIT = (**(code **)(p_Var9 + 0xdc))
-                          ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(p_Var9 + 0xd8)),
+      (uVar9 = (this->Speaker)._vf[0].value,
+      ID_UNIT = (**(code **)(uVar9 + 0xdc))
+                          ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(uVar9 + 0xd8)),
       (*(uint *)(ID_UNIT + 0x260) & 4) != 0)) &&
      (pSVar5 = Dispatch__6Speech(), pSVar5->fSub != (Speaker *)0x0)) {
     pSVar5 = Dispatch__6Speech();
-    p_Var9 = pSVar5->fSub->_vf[0];
-    ID_UNIT = (**(code **)(p_Var9 + 0xcc))
-                        ((int)&(pSVar5->fSub->fPosition).flags + (int)*(short *)(p_Var9 + 200));
+    uVar9 = pSVar5->fSub->_vf[0].value;
+    ID_UNIT = (**(code **)(uVar9 + 0xcc))
+                        ((int)&(pSVar5->fSub->fPosition).flags + (int)*(short *)(uVar9 + 200));
     bVar2 = (*(uint *)(ID_UNIT + 0x260) & 0x40) == 0;
   }
   if (bVar2) {
@@ -13918,10 +13849,10 @@ LAB_80097dc8:
     if ((this->Speaker).fBlockade.flags != 0) {
       return;
     }
-    p_Var9 = (this->Speaker)._vf[0];
-    piVar6 = (int *)(**(code **)(p_Var9 + 0xf4))
-                              ((int)&(this->Speaker).fPosition.flags +
-                               (int)*(short *)(p_Var9 + 0xf0));
+    uVar9 = (this->Speaker)._vf[0].value;
+    piVar6 = (int *)(**(code **)(uVar9 + 0xf4))
+                              ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(uVar9 + 0xf0)
+                              );
     VOICE = (SPCHNFSType_VOICE *)((this->Speaker)._vf + 1);
     ID_UNIT = *piVar6;
     (this->Speaker).fTo = ID_UNIT;
@@ -13935,19 +13866,18 @@ LAB_80097dc8:
   pSVar7 = Dispatch__6Speech();
   if (pSVar7->fSub != (Speaker *)0x0) {
     pSVar7 = Dispatch__6Speech();
-    p_Var9 = pSVar7->fSub->_vf[0];
-    ID_UNIT = (**(code **)(p_Var9 + 0xdc))
-                        ((int)&(pSVar7->fSub->fPosition).flags + (int)*(short *)(p_Var9 + 0xd8));
+    uVar9 = pSVar7->fSub->_vf[0].value;
+    ID_UNIT = (**(code **)(uVar9 + 0xdc))
+                        ((int)&(pSVar7->fSub->fPosition).flags + (int)*(short *)(uVar9 + 0xd8));
     if (ID_UNIT != 0) {
       pSVar7 = Dispatch__6Speech();
-      p_Var9 = pSVar7->fSub->_vf[0];
-      ID_UNIT = (**(code **)(p_Var9 + 0xdc))
-                          ((int)&(pSVar7->fSub->fPosition).flags + (int)*(short *)(p_Var9 + 0xd8));
+      uVar9 = pSVar7->fSub->_vf[0].value;
+      ID_UNIT = (**(code **)(uVar9 + 0xdc))
+                          ((int)&(pSVar7->fSub->fPosition).flags + (int)*(short *)(uVar9 + 0xd8));
       if ((*(uint *)(ID_UNIT + 0x260) & 4) == 0) {
-        p_Var9 = (this->Speaker)._vf[0];
-        ID_UNIT = (**(code **)(p_Var9 + 0xdc))
-                            ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(p_Var9 + 0xd8))
-        ;
+        uVar9 = (this->Speaker)._vf[0].value;
+        ID_UNIT = (**(code **)(uVar9 + 0xdc))
+                            ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(uVar9 + 0xd8));
         bVar2 = (*(uint *)(ID_UNIT + 0x260) & 4) != 0;
       }
     }
@@ -13970,13 +13900,14 @@ LAB_80097dc8:
   }
   bVar2 = false;
   pSVar5 = Dispatch__6Speech();
-  ID_UNIT = (**(code **)(pSVar5->_vf[0] + 0x94))
-                      ((int)&(pSVar5->fPosition).flags + (int)*(short *)(pSVar5->_vf[0] + 0x90),perp
-                      );
+  uVar9 = pSVar5->_vf[0].value;
+  ID_UNIT = (**(code **)(uVar9 + 0x94))
+                      ((int)&(pSVar5->fPosition).flags + (int)*(short *)(uVar9 + 0x90),perp);
   if (ID_UNIT != 0) {
     pSVar5 = Dispatch__6Speech();
-    ID_UNIT = (**(code **)(pSVar5->_vf[0] + 0xac))
-                        ((int)&(pSVar5->fPosition).flags + (int)*(short *)(pSVar5->_vf[0] + 0xa8));
+    uVar9 = pSVar5->_vf[0].value;
+    ID_UNIT = (**(code **)(uVar9 + 0xac))
+                        ((int)&(pSVar5->fPosition).flags + (int)*(short *)(uVar9 + 0xa8));
     if (0x17f < ID_UNIT) goto LAB_8009815c;
   }
   bVar2 = true;
@@ -13984,35 +13915,35 @@ LAB_8009815c:
   if (!bVar2) {
     return;
   }
-  p_Var9 = (this->Speaker)._vf[0];
-  ID_UNIT = (**(code **)(p_Var9 + 0xf4))
-                      ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(p_Var9 + 0xf0));
+  uVar9 = (this->Speaker)._vf[0].value;
+  ID_UNIT = (**(code **)(uVar9 + 0xf4))
+                      ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(uVar9 + 0xf0));
   VOICE = (SPCHNFSType_VOICE *)((this->Speaker)._vf + 1);
   ID_UNIT = *(int *)(ID_UNIT + 4);
   (this->Speaker).fTo = ID_UNIT;
   SPCHNFS_C_A_INTRO(VOICE,ID_UNIT,(this->Speaker).fFrom,&(this->Speaker).fReverse);
   SPCH_PlaySpeech();
-  p_Var9 = (this->Speaker)._vf[0];
+  uVar9 = (this->Speaker)._vf[0].value;
   car = (Car_tObj *)
-        (**(code **)(p_Var9 + 0xdc))
-                  ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(p_Var9 + 0xd8));
+        (**(code **)(uVar9 + 0xdc))
+                  ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(uVar9 + 0xd8));
   FindLocation__Q26Speech7SpeakerP8Car_tObj((Speaker *)this,car);
-  p_Var9 = (this->Speaker)._vf[0];
+  uVar9 = (this->Speaker)._vf[0].value;
   car = (Car_tObj *)
-        (**(code **)(p_Var9 + 0xdc))
-                  ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(p_Var9 + 0xd8));
+        (**(code **)(uVar9 + 0xdc))
+                  ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(uVar9 + 0xd8));
   SetSpeed__Q26Speech13MobileSpeakerP8Car_tObj(this,car);
   pSVar5 = Dispatch__6Speech();
-  p_Var9 = pSVar5->_vf[0];
-  p_Var10 = (this->Speaker)._vf[0];
-  sVar1 = *(short *)(p_Var9 + 0x90);
-  uVar8 = (**(code **)(p_Var10 + 0xdc))
-                    ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(p_Var10 + 0xd8));
-  ID_UNIT = (**(code **)(p_Var9 + 0x94))((int)&(pSVar5->fPosition).flags + (int)sVar1,uVar8);
+  uVar9 = pSVar5->_vf[0].value;
+  uVar10 = (this->Speaker)._vf[0].value;
+  sVar1 = *(short *)(uVar9 + 0x90);
+  uVar8 = (**(code **)(uVar10 + 0xdc))
+                    ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(uVar10 + 0xd8));
+  ID_UNIT = (**(code **)(uVar9 + 0x94))((int)&(pSVar5->fPosition).flags + (int)sVar1,uVar8);
   if (ID_UNIT == 0) {
     SPCHNFS_C_D_ENGAGE_PURS_REP_SPDR
               (VOICE,&(this->Speaker).fColour,(this->Speaker).fCar,(SPCHNFSType_POSITION *)this,
-               (this->Speaker).fLocation,&(this->Speaker).fDistance,(int)(this->Speaker)._vf[3],
+               (this->Speaker).fLocation,&(this->Speaker).fDistance,(this->Speaker)._vf[3].value,
                (SPCHNFSType_vs_KMH_MPH *)((this->Speaker)._vf + 2),&(this->Speaker).fPerpName);
   }
   else {
@@ -14026,19 +13957,16 @@ LAB_8009815c:
   pSVar5 = Dispatch__6Speech();
   *(MobileSpeaker **)&pSVar5->fSub = this;
   pSVar5 = Dispatch__6Speech();
-  p_Var9 = pSVar5->_vf[0];
-  p_Var10 = (this->Speaker)._vf[0];
-  sVar1 = *(short *)(p_Var9 + 8);
-  uVar8 = (**(code **)(p_Var10 + 0xdc))
-                    ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(p_Var10 + 0xd8));
-  (**(code **)(p_Var9 + 0xc))((int)&(pSVar5->fPosition).flags + (int)sVar1,uVar8);
+  uVar9 = pSVar5->_vf[0].value;
+  uVar10 = (this->Speaker)._vf[0].value;
+  sVar1 = *(short *)(uVar9 + 8);
+  uVar8 = (**(code **)(uVar10 + 0xdc))
+                    ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(uVar10 + 0xd8));
+  (**(code **)(uVar9 + 0xc))((int)&(pSVar5->fPosition).flags + (int)sVar1,uVar8);
   pSVar5 = Dispatch__6Speech();
   pSVar5->fSub = pSVar7;
   return;
-
-
 }
-
 
 
 
@@ -14944,10 +14872,13 @@ LAB_8009815c:
 	// End offset: 0x80098770
 	// End Line: 2533
 
+/* WARNING: Type propagation algorithm not settling */
+
 void Lose__Q26Speech13MobileSpeaker(MobileSpeaker *this)
+
 {
   bool bVar1;
-  __vtbl_ptr_type *p_Var2;
+  uint uVar2;
   int iVar3;
   Speaker *pSVar4;
   int iVar5;
@@ -14956,11 +14887,11 @@ void Lose__Q26Speech13MobileSpeaker(MobileSpeaker *this)
   SPCHNFSType_VOICE *VOICE;
   Speaker *pSVar7;
   
-  p_Var2 = (this->Speaker)._vf[0];
-  iVar3 = (**(code **)(p_Var2 + 0xdc))
-                    ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(p_Var2 + 0xd8));
+  uVar2 = (this->Speaker)._vf[0].value;
+  iVar3 = (**(code **)(uVar2 + 0xdc))
+                    ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(uVar2 + 0xd8));
   if (iVar3 != 0) {
-    *(__vtbl_ptr_type **)(fgSpeech + 0x38c) = (this->Speaker)._vf[5];
+    *(uint *)(iGp00000838 + 0x38c) = (this->Speaker)._vf[5].value;
     pSVar4 = Dispatch__6Speech();
     bVar1 = false;
     if (((pSVar4->fSub != (Speaker *)0x0) &&
@@ -14970,18 +14901,19 @@ void Lose__Q26Speech13MobileSpeaker(MobileSpeaker *this)
     }
     if (bVar1) {
       pSVar4 = Dispatch__6Speech();
-      p_Var2 = (this->Speaker)._vf[0];
+      uVar2 = (this->Speaker)._vf[0].value;
       pSVar4 = pSVar4->fSub;
-      iVar3 = (**(code **)(p_Var2 + 0xf4))
-                        ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(p_Var2 + 0xf0));
-      iVar5 = (**(code **)(pSVar4->_vf[0] + 0x8c))
-                        ((int)&(pSVar4->fPosition).flags + (int)*(short *)(pSVar4->_vf[0] + 0x88));
+      iVar3 = (**(code **)(uVar2 + 0xf4))
+                        ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(uVar2 + 0xf0));
+      uVar2 = pSVar4->_vf[0].value;
+      iVar5 = (**(code **)(uVar2 + 0x8c))
+                        ((int)&(pSVar4->fPosition).flags + (int)*(short *)(uVar2 + 0x88));
       (this->Speaker).fTo = *(int *)(iVar3 + iVar5 * 4 + 8);
     }
     else {
-      p_Var2 = (this->Speaker)._vf[0];
-      iVar3 = (**(code **)(p_Var2 + 0xf4))
-                        ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(p_Var2 + 0xf0));
+      uVar2 = (this->Speaker)._vf[0].value;
+      iVar3 = (**(code **)(uVar2 + 0xf4))
+                        ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(uVar2 + 0xf0));
       pSVar4 = (Speaker *)0x0;
       (this->Speaker).fTo = *(int *)(iVar3 + 4);
     }
@@ -14989,9 +14921,9 @@ void Lose__Q26Speech13MobileSpeaker(MobileSpeaker *this)
       bVar1 = false;
       if (((this->Speaker).fBlockade.flags == 0) && (pSVar4 == (Speaker *)0x0)) {
         pSVar7 = Dispatch__6Speech();
-        iVar3 = (**(code **)(pSVar7->_vf[0] + 0xac))
-                          ((int)&(pSVar7->fPosition).flags + (int)*(short *)(pSVar7->_vf[0] + 0xa8))
-        ;
+        uVar2 = pSVar7->_vf[0].value;
+        iVar3 = (**(code **)(uVar2 + 0xac))
+                          ((int)&(pSVar7->fPosition).flags + (int)*(short *)(uVar2 + 0xa8));
         bVar1 = 0x160 < iVar3;
       }
       if (bVar1) {
@@ -15005,20 +14937,20 @@ void Lose__Q26Speech13MobileSpeaker(MobileSpeaker *this)
     VOICE = (SPCHNFSType_VOICE *)((this->Speaker)._vf + 1);
     SPCHNFS_C_A_INTRO(VOICE,(this->Speaker).fTo,(this->Speaker).fFrom,&(this->Speaker).fReverse);
     SPCH_PlaySpeech();
-    p_Var2 = (this->Speaker)._vf[0];
+    uVar2 = (this->Speaker)._vf[0].value;
     car = (Car_tObj *)
-          (**(code **)(p_Var2 + 0xdc))
-                    ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(p_Var2 + 0xd8));
+          (**(code **)(uVar2 + 0xdc))
+                    ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(uVar2 + 0xd8));
     SetCar__Q26Speech7SpeakerP8Car_tObj((Speaker *)this,car);
-    p_Var2 = (this->Speaker)._vf[0];
+    uVar2 = (this->Speaker)._vf[0].value;
     car = (Car_tObj *)
-          (**(code **)(p_Var2 + 0xdc))
-                    ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(p_Var2 + 0xd8));
+          (**(code **)(uVar2 + 0xdc))
+                    ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(uVar2 + 0xd8));
     FindLocation__Q26Speech7SpeakerP8Car_tObj((Speaker *)this,car);
     if ((this->Speaker).fArrest.flags == 0) {
-      p_Var2 = (this->Speaker)._vf[0];
-      iVar3 = (**(code **)(p_Var2 + 0xcc))
-                        ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(p_Var2 + 200));
+      uVar2 = (this->Speaker)._vf[0].value;
+      iVar3 = (**(code **)(uVar2 + 0xcc))
+                        ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(uVar2 + 200));
       if ((*(uint *)(iVar3 + 0x260) & 0x200) == 0) {
         uVar6 = (this->Speaker).fBlockade.flags;
         if (uVar6 == 1) {
@@ -15058,17 +14990,14 @@ void Lose__Q26Speech13MobileSpeaker(MobileSpeaker *this)
       pSVar4 = Dispatch__6Speech();
       *(MobileSpeaker **)&pSVar4->fSub = this;
       pSVar4 = Dispatch__6Speech();
-      (**(code **)(pSVar4->_vf[0] + 0x74))
-                ((int)&(pSVar4->fPosition).flags + (int)*(short *)(pSVar4->_vf[0] + 0x70));
+      uVar2 = pSVar4->_vf[0].value;
+      (**(code **)(uVar2 + 0x74))((int)&(pSVar4->fPosition).flags + (int)*(short *)(uVar2 + 0x70));
       pSVar4 = Dispatch__6Speech();
       pSVar4->fSub = pSVar7;
     }
   }
   return;
-
-
 }
-
 
 
 
@@ -15084,12 +15013,10 @@ void Lose__Q26Speech13MobileSpeaker(MobileSpeaker *this)
 	// End Line: 2545
 
 void Accident__Q26Speech13MobileSpeakeri(MobileSpeaker *this,int slice)
+
 {
   return;
-
-
 }
-
 
 
 
@@ -15841,37 +15768,38 @@ void Accident__Q26Speech13MobileSpeakeri(MobileSpeaker *this,int slice)
 	// End Line: 2621
 
 void Catch__Q26Speech13MobileSpeakeri(MobileSpeaker *this,int ticket)
+
 {
-  __vtbl_ptr_type *p_Var1;
+  uint uVar1;
   int ID_UNIT;
   ulong uVar2;
   Car_tObj *car;
   Speaker *pSVar3;
   SPCHNFSType_VOICE *VOICE;
   
-  p_Var1 = (this->Speaker)._vf[0];
-  ID_UNIT = (**(code **)(p_Var1 + 0xdc))
-                      ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(p_Var1 + 0xd8));
+  uVar1 = (this->Speaker)._vf[0].value;
+  ID_UNIT = (**(code **)(uVar1 + 0xdc))
+                      ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(uVar1 + 0xd8));
   if (ID_UNIT == 0) {
     return;
   }
-  fgSpeech->fSpeakerCar = (Car_tObj *)(this->Speaker)._vf[5];
-  p_Var1 = (this->Speaker)._vf[0];
-  ID_UNIT = (**(code **)(p_Var1 + 0xdc))
-                      ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(p_Var1 + 0xd8));
+  pSGp00000838->fSpeakerCar = (Car_tObj *)(this->Speaker)._vf[5].value;
+  uVar1 = (this->Speaker)._vf[0].value;
+  ID_UNIT = (**(code **)(uVar1 + 0xdc))
+                      ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(uVar1 + 0xd8));
   if (*(int *)(ID_UNIT + 300) < 0) {
-    p_Var1 = (this->Speaker)._vf[0];
-    ID_UNIT = (**(code **)(p_Var1 + 0xf4))
-                        ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(p_Var1 + 0xf0));
+    uVar1 = (this->Speaker)._vf[0].value;
+    ID_UNIT = (**(code **)(uVar1 + 0xf4))
+                        ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(uVar1 + 0xf0));
     VOICE = (SPCHNFSType_VOICE *)((this->Speaker)._vf + 1);
     ID_UNIT = *(int *)(ID_UNIT + 4);
     (this->Speaker).fTo = ID_UNIT;
     SPCHNFS_C_A_INTRO(VOICE,ID_UNIT,(this->Speaker).fFrom,&(this->Speaker).fReverse);
     SPCH_PlaySpeech();
-    p_Var1 = (this->Speaker)._vf[0];
+    uVar1 = (this->Speaker)._vf[0].value;
     car = (Car_tObj *)
-          (**(code **)(p_Var1 + 0xdc))
-                    ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(p_Var1 + 0xd8));
+          (**(code **)(uVar1 + 0xdc))
+                    ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(uVar1 + 0xd8));
     FindLocation__Q26Speech7SpeakerP8Car_tObj((Speaker *)this,car);
     SPCHNFS_C_D_PERP_CRASH_ROLL
               (VOICE,(SPCHNFSType_POSITION *)this,(this->Speaker).fLocation,
@@ -15880,9 +15808,9 @@ void Catch__Q26Speech13MobileSpeakeri(MobileSpeaker *this,int ticket)
     uVar2 = 4;
   }
   else {
-    p_Var1 = (this->Speaker)._vf[0];
-    ID_UNIT = (**(code **)(p_Var1 + 0xdc))
-                        ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(p_Var1 + 0xd8));
+    uVar1 = (this->Speaker)._vf[0].value;
+    ID_UNIT = (**(code **)(uVar1 + 0xdc))
+                        ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(uVar1 + 0xd8));
     if (*(int *)(ID_UNIT + 0x78c) == 0) {
       (this->Speaker).fArrest.flags = ticket;
       if (ticket == 1) {
@@ -15900,27 +15828,27 @@ void Catch__Q26Speech13MobileSpeakeri(MobileSpeaker *this,int ticket)
       }
       SPCH_PlaySpeech();
       if (ticket == 1) {
-        SetDelayedStatus__6SpeechPQ26Speech7Speakeri(fgSpeech,(Speaker *)this,0x60);
+        SetDelayedStatus__6SpeechPQ26Speech7Speakeri(pSGp00000838,(Speaker *)this,0x60);
       }
       goto LAB_80098a14;
     }
-    p_Var1 = (this->Speaker)._vf[0];
-    ID_UNIT = (**(code **)(p_Var1 + 0xf4))
-                        ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(p_Var1 + 0xf0));
+    uVar1 = (this->Speaker)._vf[0].value;
+    ID_UNIT = (**(code **)(uVar1 + 0xf4))
+                        ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(uVar1 + 0xf0));
     VOICE = (SPCHNFSType_VOICE *)((this->Speaker)._vf + 1);
     ID_UNIT = *(int *)(ID_UNIT + 4);
     (this->Speaker).fTo = ID_UNIT;
     SPCHNFS_C_A_INTRO(VOICE,ID_UNIT,(this->Speaker).fFrom,&(this->Speaker).fReverse);
     SPCH_PlaySpeech();
-    p_Var1 = (this->Speaker)._vf[0];
+    uVar1 = (this->Speaker)._vf[0].value;
     car = (Car_tObj *)
-          (**(code **)(p_Var1 + 0xdc))
-                    ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(p_Var1 + 0xd8));
+          (**(code **)(uVar1 + 0xdc))
+                    ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(uVar1 + 0xd8));
     SetCar__Q26Speech7SpeakerP8Car_tObj((Speaker *)this,car);
-    p_Var1 = (this->Speaker)._vf[0];
+    uVar1 = (this->Speaker)._vf[0].value;
     car = (Car_tObj *)
-          (**(code **)(p_Var1 + 0xdc))
-                    ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(p_Var1 + 0xd8));
+          (**(code **)(uVar1 + 0xdc))
+                    ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(uVar1 + 0xd8));
     FindLocation__Q26Speech7SpeakerP8Car_tObj((Speaker *)this,car);
     SPCHNFS_C_D_PERP_CRASH_GEN
               (VOICE,(SPCHNFSType_POSITION *)this,(this->Speaker).fLocation,&(this->Speaker).fColour
@@ -15934,14 +15862,12 @@ void Catch__Q26Speech13MobileSpeakeri(MobileSpeaker *this,int ticket)
   SPCH_PlaySpeech();
 LAB_80098a14:
   pSVar3 = Dispatch__6Speech();
-  (**(code **)(pSVar3->_vf[0] + 0x9c))
-            ((int)&(pSVar3->fPosition).flags + (int)*(short *)(pSVar3->_vf[0] + 0x98),
-             (this->Speaker)._vf[6]);
+  uVar1 = pSVar3->_vf[0].value;
+  (**(code **)(uVar1 + 0x9c))
+            ((int)&(pSVar3->fPosition).flags + (int)*(short *)(uVar1 + 0x98),
+             (this->Speaker)._vf[6].value);
   return;
-
-
 }
-
 
 
 
@@ -16206,10 +16132,11 @@ LAB_80098a14:
 	// End Line: 2649
 
 void RoadBlock__Q26Speech13MobileSpeaker(MobileSpeaker *this)
+
 {
   bool bVar1;
   Speaker *pSVar2;
-  __vtbl_ptr_type *p_Var3;
+  uint uVar3;
   int ID_UNIT;
   SPCHNFSType_VOICE *VOICE;
   
@@ -16221,17 +16148,17 @@ void RoadBlock__Q26Speech13MobileSpeaker(MobileSpeaker *this)
   }
   if (bVar1) {
     pSVar2 = Dispatch__6Speech();
-    p_Var3 = pSVar2->fSub->_vf[0];
-    (**(code **)(p_Var3 + 0x54))
-              ((int)&(pSVar2->fSub->fPosition).flags + (int)*(short *)(p_Var3 + 0x50));
+    uVar3 = pSVar2->fSub->_vf[0].value;
+    (**(code **)(uVar3 + 0x54))
+              ((int)&(pSVar2->fSub->fPosition).flags + (int)*(short *)(uVar3 + 0x50));
   }
   else {
     Promote__Q26Speech7Speaker((Speaker *)this);
-    if (*(int *)(iGp00000838 + 0x388) == 0) {
-      *(__vtbl_ptr_type **)(iGp00000838 + 0x38c) = (this->Speaker)._vf[5];
-      p_Var3 = (this->Speaker)._vf[0];
-      ID_UNIT = (**(code **)(p_Var3 + 0xf4))
-                          ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(p_Var3 + 0xf0));
+    if (*(int *)(DAT_00000838 + 0x388) == 0) {
+      *(uint *)(DAT_00000838 + 0x38c) = (this->Speaker)._vf[5].value;
+      uVar3 = (this->Speaker)._vf[0].value;
+      ID_UNIT = (**(code **)(uVar3 + 0xf4))
+                          ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(uVar3 + 0xf0));
       VOICE = (SPCHNFSType_VOICE *)((this->Speaker)._vf + 1);
       ID_UNIT = *(int *)(ID_UNIT + 4);
       (this->Speaker).fTo = ID_UNIT;
@@ -16243,10 +16170,7 @@ void RoadBlock__Q26Speech13MobileSpeaker(MobileSpeaker *this)
     (this->Speaker).fBlockade.flags = 2;
   }
   return;
-
-
 }
-
 
 
 
@@ -16511,10 +16435,11 @@ void RoadBlock__Q26Speech13MobileSpeaker(MobileSpeaker *this)
 	// End Line: 2678
 
 void SpikeBelt__Q26Speech13MobileSpeaker(MobileSpeaker *this)
+
 {
   bool bVar1;
   Speaker *pSVar2;
-  __vtbl_ptr_type *p_Var3;
+  uint uVar3;
   int ID_UNIT;
   SPCHNFSType_VOICE *VOICE;
   
@@ -16526,17 +16451,17 @@ void SpikeBelt__Q26Speech13MobileSpeaker(MobileSpeaker *this)
   }
   if (bVar1) {
     pSVar2 = Dispatch__6Speech();
-    p_Var3 = pSVar2->fSub->_vf[0];
-    (**(code **)(p_Var3 + 0x5c))
-              ((int)&(pSVar2->fSub->fPosition).flags + (int)*(short *)(p_Var3 + 0x58));
+    uVar3 = pSVar2->fSub->_vf[0].value;
+    (**(code **)(uVar3 + 0x5c))
+              ((int)&(pSVar2->fSub->fPosition).flags + (int)*(short *)(uVar3 + 0x58));
   }
   else {
     Promote__Q26Speech7Speaker((Speaker *)this);
-    if (*(int *)(iGp00000838 + 0x388) == 0) {
-      *(__vtbl_ptr_type **)(iGp00000838 + 0x38c) = (this->Speaker)._vf[5];
-      p_Var3 = (this->Speaker)._vf[0];
-      ID_UNIT = (**(code **)(p_Var3 + 0xf4))
-                          ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(p_Var3 + 0xf0));
+    if (*(int *)(DAT_00000838 + 0x388) == 0) {
+      *(uint *)(DAT_00000838 + 0x38c) = (this->Speaker)._vf[5].value;
+      uVar3 = (this->Speaker)._vf[0].value;
+      ID_UNIT = (**(code **)(uVar3 + 0xf4))
+                          ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(uVar3 + 0xf0));
       VOICE = (SPCHNFSType_VOICE *)((this->Speaker)._vf + 1);
       ID_UNIT = *(int *)(ID_UNIT + 4);
       (this->Speaker).fTo = ID_UNIT;
@@ -16548,10 +16473,7 @@ void SpikeBelt__Q26Speech13MobileSpeaker(MobileSpeaker *this)
     (this->Speaker).fBlockade.flags = 1;
   }
   return;
-
-
 }
-
 
 
 
@@ -16806,30 +16728,31 @@ void SpikeBelt__Q26Speech13MobileSpeaker(MobileSpeaker *this)
 	// End Line: 2686
 
 void Backup__Q26Speech13MobileSpeaker(MobileSpeaker *this)
+
 {
-  __vtbl_ptr_type *p_Var1;
+  uint uVar1;
   int ID_UNIT;
   Car_tObj *car;
   SPCHNFSType_VOICE *VOICE;
   
-  *(__vtbl_ptr_type **)(iGp00000838 + 0x38c) = (this->Speaker)._vf[5];
-  p_Var1 = (this->Speaker)._vf[0];
-  ID_UNIT = (**(code **)(p_Var1 + 0xf4))
-                      ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(p_Var1 + 0xf0));
+  *(uint *)(DAT_00000838 + 0x38c) = (this->Speaker)._vf[5].value;
+  uVar1 = (this->Speaker)._vf[0].value;
+  ID_UNIT = (**(code **)(uVar1 + 0xf4))
+                      ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(uVar1 + 0xf0));
   VOICE = (SPCHNFSType_VOICE *)((this->Speaker)._vf + 1);
   ID_UNIT = *(int *)(ID_UNIT + 4);
   (this->Speaker).fTo = ID_UNIT;
   SPCHNFS_C_A_INTRO(VOICE,ID_UNIT,(this->Speaker).fFrom,&(this->Speaker).fReverse);
   SPCH_PlaySpeech();
-  p_Var1 = (this->Speaker)._vf[0];
+  uVar1 = (this->Speaker)._vf[0].value;
   car = (Car_tObj *)
-        (**(code **)(p_Var1 + 0xdc))
-                  ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(p_Var1 + 0xd8));
+        (**(code **)(uVar1 + 0xdc))
+                  ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(uVar1 + 0xd8));
   SetCar__Q26Speech7SpeakerP8Car_tObj((Speaker *)this,car);
-  p_Var1 = (this->Speaker)._vf[0];
+  uVar1 = (this->Speaker)._vf[0].value;
   car = (Car_tObj *)
-        (**(code **)(p_Var1 + 0xcc))
-                  ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(p_Var1 + 200));
+        (**(code **)(uVar1 + 0xcc))
+                  ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(uVar1 + 200));
   FindLocation__Q26Speech7SpeakerP8Car_tObj((Speaker *)this,car);
   SPCHNFS_C_D_REQUEST_BKUP
             (VOICE,&(this->Speaker).fColour,(this->Speaker).fCar,(SPCHNFSType_POSITION *)this,
@@ -16837,10 +16760,7 @@ void Backup__Q26Speech13MobileSpeaker(MobileSpeaker *this)
   SPCH_PlaySpeech();
   (this->Speaker).fBlockade.flags = 0;
   return;
-
-
 }
-
 
 
 
@@ -17162,49 +17082,51 @@ void Backup__Q26Speech13MobileSpeaker(MobileSpeaker *this)
 	// End Line: 2734
 
 void Roger__Q26Speech13MobileSpeaker(MobileSpeaker *this)
+
 {
   bool bVar1;
   Speaker *pSVar2;
-  __vtbl_ptr_type *p_Var3;
   int ID_UNIT;
-  int iVar4;
+  int iVar3;
   Car_tObj *car;
+  uint uVar4;
   SPCHNFSType_VOICE *VOICE;
   
-  *(__vtbl_ptr_type **)(iGp00000838 + 0x38c) = (this->Speaker)._vf[5];
+  *(uint *)(DAT_00000838 + 0x38c) = (this->Speaker)._vf[5].value;
   bVar1 = false;
   if ((this->Speaker).fSub != (Speaker *)0x0) {
     pSVar2 = Dispatch__6Speech();
+    uVar4 = pSVar2->_vf[0].value;
     pSVar2 = (Speaker *)
-             (**(code **)(pSVar2->_vf[0] + 0xb4))
-                       ((int)&(pSVar2->fPosition).flags + (int)*(short *)(pSVar2->_vf[0] + 0xb0));
+             (**(code **)(uVar4 + 0xb4))
+                       ((int)&(pSVar2->fPosition).flags + (int)*(short *)(uVar4 + 0xb0));
     bVar1 = pSVar2 == (this->Speaker).fSub;
   }
   if (bVar1) {
     VOICE = (SPCHNFSType_VOICE *)((this->Speaker)._vf + 1);
     SPCH_PlaySpeech();
-    p_Var3 = (this->Speaker)._vf[0];
-    ID_UNIT = (**(code **)(p_Var3 + 0xf4))
-                        ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(p_Var3 + 0xf0));
+    uVar4 = (this->Speaker)._vf[0].value;
+    ID_UNIT = (**(code **)(uVar4 + 0xf4))
+                        ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(uVar4 + 0xf0));
     pSVar2 = (this->Speaker).fSub;
-    p_Var3 = pSVar2->_vf[0];
-    iVar4 = (**(code **)(p_Var3 + 0x8c))
-                      ((int)&(pSVar2->fPosition).flags + (int)*(short *)(p_Var3 + 0x88));
-    ID_UNIT = *(int *)(ID_UNIT + iVar4 * 4 + 8);
+    uVar4 = pSVar2->_vf[0].value;
+    iVar3 = (**(code **)(uVar4 + 0x8c))
+                      ((int)&(pSVar2->fPosition).flags + (int)*(short *)(uVar4 + 0x88));
+    ID_UNIT = *(int *)(ID_UNIT + iVar3 * 4 + 8);
     (this->Speaker).fTo = ID_UNIT;
     SPCHNFS_C_A_CONFIRM(VOICE,ID_UNIT,&(this->Speaker).fConfirm);
     SPCH_PlaySpeech();
-    p_Var3 = (this->Speaker)._vf[0];
+    uVar4 = (this->Speaker)._vf[0].value;
     car = (Car_tObj *)
-          (**(code **)(p_Var3 + 0xdc))
-                    ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(p_Var3 + 0xd8));
+          (**(code **)(uVar4 + 0xdc))
+                    ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(uVar4 + 0xd8));
     SetCar__Q26Speech7SpeakerP8Car_tObj((Speaker *)this,car);
     SPCHNFS_C_C_IN_PURS_NEAR_PERP(VOICE,&(this->Speaker).fColour,(this->Speaker).fCar);
   }
   else {
-    p_Var3 = (this->Speaker)._vf[0];
-    ID_UNIT = (**(code **)(p_Var3 + 0xf4))
-                        ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(p_Var3 + 0xf0));
+    uVar4 = (this->Speaker)._vf[0].value;
+    ID_UNIT = (**(code **)(uVar4 + 0xf4))
+                        ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(uVar4 + 0xf0));
     ID_UNIT = *(int *)(ID_UNIT + 4);
     (this->Speaker).fTo = ID_UNIT;
     SPCHNFS_C_A_CONFIRM((SPCHNFSType_VOICE *)((this->Speaker)._vf + 1),ID_UNIT,
@@ -17212,10 +17134,7 @@ void Roger__Q26Speech13MobileSpeaker(MobileSpeaker *this)
   }
   SPCH_PlaySpeech();
   return;
-
-
 }
-
 
 
 
@@ -17280,15 +17199,13 @@ void Roger__Q26Speech13MobileSpeaker(MobileSpeaker *this)
 	// End Line: 2742
 
 void Bullhorn__Q26Speech13MobileSpeaker(MobileSpeaker *this)
+
 {
-  *(__vtbl_ptr_type **)(iGp00000838 + 0x38c) = (this->Speaker)._vf[5];
+  *(uint *)(DAT_00000838 + 0x38c) = (this->Speaker)._vf[5].value;
   SPCHNFS_C_P_BULLHORN_SPEECH((SPCHNFSType_VOICE *)((this->Speaker)._vf + 1));
   SPCH_PlaySpeech();
   return;
-
-
 }
-
 
 
 
@@ -17491,31 +17408,35 @@ void Bullhorn__Q26Speech13MobileSpeaker(MobileSpeaker *this)
 	// End offset: 0x80099158
 	// End Line: 2835
 
+/* WARNING: Type propagation algorithm not settling */
+
 void Purge__Q26Speech13MobileSpeaker(MobileSpeaker *this)
+
 {
   bool bVar1;
-  __vtbl_ptr_type *p_Var2;
+  uint uVar2;
   int iVar3;
   Speaker *pSVar4;
   MobileSpeaker *pMVar5;
   MobileSpeaker *pMVar6;
   
-  if ((this->Speaker)._vf[5] == (__vtbl_ptr_type *)0x0) {
+  if ((this->Speaker)._vf[5].value == 0) {
     return;
   }
-  p_Var2 = (this->Speaker)._vf[0];
-  iVar3 = (**(code **)(p_Var2 + 0xcc))
-                    ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(p_Var2 + 200));
+  uVar2 = (this->Speaker)._vf[0].value;
+  iVar3 = (**(code **)(uVar2 + 0xcc))
+                    ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(uVar2 + 200));
   if ((*(uint *)(iVar3 + 0x260) & 0x200) == 0) {
-    (this->Speaker)._vf[5] = (__vtbl_ptr_type *)0x0;
+    (this->Speaker)._vf[5].value = 0;
     pSVar4 = Dispatch__6Speech();
+    uVar2 = pSVar4->_vf[0].value;
     pMVar6 = (MobileSpeaker *)
-             (**(code **)(pSVar4->_vf[0] + 0xb4))
-                       ((int)&(pSVar4->fPosition).flags + (int)*(short *)(pSVar4->_vf[0] + 0xb0));
+             (**(code **)(uVar2 + 0xb4))
+                       ((int)&(pSVar4->fPosition).flags + (int)*(short *)(uVar2 + 0xb0));
     if (pMVar6 == this) {
       pSVar4 = Dispatch__6Speech();
-      (**(code **)(pSVar4->_vf[0] + 0xbc))
-                ((int)&(pSVar4->fPosition).flags + (int)*(short *)(pSVar4->_vf[0] + 0xb8));
+      uVar2 = pSVar4->_vf[0].value;
+      (**(code **)(uVar2 + 0xbc))((int)&(pSVar4->fPosition).flags + (int)*(short *)(uVar2 + 0xb8));
     }
     pMVar6 = (MobileSpeaker *)Dispatch__6Speech();
     do {
@@ -17529,33 +17450,33 @@ void Purge__Q26Speech13MobileSpeaker(MobileSpeaker *this)
     return;
   }
   CopSpeak_Flush__Fv();
-  if (true) {
+  if (CopSpeak_gSpchHandle != -1) {
     if (stackSpeedUpEnbabledFlag == 0) {
-      SNDstop();
+      SNDstop(CopSpeak_gSpchHandle);
     }
     else {
-      gWSavePtr = SetSp(gWSavePtr);
+      gWSavePtr = SetSp();
       stackSpeedUpEnbabledFlag = 0;
-      SNDstop(0);
-      gWSavePtr = SetSp(gWSavePtr);
+      SNDstop(CopSpeak_gSpchHandle);
+      gWSavePtr = SetSp();
       stackSpeedUpEnbabledFlag = 1;
     }
   }
-  p_Var2 = (this->Speaker)._vf[0];
+  uVar2 = (this->Speaker)._vf[0].value;
   bVar1 = false;
-  iVar3 = (**(code **)(p_Var2 + 0xdc))
-                    ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(p_Var2 + 0xd8));
+  iVar3 = (**(code **)(uVar2 + 0xdc))
+                    ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(uVar2 + 0xd8));
   if (iVar3 != 0) {
     iVar3 = AudioMus_Threshold__Fv();
     bVar1 = iVar3 != 0;
   }
   if (bVar1) {
     if (stackSpeedUpEnbabledFlag != 0) {
-      gWSavePtr = SetSp(gWSavePtr);
+      gWSavePtr = SetSp();
       stackSpeedUpEnbabledFlag = 0;
       AudioMus_StopSong__Fi(500);
       AudioMus_PlaySong__FPc((char *)0x0);
-      gWSavePtr = SetSp(gWSavePtr);
+      gWSavePtr = SetSp();
       stackSpeedUpEnbabledFlag = 1;
       (this->Speaker).fBlockade.flags = 0;
       goto LAB_800990bc;
@@ -17567,13 +17488,10 @@ void Purge__Q26Speech13MobileSpeaker(MobileSpeaker *this)
 LAB_800990bc:
   (this->Speaker).fArrest.flags = 0;
   (this->Speaker).fUpdate.flags = 0;
-  (this->Speaker)._vf[6] = (__vtbl_ptr_type *)0x0;
+  (this->Speaker)._vf[6].value = 0;
   (this->Speaker).fSub = (Speaker *)0x0;
   return;
-
-
 }
-
 
 
 
@@ -17929,21 +17847,22 @@ LAB_800990bc:
 	// End Line: 2862
 
 void ReportBlockade__Q26Speech13MobileSpeaker(MobileSpeaker *this)
+
 {
-  __vtbl_ptr_type *p_Var1;
+  uint uVar1;
   int iVar2;
   Car_tObj *car;
   SPCHNFSType_VOICE *VOICE;
   
-  *(__vtbl_ptr_type **)(iGp00000838 + 0x38c) = (this->Speaker)._vf[5];
-  p_Var1 = (this->Speaker)._vf[0];
-  iVar2 = (**(code **)(p_Var1 + 0xf4))
-                    ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(p_Var1 + 0xf0));
-  p_Var1 = (this->Speaker)._vf[0];
+  *(uint *)(DAT_00000838 + 0x38c) = (this->Speaker)._vf[5].value;
+  uVar1 = (this->Speaker)._vf[0].value;
+  iVar2 = (**(code **)(uVar1 + 0xf4))
+                    ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(uVar1 + 0xf0));
+  uVar1 = (this->Speaker)._vf[0].value;
   (this->Speaker).fTo = *(int *)(iVar2 + 4);
   car = (Car_tObj *)
-        (**(code **)(p_Var1 + 0xcc))
-                  ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(p_Var1 + 200));
+        (**(code **)(uVar1 + 0xcc))
+                  ((int)&(this->Speaker).fPosition.flags + (int)*(short *)(uVar1 + 200));
   FindLocation__Q26Speech7SpeakerP8Car_tObj((Speaker *)this,car);
   (this->Speaker).fSpikeSide.flags = 4;
   if ((this->Speaker).fBlockade.flags == 2) {
@@ -17962,10 +17881,7 @@ void ReportBlockade__Q26Speech13MobileSpeaker(MobileSpeaker *this)
   }
   SPCH_PlaySpeech();
   return;
-
-
 }
-
 
 
 

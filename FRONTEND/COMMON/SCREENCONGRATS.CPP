@@ -12,18 +12,18 @@
 	// End offset: 0x80047E60
 	// End Line: 54
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void Cleanup__15tScreenCongrats(tScreenCongrats *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -93,24 +93,26 @@ void Cleanup__15tScreenCongrats(tScreenCongrats *this)
 	// End offset: 0x800480B8
 	// End Line: 117
 
-void GetShapeInfo__15tScreenCongratsRsT1PPcT3( (tScreenCongrats *this,short *numPermShapes,short *numSwapShapes,char **permFileName, char **swapFileName)
+/* WARNING: Control flow encountered bad instruction data */
+
+void GetShapeInfo__15tScreenCongratsRsT1PPcT3
+               (tScreenCongrats *this,short *numPermShapes,short *numSwapShapes,char **permFileName,
+               char **swapFileName)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// unsigned int /*$ra*/ GetCar__15tScreenCongratsR8tCarInfo(struct tScreenCongrats *this /*$a0*/, struct tCarInfo *carInfo /*$s0*/)
+// void * /*$ra*/ GetCar__15tScreenCongratsR8tCarInfo(struct tScreenCongrats *this /*$a0*/, struct tCarInfo *carInfo /*$s0*/)
  // line 121, offset 0x800480e4
 	/* begin block 1 */
 		// Start line: 122
@@ -119,18 +121,18 @@ void GetShapeInfo__15tScreenCongratsRsT1PPcT3( (tScreenCongrats *this,short *num
 	// End offset: 0x800480E4
 	// End Line: 122
 
-uint GetCar__15tScreenCongratsR8tCarInfo(tScreenCongrats *this,tCarInfo *carInfo)
+/* WARNING: Control flow encountered bad instruction data */
+
+void * GetCar__15tScreenCongratsR8tCarInfo(tScreenCongrats *this,tCarInfo *carInfo)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -193,7 +195,7 @@ uint GetCar__15tScreenCongratsR8tCarInfo(tScreenCongrats *this,tCarInfo *carInfo
 				// Start line: 151
 				// Start offset: 0x80048224
 				// Variables:
-			// 		unsigned int scale; // $s0
+			// 		void * scale; // $s0
 
 				/* begin block 1.1.3.1 */
 					// Start line: 152
@@ -577,18 +579,18 @@ uint GetCar__15tScreenCongratsR8tCarInfo(tScreenCongrats *this,tCarInfo *carInfo
 	// End offset: 0x80048990
 	// End Line: 353
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void DrawBackground__15tScreenCongrats(tScreenCongrats *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -603,18 +605,18 @@ void DrawBackground__15tScreenCongrats(tScreenCongrats *this)
 	// End offset: 0x800489B0
 	// End Line: 361
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void DrawForeground__15tScreenCongrats(tScreenCongrats *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -629,18 +631,18 @@ void DrawForeground__15tScreenCongrats(tScreenCongrats *this)
 	// End offset: 0x80048A24
 	// End Line: 381
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void CalculatePrizes__15tScreenCongrats(tScreenCongrats *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -669,18 +671,18 @@ void CalculatePrizes__15tScreenCongrats(tScreenCongrats *this)
 	// End offset: 0x80048AD8
 	// End Line: 416
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void Initialize__15tScreenCongrats(tScreenCongrats *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -744,18 +746,19 @@ void Initialize__15tScreenCongrats(tScreenCongrats *this)
 	// End offset: 0x80048B40
 	// End Line: 428
 
-void ProcessInput__15tScreenCongrats7tPlayerR13tInputKeyTypeR12tMenuCommand( (tScreenCongrats *this,tPlayer p,tInputKeyType *keyval,tMenuCommand *c)
+/* WARNING: Control flow encountered bad instruction data */
+
+void ProcessInput__15tScreenCongrats7tPlayerR13tInputKeyTypeR12tMenuCommand
+               (tScreenCongrats *this,tPlayer p,tInputKeyType *keyval,tMenuCommand *c)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -773,24 +776,24 @@ void ProcessInput__15tScreenCongrats7tPlayerR13tInputKeyTypeR12tMenuCommand( (tS
 	// End offset: 0x80048C34
 	// End Line: 453
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void DrawCongratsMessage__23tScreenPinkSlipCongrats(tScreenPinkSlipCongrats *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// unsigned int /*$ra*/ GetCar__23tScreenPinkSlipCongratsR8tCarInfo(struct tScreenPinkSlipCongrats *this /*$a0*/, struct tCarInfo *carInfo /*$s0*/)
+// void * /*$ra*/ GetCar__23tScreenPinkSlipCongratsR8tCarInfo(struct tScreenPinkSlipCongrats *this /*$a0*/, struct tCarInfo *carInfo /*$s0*/)
  // line 456, offset 0x80048c64
 	/* begin block 1 */
 		// Start line: 457
@@ -799,18 +802,18 @@ void DrawCongratsMessage__23tScreenPinkSlipCongrats(tScreenPinkSlipCongrats *thi
 	// End offset: 0x80048C64
 	// End Line: 457
 
-uint GetCar__23tScreenPinkSlipCongratsR8tCarInfo(tScreenPinkSlipCongrats *this,tCarInfo *carInfo)
+/* WARNING: Control flow encountered bad instruction data */
+
+void * GetCar__23tScreenPinkSlipCongratsR8tCarInfo(tScreenPinkSlipCongrats *this,tCarInfo *carInfo)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -841,18 +844,18 @@ uint GetCar__23tScreenPinkSlipCongratsR8tCarInfo(tScreenPinkSlipCongrats *this,t
 	// End offset: 0x80048DAC
 	// End Line: 486
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void CalculatePrizes__23tScreenPinkSlipCongrats(tScreenPinkSlipCongrats *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -867,18 +870,18 @@ void CalculatePrizes__23tScreenPinkSlipCongrats(tScreenPinkSlipCongrats *this)
 	// End offset: 0x80048E2C
 	// End Line: 501
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void Initialize__23tScreenPinkSlipCongrats(tScreenPinkSlipCongrats *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -893,18 +896,18 @@ void Initialize__23tScreenPinkSlipCongrats(tScreenPinkSlipCongrats *this)
 	// End offset: 0x80048E44
 	// End Line: 506
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void Cleanup__23tScreenPinkSlipCongrats(tScreenPinkSlipCongrats *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -919,24 +922,25 @@ void Cleanup__23tScreenPinkSlipCongrats(tScreenPinkSlipCongrats *this)
 	// End offset: 0x80048EA0
 	// End Line: 528
 
-void ProcessInput__23tScreenTournamentTrophy7tPlayerR13tInputKeyTypeR12tMenuCommand( (tScreenTournamentTrophy *this,tPlayer p,tInputKeyType *keyval,tMenuCommand *c)
+/* WARNING: Control flow encountered bad instruction data */
+
+void ProcessInput__23tScreenTournamentTrophy7tPlayerR13tInputKeyTypeR12tMenuCommand
+               (tScreenTournamentTrophy *this,tPlayer p,tInputKeyType *keyval,tMenuCommand *c)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// unsigned int /*$ra*/ GetCar__23tScreenTournamentTrophyR8tCarInfo(struct tScreenTournamentTrophy *this /*$a0*/, struct tCarInfo *carInfo /*$s0*/)
+// void * /*$ra*/ GetCar__23tScreenTournamentTrophyR8tCarInfo(struct tScreenTournamentTrophy *this /*$a0*/, struct tCarInfo *carInfo /*$s0*/)
  // line 531, offset 0x80048eb8
 	/* begin block 1 */
 		// Start line: 532
@@ -961,18 +965,18 @@ void ProcessInput__23tScreenTournamentTrophy7tPlayerR13tInputKeyTypeR12tMenuComm
 	// End offset: 0x80048F50
 	// End Line: 551
 
-uint GetCar__23tScreenTournamentTrophyR8tCarInfo(tScreenTournamentTrophy *this,tCarInfo *carInfo)
+/* WARNING: Control flow encountered bad instruction data */
+
+void * GetCar__23tScreenTournamentTrophyR8tCarInfo(tScreenTournamentTrophy *this,tCarInfo *carInfo)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -1101,18 +1105,18 @@ uint GetCar__23tScreenTournamentTrophyR8tCarInfo(tScreenTournamentTrophy *this,t
 	// End offset: 0x8004921C
 	// End Line: 648
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void DrawCongratsMessage__23tScreenTournamentTrophy(tScreenTournamentTrophy *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -1174,24 +1178,24 @@ void DrawCongratsMessage__23tScreenTournamentTrophy(tScreenTournamentTrophy *thi
 	// End offset: 0x80049458
 	// End Line: 732
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void CalculatePrizes__23tScreenTournamentTrophy(tScreenTournamentTrophy *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// unsigned int /*$ra*/ GetCar__23tScreenBeTheCopCongratsR8tCarInfo(struct tScreenBeTheCopCongrats *this /*$a0*/, struct tCarInfo *carInfo /*$s1*/)
+// void * /*$ra*/ GetCar__23tScreenBeTheCopCongratsR8tCarInfo(struct tScreenBeTheCopCongrats *this /*$a0*/, struct tCarInfo *carInfo /*$s1*/)
  // line 746, offset 0x8004947c
 	/* begin block 1 */
 		// Start line: 747
@@ -1200,18 +1204,18 @@ void CalculatePrizes__23tScreenTournamentTrophy(tScreenTournamentTrophy *this)
 	// End offset: 0x8004947C
 	// End Line: 747
 
-uint GetCar__23tScreenBeTheCopCongratsR8tCarInfo(tScreenBeTheCopCongrats *this,tCarInfo *carInfo)
+/* WARNING: Control flow encountered bad instruction data */
+
+void * GetCar__23tScreenBeTheCopCongratsR8tCarInfo(tScreenBeTheCopCongrats *this,tCarInfo *carInfo)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -1226,18 +1230,18 @@ uint GetCar__23tScreenBeTheCopCongratsR8tCarInfo(tScreenBeTheCopCongrats *this,t
 	// End offset: 0x800494DC
 	// End Line: 757
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void CalculatePrizes__23tScreenBeTheCopCongrats(tScreenBeTheCopCongrats *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -1256,24 +1260,24 @@ void CalculatePrizes__23tScreenBeTheCopCongrats(tScreenBeTheCopCongrats *this)
 	// End offset: 0x80049594
 	// End Line: 783
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void DrawCongratsMessage__23tScreenBeTheCopCongrats(tScreenBeTheCopCongrats *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
 // decompiled code
 // original method signature: 
-// unsigned int /*$ra*/ GetCar__25tScreenTournamentCongratsR8tCarInfo(struct tScreenTournamentCongrats *this /*$a0*/, struct tCarInfo *carInfo /*$s0*/)
+// void * /*$ra*/ GetCar__25tScreenTournamentCongratsR8tCarInfo(struct tScreenTournamentCongrats *this /*$a0*/, struct tCarInfo *carInfo /*$s0*/)
  // line 796, offset 0x800495e8
 	/* begin block 1 */
 		// Start line: 797
@@ -1284,18 +1288,19 @@ void DrawCongratsMessage__23tScreenBeTheCopCongrats(tScreenBeTheCopCongrats *thi
 	// End offset: 0x800495E8
 	// End Line: 797
 
-uint GetCar__25tScreenTournamentCongratsR8tCarInfo( (tScreenTournamentCongrats *this,tCarInfo *carInfo)
+/* WARNING: Control flow encountered bad instruction data */
+
+void * GetCar__25tScreenTournamentCongratsR8tCarInfo
+                 (tScreenTournamentCongrats *this,tCarInfo *carInfo)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -1326,18 +1331,18 @@ uint GetCar__25tScreenTournamentCongratsR8tCarInfo( (tScreenTournamentCongrats *
 	// End offset: 0x80049694
 	// End Line: 818
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void CalculatePrizes__25tScreenTournamentCongrats(tScreenTournamentCongrats *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -1372,18 +1377,18 @@ void CalculatePrizes__25tScreenTournamentCongrats(tScreenTournamentCongrats *thi
 	// End offset: 0x80049790
 	// End Line: 847
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void DrawCongratsMessage__25tScreenTournamentCongrats(tScreenTournamentCongrats *this)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 

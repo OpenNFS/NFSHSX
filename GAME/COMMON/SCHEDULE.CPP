@@ -31,11 +31,14 @@
 	// End offset: 0x800B62E8
 	// End Line: 84
 
-int Sched_ExecuteCheck__FiiiiPiN24i( (int staggered,int module,int distance,int carId,int *time,int *elapsedTime,int *iTime ,int forceNoSimOptz)
+int Sched_ExecuteCheck__FiiiiPiN24i
+              (int staggered,int module,int distance,int carId,int *time,int *elapsedTime,int *iTime
+              ,int forceNoSimOptz)
+
 {
-  int iVar1;
+  uint uVar1;
   
-  if (false) {
+  if (0xf < simGlobal.gameTicks) {
     if (distance < 0) {
       distance = distance + 0xf;
     }
@@ -50,21 +53,19 @@ int Sched_ExecuteCheck__FiiiiPiN24i( (int staggered,int module,int distance,int 
     if (forceNoSimOptz != 0) {
       distance = 0;
     }
-    iVar1 = (uint)(byte)(&Sched_gExecuteInfo)[distance + module * 0x14] * 4;
-    *time = *(int *)(&Sched_ExecuteTimes + iVar1);
-    *iTime = *(int *)(&Sched_ExecuteiTimes + iVar1);
-    *elapsedTime = *(int *)(&Sched_ExecuteElapsedTimes + iVar1);
-    return (uint)((carId * staggered & *(uint *)(&Sched_ExecuteMasks + iVar1)) ==
-                 *(uint *)(&Sched_ExecuteMasks + iVar1));
+    uVar1 = (uint)(byte)(&Sched_gExecuteInfo)[distance + module * 0x14];
+    *time = (&Sched_ExecuteTimes)[uVar1];
+    *iTime = (&Sched_ExecuteiTimes)[uVar1];
+    *elapsedTime = (&Sched_ExecuteElapsedTimes)[uVar1];
+    return (uint)((((int)(simGlobal.gameTicks + ((uint)simGlobal.gameTicks >> 0x1f)) >> 1) +
+                   carId * staggered & (&Sched_ExecuteMasks)[uVar1]) == (&Sched_ExecuteMasks)[uVar1]
+                 );
   }
-  *time = 0x20;
-  *iTime = 0x800;
-  *elapsedTime = 1;
+  *time = INT_8011dff4;
+  *iTime = INT_8011e02c;
+  *elapsedTime = INT_8011e010;
   return 1;
-
-
 }
-
 
 
 
@@ -83,6 +84,7 @@ int Sched_ExecuteCheck__FiiiiPiN24i( (int staggered,int module,int distance,int 
 	// End Line: 110
 
 Sched_tSchedule * Sched_CreateNewSchedule__FPci(char *scheduleName,int maxFunctions)
+
 {
   Sched_tSchedule *pSVar1;
   Sched_tSchedule *pSVar2;
@@ -102,10 +104,7 @@ Sched_tSchedule * Sched_CreateNewSchedule__FPci(char *scheduleName,int maxFuncti
     } while (iVar3 < pSVar1->maxNumFunctions);
   }
   return pSVar1;
-
-
 }
-
 
 
 
@@ -121,13 +120,11 @@ Sched_tSchedule * Sched_CreateNewSchedule__FPci(char *scheduleName,int maxFuncti
 	// End Line: 114
 
 void Sched_CleanUpSchedule__FP15Sched_tSchedule(Sched_tSchedule *schedule)
+
 {
-  purgememadr();
+  purgememadr((int)schedule);
   return;
-
-
 }
-
 
 
 
@@ -146,7 +143,11 @@ void Sched_CleanUpSchedule__FP15Sched_tSchedule(Sched_tSchedule *schedule)
 	// End offset: 0x800B641C
 	// End Line: 154
 
-void Sched_AddFunction__FP15Sched_tSchedulePFPv_vPvi( (Sched_tSchedule *schedule,function *function,void *var1,int priority)
+void Sched_AddFunction__FP15Sched_tSchedulePFPv_vPvi
+               (Sched_tSchedule *schedule,
+               TDRFuncPtr_Sched_AddFunction__FP15Sched_tSchedulePFPv_vPvi1function function,
+               void *var1,int priority)
+
 {
   int iVar1;
   int iVar2;
@@ -172,7 +173,7 @@ void Sched_AddFunction__FP15Sched_tSchedulePFPv_vPvi( (Sched_tSchedule *schedule
             piVar3[5] = piVar3[1];
             iVar1 = iVar1 + -1;
             piVar3 = piVar3 + -4;
-                    
+                    /* WARNING: ptrarith problems */
           } while (iVar4 < iVar1);
         }
         break;
@@ -183,13 +184,10 @@ void Sched_AddFunction__FP15Sched_tSchedulePFPv_vPvi( (Sched_tSchedule *schedule
   }
   piVar3 = &schedule->maxNumFunctions + iVar4 * 4;
   piVar3[2] = priority;
-  *(function **)(piVar3 + 3) = function;
+  *(TDRFuncPtr_Sched_AddFunction__FP15Sched_tSchedulePFPv_vPvi1function *)(piVar3 + 3) = function;
   *(void **)(piVar3 + 4) = var1;
   return;
-
-
 }
-
 
 
 
@@ -207,7 +205,11 @@ void Sched_AddFunction__FP15Sched_tSchedulePFPv_vPvi( (Sched_tSchedule *schedule
 	// End offset: 0x800B64F8
 	// End Line: 184
 
-void Sched_DeleteFunction__FP15Sched_tSchedulePFPv_vPv( (Sched_tSchedule *schedule,function *function,void *var1)
+void Sched_DeleteFunction__FP15Sched_tSchedulePFPv_vPv
+               (Sched_tSchedule *schedule,
+               TDRFuncPtr_Sched_DeleteFunction__FP15Sched_tSchedulePFPv_vPv1function function,
+               void *var1)
+
 {
   int iVar1;
   int *piVar2;
@@ -243,10 +245,7 @@ void Sched_DeleteFunction__FP15Sched_tSchedulePFPv_vPv( (Sched_tSchedule *schedu
     schedule->numFunctions = schedule->numFunctions + -1;
   }
   return;
-
-
 }
-
 
 
 
@@ -264,6 +263,7 @@ void Sched_DeleteFunction__FP15Sched_tSchedulePFPv_vPv( (Sched_tSchedule *schedu
 	// End Line: 207
 
 void Sched_Execute__FP15Sched_tSchedule(Sched_tSchedule *schedule)
+
 {
   _func_1 *p_Var1;
   Sched_tSchedule *pSVar2;
@@ -282,10 +282,7 @@ void Sched_Execute__FP15Sched_tSchedule(Sched_tSchedule *schedule)
     } while (iVar3 < schedule->numFunctions);
   }
   return;
-
-
 }
-
 
 
 

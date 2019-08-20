@@ -12,18 +12,18 @@
 	// End offset: 0x8004D778
 	// End Line: 98
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void Quick_DD__Fiii(int a,int b,int c)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -38,18 +38,19 @@ void Quick_DD__Fiii(int a,int b,int c)
 	// End offset: 0x8004D7BC
 	// End Line: 142
 
+/* WARNING: Control flow encountered bad instruction data */
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void PSXFront_AllocateDrawMemory__Fv(void)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -64,18 +65,19 @@ void PSXFront_AllocateDrawMemory__Fv(void)
 	// End offset: 0x8004D830
 	// End Line: 159
 
+/* WARNING: Control flow encountered bad instruction data */
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void PSXFront_FreeDrawMemory__Fv(void)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -113,18 +115,19 @@ void PSXFront_FreeDrawMemory__Fv(void)
 	// End offset: 0x8004D9A8
 	// End Line: 224
 
+/* WARNING: Control flow encountered bad instruction data */
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void InitializeSpinningCars__Fv(void)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -158,18 +161,19 @@ void InitializeSpinningCars__Fv(void)
 	// End offset: 0x8004DAB0
 	// End Line: 274
 
+/* WARNING: Control flow encountered bad instruction data */
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void CleanupSpinningCars__Fv(void)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -193,18 +197,19 @@ void CleanupSpinningCars__Fv(void)
 	// End offset: 0x8004DB20
 	// End Line: 299
 
+/* WARNING: Control flow encountered bad instruction data */
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void CleanupSpinningCarsMenu__Fv(void)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -238,18 +243,19 @@ void CleanupSpinningCarsMenu__Fv(void)
 	// End offset: 0x8004DC20
 	// End Line: 355
 
+/* WARNING: Control flow encountered bad instruction data */
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void DoTitleScreen__Fv(void)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -264,18 +270,19 @@ void DoTitleScreen__Fv(void)
 	// End offset: 0x8004DC60
 	// End Line: 570
 
+/* WARNING: Control flow encountered bad instruction data */
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void DoLanguageScreen__Fv(void)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -290,18 +297,19 @@ void DoLanguageScreen__Fv(void)
 	// End offset: 0x8004DCB0
 	// End Line: 679
 
+/* WARNING: Control flow encountered bad instruction data */
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void PSXExitFrontend__Fv(void)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -316,18 +324,19 @@ void PSXExitFrontend__Fv(void)
 	// End offset: 0x8004DCC8
 	// End Line: 683
 
+/* WARNING: Control flow encountered bad instruction data */
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void PSX_AllocShapes__Fv(void)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -342,18 +351,19 @@ void PSX_AllocShapes__Fv(void)
 	// End offset: 0x8004DD0C
 	// End Line: 697
 
+/* WARNING: Control flow encountered bad instruction data */
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Init_RenderingEnvironment__Fv(void)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -368,18 +378,19 @@ void Init_RenderingEnvironment__Fv(void)
 	// End offset: 0x8004DEF0
 	// End Line: 779
 
+/* WARNING: Control flow encountered bad instruction data */
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void Init_PSX_FrontEnd__Fv(void)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -451,18 +462,20 @@ void Init_PSX_FrontEnd__Fv(void)
 	// End offset: 0x8004E25C
 	// End Line: 923
 
-void AdjustShapeDrawing__FP18tTexture_ShapeInfoRiN21iPiP18tDrawShapeExtended( (tTexture_ShapeInfo *tShp,int *x,int *y,int *flags,int bright,int *color, tDrawShapeExtended *extra)
+/* WARNING: Control flow encountered bad instruction data */
+
+void AdjustShapeDrawing__FP18tTexture_ShapeInfoRiN21iPiP18tDrawShapeExtended
+               (tTexture_ShapeInfo *tShp,int *x,int *y,int *flags,int bright,int *color,
+               tDrawShapeExtended *extra)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -497,18 +510,19 @@ void AdjustShapeDrawing__FP18tTexture_ShapeInfoRiN21iPiP18tDrawShapeExtended( (t
 	// End offset: 0x8004E608
 	// End Line: 986
 
-void DrawGouraudShape__FP18tTexture_ShapeInfoiiiPii( (tTexture_ShapeInfo *shp,int flags,int x,int y,int *color,int abr)
+/* WARNING: Control flow encountered bad instruction data */
+
+void DrawGouraudShape__FP18tTexture_ShapeInfoiiiPii
+               (tTexture_ShapeInfo *shp,int flags,int x,int y,int *color,int abr)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -523,18 +537,19 @@ void DrawGouraudShape__FP18tTexture_ShapeInfoiiiPii( (tTexture_ShapeInfo *shp,in
 	// End offset: 0x8004E638
 	// End Line: 992
 
-void DrawFlatShape__FP18tTexture_ShapeInfoiiiPii( (tTexture_ShapeInfo *shp,int flags,int x,int y,int *color,int abr)
+/* WARNING: Control flow encountered bad instruction data */
+
+void DrawFlatShape__FP18tTexture_ShapeInfoiiiPii
+               (tTexture_ShapeInfo *shp,int flags,int x,int y,int *color,int abr)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -552,18 +567,19 @@ void DrawFlatShape__FP18tTexture_ShapeInfoiiiPii( (tTexture_ShapeInfo *shp,int f
 	// End offset: 0x8004E764
 	// End Line: 1085
 
-void DrawShapeExtended__FiiiiiiP18tDrawShapeExtended( (int index,int flags,int x,int y,int fade,int abr,tDrawShapeExtended *extra)
+/* WARNING: Control flow encountered bad instruction data */
+
+void DrawShapeExtended__FiiiiiiP18tDrawShapeExtended
+               (int index,int flags,int x,int y,int fade,int abr,tDrawShapeExtended *extra)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -587,18 +603,20 @@ void DrawShapeExtended__FiiiiiiP18tDrawShapeExtended( (int index,int flags,int x
 	// End offset: 0x8004E9E4
 	// End Line: 1139
 
-void ScaleGouraudShape__FP18tTexture_ShapeInfoiiiiiPii( (tTexture_ShapeInfo *shp,int flags,int x,int y,int scalex,int scaley,int *color, int abr)
+/* WARNING: Control flow encountered bad instruction data */
+
+void ScaleGouraudShape__FP18tTexture_ShapeInfoiiiiiPii
+               (tTexture_ShapeInfo *shp,int flags,int x,int y,int scalex,int scaley,int *color,
+               int abr)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -613,18 +631,20 @@ void ScaleGouraudShape__FP18tTexture_ShapeInfoiiiiiPii( (tTexture_ShapeInfo *shp
 	// End offset: 0x8004EA38
 	// End Line: 1144
 
-void ScaleFlatShape__FP18tTexture_ShapeInfoiiiiiPii( (tTexture_ShapeInfo *shp,int flags,int x,int y,int scalex,int scaley,int *color, int abr)
+/* WARNING: Control flow encountered bad instruction data */
+
+void ScaleFlatShape__FP18tTexture_ShapeInfoiiiiiPii
+               (tTexture_ShapeInfo *shp,int flags,int x,int y,int scalex,int scaley,int *color,
+               int abr)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -644,18 +664,19 @@ void ScaleFlatShape__FP18tTexture_ShapeInfoiiiiiPii( (tTexture_ShapeInfo *shp,in
 	// End offset: 0x8004EB94
 	// End Line: 1231
 
-void ScaleShapeExtended__FiiiiiiP18tDrawShapeExtended( (int index,int flags,int x,int y,int fade,int abr,tDrawShapeExtended *extra)
+/* WARNING: Control flow encountered bad instruction data */
+
+void ScaleShapeExtended__FiiiiiiP18tDrawShapeExtended
+               (int index,int flags,int x,int y,int fade,int abr,tDrawShapeExtended *extra)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -674,18 +695,19 @@ void ScaleShapeExtended__FiiiiiiP18tDrawShapeExtended( (int index,int flags,int 
 	// End offset: 0x8004EC2C
 	// End Line: 1260
 
+/* WARNING: Control flow encountered bad instruction data */
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void LoadAllHelpShapes__Fv(void)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -702,18 +724,18 @@ void LoadAllHelpShapes__Fv(void)
 	// End offset: 0x8004EC44
 	// End Line: 1342
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void PSXDrawSquare__Fiiiii(int col,int x,int y,int w,int h)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -730,18 +752,18 @@ void PSXDrawSquare__Fiiiii(int col,int x,int y,int w,int h)
 	// End offset: 0x8004ECDC
 	// End Line: 1355
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void PSXDrawGouraudSquare__Fiiiiiiii(int x,int y,int w,int h,int c1,int c2,int c3,int c4)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -767,18 +789,19 @@ void PSXDrawGouraudSquare__Fiiiiiiii(int x,int y,int w,int h,int c1,int c2,int c
 	// End offset: 0x8004EEB4
 	// End Line: 1399
 
-void PSXDrawTransGouraudSquare__Fiiiiiiiii( (int x,int y,int w,int h,int opacity,int c1,int c2,int c3,int c4)
+/* WARNING: Control flow encountered bad instruction data */
+
+void PSXDrawTransGouraudSquare__Fiiiiiiiii
+               (int x,int y,int w,int h,int opacity,int c1,int c2,int c3,int c4)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -796,18 +819,18 @@ void PSXDrawTransGouraudSquare__Fiiiiiiiii( (int x,int y,int w,int h,int opacity
 	// End offset: 0x8004EFA4
 	// End Line: 1417
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void PSXDrawTransSquare__Fiiiiis(int col,int x,int y,int w,int h,int opacity)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 
@@ -827,18 +850,18 @@ void PSXDrawTransSquare__Fiiiiis(int col,int x,int y,int w,int h,int opacity)
 	// End offset: 0x8004EFB4
 	// End Line: 1435
 
+/* WARNING: Control flow encountered bad instruction data */
+
 void FontUpsideDownBlit__FiiPviiP12charactertbli(int x,int y,void *src,int u,int v,charactertbl *ch)
+
 {
   undefined4 in_v1;
   undefined4 in_t5;
   
   special2(in_v1,in_t5,5,0x13);
-                    
+                    /* WARNING: Bad instruction - Truncating control flow here */
   halt_baddata();
-
-
 }
-
 
 
 

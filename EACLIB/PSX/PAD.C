@@ -5,20 +5,20 @@
 // original method signature: 
 // void /*$ra*/ padinit()
  // line 66, offset 0x800e40e8
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void padinit(void)
+
 {
-  if (_gPadinfo == 0) {
-    PadInitDirect(&Padglobal,&DAT_8013e8f8);
+  if (gPadinfo.initialized == 0) {
+    PadInitDirect(&Padglobal,&PAD_COMMON_8013e8f8);
     PadStartCom();
-    blockclear(&gPadinfo,0x54);
-    _gPadinfo = 1;
-    addtimer(PAD_update);
+    blockclear((undefined *)&gPadinfo,0x54);
+    gPadinfo.initialized = 1;
+    addtimer((int)PAD_update);
   }
   return;
-
-
 }
-
 
 
 
@@ -26,18 +26,18 @@ void padinit(void)
 // original method signature: 
 // void /*$ra*/ PAD_restore()
  // line 83, offset 0x800e4158
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void PAD_restore(void)
+
 {
-  if (_gPadinfo != 0) {
-    deltimer(PAD_update);
+  if (gPadinfo.initialized != 0) {
+    deltimer((int)PAD_update);
     PadStopCom();
-    _gPadinfo = 0;
+    gPadinfo.initialized = 0;
   }
   return;
-
-
 }
-
 
 
 
@@ -46,20 +46,18 @@ void PAD_restore(void)
 // unsigned short /*$ra*/ PAD_state(int padID /*$a0*/)
  // line 172, offset 0x800e41ac
 ushort PAD_state(int padID)
+
 {
   ushort uVar1;
   
-  if ((_gPadinfo == 0) || (7 < (uint)padID)) {
+  if ((gPadinfo.initialized == 0) || (7 < (uint)padID)) {
     uVar1 = 0;
   }
   else {
-    uVar1 = PAD_convert((PAD_COMMON *)(&DAT_8013e8a0 + padID * 8));
+    uVar1 = PAD_convert(gPadinfo.buf + padID);
   }
   return uVar1;
-
-
 }
-
 
 
 
@@ -68,12 +66,10 @@ ushort PAD_state(int padID)
 // unsigned short /*$ra*/ PAD_convert(struct PAD_COMMON *pad /*$a0*/)
  // line 299, offset 0x800e41fc
 ushort PAD_convert(PAD_COMMON *pad)
+
 {
   return ~*(ushort *)&pad->data;
-
-
 }
-
 
 
 
@@ -90,57 +86,56 @@ ushort PAD_convert(PAD_COMMON *pad)
 	// End offset: 0x800E42FC
 	// End Line: 376
 
+/* WARNING: Unknown calling convention yet parameter storage is locked */
+
 void PAD_update(void)
+
 {
-  char cVar1;
-  byte bVar2;
-  undefined *puVar3;
+  byte bVar1;
+  bool bVar2;
+  PAD_COMMON *pPVar3;
   byte *pbVar4;
-  undefined4 uVar5;
-  char *pcVar6;
+  int iVar5;
+  _62fake *p_Var6;
   int iVar7;
-  int iVar8;
-  undefined *puVar9;
-  undefined *puVar10;
+  PAD_COMMON *pPVar8;
+  PAD_COMMON *pPVar9;
   
-  puVar9 = &DAT_8013e8a0;
-  puVar10 = &DAT_8013e8a8;
-  iVar8 = 0;
+  pPVar8 = gPadinfo.buf;
+  pPVar9 = gPadinfo.buf + 1;
+  iVar7 = 0;
   do {
-    if ((&Padglobal)[iVar8] == '\0') {
-      blockmove(&Padglobal + iVar8,puVar9,8);
-      uVar5 = 0x18;
-      puVar3 = puVar10;
+    if ((&Padglobal.nopad)[iVar7] == '\0') {
+      blockmove((undefined4 *)(&Padglobal.nopad + iVar7),(undefined4 *)pPVar8,8);
+      iVar5 = 0x18;
+      pPVar3 = pPVar9;
     }
     else {
-      uVar5 = 0x20;
-      puVar3 = puVar9;
+      iVar5 = 0x20;
+      pPVar3 = pPVar8;
     }
-    blockfill(puVar3,uVar5,0xff);
-    puVar10 = puVar10 + 0x20;
-    iVar8 = iVar8 + 8;
-    puVar9 = puVar9 + 0x20;
-  } while (iVar8 < 0x10);
+    blockfill((undefined *)pPVar3,iVar5,0xff);
+    pPVar9 = pPVar9 + 4;
+    iVar7 = iVar7 + 8;
+    pPVar8 = pPVar8 + 4;
+  } while (iVar7 < 0x10);
+  iVar5 = 0;
+  pbVar4 = &gPadinfo.state[0].time;
+  p_Var6 = gPadinfo.state;
   iVar7 = 0;
-  pbVar4 = &DAT_8013e8e1;
-  pcVar6 = &DAT_8013e8e0;
-  iVar8 = 0;
   do {
-    cVar1 = (&DAT_8013e8a0)[iVar8];
-    if (((cVar1 == '\0') != (bool)*pcVar6) && (bVar2 = *pbVar4, *pbVar4 = bVar2 + 1, 5 < bVar2)) {
-      *(bool *)pcVar6 = cVar1 == '\0';
+    bVar2 = (&gPadinfo.buf[0].nopad)[iVar7] == '\0';
+    if ((bVar2 != (bool)p_Var6->bActive) && (bVar1 = *pbVar4, *pbVar4 = bVar1 + 1, 5 < bVar1)) {
+      *(bool *)&p_Var6->bActive = bVar2;
       *pbVar4 = 0;
     }
     pbVar4 = pbVar4 + 2;
-    pcVar6 = pcVar6 + 2;
-    iVar7 = iVar7 + 1;
-    iVar8 = iVar8 + 8;
-  } while (iVar7 < 8);
+    p_Var6 = p_Var6 + 1;
+    iVar5 = iVar5 + 1;
+    iVar7 = iVar7 + 8;
+  } while (iVar5 < 8);
   return;
-
-
 }
-
 
 
 
