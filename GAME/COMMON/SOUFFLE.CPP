@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "SOUFFLE.H"
+
 
 // decompiled code
 // original method signature: 
@@ -11,6 +12,16 @@
 	/* end block 1 */
 	// End offset: 0x800B764C
 	// End Line: 45
+
+	/* begin block 2 */
+		// Start line: 88
+	/* end block 2 */
+	// End Line: 89
+
+	/* begin block 3 */
+		// Start line: 88
+	/* end block 3 */
+	// End Line: 89
 
 void GetGustWind__FP17Souffle_tISouffle(Souffle_tISouffle *is)
 
@@ -39,6 +50,21 @@ void GetGustWind__FP17Souffle_tISouffle(Souffle_tISouffle *is)
 	// End offset: 0x800B7694
 	// End Line: 54
 
+	/* begin block 2 */
+		// Start line: 102
+	/* end block 2 */
+	// End Line: 103
+
+	/* begin block 3 */
+		// Start line: 106
+	/* end block 3 */
+	// End Line: 107
+
+	/* begin block 4 */
+		// Start line: 106
+	/* end block 4 */
+	// End Line: 107
+
 void GetAngleWind__FP17Souffle_tISouffle(Souffle_tISouffle *is)
 
 {
@@ -64,6 +90,26 @@ void GetAngleWind__FP17Souffle_tISouffle(Souffle_tISouffle *is)
 	/* end block 1 */
 	// End offset: 0x800B7704
 	// End Line: 67
+
+	/* begin block 2 */
+		// Start line: 118
+	/* end block 2 */
+	// End Line: 119
+
+	/* begin block 3 */
+		// Start line: 122
+	/* end block 3 */
+	// End Line: 123
+
+	/* begin block 4 */
+		// Start line: 122
+	/* end block 4 */
+	// End Line: 123
+
+	/* begin block 5 */
+		// Start line: 124
+	/* end block 5 */
+	// End Line: 125
 
 void MoveAngleWind__FP17Souffle_tISouffle(Souffle_tISouffle *is)
 
@@ -124,6 +170,21 @@ void MoveAngleWind__FP17Souffle_tISouffle(Souffle_tISouffle *is)
 	// End offset: 0x800B78D0
 	// End Line: 164
 
+	/* begin block 2 */
+		// Start line: 144
+	/* end block 2 */
+	// End Line: 145
+
+	/* begin block 3 */
+		// Start line: 154
+	/* end block 3 */
+	// End Line: 155
+
+	/* begin block 4 */
+		// Start line: 154
+	/* end block 4 */
+	// End Line: 155
+
 Souffle_tISouffle *
 Souffle_Add__FP8coorddefiT0iii
           (coorddef *soufflept,int type,coorddef *vec,int velVX,int ground,int colour)
@@ -137,29 +198,29 @@ Souffle_Add__FP8coorddefiT0iii
   coorddef local_18;
   
   iVar3 = 0;
-  if (DAT_00000f00 == 0x3c) {
+  if (gCISouffle == 0x3c) {
     iVar1 = 1;
-    bVar2 = *(byte *)(DAT_00000efc + 3);
-    iVar4 = DAT_00000efc;
+    bVar2 = gISouffle->cycle;
+    is = gISouffle;
     do {
-      if (*(byte *)(iVar4 + 0x47) < bVar2) {
+      if ((byte)is[1].cycle < bVar2) {
         iVar3 = iVar1;
-        bVar2 = *(byte *)(iVar4 + 0x47);
+        bVar2 = is[1].cycle;
       }
       iVar1 = iVar1 + 1;
-      iVar4 = iVar4 + 0x44;
+      is = is + 1;
     } while (iVar1 < 0x3c);
   }
   else {
-    iVar3 = DAT_00000f00;
-    DAT_00000f00 = DAT_00000f00 + 1;
+    iVar3 = gCISouffle;
+    gCISouffle = gCISouffle + 1;
   }
-  is = (Souffle_tISouffle *)(DAT_00000efc + iVar3 * 0x44);
-  iVar4 = soufflept->y;
-  iVar1 = soufflept->z;
+  is = gISouffle + iVar3;
+  iVar1 = soufflept->y;
+  iVar4 = soufflept->z;
   (is->source).x = soufflept->x;
-  (is->source).y = iVar4;
-  (is->source).z = iVar1;
+  (is->source).y = iVar1;
+  (is->source).z = iVar4;
   is->cycle = '\0';
   is->type = (char)type;
   is->id = (char)iVar3;
@@ -307,6 +368,26 @@ LAB_800b78d0:
 	// End offset: 0x800B7D6C
 	// End Line: 296
 
+	/* begin block 2 */
+		// Start line: 353
+	/* end block 2 */
+	// End Line: 354
+
+	/* begin block 3 */
+		// Start line: 364
+	/* end block 3 */
+	// End Line: 365
+
+	/* begin block 4 */
+		// Start line: 364
+	/* end block 4 */
+	// End Line: 365
+
+	/* begin block 5 */
+		// Start line: 369
+	/* end block 5 */
+	// End Line: 370
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Souffle_DoSouffle__Fv(void)
@@ -314,14 +395,14 @@ void Souffle_DoSouffle__Fv(void)
 {
   char cVar1;
   undefined *puVar2;
-  undefined4 *puVar3;
+  Souffle_tISouffle *is;
+  SVECTOR *pSVar3;
   uint uVar4;
   int iVar5;
   undefined4 *puVar6;
   undefined4 uVar7;
   undefined4 uVar8;
   undefined4 uVar9;
-  Souffle_tISouffle *is;
   int iVar10;
   int iVar11;
   uint local_48;
@@ -333,20 +414,20 @@ void Souffle_DoSouffle__Fv(void)
   int local_28;
   int local_20;
   
-  if (0 < simGlobal.gameTicks - DAT_00000f04) {
-    DAT_00000f04 = simGlobal.gameTicks;
+  if (0 < simGlobal.gameTicks - gTMoveSouffle) {
+    gTMoveSouffle = simGlobal.gameTicks;
     iVar10 = 0;
-    if (DAT_00000f00 != 0) {
-      DAT_00000f08 = DAT_00000f08 + 2;
-      puVar2 = fastintcos(DAT_00000f08);
+    if (gCISouffle != 0) {
+      gWindDir = gWindDir + 2;
+      puVar2 = fastintcos(gWindDir);
       local_48 = fixedmult((int)puVar2,0xccc);
-      puVar2 = fastintsin(DAT_00000f08);
+      puVar2 = fastintsin(gWindDir);
       local_40 = fixedmult((int)puVar2,0xccc);
       local_44 = 0;
     }
     iVar11 = 0;
-    while (iVar10 < DAT_00000f00) {
-      is = (Souffle_tISouffle *)(DAT_00000efc + iVar11);
+    while (iVar10 < gCISouffle) {
+      is = (Souffle_tISouffle *)(&gISouffle->type + iVar11);
       local_38 = (is->motion).x;
       local_34 = (is->motion).y;
       local_30 = (is->motion).z;
@@ -453,32 +534,32 @@ void Souffle_DoSouffle__Fv(void)
       iVar10 = iVar10 + 1;
     }
     iVar10 = 0;
-    if (0 < DAT_00000f00) {
+    if (0 < gCISouffle) {
       iVar11 = 0;
       do {
-        puVar6 = (undefined4 *)(iVar11 + DAT_00000efc);
+        puVar6 = (undefined4 *)(&gISouffle->type + iVar11);
         if (*(char *)puVar6 == '\0') {
-          iVar5 = DAT_00000f00 * 0x44 + DAT_00000efc;
-          puVar3 = (undefined4 *)(iVar5 + -0x44);
+          is = gISouffle + gCISouffle;
+          pSVar3 = (SVECTOR *)&is[-1].trans.vz;
           do {
-            uVar8 = puVar3[1];
-            uVar9 = puVar3[2];
-            uVar7 = puVar3[3];
-            *puVar6 = *puVar3;
+            uVar8 = *(undefined4 *)&pSVar3->vz;
+            uVar9 = *(undefined4 *)(pSVar3 + 1);
+            uVar7 = *(undefined4 *)&pSVar3[1].vz;
+            *puVar6 = *(undefined4 *)pSVar3;
             puVar6[1] = uVar8;
             puVar6[2] = uVar9;
             puVar6[3] = uVar7;
-            puVar3 = puVar3 + 4;
+            pSVar3 = pSVar3 + 2;
             puVar6 = puVar6 + 4;
-          } while (puVar3 != (undefined4 *)(iVar5 + -4));
+          } while (pSVar3 != &is->trans);
           iVar11 = iVar11 + -0x44;
           iVar10 = iVar10 + -1;
-          *puVar6 = *puVar3;
-          DAT_00000f00 = DAT_00000f00 + -1;
+          *puVar6 = *(undefined4 *)pSVar3;
+          gCISouffle = gCISouffle + -1;
         }
         iVar10 = iVar10 + 1;
         iVar11 = iVar11 + 0x44;
-      } while (iVar10 < DAT_00000f00);
+      } while (iVar10 < gCISouffle);
     }
   }
   return;
@@ -508,6 +589,31 @@ void Souffle_DoSouffle__Fv(void)
 	/* end block 1 */
 	// End offset: 0x800B7DE0
 	// End Line: 315
+
+	/* begin block 2 */
+		// Start line: 634
+	/* end block 2 */
+	// End Line: 635
+
+	/* begin block 3 */
+		// Start line: 647
+	/* end block 3 */
+	// End Line: 648
+
+	/* begin block 4 */
+		// Start line: 647
+	/* end block 4 */
+	// End Line: 648
+
+	/* begin block 5 */
+		// Start line: 648
+	/* end block 5 */
+	// End Line: 649
+
+	/* begin block 6 */
+		// Start line: 648
+	/* end block 6 */
+	// End Line: 649
 
 int Souffle_CircleClip__FP8coorddefT0i(coorddef *pt1,coorddef *pt2,int r)
 
@@ -563,6 +669,21 @@ int Souffle_CircleClip__FP8coorddefT0i(coorddef *pt1,coorddef *pt2,int r)
 	// End offset: 0x800B7EB0
 	// End Line: 349
 
+	/* begin block 2 */
+		// Start line: 667
+	/* end block 2 */
+	// End Line: 668
+
+	/* begin block 3 */
+		// Start line: 671
+	/* end block 3 */
+	// End Line: 672
+
+	/* begin block 4 */
+		// Start line: 671
+	/* end block 4 */
+	// End Line: 672
+
 void Souffle_InsertFacet__FP13DRender_tView(DRender_tView *Vi)
 
 {
@@ -574,10 +695,10 @@ void Souffle_InsertFacet__FP13DRender_tView(DRender_tView *Vi)
   iVar3 = 0;
   iVar2 = 0;
   do {
-    if (DAT_00000f00 <= iVar3) {
+    if (gCISouffle <= iVar3) {
       return;
     }
-    is = (Souffle_tISouffle *)(DAT_00000efc + iVar2);
+    is = (Souffle_tISouffle *)(&gISouffle->type + iVar2);
     iVar1 = Souffle_CircleClip__FP8coorddefT0i
                       (&is->source,(coorddef *)&Vi->cview,(int)&DAT_00320000);
     if (iVar1 != 0) {
@@ -610,15 +731,30 @@ LAB_800b7ea4:
 	// End offset: 0x800B7ED4
 	// End Line: 360
 
+	/* begin block 2 */
+		// Start line: 755
+	/* end block 2 */
+	// End Line: 756
+
+	/* begin block 3 */
+		// Start line: 766
+	/* end block 3 */
+	// End Line: 767
+
+	/* begin block 4 */
+		// Start line: 766
+	/* end block 4 */
+	// End Line: 767
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Souffle_InitTrackSouffle__Fv(void)
 
 {
-  DAT_00000f08 = 0;
-  DAT_00000f00 = 0;
-  DAT_00000f04 = simGlobal.gameTicks;
-  DAT_00000efc = reservememadr(s_souffle_8013d440,0xff0,0);
+  gWindDir = 0;
+  gCISouffle = 0;
+  gTMoveSouffle = simGlobal.gameTicks;
+  gISouffle = (Souffle_tISouffle *)reservememadr(s_souffle_8013d440,0xff0,0);
   return;
 }
 
@@ -635,14 +771,34 @@ void Souffle_InitTrackSouffle__Fv(void)
 	// End offset: 0x800B7F14
 	// End Line: 379
 
+	/* begin block 2 */
+		// Start line: 800
+	/* end block 2 */
+	// End Line: 801
+
+	/* begin block 3 */
+		// Start line: 806
+	/* end block 3 */
+	// End Line: 807
+
+	/* begin block 4 */
+		// Start line: 806
+	/* end block 4 */
+	// End Line: 807
+
+	/* begin block 5 */
+		// Start line: 811
+	/* end block 5 */
+	// End Line: 812
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Souffle_RestartTrackSouffle__Fv(void)
 
 {
-  DAT_00000f00 = 0;
-  DAT_00000f04 = simGlobal.gameTicks;
-  DAT_00000f08 = 0;
+  gCISouffle = 0;
+  gTMoveSouffle = simGlobal.gameTicks;
+  gWindDir = 0;
   return;
 }
 
@@ -659,17 +815,43 @@ void Souffle_RestartTrackSouffle__Fv(void)
 	// End offset: 0x800B7F48
 	// End Line: 389
 
+	/* begin block 2 */
+		// Start line: 832
+	/* end block 2 */
+	// End Line: 833
+
+	/* begin block 3 */
+		// Start line: 836
+	/* end block 3 */
+	// End Line: 837
+
+	/* begin block 4 */
+		// Start line: 836
+	/* end block 4 */
+	// End Line: 837
+
+	/* begin block 5 */
+		// Start line: 837
+	/* end block 5 */
+	// End Line: 838
+
+	/* begin block 6 */
+		// Start line: 837
+	/* end block 6 */
+	// End Line: 838
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Souffle_KillTrackSouffle__Fv(void)
 
 {
-  if (DAT_00000efc != 0) {
-    purgememadr(DAT_00000efc);
+  if (gISouffle != (Souffle_tISouffle *)0x0) {
+    purgememadr((int)gISouffle);
   }
-  DAT_00000efc = 0;
+  gISouffle = (Souffle_tISouffle *)0x0;
   return;
 }
+
 
 
 

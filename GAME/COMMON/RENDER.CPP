@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "RENDER.H"
+
 
 // decompiled code
 // original method signature: 
@@ -12,18 +13,33 @@
 	// End offset: 0x800B317C
 	// End Line: 125
 
+	/* begin block 2 */
+		// Start line: 184
+	/* end block 2 */
+	// End Line: 185
+
+	/* begin block 3 */
+		// Start line: 184
+	/* end block 3 */
+	// End Line: 185
+
+	/* begin block 4 */
+		// Start line: 186
+	/* end block 4 */
+	// End Line: 187
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Render_CreatePlayerViews__Fv(void)
 
 {
   if (GameSetup_gData.commMode == 1) {
-    DAT_00000e80 = Draw_SetView__Fiiiiiiiii(0,0x100,0x140,0x100,0x140,0x78,0,1,2000);
-    DAT_00000e84 = Draw_SetView__Fiiiiiiiii(0,0x178,0x140,0x178,0x140,0x78,0,1,2000);
+    Draw_gPlayer1View = Draw_SetView__Fiiiiiiiii(0,0x100,0x140,0x100,0x140,0x78,0,1,2000);
+    Draw_gPlayer2View = Draw_SetView__Fiiiiiiiii(0,0x178,0x140,0x178,0x140,0x78,0,1,2000);
   }
   else {
-    DAT_00000e80 = Draw_SetView__Fiiiiiiiii(0,0x100,0x140,0x100,0x140,0xf0,0,1,3000);
-    DAT_00000e84 = -1;
+    Draw_gPlayer1View = Draw_SetView__Fiiiiiiiii(0,0x100,0x140,0x100,0x140,0xf0,0,1,3000);
+    Draw_gPlayer2View = -1;
   }
   return;
 }
@@ -41,12 +57,27 @@ void Render_CreatePlayerViews__Fv(void)
 	// End offset: 0x800B3198
 	// End Line: 141
 
+	/* begin block 2 */
+		// Start line: 273
+	/* end block 2 */
+	// End Line: 274
+
+	/* begin block 3 */
+		// Start line: 289
+	/* end block 3 */
+	// End Line: 290
+
+	/* begin block 4 */
+		// Start line: 289
+	/* end block 4 */
+	// End Line: 290
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Render_CreatePauseMenuViews__Fv(void)
 
 {
-  DAT_00000e9c = Draw_SetView__Fiiiiiiiii(0,0x100,0x140,0x100,0x140,0xf0,0,0,1);
+  Render_gPauseMenuView = Draw_SetView__Fiiiiiiiii(0,0x100,0x140,0x100,0x140,0xf0,0,0,1);
   return;
 }
 
@@ -62,6 +93,21 @@ void Render_CreatePauseMenuViews__Fv(void)
 	/* end block 1 */
 	// End offset: 0x800B31E4
 	// End Line: 152
+
+	/* begin block 2 */
+		// Start line: 310
+	/* end block 2 */
+	// End Line: 311
+
+	/* begin block 3 */
+		// Start line: 316
+	/* end block 3 */
+	// End Line: 317
+
+	/* begin block 4 */
+		// Start line: 316
+	/* end block 4 */
+	// End Line: 317
 
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
@@ -87,6 +133,21 @@ void Render_CreateViews__Fv(void)
 	/* end block 1 */
 	// End offset: 0x800B321C
 	// End Line: 170
+
+	/* begin block 2 */
+		// Start line: 346
+	/* end block 2 */
+	// End Line: 347
+
+	/* begin block 3 */
+		// Start line: 352
+	/* end block 3 */
+	// End Line: 353
+
+	/* begin block 4 */
+		// Start line: 352
+	/* end block 4 */
+	// End Line: 353
 
 void Render_StartRenderingWorldView__Fi(int viewid)
 
@@ -115,6 +176,21 @@ void Render_StartRenderingWorldView__Fi(int viewid)
 	// End offset: 0x800B3298
 	// End Line: 216
 
+	/* begin block 2 */
+		// Start line: 446
+	/* end block 2 */
+	// End Line: 447
+
+	/* begin block 3 */
+		// Start line: 452
+	/* end block 3 */
+	// End Line: 453
+
+	/* begin block 4 */
+		// Start line: 452
+	/* end block 4 */
+	// End Line: 453
+
 void Render_StopRenderingWorldView__Fi(int viewid)
 
 {
@@ -136,6 +212,21 @@ void Render_StopRenderingWorldView__Fi(int viewid)
 	/* end block 1 */
 	// End offset: 0x800B32B8
 	// End Line: 224
+
+	/* begin block 2 */
+		// Start line: 462
+	/* end block 2 */
+	// End Line: 463
+
+	/* begin block 3 */
+		// Start line: 468
+	/* end block 3 */
+	// End Line: 469
+
+	/* begin block 4 */
+		// Start line: 468
+	/* end block 4 */
+	// End Line: 469
 
 void Render_RenderWorld__FP13DRender_tView(DRender_tView *Vi)
 
@@ -169,6 +260,21 @@ void Render_RenderWorld__FP13DRender_tView(DRender_tView *Vi)
 	// End offset: 0x800B335C
 	// End Line: 271
 
+	/* begin block 2 */
+		// Start line: 547
+	/* end block 2 */
+	// End Line: 548
+
+	/* begin block 3 */
+		// Start line: 562
+	/* end block 3 */
+	// End Line: 563
+
+	/* begin block 4 */
+		// Start line: 562
+	/* end block 4 */
+	// End Line: 563
+
 void Render_RenderPlayerView__Fii(int ViewID,int Player)
 
 {
@@ -193,6 +299,26 @@ void Render_RenderPlayerView__Fii(int ViewID,int Player)
 	// End offset: 0x800B33A8
 	// End Line: 333
 
+	/* begin block 2 */
+		// Start line: 636
+	/* end block 2 */
+	// End Line: 637
+
+	/* begin block 3 */
+		// Start line: 688
+	/* end block 3 */
+	// End Line: 689
+
+	/* begin block 4 */
+		// Start line: 688
+	/* end block 4 */
+	// End Line: 689
+
+	/* begin block 5 */
+		// Start line: 710
+	/* end block 5 */
+	// End Line: 711
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Render_RenderDebugView__Fv(void)
@@ -213,6 +339,21 @@ void Render_RenderDebugView__Fv(void)
 	/* end block 1 */
 	// End offset: 0x800B33B0
 	// End Line: 360
+
+	/* begin block 2 */
+		// Start line: 737
+	/* end block 2 */
+	// End Line: 738
+
+	/* begin block 3 */
+		// Start line: 742
+	/* end block 3 */
+	// End Line: 743
+
+	/* begin block 4 */
+		// Start line: 742
+	/* end block 4 */
+	// End Line: 743
 
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
@@ -240,6 +381,21 @@ void Render_StartFrameRender__Fv(void)
 	// End offset: 0x800B33F0
 	// End Line: 376
 
+	/* begin block 2 */
+		// Start line: 770
+	/* end block 2 */
+	// End Line: 771
+
+	/* begin block 3 */
+		// Start line: 774
+	/* end block 3 */
+	// End Line: 775
+
+	/* begin block 4 */
+		// Start line: 774
+	/* end block 4 */
+	// End Line: 775
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Render_StopFrameRender__Fv(void)
@@ -261,6 +417,21 @@ void Render_StopFrameRender__Fv(void)
 	/* end block 1 */
 	// End offset: 0x800B3410
 	// End Line: 388
+
+	/* begin block 2 */
+		// Start line: 790
+	/* end block 2 */
+	// End Line: 791
+
+	/* begin block 3 */
+		// Start line: 798
+	/* end block 3 */
+	// End Line: 799
+
+	/* begin block 4 */
+		// Start line: 798
+	/* end block 4 */
+	// End Line: 799
 
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
@@ -286,6 +457,21 @@ void Render_InitPauseMenu__Fv(void)
 	// End offset: 0x800B3430
 	// End Line: 394
 
+	/* begin block 2 */
+		// Start line: 806
+	/* end block 2 */
+	// End Line: 807
+
+	/* begin block 3 */
+		// Start line: 810
+	/* end block 3 */
+	// End Line: 811
+
+	/* begin block 4 */
+		// Start line: 810
+	/* end block 4 */
+	// End Line: 811
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Render_RenderPauseMenuView__Fv(void)
@@ -293,12 +479,12 @@ void Render_RenderPauseMenuView__Fv(void)
 {
   int iVar1;
   
-  gCView.id = DAT_00000e9c;
-  Draw_StartRenderingView__Fi(DAT_00000e9c);
+  gCView.id = Render_gPauseMenuView;
+  Draw_StartRenderingView__Fi(Render_gPauseMenuView);
   MPause_Render__Fv();
   iVar1 = gFlip;
   gFlip = 0;
-  Draw_StopRenderingView__Fi(DAT_00000e9c);
+  Draw_StopRenderingView__Fi(Render_gPauseMenuView);
   gFlip = iVar1;
   return;
 }
@@ -315,6 +501,21 @@ void Render_RenderPauseMenuView__Fv(void)
 	/* end block 1 */
 	// End offset: 0x800B3488
 	// End Line: 412
+
+	/* begin block 2 */
+		// Start line: 848
+	/* end block 2 */
+	// End Line: 849
+
+	/* begin block 3 */
+		// Start line: 852
+	/* end block 3 */
+	// End Line: 853
+
+	/* begin block 4 */
+		// Start line: 852
+	/* end block 4 */
+	// End Line: 853
 
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
@@ -338,6 +539,21 @@ void Render_KillPauseMenu__Fv(void)
 	// End offset: 0x800B35D8
 	// End Line: 526
 
+	/* begin block 2 */
+		// Start line: 860
+	/* end block 2 */
+	// End Line: 861
+
+	/* begin block 3 */
+		// Start line: 864
+	/* end block 3 */
+	// End Line: 865
+
+	/* begin block 4 */
+		// Start line: 864
+	/* end block 4 */
+	// End Line: 865
+
 void Render_Render__Fi(int pause)
 
 {
@@ -345,16 +561,16 @@ void Render_Render__Fi(int pause)
   int ViewID;
   
   if (pause == 0) {
-    if (DAT_00000e90 == 0) {
+    if (gPauseRender == 0) {
       bVar1 = GameSetup_gData.commMode != 1;
       if (bVar1) {
         Render_StartFrameRender__Fv();
-        ViewID = DAT_00000e80;
+        ViewID = Draw_gPlayer1View;
       }
       else {
         Render_StartFrameRender__Fv();
-        Render_RenderPlayerView__Fii(DAT_00000e80,0);
-        ViewID = DAT_00000e84;
+        Render_RenderPlayerView__Fii(Draw_gPlayer1View,0);
+        ViewID = Draw_gPlayer2View;
       }
       Render_RenderPlayerView__Fii(ViewID,(uint)!bVar1);
       Hud_Render__Fv();
@@ -362,26 +578,26 @@ void Render_Render__Fi(int pause)
       Render_StopFrameRender__Fv();
     }
     else {
-      DAT_00000e90 = 0;
+      gPauseRender = 0;
     }
   }
   else {
-    if (DAT_00000e90 == 0) {
-      DAT_00000e8c = 0x140;
-      DAT_00000e90 = 1;
-      DAT_00000e88 = 0;
-      DAT_00000e8a = 0;
-      DAT_00000e8e = 0xf0;
+    if (gPauseRender == 0) {
+      gPauseMenuRect.w = 0x140;
+      gPauseRender = 1;
+      gPauseMenuRect.x = 0;
+      gPauseMenuRect.y = 0;
+      gPauseMenuRect.h = 0xf0;
       DrawSync(0);
       RPause_CopyBackToFrontBuffer__Fv();
       MPause_StartPauseMenu__Fv();
       gMPauseUpdate = &DAT_00000001;
       gMPauseUpdateNextTime = (void *)0x0;
     }
-    DAT_00000e88 = 0x4e;
-    DAT_00000e8a = 0x62;
-    DAT_00000e8c = 0xa4;
-    DAT_00000e8e = 0x8b;
+    gPauseMenuRect.x = 0x4e;
+    gPauseMenuRect.y = 0x62;
+    gPauseMenuRect.w = 0xa4;
+    gPauseMenuRect.h = 0x8b;
     if (gMPauseUpdate != (void *)0x0) {
       RPause_StartPauseMenu__Fv();
       Render_RenderPauseMenuView__Fv();
@@ -438,6 +654,26 @@ void Render_Render__Fi(int pause)
 	// End offset: 0x800B36C8
 	// End Line: 556
 
+	/* begin block 2 */
+		// Start line: 1101
+	/* end block 2 */
+	// End Line: 1102
+
+	/* begin block 3 */
+		// Start line: 1111
+	/* end block 3 */
+	// End Line: 1112
+
+	/* begin block 4 */
+		// Start line: 1111
+	/* end block 4 */
+	// End Line: 1112
+
+	/* begin block 5 */
+		// Start line: 1115
+	/* end block 5 */
+	// End Line: 1116
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void FlareThing__Fv(void)
@@ -488,6 +724,21 @@ void FlareThing__Fv(void)
 	// End offset: 0x800B36F4
 	// End Line: 564
 
+	/* begin block 2 */
+		// Start line: 1171
+	/* end block 2 */
+	// End Line: 1172
+
+	/* begin block 3 */
+		// Start line: 1179
+	/* end block 3 */
+	// End Line: 1180
+
+	/* begin block 4 */
+		// Start line: 1179
+	/* end block 4 */
+	// End Line: 1180
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Render_InitTrackRender__Fv(void)
@@ -523,6 +774,21 @@ void Render_InitTrackRender__Fv(void)
 	// End offset: 0x800B37AC
 	// End Line: 601
 
+	/* begin block 2 */
+		// Start line: 1251
+	/* end block 2 */
+	// End Line: 1252
+
+	/* begin block 3 */
+		// Start line: 1255
+	/* end block 3 */
+	// End Line: 1256
+
+	/* begin block 4 */
+		// Start line: 1255
+	/* end block 4 */
+	// End Line: 1256
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Render_RestartTrackRender__Fv(void)
@@ -550,12 +816,27 @@ void Render_RestartTrackRender__Fv(void)
 	// End offset: 0x800B37F4
 	// End Line: 613
 
+	/* begin block 2 */
+		// Start line: 1275
+	/* end block 2 */
+	// End Line: 1276
+
+	/* begin block 3 */
+		// Start line: 1279
+	/* end block 3 */
+	// End Line: 1280
+
+	/* begin block 4 */
+		// Start line: 1279
+	/* end block 4 */
+	// End Line: 1280
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Render_InitTrackRenderPostSim__Fv(void)
 
 {
-  DAT_00000e90 = 0;
+  gPauseRender = 0;
   Texture_DeInitPaletteSharing__Fv();
   CV_InitColorVertices__Fv();
   return;
@@ -573,6 +854,21 @@ void Render_InitTrackRenderPostSim__Fv(void)
 	/* end block 1 */
 	// End offset: 0x800B3820
 	// End Line: 625
+
+	/* begin block 2 */
+		// Start line: 1298
+	/* end block 2 */
+	// End Line: 1299
+
+	/* begin block 3 */
+		// Start line: 1303
+	/* end block 3 */
+	// End Line: 1304
+
+	/* begin block 4 */
+		// Start line: 1303
+	/* end block 4 */
+	// End Line: 1304
 
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
@@ -604,6 +900,21 @@ void Render_KillTrackRender__Fv(void)
 	/* end block 1 */
 	// End offset: 0x800B3888
 	// End Line: 641
+
+	/* begin block 2 */
+		// Start line: 1329
+	/* end block 2 */
+	// End Line: 1330
+
+	/* begin block 3 */
+		// Start line: 1335
+	/* end block 3 */
+	// End Line: 1336
+
+	/* begin block 4 */
+		// Start line: 1335
+	/* end block 4 */
+	// End Line: 1336
 
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
@@ -639,6 +950,26 @@ void Render_InitLibRender__Fv(void)
 	// End offset: 0x800B39FC
 	// End Line: 770
 
+	/* begin block 2 */
+		// Start line: 1357
+	/* end block 2 */
+	// End Line: 1358
+
+	/* begin block 3 */
+		// Start line: 1472
+	/* end block 3 */
+	// End Line: 1473
+
+	/* begin block 4 */
+		// Start line: 1472
+	/* end block 4 */
+	// End Line: 1473
+
+	/* begin block 5 */
+		// Start line: 1476
+	/* end block 5 */
+	// End Line: 1477
+
 void StampImage__Fii(int xo,int depth)
 
 {
@@ -651,11 +982,11 @@ void StampImage__Fii(int xo,int depth)
   int iVar7;
   
   iVar7 = gFlip;
-  if ((DAT_00000e7c & 2) == 0) {
+  if ((Render_gBlurEffectMode & 2U) == 0) {
     iVar7 = 1 - gFlip;
   }
   uVar5 = 0;
-  if ((DAT_00000e7c & 4) == 0) {
+  if ((Render_gBlurEffectMode & 4U) == 0) {
     xo = 0;
   }
   uVar6 = 0x140;
@@ -715,26 +1046,51 @@ void StampImage__Fii(int xo,int depth)
 	// End offset: 0x800B3A64
 	// End Line: 786
 
+	/* begin block 2 */
+		// Start line: 1595
+	/* end block 2 */
+	// End Line: 1596
+
+	/* begin block 3 */
+		// Start line: 1599
+	/* end block 3 */
+	// End Line: 1600
+
+	/* begin block 4 */
+		// Start line: 1599
+	/* end block 4 */
+	// End Line: 1600
+
+	/* begin block 5 */
+		// Start line: 1600
+	/* end block 5 */
+	// End Line: 1601
+
+	/* begin block 6 */
+		// Start line: 1600
+	/* end block 6 */
+	// End Line: 1601
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Render_InitBlurMode__Fv(void)
 
 {
   if (GameSetup_gData.sgge == 0x20) {
-    DAT_00000e7c = 0x1b;
+    Render_gBlurEffectMode = 0x1b;
     return;
   }
   if (GameSetup_gData.sgge < 0x21) {
     if (GameSetup_gData.sgge != 0x10) {
       return;
     }
-    DAT_00000e7c = 0xb;
+    Render_gBlurEffectMode = 0xb;
     return;
   }
   if (GameSetup_gData.sgge != 0x40) {
     return;
   }
-  DAT_00000e7c = 0x1f;
+  Render_gBlurEffectMode = 0x1f;
   return;
 }
 
@@ -778,6 +1134,26 @@ void Render_InitBlurMode__Fv(void)
 	// End offset: 0x800B3C30
 	// End Line: 835
 
+	/* begin block 2 */
+		// Start line: 1628
+	/* end block 2 */
+	// End Line: 1629
+
+	/* begin block 3 */
+		// Start line: 1633
+	/* end block 3 */
+	// End Line: 1634
+
+	/* begin block 4 */
+		// Start line: 1633
+	/* end block 4 */
+	// End Line: 1634
+
+	/* begin block 5 */
+		// Start line: 1646
+	/* end block 5 */
+	// End Line: 1647
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Render_InsertDepthOfField__Fv(void)
@@ -787,15 +1163,15 @@ void Render_InsertDepthOfField__Fv(void)
   uint *puVar2;
   uint *puVar3;
   
-  if ((DAT_00000e7c & 1) != 0) {
-    if ((DAT_00000e7c & 8) != 0) {
-      StampImage__Fii(1,DAT_00000e74);
+  if ((Render_gBlurEffectMode & 1U) != 0) {
+    if ((Render_gBlurEffectMode & 8U) != 0) {
+      StampImage__Fii(1,Render_gBlurEffectDepth1);
     }
-    if ((DAT_00000e7c & 0x10) != 0) {
-      StampImage__Fii(2,DAT_00000e78);
+    if ((Render_gBlurEffectMode & 0x10U) != 0) {
+      StampImage__Fii(2,Render_gBlurEffectDepth2);
     }
     puVar3 = DAT_1f800004;
-    puVar2 = (uint *)(DAT_00000e74 * 4 + DAT_1f800000);
+    puVar2 = (uint *)(Render_gBlurEffectDepth1 * 4 + DAT_1f800000);
     *DAT_1f800004 = *DAT_1f800004 & 0xff000000 | *puVar2 & 0xffffff;
     uVar1 = (uint)DAT_1f800004 & 0xffffff;
     DAT_1f800004 = DAT_1f800004 + 6;
@@ -814,14 +1190,14 @@ void Render_InsertDepthOfField__Fv(void)
     *(undefined2 *)((int)puVar3 + 0x12) = 0xf0;
     *(undefined2 *)(puVar3 + 5) = 0x140;
     *(undefined2 *)((int)puVar3 + 0x16) = 0xf0;
-    puVar3 = (uint *)(DAT_00000e74 * 4 + DAT_1f800000);
+    puVar3 = (uint *)(Render_gBlurEffectDepth1 * 4 + DAT_1f800000);
     *DAT_1f800004 = *DAT_1f800004 & 0xff000000 | *puVar3 & 0xffffff;
     uVar1 = (uint)DAT_1f800004 & 0xffffff;
     DAT_1f800004 = DAT_1f800004 + 3;
     *puVar3 = *puVar3 & 0xff000000 | uVar1;
     SetDrawStp((int)puVar2,1);
     puVar3 = DAT_1f800004;
-    puVar2 = (uint *)(DAT_00000e74 * 4 + DAT_1f800000);
+    puVar2 = (uint *)(Render_gBlurEffectDepth1 * 4 + DAT_1f800000);
     *DAT_1f800004 = *DAT_1f800004 & 0xff000000 | *puVar2 & 0xffffff;
     uVar1 = (uint)DAT_1f800004 & 0xffffff;
     DAT_1f800004 = DAT_1f800004 + 3;
@@ -831,6 +1207,7 @@ void Render_InsertDepthOfField__Fv(void)
   }
   return;
 }
+
 
 
 

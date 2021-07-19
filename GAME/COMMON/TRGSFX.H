@@ -1,6 +1,7 @@
 #ifndef TRGSFX_H
 #define TRGSFX_H
 
+
 extern void TrgSfx_AddEnviroEffect__FiiP8coorddefT2(int obj, int type, struct coorddef *emitterpt, struct coorddef *vec); // 0x800BB068
 
 extern void TrgSfx_AddCarSfx__FiP8coorddefiT1(int car, struct coorddef *skidpt, int type, struct coorddef *vec); // 0x800BB0D0
@@ -22,5 +23,6 @@ extern void TrgSfx_InitTrgSfx__Fv(); // 0x800BB900
 extern void TrgSfx_RestartTrgSfx__Fv(); // 0x800BB9D8
 
 extern void TrgSfx_KillTrgSfx__Fv(); // 0x800BBA00
+
 
 #endif

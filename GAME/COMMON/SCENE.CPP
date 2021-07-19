@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "SCENE.H"
+
 
 // decompiled code
 // original method signature: 
@@ -12,11 +13,31 @@
 	// End offset: 0x800B5F88
 	// End Line: 1016
 
+	/* begin block 2 */
+		// Start line: 2026
+	/* end block 2 */
+	// End Line: 2027
+
+	/* begin block 3 */
+		// Start line: 2026
+	/* end block 3 */
+	// End Line: 2027
+
+	/* begin block 4 */
+		// Start line: 2027
+	/* end block 4 */
+	// End Line: 2028
+
+	/* begin block 5 */
+		// Start line: 2027
+	/* end block 5 */
+	// End Line: 2028
+
 void Scene_Init__Fi(int numObjDefs)
 
 {
   if (0 < numObjDefs) {
-    DAT_00000ebc = 0;
+    gGameSceneList = (CSceneList *)0x0;
   }
   return;
 }
@@ -33,6 +54,21 @@ void Scene_Init__Fi(int numObjDefs)
 	/* end block 1 */
 	// End offset: 0x800B5F90
 	// End Line: 1030
+
+	/* begin block 2 */
+		// Start line: 2044
+	/* end block 2 */
+	// End Line: 2045
+
+	/* begin block 3 */
+		// Start line: 2058
+	/* end block 3 */
+	// End Line: 2059
+
+	/* begin block 4 */
+		// Start line: 2058
+	/* end block 4 */
+	// End Line: 2059
 
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
@@ -56,14 +92,39 @@ void Scene_DeInit__Fv(void)
 	// End offset: 0x800B5FCC
 	// End Line: 1056
 
+	/* begin block 2 */
+		// Start line: 2070
+	/* end block 2 */
+	// End Line: 2071
+
+	/* begin block 3 */
+		// Start line: 2080
+	/* end block 3 */
+	// End Line: 2081
+
+	/* begin block 4 */
+		// Start line: 2080
+	/* end block 4 */
+	// End Line: 2081
+
+	/* begin block 5 */
+		// Start line: 2081
+	/* end block 5 */
+	// End Line: 2082
+
+	/* begin block 6 */
+		// Start line: 2081
+	/* end block 6 */
+	// End Line: 2082
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Scene_PurgeScene__Fv(void)
 
 {
-  if (DAT_00000ebc != 0) {
-    purgememadr(DAT_00000ebc);
-    DAT_00000ebc = 0;
+  if (gGameSceneList != (CSceneList *)0x0) {
+    purgememadr((int)gGameSceneList);
+    gGameSceneList = (CSceneList *)0x0;
   }
   Object_ClearCustomObjects__Fv();
   return;
@@ -123,6 +184,21 @@ void Scene_PurgeScene__Fv(void)
 	// End offset: 0x800B6068
 	// End Line: 1108
 
+	/* begin block 2 */
+		// Start line: 2115
+	/* end block 2 */
+	// End Line: 2116
+
+	/* begin block 3 */
+		// Start line: 2119
+	/* end block 3 */
+	// End Line: 2120
+
+	/* begin block 4 */
+		// Start line: 2119
+	/* end block 4 */
+	// End Line: 2120
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 int Scene_BuildCustomSceneList__Fv(void)
@@ -134,19 +210,19 @@ int Scene_BuildCustomSceneList__Fv(void)
   
   Object_ClearCustomObjects__Fv();
   iVar2 = -1;
-  if (DAT_00000ebc != 0) {
-    objectData = (SceneElem *)(DAT_00000ebc + 0x10);
-    iVar2 = *(int *)(DAT_00000ebc + 8);
+  if (gGameSceneList != (CSceneList *)0x0) {
+    objectData = (SceneElem *)(gGameSceneList + 1);
+    iVar2 = gGameSceneList->slice_;
     iVar1 = 0;
     Object_customSliceNum = iVar2;
-    if (0 < *(int *)(DAT_00000ebc + 4)) {
+    if (0 < gGameSceneList->numElements_) {
       do {
         if ((objectData->type < 3) && (-1 < objectData->type)) {
           Object_AddCustomObject__FP9SceneElemi(objectData,1);
         }
         iVar1 = iVar1 + 1;
         objectData = objectData + 1;
-      } while (iVar1 < *(int *)(DAT_00000ebc + 4));
+      } while (iVar1 < gGameSceneList->numElements_);
     }
   }
   return iVar2;
@@ -168,6 +244,21 @@ int Scene_BuildCustomSceneList__Fv(void)
 	// End offset: 0x800B6084
 	// End Line: 1112
 
+	/* begin block 2 */
+		// Start line: 2221
+	/* end block 2 */
+	// End Line: 2222
+
+	/* begin block 3 */
+		// Start line: 2225
+	/* end block 3 */
+	// End Line: 2226
+
+	/* begin block 4 */
+		// Start line: 2225
+	/* end block 4 */
+	// End Line: 2226
+
 void Scene_LoadSceneFile__Fi(int sceneFileIndex)
 
 {
@@ -176,11 +267,11 @@ void Scene_LoadSceneFile__Fi(int sceneFileIndex)
   
   Object_ClearCustomObjects__Fv();
   local_10[0] = 0;
-  sprintf(acStack144,s__sscene_viv_80056598,PTR_80116480);
+  sprintf(acStack144,s__sscene_viv_80056598,PTR_ARRAY_80116480[0]);
   FILE_addbigsync(acStack144,0x10,100,local_10);
   sprintf(acStack144,s_tr_02d_02d_scn_800565a4,GameSetup_gData.track,sceneFileIndex);
-  uGp00000ebc = 0;
-  uGp00000ebc = loadfileadr(acStack144,0);
+  gGameSceneList = (CSceneList *)0x0;
+  gGameSceneList = (CSceneList *)loadfileadr(acStack144,0);
   FILE_delbigsync(local_10[0],100);
   return;
 }
@@ -200,6 +291,21 @@ void Scene_LoadSceneFile__Fi(int sceneFileIndex)
 	// End offset: 0x800B6114
 	// End Line: 1143
 
+	/* begin block 2 */
+		// Start line: 2285
+	/* end block 2 */
+	// End Line: 2286
+
+	/* begin block 3 */
+		// Start line: 2290
+	/* end block 3 */
+	// End Line: 2291
+
+	/* begin block 4 */
+		// Start line: 2290
+	/* end block 4 */
+	// End Line: 2291
+
 int GetPlaneY__FPC8coorddefN20(coorddef *norm,coorddef *pointOnPlane,coorddef *testPoint)
 
 {
@@ -218,6 +324,7 @@ int GetPlaneY__FPC8coorddefN20(coorddef *norm,coorddef *pointOnPlane,coorddef *t
   iVar6 = fixeddiv(-((uVar4 + uVar5) - (uVar1 + uVar2 + uVar3)),norm->y);
   return iVar6;
 }
+
 
 
 

@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "PATHS.H"
+
 
 // decompiled code
 // original method signature: 
@@ -14,6 +15,26 @@
 	/* end block 1 */
 	// End offset: 0x800A6E58
 	// End Line: 99
+
+	/* begin block 2 */
+		// Start line: 81
+	/* end block 2 */
+	// End Line: 82
+
+	/* begin block 3 */
+		// Start line: 88
+	/* end block 3 */
+	// End Line: 89
+
+	/* begin block 4 */
+		// Start line: 87
+	/* end block 4 */
+	// End Line: 88
+
+	/* begin block 5 */
+		// Start line: 87
+	/* end block 5 */
+	// End Line: 88
 
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
@@ -34,6 +55,7 @@ void Paths_StartUp__Fv(void)
   PTR_801164f8 = &fePath;
   return;
 }
+
 
 
 

@@ -1,6 +1,7 @@
 #ifndef SOUFFLE_H
 #define SOUFFLE_H
 
+
 extern void GetGustWind__FP17Souffle_tISouffle(struct Souffle_tISouffle *is); // 0x800B764C
 
 extern void GetAngleWind__FP17Souffle_tISouffle(struct Souffle_tISouffle *is); // 0x800B7694
@@ -20,5 +21,6 @@ extern void Souffle_InitTrackSouffle__Fv(); // 0x800B7ED4
 extern void Souffle_RestartTrackSouffle__Fv(); // 0x800B7F14
 
 extern void Souffle_KillTrackSouffle__Fv(); // 0x800B7F30
+
 
 #endif

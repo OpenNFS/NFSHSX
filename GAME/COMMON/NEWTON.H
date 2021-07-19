@@ -1,6 +1,7 @@
 #ifndef NEWTON_H
 #define NEWTON_H
 
+
 extern void Newton_AddDamageZone__FP13BO_tNewtonObjiii(struct BO_tNewtonObj *newtonObj, int impulse, int zone, int type); // 0x8009EF2C
 
 extern void Newton_FindClosestQuad__FP13BO_tNewtonObj(struct BO_tNewtonObj *n); // 0x8009F704
@@ -64,5 +65,6 @@ extern void Newton_ApplyTheLawOfGravity__FP13BO_tNewtonObj(struct BO_tNewtonObj 
 extern int Newton_CalculateRoadPositionFromSliceAndPosition__FiP8coorddefP10matrixtdef(int slice, struct coorddef *position, struct matrixtdef *matrix); // 0x800A3B60
 
 extern int Newton_CalculateRoadPosition__FP13BO_tNewtonObj(struct BO_tNewtonObj *newtonObj); // 0x800A3C54
+
 
 #endif

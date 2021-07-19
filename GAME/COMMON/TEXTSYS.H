@@ -1,6 +1,7 @@
 #ifndef TEXTSYS_H
 #define TEXTSYS_H
 
+
 extern void TextSys_LoadWordsGeneric__FiPc(int language, char *path); // 0x800B9158
 
 extern void TextSys_LoadInGame__Fi(int language); // 0x800B91DC
@@ -16,5 +17,6 @@ extern int TextSys_WordX__Fi(int wordnum); // 0x800B9290
 extern int TextSys_WordY__Fi(int wordnum); // 0x800B92B0
 
 extern void TextSys_UnloadWords__Fv(); // 0x800B92D0
+
 
 #endif

@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "QUATERN.H"
+
 
 // decompiled code
 // original method signature: 
@@ -11,6 +12,16 @@
 	/* end block 1 */
 	// End offset: 0x800AD5C8
 	// End Line: 60
+
+	/* begin block 2 */
+		// Start line: 118
+	/* end block 2 */
+	// End Line: 119
+
+	/* begin block 3 */
+		// Start line: 118
+	/* end block 3 */
+	// End Line: 119
 
 void Quatern_VecInterpolate__FP8coorddefT0iT0(coorddef *cp0,coorddef *cp1,int weight,coorddef *cp)
 
@@ -38,6 +49,21 @@ void Quatern_VecInterpolate__FP8coorddefT0iT0(coorddef *cp0,coorddef *cp1,int we
 	/* end block 1 */
 	// End offset: 0x800AD678
 	// End Line: 68
+
+	/* begin block 2 */
+		// Start line: 130
+	/* end block 2 */
+	// End Line: 131
+
+	/* begin block 3 */
+		// Start line: 134
+	/* end block 3 */
+	// End Line: 135
+
+	/* begin block 4 */
+		// Start line: 134
+	/* end block 4 */
+	// End Line: 135
 
 void Quatern_Interpolate__FP5tQuatT0P8coorddefT2iT0T2
                (tQuat *q0,tQuat *q1,coorddef *cp0,coorddef *cp1,int weight,tQuat *q,coorddef *cp)
@@ -83,6 +109,26 @@ void Quatern_Interpolate__FP5tQuatT0P8coorddefT2iT0T2
 	/* end block 1 */
 	// End offset: 0x800AD780
 	// End Line: 167
+
+	/* begin block 2 */
+		// Start line: 310
+	/* end block 2 */
+	// End Line: 311
+
+	/* begin block 3 */
+		// Start line: 247
+	/* end block 3 */
+	// End Line: 248
+
+	/* begin block 4 */
+		// Start line: 247
+	/* end block 4 */
+	// End Line: 248
+
+	/* begin block 5 */
+		// Start line: 255
+	/* end block 5 */
+	// End Line: 256
 
 void Quatern_QuatToMat__FP5tQuatP10matrixtdef(tQuat *q,matrixtdef *matrix)
 
@@ -132,6 +178,21 @@ void Quatern_QuatToMat__FP5tQuatP10matrixtdef(tQuat *q,matrixtdef *matrix)
 	/* end block 1 */
 	// End offset: 0x800ADC14
 	// End Line: 276
+
+	/* begin block 2 */
+		// Start line: 416
+	/* end block 2 */
+	// End Line: 417
+
+	/* begin block 3 */
+		// Start line: 433
+	/* end block 3 */
+	// End Line: 434
+
+	/* begin block 4 */
+		// Start line: 433
+	/* end block 4 */
+	// End Line: 434
 
 void Quatern_MatToQuat__FP10matrixtdefP5tQuat(matrixtdef *matrix,tQuat *q)
 
@@ -222,6 +283,7 @@ void Quatern_MatToQuat__FP10matrixtdefP5tQuat(matrixtdef *matrix,tQuat *q)
   q->z = (short)((int)uVar2 >> 2);
   return;
 }
+
 
 
 

@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "R3DCAR.H"
+
 
 // decompiled code
 // original method signature: 
@@ -13,6 +14,16 @@
 	/* end block 1 */
 	// End offset: 0x800ADCFC
 	// End Line: 420
+
+	/* begin block 2 */
+		// Start line: 772
+	/* end block 2 */
+	// End Line: 773
+
+	/* begin block 3 */
+		// Start line: 772
+	/* end block 3 */
+	// End Line: 773
 
 void R3DCar_ChangeTrafficColor__FP8Car_tObji(Car_tObj *carObj,int newColorIndex)
 
@@ -77,6 +88,21 @@ void R3DCar_ChangeTrafficColor__FP8Car_tObji(Car_tObj *carObj,int newColorIndex)
 	// End offset: 0x800ADD80
 	// End Line: 451
 
+	/* begin block 2 */
+		// Start line: 853
+	/* end block 2 */
+	// End Line: 854
+
+	/* begin block 3 */
+		// Start line: 857
+	/* end block 3 */
+	// End Line: 858
+
+	/* begin block 4 */
+		// Start line: 857
+	/* end block 4 */
+	// End Line: 858
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void R3DCar_StartUp__Fv(void)
@@ -89,7 +115,7 @@ void R3DCar_StartUp__Fv(void)
   
   iVar3 = 0;
   psVar2 = &R3DCar_LoadedSceneColor;
-  ppTVar1 = &__R3DCar_LoadedScenePointer_2__50__;
+  ppTVar1 = &R3DCar_LoadedScenePointer250;
   do {
     ppTVar1[0x32] = (Transformer_zScene *)0x0;
     *ppTVar1 = (Transformer_zScene *)0x0;
@@ -102,10 +128,10 @@ void R3DCar_StartUp__Fv(void)
     iVar3 = iVar3 + 1;
     ppTVar1 = ppTVar1 + 1;
   } while (iVar3 < 0x32);
-  DAT_00000e3c = reservememadr(s_orientMat_800563bc,0x804,0);
-  DAT_00000e40 = reservememadr(s_position_800563c8,0x2b8,0);
+  R3DCar_orientMat = (matrixtdef *)reservememadr(s_orientMat_800563bc,0x804,0);
+  R3DCar_position = (coorddef *)reservememadr(s_position_800563c8,0x2b8,0);
   sprintf(acStack112,s__slicense_psh_800563d4,PTR_801164cc);
-  DAT_00000e68 = loadfileadr(acStack112,0);
+  R3DCar_LicenseShapeFile = (char *)loadfileadr(acStack112,0);
   return;
 }
 
@@ -124,6 +150,26 @@ void R3DCar_StartUp__Fv(void)
 	// End offset: 0x800ADEB4
 	// End Line: 490
 
+	/* begin block 2 */
+		// Start line: 947
+	/* end block 2 */
+	// End Line: 948
+
+	/* begin block 3 */
+		// Start line: 952
+	/* end block 3 */
+	// End Line: 953
+
+	/* begin block 4 */
+		// Start line: 952
+	/* end block 4 */
+	// End Line: 953
+
+	/* begin block 5 */
+		// Start line: 954
+	/* end block 5 */
+	// End Line: 955
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void R3DCar_PostStartUp__Fv(void)
@@ -132,7 +178,7 @@ void R3DCar_PostStartUp__Fv(void)
   bool bVar1;
   int iVar2;
   
-  if (DAT_00000dd8 == 0) {
+  if (R3DCar_InMenu == 0) {
     iVar2 = Cars_gNumCars * 0x1c0;
     bVar1 = iVar2 < 0x400;
   }
@@ -144,9 +190,9 @@ void R3DCar_PostStartUp__Fv(void)
     iVar2 = 0x400;
   }
   iVar2 = iVar2 << 2;
-  __R3DCar_subOtStart_2__2__ = (ulong *)reservememadr(s_sub_ot0_8013d328,iVar2,0);
+  R3DCar_subOtStart22 = (ulong *)reservememadr(s_sub_ot0_8013d328,iVar2,0);
   DAT_80116db4 = reservememadr(s_sub_ot1_8013d330,iVar2,0);
-  if ((DAT_00000dd8 != 0) || (GameSetup_gData.commMode == 1)) {
+  if ((R3DCar_InMenu != 0) || (GameSetup_gData.commMode == 1)) {
     PTR_80116db0 = (ulong *)reservememadr(s_sub_ot0m_800563e4,iVar2,0);
     DAT_80116db8 = reservememadr(s_sub_ot1m_800563f0,iVar2,0);
   }
@@ -184,6 +230,26 @@ void R3DCar_PostStartUp__Fv(void)
 	// End offset: 0x800ADF38
 	// End Line: 515
 
+	/* begin block 2 */
+		// Start line: 1008
+	/* end block 2 */
+	// End Line: 1009
+
+	/* begin block 3 */
+		// Start line: 1014
+	/* end block 3 */
+	// End Line: 1015
+
+	/* begin block 4 */
+		// Start line: 1014
+	/* end block 4 */
+	// End Line: 1015
+
+	/* begin block 5 */
+		// Start line: 1017
+	/* end block 5 */
+	// End Line: 1018
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void R3DCar_Restart__Fv(void)
@@ -196,7 +262,7 @@ void R3DCar_Restart__Fv(void)
   
   iVar1 = Cars_gNumCars;
   iVar4 = 0;
-  ppCVar3 = &__Cars_gList_9__;
+  ppCVar3 = &Cars_gList9;
   while (iVar4 < iVar1) {
     pCVar2 = *ppCVar3;
     *(undefined2 *)&(pCVar2->render).light = 0;
@@ -229,6 +295,21 @@ void R3DCar_Restart__Fv(void)
 	// End offset: 0x800AE090
 	// End Line: 572
 
+	/* begin block 2 */
+		// Start line: 1060
+	/* end block 2 */
+	// End Line: 1061
+
+	/* begin block 3 */
+		// Start line: 1064
+	/* end block 3 */
+	// End Line: 1065
+
+	/* begin block 4 */
+		// Start line: 1064
+	/* end block 4 */
+	// End Line: 1065
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void R3DCar_CleanUp__Fv(void)
@@ -240,7 +321,7 @@ void R3DCar_CleanUp__Fv(void)
   
   iVar3 = 0;
   pcVar2 = &R3DCar_LoadedSceneCounter;
-  ppTVar1 = &__R3DCar_LoadedScenePointer_2__50__;
+  ppTVar1 = &R3DCar_LoadedScenePointer250;
   do {
     if (*ppTVar1 != (Transformer_zScene *)0x0) {
       purgememadr((int)*ppTVar1);
@@ -256,27 +337,27 @@ void R3DCar_CleanUp__Fv(void)
     iVar3 = iVar3 + 1;
     ppTVar1 = ppTVar1 + 1;
   } while (iVar3 < 0x32);
-  if (DAT_00000e3c != 0) {
-    purgememadr(DAT_00000e3c);
+  if (R3DCar_orientMat != (matrixtdef *)0x0) {
+    purgememadr((int)R3DCar_orientMat);
   }
-  DAT_00000e3c = 0;
-  if (DAT_00000e40 != 0) {
-    purgememadr(DAT_00000e40);
+  R3DCar_orientMat = (matrixtdef *)0x0;
+  if (R3DCar_position != (coorddef *)0x0) {
+    purgememadr((int)R3DCar_position);
   }
-  DAT_00000e40 = 0;
-  if (DAT_00000e68 != 0) {
-    purgememadr(DAT_00000e68);
+  R3DCar_position = (coorddef *)0x0;
+  if (R3DCar_LicenseShapeFile != (char *)0x0) {
+    purgememadr((int)R3DCar_LicenseShapeFile);
   }
-  DAT_00000e68 = 0;
-  if (__R3DCar_subOtStart_2__2__ != (ulong *)0x0) {
-    purgememadr((int)__R3DCar_subOtStart_2__2__);
+  R3DCar_LicenseShapeFile = (char *)0x0;
+  if (R3DCar_subOtStart22 != (ulong *)0x0) {
+    purgememadr((int)R3DCar_subOtStart22);
   }
   if (DAT_80116db4 != 0) {
     purgememadr(DAT_80116db4);
   }
   DAT_80116db4 = 0;
-  __R3DCar_subOtStart_2__2__ = (ulong *)0x0;
-  if ((DAT_00000dd8 != 0) || (GameSetup_gData.commMode == 1)) {
+  R3DCar_subOtStart22 = (ulong *)0x0;
+  if ((R3DCar_InMenu != 0) || (GameSetup_gData.commMode == 1)) {
     if (PTR_80116db0 != (ulong *)0x0) {
       purgememadr((int)PTR_80116db0);
     }
@@ -381,6 +462,21 @@ void R3DCar_CleanUp__Fv(void)
 	// End offset: 0x800AE57C
 	// End Line: 882
 
+	/* begin block 2 */
+		// Start line: 1198
+	/* end block 2 */
+	// End Line: 1199
+
+	/* begin block 3 */
+		// Start line: 1207
+	/* end block 3 */
+	// End Line: 1208
+
+	/* begin block 4 */
+		// Start line: 1207
+	/* end block 4 */
+	// End Line: 1208
+
 Transformer_zScene * R3DCar_ReadInCarData__FPcP8Car_tObj(char *filename,Car_tObj *carObj)
 
 {
@@ -422,17 +518,17 @@ Transformer_zScene * R3DCar_ReadInCarData__FPcP8Car_tObj(char *filename,Car_tObj
   local_38 = &local_70;
   local_34 = &local_60;
   local_30 = 0x7e07e07f;
-  puVar2 = (undefined4 *)locatebig(pbGp00000e64,abStack128);
-  locatebigentry(pbGp00000e64,abStack128,0,(uint *)0x0,&local_58);
+  puVar2 = (undefined4 *)locatebig((byte *)R3DCar_BigFile,abStack128);
+  locatebigentry((byte *)R3DCar_BigFile,abStack128,0,(uint *)0x0,&local_58);
   pTVar3 = (Transformer_zScene *)reservememadr((char *)abStack128,local_58,0);
   local_54 = pTVar3;
   blockmove(puVar2,(undefined4 *)pTVar3,local_58);
   local_50 = (int)(carObj->render).palNum;
-  local_4c = (&R3DCar_EnvMapInfo)[local_50].eScaleX;
-  local_48 = (&R3DCar_EnvMapInfo)[local_50].eScaleY;
-  *(int *)((carObj->render).palCopyNum + 9) = (&R3DCar_EnvMapInfo)[local_50].rideHeight << 7;
+  local_4c = R3DCar_EnvMapInfo[local_50].eScaleX;
+  local_48 = R3DCar_EnvMapInfo[local_50].eScaleY;
+  *(int *)((carObj->render).palCopyNum + 9) = R3DCar_EnvMapInfo[local_50].rideHeight << 7;
   pcVar13 = &R3DCar_ObjectInfo;
-  *(int *)((carObj->render).palCopyNum + 0xb) = (&R3DCar_EnvMapInfo)[local_50].upgradeHeight << 7;
+  *(int *)((carObj->render).palCopyNum + 0xb) = R3DCar_EnvMapInfo[local_50].upgradeHeight << 7;
   while (iVar12 < 0x39) {
     puVar6 = (ushort *)((int)pTVar3->obj + iVar10);
     iVar10 = iVar10 + 0x1c;
@@ -550,6 +646,21 @@ Transformer_zScene * R3DCar_ReadInCarData__FPcP8Car_tObj(char *filename,Car_tObj
 	// End offset: 0x800AE644
 	// End Line: 912
 
+	/* begin block 2 */
+		// Start line: 2065
+	/* end block 2 */
+	// End Line: 2066
+
+	/* begin block 3 */
+		// Start line: 2070
+	/* end block 3 */
+	// End Line: 2071
+
+	/* begin block 4 */
+		// Start line: 2070
+	/* end block 4 */
+	// End Line: 2071
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void R3DCcar_ReadeMapData__Fv(void)
@@ -565,7 +676,7 @@ void R3DCcar_ReadeMapData__Fv(void)
   iVar4 = 0;
   sprintf(acStack288,s__scarmap_dat_800563fc,PTR_801164cc);
   pcVar1 = (char *)loadfileadr(acStack288,0x10);
-  pRVar3 = &R3DCar_EnvMapInfo;
+  pRVar3 = R3DCar_EnvMapInfo;
   local_20[0] = pcVar1;
   do {
     iVar2 = Risk_ReadNextValue__FPPc(local_20);
@@ -601,6 +712,21 @@ void R3DCcar_ReadeMapData__Fv(void)
 	// End offset: 0x800AE730
 	// End Line: 945
 
+	/* begin block 2 */
+		// Start line: 2170
+	/* end block 2 */
+	// End Line: 2171
+
+	/* begin block 3 */
+		// Start line: 2176
+	/* end block 3 */
+	// End Line: 2177
+
+	/* begin block 4 */
+		// Start line: 2176
+	/* end block 4 */
+	// End Line: 2177
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void R3DCcar_ReadTrackShadow__Fv(void)
@@ -618,18 +744,18 @@ void R3DCcar_ReadTrackShadow__Fv(void)
   local_18[0] = pcVar1;
   while (iVar3 != -1) {
     iVar2 = Risk_ReadNextValue__FPPc(local_18);
-    uGp00000e50 = (undefined)iVar2;
+    R3DCar_shadowColour.r = (uchar)iVar2;
     iVar2 = Risk_ReadNextValue__FPPc(local_18);
-    uGp00000e51 = (undefined)iVar2;
+    R3DCar_shadowColour.g = (uchar)iVar2;
     iVar2 = Risk_ReadNextValue__FPPc(local_18);
-    uGp00000e52 = (undefined)iVar2;
+    R3DCar_shadowColour.b = (uchar)iVar2;
     iVar2 = Risk_ReadNextValue__FPPc(local_18);
-    uGp00000e54 = (undefined)iVar2;
+    R3DCar_eMapColour.r = (uchar)iVar2;
     iVar2 = Risk_ReadNextValue__FPPc(local_18);
-    uGp00000e55 = (undefined)iVar2;
+    R3DCar_eMapColour.g = (uchar)iVar2;
     iVar2 = Risk_ReadNextValue__FPPc(local_18);
     iVar3 = iVar3 + -1;
-    uGp00000e56 = (undefined)iVar2;
+    R3DCar_eMapColour.b = (uchar)iVar2;
   }
   purgememadr((int)pcVar1);
   return;
@@ -687,6 +813,21 @@ void R3DCcar_ReadTrackShadow__Fv(void)
 	/* end block 1 */
 	// End offset: 0x800AEC50
 	// End Line: 1042
+
+	/* begin block 2 */
+		// Start line: 2257
+	/* end block 2 */
+	// End Line: 2258
+
+	/* begin block 3 */
+		// Start line: 2271
+	/* end block 3 */
+	// End Line: 2272
+
+	/* begin block 4 */
+		// Start line: 2271
+	/* end block 4 */
+	// End Line: 2272
 
 void R3DCar_CalcCarDimensions__FP8Car_tObjP18Transformer_zScenei
                (Car_tObj *carObj,Transformer_zScene *scene,int carType)
@@ -916,6 +1057,21 @@ void R3DCar_CalcCarDimensions__FP8Car_tObjP18Transformer_zScenei
 	// End offset: 0x800AECA0
 	// End Line: 1049
 
+	/* begin block 2 */
+		// Start line: 2461
+	/* end block 2 */
+	// End Line: 2462
+
+	/* begin block 3 */
+		// Start line: 2466
+	/* end block 3 */
+	// End Line: 2467
+
+	/* begin block 4 */
+		// Start line: 2466
+	/* end block 4 */
+	// End Line: 2467
+
 void R3DCar_DeInstantiate3DCar__FP8Car_tObj(Car_tObj *carObj)
 
 {
@@ -992,6 +1148,21 @@ void R3DCar_DeInstantiate3DCar__FP8Car_tObj(Car_tObj *carObj)
 	// End offset: 0x800AEDDC
 	// End Line: 1114
 
+	/* begin block 2 */
+		// Start line: 2476
+	/* end block 2 */
+	// End Line: 2477
+
+	/* begin block 3 */
+		// Start line: 2482
+	/* end block 3 */
+	// End Line: 2483
+
+	/* begin block 4 */
+		// Start line: 2482
+	/* end block 4 */
+	// End Line: 2483
+
 void R3DCar_DeInstantiate3DCarMenu__FP8Car_tObj(Car_tObj *carObj)
 
 {
@@ -1005,8 +1176,8 @@ void R3DCar_DeInstantiate3DCarMenu__FP8Car_tObj(Car_tObj *carObj)
     cVar1 = (&R3DCar_LoadedSceneCounter)[iVar3 + uVar2 * 0x32] + -1;
     (&R3DCar_LoadedSceneCounter)[iVar3 + uVar2 * 0x32] = cVar1;
     if (cVar1 == '\0') {
-      purgememadr((int)(&__R3DCar_LoadedScenePointer_2__50__)[uVar2 * 0x32 + iVar3]);
-      (&__R3DCar_LoadedScenePointer_2__50__)[uVar2 * 0x32 + iVar3] = (Transformer_zScene *)0x0;
+      purgememadr((int)(&R3DCar_LoadedScenePointer250)[uVar2 * 0x32 + iVar3]);
+      (&R3DCar_LoadedScenePointer250)[uVar2 * 0x32 + iVar3] = (Transformer_zScene *)0x0;
     }
     CarIO_ReleaseCarCluts__FP8Car_tObj(carObj);
   }
@@ -1022,7 +1193,7 @@ void R3DCar_DeInstantiate3DCarMenu__FP8Car_tObj(Car_tObj *carObj)
       purgememadr(uVar2);
     }
     *(undefined4 *)((carObj->render).palCopyNum + 0xd) = 0;
-    DAT_00000e38 = 0xffffffff;
+    R3DCar_aSyncLoading = -1;
   }
   iVar3 = (carObj->render).currentPitch;
   if (iVar3 != 0) {
@@ -1046,6 +1217,21 @@ void R3DCar_DeInstantiate3DCarMenu__FP8Car_tObj(Car_tObj *carObj)
 	/* end block 1 */
 	// End offset: 0x800AEDF4
 	// End Line: 1119
+
+	/* begin block 2 */
+		// Start line: 2613
+	/* end block 2 */
+	// End Line: 2614
+
+	/* begin block 3 */
+		// Start line: 2618
+	/* end block 3 */
+	// End Line: 2619
+
+	/* begin block 4 */
+		// Start line: 2618
+	/* end block 4 */
+	// End Line: 2619
 
 void R3DCar_GetFileName__FPcN20(char *infilename,char *filename,char *suffix)
 
@@ -1073,6 +1259,21 @@ void R3DCar_GetFileName__FPcN20(char *infilename,char *filename,char *suffix)
 	/* end block 1 */
 	// End offset: 0x800AEE50
 	// End Line: 1134
+
+	/* begin block 2 */
+		// Start line: 2643
+	/* end block 2 */
+	// End Line: 2644
+
+	/* begin block 3 */
+		// Start line: 2651
+	/* end block 3 */
+	// End Line: 2652
+
+	/* begin block 4 */
+		// Start line: 2651
+	/* end block 4 */
+	// End Line: 2652
 
 char * R3DCar_LoadFileAdr__FPc(char *name)
 
@@ -1115,13 +1316,27 @@ char * R3DCar_LoadFileAdr__FPc(char *name)
 	// End offset: 0x800AEF14
 	// End Line: 1155
 
+	/* begin block 2 */
+		// Start line: 2672
+	/* end block 2 */
+	// End Line: 2673
+
+	/* begin block 3 */
+		// Start line: 2676
+	/* end block 3 */
+	// End Line: 2677
+
+	/* begin block 4 */
+		// Start line: 2676
+	/* end block 4 */
+	// End Line: 2677
+
 void R3DCar_GetCarName__FPcii(char *filename,int carType,int country)
 
 {
-  sprintf(filename,&DAT_8013d350,&GameSetup_gCarNames + carType * 5);
+  sprintf(filename,&DAT_8013d350,GameSetup_gCarNames + carType * 5);
   if (carType - 0x16U < 6) {
-    filename[2] = (&R3DCar_CopCountry)
-                  [(uint)(byte)(&R3DCar_CopIndex)[country + (carType - 0x16U) * 5]];
+    filename[2] = R3DCar_CopCountry[(uint)(byte)R3DCar_CopIndex[country + (carType - 0x16U) * 5]];
   }
   return;
 }
@@ -1244,6 +1459,21 @@ void R3DCar_GetCarName__FPcii(char *filename,int carType,int country)
 	// End offset: 0x800AF720
 	// End Line: 1400
 
+	/* begin block 2 */
+		// Start line: 2706
+	/* end block 2 */
+	// End Line: 2707
+
+	/* begin block 3 */
+		// Start line: 2711
+	/* end block 3 */
+	// End Line: 2712
+
+	/* begin block 4 */
+		// Start line: 2711
+	/* end block 4 */
+	// End Line: 2712
+
 void R3DCar_Instantiate3DCar__FP8Car_tObji(Car_tObj *carObj,int index)
 
 {
@@ -1275,7 +1505,7 @@ void R3DCar_Instantiate3DCar__FP8Car_tObji(Car_tObj *carObj,int index)
   if (5 < carType - 0x16U) {
     carObj->carInfo->Country = 0;
   }
-  if (DAT_00000dd8 == 0) {
+  if (R3DCar_InMenu == 0) {
     pGVar8 = carObj->carInfo;
     *(ushort *)&carObj->audio[4].panangle = *(ushort *)&GameSetup_gData.carInfo[index].Colour & 0xf;
     *(char *)((int)&(carObj->render).damageParts + 1) =
@@ -1288,7 +1518,7 @@ void R3DCar_Instantiate3DCar__FP8Car_tObji(Car_tObj *carObj,int index)
   (carObj->render).palCopyNum[1] = 0;
   *(undefined *)&(carObj->render).damageParts = 0;
   if (carType < 0x1c) {
-    if (DAT_00000dd8 == 0) {
+    if (R3DCar_InMenu == 0) {
       if (GameSetup_gData.commMode == 1) {
         *(undefined *)&(carObj->render).damageParts = 1;
       }
@@ -1305,7 +1535,7 @@ void R3DCar_Instantiate3DCar__FP8Car_tObji(Car_tObj *carObj,int index)
       (carObj->render).palCopyNum[1] = 1;
     }
   }
-  iVar12 = DAT_00000dd8;
+  iVar12 = R3DCar_InMenu;
   *(undefined2 *)&(carObj->render).light = 0;
   *(undefined2 *)((int)&(carObj->render).light + 2) = 0;
   if (iVar12 == 0) {
@@ -1322,7 +1552,7 @@ void R3DCar_Instantiate3DCar__FP8Car_tObji(Car_tObj *carObj,int index)
   (carObj->render).palNum = (short)carType;
   (carObj->render).currentPitch = 0;
   *(undefined *)((int)&carObj->audio[4].panangle + 2) = *(undefined *)&pGVar8->Country;
-  if (DAT_00000dd8 != 0) {
+  if (R3DCar_InMenu != 0) {
     sVar4 = (carObj->render).palCopyNum[1];
     (carObj->render).palNum = -1;
     uVar3 = (carObj->render).palCopyNum[0];
@@ -1331,8 +1561,8 @@ void R3DCar_Instantiate3DCar__FP8Car_tObji(Car_tObj *carObj,int index)
     uVar2 = *(undefined *)((int)&carObj->audio[4].panangle + 2);
     (carObj->render).palCopyNum[0] = uVar3 | 0x80;
     *(undefined *)((int)&carObj->audio[4].panangle + 3) = uVar2;
-    DAT_00000e38 = 0xffffffff;
-    DAT_00000e64 = (byte *)0x0;
+    R3DCar_aSyncLoading = -1;
+    R3DCar_BigFile = (char *)0x0;
     return;
   }
   R3DCar_GetCarName__FPcii(acStack256,carType,carObj->carInfo->Country);
@@ -1350,7 +1580,7 @@ LAB_800af158:
     strcat(acStack224,__src);
   }
   strcat(acStack224,&DAT_8013d360);
-  DAT_00000e64 = (byte *)R3DCar_LoadFileAdr__FPc(acStack224);
+  R3DCar_BigFile = R3DCar_LoadFileAdr__FPc(acStack224);
   strcpy(acStack240,acStack256);
   if (((carObj->render).palCopyNum[1] & 1U) == 0) {
     if ((*(char *)&(carObj->render).damageParts == '\0') || (0x1b < carType)) goto LAB_800af1d8;
@@ -1361,11 +1591,11 @@ LAB_800af158:
   }
   strcat(acStack240,__src);
 LAB_800af1d8:
-  if ((&__R3DCar_LoadedScenePointer_2__50__)[carType] == (Transformer_zScene *)0x0) {
+  if ((&R3DCar_LoadedScenePointer250)[carType] == (Transformer_zScene *)0x0) {
     uVar3 = *(ushort *)&carObj->audio[4].panangle;
     pTVar5 = R3DCar_ReadInCarData__FPcP8Car_tObj(acStack240,carObj);
     uVar13 = 0;
-    (&__R3DCar_LoadedScenePointer_2__50__)[carType] = pTVar5;
+    (&R3DCar_LoadedScenePointer250)[carType] = pTVar5;
     (&R3DCar_LoadedSceneCounter)[carType] = (&R3DCar_LoadedSceneCounter)[carType] + '\x01';
     (&R3DCar_LoadedSceneCountry)[carType] = *(char *)((int)&carObj->audio[4].panangle + 2);
     (&R3DCar_LoadedSceneColor)[((int)((uint)uVar3 << 0x10) >> 0x13) * 0x32 + carType] = uVar3 & 8;
@@ -1396,7 +1626,7 @@ LAB_800af1d8:
     }
   }
   R3DCar_CalcCarDimensions__FP8Car_tObjP18Transformer_zScenei
-            (carObj,(&__R3DCar_LoadedScenePointer_2__50__)
+            (carObj,(&R3DCar_LoadedScenePointer250)
                     [(uint)(*(byte *)((int)&carObj->audio[4].panangle + 2) >> 7) * 0x32 + carType],
              carType);
   if (carObj->carInfo->ColourChange != 0) {
@@ -1431,7 +1661,7 @@ LAB_800af1d8:
       shpfile = abStack120;
       do {
         iVar10 = iVar10 + 1;
-        pbVar7 = locatebig(DAT_00000e64,shpfile);
+        pbVar7 = locatebig((byte *)R3DCar_BigFile,shpfile);
         *ppbVar11 = pbVar7;
         ppbVar11 = ppbVar11 + 1;
         shpfile = shpfile + 0xf;
@@ -1465,7 +1695,7 @@ LAB_800af1d8:
   else {
     strcpy((char *)abStack120,acStack240);
     strcat((char *)abStack120,&DAT_8013d340);
-    shpfile = locatebig(DAT_00000e64,abStack120);
+    shpfile = locatebig((byte *)R3DCar_BigFile,abStack120);
     Texture_CarColor = (uint)*(ushort *)&carObj->audio[4].panangle & 7;
     CarIO_ReadInCarTextureData__FPcP8Car_tObjii((char *)shpfile,carObj,uVar13 | 0x88,0);
     *(undefined2 *)&(carObj->render).currentRoll = (undefined2)Texture_palNum;
@@ -1479,7 +1709,7 @@ LAB_800af1d8:
   if (carType != 0) {
     resizememadr(carType,(int)*(short *)&(carObj->render).currentRoll * 0x208);
   }
-  DAT_00000e64 = (byte *)0x0;
+  R3DCar_BigFile = (char *)0x0;
   return;
 }
 
@@ -1515,6 +1745,21 @@ LAB_800af1d8:
 	// End offset: 0x800AFAD0
 	// End Line: 1512
 
+	/* begin block 2 */
+		// Start line: 3291
+	/* end block 2 */
+	// End Line: 3292
+
+	/* begin block 3 */
+		// Start line: 3297
+	/* end block 3 */
+	// End Line: 3298
+
+	/* begin block 4 */
+		// Start line: 3297
+	/* end block 4 */
+	// End Line: 3298
+
 /* WARNING: Type propagation algorithm not settling */
 
 int R3DCar_Visibilty__FP8Car_tObjP13DRender_tView(Car_tObj *carObj,DRender_tView *Vi)
@@ -1535,11 +1780,12 @@ int R3DCar_Visibilty__FP8Car_tObjP13DRender_tView(Car_tObj *carObj,DRender_tView
   
   cviewP = Vi->player;
   bVar2 = false;
-  uVar10 = *(uint *)&(&Camera_gInfo)[cviewP].field_0x74 >> 0x19 & 3;
-  if ((((((Car_tObj *)(&Camera_gInfo)[cviewP].anchor != carObj) || ((carObj->carFlags & 4U) == 0))
-       || ((*(uint *)&(&Camera_gInfo)[cviewP].field_0x74 >> 0x1b & 1) == 0)) ||
+  uVar10 = *(uint *)(&Camera_gInfo.modechange + cviewP * 0x110) >> 0x19 & 3;
+  if ((((((Car_tObj *)(&Camera_gInfo.anchor)[cviewP * 0x44] != carObj) ||
+        ((carObj->carFlags & 4U) == 0)) ||
+       ((*(uint *)(&Camera_gInfo.modechange + cviewP * 0x110) >> 0x1b & 1) == 0)) ||
       ((cviewP = Camera_GetMode__Fi(cviewP), cviewP != 0 &&
-       ((((*(uint *)&(&Camera_gInfo)[Vi->player].field_0x74 >> 0x1b & 1) == 0 ||
+       ((((*(uint *)(&Camera_gInfo.modechange + Vi->player * 0x110) >> 0x1b & 1) == 0 ||
          (cviewP = Camera_GetMode__Fi(Vi->player), cviewP != 1)) ||
         (bVar2 = true, ((carObj->render).palCopyNum[1] & 1U) != 0)))))) &&
      (cviewP = 0xc0000, (carObj->N).active != '\0')) {
@@ -1643,6 +1889,31 @@ LAB_800afab4:
 	// End offset: 0x800AFB4C
 	// End Line: 1522
 
+	/* begin block 2 */
+		// Start line: 3568
+	/* end block 2 */
+	// End Line: 3569
+
+	/* begin block 3 */
+		// Start line: 3573
+	/* end block 3 */
+	// End Line: 3574
+
+	/* begin block 4 */
+		// Start line: 3573
+	/* end block 4 */
+	// End Line: 3574
+
+	/* begin block 5 */
+		// Start line: 3574
+	/* end block 5 */
+	// End Line: 3575
+
+	/* begin block 6 */
+		// Start line: 3574
+	/* end block 6 */
+	// End Line: 3575
+
 void R3DCar_TurnHeadLightOn__FP8Car_tObji(Car_tObj *carObj,int tail)
 
 {
@@ -1676,6 +1947,31 @@ void R3DCar_TurnHeadLightOn__FP8Car_tObji(Car_tObj *carObj,int tail)
 	/* end block 1 */
 	// End offset: 0x800AFBA0
 	// End Line: 1533
+
+	/* begin block 2 */
+		// Start line: 3587
+	/* end block 2 */
+	// End Line: 3588
+
+	/* begin block 3 */
+		// Start line: 3591
+	/* end block 3 */
+	// End Line: 3592
+
+	/* begin block 4 */
+		// Start line: 3591
+	/* end block 4 */
+	// End Line: 3592
+
+	/* begin block 5 */
+		// Start line: 3592
+	/* end block 5 */
+	// End Line: 3593
+
+	/* begin block 6 */
+		// Start line: 3592
+	/* end block 6 */
+	// End Line: 3593
 
 void R3DCar_TurnHeadLightOff__FP8Car_tObji(Car_tObj *carObj,int head)
 
@@ -1712,6 +2008,26 @@ void R3DCar_TurnHeadLightOff__FP8Car_tObji(Car_tObj *carObj,int head)
 	/* end block 1 */
 	// End offset: 0x800AFBC8
 	// End Line: 1542
+
+	/* begin block 2 */
+		// Start line: 3611
+	/* end block 2 */
+	// End Line: 3612
+
+	/* begin block 3 */
+		// Start line: 3617
+	/* end block 3 */
+	// End Line: 3618
+
+	/* begin block 4 */
+		// Start line: 3617
+	/* end block 4 */
+	// End Line: 3618
+
+	/* begin block 5 */
+		// Start line: 3620
+	/* end block 5 */
+	// End Line: 3621
 
 void R3DCar_MATRIX3DT_Copy__FPiT0(int *from,int *to)
 
@@ -2148,6 +2464,21 @@ void R3DCar_MATRIX3DT_Copy__FPiT0(int *from,int *to)
 	// End offset: 0x800B0D80
 	// End Line: 2181
 
+	/* begin block 2 */
+		// Start line: 3628
+	/* end block 2 */
+	// End Line: 3629
+
+	/* begin block 3 */
+		// Start line: 3633
+	/* end block 3 */
+	// End Line: 3634
+
+	/* begin block 4 */
+		// Start line: 3633
+	/* end block 4 */
+	// End Line: 3634
+
 void R3DCar_InsertCarFacet__FP8Car_tObjP13DRender_tView(Car_tObj *carObj,DRender_tView *Vi)
 
 {
@@ -2204,16 +2535,16 @@ void R3DCar_InsertCarFacet__FP8Car_tObjP13DRender_tView(Car_tObj *carObj,DRender
   local_38 = *(int *)((carObj->render).palCopyNum + 9);
   iVar20 = (int)(carObj->render).palNum;
   local_34 = (uint)(*(byte *)((int)&carObj->audio[4].panangle + 2) >> 7);
-  if ((iVar20 < 0x1c) && (local_30 = SEXT14((&R3DCar_ForceDriveSide)[iVar20]), (int)local_30 < 0)) {
-    local_30 = (&AITune_trackInfo)[GameSetup_gData.track].driveSide + 1 >> 1 ^ 1;
+  if ((iVar20 < 0x1c) && (local_30 = SEXT14(R3DCar_ForceDriveSide[iVar20]), (int)local_30 < 0)) {
+    local_30 = AITune_trackInfo[GameSetup_gData.track].driveSide + 1 >> 1 ^ 1;
   }
   if (GameSetup_gData.mirrorTrack != 0) {
     local_30 = local_30 ^ 1;
   }
-  DAT_00000e70 = local_30;
+  R3DCar_rightHandDrive = local_30;
   bVar1 = iVar20 - 0x16U < 6;
   if ((carObj->render).palCopyNum[2] < 0) {
-    DAT_00000e70 = local_30;
+    R3DCar_rightHandDrive = local_30;
     return;
   }
   uVar5 = *(ushort *)&(carObj->render).light;
@@ -2262,7 +2593,7 @@ LAB_800afd40:
       }
     }
   }
-  if (DAT_00000e5c != 0) {
+  if (R3DCar_Clock != 0) {
     uVar5 = *(ushort *)&(carObj->render).palCopy;
     if ((uVar5 & 0x80) != 0) {
       *(ushort *)&(carObj->render).palCopy = uVar5 + 1 & 0x8f;
@@ -2336,7 +2667,7 @@ LAB_800afd40:
   local_e0 = (iVar15 >> 8) * (iVar6 >> 8) + (iVar12 >> 8) * (iVar7 >> 8) +
              (iVar10 >> 8) * (iVar8 >> 8);
   iVar15 = fixedatan(local_e8,local_e0);
-  DAT_00000e58 = 0x1000 - (short)(iVar15 >> 4);
+  R3DCar_yawCam = 0x1000 - (short)(iVar15 >> 4);
   m2 = &(carObj->N).orientMat;
   if (iVar20 < 0x1c) {
     m1 = &local_170;
@@ -2539,7 +2870,7 @@ LAB_800b04ec:
           goto switchD_800b03ec_caseD_f;
         }
         if (((uint)(carObj->render).palCopy & 0x800080) != 0) break;
-        if ((&R3DCar_SignalBrakeFlare)[iVar20] == '\0') goto switchD_800b03ec_caseD_f;
+        if (R3DCar_SignalBrakeFlare[iVar20] == '\0') goto switchD_800b03ec_caseD_f;
         bVar2 = iVar15 - 6U < 6;
         if (*(short *)((int)&(carObj->render).light + 2) == 0) {
           bVar13 = 0;
@@ -2553,15 +2884,15 @@ LAB_800b04ec:
       bVar2 = iVar15 - 6U < 6;
 LAB_800b05d8:
       if (bVar2) {
-        switch((uint)(&switchdataD_80056470)[iVar15 + -6] & 0xfffffffe) {
+        switch((uint)switchdataD_80056470[iVar15 + -6] & 0xfffffffe) {
         case 0x800b05f4:
           uVar5 = *(ushort *)((int)&(carObj->render).bodyPitch + 2) & 0x18;
           break;
         case 0x800b0600:
           if ((*(ushort *)((int)&(carObj->render).bodyPitch + 2) & 4) != 0) {
-            bVar13 = (&R3DCar_DamageSpoiler)[iVar20] & 1;
+            bVar13 = R3DCar_DamageSpoiler[iVar20] & 1;
             if ((*(byte *)((int)&(carObj->render).damageParts + 1) & 4) == 0) {
-              bVar13 = (&R3DCar_DamageSpoiler)[iVar20] & 0x80;
+              bVar13 = R3DCar_DamageSpoiler[iVar20] & 0x80;
             }
             if (bVar13 != 0) {
               bVar13 = 0xb;
@@ -2576,7 +2907,7 @@ LAB_800b05d8:
         }
       }
 LAB_800b0664:
-      (&R3DCar_ObjectVisible)[iVar15] = bVar13;
+      R3DCar_ObjectVisible[iVar15] = bVar13;
       iVar21 = iVar21 + 6;
       iVar15 = iVar15 + 1;
     }
@@ -2607,27 +2938,26 @@ LAB_800b06fc:
       if ((iVar20 == 0x1c) && (iVar15 == 0x20)) {
         cVar14 = '\x01';
       }
-      (&R3DCar_ObjectVisible)[iVar15] = cVar14;
+      R3DCar_ObjectVisible[iVar15] = cVar14;
       iVar21 = iVar21 + 6;
       iVar15 = iVar15 + 1;
     }
   }
   iVar12 = 0;
-  p_Var16 = (&__R3DCar_LoadedScenePointer_2__50__)[local_34 * 0x32 + iVar20]->obj[0];
+  p_Var16 = (&R3DCar_LoadedScenePointer250)[local_34 * 0x32 + iVar20]->obj[0];
   local_2c = &(Vi->cview).mrotationInv;
   iVar15 = *(int *)(p_Var16 + 4);
   iVar21 = *(int *)(p_Var16 + 8);
   iVar6 = *(int *)(p_Var16 + 0xc);
   iVar7 = 0;
   while (iVar12 < 0x39) {
-    p_Var16 = (&__R3DCar_LoadedScenePointer_2__50__)[local_34 * 0x32 + iVar20]->obj[iVar12];
-    if ((*(short *)(p_Var16 + 2) == 0) || ((&R3DCar_ObjectVisible)[iVar12] == '\0'))
-    goto LAB_800b0be4;
+    p_Var16 = (&R3DCar_LoadedScenePointer250)[local_34 * 0x32 + iVar20]->obj[iVar12];
+    if ((*(short *)(p_Var16 + 2) == 0) || (R3DCar_ObjectVisible[iVar12] == '\0')) goto LAB_800b0be4;
     if (iVar12 < 0x2f) {
       local_bc = local_38 - carObj->audio[5].panangle;
     }
     else {
-      iVar10 = carObj->wheel[(int)(&R3DCar_Suspension)[iVar12 + -0x2f]].impactCompression;
+      iVar10 = carObj->wheel[(int)R3DCar_Suspension[iVar12 + -0x2f]].impactCompression;
       if (iVar10 < 1) {
         local_bc = -0x1eb8;
         if (-0x1eb9 < iVar10) {
@@ -2656,14 +2986,14 @@ LAB_800b06fc:
     local_c0 = ((carObj->N).position.x + local_d0) - (Vi->cview).translation.x;
     local_bc = ((carObj->N).position.y + local_cc) - (Vi->cview).translation.y;
     local_b8 = ((carObj->N).position.z + local_c8) - (Vi->cview).translation.z;
-    transform((int *)(&local_f8 + 0x38),(int *)local_2c,(int *)(DAT_00000e40 + iVar12 * 0xc));
+    transform((int *)(&local_f8 + 0x38),(int *)local_2c,(int *)(R3DCar_position + iVar12));
     if (iVar20 == 0x1c) {
       if (iVar12 == 0x1f) {
         fixedxformy((int *)(matrixtdef *)&local_f8,(carObj->N).wheelRot[0]);
         Math_fasttransmult__FP10matrixtdefN20
                   ((matrixtdef *)&local_f8,&mStack448,(matrixtdef *)&local_f8);
         Math_fasttransmult__FP10matrixtdefN20
-                  ((matrixtdef *)&local_f8,local_2c,(matrixtdef *)(DAT_00000e3c + 0x45c));
+                  ((matrixtdef *)&local_f8,local_2c,R3DCar_orientMat + 0x1f);
       }
       else {
         if (iVar12 != 0x23) goto switchD_800b0a34_caseD_29;
@@ -2671,7 +3001,7 @@ LAB_800b06fc:
         Math_fasttransmult__FP10matrixtdefN20
                   ((matrixtdef *)&local_f8,&mStack448,(matrixtdef *)&local_f8);
         Math_fasttransmult__FP10matrixtdefN20
-                  ((matrixtdef *)&local_f8,local_2c,(matrixtdef *)(DAT_00000e3c + 0x4ec));
+                  ((matrixtdef *)&local_f8,local_2c,R3DCar_orientMat + 0x23);
       }
       goto LAB_800b0be4;
     }
@@ -2737,14 +3067,14 @@ switchD_800b0a34_caseD_29:
     case 0x32:
     case 0x33:
     case 0x34:
-      m2 = (matrixtdef *)(DAT_00000e3c + 0x69c);
+      m2 = R3DCar_orientMat + 0x2f;
       break;
     case 0x35:
       fixedxformx((undefined4 *)(matrixtdef *)&local_f8,(carObj->N).wheelRot[1]);
       m2 = &(carObj->N).orientMat;
       goto LAB_800b0ba8;
     case 0x36:
-      m2 = (matrixtdef *)(DAT_00000e3c + 0x774);
+      m2 = R3DCar_orientMat + 0x35;
       break;
     case 0x37:
       fixedxformx((undefined4 *)(matrixtdef *)&local_f8,(carObj->N).wheelRot[1]);
@@ -2753,12 +3083,12 @@ LAB_800b0ba8:
       Math_fasttransmult__FP10matrixtdefN20((matrixtdef *)&local_f8,m2,(matrixtdef *)&local_f8);
       Math_fasttransmult__FP10matrixtdefN20
                 ((matrixtdef *)&local_f8,&(Vi->cview).mrotationInv,
-                 (matrixtdef *)(DAT_00000e3c + iVar7));
+                 (matrixtdef *)((int)R3DCar_orientMat->m + iVar7));
       goto LAB_800b0be4;
     case 0x38:
-      m2 = (matrixtdef *)(DAT_00000e3c + 0x7bc);
+      m2 = R3DCar_orientMat + 0x37;
     }
-    R3DCar_MATRIX3DT_Copy__FPiT0((int *)m2,(int *)(DAT_00000e3c + iVar7));
+    R3DCar_MATRIX3DT_Copy__FPiT0((int *)m2,(int *)((int)R3DCar_orientMat->m + iVar7));
 LAB_800b0be4:
     iVar7 = iVar7 + 0x24;
     iVar12 = iVar12 + 1;
@@ -2767,14 +3097,14 @@ LAB_800b0be4:
   t = &(Vi->cview).translationInv;
   TrsProj_TransformProjectVertex__FP10matrixtdefP8coorddefiT1P12Draw_tVertex
             (m2,t,1,&(carObj->N).position,&R3DCar_center);
-  if ((DAT_00000e50 == '\0') || ((carObj->N).simOptz != '\0')) {
-    DAT_00000e4c = 0;
+  if ((R3DCar_shadowColour.r == '\0') || ((carObj->N).simOptz != '\0')) {
+    R3DCar_shadowFlag = 0;
   }
   else {
     Newton_CalcRealShadowCoordinates__FP8Car_tObji(carObj,simGlobal.gameTicks);
     TrsProj_TransformProjectVertex__FP10matrixtdefP8coorddefiT1P12Draw_tVertex
-              (m2,t,4,(carObj->N).shadowCoord,&R3DCar_shadowVertex);
-    DAT_00000e4c = 1;
+              (m2,t,4,(carObj->N).shadowCoord,R3DCar_shadowVertex);
+    R3DCar_shadowFlag = 1;
   }
   if ((simVar.pauseSim == 0) && (simVar.quickPauseSim == 0)) {
     if (Replay_ReplayMode == 2) {
@@ -2861,6 +3191,21 @@ LAB_800b0be4:
 	/* end block 1 */
 	// End offset: 0x800B10C8
 	// End Line: 2343
+
+	/* begin block 2 */
+		// Start line: 5011
+	/* end block 2 */
+	// End Line: 5012
+
+	/* begin block 3 */
+		// Start line: 5015
+	/* end block 3 */
+	// End Line: 5016
+
+	/* begin block 4 */
+		// Start line: 5015
+	/* end block 4 */
+	// End Line: 5016
 
 void R3DCar_ReadInCarTextureMenu__FP8Car_tObjPcii
                (Car_tObj *carObj,char *bigfile,int reload,int player)
@@ -3287,6 +3632,21 @@ void R3DCar_ReadInCarTextureMenu__FP8Car_tObjPcii
 	// End offset: 0x800B2144
 	// End Line: 3085
 
+	/* begin block 2 */
+		// Start line: 5353
+	/* end block 2 */
+	// End Line: 5354
+
+	/* begin block 3 */
+		// Start line: 5362
+	/* end block 3 */
+	// End Line: 5363
+
+	/* begin block 4 */
+		// Start line: 5362
+	/* end block 4 */
+	// End Line: 5363
+
 /* WARNING: Could not reconcile some variable overlaps */
 
 void R3DCar_InsertCarFacetMenu__FP8Car_tObjP13DRender_tView(Car_tObj *carObj,DRender_tView *Vi)
@@ -3346,26 +3706,24 @@ void R3DCar_InsertCarFacetMenu__FP8Car_tObjP13DRender_tView(Car_tObj *carObj,DRe
   carType = (int)(carObj->render).palNum;
   uVar21 = (uint)(*(byte *)((int)&carObj->audio[4].panangle + 2) >> 7);
   bVar5 = false;
-  if ((carType < 0x1c) && (local_2c = SEXT14((&R3DCar_ForceDriveSide)[carType]), (int)local_2c < 0))
-  {
-    local_2c = (&AITune_trackInfo)[GameSetup_gData.track].driveSide + 1 >> 1 ^ 1;
+  if ((carType < 0x1c) && (local_2c = SEXT14(R3DCar_ForceDriveSide[carType]), (int)local_2c < 0)) {
+    local_2c = AITune_trackInfo[GameSetup_gData.track].driveSide + 1 >> 1 ^ 1;
   }
   carType = carObj->carInfo->carType;
-  DAT_00000e70 = local_2c;
+  R3DCar_rightHandDrive = local_2c;
   bVar4 = 5 < carType - 0x16U;
   if (bVar4) {
     carObj->carInfo->Country = 0;
   }
-  uVar19 = DAT_00000dd8 & 0x80;
+  uVar19 = R3DCar_InMenu & 0x80;
   *(ulong **)&carObj->audio[6].force =
-       (&__R3DCar_subOtStart_2__2__)[gFlip * 2 + (uint)(uVar19 != 0)] +
-       ((carObj->N).objID & 0xfU) * 0x200;
+       (&R3DCar_subOtStart22)[gFlip * 2 + (uint)(uVar19 != 0)] + ((carObj->N).objID & 0xfU) * 0x200;
   if (uVar19 != 0) goto LAB_800b16f0;
   carObj->audio[6].panangle = 0x200;
   *(undefined4 *)&carObj->render = 0x100;
   (carObj->render).textureStartIndex = 0;
   *(undefined2 *)&(carObj->render).bodyPitch = 0;
-  reload = DAT_00000e38;
+  reload = R3DCar_aSyncLoading;
   DrawC_gScreenMat.m[0][0] = 0x1000;
   DrawC_gScreenMat.m[1][0] = 0;
   DrawC_gScreenMat.m[2][0] = 0;
@@ -3378,7 +3736,7 @@ void R3DCar_InsertCarFacetMenu__FP8Car_tObjP13DRender_tView(Car_tObj *carObj,DRe
   DrawC_gScreenMat.t[0] = 0;
   DrawC_gScreenMat.t[1] = 0;
   DrawC_gScreenMat.t[2] = 0;
-  bVar1 = -1 < DAT_00000e38;
+  bVar1 = -1 < R3DCar_aSyncLoading;
   (carObj->render).palCopyNum[2] = 0;
   if ((bVar1) && (reload != Vi->player)) goto LAB_800b16f0;
   if (*(int *)((carObj->render).palCopyNum + 0xd) == 0) {
@@ -3397,11 +3755,11 @@ void R3DCar_InsertCarFacetMenu__FP8Car_tObjP13DRender_tView(Car_tObj *carObj,DRe
           uVar7 = (carObj->render).palCopyNum[1] & 0xef;
         }
         (carObj->render).palCopyNum[1] = uVar7;
-        sprintf((char *)&local_a8,&DAT_8013d350,&GameSetup_gCarNames + carType * 5);
+        sprintf((char *)&local_a8,&DAT_8013d350,GameSetup_gCarNames + carType * 5);
         if (!bVar4) {
           local_a8._0_3_ =
-               CONCAT12((&R3DCar_CopCountry)
-                        [(uint)(byte)(&R3DCar_CopIndex)
+               CONCAT12(R3DCar_CopCountry
+                        [(uint)(byte)R3DCar_CopIndex
                                      [carObj->carInfo->Country + (carType + -0x16) * 5]],
                         (undefined2)local_a8);
           local_a8 = local_a8 & 0xff000000 | (uint)(uint3)local_a8;
@@ -3414,7 +3772,7 @@ void R3DCar_InsertCarFacetMenu__FP8Car_tObjP13DRender_tView(Car_tObj *carObj,DRe
         strcat((char *)&local_98,&DAT_8013d360);
         uVar9 = asyncloadfile((char *)&local_98,0x10);
         *(undefined4 *)((carObj->render).palCopyNum + 0xd) = uVar9;
-        DAT_00000e38 = Vi->player;
+        R3DCar_aSyncLoading = Vi->player;
         pGVar14 = carObj->carInfo;
         (carObj->render).palCopyNum[0] = (short)carType;
         *(undefined *)((int)&carObj->audio[4].panangle + 3) = *(undefined *)&pGVar14->Country;
@@ -3440,18 +3798,18 @@ LAB_800b14e0:
         pcVar10 = (char *)getasyncreadadr(*(uint *)((carObj->render).palCopyNum + 0xd));
         if (pcVar10 == (char *)0x0) {
           bVar5 = false;
-          DAT_00000e64 = pcVar10;
+          R3DCar_BigFile = pcVar10;
           goto LAB_800b16f0;
         }
-        DAT_00000e64 = pcVar10;
+        R3DCar_BigFile = pcVar10;
         *(undefined4 *)((carObj->render).palCopyNum + 0xd) = 0;
         if (uVar19 != 0xffffffff) {
-          DAT_00000e38 = -1;
+          R3DCar_aSyncLoading = -1;
           goto LAB_800b14e4;
         }
         purgememadr((int)pcVar10);
         uVar7 = (carObj->render).palCopyNum[0];
-        DAT_00000e64 = (char *)0x0;
+        R3DCar_BigFile = (char *)0x0;
         goto LAB_800b14e0;
       }
       uVar19 = getasyncreadadr(*(uint *)((carObj->render).palCopyNum + 0xd));
@@ -3463,7 +3821,7 @@ LAB_800b14e0:
   }
 LAB_800b14e4:
   bVar5 = false;
-  if (DAT_00000e64 != (char *)0x0) {
+  if (R3DCar_BigFile != (char *)0x0) {
     carType = (int)(carObj->render).palNum;
     reload = 0;
     if (-1 < carType) {
@@ -3471,8 +3829,8 @@ LAB_800b14e4:
       (&R3DCar_LoadedSceneCounter)[carType + uVar21 * 0x32] = cVar6;
       reload = 1;
       if (cVar6 == '\0') {
-        purgememadr((int)(&__R3DCar_LoadedScenePointer_2__50__)[uVar21 * 0x32 + carType]);
-        (&__R3DCar_LoadedScenePointer_2__50__)[uVar21 * 0x32 + carType] = (Transformer_zScene *)0x0;
+        purgememadr((int)(&R3DCar_LoadedScenePointer250)[uVar21 * 0x32 + carType]);
+        (&R3DCar_LoadedScenePointer250)[uVar21 * 0x32 + carType] = (Transformer_zScene *)0x0;
       }
     }
     sVar3 = (carObj->render).palCopyNum[0];
@@ -3485,11 +3843,11 @@ LAB_800b14e4:
     }
     uVar21 = (uint)(*(byte *)((int)&carObj->audio[4].panangle + 2) >> 7);
     (carObj->render).palCopyNum[1] = (carObj->render).palCopyNum[1] >> 4;
-    sprintf((char *)&local_a8,&DAT_8013d350,&GameSetup_gCarNames + carType * 5);
+    sprintf((char *)&local_a8,&DAT_8013d350,GameSetup_gCarNames + carType * 5);
     if (!bVar4) {
       local_a8._0_3_ =
-           CONCAT12((&R3DCar_CopCountry)
-                    [(uint)(byte)(&R3DCar_CopIndex)
+           CONCAT12(R3DCar_CopCountry
+                    [(uint)(byte)R3DCar_CopIndex
                                  [((uint)*(byte *)((int)&carObj->audio[4].panangle + 2) & 0x7f) +
                                   (carType + -0x16) * 5]],(undefined2)local_a8);
       local_a8 = local_a8 & 0xff000000 | (uint)(uint3)local_a8;
@@ -3498,7 +3856,7 @@ LAB_800b14e4:
     if (((carObj->render).palCopyNum[1] & 1U) != 0) {
       strcat((char *)&local_98,&DAT_8013d358);
     }
-    ppTVar20 = &__R3DCar_LoadedScenePointer_2__50__ + uVar21 * 0x32 + carType;
+    ppTVar20 = &R3DCar_LoadedScenePointer250 + uVar21 * 0x32 + carType;
     if (*ppTVar20 != (Transformer_zScene *)0x0) {
       purgememadr((int)*ppTVar20);
       *ppTVar20 = (Transformer_zScene *)0x0;
@@ -3508,19 +3866,19 @@ LAB_800b14e4:
     (&R3DCar_LoadedSceneCounter)[carType + uVar21 * 0x32] =
          (&R3DCar_LoadedSceneCounter)[carType + uVar21 * 0x32] + '\x01';
     R3DCar_CalcCarDimensions__FP8Car_tObjP18Transformer_zScenei(carObj,*ppTVar20,carType);
-    R3DCar_ReadInCarTextureMenu__FP8Car_tObjPcii(carObj,DAT_00000e64,reload,Vi->player);
-    DAT_00000e64 = (char *)0x0;
+    R3DCar_ReadInCarTextureMenu__FP8Car_tObjPcii(carObj,R3DCar_BigFile,reload,Vi->player);
+    R3DCar_BigFile = (char *)0x0;
     bVar5 = true;
   }
 LAB_800b16f0:
   carType = (int)(carObj->render).palNum;
   uVar21 = (uint)(*(byte *)((int)&carObj->audio[4].panangle + 2) >> 7);
   bVar4 = 5 < carType - 0x16U;
-  if (((DAT_00000dd8 & 0x80) == 0) && (carType < 0)) {
+  if (((R3DCar_InMenu & 0x80U) == 0) && (carType < 0)) {
     (carObj->render).palCopyNum[2] = -1;
   }
   if (-1 < (carObj->render).palCopyNum[2]) {
-    if ((DAT_00000dd8 & 0x80) == 0) {
+    if ((R3DCar_InMenu & 0x80U) == 0) {
       if (bVar4) {
         if (bVar5) {
           *(undefined2 *)((int)&(carObj->render).light + 2) = 0;
@@ -3531,7 +3889,7 @@ LAB_800b16f0:
           *(undefined2 *)&(carObj->render).palCopy = 0x80;
           *(undefined2 *)((int)&(carObj->render).palCopy + 2) = 0x88;
         }
-        if (DAT_00000e5c != 0) {
+        if (R3DCar_Clock != 0) {
           uVar7 = *(ushort *)&(carObj->render).palCopy;
           if ((uVar7 & 0x80) != 0) {
             *(ushort *)&(carObj->render).palCopy = uVar7 + 1 & 0x8f;
@@ -3564,7 +3922,7 @@ LAB_800b16f0:
       reload = (int)(carObj->render).palCopyNum[2];
     }
     reload = reload + 2;
-    if ((DAT_00000dd8 & 0x80) == 0) {
+    if ((R3DCar_InMenu & 0x80U) == 0) {
       (carObj->N).position.y = (carObj->N).position.y + (carObj->N).dimension.y;
     }
     else {
@@ -3622,10 +3980,10 @@ LAB_800b16f0:
     if (iVar8 < 0) {
       iVar8 = iVar8 + 0xf;
     }
-    DAT_00000e58 = 0x1000 - (short)(iVar8 >> 4);
+    R3DCar_yawCam = 0x1000 - (short)(iVar8 >> 4);
     R3DCar_MATRIX3DT_Copy__FPiT0((int *)m2,(int *)&mStack328);
     R3DCar_MATRIX3DT_Copy__FPiT0((int *)m2,(int *)&local_f8);
-    if ((DAT_00000dd8 & 0x80) == 0) {
+    if ((R3DCar_InMenu & 0x80U) == 0) {
       if (local_2c != 0) {
         local_f8.m[0] = -local_f8.m[0];
         local_f8.m[2] = -local_f8.m[2];
@@ -3648,7 +4006,7 @@ LAB_800b16f0:
         case 0:
           if (((carObj->render).palCopyNum[1] & 1U) != 0) goto switchD_800b1af8_caseD_2;
         case 1:
-          if ((DAT_00000dd8 & 0x80) != 0) {
+          if ((R3DCar_InMenu & 0x80U) != 0) {
             cVar6 = '\0';
           }
           break;
@@ -3701,7 +4059,7 @@ LAB_800b1b3c:
             cVar6 = '\0';
           }
         }
-        (&R3DCar_ObjectVisible)[iVar8] = cVar6;
+        R3DCar_ObjectVisible[iVar8] = cVar6;
         reload = reload + 6;
         iVar8 = iVar8 + 1;
       }
@@ -3724,21 +4082,21 @@ LAB_800b1b3c:
         if ((carType == 0x1c) && (iVar8 == 0x20)) {
           cVar6 = '\x01';
         }
-        (&R3DCar_ObjectVisible)[iVar8] = cVar6;
+        R3DCar_ObjectVisible[iVar8] = cVar6;
         reload = reload + 6;
         iVar8 = iVar8 + 1;
       }
     }
     iVar12 = 0;
-    p_Var18 = (&__R3DCar_LoadedScenePointer_2__50__)[uVar21 * 0x32 + carType]->obj[0];
+    p_Var18 = (&R3DCar_LoadedScenePointer250)[uVar21 * 0x32 + carType]->obj[0];
     reload = *(int *)(p_Var18 + 4);
     iVar8 = *(int *)(p_Var18 + 8);
     iVar15 = 0;
     iVar16 = *(int *)(p_Var18 + 0xc);
     iVar13 = 0;
     while (iVar12 < 0x39) {
-      p_Var18 = (&__R3DCar_LoadedScenePointer_2__50__)[uVar21 * 0x32 + carType]->obj[iVar12];
-      if ((*(short *)(p_Var18 + 2) != 0) && ((&R3DCar_ObjectVisible)[iVar12] != '\0')) {
+      p_Var18 = (&R3DCar_LoadedScenePointer250)[uVar21 * 0x32 + carType]->obj[iVar12];
+      if ((*(short *)(p_Var18 + 2) != 0) && (R3DCar_ObjectVisible[iVar12] != '\0')) {
         if ((iVar12 == 0xf) || (iVar17 = local_30, 0x2e < iVar12)) {
           iVar17 = 0;
         }
@@ -3752,11 +4110,12 @@ LAB_800b1b3c:
         local_98 = ((carObj->N).position.x + local_a8) - (Vi->cview).translation.x;
         local_94 = ((carObj->N).position.y + local_a4) - (Vi->cview).translation.y;
         local_90 = ((carObj->N).position.z + local_a0) - (Vi->cview).translation.z;
-        transform((int *)&local_98,(int *)&(Vi->cview).mrotationInv,(int *)(DAT_00000e40 + iVar13));
+        transform((int *)&local_98,(int *)&(Vi->cview).mrotationInv,
+                  (int *)((int)&R3DCar_position->x + iVar13));
         if (((0x1b < carType) || (iVar12 < 0x23)) || (m2 = &mStack208, 0x28 < iVar12)) {
           m2 = &mStack288;
         }
-        R3DCar_MATRIX3DT_Copy__FPiT0((int *)m2,(int *)(DAT_00000e3c + iVar15));
+        R3DCar_MATRIX3DT_Copy__FPiT0((int *)m2,(int *)((int)R3DCar_orientMat->m + iVar15));
       }
       iVar15 = iVar15 + 0x24;
       iVar13 = iVar13 + 0xc;
@@ -3765,7 +4124,7 @@ LAB_800b1b3c:
     TrsProj_TransformProjectVertex__FP10matrixtdefP8coorddefiT1P12Draw_tVertex
               (&(Vi->cview).mrotationInv,&(Vi->cview).translationInv,1,&(carObj->N).position,
                &R3DCar_center);
-    if ((DAT_00000dd8 & 0x80) == 0) {
+    if ((R3DCar_InMenu & 0x80U) == 0) {
       local_58 = (carObj->N).dimension.x;
       local_54 = (carObj->N).dimension.y;
       local_50 = (carObj->N).dimension.z;
@@ -3806,7 +4165,7 @@ LAB_800b1b3c:
       (carObj->N).shadowCoord[3].z = local_60 + local_90;
       TrsProj_TransformProjectVertex__FP10matrixtdefP8coorddefiT1P12Draw_tVertex
                 (&(Vi->cview).mrotationInv,&(Vi->cview).translationInv,4,(carObj->N).shadowCoord,
-                 &R3DCar_shadowVertex);
+                 R3DCar_shadowVertex);
     }
   }
   return;
@@ -3932,6 +4291,21 @@ LAB_800b1b3c:
 	// End offset: 0x800B2730
 	// End Line: 3269
 
+	/* begin block 2 */
+		// Start line: 7113
+	/* end block 2 */
+	// End Line: 7114
+
+	/* begin block 3 */
+		// Start line: 7120
+	/* end block 3 */
+	// End Line: 7121
+
+	/* begin block 4 */
+		// Start line: 7120
+	/* end block 4 */
+	// End Line: 7121
+
 void R3DCar_InsertCarFacetII__FP8Car_tObj(Car_tObj *carObj)
 
 {
@@ -3953,11 +4327,11 @@ void R3DCar_InsertCarFacetII__FP8Car_tObj(Car_tObj *carObj)
   uint local_34;
   int local_2c;
   
-  iVar3 = iGp00000e70;
+  iVar3 = R3DCar_rightHandDrive;
   local_34 = 0;
   iVar7 = (int)(carObj->render).palNum;
   uVar10 = (uint)(*(byte *)((int)&carObj->audio[4].panangle + 2) >> 7);
-  pTVar5 = (&__R3DCar_LoadedScenePointer_2__50__)[uVar10 * 0x32 + iVar7];
+  pTVar5 = (&R3DCar_LoadedScenePointer250)[uVar10 * 0x32 + iVar7];
   if ((carObj->wheel[0].wheelInAir | carObj->wheel[1].wheelInAir | carObj->wheel[2].wheelInAir |
       carObj->wheel[3].wheelInAir) == 0) {
     if (GameSetup_gData.Time == 0) {
@@ -4000,25 +4374,25 @@ LAB_800b2284:
       iVar8 = 0;
       local_2c = 0;
       while (iVar6 < 0x39) {
-        obj = (Transformer_zObj *)
-              (&__R3DCar_LoadedScenePointer_2__50__)[uVar10 * 0x32 + iVar7]->obj[iVar6];
-        if ((obj->numFacet != 0) && ((&R3DCar_ObjectVisible)[iVar6] != 0)) {
+        obj = (Transformer_zObj *)(&R3DCar_LoadedScenePointer250)[uVar10 * 0x32 + iVar7]->obj[iVar6]
+        ;
+        if ((obj->numFacet != 0) && (R3DCar_ObjectVisible[iVar6] != 0)) {
           type = SEXT14((&CHAR_I_801165e1)[local_2c * 2]);
           DAT_1f800040 = (int)(&R3DCar_ObjectInfo)[local_2c * 2];
           bVar2 = false;
-          if ((iVar7 < 0x1c) && ((iVar6 - 0x1cU < 2 && ((&R3DCar_RecessedLight)[iVar7] != '\0')))) {
+          if ((iVar7 < 0x1c) && ((iVar6 - 0x1cU < 2 && (R3DCar_RecessedLight[iVar7] != '\0')))) {
             DAT_1f800040 = -DAT_1f800040;
           }
           if (((iVar3 != 0) && (0x22 < iVar6)) && (iVar6 < 0x29)) {
             bVar2 = true;
             DAT_1f80000c = DAT_1f80000c ^ 1;
           }
-          envmap = (uint)(byte)(&R3DCar_ObjectVisible)[iVar6] - 0x11;
+          envmap = (uint)(byte)R3DCar_ObjectVisible[iVar6] - 0x11;
           if ((int)envmap < 0) {
             index = 0x20;
             if (iVar7 < 0x1c) {
               envmap = type;
-              if (cGp00000e54 == '\0') {
+              if (R3DCar_eMapColour.r == '\0') {
                 envmap = type & 0xfe;
               }
               if (((type & 0x10) != 0) && (0x15 < iVar7)) {
@@ -4043,14 +4417,16 @@ LAB_800b2284:
             if (iVar4 < index) {
                             
               DrawC_PrimClip__FP10matrixtdefP8coorddefP16Transformer_zObjP20Transformer_zOverlayiP13Draw_CarCache
-                        ((matrixtdef *)(iGp00000e3c + iVar8),(coorddef *)(iGp00000e40 + iVar9),obj,
-                         pTVar5->overlay,envmap,(Draw_CarCache *)&DAT_1f800000);
+                        ((matrixtdef *)((int)R3DCar_orientMat->m + iVar8),
+                         (coorddef *)((int)&R3DCar_position->x + iVar9),obj,pTVar5->overlay,envmap,
+                         (Draw_CarCache *)&DAT_1f800000);
             }
             else {
                             
               DrawC_Prim__FP10matrixtdefP8coorddefP16Transformer_zObjP20Transformer_zOverlayiP13Draw_CarCache
-                        ((matrixtdef *)(iGp00000e3c + iVar8),(coorddef *)(iGp00000e40 + iVar9),obj,
-                         pTVar5->overlay,envmap,(Draw_CarCache *)&DAT_1f800000);
+                        ((matrixtdef *)((int)R3DCar_orientMat->m + iVar8),
+                         (coorddef *)((int)&R3DCar_position->x + iVar9),obj,pTVar5->overlay,envmap,
+                         (Draw_CarCache *)&DAT_1f800000);
             }
           }
           else {
@@ -4059,18 +4435,18 @@ LAB_800b2284:
             if (iVar7 < 0x1c) {
               if (iVar7 < 0x16) {
                 type = envmap;
-                if ((envmap == 4) && (type = envmap, (&R3DCar_SignalBrakeFlare)[iVar7] != '\0')) {
+                if ((envmap == 4) && (type = envmap, R3DCar_SignalBrakeFlare[iVar7] != '\0')) {
                   type = 0x41;
                 }
               }
               else {
                 type = envmap;
-                if ((int)(&R3DCar_FlareCopSirenType)
-                         [(uint)(byte)(&R3DCar_CopIndex)
+                if ((int)R3DCar_FlareCopSirenType
+                         [(uint)(byte)R3DCar_CopIndex
                                       [((uint)*(byte *)((int)&carObj->audio[4].panangle + 2) & 0x7f)
                                        + (iVar7 + -0x16) * 5] * 6 + envmap] != 0) {
-                  type = (int)(&R3DCar_FlareCopSirenType)
-                              [(uint)(byte)(&R3DCar_CopIndex)
+                  type = (int)R3DCar_FlareCopSirenType
+                              [(uint)(byte)R3DCar_CopIndex
                                            [((uint)*(byte *)((int)&carObj->audio[4].panangle + 2) &
                                             0x7f) + (iVar7 + -0x16) * 5] * 6 + envmap];
                 }
@@ -4080,12 +4456,13 @@ LAB_800b2284:
                  ((type & 0xbf) == 1)) {
                 type = type | 0x600;
               }
-              index = (int)(&R3DCar_FlareOverlayIndex)[envmap];
+              index = (int)R3DCar_FlareOverlayIndex[envmap];
             }
             DAT_1f800040 = carObj->audio[6].surface2 + DAT_1f800040;
             DrawC_PrimHalo__FP10matrixtdefP8coorddefP16Transformer_zObjiiiP13Draw_CarCache
-                      ((matrixtdef *)(iGp00000e3c + iVar8),(coorddef *)(iGp00000e40 + iVar9),obj,
-                       type,index,local_34,(Draw_CarCache *)&DAT_1f800000);
+                      ((matrixtdef *)((int)R3DCar_orientMat->m + iVar8),
+                       (coorddef *)((int)&R3DCar_position->x + iVar9),obj,type,index,local_34,
+                       (Draw_CarCache *)&DAT_1f800000);
           }
           if (bVar2) {
             DAT_1f80000c = DAT_1f80000c ^ 1;
@@ -4097,17 +4474,17 @@ LAB_800b2284:
         local_2c = local_2c + 3;
       }
       DrawC_PrimStop__FP8Car_tObjP13Draw_CarCache(carObj,(Draw_CarCache *)&DAT_1f800000);
-      if (iGp00000e4c != 0) {
-        DAT_1f80008c = ((int)(lightAvg * (uint)bGp00000e52) >> 8) * 0x10000 +
-                       ((int)(lightAvg * (uint)bGp00000e51) >> 8) * 0x100 +
-                       ((int)(lightAvg * (uint)bGp00000e50) >> 8);
+      if (R3DCar_shadowFlag != 0) {
+        DAT_1f80008c = ((int)(lightAvg * (uint)R3DCar_shadowColour.b) >> 8) * 0x10000 +
+                       ((int)(lightAvg * (uint)R3DCar_shadowColour.g) >> 8) * 0x100 +
+                       ((int)(lightAvg * (uint)R3DCar_shadowColour.r) >> 8);
         if (iVar4 < 0x20) {
           DrawC_ShadowPrimClip__FP12Draw_tVertexP13Draw_CarCache
-                    (&R3DCar_shadowVertex,(Draw_CarCache *)&DAT_1f800000);
+                    (R3DCar_shadowVertex,(Draw_CarCache *)&DAT_1f800000);
         }
         else {
           DrawC_ShadowPrim__FP12Draw_tVertexP13Draw_CarCache
-                    (&R3DCar_shadowVertex,(Draw_CarCache *)&DAT_1f800000);
+                    (R3DCar_shadowVertex,(Draw_CarCache *)&DAT_1f800000);
         }
       }
     }
@@ -4233,6 +4610,21 @@ LAB_800b2284:
 	// End offset: 0x800B2B58
 	// End Line: 3394
 
+	/* begin block 2 */
+		// Start line: 7548
+	/* end block 2 */
+	// End Line: 7549
+
+	/* begin block 3 */
+		// Start line: 7551
+	/* end block 3 */
+	// End Line: 7552
+
+	/* begin block 4 */
+		// Start line: 7551
+	/* end block 4 */
+	// End Line: 7552
+
 void R3DCar_InsertCarFacetMenuII__FP8Car_tObji(Car_tObj *carObj,int light)
 
 {
@@ -4251,11 +4643,11 @@ void R3DCar_InsertCarFacetMenuII__FP8Car_tObji(Car_tObj *carObj,int light)
   int iVar9;
   uint uVar10;
   
-  iVar2 = iGp00000e70;
+  iVar2 = R3DCar_rightHandDrive;
   iVar7 = (int)(carObj->render).palNum;
   uVar10 = (uint)(*(byte *)((int)&carObj->audio[4].panangle + 2) >> 7);
-  pTVar3 = (&__R3DCar_LoadedScenePointer_2__50__)[uVar10 * 0x32 + iVar7];
-  if ((uGp00000dd8 & 0x80) != 0) {
+  pTVar3 = (&R3DCar_LoadedScenePointer250)[uVar10 * 0x32 + iVar7];
+  if ((R3DCar_InMenu & 0x80U) != 0) {
     light = light >> 1;
   }
   DAT_1f80008c = light * 0x10101;
@@ -4268,27 +4660,27 @@ void R3DCar_InsertCarFacetMenuII__FP8Car_tObji(Car_tObj *carObj,int light)
       iVar4 = 0;
       pcVar8 = &R3DCar_ObjectInfo;
       while (iVar6 < 0x39) {
-        obj = (Transformer_zObj *)
-              (&__R3DCar_LoadedScenePointer_2__50__)[uVar10 * 0x32 + iVar7]->obj[iVar6];
-        if ((obj->numFacet != 0) && ((&R3DCar_ObjectVisible)[iVar6] != 0)) {
+        obj = (Transformer_zObj *)(&R3DCar_LoadedScenePointer250)[uVar10 * 0x32 + iVar7]->obj[iVar6]
+        ;
+        if ((obj->numFacet != 0) && (R3DCar_ObjectVisible[iVar6] != 0)) {
           envmap = SEXT14(pcVar8[1]);
           DAT_1f800040 = (int)*pcVar8;
           bVar1 = false;
-          if ((iVar7 < 0x1c) && ((iVar6 - 0x1cU < 2 && ((&R3DCar_RecessedLight)[iVar7] != '\0')))) {
+          if ((iVar7 < 0x1c) && ((iVar6 - 0x1cU < 2 && (R3DCar_RecessedLight[iVar7] != '\0')))) {
             DAT_1f800040 = -DAT_1f800040;
           }
           if (((iVar2 != 0) && (0x22 < iVar6)) && (iVar6 < 0x29)) {
             bVar1 = true;
             DAT_1f80000c = DAT_1f80000c ^ 1;
           }
-          type = (uint)(byte)(&R3DCar_ObjectVisible)[iVar6] - 0x11;
+          type = (uint)(byte)R3DCar_ObjectVisible[iVar6] - 0x11;
           if ((int)type < 0) {
             if (iVar7 < 0x1c) {
               if ((envmap & 0x10) != 0) {
                 type = envmap & 0x80;
                 if (iVar7 < 0x16) goto LAB_800b2ab4;
                 DAT_1f800040 = DAT_1f800040 + 0xc;
-                if ((uGp00000dd8 & 0x80) != 0) {
+                if ((R3DCar_InMenu & 0x80U) != 0) {
                   DAT_1f800040 = -DAT_1f800040;
                 }
               }
@@ -4306,51 +4698,53 @@ LAB_800b2ab0:
               }
             }
 LAB_800b2ab4:
-            if ((type != 0) && ((uGp00000dd8 & 0x80) != 0)) {
+            if ((type != 0) && ((R3DCar_InMenu & 0x80U) != 0)) {
               DAT_1f800040 = -DAT_1f800040;
             }
             DAT_1f800040 = carObj->audio[6].surface2 + DAT_1f800040;
                         
             DrawC_PrimMenu__FP10matrixtdefP8coorddefP16Transformer_zObjP20Transformer_zOverlayiP13Draw_CarCache
-                      ((matrixtdef *)(iGp00000e3c + iVar4),(coorddef *)(iGp00000e40 + iVar9),obj,
-                       pTVar3->overlay,envmap,(Draw_CarCache *)&DAT_1f800000);
+                      ((matrixtdef *)((int)R3DCar_orientMat->m + iVar4),
+                       (coorddef *)((int)&R3DCar_position->x + iVar9),obj,pTVar3->overlay,envmap,
+                       (Draw_CarCache *)&DAT_1f800000);
           }
           else {
             index = -1;
             if (iVar7 < 0x1c) {
               if (iVar7 < 0x16) {
-                if ((type == 4) && ((&R3DCar_SignalBrakeFlare)[iVar7] != '\0')) {
+                if ((type == 4) && (R3DCar_SignalBrakeFlare[iVar7] != '\0')) {
                   type = 1;
                 }
               }
               else {
                 uVar5 = type;
-                if ((int)(&R3DCar_FlareCopSirenType)
-                         [(uint)(byte)(&R3DCar_CopIndex)
+                if ((int)R3DCar_FlareCopSirenType
+                         [(uint)(byte)R3DCar_CopIndex
                                       [((uint)*(byte *)((int)&carObj->audio[4].panangle + 2) & 0x7f)
                                        + (iVar7 + -0x16) * 5] * 6 + type] != 0) {
-                  uVar5 = (int)(&R3DCar_FlareCopSirenType)
-                               [(uint)(byte)(&R3DCar_CopIndex)
+                  uVar5 = (int)R3DCar_FlareCopSirenType
+                               [(uint)(byte)R3DCar_CopIndex
                                             [((uint)*(byte *)((int)&carObj->audio[4].panangle + 2) &
                                              0x7f) + (iVar7 + -0x16) * 5] * 6 + type];
                 }
-                if (((envmap & 0x10) != 0) && ((uGp00000dd8 & 0x80) != 0)) {
+                if (((envmap & 0x10) != 0) && ((R3DCar_InMenu & 0x80U) != 0)) {
                   DAT_1f800040 = 0;
                 }
-                index = (int)(&R3DCar_FlareOverlayIndex)[type];
+                index = (int)R3DCar_FlareOverlayIndex[type];
                 type = uVar5;
               }
               if ((0x15 < iVar7) && (type == 1)) {
                 type = 0x601;
               }
             }
-            if ((uGp00000dd8 & 0x80) != 0) {
+            if ((R3DCar_InMenu & 0x80U) != 0) {
               type = type | 0x8080;
             }
             DAT_1f800040 = carObj->audio[6].surface2 + DAT_1f800040;
             DrawC_PrimHalo__FP10matrixtdefP8coorddefP16Transformer_zObjiiiP13Draw_CarCache
-                      ((matrixtdef *)(iGp00000e3c + iVar4),(coorddef *)(iGp00000e40 + iVar9),obj,
-                       type,index,0,(Draw_CarCache *)&DAT_1f800000);
+                      ((matrixtdef *)((int)R3DCar_orientMat->m + iVar4),
+                       (coorddef *)((int)&R3DCar_position->x + iVar9),obj,type,index,0,
+                       (Draw_CarCache *)&DAT_1f800000);
           }
           if (bVar1) {
             DAT_1f80000c = DAT_1f80000c ^ 1;
@@ -4362,9 +4756,9 @@ LAB_800b2ab4:
         iVar6 = iVar6 + 1;
       }
       DrawC_PrimStop__FP8Car_tObjP13Draw_CarCache(carObj,(Draw_CarCache *)&DAT_1f800000);
-      if ((uGp00000dd8 & 0x80) == 0) {
+      if ((R3DCar_InMenu & 0x80U) == 0) {
         DrawC_ShadowPrimClip__FP12Draw_tVertexP13Draw_CarCache
-                  (&R3DCar_shadowVertex,(Draw_CarCache *)&DAT_1f800000);
+                  (R3DCar_shadowVertex,(Draw_CarCache *)&DAT_1f800000);
       }
     }
   }
@@ -4383,6 +4777,21 @@ LAB_800b2ab4:
 	/* end block 1 */
 	// End offset: 0x800B2B88
 	// End Line: 3400
+
+	/* begin block 2 */
+		// Start line: 7849
+	/* end block 2 */
+	// End Line: 7850
+
+	/* begin block 3 */
+		// Start line: 7853
+	/* end block 3 */
+	// End Line: 7854
+
+	/* begin block 4 */
+		// Start line: 7853
+	/* end block 4 */
+	// End Line: 7854
 
 void R3DCar_Showroom__FP13DRender_tView(DRender_tView *Vi)
 
@@ -4409,6 +4818,21 @@ void R3DCar_Showroom__FP13DRender_tView(DRender_tView *Vi)
 	/* end block 1 */
 	// End offset: 0x800B2BD8
 	// End Line: 3412
+
+	/* begin block 2 */
+		// Start line: 7878
+	/* end block 2 */
+	// End Line: 7879
+
+	/* begin block 3 */
+		// Start line: 7883
+	/* end block 3 */
+	// End Line: 7884
+
+	/* begin block 4 */
+		// Start line: 7883
+	/* end block 4 */
+	// End Line: 7884
 
 void R3DCar_InsertCarFacetZ__FP8Car_tObjP13DRender_tView(Car_tObj *carObj,DRender_tView *Vi)
 
@@ -4562,6 +4986,21 @@ void R3DCar_InsertCarFacetZ__FP8Car_tObjP13DRender_tView(Car_tObj *carObj,DRende
 	// End offset: 0x800B3078
 	// End Line: 3552
 
+	/* begin block 2 */
+		// Start line: 7889
+	/* end block 2 */
+	// End Line: 7890
+
+	/* begin block 3 */
+		// Start line: 7893
+	/* end block 3 */
+	// End Line: 7894
+
+	/* begin block 4 */
+		// Start line: 7893
+	/* end block 4 */
+	// End Line: 7894
+
 void R3DCar_InsertAllListFacet__FP13DRender_tView(DRender_tView *Vi)
 
 {
@@ -4594,16 +5033,16 @@ void R3DCar_InsertAllListFacet__FP13DRender_tView(DRender_tView *Vi)
   stackSpeedUpEnbabledFlag = 1;
   iVar16 = 0;
   if (Vi->player == 0) {
-    if (DAT_00000e60 < generic128HzClock) {
-      DAT_00000e5c = 1;
-      DAT_00000e60 = generic128HzClock + 6;
+    if (R3DCar_ClockLast < generic128HzClock) {
+      R3DCar_Clock = 1;
+      R3DCar_ClockLast = generic128HzClock + 6;
     }
     else {
-      DAT_00000e5c = 0;
+      R3DCar_Clock = 0;
     }
   }
   piVar11 = &R3DCar_PositionZ;
-  ppCVar13 = &__Cars_gList_9__;
+  ppCVar13 = &Cars_gList9;
   piVar15 = piVar9;
   piVar17 = piVar7;
   while (iVar3 = Cars_gNumCars, iVar14 = 1, iVar16 < Cars_gNumCars) {
@@ -4626,7 +5065,7 @@ void R3DCar_InsertAllListFacet__FP13DRender_tView(DRender_tView *Vi)
   }
   iVar16 = 0;
   piVar11 = &R3DCar_PositionZ;
-  ppCVar13 = &__Cars_gList_9__;
+  ppCVar13 = &Cars_gList9;
   local_30[0] = Cars_gNumCars + -1;
   piVar15 = piVar7;
   piVar17 = piVar9;
@@ -4634,7 +5073,7 @@ void R3DCar_InsertAllListFacet__FP13DRender_tView(DRender_tView *Vi)
     if (*piVar11 != -0x80000000) {
       carObj = *ppCVar13;
       piVar10 = &R3DCar_PositionZ + iVar14;
-      ppCVar8 = &__Cars_gList_9__ + iVar14;
+      ppCVar8 = &Cars_gList9 + iVar14;
       iVar12 = iVar14;
       while (iVar12 < iVar3) {
         pCVar5 = *ppCVar8;
@@ -4669,8 +5108,8 @@ void R3DCar_InsertAllListFacet__FP13DRender_tView(DRender_tView *Vi)
     iVar16 = iVar16 + 1;
   }
   iVar16 = 0;
-  ppCVar13 = &__Cars_gList_9__;
-  DAT_00000e6c = (&__R3DCar_subOtStart_2__2__)[gFlip * 2 + gCView.player];
+  ppCVar13 = &Cars_gList9;
+  R3DCar_subOt = (&R3DCar_subOtStart22)[gFlip * 2 + gCView.player];
   piVar11 = &R3DCar_PositionZ;
   while (iVar16 < iVar12) {
     if (*piVar11 != -0x80000000) {
@@ -4680,8 +5119,8 @@ void R3DCar_InsertAllListFacet__FP13DRender_tView(DRender_tView *Vi)
       *piVar9 = iVar3 + 0x30;
       if ((carObj->render).textureStartIndex == 0) {
         iVar14 = (iVar3 + 0x30) - *piVar7;
-        *(ulong **)&carObj->audio[6].force = DAT_00000e6c;
-        DAT_00000e6c = DAT_00000e6c + iVar14;
+        *(ulong **)&carObj->audio[6].force = R3DCar_subOt;
+        R3DCar_subOt = R3DCar_subOt + iVar14;
         iVar3 = (carObj->N).dimension.z;
         carObj->audio[6].panangle = iVar14;
         *(int *)&carObj->render = *piVar9 - (iVar3 >> 10);
@@ -4712,7 +5151,7 @@ void R3DCar_InsertAllListFacet__FP13DRender_tView(DRender_tView *Vi)
   DrawC_gScreenMat.t[1] = 0;
   DrawC_gScreenMat.t[2] = 0;
   gWSavePtr = SetSp(auStack64[iVar2 + iVar1]);
-  ppCVar13 = &__Cars_gList_9__;
+  ppCVar13 = &Cars_gList9;
   stackSpeedUpEnbabledFlag = 0;
   while (iVar16 < Cars_gNumCars) {
     carObj = *ppCVar13;
@@ -4727,6 +5166,7 @@ void R3DCar_InsertAllListFacet__FP13DRender_tView(DRender_tView *Vi)
   }
   return;
 }
+
 
 
 

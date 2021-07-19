@@ -1,6 +1,7 @@
 #ifndef SIMQUEUE_H
 #define SIMQUEUE_H
 
+
 extern void SimQueue_StartUp__Fv(); // 0x800B72EC
 
 extern void SimQueue_Reset__Fv(); // 0x800B7318
@@ -16,5 +17,6 @@ extern void SimQueue_GetCurrentInput__FiP14Input_tResults(int pIndex, struct Inp
 extern void SimQueue_SetLag__Fv(); // 0x800B75CC
 
 extern int SimQueue_IsBlocking__Fi(int pIndex); // 0x800B75F8
+
 
 #endif

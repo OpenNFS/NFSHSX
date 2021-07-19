@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "SIM.H"
+
 
 // decompiled code
 // original method signature: 
@@ -11,6 +12,16 @@
 	/* end block 1 */
 	// End offset: 0x800B6574
 	// End Line: 187
+
+	/* begin block 2 */
+		// Start line: 372
+	/* end block 2 */
+	// End Line: 373
+
+	/* begin block 3 */
+		// Start line: 372
+	/* end block 3 */
+	// End Line: 373
 
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
@@ -60,12 +71,27 @@ void Sim_StartUp__Fv(void)
 	// End offset: 0x800B6688
 	// End Line: 232
 
+	/* begin block 2 */
+		// Start line: 480
+	/* end block 2 */
+	// End Line: 481
+
+	/* begin block 3 */
+		// Start line: 484
+	/* end block 3 */
+	// End Line: 485
+
+	/* begin block 4 */
+		// Start line: 484
+	/* end block 4 */
+	// End Line: 485
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Sim_Restart__Fv(void)
 
 {
-  uGp00000ee4 = 1;
+  quitType = 1;
   simVar.endSimGame = 0;
   simVar.pauseSim = 0;
   simVar.quickPauseSim = 0;
@@ -103,6 +129,21 @@ void Sim_Restart__Fv(void)
 	// End offset: 0x800B6754
 	// End Line: 265
 
+	/* begin block 2 */
+		// Start line: 569
+	/* end block 2 */
+	// End Line: 570
+
+	/* begin block 3 */
+		// Start line: 573
+	/* end block 3 */
+	// End Line: 574
+
+	/* begin block 4 */
+		// Start line: 573
+	/* end block 4 */
+	// End Line: 574
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Sim_CleanUp__Fv(void)
@@ -138,6 +179,31 @@ void Sim_CleanUp__Fv(void)
 	/* end block 1 */
 	// End offset: 0x800B6870
 	// End Line: 302
+
+	/* begin block 2 */
+		// Start line: 621
+	/* end block 2 */
+	// End Line: 622
+
+	/* begin block 3 */
+		// Start line: 625
+	/* end block 3 */
+	// End Line: 626
+
+	/* begin block 4 */
+		// Start line: 625
+	/* end block 4 */
+	// End Line: 626
+
+	/* begin block 5 */
+		// Start line: 626
+	/* end block 5 */
+	// End Line: 627
+
+	/* begin block 6 */
+		// Start line: 626
+	/* end block 6 */
+	// End Line: 627
 
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
@@ -216,6 +282,21 @@ void Sim_FadeInSFX__Fv(void)
 	// End offset: 0x800B6B78
 	// End Line: 455
 
+	/* begin block 2 */
+		// Start line: 658
+	/* end block 2 */
+	// End Line: 659
+
+	/* begin block 3 */
+		// Start line: 669
+	/* end block 3 */
+	// End Line: 670
+
+	/* begin block 4 */
+		// Start line: 669
+	/* end block 4 */
+	// End Line: 670
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Sim_ProcessSimSchedules__Fv(void)
@@ -225,8 +306,8 @@ void Sim_ProcessSimSchedules__Fv(void)
   int iVar2;
   
   if (((GameSetup_gData.raceType == 1) || (GameSetup_gData.raceType == 5)) &&
-     (((__Cars_gHumanRaceCarList_9__->carFlags & 0x200U) != 0 ||
-      ((Cars_gNumHumanRaceCars == 2 && ((PTR_8010fa4c->carFlags & 0x200U) != 0)))))) {
+     (((Cars_gHumanRaceCarList9->carFlags & 0x200U) != 0 ||
+      ((Cars_gNumHumanRaceCars == 2 && ((PTR_ARRAY_8010fa4c[0]->carFlags & 0x200U) != 0)))))) {
     Sim_FadeInSFX__Fv();
     simGlobal.gameStarted = 1;
   }
@@ -242,7 +323,7 @@ void Sim_ProcessSimSchedules__Fv(void)
         iVar1 = iVar2 + 1;
         iVar2 = iVar1;
       }
-      if ((&counter)[(uint)(byte)countdown] <= simGlobal.gameTicks) {
+      if (counter[(uint)(byte)countdown] <= simGlobal.gameTicks) {
         if (0x1ff < simGlobal.gameTicks) {
           simGlobal.gameStarted = 1;
         }
@@ -303,6 +384,26 @@ void Sim_ProcessSimSchedules__Fv(void)
 	// End offset: 0x800B6C90
 	// End Line: 517
 
+	/* begin block 2 */
+		// Start line: 985
+	/* end block 2 */
+	// End Line: 986
+
+	/* begin block 3 */
+		// Start line: 998
+	/* end block 3 */
+	// End Line: 999
+
+	/* begin block 4 */
+		// Start line: 998
+	/* end block 4 */
+	// End Line: 999
+
+	/* begin block 5 */
+		// Start line: 1001
+	/* end block 5 */
+	// End Line: 1002
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Sim_ProcessPause__Fv(void)
@@ -310,7 +411,7 @@ void Sim_ProcessPause__Fv(void)
 {
   int iVar1;
   
-  if (DAT_00000edc <= clock_realTime.time32Hz) {
+  if (unPauseDelay <= clock_realTime.time32Hz) {
     iVar1 = MPause_Logic__Fv();
     if (iVar1 == 1) {
       if (simVar.quickPauseSim == 0) {
@@ -340,7 +441,7 @@ void Sim_ProcessPause__Fv(void)
         simVar.endSimGame = 1;
         simVar.restartGame = 0;
         Stats_ExtrapolateOpponentTimes__Fi(1);
-        DAT_00000ee4 = 1;
+        quitType = 1;
       }
     }
     MPause_EndPauseMenu__Fv();
@@ -361,6 +462,31 @@ void Sim_ProcessPause__Fv(void)
 	// End offset: 0x800B6D3C
 	// End Line: 549
 
+	/* begin block 2 */
+		// Start line: 1137
+	/* end block 2 */
+	// End Line: 1138
+
+	/* begin block 3 */
+		// Start line: 1142
+	/* end block 3 */
+	// End Line: 1143
+
+	/* begin block 4 */
+		// Start line: 1142
+	/* end block 4 */
+	// End Line: 1143
+
+	/* begin block 5 */
+		// Start line: 1143
+	/* end block 5 */
+	// End Line: 1144
+
+	/* begin block 6 */
+		// Start line: 1143
+	/* end block 6 */
+	// End Line: 1144
+
 void Sim_CheckForPause__Fi(int checkInput)
 
 {
@@ -369,7 +495,7 @@ void Sim_CheckForPause__Fi(int checkInput)
   if ((((Replay_ReplayMode < 2) && (simVar.restartGame == 0)) && (0x20 < simGlobal.gameTicks)) &&
      (((checkInput != 0 && (iVar1 = Input_Interface__FUli(6,1), iVar1 != 0)) ||
       (Device_gForcePause != 0)))) {
-    DAT_00000edc = clock_realTime.time32Hz + 4;
+    unPauseDelay = clock_realTime.time32Hz + 4;
     AudioCmn_Pause__Fv();
     gSimQueue_BlockSelf = 1;
     simVar.pauseSim = 1;
@@ -470,6 +596,21 @@ void Sim_CheckForPause__Fi(int checkInput)
 	// End offset: 0x800B7220
 	// End Line: 827
 
+	/* begin block 2 */
+		// Start line: 1177
+	/* end block 2 */
+	// End Line: 1178
+
+	/* begin block 3 */
+		// Start line: 1180
+	/* end block 3 */
+	// End Line: 1181
+
+	/* begin block 4 */
+		// Start line: 1180
+	/* end block 4 */
+	// End Line: 1181
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Sim_MainGameLoop__Fv(void)
@@ -482,7 +623,7 @@ void Sim_MainGameLoop__Fv(void)
   undefined *puVar3;
   int iVar4;
   
-  DAT_00000ee4 = 1;
+  quitType = 1;
   iVar4 = 0;
   simGlobal.time32Hz = Input_gTime;
   puVar3 = &DAT_00002710 + clock_realTime.time64Hz;
@@ -577,17 +718,17 @@ void Sim_MainGameLoop__Fv(void)
       }
       simGlobal.time32Hz = simGlobal.time32Hz + 1;
     }
-    DAT_00000ee0 = 0;
+    skipRender = 0;
     if (((simVar.pauseSim == 0) && (simVar.quickPauseSim == 0)) && (simVar.endSimGame == 0)) {
       if (simVar.goalClockTicks < simVar.currentClockTicks) {
-        DAT_00000ee0 = 1;
+        skipRender = 1;
       }
       else {
         do {
           if ((simVar.currentClockTicks & 1U) == 0) {
             SimQueue_SetCurrentInput__Fi(simVar.currentClockTicks >> 1);
           }
-          DAT_00000ec0 = 0;
+          InBetween = 0;
           if ((((Replay_ReplayMode == 2) && (Replay_ReplayInterface.speed != 2)) &&
               ((Replay_ReplayInterface.speed != 1 || ((simVar.currentClockTicks & 1U) != 0)))) &&
              ((Replay_ReplayInterface.speed != 0 || ((simVar.currentClockTicks & 3U) != 0)))) {
@@ -595,7 +736,7 @@ void Sim_MainGameLoop__Fv(void)
               Sim_ProcessSimSchedules__Fv();
               goto LAB_800b716c;
             }
-            DAT_00000ec0 = 1;
+            InBetween = 1;
             Camera_Update__Fv();
           }
           else {
@@ -609,7 +750,7 @@ LAB_800b716c:
     else {
       Camera_Update__Fv();
     }
-    if (DAT_00000ee0 == 0) {
+    if (skipRender == 0) {
       Render_Render__Fi(simVar.pauseSim);
     }
     cviewP = Input_MainExitKey__Fv();
@@ -621,6 +762,7 @@ LAB_800b716c:
     }
   } while( true );
 }
+
 
 
 

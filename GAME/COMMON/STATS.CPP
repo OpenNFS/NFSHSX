@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "STATS.H"
+
 
 // decompiled code
 // original method signature: 
@@ -16,13 +17,28 @@
 	// End offset: 0x800B80F8
 	// End Line: 103
 
+	/* begin block 2 */
+		// Start line: 104
+	/* end block 2 */
+	// End Line: 105
+
+	/* begin block 3 */
+		// Start line: 104
+	/* end block 3 */
+	// End Line: 105
+
+	/* begin block 4 */
+		// Start line: 114
+	/* end block 4 */
+	// End Line: 115
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Stats_DoPlayerGlue__Fv(void)
 
 {
   int iVar1;
-  undefined *puVar2;
+  undefined **ppuVar2;
   Car_tObj *pCVar3;
   Car_tObj **ppCVar4;
   int iVar5;
@@ -33,7 +49,7 @@ void Stats_DoPlayerGlue__Fv(void)
   iVar5 = 0;
   if (0 < Cars_gNumRaceCars) {
     pSVar6 = &Stats_racePosition;
-    ppCVar4 = &__Cars_gRaceCarList_9__;
+    ppCVar4 = &Cars_gRaceCarList9;
     do {
       iVar1 = Stats_GetPosition__FP8Car_tObj(*ppCVar4);
       ((*ppCVar4)->stats).position = iVar1;
@@ -46,11 +62,11 @@ void Stats_DoPlayerGlue__Fv(void)
     } while (iVar5 < Cars_gNumRaceCars);
   }
   if ((GameSetup_gData.catchupLogic != 0) && (GameSetup_gData.commMode == 1)) {
-    ppCVar4 = &__Cars_gHumanRaceCarList_9__;
-    if (((__Cars_gHumanRaceCarList_9__->stats).finishType == 2) ||
-       ((PTR_8010fa4c->stats).finishType == 2)) {
-      __Cars_gHumanRaceCarList_9__->glue = 0x10000;
-      PTR_8010fa4c->glue = 0x10000;
+    ppCVar4 = &Cars_gHumanRaceCarList9;
+    if (((Cars_gHumanRaceCarList9->stats).finishType == 2) ||
+       ((PTR_ARRAY_8010fa4c[0]->stats).finishType == 2)) {
+      Cars_gHumanRaceCarList9->glue = 0x10000;
+      PTR_ARRAY_8010fa4c[0]->glue = 0x10000;
     }
     else {
       iVar5 = 0;
@@ -63,22 +79,22 @@ void Stats_DoPlayerGlue__Fv(void)
           }
           else {
             if (iVar1 < 10) {
-              puVar2 = &DAT_00010666;
+              ppuVar2 = &PTR_00010666;
             }
             else {
               if (iVar1 < 0x1e) {
-                puVar2 = &DAT_00010ccc;
+                ppuVar2 = &PTR_00010ccc;
               }
               else {
                 if (iVar1 < 0x3c) {
-                  puVar2 = &DAT_00011333;
+                  ppuVar2 = (undefined **)&DAT_00011333;
                 }
                 else {
-                  puVar2 = &DAT_00011999;
+                  ppuVar2 = (undefined **)&DAT_00011999;
                 }
               }
             }
-            *(undefined **)&pCVar3->glue = puVar2;
+            *(undefined ***)&pCVar3->glue = ppuVar2;
           }
           iVar5 = iVar5 + 1;
           ppCVar4 = ppCVar4 + 1;
@@ -110,6 +126,26 @@ void Stats_DoPlayerGlue__Fv(void)
 	/* end block 1 */
 	// End offset: 0x800B814C
 	// End Line: 121
+
+	/* begin block 2 */
+		// Start line: 242
+	/* end block 2 */
+	// End Line: 243
+
+	/* begin block 3 */
+		// Start line: 247
+	/* end block 3 */
+	// End Line: 248
+
+	/* begin block 4 */
+		// Start line: 247
+	/* end block 4 */
+	// End Line: 248
+
+	/* begin block 5 */
+		// Start line: 249
+	/* end block 5 */
+	// End Line: 250
 
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
@@ -157,6 +193,31 @@ void Stats_ClearPosition__Fv(void)
 	// End offset: 0x800B81A0
 	// End Line: 140
 
+	/* begin block 2 */
+		// Start line: 269
+	/* end block 2 */
+	// End Line: 270
+
+	/* begin block 3 */
+		// Start line: 275
+	/* end block 3 */
+	// End Line: 276
+
+	/* begin block 4 */
+		// Start line: 275
+	/* end block 4 */
+	// End Line: 276
+
+	/* begin block 5 */
+		// Start line: 277
+	/* end block 5 */
+	// End Line: 278
+
+	/* begin block 6 */
+		// Start line: 279
+	/* end block 6 */
+	// End Line: 280
+
 int Stats_GetPosition__FP8Car_tObj(Car_tObj *carObj)
 
 {
@@ -192,6 +253,26 @@ int Stats_GetPosition__FP8Car_tObj(Car_tObj *carObj)
 	/* end block 1 */
 	// End offset: 0x800B81F4
 	// End Line: 156
+
+	/* begin block 2 */
+		// Start line: 309
+	/* end block 2 */
+	// End Line: 310
+
+	/* begin block 3 */
+		// Start line: 315
+	/* end block 3 */
+	// End Line: 316
+
+	/* begin block 4 */
+		// Start line: 315
+	/* end block 4 */
+	// End Line: 316
+
+	/* begin block 5 */
+		// Start line: 319
+	/* end block 5 */
+	// End Line: 320
 
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
@@ -319,6 +400,26 @@ int Stats_GetNumOpponents__Fv(void)
 	// End offset: 0x800B85E4
 	// End Line: 268
 
+	/* begin block 2 */
+		// Start line: 341
+	/* end block 2 */
+	// End Line: 342
+
+	/* begin block 3 */
+		// Start line: 347
+	/* end block 3 */
+	// End Line: 348
+
+	/* begin block 4 */
+		// Start line: 347
+	/* end block 4 */
+	// End Line: 348
+
+	/* begin block 5 */
+		// Start line: 349
+	/* end block 5 */
+	// End Line: 350
+
 void Stats_TrackStats__FP8Car_tObj(Car_tObj *carObj)
 
 {
@@ -345,9 +446,9 @@ void Stats_TrackStats__FP8Car_tObj(Car_tObj *carObj)
       else {
         iVar3 = rand();
         iVar2 = (carObj->linearVel_ch).z;
-        if ((&Cars_topSpeedCap)[carObj->carInfo->carType] + iVar3 * -3 < iVar2) {
+        if (Cars_topSpeedCap[carObj->carInfo->carType] + iVar3 * -3 < iVar2) {
           iVar3 = rand();
-          iVar2 = (&Cars_topSpeedCap)[carObj->carInfo->carType] + iVar3 * -3;
+          iVar2 = Cars_topSpeedCap[carObj->carInfo->carType] + iVar3 * -3;
         }
         piVar4[0xde] = iVar2;
       }
@@ -355,8 +456,8 @@ void Stats_TrackStats__FP8Car_tObj(Car_tObj *carObj)
     iVar3 = (carObj->stats).lap;
     if ((iVar3 != carObj->lap) && ((carObj->stats).finishType == 0)) {
       if (((GameSetup_gData.raceType == 1) || (GameSetup_gData.raceType == 5)) &&
-         (((__Cars_gHumanRaceCarList_9__->carFlags & 0x200U) != 0 ||
-          ((Cars_gNumHumanRaceCars == 2 && ((PTR_8010fa4c->carFlags & 0x200U) != 0)))))) {
+         (((Cars_gHumanRaceCarList9->carFlags & 0x200U) != 0 ||
+          ((Cars_gNumHumanRaceCars == 2 && ((PTR_ARRAY_8010fa4c[0]->carFlags & 0x200U) != 0)))))) {
         (carObj->stats).time[iVar3] = 99999;
       }
       else {
@@ -367,8 +468,9 @@ void Stats_TrackStats__FP8Car_tObj(Car_tObj *carObj)
       (carObj->stats).lap = iVar3;
       if ((iVar3 == GameSetup_gData.numLaps) &&
          (((GameSetup_gData.raceType != 1 && (GameSetup_gData.raceType != 5)) ||
-          (((__Cars_gHumanRaceCarList_9__->carFlags & 0x200U) == 0 &&
-           ((Cars_gNumHumanRaceCars != 2 || ((PTR_8010fa4c->carFlags & 0x200U) == 0)))))))) {
+          (((Cars_gHumanRaceCarList9->carFlags & 0x200U) == 0 &&
+           ((Cars_gNumHumanRaceCars != 2 || ((PTR_ARRAY_8010fa4c[0]->carFlags & 0x200U) == 0))))))))
+      {
         (carObj->stats).sliceTime = iVar6;
         (carObj->stats).finishType = 2;
         (carObj->stats).lapTime = (carObj->stats).lapTime + -0x200;
@@ -564,6 +666,21 @@ void Stats_TrackStats__FP8Car_tObj(Car_tObj *carObj)
 	// End offset: 0x800B8D8C
 	// End Line: 464
 
+	/* begin block 2 */
+		// Start line: 615
+	/* end block 2 */
+	// End Line: 616
+
+	/* begin block 3 */
+		// Start line: 620
+	/* end block 3 */
+	// End Line: 621
+
+	/* begin block 4 */
+		// Start line: 620
+	/* end block 4 */
+	// End Line: 621
+
 void Stats_ExtrapolateOpponentTimes__Fi(int type)
 
 {
@@ -582,7 +699,7 @@ void Stats_ExtrapolateOpponentTimes__Fi(int type)
   iVar2 = Input_Interface__FUli(3,0);
   bVar1 = iVar2 != 0;
   iVar2 = 0;
-  ppCVar10 = &__Cars_gHumanRaceCarList_9__;
+  ppCVar10 = &Cars_gHumanRaceCarList9;
   while (iVar2 < Cars_gNumHumanRaceCars) {
     pCVar7 = *ppCVar10;
     if ((pCVar7->stats).finishType != 2) {
@@ -686,7 +803,7 @@ void Stats_ExtrapolateOpponentTimes__Fi(int type)
     iVar2 = iVar2 + 1;
   }
   iVar2 = 0;
-  ppCVar10 = &__Cars_gAIRaceCarList_9__;
+  ppCVar10 = Cars_gAIRaceCarList9;
   while (iVar5 = Cars_gNumRaceCars, iVar2 < Cars_gNumAIRaceCars) {
     pCVar7 = *ppCVar10;
     if ((pCVar7->stats).finishType != 2) {
@@ -706,7 +823,7 @@ void Stats_ExtrapolateOpponentTimes__Fi(int type)
       if ((iVar5 == -1) && (iVar8 == -0x80000000)) {
         trap(0x1800);
       }
-      if ((bVar1) || ((__Cars_gHumanRaceCarList_9__->stats).finishType == 2)) {
+      if ((bVar1) || ((Cars_gHumanRaceCarList9->stats).finishType == 2)) {
         ((*ppCVar10)->stats).lapTime = iVar11;
       }
       else {
@@ -768,10 +885,10 @@ void Stats_ExtrapolateOpponentTimes__Fi(int type)
   }
   iVar2 = 0;
   if (!bVar1) {
-    ppCVar10 = &__Cars_gRaceCarList_9__;
+    ppCVar10 = &Cars_gRaceCarList9;
     while (iVar8 = 1, iVar2 < iVar5) {
       iVar11 = 0;
-      ppCVar9 = &__Cars_gRaceCarList_9__;
+      ppCVar9 = &Cars_gRaceCarList9;
       if (0 < iVar5) {
         do {
           if (iVar2 != iVar11) {
@@ -862,6 +979,26 @@ void Stats_ExtrapolateOpponentTimes__Fi(int type)
 	// End offset: 0x800B9128
 	// End Line: 551
 
+	/* begin block 2 */
+		// Start line: 1014
+	/* end block 2 */
+	// End Line: 1015
+
+	/* begin block 3 */
+		// Start line: 1021
+	/* end block 3 */
+	// End Line: 1022
+
+	/* begin block 4 */
+		// Start line: 1021
+	/* end block 4 */
+	// End Line: 1022
+
+	/* begin block 5 */
+		// Start line: 1030
+	/* end block 5 */
+	// End Line: 1031
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Stats_TrackEndGame__Fv(void)
@@ -890,7 +1027,7 @@ void Stats_TrackEndGame__Fv(void)
     if ((iVar1 >> 6) << 6 == simGlobal.gameTicks + -1) {
       iVar11 = GameSetup_gData.numLaps * gNumSlices;
       iVar1 = 0;
-      ppCVar6 = &__Cars_gHumanRaceCarList_9__;
+      ppCVar6 = &Cars_gHumanRaceCarList9;
       while (iVar1 < Cars_gNumHumanRaceCars) {
         iVar4 = ((*ppCVar6)->stats).sliceTotal;
         local_34 = iVar11;
@@ -910,7 +1047,7 @@ void Stats_TrackEndGame__Fv(void)
           }
         }
         iVar8 = 0;
-        ppCVar7 = &__Cars_gRaceCarList_9__;
+        ppCVar7 = &Cars_gRaceCarList9;
         while (iVar8 < Cars_gNumRaceCars) {
           iVar3 = Stats_GetPosition__FP8Car_tObj(*ppCVar7);
           if (iVar3 == iVar9) {
@@ -920,7 +1057,7 @@ void Stats_TrackEndGame__Fv(void)
               iVar10 = iVar4;
             }
             if (iVar2 == 1) {
-              iVar4 = ((&__Cars_gRaceCarList_9__)[iVar8]->linearVel_ch).z;
+              iVar4 = ((&Cars_gRaceCarList9)[iVar8]->linearVel_ch).z;
               if (iVar4 < 0) {
                 iVar4 = -iVar4;
               }
@@ -958,7 +1095,7 @@ void Stats_TrackEndGame__Fv(void)
   if (simVar.endSimGame == 0) {
     iVar1 = 0;
     if (0 < Cars_gNumHumanRaceCars) {
-      ppCVar6 = &__Cars_gHumanRaceCarList_9__;
+      ppCVar6 = &Cars_gHumanRaceCarList9;
       do {
         if (((1 < ((*ppCVar6)->stats).finishType) &&
             (iVar11 = ((*ppCVar6)->stats).sliceTime, iVar11 + 0x140 < simGlobal.gameTicks)) &&
@@ -977,6 +1114,7 @@ void Stats_TrackEndGame__Fv(void)
   }
   return;
 }
+
 
 
 

@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "PHYSICS.H"
+
 
 // decompiled code
 // original method signature: 
@@ -13,6 +14,16 @@
 	/* end block 1 */
 	// End offset: 0x800A8798
 	// End Line: 256
+
+	/* begin block 2 */
+		// Start line: 486
+	/* end block 2 */
+	// End Line: 487
+
+	/* begin block 3 */
+		// Start line: 486
+	/* end block 3 */
+	// End Line: 487
 
 void Physics_InitCarSpecs__FP8Car_tObjP10Udff_tInfo(Car_tObj *carObj,Udff_tInfo *handle)
 
@@ -121,6 +132,21 @@ void Physics_InitCarSpecs__FP8Car_tObjP10Udff_tInfo(Car_tObj *carObj,Udff_tInfo 
 	// End offset: 0x800A8DB8
 	// End Line: 403
 
+	/* begin block 2 */
+		// Start line: 572
+	/* end block 2 */
+	// End Line: 573
+
+	/* begin block 3 */
+		// Start line: 578
+	/* end block 3 */
+	// End Line: 579
+
+	/* begin block 4 */
+		// Start line: 578
+	/* end block 4 */
+	// End Line: 579
+
 /* WARNING: Removing unreachable block (ram,0x800a89b0) */
 
 void Physics_CalculateDerivedCarSpecs__FP8Car_tObj(Car_tObj *carObj)
@@ -140,7 +166,7 @@ void Physics_CalculateDerivedCarSpecs__FP8Car_tObj(Car_tObj *carObj)
   carObj->specs->redlineInv = 0x10000 / iVar3;
   if (carObj->carInfo->WeightTransfer == 1) {
     carObj->specs->steeringRamp = carObj->specs->steeringRamp + 1;
-    uVar1 = fixedmult(carObj->specs->maxSteeringAcc,(int)&DAT_0001147a);
+    uVar1 = fixedmult(carObj->specs->maxSteeringAcc,0x1147a);
     carObj->specs->maxSteeringAcc = uVar1;
   }
   if (carObj->carInfo->GroundEffects == 1) {
@@ -157,7 +183,7 @@ void Physics_CalculateDerivedCarSpecs__FP8Car_tObj(Car_tObj *carObj)
   if (carObj->carInfo->EngineMods == 1) {
     uVar1 = carObj->specs->gearShiftDelay;
     carObj->specs->gearShiftDelay = (int)(uVar1 + (uVar1 >> 0x1f)) >> 1;
-    uVar1 = fixedmult(carObj->specs->maxBrakeAcc,(int)&DAT_00014000);
+    uVar1 = fixedmult(carObj->specs->maxBrakeAcc,(int)&LAB_00014000);
     carObj->specs->maxBrakeAcc = uVar1;
     iVar3 = 0;
     do {
@@ -185,7 +211,7 @@ void Physics_CalculateDerivedCarSpecs__FP8Car_tObj(Car_tObj *carObj)
       iVar6 = iVar6 + 1;
       iVar2 = fixeddiv(*(uint *)((int)carObj->specs->velToRpmRatio + iVar3),carObj->specs->mass);
       *(int *)((int)carObj->specs->gearAccCoeff + iVar3) = iVar2;
-      iVar2 = fixeddiv(*(uint *)((int)carObj->specs->gearAccCoeff + iVar3),(uint)&LAB_000a0000);
+      iVar2 = fixeddiv(*(uint *)((int)carObj->specs->gearAccCoeff + iVar3),(uint)&PTR_000a0000);
       *(int *)((int)carObj->specs->gearAccCoeff + iVar3) = iVar2;
       iVar2 = (int)&carObj->specs->mass + iVar3;
       uVar1 = fixedmult(*(int *)(iVar2 + 0x1a0),*(int *)(iVar2 + 0x2c));
@@ -248,6 +274,26 @@ void Physics_CalculateDerivedCarSpecs__FP8Car_tObj(Car_tObj *carObj)
 	// End offset: 0x800A8E74
 	// End Line: 415
 
+	/* begin block 2 */
+		// Start line: 839
+	/* end block 2 */
+	// End Line: 840
+
+	/* begin block 3 */
+		// Start line: 847
+	/* end block 3 */
+	// End Line: 848
+
+	/* begin block 4 */
+		// Start line: 847
+	/* end block 4 */
+	// End Line: 848
+
+	/* begin block 5 */
+		// Start line: 898
+	/* end block 5 */
+	// End Line: 899
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Physics_CheckGamedata__Fv(void)
@@ -273,6 +319,21 @@ void Physics_CheckGamedata__Fv(void)
 	/* end block 1 */
 	// End offset: 0x800A92B4
 	// End Line: 658
+
+	/* begin block 2 */
+		// Start line: 1075
+	/* end block 2 */
+	// End Line: 1076
+
+	/* begin block 3 */
+		// Start line: 1201
+	/* end block 3 */
+	// End Line: 1202
+
+	/* begin block 4 */
+		// Start line: 1201
+	/* end block 4 */
+	// End Line: 1202
 
 /* WARNING: Removing unreachable block (ram,0x800a8f2c) */
 
@@ -463,10 +524,35 @@ int Physics_AttenuateVelocity__FP8Car_tObjiP10matrixtdef
 	// End offset: 0x800A92D8
 	// End Line: 667
 
+	/* begin block 2 */
+		// Start line: 1373
+	/* end block 2 */
+	// End Line: 1374
+
+	/* begin block 3 */
+		// Start line: 1379
+	/* end block 3 */
+	// End Line: 1380
+
+	/* begin block 4 */
+		// Start line: 1379
+	/* end block 4 */
+	// End Line: 1380
+
+	/* begin block 5 */
+		// Start line: 1380
+	/* end block 5 */
+	// End Line: 1381
+
+	/* begin block 6 */
+		// Start line: 1380
+	/* end block 6 */
+	// End Line: 1381
+
 void Physics_SetCurrentWallType__Fi(int wallType)
 
 {
-  DAT_00000db0 = wallType;
+  currentWallType = wallType;
   return;
 }
 
@@ -482,6 +568,31 @@ void Physics_SetCurrentWallType__Fi(int wallType)
 	/* end block 1 */
 	// End offset: 0x800A9308
 	// End Line: 675
+
+	/* begin block 2 */
+		// Start line: 1387
+	/* end block 2 */
+	// End Line: 1388
+
+	/* begin block 3 */
+		// Start line: 1393
+	/* end block 3 */
+	// End Line: 1394
+
+	/* begin block 4 */
+		// Start line: 1393
+	/* end block 4 */
+	// End Line: 1394
+
+	/* begin block 5 */
+		// Start line: 1394
+	/* end block 5 */
+	// End Line: 1395
+
+	/* begin block 6 */
+		// Start line: 1394
+	/* end block 6 */
+	// End Line: 1395
 
 int Physics_GetTorque__FP8Car_tObji(Car_tObj *carObj,int index)
 
@@ -517,6 +628,21 @@ int Physics_GetTorque__FP8Car_tObji(Car_tObj *carObj,int index)
 	// End offset: 0x800A949C
 	// End Line: 722
 
+	/* begin block 2 */
+		// Start line: 1403
+	/* end block 2 */
+	// End Line: 1404
+
+	/* begin block 3 */
+		// Start line: 1409
+	/* end block 3 */
+	// End Line: 1410
+
+	/* begin block 4 */
+		// Start line: 1409
+	/* end block 4 */
+	// End Line: 1410
+
 void Physics_CorrectPostCollisionYaw__FP8Car_tObjiG8coorddef
                (Car_tObj *carObj,int impactVel,coorddef barrierVec)
 
@@ -532,9 +658,9 @@ void Physics_CorrectPostCollisionYaw__FP8Car_tObjiG8coorddef
   int iVar7;
   
   (carObj->N).collision.impulse = impactVel * 6;
-  uVar1 = DAT_00000db0;
+  iVar5 = currentWallType;
   (carObj->N).collision.otherObj = (BO_tNewtonObj *)0x0;
-  (carObj->N).collision.sfxType = uVar1 | 0x40000;
+  (carObj->N).collision.sfxType = iVar5 | 0x40000;
   if ((impactVel < 0xf0000) || ((carObj->linearVel_ch).z < 0x140000)) {
     uVar1 = fixedmult(in_a2,(carObj->N).shadowMat.m[6]);
     uVar2 = fixedmult(in_a3,(carObj->N).shadowMat.m[7]);
@@ -644,6 +770,21 @@ void Physics_CorrectPostCollisionYaw__FP8Car_tObjiG8coorddef
 	/* end block 1 */
 	// End offset: 0x800A9A2C
 	// End Line: 933
+
+	/* begin block 2 */
+		// Start line: 1548
+	/* end block 2 */
+	// End Line: 1549
+
+	/* begin block 3 */
+		// Start line: 1588
+	/* end block 3 */
+	// End Line: 1589
+
+	/* begin block 4 */
+		// Start line: 1588
+	/* end block 4 */
+	// End Line: 1589
 
 int Physics_DoBarrierCheck__FP8Car_tObj(Car_tObj *carObj)
 
@@ -786,13 +927,13 @@ int Physics_DoBarrierCheck__FP8Car_tObj(Car_tObj *carObj)
   if (impactVel < (int)(iVar7 - carObj->donutMode)) {
     iVar15 = -1;
     iVar16 = iVar7 - impactVel;
-    DAT_00000db0 = 1;
+    currentWallType = 1;
   }
   iVar14 = (int)BWorldSm_slices[iVar17].rightDrive * 0x100 - (uVar5 + iVar14);
   if ((int)(iVar14 + carObj->donutMode) < impactVel) {
     iVar15 = 1;
     iVar16 = impactVel - iVar14;
-    DAT_00000db0 = 1;
+    currentWallType = 1;
   }
   impactVel = 0;
   if (iVar15 != 0) {
@@ -859,11 +1000,11 @@ int Physics_DoBarrierCheck__FP8Car_tObj(Car_tObj *carObj)
       }
       Collide_TestWithPlane__FP13BO_tNewtonObjP8coorddefT1
                 ((BO_tNewtonObj *)carObj,&local_40,&(carObj->N).position);
-      uVar5 = DAT_00000db0;
+      iVar14 = currentWallType;
       impactVel = iVar15;
       if ((carObj->N).collision.impulse != 0) {
         (carObj->N).collision.otherObj = (BO_tNewtonObj *)0x0;
-        (carObj->N).collision.sfxType = uVar5 | 0x40000;
+        (carObj->N).collision.sfxType = iVar14 | 0x40000;
         impactVel = iVar15;
       }
     }
@@ -900,6 +1041,21 @@ int Physics_DoBarrierCheck__FP8Car_tObj(Car_tObj *carObj)
 	/* end block 1 */
 	// End offset: 0x800A9CE0
 	// End Line: 1033
+
+	/* begin block 2 */
+		// Start line: 2025
+	/* end block 2 */
+	// End Line: 2026
+
+	/* begin block 3 */
+		// Start line: 2031
+	/* end block 3 */
+	// End Line: 2032
+
+	/* begin block 4 */
+		// Start line: 2031
+	/* end block 4 */
+	// End Line: 2032
 
 void Physics_AutoShift__FP8Car_tObj(Car_tObj *carObj)
 
@@ -958,7 +1114,7 @@ void Physics_AutoShift__FP8Car_tObj(Car_tObj *carObj)
     if ((int)uVar5 < 0) {
       uVar5 = uVar5 + 0xffff;
     }
-    if (DAT_00000da8 < 0x8001) {
+    if (gGasRatio < 0x8001) {
       iVar10 = iVar11;
       if (iVar11 < 0) {
         iVar10 = -iVar11;
@@ -1079,6 +1235,21 @@ void Physics_AutoShift__FP8Car_tObj(Car_tObj *carObj)
 	// End offset: 0x800AA4CC
 	// End Line: 1279
 
+	/* begin block 2 */
+		// Start line: 2267
+	/* end block 2 */
+	// End Line: 2268
+
+	/* begin block 3 */
+		// Start line: 2273
+	/* end block 3 */
+	// End Line: 2274
+
+	/* begin block 4 */
+		// Start line: 2273
+	/* end block 4 */
+	// End Line: 2274
+
 void Physics_RampCarControlValues__FP8Car_tObj(Car_tObj *carObj)
 
 {
@@ -1170,8 +1341,9 @@ void Physics_RampCarControlValues__FP8Car_tObj(Car_tObj *carObj)
     if (GameSetup_gData.carInfo[carObj->carIndex].Transmission == 1) {
       if ((simGlobal.gameTicks < 0x208) &&
          (((GameSetup_gData.raceType != 1 && (GameSetup_gData.raceType != 5)) ||
-          (((__Cars_gHumanRaceCarList_9__->carFlags & 0x200U) == 0 &&
-           ((Cars_gNumHumanRaceCars != 2 || ((PTR_8010fa4c->carFlags & 0x200U) == 0)))))))) {
+          (((Cars_gHumanRaceCarList9->carFlags & 0x200U) == 0 &&
+           ((Cars_gNumHumanRaceCars != 2 || ((PTR_ARRAY_8010fa4c[0]->carFlags & 0x200U) == 0))))))))
+      {
         (carObj->control).desiredGear = '\x02';
       }
       else {
@@ -1291,8 +1463,8 @@ LAB_800aa1cc:
 LAB_800aa234:
   if ((simGlobal.gameTicks < 0x200) &&
      (((GameSetup_gData.raceType != 1 && (GameSetup_gData.raceType != 5)) ||
-      (((__Cars_gHumanRaceCarList_9__->carFlags & 0x200U) == 0 &&
-       ((Cars_gNumHumanRaceCars != 2 || ((PTR_8010fa4c->carFlags & 0x200U) == 0)))))))) {
+      (((Cars_gHumanRaceCarList9->carFlags & 0x200U) == 0 &&
+       ((Cars_gNumHumanRaceCars != 2 || ((PTR_ARRAY_8010fa4c[0]->carFlags & 0x200U) == 0)))))))) {
     (carObj->control).brakeLevel = -1;
   }
   else {
@@ -1319,13 +1491,13 @@ LAB_800aa234:
     (carObj->control).steering = iVar5;
     (carObj->control).handBrake = '\x01';
   }
-  DAT_00000da8 = (int)(((uint)(byte)(carObj->control).gasLevel + 1) * 0x10000) / 0xf8;
-  if (0x10000 < DAT_00000da8) {
-    DAT_00000da8 = 0x10000;
+  gGasRatio = (int)(((uint)(byte)(carObj->control).gasLevel + 1) * 0x10000) / 0xf8;
+  if (0x10000 < gGasRatio) {
+    gGasRatio = 0x10000;
   }
-  DAT_00000da4 = (int)(((uint)(byte)(carObj->control).brakeLevel + 1) * 0x10000) / 0xf8;
-  if (0x10000 < DAT_00000da4) {
-    DAT_00000da4 = 0x10000;
+  gBrakeRatio = (int)(((uint)(byte)(carObj->control).brakeLevel + 1) * 0x10000) / 0xf8;
+  if (0x10000 < gBrakeRatio) {
+    gBrakeRatio = 0x10000;
   }
   iVar5 = (carObj->control).steering;
   if (iVar5 < 0) {
@@ -1333,16 +1505,16 @@ LAB_800aa234:
   }
   if (((GameSetup_gData.carInfo[carObj->carIndex].Transmission == 1) &&
       ((carObj->control).gear == '\0')) && ((carObj->control).hanno == 1)) {
-    DAT_00000da8 = (int)(((uint)(byte)(carObj->control).brakeLevel + 1) * 0x10000) / 0xf8;
-    if (0x10000 < DAT_00000da8) {
-      DAT_00000da8 = 0x10000;
+    gGasRatio = (int)(((uint)(byte)(carObj->control).brakeLevel + 1) * 0x10000) / 0xf8;
+    if (0x10000 < gGasRatio) {
+      gGasRatio = 0x10000;
     }
-    DAT_00000da4 = (int)(((uint)(byte)(carObj->control).gasLevel + 1) * 0x10000) / 0xf8;
-    if (0x10000 < DAT_00000da4) {
-      DAT_00000da4 = 0x10000;
+    gBrakeRatio = (int)(((uint)(byte)(carObj->control).gasLevel + 1) * 0x10000) / 0xf8;
+    if (0x10000 < gBrakeRatio) {
+      gBrakeRatio = 0x10000;
     }
   }
-  DAT_00000dac = iVar5 << 9;
+  gSteerRatio = iVar5 << 9;
   return;
 }
 
@@ -1358,6 +1530,26 @@ LAB_800aa234:
 	/* end block 1 */
 	// End offset: 0x800AA634
 	// End Line: 1308
+
+	/* begin block 2 */
+		// Start line: 2775
+	/* end block 2 */
+	// End Line: 2776
+
+	/* begin block 3 */
+		// Start line: 2784
+	/* end block 3 */
+	// End Line: 2785
+
+	/* begin block 4 */
+		// Start line: 2784
+	/* end block 4 */
+	// End Line: 2785
+
+	/* begin block 5 */
+		// Start line: 2786
+	/* end block 5 */
+	// End Line: 2787
 
 void Physics_FixEngineRpm__FP8Car_tObj(Car_tObj *carObj)
 
@@ -1455,6 +1647,26 @@ void Physics_FixEngineRpm__FP8Car_tObj(Car_tObj *carObj)
 	// End offset: 0x800AA6D0
 	// End Line: 1359
 
+	/* begin block 2 */
+		// Start line: 2837
+	/* end block 2 */
+	// End Line: 2838
+
+	/* begin block 3 */
+		// Start line: 2843
+	/* end block 3 */
+	// End Line: 2844
+
+	/* begin block 4 */
+		// Start line: 2843
+	/* end block 4 */
+	// End Line: 2844
+
+	/* begin block 5 */
+		// Start line: 2845
+	/* end block 5 */
+	// End Line: 2846
+
 void Physics_ResetCar__FP8Car_tObj(Car_tObj *carObj)
 
 {
@@ -1510,6 +1722,31 @@ void Physics_ResetCar__FP8Car_tObj(Car_tObj *carObj)
 	// End offset: 0x800AA7A8
 	// End Line: 1371
 
+	/* begin block 2 */
+		// Start line: 2966
+	/* end block 2 */
+	// End Line: 2967
+
+	/* begin block 3 */
+		// Start line: 2972
+	/* end block 3 */
+	// End Line: 2973
+
+	/* begin block 4 */
+		// Start line: 2972
+	/* end block 4 */
+	// End Line: 2973
+
+	/* begin block 5 */
+		// Start line: 2973
+	/* end block 5 */
+	// End Line: 2974
+
+	/* begin block 6 */
+		// Start line: 2973
+	/* end block 6 */
+	// End Line: 2974
+
 void Physics_StopCar__FP8Car_tObj(Car_tObj *carObj)
 
 {
@@ -1558,6 +1795,21 @@ void Physics_StopCar__FP8Car_tObj(Car_tObj *carObj)
 	/* end block 1 */
 	// End offset: 0x800AA7F4
 	// End Line: 1386
+
+	/* begin block 2 */
+		// Start line: 2993
+	/* end block 2 */
+	// End Line: 2994
+
+	/* begin block 3 */
+		// Start line: 3000
+	/* end block 3 */
+	// End Line: 3001
+
+	/* begin block 4 */
+		// Start line: 3000
+	/* end block 4 */
+	// End Line: 3001
 
 void Physics_TestForBarrierCollision__FP8Car_tObj(Car_tObj *carObj)
 
@@ -1632,6 +1884,21 @@ void Physics_TestForBarrierCollision__FP8Car_tObj(Car_tObj *carObj)
 	// End offset: 0x800AA974
 	// End Line: 1440
 
+	/* begin block 2 */
+		// Start line: 3025
+	/* end block 2 */
+	// End Line: 3026
+
+	/* begin block 3 */
+		// Start line: 3034
+	/* end block 3 */
+	// End Line: 3035
+
+	/* begin block 4 */
+		// Start line: 3034
+	/* end block 4 */
+	// End Line: 3035
+
 void Physics_CalculateRoadGripModifiers__FP8Car_tObj(Car_tObj *carObj)
 
 {
@@ -1641,43 +1908,43 @@ void Physics_CalculateRoadGripModifiers__FP8Car_tObj(Car_tObj *carObj)
   int iVar4;
   
   iVar4 = 0;
-  DAT_00000dc0 = 0;
-  DAT_00000dc4 = 0;
-  DAT_00000dc8 = 0;
+  rearMult = 0;
+  leftMult = 0;
+  rightMult = 0;
   iVar2 = 0;
   pCVar3 = carObj;
-  while (DAT_00000dbc = iVar4 >> 1, iVar2 < 4) {
-    uVar1 = (uint)(byte)(&roadSurfaceIndex)
+  while (frontMult = iVar4 >> 1, iVar2 < 4) {
+    uVar1 = (uint)(byte)roadSurfaceIndex
                         [(pCVar3->wheel[0].roadSurfaceType & 0xfU) +
                          carObj->carInfo->TireType * 0x14];
-    if (DAT_00000dcc != 0) {
+    if (slippery != 0) {
       uVar1 = uVar1 + 1;
     }
     if (iVar2 < 2) {
-      iVar4 = iVar4 + (&roadSurfaceFrictionCoeff)[uVar1];
+      iVar4 = iVar4 + roadSurfaceFrictionCoeff[uVar1];
     }
     else {
-      DAT_00000dc0 = DAT_00000dc0 + (&roadSurfaceFrictionCoeff)[uVar1];
+      rearMult = rearMult + roadSurfaceFrictionCoeff[uVar1];
     }
     if ((iVar2 == 0) || (iVar2 == 2)) {
-      DAT_00000dc4 = DAT_00000dc4 + (&roadSurfaceFrictionCoeff)[uVar1];
+      leftMult = leftMult + roadSurfaceFrictionCoeff[uVar1];
     }
     else {
-      DAT_00000dc8 = DAT_00000dc8 + (&roadSurfaceFrictionCoeff)[uVar1];
+      rightMult = rightMult + roadSurfaceFrictionCoeff[uVar1];
     }
     pCVar3 = (Car_tObj *)&(pCVar3->N).simRoadInfo.quadPts[2].z;
     iVar2 = iVar2 + 1;
   }
-  DAT_00000dc0 = DAT_00000dc0 >> 1;
-  DAT_00000dc4 = DAT_00000dc4 >> 1;
-  DAT_00000dc8 = DAT_00000dc8 >> 1;
+  rearMult = rearMult >> 1;
+  leftMult = leftMult >> 1;
+  rightMult = rightMult >> 1;
   iVar2 = (carObj->linearVel_ch).z;
-  DAT_00000db8 = (DAT_00000dbc + DAT_00000dc0 >> 1) + (carObj->N).roadGravityModifier;
+  roadMult = (frontMult + rearMult >> 1) + (carObj->N).roadGravityModifier;
   if (0x50000 < iVar2) {
     uVar1 = fixedmult(iVar2,carObj->specs->frontAeroDownForce);
-    DAT_00000dbc = DAT_00000dbc + uVar1;
+    frontMult = frontMult + uVar1;
     uVar1 = fixedmult((carObj->linearVel_ch).z,carObj->specs->rearAeroDownForce);
-    DAT_00000dc0 = DAT_00000dc0 + uVar1;
+    rearMult = rearMult + uVar1;
   }
   return;
 }
@@ -1762,6 +2029,21 @@ void Physics_CalculateRoadGripModifiers__FP8Car_tObj(Car_tObj *carObj)
 	// End offset: 0x800AB468
 	// End Line: 1673
 
+	/* begin block 2 */
+		// Start line: 3161
+	/* end block 2 */
+	// End Line: 3162
+
+	/* begin block 3 */
+		// Start line: 3169
+	/* end block 3 */
+	// End Line: 3170
+
+	/* begin block 4 */
+		// Start line: 3169
+	/* end block 4 */
+	// End Line: 3170
+
 int Physics_CalculateCarAcceleration__FP8Car_tObj(Car_tObj *carObj)
 
 {
@@ -1816,7 +2098,7 @@ int Physics_CalculateCarAcceleration__FP8Car_tObj(Car_tObj *carObj)
   }
   bVar3 = (randtemp >> 8 & 0xffff) < (uint)(iVar9 >> 8);
   pCVar12 = carObj->specs;
-  DAT_00000db4 = (uint)(pCVar12->redline + 500 < carObj->flywheelRpm);
+  exceedRedline = ZEXT14(pCVar12->redline + 500 < carObj->flywheelRpm);
   iVar9 = 0x10000;
   if (carObj->carInfo->GroundEffects != 0) {
     uVar4 = carObj->specs->frontAeroDownForce + carObj->specs->rearAeroDownForce;
@@ -1828,9 +2110,9 @@ int Physics_CalculateCarAcceleration__FP8Car_tObj(Car_tObj *carObj)
   }
   iVar9 = (int)uVar4 >> 0x10;
   uVar4 = fixedmult(pCVar12->dragCoeff,iVar9 * iVar9 * iVar9);
-  if (((carObj->control).gear == '\x01') || (DAT_00000dd4 == 0)) {
+  if (((carObj->control).gear == '\x01') || (powerControl == 0)) {
     iVar9 = pCVar12->redline + 0xfa;
-    uVar5 = fixedmult(iVar9,DAT_00000da8);
+    uVar5 = fixedmult(iVar9,gGasRatio);
     if ((int)uVar5 < iVar9) {
       iVar9 = pCVar12->redline + 0xfa;
       goto LAB_800aac10;
@@ -1839,11 +2121,11 @@ int Physics_CalculateCarAcceleration__FP8Car_tObj(Car_tObj *carObj)
   }
   else {
     iVar9 = pCVar12->redline + 100;
-    uVar5 = fixedmult(iVar9,DAT_00000da8);
+    uVar5 = fixedmult(iVar9,gGasRatio);
     if ((int)uVar5 < iVar9) {
       iVar9 = pCVar12->redline + 100;
 LAB_800aac10:
-      uVar5 = fixedmult(iVar9,DAT_00000da8);
+      uVar5 = fixedmult(iVar9,gGasRatio);
     }
     else {
       uVar5 = pCVar12->redline + 100;
@@ -1853,14 +2135,14 @@ LAB_800aac10:
     cVar1 = (carObj->control).gear;
     carObj->flywheelRpm = pCVar12->redline + 0x32;
     iVar9 = 3;
-    if ((cVar1 != '\x01') && (iVar9 = 4, DAT_00000dd4 == 0)) {
+    if ((cVar1 != '\x01') && (iVar9 = 4, powerControl == 0)) {
       iVar9 = 3;
     }
     carObj->revLimit = iVar9;
   }
   uVar6 = uVar5;
   if (0 < carObj->revLimit) {
-    if (((carObj->control).gear == '\x01') || (DAT_00000dd4 == 0)) {
+    if (((carObj->control).gear == '\x01') || (powerControl == 0)) {
       uVar6 = pCVar12->redline - 800;
     }
     else {
@@ -1872,7 +2154,7 @@ LAB_800aac10:
     carObj->revLimit = carObj->revLimit + -1;
   }
   if ((((carObj->control).gear == '\x01') || ((carObj->control).gearShiftTimer != '\0')) ||
-     (DAT_00000dd4 == 0)) {
+     (powerControl == 0)) {
     if (bVar3) {
       iVar11 = carObj->flywheelRpm + -100;
       carObj->flywheelRpm = iVar11;
@@ -1950,7 +2232,7 @@ LAB_800aae78:
     uVar5 = uVar5 + 0xffff;
   }
   iVar9 = (int)uVar5 >> 0x10;
-  if ((DAT_00000db4 == 0) && (carObj->revLimit < 1)) {
+  if ((exceedRedline == 0) && (carObj->revLimit < 1)) {
     iVar7 = carObj->flywheelRpm;
     if (iVar7 < 0) {
       iVar7 = iVar7 + 0xff;
@@ -1979,9 +2261,9 @@ LAB_800aae78:
   if ((((((iVar7 < 0xfb) || ((carObj->control).gearShiftTimer != '\0')) ||
         (4 < (byte)(carObj->control).gear)) &&
        ((((byte)(carObj->control).gear < 2 || (-0x199a < (carObj->linearVel_ch).z)) ||
-        (DAT_00000da8 < 0x8001)))) &&
+        (gGasRatio < 0x8001)))) &&
       (((((carObj->control).gear != '\0' || ((carObj->linearVel_ch).z < 0x199a)) ||
-        (DAT_00000da8 < 0x8001)) && (carObj->wheelSpin != 1)))) || (carObj->revLimit != 0)) {
+        (gGasRatio < 0x8001)) && (carObj->wheelSpin != 1)))) || (carObj->revLimit != 0)) {
     if (iVar10 < 0) {
       uVar8 = fixedmult(uVar5,pCVar12->gasOffFactor);
       uVar5 = -uVar8;
@@ -2018,7 +2300,7 @@ LAB_800ab204:
         }
       }
       carObj->flywheelRpm = iVar9;
-      if (DAT_00000db4 == 0) {
+      if (exceedRedline == 0) {
         if ((int)uVar6 < carObj->flywheelRpm) {
           uVar6 = carObj->flywheelRpm;
         }
@@ -2047,7 +2329,7 @@ LAB_800ab204:
           else {
             carObj->flywheelRpm = carObj->flywheelRpm + -200;
           }
-          uVar5 = fixedmult(uVar5,DAT_00000da8);
+          uVar5 = fixedmult(uVar5,gGasRatio);
         }
         if (carObj->flywheelRpm <= (int)uVar6) {
           uVar6 = carObj->flywheelRpm;
@@ -2115,7 +2397,7 @@ LAB_800ab204:
 LAB_800ab418:
   iVar11 = uVar5 - uVar4;
   if (carObj->carInfo->carType - 0xcU < 4) {
-    if (DAT_00000dcc != 0) {
+    if (slippery != 0) {
       if ((carObj->control).gear != '\x02') {
         return uVar5 - uVar4;
       }
@@ -2146,6 +2428,21 @@ LAB_800ab418:
 	// End offset: 0x800AB658
 	// End Line: 1725
 
+	/* begin block 2 */
+		// Start line: 3640
+	/* end block 2 */
+	// End Line: 3641
+
+	/* begin block 3 */
+		// Start line: 3648
+	/* end block 3 */
+	// End Line: 3649
+
+	/* begin block 4 */
+		// Start line: 3648
+	/* end block 4 */
+	// End Line: 3649
+
 void Physics_CalcWheelLockAcc__FP8Car_tObjP23Physics_tWheelAccStruct
                (Car_tObj *carObj,Physics_tWheelAccStruct *wheel)
 
@@ -2155,25 +2452,25 @@ void Physics_CalcWheelLockAcc__FP8Car_tObjP23Physics_tWheelAccStruct
   int iVar3;
   int *piVar4;
   uint uVar5;
-  undefined *puVar6;
+  undefined **ppuVar6;
   int iVar7;
   
   if (wheel->frontTire == 0) {
     iVar3 = wheel->roadGrip;
     wheel->skid = carObj->rearSkid;
-    iVar1 = DAT_00000dc0;
+    iVar1 = rearMult;
     if (iVar3 < 0) {
       iVar3 = iVar3 + 0xff;
-      iVar1 = DAT_00000dc0;
+      iVar1 = rearMult;
     }
   }
   else {
     iVar3 = wheel->roadGrip;
     wheel->skid = carObj->frontSkid;
-    iVar1 = DAT_00000dbc;
+    iVar1 = frontMult;
     if (iVar3 < 0) {
       iVar3 = iVar3 + 0xff;
-      iVar1 = DAT_00000dbc;
+      iVar1 = frontMult;
     }
   }
   if (iVar1 < 0) {
@@ -2194,13 +2491,13 @@ void Physics_CalcWheelLockAcc__FP8Car_tObjP23Physics_tWheelAccStruct
   else {
     uVar5 = iVar3 + (iVar1 >> 2);
   }
-  if (DAT_00000dcc == 0) {
+  if (slippery == 0) {
     iVar3 = carObj->carInfo->TireType;
-    piVar4 = &gripLossTable;
+    piVar4 = gripLossTable;
   }
   else {
     iVar3 = carObj->carInfo->TireType;
-    piVar4 = &gripLossTableWet;
+    piVar4 = gripLossTableWet;
   }
   iVar3 = piVar4[iVar3];
   if (iVar3 == 0) {
@@ -2215,18 +2512,18 @@ void Physics_CalcWheelLockAcc__FP8Car_tObjP23Physics_tWheelAccStruct
   else {
     wheel->skid = 0;
   }
-  puVar6 = &LAB_000a0000;
+  ppuVar6 = &PTR_000a0000;
   if (carObj->carInfo->TireType == 2) {
-    puVar6 = (undefined *)0x80000;
+    ppuVar6 = (undefined **)0x80000;
   }
-  if ((int)(undefined *)wheel->skid <= (int)puVar6) {
-    puVar6 = (undefined *)wheel->skid;
+  if ((int)(undefined **)wheel->skid <= (int)ppuVar6) {
+    ppuVar6 = (undefined **)wheel->skid;
   }
   uVar2 = uVar5;
   if ((int)uVar5 < 0) {
     uVar2 = -uVar5;
   }
-  *(undefined **)&wheel->skid = puVar6;
+  *(undefined ***)&wheel->skid = ppuVar6;
   if (0x100 < (int)uVar2) {
     iVar1 = fixeddiv(iVar7 - iVar7 / iVar3,uVar5);
     iVar1 = iVar1 >> 8;
@@ -2255,6 +2552,21 @@ void Physics_CalcWheelLockAcc__FP8Car_tObjP23Physics_tWheelAccStruct
 	/* end block 1 */
 	// End offset: 0x800ABA1C
 	// End Line: 1811
+
+	/* begin block 2 */
+		// Start line: 3746
+	/* end block 2 */
+	// End Line: 3747
+
+	/* begin block 3 */
+		// Start line: 3752
+	/* end block 3 */
+	// End Line: 3753
+
+	/* begin block 4 */
+		// Start line: 3752
+	/* end block 4 */
+	// End Line: 3753
 
 void Physics_CalcTractionCircleAcc__FP8Car_tObjP23Physics_tWheelAccStruct
                (Car_tObj *carObj,Physics_tWheelAccStruct *wheel)
@@ -2299,13 +2611,13 @@ void Physics_CalcTractionCircleAcc__FP8Car_tObjP23Physics_tWheelAccStruct
   else {
     wheel->skid = carObj->frontSkid;
   }
-  if (DAT_00000dcc == 0) {
+  if (slippery == 0) {
     iVar1 = carObj->carInfo->TireType;
-    piVar4 = &gripLossTable;
+    piVar4 = gripLossTable;
   }
   else {
     iVar1 = carObj->carInfo->TireType;
-    piVar4 = &gripLossTableWet;
+    piVar4 = gripLossTableWet;
   }
   iVar1 = piVar4[iVar1];
   if ((int)uVar5 < (int)uVar6) {
@@ -2415,6 +2727,21 @@ LAB_800ab9e0:
 	// End offset: 0x800ABF88
 	// End Line: 1979
 
+	/* begin block 2 */
+		// Start line: 3928
+	/* end block 2 */
+	// End Line: 3929
+
+	/* begin block 3 */
+		// Start line: 3933
+	/* end block 3 */
+	// End Line: 3934
+
+	/* begin block 4 */
+		// Start line: 3933
+	/* end block 4 */
+	// End Line: 3934
+
 void Physics_CalculateTireForces__FP8Car_tObjP23Physics_tWheelAccStruct
                (Car_tObj *carObj,Physics_tWheelAccStruct *wheel)
 
@@ -2439,7 +2766,7 @@ void Physics_CalculateTireForces__FP8Car_tObjP23Physics_tWheelAccStruct
   }
   iVar6 = wheel->acc;
   if ((iVar6 < 0) && (iVar4 = (wheel->velCap).z, iVar4 < 0)) {
-    if ((DAT_00000da8 < 0x4001) || ((carObj->control).gear != '\0')) {
+    if ((gGasRatio < 0x4001) || ((carObj->control).gear != '\0')) {
       if (iVar4 < iVar6) {
         iVar4 = iVar6;
       }
@@ -2450,7 +2777,7 @@ LAB_800abb2c:
   }
   else {
     if (((0 < iVar6) && (iVar4 = (wheel->velCap).z, 0 < iVar4)) &&
-       ((DAT_00000da8 < 0x4001 || ((byte)(carObj->control).gear < 2)))) {
+       ((gGasRatio < 0x4001 || ((byte)(carObj->control).gear < 2)))) {
       if (iVar6 <= iVar4) {
         iVar4 = iVar6;
       }
@@ -2684,6 +3011,21 @@ joined_r0x800abf68:
 	/* end block 1 */
 	// End offset: 0x800AC144
 	// End Line: 2041
+
+	/* begin block 2 */
+		// Start line: 4308
+	/* end block 2 */
+	// End Line: 4309
+
+	/* begin block 3 */
+		// Start line: 4311
+	/* end block 3 */
+	// End Line: 4312
+
+	/* begin block 4 */
+		// Start line: 4311
+	/* end block 4 */
+	// End Line: 4312
 
 int Physics_CalculateRSControlDesiredPosition__FP8Car_tObjii
               (Car_tObj *carObj,int sliceAhead,int lookAhead)
@@ -2958,6 +3300,21 @@ int Physics_CalculateRSControlDesiredPosition__FP8Car_tObjii
 	// End offset: 0x800AD51C
 	// End Line: 2499
 
+	/* begin block 2 */
+		// Start line: 4455
+	/* end block 2 */
+	// End Line: 4456
+
+	/* begin block 3 */
+		// Start line: 4463
+	/* end block 3 */
+	// End Line: 4464
+
+	/* begin block 4 */
+		// Start line: 4463
+	/* end block 4 */
+	// End Line: 4464
+
 void Physics_Real__FP8Car_tObj(Car_tObj *carObj)
 
 {
@@ -2966,13 +3323,14 @@ void Physics_Real__FP8Car_tObj(Car_tObj *carObj)
   uint uVar3;
   uint uVar4;
   int lookAhead;
-  Trk_NewSlice *pTVar5;
-  char cVar6;
-  int iVar7;
-  undefined *puVar8;
+  int iVar5;
+  Trk_NewSlice *pTVar6;
+  char cVar7;
+  int iVar8;
+  undefined *puVar9;
   int sliceAhead;
-  uint uVar9;
-  Car_tSpecs *pCVar10;
+  uint uVar10;
+  Car_tSpecs *pCVar11;
   Physics_tWheelAccStruct local_108;
   Physics_tWheelAccStruct local_d8;
   int local_a8;
@@ -3004,66 +3362,66 @@ void Physics_Real__FP8Car_tObj(Car_tObj *carObj)
   (carObj->linearAcc_ch).x = 0;
   (carObj->linearAcc_ch).y = 0;
   (carObj->linearAcc_ch).z = 0;
-  pCVar10 = carObj->specs;
-  iGp00000dd0 = 1;
-  iGp00000dd4 = 1;
+  pCVar11 = carObj->specs;
+  steeringControl = 1;
+  powerControl = 1;
   if ((GameSetup_gData.Weather == 0) ||
-     (puVar8 = (undefined *)BWorldSm_TunnelFlagSm__FP12BWorldSm_Pos(&(carObj->N).simRoadInfo),
-     puVar8 == &DAT_00000001)) {
-    iGp00000dcc = 0;
+     (puVar9 = (undefined *)BWorldSm_TunnelFlagSm__FP12BWorldSm_Pos(&(carObj->N).simRoadInfo),
+     puVar9 == &DAT_00000001)) {
+    slippery = 0;
   }
   else {
-    iGp00000dcc = 1;
+    slippery = 1;
   }
   if (((carObj->wheel[0].wheelInAir != 0) && (carObj->wheel[1].wheelInAir != 0)) &&
      (0xccc < (carObj->N).objAltitude)) {
-    iGp00000dd0 = 0;
+    steeringControl = 0;
   }
   if (((carObj->wheel[2].wheelInAir != 0) && (carObj->wheel[3].wheelInAir != 0)) &&
      (0xccc < (carObj->N).objAltitude)) {
-    iGp00000dd4 = 0;
+    powerControl = 0;
   }
   uVar2 = fixedmult((carObj->N).linearVel.x,(carObj->N).shadowMat.m[0]);
   uVar3 = fixedmult((carObj->N).linearVel.y,(carObj->N).shadowMat.m[1]);
   uVar4 = fixedmult((carObj->N).linearVel.z,(carObj->N).shadowMat.m[2]);
-  iVar7 = (carObj->N).linearVel.x;
+  iVar8 = (carObj->N).linearVel.x;
   sliceAhead = (carObj->N).shadowMat.m[3];
   (carObj->linearVel_ch).x = uVar2 + uVar3 + uVar4;
-  uVar2 = fixedmult(iVar7,sliceAhead);
+  uVar2 = fixedmult(iVar8,sliceAhead);
   uVar3 = fixedmult((carObj->N).linearVel.y,(carObj->N).shadowMat.m[4]);
   uVar4 = fixedmult((carObj->N).linearVel.z,(carObj->N).shadowMat.m[5]);
-  iVar7 = (carObj->N).linearVel.x;
+  iVar8 = (carObj->N).linearVel.x;
   sliceAhead = (carObj->N).shadowMat.m[6];
   (carObj->linearVel_ch).y = uVar2 + uVar3 + uVar4;
-  uVar2 = fixedmult(iVar7,sliceAhead);
+  uVar2 = fixedmult(iVar8,sliceAhead);
   uVar3 = fixedmult((carObj->N).linearVel.y,(carObj->N).shadowMat.m[7]);
   uVar4 = fixedmult((carObj->N).linearVel.z,(carObj->N).shadowMat.m[8]);
-  iVar7 = (carObj->N).angularVel.x;
+  iVar8 = (carObj->N).angularVel.x;
   sliceAhead = (carObj->N).shadowMat.m[0];
   (carObj->linearVel_ch).z = uVar2 + uVar3 + uVar4;
-  uVar2 = fixedmult(iVar7,sliceAhead);
+  uVar2 = fixedmult(iVar8,sliceAhead);
   uVar3 = fixedmult((carObj->N).angularVel.y,(carObj->N).shadowMat.m[1]);
   uVar4 = fixedmult((carObj->N).angularVel.z,(carObj->N).shadowMat.m[2]);
-  iVar7 = (carObj->N).angularVel.x;
+  iVar8 = (carObj->N).angularVel.x;
   sliceAhead = (carObj->N).shadowMat.m[3];
   (carObj->angularVel_ch).x = uVar2 + uVar3 + uVar4;
-  uVar2 = fixedmult(iVar7,sliceAhead);
+  uVar2 = fixedmult(iVar8,sliceAhead);
   uVar3 = fixedmult((carObj->N).angularVel.y,(carObj->N).shadowMat.m[4]);
   uVar4 = fixedmult((carObj->N).angularVel.z,(carObj->N).shadowMat.m[5]);
-  iVar7 = (carObj->N).angularVel.x;
+  iVar8 = (carObj->N).angularVel.x;
   sliceAhead = (carObj->N).shadowMat.m[6];
   (carObj->angularVel_ch).y = uVar2 + uVar3 + uVar4;
-  uVar2 = fixedmult(iVar7,sliceAhead);
+  uVar2 = fixedmult(iVar8,sliceAhead);
   uVar3 = fixedmult((carObj->N).angularVel.y,(carObj->N).shadowMat.m[7]);
   uVar4 = fixedmult((carObj->N).angularVel.z,(carObj->N).shadowMat.m[8]);
-  uVar9 = (carObj->linearVel_ch).z;
+  uVar10 = (carObj->linearVel_ch).z;
   (carObj->angularVel_ch).z = uVar2 + uVar3 + uVar4;
-  if ((int)uVar9 < 0x50001) {
+  if ((int)uVar10 < 0x50001) {
     carObj->slide = 0;
   }
   else {
-    iVar7 = fixeddiv((carObj->linearVel_ch).x,uVar9);
-    carObj->slide = iVar7;
+    iVar8 = fixeddiv((carObj->linearVel_ch).x,uVar10);
+    carObj->slide = iVar8;
   }
   uVar2 = (carObj->linearVel_ch).x * -0x20;
   local_88 = (int)(uVar2 + (uVar2 >> 0x1f)) >> 1;
@@ -3071,7 +3429,7 @@ void Physics_Real__FP8Car_tObj(Car_tObj *carObj)
   local_84 = (int)(uVar2 + (uVar2 >> 0x1f)) >> 1;
   uVar2 = (carObj->linearVel_ch).z * -0x20;
   local_80 = (int)(uVar2 + (uVar2 >> 0x1f)) >> 1;
-  uVar2 = fixedmult((carObj->N).angularVel.y << 5,pCVar10->alphaToAccRotInertia);
+  uVar2 = fixedmult((carObj->N).angularVel.y << 5,pCVar11->alphaToAccRotInertia);
   local_a8 = 0;
   local_a4 = -0xa0000;
   local_a0 = 0;
@@ -3095,77 +3453,77 @@ void Physics_Real__FP8Car_tObj(Car_tObj *carObj)
   local_d8.velCap.y = local_84;
   local_d8.velCap.z = local_80;
   Physics_RampCarControlValues__FP8Car_tObj(carObj);
-  iVar7 = gravity_ch.x;
+  iVar8 = gravity_ch.x;
   if (gravity_ch.x < 0) {
-    iVar7 = gravity_ch.x + 0xff;
+    iVar8 = gravity_ch.x + 0xff;
   }
-  iVar7 = (iVar7 >> 8) * 0x300;
-  if (iVar7 < 0) {
-    iVar7 = iVar7 + 0xffff;
+  iVar8 = (iVar8 >> 8) * 0x300;
+  if (iVar8 < 0) {
+    iVar8 = iVar8 + 0xffff;
   }
-  iVar7 = (carObj->control).steering + (iVar7 >> 0x10);
-  if (iVar7 < 0x80) {
-    if (iVar7 < -0x7f) {
-      iVar7 = -0x7f;
+  iVar8 = (carObj->control).steering + (iVar8 >> 0x10);
+  if (iVar8 < 0x80) {
+    if (iVar8 < -0x7f) {
+      iVar8 = -0x7f;
     }
   }
   else {
-    iVar7 = 0x7f;
+    iVar8 = 0x7f;
   }
-  iVar7 = iVar7 * pCVar10->maxSteeringAcc;
-  if (iVar7 < 0) {
-    iVar7 = iVar7 + 0x7f;
+  iVar8 = iVar8 * pCVar11->maxSteeringAcc;
+  if (iVar8 < 0) {
+    iVar8 = iVar8 + 0x7f;
   }
-  iVar7 = iVar7 >> 7;
+  iVar8 = iVar8 >> 7;
   sliceAhead = (carObj->N).damage[0] + (carObj->N).damage[1] + (carObj->N).damage[2] +
                (carObj->N).damage[9];
   if (sliceAhead < 0) {
     sliceAhead = sliceAhead + 0x1ff;
   }
   lookAhead = -(sliceAhead >> 9) + 0x10000;
-  if (iVar7 < 0) {
-    iVar7 = iVar7 + 0xff;
+  if (iVar8 < 0) {
+    iVar8 = iVar8 + 0xff;
   }
   if (lookAhead < 0) {
     lookAhead = -(sliceAhead >> 9) + 0x100ff;
   }
-  local_108.steeringAngle = (iVar7 >> 8) * (lookAhead >> 8);
-  iVar7 = (carObj->linearVel_ch).z;
-  if (0x3c0000 < iVar7) {
-    uVar2 = fixedmult(iVar7,0x444);
+  local_108.steeringAngle = (iVar8 >> 8) * (lookAhead >> 8);
+  iVar8 = (carObj->linearVel_ch).z;
+  if (0x3c0000 < iVar8) {
+    uVar2 = fixedmult(iVar8,0x444);
     local_108.steeringAngle = fixeddiv(local_108.steeringAngle,uVar2);
   }
-  iVar7 = (carObj->linearVel_ch).z;
-  if (iVar7 < 0x1ab334) {
-    if (0xd6666 < iVar7) {
-      iVar7 = carObj->slide;
-      bVar1 = iVar7 < -0x2666;
-      if (0x2666 < iVar7) {
-        bVar1 = iVar7 < -0x2666;
+  iVar8 = (carObj->linearVel_ch).z;
+  if (iVar8 < 0x1ab334) {
+    if (0xd6666 < iVar8) {
+      iVar8 = carObj->slide;
+      bVar1 = iVar8 < -0x2666;
+      if (0x2666 < iVar8) {
+        bVar1 = iVar8 < -0x2666;
         goto joined_r0x800ac6bc;
       }
       goto LAB_800ac6c4;
     }
   }
   else {
-    iVar7 = carObj->slide;
-    bVar1 = iVar7 < -0xccc;
-    if (iVar7 < 0xccd) {
+    iVar8 = carObj->slide;
+    bVar1 = iVar8 < -0xccc;
+    if (iVar8 < 0xccd) {
 LAB_800ac6c4:
       if ((!bVar1) || (-1 < (int)local_108.steeringAngle)) goto LAB_800ac720;
     }
     else {
-      bVar1 = iVar7 < -0xccc;
+      bVar1 = iVar8 < -0xccc;
 joined_r0x800ac6bc:
       if ((int)local_108.steeringAngle < 1) goto LAB_800ac6c4;
     }
-    iVar7 = carObj->slide;
-    if (iVar7 < 0) {
-      iVar7 = -iVar7;
+    iVar8 = carObj->slide;
+    if (iVar8 < 0) {
+      iVar8 = -iVar8;
     }
     sliceAhead = 0x10000;
-    if (iVar7 << 1 < 0x10001) {
-      sliceAhead = iVar7 << 1;
+    if (iVar8 << 1 < 0x10001) {
+      sliceAhead = iVar8 << 1;
     }
     local_108.steeringAngle = fixedmult(local_108.steeringAngle,sliceAhead);
   }
@@ -3174,79 +3532,80 @@ LAB_800ac720:
   local_108.frontTire = 1;
   local_d8.frontTire = 0;
   local_d8.acc = Physics_CalculateCarAcceleration__FP8Car_tObj(carObj);
-  iVar7 = local_d8.acc;
+  iVar8 = gBrakeRatio;
+  sliceAhead = local_d8.acc;
   if (local_d8.acc < 0) {
-    iVar7 = local_d8.acc + 0xff;
+    sliceAhead = local_d8.acc + 0xff;
   }
-  sliceAhead = pCVar10->frontDriveRatio;
-  if (sliceAhead < 0) {
-    sliceAhead = sliceAhead + 0xff;
+  lookAhead = pCVar11->frontDriveRatio;
+  if (lookAhead < 0) {
+    lookAhead = lookAhead + 0xff;
   }
-  local_108.acc = (iVar7 >> 8) * (sliceAhead >> 8);
+  local_108.acc = (sliceAhead >> 8) * (lookAhead >> 8);
   local_d8.acc = local_d8.acc - local_108.acc;
-  if ((iGp00000dd0 == 0) && (iGp00000dd4 == 0)) {
+  if ((steeringControl == 0) && (powerControl == 0)) {
     carObj->frontSkid = 0;
     carObj->rearSkid = 0;
     return;
   }
+  bVar1 = gBrakeRatio < 0;
   carObj->crash = 0;
-  iVar7 = iGp00000da4;
-  if (iGp00000da4 < 0) {
-    iVar7 = iGp00000da4 + 0xff;
+  if (bVar1) {
+    iVar8 = iVar8 + 0xff;
   }
-  sliceAhead = pCVar10->maxBrakeAcc;
+  sliceAhead = pCVar11->maxBrakeAcc;
   if (sliceAhead < 0) {
     sliceAhead = sliceAhead + 0xff;
   }
-  sliceAhead = (iVar7 >> 8) * (sliceAhead >> 8);
-  iVar7 = (carObj->linearVel_ch).z;
-  if (iVar7 < 0) {
-    iVar7 = -iVar7;
+  sliceAhead = (iVar8 >> 8) * (sliceAhead >> 8);
+  iVar8 = (carObj->linearVel_ch).z;
+  if (iVar8 < 0) {
+    iVar8 = -iVar8;
   }
-  lookAhead = iVar7 << 5;
-  if (sliceAhead <= iVar7 << 5) {
+  lookAhead = iVar8 << 5;
+  if (sliceAhead <= iVar8 << 5) {
     lookAhead = sliceAhead;
   }
-  iVar7 = (carObj->N).damage[9];
-  if (iVar7 != 0) {
-    if (iVar7 < 0) {
-      iVar7 = iVar7 + 0x7f;
+  iVar8 = (carObj->N).damage[9];
+  if (iVar8 != 0) {
+    if (iVar8 < 0) {
+      iVar8 = iVar8 + 0x7f;
     }
-    sliceAhead = -(iVar7 >> 7) + 0x10000;
+    sliceAhead = -(iVar8 >> 7) + 0x10000;
     if (lookAhead < 0) {
       lookAhead = lookAhead + 0xff;
     }
     if (sliceAhead < 0) {
-      sliceAhead = -(iVar7 >> 7) + 0x100ff;
+      sliceAhead = -(iVar8 >> 7) + 0x100ff;
     }
     lookAhead = (lookAhead >> 8) * (sliceAhead >> 8);
   }
   if (0 < (carObj->linearVel_ch).z) {
     lookAhead = -lookAhead;
   }
-  uVar2 = fixedmult(lookAhead,pCVar10->frontBrakeRatio);
+  uVar2 = fixedmult(lookAhead,pCVar11->frontBrakeRatio);
   local_108.acc = local_108.acc + uVar2;
   local_d8.acc = local_d8.acc + (lookAhead - uVar2);
-  uVar2 = fixedmult(-gravity_ch.y,pCVar10->lateralGripMult);
+  uVar2 = fixedmult(-gravity_ch.y,pCVar11->lateralGripMult);
   Physics_CalculateRoadGripModifiers__FP8Car_tObj(carObj);
   if ((int)uVar2 < 0) {
     uVar2 = uVar2 + 0xff;
   }
-  iVar7 = iGp00000db8;
-  if (iGp00000db8 < 0) {
-    iVar7 = iGp00000db8 + 0xff;
+  iVar8 = roadMult;
+  if (roadMult < 0) {
+    iVar8 = roadMult + 0xff;
   }
-  iVar7 = ((int)uVar2 >> 8) * (iVar7 >> 8);
-  if (iVar7 < 0) {
+  iVar8 = ((int)uVar2 >> 8) * (iVar8 >> 8);
+  if (iVar8 < 0) {
     return;
   }
-  if (iGp00000dcc == 0) {
-    sliceAhead = pCVar10->frontGripBias;
+  if (slippery == 0) {
+    sliceAhead = pCVar11->frontGripBias;
   }
   else {
-    sliceAhead = pCVar10->frontGripBias + 0x28f;
+    sliceAhead = pCVar11->frontGripBias + 0x28f;
   }
-  uVar2 = fixedmult(iVar7,sliceAhead);
+  uVar2 = fixedmult(iVar8,sliceAhead);
   sliceAhead = (carObj->N).damage[4] + (carObj->N).damage[5] + (carObj->N).damage[6] +
                (carObj->N).damage[9];
   if (sliceAhead < 0) {
@@ -3270,75 +3629,76 @@ LAB_800ac720:
       carObj->gTransferFront = sliceAhead >> 2;
     }
   }
-  lookAhead = uVar2 - carObj->gTransferFront;
-  sliceAhead = iGp00000dbc;
-  if (iGp00000dbc < 0) {
-    sliceAhead = iGp00000dbc + 0xff;
+  sliceAhead = steeringControl;
+  iVar5 = uVar2 - carObj->gTransferFront;
+  lookAhead = frontMult;
+  if (frontMult < 0) {
+    lookAhead = frontMult + 0xff;
+  }
+  if (iVar5 < 0) {
+    iVar5 = iVar5 + 0xff;
+  }
+  local_108.roadGrip = (lookAhead >> 8) * (iVar5 >> 8);
+  lookAhead = (iVar8 - uVar2) + carObj->gTransferFront;
+  iVar8 = rearMult;
+  if (rearMult < 0) {
+    iVar8 = rearMult + 0xff;
   }
   if (lookAhead < 0) {
     lookAhead = lookAhead + 0xff;
   }
-  local_108.roadGrip = (sliceAhead >> 8) * (lookAhead >> 8);
-  sliceAhead = (iVar7 - uVar2) + carObj->gTransferFront;
-  iVar7 = iGp00000dc0;
-  if (iGp00000dc0 < 0) {
-    iVar7 = iGp00000dc0 + 0xff;
-  }
-  if (sliceAhead < 0) {
-    sliceAhead = sliceAhead + 0xff;
-  }
-  local_d8.roadGrip = (iVar7 >> 8) * (sliceAhead >> 8);
+  local_d8.roadGrip = (iVar8 >> 8) * (lookAhead >> 8);
   carObj->wheelLock = 0;
   local_108.finalAcc.x = 0;
   local_108.finalAcc.z = 0;
   local_d8.finalAcc.x = 0;
   local_d8.finalAcc.z = 0;
-  if (iGp00000dd0 != 0) {
+  if (sliceAhead != 0) {
     Physics_CalculateTireForces__FP8Car_tObjP23Physics_tWheelAccStruct(carObj,&local_108);
   }
-  if (iGp00000dd4 != 0) {
+  if (powerControl != 0) {
     Physics_CalculateTireForces__FP8Car_tObjP23Physics_tWheelAccStruct(carObj,&local_d8);
   }
   (carObj->linearAcc_ch).z = local_108.finalAcc.z + local_d8.finalAcc.z;
   (carObj->linearAcc_ch).x = local_108.finalAcc.x + local_d8.finalAcc.x;
-  uVar2 = fixedmult((carObj->linearAcc_ch).z,pCVar10->lateralGripMultInv);
+  uVar2 = fixedmult((carObj->linearAcc_ch).z,pCVar11->lateralGripMultInv);
   (carObj->linearAcc_ch).z = uVar2;
   if (((GameSetup_gData.sgge == 0x80) && (0 < (int)uVar2)) && ((carObj->control).horn != '\0')) {
     (carObj->linearAcc_ch).z = uVar2 << 2;
   }
-  if (iGp00000dcc == 0) {
+  if (slippery == 0) {
     if ((carObj->carInfo->TireType == 2) && ((byte)(carObj->control).gear < 4)) {
-      iVar7 = (carObj->linearAcc_ch).z;
-      puVar8 = &DAT_00012666;
+      iVar8 = (carObj->linearAcc_ch).z;
+      puVar9 = &DAT_00012666;
     }
     else {
-      iVar7 = (carObj->linearAcc_ch).z;
-      puVar8 = &DAT_00011999;
+      iVar8 = (carObj->linearAcc_ch).z;
+      puVar9 = &DAT_00011999;
     }
-    uVar2 = fixedmult(iVar7,(int)puVar8);
+    uVar2 = fixedmult(iVar8,(int)puVar9);
     (carObj->linearAcc_ch).z = uVar2;
   }
   (carObj->linearAcc_ch).y = 0;
   uVar2 = fixedmult(gravity_ch.z,(int)&DAT_00001999);
-  iVar7 = (carObj->linearAcc_ch).x;
-  if (iVar7 < 0) {
-    iVar7 = iVar7 + 7;
+  iVar8 = (carObj->linearAcc_ch).x;
+  if (iVar8 < 0) {
+    iVar8 = iVar8 + 7;
   }
-  uVar3 = fixedmult(iVar7 >> 3,pCVar10->gTransferFactor);
-  iVar7 = (carObj->linearAcc_ch).z;
+  uVar3 = fixedmult(iVar8 >> 3,pCVar11->gTransferFactor);
+  iVar8 = (carObj->linearAcc_ch).z;
   carObj->gTransferRight = -uVar3;
-  uVar3 = fixedmult(iVar7,pCVar10->gTransferFactor);
+  uVar3 = fixedmult(iVar8,pCVar11->gTransferFactor);
   carObj->gTransferFront = uVar3 - uVar2;
-  local_94 = fixedmult(local_108.finalAcc.x - local_d8.finalAcc.x,pCVar10->accToAlphaRotInertia);
-  uVar2 = fixedmult(local_108.finalAcc.z + local_d8.finalAcc.z,iGp00000dc4 - iGp00000dc8);
-  uVar2 = fixedmult(uVar2,pCVar10->accToAlphaRotInertia);
+  local_94 = fixedmult(local_108.finalAcc.x - local_d8.finalAcc.x,pCVar11->accToAlphaRotInertia);
+  uVar2 = fixedmult(local_108.finalAcc.z + local_d8.finalAcc.z,leftMult - rightMult);
+  uVar2 = fixedmult(uVar2,pCVar11->accToAlphaRotInertia);
   local_94 = local_94 + uVar2 * 2;
-  iVar7 = (carObj->N).angularVel.y;
-  if (((0 < iVar7) && (0 < (int)local_94)) || ((iVar7 < 0 && ((int)local_94 < 0)))) {
+  iVar8 = (carObj->N).angularVel.y;
+  if (((0 < iVar8) && (0 < (int)local_94)) || ((iVar8 < 0 && ((int)local_94 < 0)))) {
     if (((carObj->control).handBrake == '\0') || ((GameSetup_gData.sgge & 8U) != 0)) {
-      iVar7 = (carObj->control).desiredSteering;
-      if ((((iVar7 < 0) && (0x3333 < (carObj->N).angularVel.y)) ||
-          ((0 < iVar7 && ((carObj->N).angularVel.y < -0x3333)))) && (carObj->wheelSpin == 1)) {
+      iVar8 = (carObj->control).desiredSteering;
+      if ((((iVar8 < 0) && (0x3333 < (carObj->N).angularVel.y)) ||
+          ((0 < iVar8 && ((carObj->N).angularVel.y < -0x3333)))) && (carObj->wheelSpin == 1)) {
         local_94 = -(carObj->N).angularVel.y;
       }
       else {
@@ -3360,9 +3720,9 @@ LAB_800ac720:
   uVar2 = fixedmult((carObj->linearAcc_ch).x,local_6c);
   uVar3 = fixedmult((carObj->linearAcc_ch).y,local_68);
   uVar4 = fixedmult((carObj->linearAcc_ch).z,local_64);
-  iVar7 = (carObj->linearAcc_ch).x;
+  iVar8 = (carObj->linearAcc_ch).x;
   (carObj->linearAcc).y = uVar2 + uVar3 + uVar4;
-  uVar2 = fixedmult(iVar7,local_60);
+  uVar2 = fixedmult(iVar8,local_60);
   uVar3 = fixedmult((carObj->linearAcc_ch).y,local_5c);
   uVar4 = fixedmult((carObj->linearAcc_ch).z,local_58);
   (carObj->linearAcc).z = uVar2 + uVar3 + uVar4;
@@ -3377,92 +3737,92 @@ LAB_800ac720:
   uVar2 = fixedmult(local_98,local_60);
   uVar3 = fixedmult(local_94,local_5c);
   uVar4 = fixedmult(local_90,local_58);
-  iVar7 = (carObj->linearAcc).x;
+  iVar8 = (carObj->linearAcc).x;
   (carObj->angularAcc).z = uVar2 + uVar3 + uVar4;
-  if (iVar7 < 0) {
-    iVar7 = iVar7 + 0x1f;
+  if (iVar8 < 0) {
+    iVar8 = iVar8 + 0x1f;
   }
   sliceAhead = (carObj->linearAcc).y;
-  (carObj->N).linearVel.x = (carObj->N).linearVel.x + (iVar7 >> 5);
+  (carObj->N).linearVel.x = (carObj->N).linearVel.x + (iVar8 >> 5);
   if (sliceAhead < 0) {
     sliceAhead = sliceAhead + 0x1f;
   }
-  iVar7 = (carObj->linearAcc).z;
+  iVar8 = (carObj->linearAcc).z;
   (carObj->N).linearVel.y = (carObj->N).linearVel.y + (sliceAhead >> 5);
-  if (iVar7 < 0) {
-    iVar7 = iVar7 + 0x1f;
+  if (iVar8 < 0) {
+    iVar8 = iVar8 + 0x1f;
   }
   sliceAhead = (carObj->angularAcc).x;
-  (carObj->N).linearVel.z = (carObj->N).linearVel.z + (iVar7 >> 5);
+  (carObj->N).linearVel.z = (carObj->N).linearVel.z + (iVar8 >> 5);
   if (sliceAhead < 0) {
     sliceAhead = sliceAhead + 0x1f;
   }
-  iVar7 = (carObj->angularAcc).y;
+  iVar8 = (carObj->angularAcc).y;
   (carObj->N).angularVel.x = (carObj->N).angularVel.x + (sliceAhead >> 5);
-  if (iVar7 < 0) {
-    iVar7 = iVar7 + 0x3f;
+  if (iVar8 < 0) {
+    iVar8 = iVar8 + 0x3f;
   }
   sliceAhead = (carObj->angularAcc).z;
-  (carObj->N).angularVel.y = (carObj->N).angularVel.y + (iVar7 >> 6);
+  (carObj->N).angularVel.y = (carObj->N).angularVel.y + (iVar8 >> 6);
   if (sliceAhead < 0) {
     sliceAhead = sliceAhead + 0x1f;
   }
-  iVar7 = carObj->RSControl;
+  iVar8 = carObj->RSControl;
   (carObj->N).angularVel.z = (carObj->N).angularVel.z + (sliceAhead >> 5);
-  if (iVar7 != 0) {
+  if (iVar8 != 0) {
     if ((carObj->script).lastReactionIndex[5] < 0x471c7) {
       if ((byte)(carObj->control).gear < 2) {
-        iVar7 = 8;
+        iVar8 = 8;
       }
       else {
-        iVar7 = (uint)(byte)(carObj->control).gear << 2;
+        iVar8 = (uint)(byte)(carObj->control).gear << 2;
       }
-      iVar7 = *(int *)((int)pCVar10->velToRpmRatio + iVar7);
-      puVar8 = &DAT_00188000;
+      iVar8 = *(int *)((int)pCVar11->velToRpmRatio + iVar8);
+      puVar9 = &DAT_00188000;
     }
     else {
       if ((byte)(carObj->control).gear < 2) {
-        iVar7 = 8;
+        iVar8 = 8;
       }
       else {
-        iVar7 = (uint)(byte)(carObj->control).gear << 2;
+        iVar8 = (uint)(byte)(carObj->control).gear << 2;
       }
-      puVar8 = (undefined *)(carObj->script).lastReactionIndex[5];
-      iVar7 = *(int *)((int)pCVar10->velToRpmRatio + iVar7);
+      puVar9 = (undefined *)(carObj->script).lastReactionIndex[5];
+      iVar8 = *(int *)((int)pCVar11->velToRpmRatio + iVar8);
     }
-    uVar2 = fixedmult((int)puVar8,iVar7);
+    uVar2 = fixedmult((int)puVar9,iVar8);
     if ((int)uVar2 < 0) {
       uVar2 = uVar2 + 0xffff;
     }
-    iVar7 = (int)uVar2 >> 0x10;
+    iVar8 = (int)uVar2 >> 0x10;
     if ((byte)(carObj->control).gear < 2) {
       sliceAhead = 8;
     }
     else {
       sliceAhead = (uint)(byte)(carObj->control).gear << 2;
     }
-    uVar2 = fixedmult((carObj->linearVel_ch).z,*(int *)((int)pCVar10->velToRpmRatio + sliceAhead));
+    uVar2 = fixedmult((carObj->linearVel_ch).z,*(int *)((int)pCVar11->velToRpmRatio + sliceAhead));
     if ((int)uVar2 < 0) {
       uVar2 = uVar2 + 0xffff;
     }
-    sliceAhead = pCVar10->redline;
-    lookAhead = (iVar7 << 8) / sliceAhead;
+    sliceAhead = pCVar11->redline;
+    lookAhead = (iVar8 << 8) / sliceAhead;
     if (sliceAhead == 0) {
       trap(0x1c00);
     }
-    if ((sliceAhead == -1) && (iVar7 << 8 == -0x80000000)) {
+    if ((sliceAhead == -1) && (iVar8 << 8 == -0x80000000)) {
       trap(0x1800);
     }
-    sliceAhead = iVar7 - ((int)uVar2 >> 0x10);
+    sliceAhead = iVar8 - ((int)uVar2 >> 0x10);
     if (sliceAhead < 0xc9) {
       if (sliceAhead < 200) {
-        if (iVar7 == 0) {
+        if (iVar8 == 0) {
           trap(0x1c00);
         }
-        if ((iVar7 == -1) && (sliceAhead * 0x80 == -0x80000000)) {
+        if ((iVar8 == -1) && (sliceAhead * 0x80 == -0x80000000)) {
           trap(0x1800);
         }
-        lookAhead = lookAhead + (sliceAhead * 0x80) / iVar7;
+        lookAhead = lookAhead + (sliceAhead * 0x80) / iVar8;
         if (lookAhead < 0) {
           carObj->RSGasLevel = '\0';
         }
@@ -3470,25 +3830,25 @@ LAB_800ac720:
           carObj->RSGasLevel = (char)lookAhead;
         }
         if (sliceAhead < 0) {
-          iVar7 = sliceAhead * 0x200;
-          lookAhead = pCVar10->redline;
-          if (iVar7 < 0) {
-            iVar7 = sliceAhead * -0x200;
+          iVar8 = sliceAhead * 0x200;
+          lookAhead = pCVar11->redline;
+          if (iVar8 < 0) {
+            iVar8 = sliceAhead * -0x200;
           }
-          uVar2 = iVar7 / lookAhead;
-          cVar6 = (char)uVar2;
+          uVar2 = iVar8 / lookAhead;
+          cVar7 = (char)uVar2;
           if (lookAhead == 0) {
             trap(0x1c00);
           }
-          if ((lookAhead == -1) && (iVar7 == -0x80000000)) {
+          if ((lookAhead == -1) && (iVar8 == -0x80000000)) {
             trap(0x1800);
           }
           uVar3 = uVar2 & 0xff;
           if (0xff < (int)uVar2) {
-            cVar6 = -1;
+            cVar7 = -1;
             uVar3 = 0xff;
           }
-          carObj->RSBrakeLevel = cVar6;
+          carObj->RSBrakeLevel = cVar7;
           if (0x80 < uVar3) {
             carObj->RSGasLevel = '\0';
           }
@@ -3496,57 +3856,57 @@ LAB_800ac720:
       }
     }
     else {
-      if (iVar7 == 0) {
+      if (iVar8 == 0) {
         trap(0x1c00);
       }
-      if ((iVar7 == -1) && (sliceAhead * 0x80 == -0x80000000)) {
+      if ((iVar8 == -1) && (sliceAhead * 0x80 == -0x80000000)) {
         trap(0x1800);
       }
-      lookAhead = lookAhead + (sliceAhead * 0x80) / iVar7;
-      cVar6 = (char)lookAhead;
+      lookAhead = lookAhead + (sliceAhead * 0x80) / iVar8;
+      cVar7 = (char)lookAhead;
       if (0xe0 < lookAhead) {
-        cVar6 = -0x20;
+        cVar7 = -0x20;
       }
-      carObj->RSGasLevel = cVar6;
+      carObj->RSGasLevel = cVar7;
     }
-    iVar7 = (carObj->script).lastActionTime;
-    if (iVar7 < 0) {
-      iVar7 = -iVar7;
+    iVar8 = (carObj->script).lastActionTime;
+    if (iVar8 < 0) {
+      iVar8 = -iVar8;
     }
-    iVar7 = (iVar7 / 6 + (iVar7 >> 0x1f) >> 0x10) - (iVar7 >> 0x1f);
-    if (iVar7 < 3) {
-      iVar7 = carObj->RSControl * 3;
+    iVar8 = (iVar8 / 6 + (iVar8 >> 0x1f) >> 0x10) - (iVar8 >> 0x1f);
+    if (iVar8 < 3) {
+      iVar8 = carObj->RSControl * 3;
     }
     else {
-      iVar7 = carObj->RSControl * iVar7;
+      iVar8 = carObj->RSControl * iVar8;
     }
-    if (iVar7 < 0) {
-      sliceAhead = (int)(carObj->N).simRoadInfo.slice + iVar7;
+    if (iVar8 < 0) {
+      sliceAhead = (int)(carObj->N).simRoadInfo.slice + iVar8;
       if (sliceAhead < 0) {
         sliceAhead = sliceAhead + gNumSlices;
       }
     }
     else {
-      sliceAhead = (int)(carObj->N).simRoadInfo.slice + iVar7;
+      sliceAhead = (int)(carObj->N).simRoadInfo.slice + iVar8;
       if (gNumSlices <= sliceAhead) {
         sliceAhead = sliceAhead - gNumSlices;
       }
     }
-    lookAhead = iVar7 * 3;
+    lookAhead = iVar8 * 3;
     if (lookAhead < 0) {
-      lookAhead = iVar7 * -3;
+      lookAhead = iVar8 * -3;
     }
     local_50 = (carObj->N).position.x;
     local_4c = (carObj->N).position.y;
     local_48 = (carObj->N).position.z;
-    pTVar5 = BWorldSm_slices + sliceAhead;
-    local_40.x = pTVar5->center[0];
-    local_40.y = pTVar5->center[1];
-    local_40.z = pTVar5->center[2];
-    iVar7 = Physics_CalculateRSControlDesiredPosition__FP8Car_tObjii(carObj,sliceAhead,lookAhead);
-    local_30 = fixedmult((int)BWorldSm_slices[sliceAhead].right[0] << 9,iVar7);
-    local_2c = fixedmult((int)BWorldSm_slices[sliceAhead].right[1] << 9,iVar7);
-    local_28 = fixedmult((int)BWorldSm_slices[sliceAhead].right[2] << 9,iVar7);
+    pTVar6 = BWorldSm_slices + sliceAhead;
+    local_40.x = pTVar6->center[0];
+    local_40.y = pTVar6->center[1];
+    local_40.z = pTVar6->center[2];
+    iVar8 = Physics_CalculateRSControlDesiredPosition__FP8Car_tObjii(carObj,sliceAhead,lookAhead);
+    local_30 = fixedmult((int)BWorldSm_slices[sliceAhead].right[0] << 9,iVar8);
+    local_2c = fixedmult((int)BWorldSm_slices[sliceAhead].right[1] << 9,iVar8);
+    local_28 = fixedmult((int)BWorldSm_slices[sliceAhead].right[2] << 9,iVar8);
     local_40.x = (local_40.x + local_30) - local_50;
     local_40.y = (local_40.y + local_2c) - local_4c;
     local_40.z = (local_40.z + local_28) - local_48;
@@ -3554,15 +3914,15 @@ LAB_800ac720:
     uVar2 = fixedmult(local_40.x,(carObj->N).orientMat.m[0]);
     uVar3 = fixedmult(local_40.y,(carObj->N).orientMat.m[1]);
     uVar4 = fixedmult(local_40.z,(carObj->N).orientMat.m[2]);
-    iVar7 = uVar2 + uVar3 + uVar4;
-    if (iVar7 < 0) {
-      iVar7 = iVar7 + 0xff;
+    iVar8 = uVar2 + uVar3 + uVar4;
+    if (iVar8 < 0) {
+      iVar8 = iVar8 + 0xff;
     }
-    iVar7 = iVar7 >> 8;
-    carObj->RSSteering = iVar7;
-    if (iVar7 < 0x80) {
+    iVar8 = iVar8 >> 8;
+    carObj->RSSteering = iVar8;
+    if (iVar8 < 0x80) {
       sliceAhead = -0x7f;
-      if (-0x80 < iVar7) goto LAB_800ad314;
+      if (-0x80 < iVar8) goto LAB_800ad314;
     }
     else {
       sliceAhead = 0x7f;
@@ -3572,70 +3932,70 @@ LAB_800ac720:
 LAB_800ad314:
   if ((GameSetup_gData.sgge & 8U) == 0) {
     if ((carObj->control).gasLevel != '\0') {
-      iVar7 = carObj->slide;
-      if (iVar7 < 0) {
-        iVar7 = -iVar7;
+      iVar8 = carObj->slide;
+      if (iVar8 < 0) {
+        iVar8 = -iVar8;
       }
-      if (iVar7 < 0x199a) goto LAB_800ad3a4;
+      if (iVar8 < 0x199a) goto LAB_800ad3a4;
     }
     uVar2 = fixedmult(carObj->specs->dragFactor,(carObj->N).linearVel.x);
-    iVar7 = (carObj->N).linearVel.y;
-    pCVar10 = carObj->specs;
+    iVar8 = (carObj->N).linearVel.y;
+    pCVar11 = carObj->specs;
     (carObj->N).linearVel.x = uVar2;
-    uVar2 = fixedmult(pCVar10->dragFactor,iVar7);
-    iVar7 = (carObj->N).linearVel.z;
-    pCVar10 = carObj->specs;
+    uVar2 = fixedmult(pCVar11->dragFactor,iVar8);
+    iVar8 = (carObj->N).linearVel.z;
+    pCVar11 = carObj->specs;
     (carObj->N).linearVel.y = uVar2;
-    uVar2 = fixedmult(pCVar10->dragFactor,iVar7);
+    uVar2 = fixedmult(pCVar11->dragFactor,iVar8);
     (carObj->N).linearVel.z = uVar2;
   }
 LAB_800ad3a4:
   if (((carObj->N).driveSurfaceType == 3) && (0x2ca3d7 < (carObj->N).speedXZ)) {
     uVar2 = fixedmult((int)&DAT_0000feb8,(carObj->N).linearVel.x);
-    iVar7 = (carObj->N).linearVel.y;
+    iVar8 = (carObj->N).linearVel.y;
     (carObj->N).linearVel.x = uVar2;
-    uVar2 = fixedmult((int)&DAT_0000feb8,iVar7);
-    iVar7 = (carObj->N).linearVel.z;
-    puVar8 = &DAT_0000feb8;
+    uVar2 = fixedmult((int)&DAT_0000feb8,iVar8);
+    iVar8 = (carObj->N).linearVel.z;
+    puVar9 = &DAT_0000feb8;
   }
   else {
     if ((carObj->control).gear == '\x01') {
-      iVar7 = gravity_ch.z;
+      iVar8 = gravity_ch.z;
       if (gravity_ch.z < 0) {
-        iVar7 = -gravity_ch.z;
+        iVar8 = -gravity_ch.z;
       }
-      if (iVar7 < 0x8000) {
-        iVar7 = (carObj->linearVel_ch).z;
-        if (iVar7 < 0) {
-          iVar7 = -iVar7;
+      if (iVar8 < 0x8000) {
+        iVar8 = (carObj->linearVel_ch).z;
+        if (iVar8 < 0) {
+          iVar8 = -iVar8;
         }
-        puVar8 = &DAT_0000fd70;
-        if (0x13ffff < iVar7) {
-          iVar7 = (carObj->control).steering;
-          if (iVar7 < 0) {
-            iVar7 = -iVar7;
+        puVar9 = &DAT_0000fd70;
+        if (0x13ffff < iVar8) {
+          iVar8 = (carObj->control).steering;
+          if (iVar8 < 0) {
+            iVar8 = -iVar8;
           }
-          puVar8 = &DAT_0000ff7c;
-          if (0x20 < iVar7) {
-            puVar8 = &DAT_0000fd70;
+          puVar9 = &DAT_0000ff7c;
+          if (0x20 < iVar8) {
+            puVar9 = &DAT_0000fd70;
           }
         }
-        uVar2 = fixedmult((int)puVar8,(carObj->N).linearVel.x);
-        iVar7 = (carObj->N).linearVel.y;
+        uVar2 = fixedmult((int)puVar9,(carObj->N).linearVel.x);
+        iVar8 = (carObj->N).linearVel.y;
         (carObj->N).linearVel.x = uVar2;
-        uVar2 = fixedmult((int)puVar8,iVar7);
-        iVar7 = (carObj->N).linearVel.z;
+        uVar2 = fixedmult((int)puVar9,iVar8);
+        iVar8 = (carObj->N).linearVel.z;
         (carObj->N).linearVel.y = uVar2;
-        uVar2 = fixedmult((int)puVar8,iVar7);
-        iVar7 = (carObj->N).angularVel.x;
+        uVar2 = fixedmult((int)puVar9,iVar8);
+        iVar8 = (carObj->N).angularVel.x;
         (carObj->N).linearVel.z = uVar2;
-        uVar2 = fixedmult((int)puVar8,iVar7);
-        iVar7 = (carObj->N).angularVel.y;
+        uVar2 = fixedmult((int)puVar9,iVar8);
+        iVar8 = (carObj->N).angularVel.y;
         (carObj->N).angularVel.x = uVar2;
-        uVar2 = fixedmult((int)puVar8,iVar7);
-        iVar7 = (carObj->N).angularVel.z;
+        uVar2 = fixedmult((int)puVar9,iVar8);
+        iVar8 = (carObj->N).angularVel.z;
         (carObj->N).angularVel.y = uVar2;
-        uVar2 = fixedmult((int)puVar8,iVar7);
+        uVar2 = fixedmult((int)puVar9,iVar8);
         (carObj->N).angularVel.z = uVar2;
         return;
       }
@@ -3647,14 +4007,14 @@ LAB_800ad3a4:
       return;
     }
     uVar2 = fixedmult(0x8000,(carObj->N).linearVel.x);
-    iVar7 = (carObj->N).linearVel.y;
+    iVar8 = (carObj->N).linearVel.y;
     (carObj->N).linearVel.x = uVar2;
-    uVar2 = fixedmult(0x8000,iVar7);
-    iVar7 = (carObj->N).linearVel.z;
-    puVar8 = (undefined *)0x8000;
+    uVar2 = fixedmult(0x8000,iVar8);
+    iVar8 = (carObj->N).linearVel.z;
+    puVar9 = (undefined *)0x8000;
   }
   (carObj->N).linearVel.y = uVar2;
-  uVar2 = fixedmult((int)puVar8,iVar7);
+  uVar2 = fixedmult((int)puVar9,iVar8);
   (carObj->N).linearVel.z = uVar2;
   return;
 }
@@ -3671,6 +4031,21 @@ LAB_800ad3a4:
 	/* end block 1 */
 	// End offset: 0x800AD5B8
 	// End Line: 2533
+
+	/* begin block 2 */
+		// Start line: 5559
+	/* end block 2 */
+	// End Line: 5560
+
+	/* begin block 3 */
+		// Start line: 5566
+	/* end block 3 */
+	// End Line: 5567
+
+	/* begin block 4 */
+		// Start line: 5566
+	/* end block 4 */
+	// End Line: 5567
 
 void Physics_SimCar__FP8Car_tObj(Car_tObj *carObj)
 
@@ -3695,6 +4070,7 @@ void Physics_SimCar__FP8Car_tObj(Car_tObj *carObj)
   }
   return;
 }
+
 
 
 

@@ -1,6 +1,7 @@
 #ifndef R3DCAR_H
 #define R3DCAR_H
 
+
 extern void R3DCar_ChangeTrafficColor__FP8Car_tObji(struct Car_tObj *carObj, int newColorIndex); // 0x800ADC2C
 
 extern void R3DCar_StartUp__Fv(); // 0x800ADD14
@@ -54,5 +55,6 @@ extern void R3DCar_Showroom__FP13DRender_tView(struct DRender_tView *Vi); // 0x8
 extern void R3DCar_InsertCarFacetZ__FP8Car_tObjP13DRender_tView(struct Car_tObj *carObj, struct DRender_tView *Vi); // 0x800B2BD8
 
 extern void R3DCar_InsertAllListFacet__FP13DRender_tView(struct DRender_tView *Vi); // 0x800B2BF8
+
 
 #endif

@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "SPCHEVNT.H"
+
 
 // decompiled code
 // original method signature: 
@@ -14,6 +15,16 @@
 	/* end block 1 */
 	// End offset: 0x80092F74
 	// End Line: 16
+
+	/* begin block 2 */
+		// Start line: 14
+	/* end block 2 */
+	// End Line: 15
+
+	/* begin block 3 */
+		// Start line: 14
+	/* end block 3 */
+	// End Line: 15
 
 long SPCHNFS_C_A_CONFIRM(SPCHNFSType_VOICE *VOICE,int ID_UNIT,SPCHNFSType_CONFIRM *CONFIRM)
 
@@ -58,6 +69,21 @@ long SPCHNFS_C_A_CONFIRM(SPCHNFSType_VOICE *VOICE,int ID_UNIT,SPCHNFSType_CONFIR
 	// End offset: 0x80092FC8
 	// End Line: 36
 
+	/* begin block 2 */
+		// Start line: 48
+	/* end block 2 */
+	// End Line: 49
+
+	/* begin block 3 */
+		// Start line: 55
+	/* end block 3 */
+	// End Line: 56
+
+	/* begin block 4 */
+		// Start line: 55
+	/* end block 4 */
+	// End Line: 56
+
 long SPCHNFS_C_D_REQUEST_EMS(SPCHNFSType_VOICE *VOICE,SPCHNFSType_AMBULANCE *AMBULANCE)
 
 {
@@ -98,6 +124,21 @@ long SPCHNFS_C_D_REQUEST_EMS(SPCHNFSType_VOICE *VOICE,SPCHNFSType_AMBULANCE *AMB
 	/* end block 1 */
 	// End offset: 0x8009301C
 	// End Line: 75
+
+	/* begin block 2 */
+		// Start line: 122
+	/* end block 2 */
+	// End Line: 123
+
+	/* begin block 3 */
+		// Start line: 116
+	/* end block 3 */
+	// End Line: 117
+
+	/* begin block 4 */
+		// Start line: 116
+	/* end block 4 */
+	// End Line: 117
 
 long SPCHNFS_D_C_BEGIN_PURS_REP_SPDR
                (SPCHNFSType_COLOUR *COLOUR,int ID_CAR,SPCHNFSType_POSITION *POSITION,int ID_LOCATION
@@ -147,6 +188,21 @@ long SPCHNFS_D_C_BEGIN_PURS_REP_SPDR
 	/* end block 1 */
 	// End offset: 0x80093084
 	// End Line: 103
+
+	/* begin block 2 */
+		// Start line: 161
+	/* end block 2 */
+	// End Line: 162
+
+	/* begin block 3 */
+		// Start line: 174
+	/* end block 3 */
+	// End Line: 175
+
+	/* begin block 4 */
+		// Start line: 174
+	/* end block 4 */
+	// End Line: 175
 
 long SPCHNFS_C_D_ENGAGE_PURS_REP_SPDR_REPLY
                (SPCHNFSType_VOICE *VOICE,int ID_UNIT,SPCHNFSType_COLOUR *COLOUR,int ID_CAR,
@@ -203,6 +259,21 @@ long SPCHNFS_C_D_ENGAGE_PURS_REP_SPDR_REPLY
 	/* end block 1 */
 	// End offset: 0x80093118
 	// End Line: 135
+
+	/* begin block 2 */
+		// Start line: 228
+	/* end block 2 */
+	// End Line: 229
+
+	/* begin block 3 */
+		// Start line: 242
+	/* end block 3 */
+	// End Line: 243
+
+	/* begin block 4 */
+		// Start line: 242
+	/* end block 4 */
+	// End Line: 243
 
 long SPCHNFS_C_D_ENGAGE_PURS_REP_SPDR
                (SPCHNFSType_VOICE *VOICE,SPCHNFSType_COLOUR *COLOUR,int ID_CAR,
@@ -262,6 +333,21 @@ long SPCHNFS_C_D_ENGAGE_PURS_REP_SPDR
 	// End offset: 0x800931B8
 	// End Line: 187
 
+	/* begin block 2 */
+		// Start line: 348
+	/* end block 2 */
+	// End Line: 349
+
+	/* begin block 3 */
+		// Start line: 327
+	/* end block 3 */
+	// End Line: 328
+
+	/* begin block 4 */
+		// Start line: 327
+	/* end block 4 */
+	// End Line: 328
+
 long SPCHNFS_C_C_IN_PURS_NEAR_PERP(SPCHNFSType_VOICE *VOICE,SPCHNFSType_COLOUR *COLOUR,int ID_CAR)
 
 {
@@ -305,6 +391,21 @@ long SPCHNFS_C_C_IN_PURS_NEAR_PERP(SPCHNFSType_VOICE *VOICE,SPCHNFSType_COLOUR *
 	// End offset: 0x80093210
 	// End Line: 206
 
+	/* begin block 2 */
+		// Start line: 362
+	/* end block 2 */
+	// End Line: 363
+
+	/* begin block 3 */
+		// Start line: 368
+	/* end block 3 */
+	// End Line: 369
+
+	/* begin block 4 */
+		// Start line: 368
+	/* end block 4 */
+	// End Line: 369
+
 long SPCHNFS_D_C_IN_PURS_NEAR_PERP(SPCHNFSType_PURS_UPDT *PURS_UPDT)
 
 {
@@ -343,6 +444,21 @@ long SPCHNFS_D_C_IN_PURS_NEAR_PERP(SPCHNFSType_PURS_UPDT *PURS_UPDT)
 	/* end block 1 */
 	// End offset: 0x80093258
 	// End Line: 228
+
+	/* begin block 2 */
+		// Start line: 401
+	/* end block 2 */
+	// End Line: 402
+
+	/* begin block 3 */
+		// Start line: 412
+	/* end block 3 */
+	// End Line: 413
+
+	/* begin block 4 */
+		// Start line: 412
+	/* end block 4 */
+	// End Line: 413
 
 long SPCHNFS_C_D_IN_PURS_NEAR_PERP_REP_STS
                (SPCHNFSType_VOICE *VOICE,SPCHNFSType_COLOUR *COLOUR,int ID_CAR,
@@ -395,6 +511,21 @@ long SPCHNFS_C_D_IN_PURS_NEAR_PERP_REP_STS
 	// End offset: 0x800932D4
 	// End Line: 254
 
+	/* begin block 2 */
+		// Start line: 458
+	/* end block 2 */
+	// End Line: 459
+
+	/* begin block 3 */
+		// Start line: 468
+	/* end block 3 */
+	// End Line: 469
+
+	/* begin block 4 */
+		// Start line: 468
+	/* end block 4 */
+	// End Line: 469
+
 long SPCHNFS_D_C_IN_PURS_NEAR_PERP_CONFIRM
                (SPCHNFSType_COLOUR *COLOUR,int ID_CAR,int ID_UNIT,SPCHNFSType_CONFIRM *CONFIRM,
                SPCHNFSType_PERP_NAME *PERP_NAME)
@@ -443,6 +574,21 @@ long SPCHNFS_D_C_IN_PURS_NEAR_PERP_CONFIRM
 	/* end block 1 */
 	// End offset: 0x80093340
 	// End Line: 324
+
+	/* begin block 2 */
+		// Start line: 619
+	/* end block 2 */
+	// End Line: 620
+
+	/* begin block 3 */
+		// Start line: 566
+	/* end block 3 */
+	// End Line: 567
+
+	/* begin block 4 */
+		// Start line: 566
+	/* end block 4 */
+	// End Line: 567
 
 long SPCHNFS_C_D_IN_PURS_AWAY_PERP_REPLY_STS
                (SPCHNFSType_VOICE *VOICE,SPCHNFSType_COLOUR *COLOUR,int ID_CAR,
@@ -495,6 +641,21 @@ long SPCHNFS_C_D_IN_PURS_AWAY_PERP_REPLY_STS
 	// End offset: 0x800933B4
 	// End Line: 350
 
+	/* begin block 2 */
+		// Start line: 612
+	/* end block 2 */
+	// End Line: 613
+
+	/* begin block 3 */
+		// Start line: 622
+	/* end block 3 */
+	// End Line: 623
+
+	/* begin block 4 */
+		// Start line: 622
+	/* end block 4 */
+	// End Line: 623
+
 long SPCHNFS_D_C_IN_PURS_AWAY_PERP_CONFIRM
                (SPCHNFSType_COLOUR *COLOUR,int ID_CAR,int ID_UNIT,SPCHNFSType_CONFIRM *CONFIRM,
                SPCHNFSType_PERP_NAME *PERP_NAME)
@@ -544,6 +705,21 @@ long SPCHNFS_D_C_IN_PURS_AWAY_PERP_CONFIRM
 	// End offset: 0x80093420
 	// End Line: 416
 
+	/* begin block 2 */
+		// Start line: 805
+	/* end block 2 */
+	// End Line: 806
+
+	/* begin block 3 */
+		// Start line: 714
+	/* end block 3 */
+	// End Line: 715
+
+	/* begin block 4 */
+		// Start line: 714
+	/* end block 4 */
+	// End Line: 715
+
 long SPCHNFS_C_D_IN_PURS_LOOK_PERP_REPLY_STS
                (SPCHNFSType_VOICE *VOICE,SPCHNFSType_COLOUR *COLOUR,int ID_CAR,
                SPCHNFSType_PERP_NAME *PERP_NAME)
@@ -591,6 +767,21 @@ long SPCHNFS_C_D_IN_PURS_LOOK_PERP_REPLY_STS
 	// End offset: 0x80093480
 	// End Line: 476
 
+	/* begin block 2 */
+		// Start line: 928
+	/* end block 2 */
+	// End Line: 929
+
+	/* begin block 3 */
+		// Start line: 795
+	/* end block 3 */
+	// End Line: 796
+
+	/* begin block 4 */
+		// Start line: 795
+	/* end block 4 */
+	// End Line: 796
+
 long SPCHNFS_C_C_IDLE_WINGMAN_DISAPPEARS(SPCHNFSType_VOICE *VOICE)
 
 {
@@ -629,6 +820,21 @@ long SPCHNFS_C_C_IDLE_WINGMAN_DISAPPEARS(SPCHNFSType_VOICE *VOICE)
 	/* end block 1 */
 	// End offset: 0x800934C8
 	// End Line: 493
+
+	/* begin block 2 */
+		// Start line: 823
+	/* end block 2 */
+	// End Line: 824
+
+	/* begin block 3 */
+		// Start line: 829
+	/* end block 3 */
+	// End Line: 830
+
+	/* begin block 4 */
+		// Start line: 829
+	/* end block 4 */
+	// End Line: 830
 
 long SPCHNFS_C_D_REQ_RDBLK(SPCHNFSType_VOICE *VOICE)
 
@@ -669,6 +875,21 @@ long SPCHNFS_C_D_REQ_RDBLK(SPCHNFSType_VOICE *VOICE)
 	// End offset: 0x80093510
 	// End Line: 510
 
+	/* begin block 2 */
+		// Start line: 857
+	/* end block 2 */
+	// End Line: 858
+
+	/* begin block 3 */
+		// Start line: 863
+	/* end block 3 */
+	// End Line: 864
+
+	/* begin block 4 */
+		// Start line: 863
+	/* end block 4 */
+	// End Line: 864
+
 long SPCHNFS_D_C_RDBLK_SPBLT_DENIED_REPLY(SPCHNFSType_vs_RDBLK_SSTRP *vs_RDBLK_SSTRP)
 
 {
@@ -707,6 +928,21 @@ long SPCHNFS_D_C_RDBLK_SPBLT_DENIED_REPLY(SPCHNFSType_vs_RDBLK_SSTRP *vs_RDBLK_S
 	/* end block 1 */
 	// End offset: 0x80093558
 	// End Line: 528
+
+	/* begin block 2 */
+		// Start line: 892
+	/* end block 2 */
+	// End Line: 893
+
+	/* begin block 3 */
+		// Start line: 899
+	/* end block 3 */
+	// End Line: 900
+
+	/* begin block 4 */
+		// Start line: 899
+	/* end block 4 */
+	// End Line: 900
 
 long SPCHNFS_D_C_RDBLK_SPBLT_GRANT_REPLY
                (SPCHNFSType_vs_RDBLK_SSTRP *vs_RDBLK_SSTRP,SPCHNFSType_CONFIRM *CONFIRM)
@@ -749,6 +985,21 @@ long SPCHNFS_D_C_RDBLK_SPBLT_GRANT_REPLY
 	/* end block 1 */
 	// End offset: 0x800935AC
 	// End Line: 548
+
+	/* begin block 2 */
+		// Start line: 931
+	/* end block 2 */
+	// End Line: 932
+
+	/* begin block 3 */
+		// Start line: 939
+	/* end block 3 */
+	// End Line: 940
+
+	/* begin block 4 */
+		// Start line: 939
+	/* end block 4 */
+	// End Line: 940
 
 long SPCHNFS_D_C_RDBLK_CONFIRMED
                (SPCHNFSType_POSITION *POSITION,int ID_LOCATION,SPCHNFSType_DISTANCE *DISTANCE)
@@ -794,6 +1045,21 @@ long SPCHNFS_D_C_RDBLK_CONFIRMED
 	// End offset: 0x80093600
 	// End Line: 569
 
+	/* begin block 2 */
+		// Start line: 974
+	/* end block 2 */
+	// End Line: 975
+
+	/* begin block 3 */
+		// Start line: 982
+	/* end block 3 */
+	// End Line: 983
+
+	/* begin block 4 */
+		// Start line: 982
+	/* end block 4 */
+	// End Line: 983
+
 long SPCHNFS_C_D_RDBLK_FAILED(SPCHNFSType_VOICE *VOICE,SPCHNFSType_COLOUR *COLOUR,int ID_CAR)
 
 {
@@ -836,6 +1102,21 @@ long SPCHNFS_C_D_RDBLK_FAILED(SPCHNFSType_VOICE *VOICE,SPCHNFSType_COLOUR *COLOU
 	/* end block 1 */
 	// End offset: 0x80093658
 	// End Line: 593
+
+	/* begin block 2 */
+		// Start line: 1022
+	/* end block 2 */
+	// End Line: 1023
+
+	/* begin block 3 */
+		// Start line: 1033
+	/* end block 3 */
+	// End Line: 1034
+
+	/* begin block 4 */
+		// Start line: 1033
+	/* end block 4 */
+	// End Line: 1034
 
 long SPCHNFS_C_D_REQUEST_BKUP
                (SPCHNFSType_VOICE *VOICE,SPCHNFSType_COLOUR *COLOUR,int ID_CAR,
@@ -888,6 +1169,21 @@ long SPCHNFS_C_D_REQUEST_BKUP
 	// End offset: 0x800936CC
 	// End Line: 664
 
+	/* begin block 2 */
+		// Start line: 1301
+	/* end block 2 */
+	// End Line: 1302
+
+	/* begin block 3 */
+		// Start line: 1133
+	/* end block 3 */
+	// End Line: 1134
+
+	/* begin block 4 */
+		// Start line: 1133
+	/* end block 4 */
+	// End Line: 1134
+
 long SPCHNFS_D_C_BKUP_REQUEST_GRANT_REPLY
                (SPCHNFSType_DISTANCE *DISTANCE,SPCHNFSType_POSITION *POSITION,int ID_LOCATION,
                int ID_UNIT)
@@ -935,6 +1231,21 @@ long SPCHNFS_D_C_BKUP_REQUEST_GRANT_REPLY
 	// End offset: 0x80093728
 	// End Line: 684
 
+	/* begin block 2 */
+		// Start line: 1172
+	/* end block 2 */
+	// End Line: 1173
+
+	/* begin block 3 */
+		// Start line: 1178
+	/* end block 3 */
+	// End Line: 1179
+
+	/* begin block 4 */
+		// Start line: 1178
+	/* end block 4 */
+	// End Line: 1179
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 long SPCHNFS_D_C_BKUP_REQUEST_DENIED_REPLY(void)
@@ -973,6 +1284,21 @@ long SPCHNFS_D_C_BKUP_REQUEST_DENIED_REPLY(void)
 	/* end block 1 */
 	// End offset: 0x80093768
 	// End Line: 737
+
+	/* begin block 2 */
+		// Start line: 1449
+	/* end block 2 */
+	// End Line: 1450
+
+	/* begin block 3 */
+		// Start line: 1248
+	/* end block 3 */
+	// End Line: 1249
+
+	/* begin block 4 */
+		// Start line: 1248
+	/* end block 4 */
+	// End Line: 1249
 
 long SPCHNFS_C_C_NEW_OFFICER_ENGAGING(SPCHNFSType_VOICE *VOICE,int ID_UNIT)
 
@@ -1014,6 +1340,21 @@ long SPCHNFS_C_C_NEW_OFFICER_ENGAGING(SPCHNFSType_VOICE *VOICE,int ID_UNIT)
 	/* end block 1 */
 	// End offset: 0x800937B4
 	// End Line: 761
+
+	/* begin block 2 */
+		// Start line: 1287
+	/* end block 2 */
+	// End Line: 1288
+
+	/* begin block 3 */
+		// Start line: 1299
+	/* end block 3 */
+	// End Line: 1300
+
+	/* begin block 4 */
+		// Start line: 1299
+	/* end block 4 */
+	// End Line: 1300
 
 long SPCHNFS_C_D_PERP_SIGHTED
                (SPCHNFSType_VOICE *VOICE,SPCHNFSType_COLOUR *COLOUR,int ID_CAR,
@@ -1069,6 +1410,21 @@ long SPCHNFS_C_D_PERP_SIGHTED
 	// End offset: 0x80093840
 	// End Line: 785
 
+	/* begin block 2 */
+		// Start line: 1343
+	/* end block 2 */
+	// End Line: 1344
+
+	/* begin block 3 */
+		// Start line: 1350
+	/* end block 3 */
+	// End Line: 1351
+
+	/* begin block 4 */
+		// Start line: 1350
+	/* end block 4 */
+	// End Line: 1351
+
 long SPCHNFS_D_C_PERP_SIGHTED_CONFIRM(SPCHNFSType_CONFIRM *CONFIRM,int ID_UNIT)
 
 {
@@ -1109,6 +1465,21 @@ long SPCHNFS_D_C_PERP_SIGHTED_CONFIRM(SPCHNFSType_CONFIRM *CONFIRM,int ID_UNIT)
 	/* end block 1 */
 	// End offset: 0x8009388C
 	// End Line: 809
+
+	/* begin block 2 */
+		// Start line: 1389
+	/* end block 2 */
+	// End Line: 1390
+
+	/* begin block 3 */
+		// Start line: 1401
+	/* end block 3 */
+	// End Line: 1402
+
+	/* begin block 4 */
+		// Start line: 1401
+	/* end block 4 */
+	// End Line: 1402
 
 long SPCHNFS_C_D_PERP_LOST
                (SPCHNFSType_VOICE *VOICE,SPCHNFSType_COLOUR *COLOUR,int ID_CAR,
@@ -1164,6 +1535,21 @@ long SPCHNFS_C_D_PERP_LOST
 	// End offset: 0x80093914
 	// End Line: 833
 
+	/* begin block 2 */
+		// Start line: 1446
+	/* end block 2 */
+	// End Line: 1447
+
+	/* begin block 3 */
+		// Start line: 1453
+	/* end block 3 */
+	// End Line: 1454
+
+	/* begin block 4 */
+		// Start line: 1453
+	/* end block 4 */
+	// End Line: 1454
+
 long SPCHNFS_D_C_PERP_LOST_CONFIRM(SPCHNFSType_COLOUR *COLOUR,int ID_CAR)
 
 {
@@ -1204,6 +1590,21 @@ long SPCHNFS_D_C_PERP_LOST_CONFIRM(SPCHNFSType_COLOUR *COLOUR,int ID_CAR)
 	/* end block 1 */
 	// End offset: 0x80093960
 	// End Line: 856
+
+	/* begin block 2 */
+		// Start line: 1491
+	/* end block 2 */
+	// End Line: 1492
+
+	/* begin block 3 */
+		// Start line: 1502
+	/* end block 3 */
+	// End Line: 1503
+
+	/* begin block 4 */
+		// Start line: 1502
+	/* end block 4 */
+	// End Line: 1503
 
 long SPCHNFS_C_C_PERP_REAQUIRED
                (SPCHNFSType_VOICE *VOICE,SPCHNFSType_COLOUR *COLOUR,int ID_CAR,
@@ -1256,6 +1657,21 @@ long SPCHNFS_C_C_PERP_REAQUIRED
 	// End offset: 0x800939D4
 	// End Line: 935
 
+	/* begin block 2 */
+		// Start line: 1845
+	/* end block 2 */
+	// End Line: 1846
+
+	/* begin block 3 */
+		// Start line: 1608
+	/* end block 3 */
+	// End Line: 1609
+
+	/* begin block 4 */
+		// Start line: 1608
+	/* end block 4 */
+	// End Line: 1609
+
 long SPCHNFS_C_D_PERP_APPREHENSION(SPCHNFSType_VOICE *VOICE,SPCHNFSType_PERP_NAME *PERP_NAME)
 
 {
@@ -1296,6 +1712,21 @@ long SPCHNFS_C_D_PERP_APPREHENSION(SPCHNFSType_VOICE *VOICE,SPCHNFSType_PERP_NAM
 	/* end block 1 */
 	// End offset: 0x80093A28
 	// End Line: 955
+
+	/* begin block 2 */
+		// Start line: 1640
+	/* end block 2 */
+	// End Line: 1641
+
+	/* begin block 3 */
+		// Start line: 1648
+	/* end block 3 */
+	// End Line: 1649
+
+	/* begin block 4 */
+		// Start line: 1648
+	/* end block 4 */
+	// End Line: 1649
 
 long SPCHNFS_D_C_PERP_APPREHENSION_REPLY
                (int ID_UNIT,SPCHNFSType_CONFIRM *CONFIRM,SPCHNFSType_PERP_NAME *PERP_NAME)
@@ -1340,6 +1771,21 @@ long SPCHNFS_D_C_PERP_APPREHENSION_REPLY
 	/* end block 1 */
 	// End offset: 0x80093A80
 	// End Line: 980
+
+	/* begin block 2 */
+		// Start line: 1686
+	/* end block 2 */
+	// End Line: 1687
+
+	/* begin block 3 */
+		// Start line: 1698
+	/* end block 3 */
+	// End Line: 1699
+
+	/* begin block 4 */
+		// Start line: 1698
+	/* end block 4 */
+	// End Line: 1699
 
 long SPCHNFS_C_D_PERP_CRASH_GEN
                (SPCHNFSType_VOICE *VOICE,SPCHNFSType_POSITION *POSITION,int ID_LOCATION,
@@ -1395,6 +1841,21 @@ long SPCHNFS_C_D_PERP_CRASH_GEN
 	// End offset: 0x80093B08
 	// End Line: 1023
 
+	/* begin block 2 */
+		// Start line: 2021
+	/* end block 2 */
+	// End Line: 2022
+
+	/* begin block 3 */
+		// Start line: 1769
+	/* end block 3 */
+	// End Line: 1770
+
+	/* begin block 4 */
+		// Start line: 1769
+	/* end block 4 */
+	// End Line: 1770
+
 long SPCHNFS_C_P_ARRESTED(SPCHNFSType_VOICE *VOICE,SPCHNFSType_ARREST *ARREST)
 
 {
@@ -1435,6 +1896,21 @@ long SPCHNFS_C_P_ARRESTED(SPCHNFSType_VOICE *VOICE,SPCHNFSType_ARREST *ARREST)
 	/* end block 1 */
 	// End offset: 0x80093B5C
 	// End Line: 1042
+
+	/* begin block 2 */
+		// Start line: 1800
+	/* end block 2 */
+	// End Line: 1801
+
+	/* begin block 3 */
+		// Start line: 1807
+	/* end block 3 */
+	// End Line: 1808
+
+	/* begin block 4 */
+		// Start line: 1807
+	/* end block 4 */
+	// End Line: 1808
 
 long SPCHNFS_C_P_WARNING(SPCHNFSType_VOICE *VOICE,SPCHNFSType_ARREST *ARREST)
 
@@ -1477,6 +1953,21 @@ long SPCHNFS_C_P_WARNING(SPCHNFSType_VOICE *VOICE,SPCHNFSType_ARREST *ARREST)
 	// End offset: 0x80093BB0
 	// End Line: 1061
 
+	/* begin block 2 */
+		// Start line: 1838
+	/* end block 2 */
+	// End Line: 1839
+
+	/* begin block 3 */
+		// Start line: 1845
+	/* end block 3 */
+	// End Line: 1846
+
+	/* begin block 4 */
+		// Start line: 1845
+	/* end block 4 */
+	// End Line: 1846
+
 long SPCHNFS_C_P_TICKET(SPCHNFSType_VOICE *VOICE,SPCHNFSType_ARREST *ARREST)
 
 {
@@ -1518,6 +2009,21 @@ long SPCHNFS_C_P_TICKET(SPCHNFSType_VOICE *VOICE,SPCHNFSType_ARREST *ARREST)
 	// End offset: 0x80093C04
 	// End Line: 1079
 
+	/* begin block 2 */
+		// Start line: 1875
+	/* end block 2 */
+	// End Line: 1876
+
+	/* begin block 3 */
+		// Start line: 1881
+	/* end block 3 */
+	// End Line: 1882
+
+	/* begin block 4 */
+		// Start line: 1881
+	/* end block 4 */
+	// End Line: 1882
+
 long SPCHNFS_C_P_FALSE_ARREST_BULLHORN(SPCHNFSType_VOICE *VOICE)
 
 {
@@ -1556,6 +2062,21 @@ long SPCHNFS_C_P_FALSE_ARREST_BULLHORN(SPCHNFSType_VOICE *VOICE)
 	/* end block 1 */
 	// End offset: 0x80093C4C
 	// End Line: 1097
+
+	/* begin block 2 */
+		// Start line: 1910
+	/* end block 2 */
+	// End Line: 1911
+
+	/* begin block 3 */
+		// Start line: 1917
+	/* end block 3 */
+	// End Line: 1918
+
+	/* begin block 4 */
+		// Start line: 1917
+	/* end block 4 */
+	// End Line: 1918
 
 long SPCHNFS_C_D_DURING_FALSE_ARREST(SPCHNFSType_VOICE *VOICE,SPCHNFSType_PERP_NAME *PERP_NAME)
 
@@ -1598,6 +2119,21 @@ long SPCHNFS_C_D_DURING_FALSE_ARREST(SPCHNFSType_VOICE *VOICE,SPCHNFSType_PERP_N
 	// End offset: 0x80093CA0
 	// End Line: 1115
 
+	/* begin block 2 */
+		// Start line: 1947
+	/* end block 2 */
+	// End Line: 1948
+
+	/* begin block 3 */
+		// Start line: 1953
+	/* end block 3 */
+	// End Line: 1954
+
+	/* begin block 4 */
+		// Start line: 1953
+	/* end block 4 */
+	// End Line: 1954
+
 long SPCHNFS_C_P_BULLHORN_SPEECH(SPCHNFSType_VOICE *VOICE)
 
 {
@@ -1636,6 +2172,21 @@ long SPCHNFS_C_P_BULLHORN_SPEECH(SPCHNFSType_VOICE *VOICE)
 	/* end block 1 */
 	// End offset: 0x80093CE8
 	// End Line: 1132
+
+	/* begin block 2 */
+		// Start line: 1981
+	/* end block 2 */
+	// End Line: 1982
+
+	/* begin block 3 */
+		// Start line: 1987
+	/* end block 3 */
+	// End Line: 1988
+
+	/* begin block 4 */
+		// Start line: 1987
+	/* end block 4 */
+	// End Line: 1988
 
 long SPCHNFS_S_C_SUPER_COP_ARRIVAL(SPCHNFSType_VOICE *VOICE)
 
@@ -1676,6 +2227,21 @@ long SPCHNFS_S_C_SUPER_COP_ARRIVAL(SPCHNFSType_VOICE *VOICE)
 	// End offset: 0x80093D30
 	// End Line: 1149
 
+	/* begin block 2 */
+		// Start line: 2015
+	/* end block 2 */
+	// End Line: 2016
+
+	/* begin block 3 */
+		// Start line: 2021
+	/* end block 3 */
+	// End Line: 2022
+
+	/* begin block 4 */
+		// Start line: 2021
+	/* end block 4 */
+	// End Line: 2022
+
 long SPCHNFS_S_C_SUPER_COP_CRITICISM(SPCHNFSType_VOICE *VOICE)
 
 {
@@ -1714,6 +2280,21 @@ long SPCHNFS_S_C_SUPER_COP_CRITICISM(SPCHNFSType_VOICE *VOICE)
 	/* end block 1 */
 	// End offset: 0x80093D78
 	// End Line: 1294
+
+	/* begin block 2 */
+		// Start line: 2561
+	/* end block 2 */
+	// End Line: 2562
+
+	/* begin block 3 */
+		// Start line: 2186
+	/* end block 3 */
+	// End Line: 2187
+
+	/* begin block 4 */
+		// Start line: 2186
+	/* end block 4 */
+	// End Line: 2187
 
 long SPCHNFS_C_D_IN_PURS_NEAR_PERP_REP_LOC
                (SPCHNFSType_VOICE *VOICE,SPCHNFSType_POSITION *POSITION,int ID_LOCATION,
@@ -1762,6 +2343,21 @@ long SPCHNFS_C_D_IN_PURS_NEAR_PERP_REP_LOC
 	// End offset: 0x80093DD8
 	// End Line: 1316
 
+	/* begin block 2 */
+		// Start line: 2223
+	/* end block 2 */
+	// End Line: 2224
+
+	/* begin block 3 */
+		// Start line: 2231
+	/* end block 3 */
+	// End Line: 2232
+
+	/* begin block 4 */
+		// Start line: 2231
+	/* end block 4 */
+	// End Line: 2232
+
 long SPCHNFS_C_D_IN_PURS_NEAR_PERP_REP_SPD
                (SPCHNFSType_VOICE *VOICE,int ID_SPEED,SPCHNFSType_vs_KMH_MPH *vs_KMH_MPH)
 
@@ -1805,6 +2401,21 @@ long SPCHNFS_C_D_IN_PURS_NEAR_PERP_REP_SPD
 	/* end block 1 */
 	// End offset: 0x80093E2C
 	// End Line: 1341
+
+	/* begin block 2 */
+		// Start line: 2270
+	/* end block 2 */
+	// End Line: 2271
+
+	/* begin block 3 */
+		// Start line: 2282
+	/* end block 3 */
+	// End Line: 2283
+
+	/* begin block 4 */
+		// Start line: 2282
+	/* end block 4 */
+	// End Line: 2283
 
 long SPCHNFS_C_D_IN_PURS_AWAY_PERP_REPLY_LOC
                (SPCHNFSType_VOICE *VOICE,SPCHNFSType_POSITION *POSITION,int ID_LOCATION,
@@ -1860,6 +2471,21 @@ long SPCHNFS_C_D_IN_PURS_AWAY_PERP_REPLY_LOC
 	// End offset: 0x80093EB8
 	// End Line: 1369
 
+	/* begin block 2 */
+		// Start line: 2330
+	/* end block 2 */
+	// End Line: 2331
+
+	/* begin block 3 */
+		// Start line: 2341
+	/* end block 3 */
+	// End Line: 2342
+
+	/* begin block 4 */
+		// Start line: 2341
+	/* end block 4 */
+	// End Line: 2342
+
 long SPCHNFS_C_D_IN_PURS_LOOK_PERP_REPLY_LOC
                (SPCHNFSType_VOICE *VOICE,SPCHNFSType_POSITION *POSITION,int ID_LOCATION,
                SPCHNFSType_DISTANCE *DISTANCE,SPCHNFSType_COLOUR *COLOUR,int ID_CAR)
@@ -1911,6 +2537,21 @@ long SPCHNFS_C_D_IN_PURS_LOOK_PERP_REPLY_LOC
 	// End offset: 0x80093F34
 	// End Line: 1393
 
+	/* begin block 2 */
+		// Start line: 2385
+	/* end block 2 */
+	// End Line: 2386
+
+	/* begin block 3 */
+		// Start line: 2393
+	/* end block 3 */
+	// End Line: 2394
+
+	/* begin block 4 */
+		// Start line: 2393
+	/* end block 4 */
+	// End Line: 2394
+
 long SPCHNFS_D_C_INTRO_CALL(int ID_UNIT,int ID_UNIT1,SPCHNFSType_REVINTRO *REVINTRO)
 
 {
@@ -1953,6 +2594,21 @@ long SPCHNFS_D_C_INTRO_CALL(int ID_UNIT,int ID_UNIT1,SPCHNFSType_REVINTRO *REVIN
 	/* end block 1 */
 	// End offset: 0x80093F84
 	// End Line: 1436
+
+	/* begin block 2 */
+		// Start line: 2845
+	/* end block 2 */
+	// End Line: 2846
+
+	/* begin block 3 */
+		// Start line: 2458
+	/* end block 3 */
+	// End Line: 2459
+
+	/* begin block 4 */
+		// Start line: 2458
+	/* end block 4 */
+	// End Line: 2459
 
 long SPCHNFS_C_A_INTRO(SPCHNFSType_VOICE *VOICE,int ID_UNIT,int ID_UNIT1,
                       SPCHNFSType_REVINTRO *REVINTRO)
@@ -2000,6 +2656,21 @@ long SPCHNFS_C_A_INTRO(SPCHNFSType_VOICE *VOICE,int ID_UNIT,int ID_UNIT1,
 	// End offset: 0x80093FDC
 	// End Line: 1456
 
+	/* begin block 2 */
+		// Start line: 2494
+	/* end block 2 */
+	// End Line: 2495
+
+	/* begin block 3 */
+		// Start line: 2500
+	/* end block 3 */
+	// End Line: 2501
+
+	/* begin block 4 */
+		// Start line: 2500
+	/* end block 4 */
+	// End Line: 2501
+
 long SPCHNFS_C_D_IN_PURS_PERP_AIRBORN(SPCHNFSType_VOICE *VOICE)
 
 {
@@ -2038,6 +2709,21 @@ long SPCHNFS_C_D_IN_PURS_PERP_AIRBORN(SPCHNFSType_VOICE *VOICE)
 	/* end block 1 */
 	// End offset: 0x80094024
 	// End Line: 1477
+
+	/* begin block 2 */
+		// Start line: 2532
+	/* end block 2 */
+	// End Line: 2533
+
+	/* begin block 3 */
+		// Start line: 2542
+	/* end block 3 */
+	// End Line: 2543
+
+	/* begin block 4 */
+		// Start line: 2542
+	/* end block 4 */
+	// End Line: 2543
 
 long SPCHNFS_D_C_SPBLT_CONFIRMED
                (SPCHNFSType_POSITION *POSITION,int ID_LOCATION,SPCHNFSType_DISTANCE *DISTANCE,
@@ -2088,6 +2774,21 @@ long SPCHNFS_D_C_SPBLT_CONFIRMED
 	// End offset: 0x8009408C
 	// End Line: 1498
 
+	/* begin block 2 */
+		// Start line: 2580
+	/* end block 2 */
+	// End Line: 2581
+
+	/* begin block 3 */
+		// Start line: 2586
+	/* end block 3 */
+	// End Line: 2587
+
+	/* begin block 4 */
+		// Start line: 2586
+	/* end block 4 */
+	// End Line: 2587
+
 long SPCHNFS_C_D_REQ_SPBLT(SPCHNFSType_VOICE *VOICE)
 
 {
@@ -2126,6 +2827,21 @@ long SPCHNFS_C_D_REQ_SPBLT(SPCHNFSType_VOICE *VOICE)
 	/* end block 1 */
 	// End offset: 0x800940D4
 	// End Line: 1517
+
+	/* begin block 2 */
+		// Start line: 2616
+	/* end block 2 */
+	// End Line: 2617
+
+	/* begin block 3 */
+		// Start line: 2624
+	/* end block 3 */
+	// End Line: 2625
+
+	/* begin block 4 */
+		// Start line: 2624
+	/* end block 4 */
+	// End Line: 2625
 
 long SPCHNFS_C_D_SPBLT_FAILED(SPCHNFSType_VOICE *VOICE,SPCHNFSType_COLOUR *COLOUR,int ID_CAR)
 
@@ -2169,6 +2885,21 @@ long SPCHNFS_C_D_SPBLT_FAILED(SPCHNFSType_VOICE *VOICE,SPCHNFSType_COLOUR *COLOU
 	/* end block 1 */
 	// End offset: 0x8009412C
 	// End Line: 1539
+
+	/* begin block 2 */
+		// Start line: 2662
+	/* end block 2 */
+	// End Line: 2663
+
+	/* begin block 3 */
+		// Start line: 2671
+	/* end block 3 */
+	// End Line: 2672
+
+	/* begin block 4 */
+		// Start line: 2671
+	/* end block 4 */
+	// End Line: 2672
 
 long SPCHNFS_W_D_RDBLK_PLC
                (SPCHNFSType_VOICE *VOICE,SPCHNFSType_POSITION *POSITION,int ID_LOCATION,
@@ -2216,6 +2947,21 @@ long SPCHNFS_W_D_RDBLK_PLC
 	/* end block 1 */
 	// End offset: 0x8009418C
 	// End Line: 1564
+
+	/* begin block 2 */
+		// Start line: 2711
+	/* end block 2 */
+	// End Line: 2712
+
+	/* begin block 3 */
+		// Start line: 2722
+	/* end block 3 */
+	// End Line: 2723
+
+	/* begin block 4 */
+		// Start line: 2722
+	/* end block 4 */
+	// End Line: 2723
 
 long SPCHNFS_W_D_SPBLT_PLC
                (SPCHNFSType_VOICE *VOICE,SPCHNFSType_POSITION *POSITION,
@@ -2269,6 +3015,21 @@ long SPCHNFS_W_D_SPBLT_PLC
 	// End offset: 0x80094204
 	// End Line: 1590
 
+	/* begin block 2 */
+		// Start line: 2769
+	/* end block 2 */
+	// End Line: 2770
+
+	/* begin block 3 */
+		// Start line: 2779
+	/* end block 3 */
+	// End Line: 2780
+
+	/* begin block 4 */
+		// Start line: 2779
+	/* end block 4 */
+	// End Line: 2780
+
 long SPCHNFS_C_D_PERP_CRASH_ROLL
                (SPCHNFSType_VOICE *VOICE,SPCHNFSType_POSITION *POSITION,int ID_LOCATION,
                SPCHNFSType_DISTANCE *DISTANCE,SPCHNFSType_PERP_NAME *PERP_NAME)
@@ -2318,6 +3079,21 @@ long SPCHNFS_C_D_PERP_CRASH_ROLL
 	// End offset: 0x80094278
 	// End Line: 1647
 
+	/* begin block 2 */
+		// Start line: 3270
+	/* end block 2 */
+	// End Line: 3271
+
+	/* begin block 3 */
+		// Start line: 2858
+	/* end block 3 */
+	// End Line: 2859
+
+	/* begin block 4 */
+		// Start line: 2858
+	/* end block 4 */
+	// End Line: 2859
+
 long SPCHNFS_D_A_CONFIRM(SPCHNFSType_CONFIRM *CONFIRM)
 
 {
@@ -2357,6 +3133,21 @@ long SPCHNFS_D_A_CONFIRM(SPCHNFSType_CONFIRM *CONFIRM)
 	// End offset: 0x800942C0
 	// End Line: 1664
 
+	/* begin block 2 */
+		// Start line: 2886
+	/* end block 2 */
+	// End Line: 2887
+
+	/* begin block 3 */
+		// Start line: 2892
+	/* end block 3 */
+	// End Line: 2893
+
+	/* begin block 4 */
+		// Start line: 2892
+	/* end block 4 */
+	// End Line: 2893
+
 long SPCHNFS_C_D_ENDGAME(SPCHNFSType_VOICE *VOICE)
 
 {
@@ -2379,6 +3170,7 @@ long SPCHNFS_C_D_ENDGAME(SPCHNFSType_VOICE *VOICE)
   lVar2 = SPCH_AddEvent(&local_38);
   return lVar2;
 }
+
 
 
 

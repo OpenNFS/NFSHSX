@@ -1,6 +1,7 @@
 #ifndef NFS3_H
 #define NFS3_H
 
+
 extern void Nfs2_SystemNLibStartUp__Fv(); // 0x800A3DEC
 
 extern void Nfs2_BefuddleCode__Fv(); // 0x800A3E50
@@ -22,5 +23,6 @@ extern void NFS4_LoadingIcon__Fv(); // 0x800A45B8
 extern void NFS3_CheckForFileOperations__Fv(); // 0x800A46DC
 
 extern int main(); // 0x800A4730
+
 
 #endif

@@ -1,6 +1,7 @@
 #ifndef MPAUSE_H
 #define MPAUSE_H
 
+
 extern struct tPauseMenuDefs * __14tPauseMenuDefs(struct tPauseMenuDefs *this); // 0x8009DED4
 
 extern void _._14tPauseMenuDefs(struct tPauseMenuDefs *this, int __in_chrg); // 0x8009E234
@@ -20,5 +21,6 @@ extern void MPause_StartPauseMenu__Fv(); // 0x8009EC80
 extern void MPause_EndPauseMenu__Fv(); // 0x8009EEB0
 
 extern void MPause_KillMPause__Fv(); // 0x8009EEEC
+
 
 #endif

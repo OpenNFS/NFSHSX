@@ -1,6 +1,7 @@
 #ifndef PHYSICS_H
 #define PHYSICS_H
 
+
 extern void Physics_InitCarSpecs__FP8Car_tObjP10Udff_tInfo(struct Car_tObj *carObj, struct Udff_tInfo *handle); // 0x800A86C8
 
 extern void Physics_CalculateDerivedCarSpecs__FP8Car_tObj(struct Car_tObj *carObj); // 0x800A8964
@@ -44,5 +45,6 @@ extern int Physics_CalculateRSControlDesiredPosition__FP8Car_tObjii(struct Car_t
 extern void Physics_Real__FP8Car_tObj(struct Car_tObj *carObj); // 0x800AC164
 
 extern void Physics_SimCar__FP8Car_tObj(struct Car_tObj *carObj); // 0x800AD544
+
 
 #endif
