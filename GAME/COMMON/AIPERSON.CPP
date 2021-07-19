@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "AIPERSON.H"
+
 
 // decompiled code
 // original method signature: 
@@ -21,6 +22,26 @@
 	// End offset: 0x80068A2C
 	// End Line: 40
 
+	/* begin block 2 */
+		// Start line: 62
+	/* end block 2 */
+	// End Line: 63
+
+	/* begin block 3 */
+		// Start line: 62
+	/* end block 3 */
+	// End Line: 63
+
+	/* begin block 4 */
+		// Start line: 63
+	/* end block 4 */
+	// End Line: 64
+
+	/* begin block 5 */
+		// Start line: 63
+	/* end block 5 */
+	// End Line: 64
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void AIPerson_LoadGridAndSetPersonalityIndexes__Fv(void)
@@ -36,7 +57,7 @@ void AIPerson_LoadGridAndSetPersonalityIndexes__Fv(void)
   iVar3 = 0;
   if (0 < Cars_gNumCars) {
     pGVar5 = &GameSetup_gData;
-    ppCVar4 = &__Cars_gList_9__;
+    ppCVar4 = &Cars_gList9;
     do {
       pGVar1 = pGVar5->carInfo;
       pGVar5 = (GameSetup_tData *)((pGVar5->controllerData).shockImpact + 1);
@@ -61,18 +82,33 @@ void AIPerson_LoadGridAndSetPersonalityIndexes__Fv(void)
 	// End offset: 0x80068A78
 	// End Line: 84
 
+	/* begin block 2 */
+		// Start line: 128
+	/* end block 2 */
+	// End Line: 129
+
+	/* begin block 3 */
+		// Start line: 168
+	/* end block 3 */
+	// End Line: 169
+
+	/* begin block 4 */
+		// Start line: 168
+	/* end block 4 */
+	// End Line: 169
+
 void AIPerson_SetPersonality__FP8Car_tObji(Car_tObj *carObj,int personalityIndex)
 
 {
   if ((carObj->carFlags & 4U) == 0) {
-    strcpy(carObj->carInfo->driver,&GameSetup_gPersonalityNames + personalityIndex * 8);
+    strcpy(carObj->carInfo->driver,GameSetup_gPersonalityNames + personalityIndex * 8);
   }
   personalityIndex = personalityIndex % 5;
   carObj->personalityIndex = personalityIndex;
-  carObj->personality = &AIPerson_PersonalityData + personalityIndex;
+  carObj->personality = AIPerson_PersonalityData + personalityIndex;
   AIScript_Assign__FP10AIScript_tPA7_25AIScript_tReactionDetails
             (&carObj->script,
-             (AIScript_tReactionDetails (*) [7])(&AIPerson_ScriptData + personalityIndex * 7));
+             (AIScript_tReactionDetails (*) [7])(AIPerson_ScriptData + personalityIndex * 7));
   return;
 }
 
@@ -107,6 +143,21 @@ void AIPerson_SetPersonality__FP8Car_tObji(Car_tObj *carObj,int personalityIndex
 	// End offset: 0x80068B4C
 	// End Line: 118
 
+	/* begin block 2 */
+		// Start line: 299
+	/* end block 2 */
+	// End Line: 300
+
+	/* begin block 3 */
+		// Start line: 303
+	/* end block 3 */
+	// End Line: 304
+
+	/* begin block 4 */
+		// Start line: 303
+	/* end block 4 */
+	// End Line: 304
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void AIPerson_SetPersonalityPointers__Fv(void)
@@ -117,7 +168,7 @@ void AIPerson_SetPersonalityPointers__Fv(void)
   int iVar2;
   
   iVar2 = 0;
-  ppCVar1 = &__Cars_gList_9__;
+  ppCVar1 = &Cars_gList9;
   while (iVar2 < Cars_gNumCars) {
     carObj = *ppCVar1;
     ppCVar1 = ppCVar1 + 1;
@@ -169,6 +220,21 @@ void AIPerson_SetPersonalityPointers__Fv(void)
 	// End offset: 0x80068E74
 	// End Line: 199
 
+	/* begin block 2 */
+		// Start line: 320
+	/* end block 2 */
+	// End Line: 321
+
+	/* begin block 3 */
+		// Start line: 324
+	/* end block 3 */
+	// End Line: 325
+
+	/* begin block 4 */
+		// Start line: 324
+	/* end block 4 */
+	// End Line: 325
+
 void AIPerson_LoadPersonalityData__FP10Udff_tInfo(Udff_tInfo *handle)
 
 {
@@ -190,7 +256,7 @@ void AIPerson_LoadPersonalityData__FP10Udff_tInfo(Udff_tInfo *handle)
   int local_40;
   
   Udff_GetInt__FP10Udff_tInfo(handle);
-  pAVar15 = &AIPerson_PersonalityData;
+  pAVar15 = AIPerson_PersonalityData;
   local_40 = 0;
   while (local_40 < 9) {
     iVar1 = Udff_GetInt__FP10Udff_tInfo(handle);
@@ -207,28 +273,28 @@ void AIPerson_LoadPersonalityData__FP10Udff_tInfo(Udff_tInfo *handle)
     iVar11 = Udff_GetInt__FP10Udff_tInfo(handle);
     iVar12 = Udff_GetInt__FP10Udff_tInfo(handle);
     uVar13 = Udff_GetInt__FP10Udff_tInfo(handle);
-    pAVar15->blockMaxDistance = (&AIPerson_blockMaxDistance)[iVar1];
-    pAVar15->blockMinDistance = (&AIPerson_blockMinDistance)[iVar2];
-    pAVar15->oncomingLookAhead = (&AIPerson_oncomingLookAhead)[iVar3];
+    pAVar15->blockMaxDistance = AIPerson_blockMaxDistance[iVar1];
+    pAVar15->blockMinDistance = AIPerson_blockMinDistance[iVar2];
+    pAVar15->oncomingLookAhead = AIPerson_oncomingLookAhead[iVar3];
     pAVar15->laneSwerve[0] = (&AIPerson_laneSwerve)[iVar4 * 4];
     pAVar15->laneSwerve[1] = (&INT_8010d600)[iVar4 * 4];
     pAVar15->laneSwerve[2] = (&INT_8010d604)[iVar4 * 4];
     pAVar15->laneSwerve[3] = (&INT_8010d608)[iVar4 * 4];
-    pAVar15->swerveChangeProb = (&AIPerson_swerveChangeProb)[iVar4];
-    pAVar15->brakeMultiplier = (&AIPerson_brakeMultiplier)[iVar5];
-    pAVar15->attackActivationHits = (&AIPerson_attackActivationHits)[iVar6];
-    pAVar15->attackTime = (&AIPerson_attackTimes)[iVar6];
-    pAVar15->fishtailAngle = (&AIPerson_fishtailAngles)[iVar7];
+    pAVar15->swerveChangeProb = AIPerson_swerveChangeProb[iVar4];
+    pAVar15->brakeMultiplier = AIPerson_brakeMultiplier[iVar5];
+    pAVar15->attackActivationHits = AIPerson_attackActivationHits[iVar6];
+    pAVar15->attackTime = AIPerson_attackTimes[iVar6];
+    pAVar15->fishtailAngle = AIPerson_fishtailAngles[iVar7];
     pAVar15->minimumBetweenWipeoutTicks =
-         (&AIPerson_minimumWipeOutTicks)[iVar8 + GameSetup_gData.Weather];
+         AIPerson_minimumWipeOutTicks[iVar8 + GameSetup_gData.Weather];
     pAVar15->randomBetweenWipeoutTicks =
-         (&AIPerson_randomWipeOutTicks)[iVar8 + GameSetup_gData.Weather];
-    pAVar15->gripLossProbPerSecond = (&AIPerson_gripLossProbPerSecond)[iVar9];
-    pAVar15->gripLossMinFactor = (&AIPerson_gripLossMinFactor)[iVar9];
-    pAVar15->gripLossRecoveryPerTick = (&AIPerson_gripLossRecoveryPerTick)[iVar9];
-    pAVar15->bestLineAbility = (&AIPerson_bestLineAbilities)[iVar10];
-    pAVar15->rearBumpProbMask = (&AIPerson_rearEndProbMask)[iVar11];
-    uVar14 = (&AIPerson_smackProbMask)[iVar12];
+         AIPerson_randomWipeOutTicks[iVar8 + GameSetup_gData.Weather];
+    pAVar15->gripLossProbPerSecond = AIPerson_gripLossProbPerSecond[iVar9];
+    pAVar15->gripLossMinFactor = AIPerson_gripLossMinFactor[iVar9];
+    pAVar15->gripLossRecoveryPerTick = AIPerson_gripLossRecoveryPerTick[iVar9];
+    pAVar15->bestLineAbility = AIPerson_bestLineAbilities[iVar10];
+    pAVar15->rearBumpProbMask = AIPerson_rearEndProbMask[iVar11];
+    uVar14 = AIPerson_smackProbMask[iVar12];
     local_40 = local_40 + 1;
     pAVar15->copCollisionFirmness = uVar13;
     pAVar15->smackProbMask = uVar14;
@@ -291,6 +357,21 @@ void AIPerson_LoadPersonalityData__FP10Udff_tInfo(Udff_tInfo *handle)
 	// End offset: 0x80068F50
 	// End Line: 250
 
+	/* begin block 2 */
+		// Start line: 548
+	/* end block 2 */
+	// End Line: 549
+
+	/* begin block 3 */
+		// Start line: 558
+	/* end block 3 */
+	// End Line: 559
+
+	/* begin block 4 */
+		// Start line: 558
+	/* end block 4 */
+	// End Line: 559
+
 void AIPerson_LoadScriptData__FP10Udff_tInfo(Udff_tInfo *handle)
 
 {
@@ -308,10 +389,10 @@ void AIPerson_LoadScriptData__FP10Udff_tInfo(Udff_tInfo *handle)
     while (iVar2 = 0, iVar4 < 7) {
       do {
         iVar1 = Udff_GetInt__FP10Udff_tInfo(handle);
-        (&AIPerson_ScriptData)[iVar4].reaction[iVar5 + iVar2] = (char)iVar1;
+        AIPerson_ScriptData[iVar4].reaction[iVar5 + iVar2] = (char)iVar1;
         iVar1 = Udff_GetInt__FP10Udff_tInfo(handle);
         iVar3 = iVar2 + 1;
-        (&AIPerson_ScriptData)[iVar4].halfSeconds[iVar5 + iVar2] = (char)iVar1;
+        AIPerson_ScriptData[iVar4].halfSeconds[iVar5 + iVar2] = (char)iVar1;
         iVar2 = iVar3;
       } while (iVar3 < 4);
       iVar4 = iVar4 + 1;
@@ -351,6 +432,21 @@ void AIPerson_LoadScriptData__FP10Udff_tInfo(Udff_tInfo *handle)
 	// End offset: 0x80069078
 	// End Line: 471
 
+	/* begin block 2 */
+		// Start line: 849
+	/* end block 2 */
+	// End Line: 850
+
+	/* begin block 3 */
+		// Start line: 1049
+	/* end block 3 */
+	// End Line: 1050
+
+	/* begin block 4 */
+		// Start line: 1049
+	/* end block 4 */
+	// End Line: 1050
+
 void AIPerson_LoadGlue__FP10Udff_tInfo(Udff_tInfo *handle)
 
 {
@@ -363,8 +459,8 @@ void AIPerson_LoadGlue__FP10Udff_tInfo(Udff_tInfo *handle)
   Udff_GetBuffer__FP10Udff_tInfoPci(handle,(char *)&AIPerson_glueTable,0x54);
   if ((Cars_gNumCopCars != 0) &&
      (((GameSetup_gData.raceType != 1 && (GameSetup_gData.raceType != 5)) ||
-      (((__Cars_gHumanRaceCarList_9__->carFlags & 0x200U) == 0 &&
-       ((Cars_gNumHumanRaceCars != 2 || ((PTR_8010fa4c->carFlags & 0x200U) == 0)))))))) {
+      (((Cars_gHumanRaceCarList9->carFlags & 0x200U) == 0 &&
+       ((Cars_gNumHumanRaceCars != 2 || ((PTR_ARRAY_8010fa4c[0]->carFlags & 0x200U) == 0)))))))) {
     iVar4 = 0;
     piVar3 = &AIPerson_glueTable;
     do {
@@ -402,6 +498,21 @@ LAB_8006905c:
 	// End offset: 0x800691F0
 	// End Line: 534
 
+	/* begin block 2 */
+		// Start line: 1109
+	/* end block 2 */
+	// End Line: 1110
+
+	/* begin block 3 */
+		// Start line: 1127
+	/* end block 3 */
+	// End Line: 1128
+
+	/* begin block 4 */
+		// Start line: 1127
+	/* end block 4 */
+	// End Line: 1128
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void AIPerson_Startup__Fv(void)
@@ -421,8 +532,8 @@ void AIPerson_Startup__Fv(void)
   AIPerson_LoadScriptData__FP10Udff_tInfo(handle);
   Udff_Close__FP10Udff_tInfo(handle);
   if (((GameSetup_gData.raceType == 1) || (GameSetup_gData.raceType == 5)) &&
-     (((__Cars_gHumanRaceCarList_9__->carFlags & 0x200U) != 0 ||
-      ((Cars_gNumHumanRaceCars == 2 && ((PTR_8010fa4c->carFlags & 0x200U) != 0)))))) {
+     (((Cars_gHumanRaceCarList9->carFlags & 0x200U) != 0 ||
+      ((Cars_gNumHumanRaceCars == 2 && ((PTR_ARRAY_8010fa4c[0]->carFlags & 0x200U) != 0)))))) {
     __format = s__sbtcglue_bin_80055374;
   }
   else {
@@ -454,6 +565,31 @@ void AIPerson_Startup__Fv(void)
 	// End offset: 0x80069230
 	// End Line: 542
 
+	/* begin block 2 */
+		// Start line: 1229
+	/* end block 2 */
+	// End Line: 1230
+
+	/* begin block 3 */
+		// Start line: 1233
+	/* end block 3 */
+	// End Line: 1234
+
+	/* begin block 4 */
+		// Start line: 1233
+	/* end block 4 */
+	// End Line: 1234
+
+	/* begin block 5 */
+		// Start line: 1234
+	/* end block 5 */
+	// End Line: 1235
+
+	/* begin block 6 */
+		// Start line: 1234
+	/* end block 6 */
+	// End Line: 1235
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void AIPerson_Cleanup__Fv(void)
@@ -461,6 +597,7 @@ void AIPerson_Cleanup__Fv(void)
 {
   return;
 }
+
 
 
 

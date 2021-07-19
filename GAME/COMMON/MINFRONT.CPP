@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "MINFRONT.H"
+
 
 // decompiled code
 // original method signature: 
@@ -14,19 +15,29 @@
 	// End offset: 0x800128F0
 	// End Line: 782
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 1562
+	/* end block 2 */
+	// End Line: 1563
+
+	/* begin block 3 */
+		// Start line: 1562
+	/* end block 3 */
+	// End Line: 1563
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 int * MinFront_ParseOptions__Fv(void)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
+  int *piVar1;
   
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  piVar1 = (int *)reservememadr(s_FE_Data_Stream_8001000c,0x2000,0x10);
+  *piVar1 = 0;
+  resizememadr((int)piVar1,4);
+  return piVar1;
 }
+
 
 
 

@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "AUDIOENG.H"
+
 
 // decompiled code
 // original method signature: 
@@ -16,6 +17,16 @@
 	// End offset: 0x8007B7F8
 	// End Line: 261
 
+	/* begin block 2 */
+		// Start line: 410
+	/* end block 2 */
+	// End Line: 411
+
+	/* begin block 3 */
+		// Start line: 410
+	/* end block 3 */
+	// End Line: 411
+
 void AudioEng_Set__Fiiiiiiii(int player,int vol,int esp,int gas,int cam,int dop,int azi,int dir)
 
 {
@@ -29,7 +40,7 @@ void AudioEng_Set__Fiiiiiiii(int player,int vol,int esp,int gas,int cam,int dop,
   AudioEng_t *pAVar8;
   
   if ((uint)player < 2) {
-    pAVar8 = (&__AudioEng_g_2__)[player];
+    pAVar8 = AudioEng_g2[player];
     if ((pAVar8 != (AudioEng_t *)0x0) &&
        ((pAVar8->plypos != '\x0f' || ((pAVar8->setpos + 1U & 1) == 0)))) {
       pAVar7 = pAVar8->queue + (uint)(byte)pAVar8->setpos;
@@ -39,7 +50,7 @@ void AudioEng_Set__Fiiiiiiii(int player,int vol,int esp,int gas,int cam,int dop,
         uVar6 = (ushort)iVar2;
       }
       pAVar7->esp = uVar6;
-      if ((&__Cars_gList_9__)[player]->carInfo->carType == 0x1c) {
+      if ((&Cars_gList9)[player]->carInfo->carType == 0x1c) {
         puVar5 = (undefined *)((esp >> 2) + 0xc000);
       }
       else {
@@ -222,6 +233,21 @@ void AudioEng_Set__Fiiiiiiii(int player,int vol,int esp,int gas,int cam,int dop,
 	// End offset: 0x8007BDAC
 	// End Line: 455
 
+	/* begin block 2 */
+		// Start line: 532
+	/* end block 2 */
+	// End Line: 533
+
+	/* begin block 3 */
+		// Start line: 537
+	/* end block 3 */
+	// End Line: 538
+
+	/* begin block 4 */
+		// Start line: 537
+	/* end block 4 */
+	// End Line: 538
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void AudioEng_Update__Fv(void)
@@ -254,7 +280,7 @@ void AudioEng_Update__Fv(void)
   
   local_30 = 0;
   do {
-    if ((1 < local_30) || (pAVar12 = (&__AudioEng_g_2__)[local_30], pAVar12 == (AudioEng_t *)0x0)) {
+    if ((1 < local_30) || (pAVar12 = AudioEng_g2[local_30], pAVar12 == (AudioEng_t *)0x0)) {
       return;
     }
     pAVar11 = pAVar12->queue + (uint)(byte)pAVar12->plypos;
@@ -286,16 +312,16 @@ void AudioEng_Update__Fv(void)
               if (pAVar9->chan[0].patchnum < '@') {
                 uVar4 = (uint)pAVar11->exh;
 code_r0x8007b9f4:
-                uVar4 = (uint)(byte)(&Xfade)[uVar4];
+                uVar4 = (uint)(byte)Xfade[uVar4];
               }
               else {
                 if (pAVar11->sep == 0) {
                   uVar4 = 0x80 - (uint)pAVar11->exh;
                   goto code_r0x8007b9f4;
                 }
-                uVar4 = (int)((uint)(byte)(&CHAR___8010e70c)[-(uint)pAVar11->exh] * 0x2f) >> 6;
+                uVar4 = (int)((uint)(byte)Xfade[0x80 - (uint)pAVar11->exh] * 0x2f) >> 6;
               }
-              iVar7 = iVar7 * (uint)(byte)(&Xfade)[uVar6] * uVar4;
+              iVar7 = iVar7 * (uint)(byte)Xfade[uVar6] * uVar4;
             }
             uVar6 = iVar7 * (uint)pAVar11->vol >> 0x15;
             if (0x7f < uVar6) {
@@ -460,6 +486,21 @@ LAB_8007bd18:
 	/* end block 1 */
 	// End offset: 0x8007BE38
 	// End Line: 472
+
+	/* begin block 2 */
+		// Start line: 950
+	/* end block 2 */
+	// End Line: 951
+
+	/* begin block 3 */
+		// Start line: 956
+	/* end block 3 */
+	// End Line: 957
+
+	/* begin block 4 */
+		// Start line: 956
+	/* end block 4 */
+	// End Line: 957
 
 void AudioEng_LoadDef__FPcT0illPP13AudioEng_tDef
                (char *filename,char *name,int handle,long offset,long size,AudioEng_tDef **ed)
@@ -679,6 +720,21 @@ void AudioEng_LoadDef__FPcT0illPP13AudioEng_tDef
 	// End offset: 0x8007C404
 	// End Line: 655
 
+	/* begin block 2 */
+		// Start line: 987
+	/* end block 2 */
+	// End Line: 988
+
+	/* begin block 3 */
+		// Start line: 994
+	/* end block 3 */
+	// End Line: 995
+
+	/* begin block 4 */
+		// Start line: 994
+	/* end block 4 */
+	// End Line: 995
+
 int AudioEng_StartUp__FiPc(int player,char *carname)
 
 {
@@ -718,13 +774,13 @@ int AudioEng_StartUp__FiPc(int player,char *carname)
     return 0;
   }
   iVar19 = 0;
-  if ((&__AudioEng_g_2__)[player] != (AudioEng_t *)0x0) {
+  if (AudioEng_g2[player] != (AudioEng_t *)0x0) {
     return 0;
   }
   iVar20 = 0;
   pAVar3 = (AudioEng_t *)reservememadr(s_Engine_Audio_80055800,0x370,0);
   iVar15 = 0;
-  (&__AudioEng_g_2__)[player] = pAVar3;
+  AudioEng_g2[player] = pAVar3;
   pAVar3->tables = (char *)0x0;
   pAVar3->tick = 0;
   pAVar3->azi = 0;
@@ -926,6 +982,21 @@ LAB_8007c2c4:
 	// End offset: 0x8007C434
 	// End Line: 661
 
+	/* begin block 2 */
+		// Start line: 1392
+	/* end block 2 */
+	// End Line: 1393
+
+	/* begin block 3 */
+		// Start line: 1398
+	/* end block 3 */
+	// End Line: 1399
+
+	/* begin block 4 */
+		// Start line: 1398
+	/* end block 4 */
+	// End Line: 1399
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void AudioEng_StartServer__Fv(void)
@@ -947,6 +1018,21 @@ void AudioEng_StartServer__Fv(void)
 	/* end block 1 */
 	// End offset: 0x8007C458
 	// End Line: 668
+
+	/* begin block 2 */
+		// Start line: 1407
+	/* end block 2 */
+	// End Line: 1408
+
+	/* begin block 3 */
+		// Start line: 1413
+	/* end block 3 */
+	// End Line: 1414
+
+	/* begin block 4 */
+		// Start line: 1413
+	/* end block 4 */
+	// End Line: 1414
 
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
@@ -989,6 +1075,31 @@ void AudioEng_StopServer__Fv(void)
 	// End offset: 0x8007C524
 	// End Line: 697
 
+	/* begin block 2 */
+		// Start line: 1422
+	/* end block 2 */
+	// End Line: 1423
+
+	/* begin block 3 */
+		// Start line: 1428
+	/* end block 3 */
+	// End Line: 1429
+
+	/* begin block 4 */
+		// Start line: 1428
+	/* end block 4 */
+	// End Line: 1429
+
+	/* begin block 5 */
+		// Start line: 1429
+	/* end block 5 */
+	// End Line: 1430
+
+	/* begin block 6 */
+		// Start line: 1429
+	/* end block 6 */
+	// End Line: 1430
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void AudioEng_Pause__Fv(void)
@@ -1000,7 +1111,7 @@ void AudioEng_Pause__Fv(void)
   int iVar4;
   
   iVar4 = 0;
-  ppAVar3 = &__AudioEng_g_2__;
+  ppAVar3 = AudioEng_g2;
   while (((iVar4 < 2 && (pAVar2 = *ppAVar3, pAVar2 != (AudioEng_t *)0x0)) &&
          ((pAVar2->plypos != '\x0f' || ((pAVar2->setpos + 1U & 1) == 0))))) {
     ppAVar3 = ppAVar3 + 1;
@@ -1030,6 +1141,31 @@ void AudioEng_Pause__Fv(void)
 	/* end block 1 */
 	// End offset: 0x8007C52C
 	// End Line: 703
+
+	/* begin block 2 */
+		// Start line: 1490
+	/* end block 2 */
+	// End Line: 1491
+
+	/* begin block 3 */
+		// Start line: 1496
+	/* end block 3 */
+	// End Line: 1497
+
+	/* begin block 4 */
+		// Start line: 1496
+	/* end block 4 */
+	// End Line: 1497
+
+	/* begin block 5 */
+		// Start line: 1497
+	/* end block 5 */
+	// End Line: 1498
+
+	/* begin block 6 */
+		// Start line: 1497
+	/* end block 6 */
+	// End Line: 1498
 
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
@@ -1077,6 +1213,21 @@ void AudioEng_Resume__Fv(void)
 	// End offset: 0x8007C5F0
 	// End Line: 731
 
+	/* begin block 2 */
+		// Start line: 1503
+	/* end block 2 */
+	// End Line: 1504
+
+	/* begin block 3 */
+		// Start line: 1508
+	/* end block 3 */
+	// End Line: 1509
+
+	/* begin block 4 */
+		// Start line: 1508
+	/* end block 4 */
+	// End Line: 1509
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void AudioEng_CleanUp__Fv(void)
@@ -1088,7 +1239,7 @@ void AudioEng_CleanUp__Fv(void)
   AudioEng_t *pAVar4;
   AudioEng_t **ppAVar5;
   
-  ppAVar5 = &__AudioEng_g_2__;
+  ppAVar5 = AudioEng_g2;
   while( true ) {
     if (-0x7fec38c5 < (int)ppAVar5) {
       return;
@@ -1118,6 +1269,7 @@ void AudioEng_CleanUp__Fv(void)
   }
   return;
 }
+
 
 
 

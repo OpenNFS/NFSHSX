@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "MATHNFS.H"
+
 
 // decompiled code
 // original method signature: 
@@ -19,6 +20,31 @@
 	/* end block 1 */
 	// End offset: 0x8009D430
 	// End Line: 39
+
+	/* begin block 2 */
+		// Start line: 47
+	/* end block 2 */
+	// End Line: 48
+
+	/* begin block 3 */
+		// Start line: 48
+	/* end block 3 */
+	// End Line: 49
+
+	/* begin block 4 */
+		// Start line: 51
+	/* end block 4 */
+	// End Line: 52
+
+	/* begin block 5 */
+		// Start line: 51
+	/* end block 5 */
+	// End Line: 52
+
+	/* begin block 6 */
+		// Start line: 53
+	/* end block 6 */
+	// End Line: 54
 
 int Math_DistXZ__FP8coorddefT0(coorddef *a,coorddef *b)
 
@@ -58,6 +84,26 @@ int Math_DistXZ__FP8coorddefT0(coorddef *a,coorddef *b)
 	/* end block 1 */
 	// End offset: 0x8009D4C0
 	// End Line: 54
+
+	/* begin block 2 */
+		// Start line: 79
+	/* end block 2 */
+	// End Line: 80
+
+	/* begin block 3 */
+		// Start line: 83
+	/* end block 3 */
+	// End Line: 84
+
+	/* begin block 4 */
+		// Start line: 83
+	/* end block 4 */
+	// End Line: 84
+
+	/* begin block 5 */
+		// Start line: 87
+	/* end block 5 */
+	// End Line: 88
 
 int Math_Dist3D__FP8coorddefT0(coorddef *a,coorddef *b)
 
@@ -105,6 +151,26 @@ int Math_Dist3D__FP8coorddefT0(coorddef *a,coorddef *b)
 	/* end block 1 */
 	// End offset: 0x8009D620
 	// End Line: 80
+
+	/* begin block 2 */
+		// Start line: 109
+	/* end block 2 */
+	// End Line: 110
+
+	/* begin block 3 */
+		// Start line: 113
+	/* end block 3 */
+	// End Line: 114
+
+	/* begin block 4 */
+		// Start line: 113
+	/* end block 4 */
+	// End Line: 114
+
+	/* begin block 5 */
+		// Start line: 117
+	/* end block 5 */
+	// End Line: 118
 
 int Math_BetterDist__Fii(int a,int b)
 
@@ -162,6 +228,21 @@ int Math_BetterDist__Fii(int a,int b)
 	// End offset: 0x8009D65C
 	// End Line: 100
 
+	/* begin block 2 */
+		// Start line: 188
+	/* end block 2 */
+	// End Line: 189
+
+	/* begin block 3 */
+		// Start line: 178
+	/* end block 3 */
+	// End Line: 179
+
+	/* begin block 4 */
+		// Start line: 178
+	/* end block 4 */
+	// End Line: 179
+
 void Math_ResolveRotatedVector__FiiiPiT3(int x,int y,int angle,int *newx,int *newy)
 
 {
@@ -208,6 +289,21 @@ void Math_ResolveRotatedVector__FiiiPiT3(int x,int y,int angle,int *newx,int *ne
 	/* end block 1 */
 	// End offset: 0x8009D860
 	// End Line: 200
+
+	/* begin block 2 */
+		// Start line: 257
+	/* end block 2 */
+	// End Line: 258
+
+	/* begin block 3 */
+		// Start line: 229
+	/* end block 3 */
+	// End Line: 230
+
+	/* begin block 4 */
+		// Start line: 229
+	/* end block 4 */
+	// End Line: 230
 
 int Math_VectorLength__FP8coorddef(coorddef *v)
 
@@ -303,6 +399,21 @@ int Math_VectorLength__FP8coorddef(coorddef *v)
 	// End offset: 0x8009D9F4
 	// End Line: 274
 
+	/* begin block 2 */
+		// Start line: 379
+	/* end block 2 */
+	// End Line: 380
+
+	/* begin block 3 */
+		// Start line: 387
+	/* end block 3 */
+	// End Line: 388
+
+	/* begin block 4 */
+		// Start line: 387
+	/* end block 4 */
+	// End Line: 388
+
 int Math_VectorLength2__FP8coorddef(coorddef *v)
 
 {
@@ -396,6 +507,21 @@ int Math_VectorLength2__FP8coorddef(coorddef *v)
 	// End offset: 0x8009DBAC
 	// End Line: 361
 
+	/* begin block 2 */
+		// Start line: 552
+	/* end block 2 */
+	// End Line: 553
+
+	/* begin block 3 */
+		// Start line: 577
+	/* end block 3 */
+	// End Line: 578
+
+	/* begin block 4 */
+		// Start line: 577
+	/* end block 4 */
+	// End Line: 578
+
 void Math_NormalizeVector__FP8coorddef(coorddef *v)
 
 {
@@ -479,6 +605,21 @@ void Math_NormalizeVector__FP8coorddef(coorddef *v)
 	// End offset: 0x8009DC68
 	// End Line: 386
 
+	/* begin block 2 */
+		// Start line: 714
+	/* end block 2 */
+	// End Line: 715
+
+	/* begin block 3 */
+		// Start line: 723
+	/* end block 3 */
+	// End Line: 724
+
+	/* begin block 4 */
+		// Start line: 723
+	/* end block 4 */
+	// End Line: 724
+
 void Math_NormalizeShortVector__FP8coorddef(coorddef *v)
 
 {
@@ -519,6 +660,21 @@ void Math_NormalizeShortVector__FP8coorddef(coorddef *v)
 	/* end block 1 */
 	// End offset: 0x8009DD7C
 	// End Line: 417
+
+	/* begin block 2 */
+		// Start line: 763
+	/* end block 2 */
+	// End Line: 764
+
+	/* begin block 3 */
+		// Start line: 773
+	/* end block 3 */
+	// End Line: 774
+
+	/* begin block 4 */
+		// Start line: 773
+	/* end block 4 */
+	// End Line: 774
 
 void Math_QDNormalizeVector__FP8coorddef(coorddef *v)
 
@@ -594,6 +750,21 @@ void Math_QDNormalizeVector__FP8coorddef(coorddef *v)
 	// End offset: 0x8009DE74
 	// End Line: 567
 
+	/* begin block 2 */
+		// Start line: 1061
+	/* end block 2 */
+	// End Line: 1062
+
+	/* begin block 3 */
+		// Start line: 938
+	/* end block 3 */
+	// End Line: 939
+
+	/* begin block 4 */
+		// Start line: 938
+	/* end block 4 */
+	// End Line: 939
+
 void Math_fasttransmult__FP10matrixtdefN20(matrixtdef *m1,matrixtdef *m2,matrixtdef *mr)
 
 {
@@ -653,6 +824,7 @@ void Math_fasttransmult__FP10matrixtdefN20(matrixtdef *m1,matrixtdef *m2,matrixt
   mr->m[8] = local_18;
   return;
 }
+
 
 
 

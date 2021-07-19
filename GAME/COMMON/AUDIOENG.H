@@ -1,6 +1,7 @@
 #ifndef AUDIOENG_H
 #define AUDIOENG_H
 
+
 extern void AudioEng_Set__Fiiiiiiii(int player, int vol, int esp, int gas, int cam, int dop, int azi, int dir); // 0x8007B5A8
 
 extern void AudioEng_Update__Fv(); // 0x8007B824
@@ -18,5 +19,6 @@ extern void AudioEng_Pause__Fv(); // 0x8007C47C
 extern void AudioEng_Resume__Fv(); // 0x8007C52C
 
 extern void AudioEng_CleanUp__Fv(); // 0x8007C534
+
 
 #endif

@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "DASHHUD.H"
+
 
 // decompiled code
 // original method signature: 
@@ -13,6 +14,16 @@
 	/* end block 1 */
 	// End offset: 0x8009AFA4
 	// End Line: 78
+
+	/* begin block 2 */
+		// Start line: 76
+	/* end block 2 */
+	// End Line: 77
+
+	/* begin block 3 */
+		// Start line: 76
+	/* end block 3 */
+	// End Line: 77
 
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
@@ -77,6 +88,21 @@ void DashHUD_InitHUD__Fv(void)
 	// End offset: 0x8009AFF0
 	// End Line: 102
 
+	/* begin block 2 */
+		// Start line: 207
+	/* end block 2 */
+	// End Line: 208
+
+	/* begin block 3 */
+		// Start line: 217
+	/* end block 3 */
+	// End Line: 218
+
+	/* begin block 4 */
+		// Start line: 217
+	/* end block 4 */
+	// End Line: 218
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void DashHUD_KillHUD__Fv(void)
@@ -98,6 +124,31 @@ void DashHUD_KillHUD__Fv(void)
 	/* end block 1 */
 	// End offset: 0x8009B06C
 	// End Line: 119
+
+	/* begin block 2 */
+		// Start line: 223
+	/* end block 2 */
+	// End Line: 224
+
+	/* begin block 3 */
+		// Start line: 227
+	/* end block 3 */
+	// End Line: 228
+
+	/* begin block 4 */
+		// Start line: 227
+	/* end block 4 */
+	// End Line: 228
+
+	/* begin block 5 */
+		// Start line: 228
+	/* end block 5 */
+	// End Line: 229
+
+	/* begin block 6 */
+		// Start line: 228
+	/* end block 6 */
+	// End Line: 229
 
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
@@ -130,6 +181,26 @@ void DashHUD_ResetHUD__Fv(void)
 	// End offset: 0x8009B074
 	// End Line: 128
 
+	/* begin block 2 */
+		// Start line: 261
+	/* end block 2 */
+	// End Line: 262
+
+	/* begin block 3 */
+		// Start line: 268
+	/* end block 3 */
+	// End Line: 269
+
+	/* begin block 4 */
+		// Start line: 268
+	/* end block 4 */
+	// End Line: 269
+
+	/* begin block 5 */
+		// Start line: 270
+	/* end block 5 */
+	// End Line: 271
+
 void DashHUD_ToggleHud__Fi(int player)
 
 {
@@ -153,13 +224,33 @@ void DashHUD_ToggleHud__Fi(int player)
 	// End offset: 0x8009B100
 	// End Line: 165
 
+	/* begin block 2 */
+		// Start line: 296
+	/* end block 2 */
+	// End Line: 297
+
+	/* begin block 3 */
+		// Start line: 320
+	/* end block 3 */
+	// End Line: 321
+
+	/* begin block 4 */
+		// Start line: 320
+	/* end block 4 */
+	// End Line: 321
+
+	/* begin block 5 */
+		// Start line: 322
+	/* end block 5 */
+	// End Line: 323
+
 void DashHUD_CheckWrongWay__Fi(int player)
 
 {
   BO_tNewtonObj *pBVar1;
   int iVar2;
   
-  pBVar1 = (&Camera_gInfo)[player].anchor[1].collision.lastOtherObj;
+  pBVar1 = (&Camera_gInfo.anchor)[player * 0x44][1].collision.lastOtherObj;
   iVar2 = 0;
   if ((0x3f < (int)pBVar1) && (iVar2 = 2, (int)pBVar1 < 0x94)) {
     iVar2 = 1;
@@ -186,13 +277,28 @@ void DashHUD_CheckWrongWay__Fi(int player)
 	// End offset: 0x8009B3B4
 	// End Line: 258
 
+	/* begin block 2 */
+		// Start line: 353
+	/* end block 2 */
+	// End Line: 354
+
+	/* begin block 3 */
+		// Start line: 360
+	/* end block 3 */
+	// End Line: 361
+
+	/* begin block 4 */
+		// Start line: 360
+	/* end block 4 */
+	// End Line: 361
+
 void DashHUD_HUDCalc__Fi(int player)
 
 {
   int iVar1;
   Car_tObj *carObj;
   
-  carObj = (&__Cars_gHumanRaceCarList_9__)[player];
+  carObj = (&Cars_gHumanRaceCarList9)[player];
   DashHUD_gInfo.lap = (carObj->stats).lap + 1;
   if (DashHUD_gInfo.lap < 1) {
     DashHUD_gInfo.lap = 1;
@@ -229,14 +335,14 @@ void DashHUD_HUDCalc__Fi(int player)
       DashHUD_gInfo.flashtime = 0;
     }
     if ((DashHUD_gInfo.flashtime != 0) && ((simGlobal.gameTicks & 0x10U) != 0)) {
-      if (DAT_00001864 == 0) {
-        DAT_00001864 = 1;
+      if (resethud_28 == (uchar *)0x0) {
+        resethud_28 = &DAT_00000001;
       }
       goto LAB_8009b310;
     }
   }
-  if (DAT_00001864 != 0) {
-    DAT_00001864 = 0;
+  if (resethud_28 != (uchar *)0x0) {
+    resethud_28 = (uchar *)0x0;
   }
 LAB_8009b310:
   if ((simGlobal.gameTicks - (carObj->stats).lapTime < 0x140) &&
@@ -257,6 +363,7 @@ LAB_8009b310:
   DashHUD_gInfo.topspeed = (int)DashHUD_gInfo.topspeed._2_2_;
   return;
 }
+
 
 
 

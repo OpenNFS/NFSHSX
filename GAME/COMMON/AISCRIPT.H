@@ -1,6 +1,7 @@
 #ifndef AISCRIPT_H
 #define AISCRIPT_H
 
+
 extern void AIScript_Assign__FP10AIScript_tPA7_25AIScript_tReactionDetails(struct AIScript_t *script, struct AIScript_tReactionDetails (*data)[7]); // 0x8006F6F8
 
 extern void AIScript_ClearLastReactionIndex__FP10AIScript_t(struct AIScript_t *script); // 0x8006F700
@@ -16,5 +17,6 @@ extern void AIScript_ProcessActionsAndReactions__FP10AIScript_ti(struct AIScript
 extern int AIScript_DoReAction__FP10AIScript_t20AIScript_tAIReaction(struct AIScript_t *script, enum AIScript_tAIReaction testReaction); // 0x8006F958
 
 extern int AIScript_GetReactionTicksLeft__FP10AIScript_t(struct AIScript_t *script); // 0x8006F988
+
 
 #endif

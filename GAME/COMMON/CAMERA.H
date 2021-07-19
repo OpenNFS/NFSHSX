@@ -1,6 +1,7 @@
 #ifndef CAMERA_H
 #define CAMERA_H
 
+
 extern void EulerToMat__FP10matrixtdefiii(struct matrixtdef *m, int ax, int ay, int az); // 0x8008060C
 
 extern void Camera_SetCamera__FP13DRender_tView(struct DRender_tView *cview); // 0x80080704
@@ -76,5 +77,6 @@ extern void Camera_NextMode__Fi(int cviewP); // 0x8008581C
 extern void Camera_ReplayUpdate__FiP15Camera_tCamSlot(int cviewP, struct Camera_tCamSlot *ptr); // 0x80085BD0
 
 extern void Camera_ResetRelPos__Fi(int bitMask); // 0x80085CD4
+
 
 #endif

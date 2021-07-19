@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "AIHIGH.H"
+
 
 // decompiled code
 // original method signature: 
@@ -133,6 +134,16 @@
 	// End offset: 0x8005B114
 	// End Line: 106
 
+	/* begin block 2 */
+		// Start line: 116
+	/* end block 2 */
+	// End Line: 117
+
+	/* begin block 3 */
+		// Start line: 116
+	/* end block 3 */
+	// End Line: 117
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void AIHigh_StartUp__Fv(void)
@@ -158,10 +169,10 @@ void AIHigh_StartUp__Fv(void)
   copIndex_00 = 0;
   AIState_StartUp__Fv();
   if (((GameSetup_gData.raceType == 1) || (GameSetup_gData.raceType == 5)) &&
-     (((__Cars_gHumanRaceCarList_9__->carFlags & 0x200U) != 0 ||
-      ((Cars_gNumHumanRaceCars == 2 && ((PTR_8010fa4c->carFlags & 0x200U) != 0)))))) {
+     (((Cars_gHumanRaceCarList9->carFlags & 0x200U) != 0 ||
+      ((Cars_gNumHumanRaceCars == 2 && ((PTR_ARRAY_8010fa4c[0]->carFlags & 0x200U) != 0)))))) {
     iVar4 = 0;
-    ppCVar5 = &__Cars_gList_9__;
+    ppCVar5 = &Cars_gList9;
     copIndex = 0;
     while (iVar4 < Cars_gNumCars) {
       carObj = *ppCVar5;
@@ -196,14 +207,14 @@ void AIHigh_StartUp__Fv(void)
         else {
           this_00 = (AIHigh_BTC_AIPerp *)__builtin_new(0x88);
           __16AIHigh_BasicPerpP8Car_tObj((AIHigh_BasicPerp *)this_00,carObj);
-          (this_00->AIHigh_BTC_Perp).AIHigh_BasicPerp.AIHigh_Base._vf[0].value = 0x80054dcc;
-          (this_00->AIHigh_BTC_Perp).AIHigh_BasicPerp.basicPerpInfo_.copsAssigned_[1] = 1;
+          *(undefined4 *)(this_00->AIHigh_BTC_Perp).AIHigh_BasicPerp.AIHigh_Base._vf = 0x80054dcc;
+          (this_00->AIHigh_BTC_Perp).caught_ = COP_SUPER;
           puVar1 = &table;
-          (this_00->AIHigh_BTC_Perp).AIHigh_BasicPerp.basicPerpInfo_.crime_ = CRIME_NONE;
-          (this_00->AIHigh_BTC_Perp).caught_ = 0;
+          (this_00->AIHigh_BTC_Perp).hudActivated_ = 0;
+          ((blockade_t *)&(this_00->AIHigh_BTC_Perp).originalActivationCop_)->mode =
+               BLOCKADEMODE_NONE;
 LAB_8005af74:
-          *(undefined **)&(this_00->AIHigh_BTC_Perp).AIHigh_BasicPerp.AIHigh_Base._vf[0].value =
-               puVar1;
+          *(undefined **)(this_00->AIHigh_BTC_Perp).AIHigh_BasicPerp.AIHigh_Base._vf = puVar1;
           iVar3 = copIndex;
         }
       }
@@ -212,7 +223,7 @@ LAB_8005af74:
         this_00 = (AIHigh_BTC_AIPerp *)__19AIHigh_BTC_HumanCopP8Car_tObji(this,carObj,copIndex);
         iVar3 = copIndex + 1;
       }
-      *(AIHigh_BTC_AIPerp **)(&__highLevelAIObjs_9__ + iVar4) = this_00;
+      *(AIHigh_BTC_AIPerp **)(&highLevelAIObjs9 + iVar4) = this_00;
       if ((carObj->carFlags & 0x200U) != 0) {
         copIndex_00 = copIndex_00 + 1;
       }
@@ -221,21 +232,21 @@ LAB_8005af74:
       copIndex = iVar3;
     }
     if (copIndex_00 == 2) {
-      DAT_00000010 = 3;
+      AIHigh_CopGameType = COP_GAME_BTC_2HC;
     }
     else {
       if ((copIndex_00 == 1) && (copIndex == 1)) {
-        DAT_00000010 = 4;
+        AIHigh_CopGameType = COP_GAME_BTC_1HC1HP;
       }
       else {
-        DAT_00000010 = 2;
+        AIHigh_CopGameType = COP_GAME_BTC_1HC;
       }
     }
   }
   else {
     copIndex_00 = 0;
-    ppAVar6 = &__highLevelAIObjs_9__;
-    ppCVar5 = &__Cars_gList_9__;
+    ppAVar6 = &highLevelAIObjs9;
+    ppCVar5 = &Cars_gList9;
     copIndex = copIndex_00;
     while (copIndex < Cars_gNumCars) {
       carObj = *ppCVar5;
@@ -246,7 +257,7 @@ LAB_8005af74:
             if ((uVar2 & 0x20) == 0) {
               this_03 = (AIHigh_Opponent *)__builtin_new(0x18);
               __11AIHigh_BaseP8Car_tObj((AIHigh_Base *)this_03,carObj);
-              (this_03->AIHigh_Player).AIHigh_BasicPerp.AIHigh_Base._vf[0].value = 0x80054dec;
+              *(undefined4 *)(this_03->AIHigh_Player).AIHigh_BasicPerp.AIHigh_Base._vf = 0x80054dec;
               *(AIHigh_Opponent **)ppAVar6 = this_03;
             }
             else {
@@ -278,10 +289,10 @@ LAB_8005af74:
       copIndex = copIndex + 1;
     }
     if (copIndex_00 < 1) {
-      DAT_00000010 = 0;
+      AIHigh_CopGameType = COP_GAME_NO;
     }
     else {
-      DAT_00000010 = 1;
+      AIHigh_CopGameType = COP_GAME_PURSUIT;
     }
   }
   return;
@@ -299,6 +310,21 @@ LAB_8005af74:
 	/* end block 1 */
 	// End offset: 0x8005B13C
 	// End Line: 111
+
+	/* begin block 2 */
+		// Start line: 224
+	/* end block 2 */
+	// End Line: 225
+
+	/* begin block 3 */
+		// Start line: 229
+	/* end block 3 */
+	// End Line: 230
+
+	/* begin block 4 */
+		// Start line: 229
+	/* end block 4 */
+	// End Line: 230
 
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
@@ -321,6 +347,21 @@ void AIHigh_Restart1__Fv(void)
 	/* end block 1 */
 	// End offset: 0x8005B15C
 	// End Line: 116
+
+	/* begin block 2 */
+		// Start line: 235
+	/* end block 2 */
+	// End Line: 236
+
+	/* begin block 3 */
+		// Start line: 239
+	/* end block 3 */
+	// End Line: 240
+
+	/* begin block 4 */
+		// Start line: 239
+	/* end block 4 */
+	// End Line: 240
 
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
@@ -354,29 +395,53 @@ void AIHigh_Restart2__Fv(void)
 	// End offset: 0x8005B1F4
 	// End Line: 132
 
+	/* begin block 2 */
+		// Start line: 248
+	/* end block 2 */
+	// End Line: 249
+
+	/* begin block 3 */
+		// Start line: 253
+	/* end block 3 */
+	// End Line: 254
+
+	/* begin block 4 */
+		// Start line: 253
+	/* end block 4 */
+	// End Line: 254
+
+	/* begin block 5 */
+		// Start line: 254
+	/* end block 5 */
+	// End Line: 255
+
+	/* begin block 6 */
+		// Start line: 254
+	/* end block 6 */
+	// End Line: 255
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void AIHigh_CleanUp__Fv(void)
 
 {
-  uint uVar1;
-  AIHigh_Base *pAVar2;
-  AIHigh_Base **ppAVar3;
-  int iVar4;
+  AIHigh_Base *pAVar1;
+  AIHigh_Base **ppAVar2;
+  int iVar3;
   
-  iVar4 = 0;
+  iVar3 = 0;
   if (0 < Cars_gNumCars) {
-    ppAVar3 = &__highLevelAIObjs_9__;
+    ppAVar2 = &highLevelAIObjs9;
     do {
-      pAVar2 = *ppAVar3;
-      if (pAVar2 != (AIHigh_Base *)0x0) {
-        uVar1 = pAVar2->_vf[0].value;
-        (**(code **)(uVar1 + 0x14))((int)&pAVar2->carObj_ + (int)*(short *)(uVar1 + 0x10),3);
-        *ppAVar3 = (AIHigh_Base *)0x0;
+      pAVar1 = *ppAVar2;
+      if (pAVar1 != (AIHigh_Base *)0x0) {
+        (**(code **)(*(int *)pAVar1->_vf + 0x14))
+                  ((int)&pAVar1->carObj_ + (int)*(short *)(*(int *)pAVar1->_vf + 0x10),3);
+        *ppAVar2 = (AIHigh_Base *)0x0;
       }
-      iVar4 = iVar4 + 1;
-      ppAVar3 = ppAVar3 + 1;
-    } while (iVar4 < Cars_gNumCars);
+      iVar3 = iVar3 + 1;
+      ppAVar2 = ppAVar2 + 1;
+    } while (iVar3 < Cars_gNumCars);
   }
   AIState_CleanUp__Fv();
   return;
@@ -448,6 +513,21 @@ void AIHigh_CleanUp__Fv(void)
 	// End offset: 0x8005B2FC
 	// End Line: 149
 
+	/* begin block 2 */
+		// Start line: 276
+	/* end block 2 */
+	// End Line: 277
+
+	/* begin block 3 */
+		// Start line: 279
+	/* end block 3 */
+	// End Line: 280
+
+	/* begin block 4 */
+		// Start line: 279
+	/* end block 4 */
+	// End Line: 280
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void AIHigh_Execute__Fv(void)
@@ -455,26 +535,25 @@ void AIHigh_Execute__Fv(void)
 {
   bool bVar1;
   int iVar2;
-  uint uVar3;
-  Car_tObj *pCVar4;
-  AIHigh_Base **ppAVar5;
-  Car_tObj **ppCVar6;
-  int iVar7;
+  Car_tObj *pCVar3;
+  AIHigh_Base **ppAVar4;
+  Car_tObj **ppCVar5;
+  int iVar6;
   
-  iVar7 = 0;
-  ppAVar5 = &__highLevelAIObjs_9__;
-  ppCVar6 = &__Cars_gList_9__;
+  iVar6 = 0;
+  ppAVar4 = &highLevelAIObjs9;
+  ppCVar5 = &Cars_gList9;
   do {
-    if (Cars_gNumCars <= iVar7) {
+    if (Cars_gNumCars <= iVar6) {
       return;
     }
-    pCVar4 = *ppCVar6;
-    if (*ppAVar5 != (AIHigh_Base *)0x0) {
+    pCVar3 = *ppCVar5;
+    if (*ppAVar4 != (AIHigh_Base *)0x0) {
       bVar1 = false;
-      if ((*ppAVar5)->schedulingOff_ == 0) {
+      if ((*ppAVar4)->schedulingOff_ == 0) {
         iVar2 = Sched_ExecuteCheck__FiiiiPiN24i
-                          (1,0,(pCVar4->N).distToPlayer,(pCVar4->N).objID,&AI_time,&AI_elapsedTime,
-                           &AI_iTime,pCVar4->max_clacc);
+                          (1,0,(pCVar3->N).distToPlayer,(pCVar3->N).objID,&AI_time,&AI_elapsedTime,
+                           &AI_iTime,pCVar3->max_clacc);
         if (iVar2 != 0) goto LAB_8005b2bc;
       }
       else {
@@ -482,13 +561,13 @@ LAB_8005b2bc:
         bVar1 = true;
       }
       if (bVar1) {
-        uVar3 = (*ppAVar5)->_vf[0].value;
-        (**(code **)(uVar3 + 0xc))((int)&(*ppAVar5)->carObj_ + (int)*(short *)(uVar3 + 8));
+        iVar2 = *(int *)(*ppAVar4)->_vf;
+        (**(code **)(iVar2 + 0xc))((int)&(*ppAVar4)->carObj_ + (int)*(short *)(iVar2 + 8));
       }
     }
-    ppAVar5 = ppAVar5 + 1;
-    ppCVar6 = ppCVar6 + 1;
-    iVar7 = iVar7 + 1;
+    ppAVar4 = ppAVar4 + 1;
+    ppCVar5 = ppCVar5 + 1;
+    iVar6 = iVar6 + 1;
   } while( true );
 }
 
@@ -551,24 +630,38 @@ LAB_8005b2bc:
 	// End offset: 0x8005B394
 	// End Line: 163
 
+	/* begin block 2 */
+		// Start line: 325
+	/* end block 2 */
+	// End Line: 326
+
+	/* begin block 3 */
+		// Start line: 335
+	/* end block 3 */
+	// End Line: 336
+
+	/* begin block 4 */
+		// Start line: 335
+	/* end block 4 */
+	// End Line: 336
+
 AIHigh_Base * __11AIHigh_BaseP8Car_tObj(AIHigh_Base *this,Car_tObj *carObj)
 
 {
   AIState_Base *this_00;
-  uint uVar1;
-  AIState_Base *pAVar2;
+  AIState_Base *pAVar1;
   
-  this->_vf[0].value = 0x80054e04;
+  *(undefined4 *)this->_vf = 0x80054e04;
   this->carObj_ = carObj;
   this->state_ = (AIState_Base *)0x0;
   this->stateType_ = STATE_NONE;
   this_00 = (AIState_Base *)__builtin_new(8);
   __12AIState_BaseP8Car_tObj(this_00,this->carObj_);
-  this_00->_vf[0].value = 0x80054e1c;
-  pAVar2 = this->state_;
-  if (pAVar2 != (AIState_Base *)0x0) {
-    uVar1 = pAVar2->_vf[0].value;
-    (**(code **)(uVar1 + 0x14))((int)&pAVar2->carObj_ + (int)*(short *)(uVar1 + 0x10),3);
+  *(undefined4 *)this_00->_vf = 0x80054e1c;
+  pAVar1 = this->state_;
+  if (pAVar1 != (AIState_Base *)0x0) {
+    (**(code **)(*(int *)pAVar1->_vf + 0x14))
+              ((int)&pAVar1->carObj_ + (int)*(short *)(*(int *)pAVar1->_vf + 0x10),3);
   }
   this->state_ = this_00;
   this->stateType_ = STATE_NONE;
@@ -590,17 +683,31 @@ AIHigh_Base * __11AIHigh_BaseP8Car_tObj(AIHigh_Base *this,Car_tObj *carObj)
 	// End offset: 0x8005B410
 	// End Line: 174
 
+	/* begin block 2 */
+		// Start line: 357
+	/* end block 2 */
+	// End Line: 358
+
+	/* begin block 3 */
+		// Start line: 361
+	/* end block 3 */
+	// End Line: 362
+
+	/* begin block 4 */
+		// Start line: 361
+	/* end block 4 */
+	// End Line: 362
+
 void ___11AIHigh_Base(AIHigh_Base *this,int __in_chrg)
 
 {
-  uint uVar1;
-  AIState_Base *pAVar2;
+  AIState_Base *pAVar1;
   
-  pAVar2 = this->state_;
-  this->_vf[0].value = 0x80054e04;
-  if (pAVar2 != (AIState_Base *)0x0) {
-    uVar1 = pAVar2->_vf[0].value;
-    (**(code **)(uVar1 + 0x14))((int)&pAVar2->carObj_ + (int)*(short *)(uVar1 + 0x10),3);
+  pAVar1 = this->state_;
+  *(undefined4 *)this->_vf = 0x80054e04;
+  if (pAVar1 != (AIState_Base *)0x0) {
+    (**(code **)(*(int *)pAVar1->_vf + 0x14))
+              ((int)&pAVar1->carObj_ + (int)*(short *)(*(int *)pAVar1->_vf + 0x10),3);
     this->state_ = (AIState_Base *)0x0;
   }
   if ((__in_chrg & 1U) != 0) {
@@ -608,6 +715,7 @@ void ___11AIHigh_Base(AIHigh_Base *this,int __in_chrg)
   }
   return;
 }
+
 
 
 

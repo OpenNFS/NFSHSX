@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "AIH_BASICCOP.H"
+
 
 // decompiled code
 // original method signature: 
@@ -12,24 +13,34 @@
 	// End offset: 0x8005C1B8
 	// End Line: 30
 
+	/* begin block 2 */
+		// Start line: 36
+	/* end block 2 */
+	// End Line: 37
+
+	/* begin block 3 */
+		// Start line: 36
+	/* end block 3 */
+	// End Line: 37
+
 AIHigh_BasicCop *
 __15AIHigh_BasicCopP8Car_tObji(AIHigh_BasicCop *this,Car_tObj *carObj,int copIndex)
 
 {
   __11AIHigh_BaseP8Car_tObj((AIHigh_Base *)this,carObj);
-  (this->AIHigh_Base)._vf[0].value = 0x80054e9c;
-  (this->AIHigh_Base)._vf[2].value = copIndex;
+  *(undefined4 *)(this->AIHigh_Base)._vf = 0x80054e9c;
+  this->copIndex_ = copIndex;
   if ((carObj->carFlags & 0x40U) == 0) {
-    (this->AIHigh_Base)._vf[1].value = 0;
+    this->type_ = COP_REGULAR;
   }
   else {
-    (this->AIHigh_Base)._vf[1].value = 1;
+    this->type_ = COP_SUPER;
   }
-  this->type_ = COP_REGULAR;
-  this->copIndex_ = 0;
-  (this->blockade_).flags = -1;
-  *(undefined2 *)&(this->blockade_).releaseTime = 0;
-  (this->blockade_).initialPlayerDistanceMetersInt = 0;
+  (this->blockade_).mode = BLOCKADEMODE_NONE;
+  (this->blockade_).target = (AIHigh_Player *)0x0;
+  (this->blockade_).requestSpikeBeltAtSlice = -1;
+  (this->blockade_).blockadeSpeechFlags = 0;
+  this->driveAway_ = DRIVEAWAY_NONE;
   return this;
 }
 
@@ -169,6 +180,21 @@ __15AIHigh_BasicCopP8Car_tObji(AIHigh_BasicCop *this,Car_tObj *carObj,int copInd
 	// End offset: 0x8005C2A0
 	// End Line: 74
 
+	/* begin block 2 */
+		// Start line: 80
+	/* end block 2 */
+	// End Line: 81
+
+	/* begin block 3 */
+		// Start line: 87
+	/* end block 3 */
+	// End Line: 88
+
+	/* begin block 4 */
+		// Start line: 87
+	/* end block 4 */
+	// End Line: 88
+
 void CheckSpikeBelt__15AIHigh_BasicCop(AIHigh_BasicCop *this)
 
 {
@@ -249,6 +275,21 @@ void CheckSpikeBelt__15AIHigh_BasicCop(AIHigh_BasicCop *this)
 	// End offset: 0x8005C400
 	// End Line: 114
 
+	/* begin block 2 */
+		// Start line: 163
+	/* end block 2 */
+	// End Line: 164
+
+	/* begin block 3 */
+		// Start line: 173
+	/* end block 3 */
+	// End Line: 174
+
+	/* begin block 4 */
+		// Start line: 173
+	/* end block 4 */
+	// End Line: 174
+
 int ShouldIPerformCutOffBlock__15AIHigh_BasicCopiP8Car_tObj
               (AIHigh_BasicCop *this,int chancePerSecond,Car_tObj *target)
 
@@ -317,6 +358,21 @@ int ShouldIPerformCutOffBlock__15AIHigh_BasicCopiP8Car_tObj
 	// End offset: 0x8005C414
 	// End Line: 120
 
+	/* begin block 2 */
+		// Start line: 248
+	/* end block 2 */
+	// End Line: 249
+
+	/* begin block 3 */
+		// Start line: 254
+	/* end block 3 */
+	// End Line: 255
+
+	/* begin block 4 */
+		// Start line: 254
+	/* end block 4 */
+	// End Line: 255
+
 void Blockade_AddRoadFlare__FP8coorddef(coorddef *pos)
 
 {
@@ -354,6 +410,21 @@ void Blockade_AddRoadFlare__FP8coorddef(coorddef *pos)
 	/* end block 1 */
 	// End offset: 0x8005C468
 	// End Line: 135
+
+	/* begin block 2 */
+		// Start line: 283
+	/* end block 2 */
+	// End Line: 284
+
+	/* begin block 3 */
+		// Start line: 288
+	/* end block 3 */
+	// End Line: 289
+
+	/* begin block 4 */
+		// Start line: 288
+	/* end block 4 */
+	// End Line: 289
 
 void Blockade_AddObject__FiP8coorddefi(int slice,coorddef *pos,int objectID)
 
@@ -416,6 +487,21 @@ void Blockade_AddObject__FiP8coorddefi(int slice,coorddef *pos,int objectID)
 	// End offset: 0x8005C768
 	// End Line: 194
 
+	/* begin block 2 */
+		// Start line: 372
+	/* end block 2 */
+	// End Line: 373
+
+	/* begin block 3 */
+		// Start line: 376
+	/* end block 3 */
+	// End Line: 377
+
+	/* begin block 4 */
+		// Start line: 376
+	/* end block 4 */
+	// End Line: 377
+
 void PlacePointOnRoad__FiP8coorddef(int slice,coorddef *offset)
 
 {
@@ -443,8 +529,8 @@ void PlacePointOnRoad__FiP8coorddef(int slice,coorddef *offset)
   local_28 = offset->x;
   local_24 = offset->y;
   local_20 = offset->z;
-  pBVar7 = &(__Cars_gHumanRaceCarList_9__->N).simRoadInfo;
-  pBVar4 = &__Cars_gHumanRaceCarList_9__->N;
+  pBVar7 = &(Cars_gHumanRaceCarList9->N).simRoadInfo;
+  pBVar4 = &Cars_gHumanRaceCarList9->N;
   do {
     iVar9 = *(int *)&pBVar7->simRotFlag;
     iVar10 = pBVar7->quadPts[0].x;
@@ -608,6 +694,21 @@ void PlacePointOnRoad__FiP8coorddef(int slice,coorddef *offset)
 	// End offset: 0x8005CA04
 	// End Line: 291
 
+	/* begin block 2 */
+		// Start line: 467
+	/* end block 2 */
+	// End Line: 468
+
+	/* begin block 3 */
+		// Start line: 472
+	/* end block 3 */
+	// End Line: 473
+
+	/* begin block 4 */
+		// Start line: 472
+	/* end block 4 */
+	// End Line: 473
+
 void SetupBlockadeElements__15AIHigh_BasicCopP10blockade_t
                (AIHigh_BasicCop *this,blockade_t *blockade)
 
@@ -692,7 +793,7 @@ void SetupBlockadeElements__15AIHigh_BasicCopP10blockade_t
       local_30.z = blockade->direction * -0x40000;
       PlacePointOnRoad__FiP8coorddef(slice,&local_30);
       Blockade_AddObject__FiP8coorddefi(slice,&local_30,objectID);
-      local_30.x = &DAT_00028000;
+      local_30.x = &LAB_00028000;
       local_30.y = 0;
       local_30.z = blockade->direction * -0x40000;
       PlacePointOnRoad__FiP8coorddef(slice,&local_30);
@@ -781,6 +882,23 @@ void SetupBlockadeElements__15AIHigh_BasicCopP10blockade_t
 	// End offset: 0x8005CB3C
 	// End Line: 334
 
+	/* begin block 2 */
+		// Start line: 687
+	/* end block 2 */
+	// End Line: 688
+
+	/* begin block 3 */
+		// Start line: 695
+	/* end block 3 */
+	// End Line: 696
+
+	/* begin block 4 */
+		// Start line: 695
+	/* end block 4 */
+	// End Line: 696
+
+/* WARNING: Type propagation algorithm not settling */
+
 void HandleBlockadeSpeech__15AIHigh_BasicCop(AIHigh_BasicCop *this)
 
 {
@@ -788,35 +906,32 @@ void HandleBlockadeSpeech__15AIHigh_BasicCop(AIHigh_BasicCop *this)
   ushort uVar2;
   int iVar3;
   Speaker *pSVar4;
-  uint uVar5;
+  Car_tObj *pCVar5;
   int iVar6;
-  int iVar7;
   
-  uVar1 = *(ushort *)&(this->blockade_).releaseTime;
-  if (*(short *)&(this->blockade_).releaseTime != 0) {
-    iVar6 = *(int *)this->copIndex_;
-    if ((iVar6 == 0) ||
-       (iVar7 = *(int *)(iVar6 + 0x358) - (this->blockade_).chaseLevel, *(int *)(iVar6 + 0x274) != 0
-       )) {
-      *(undefined2 *)&(this->blockade_).releaseTime = 0;
+  uVar1 = (this->blockade_).blockadeSpeechFlags;
+  if ((this->blockade_).blockadeSpeechFlags != 0) {
+    pCVar5 = (((this->blockade_).target)->AIHigh_BasicPerp).AIHigh_Base.carObj_;
+    if ((pCVar5 == (Car_tObj *)0x0) ||
+       (iVar6 = (pCVar5->stats).slice - (this->blockade_).slice, pCVar5->blowout != 0)) {
+      (this->blockade_).blockadeSpeechFlags = 0;
     }
     else {
-      iVar3 = iVar7;
-      if (iVar7 < 0) {
-        iVar3 = -iVar7;
+      iVar3 = iVar6;
+      if (iVar6 < 0) {
+        iVar3 = -iVar6;
       }
       if (iVar3 < 0x21) {
-        iVar6 = ((&Cars_topSpeedCap)[(int)*(short *)(iVar6 + 0x8bc)] * 0x1c) / 0x640000;
+        iVar3 = (Cars_topSpeedCap[(int)(pCVar5->render).palNum] * 0x1c) / 0x640000;
         uVar2 = uVar1 | 2;
-        if ((iVar7 < iVar6) || (uVar2 = uVar1 | 4, iVar6 < iVar7)) {
-          *(ushort *)&(this->blockade_).releaseTime = uVar2;
+        if ((iVar6 < iVar3) || (uVar2 = uVar1 | 4, iVar3 < iVar6)) {
+          (this->blockade_).blockadeSpeechFlags = uVar2;
         }
-        if ((*(ushort *)&(this->blockade_).releaseTime & 6) == 6) {
+        if (((this->blockade_).blockadeSpeechFlags & 6U) == 6) {
           pSVar4 = Mobile__6SpeechP8Car_tObj((this->AIHigh_Base).carObj_);
-          uVar5 = pSVar4->_vf[0].value;
-          (**(code **)(uVar5 + 0x3c))
-                    ((int)&(pSVar4->fPosition).flags + (int)*(short *)(uVar5 + 0x38));
-          *(undefined2 *)&(this->blockade_).releaseTime = 0;
+          (**(code **)(*(int *)pSVar4->_vf + 0x3c))
+                    ((int)&(pSVar4->fPosition).flags + (int)*(short *)(*(int *)pSVar4->_vf + 0x38));
+          (this->blockade_).blockadeSpeechFlags = 0;
           AICop_gRoadBlockState = kAICop_RoadBlockState_PerpPassed;
         }
       }
@@ -824,6 +939,7 @@ void HandleBlockadeSpeech__15AIHigh_BasicCop(AIHigh_BasicCop *this)
   }
   return;
 }
+
 
 
 

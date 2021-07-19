@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "COLLIDE.H"
+
 
 // decompiled code
 // original method signature: 
@@ -12,12 +13,27 @@
 	// End offset: 0x8008BEE8
 	// End Line: 128
 
+	/* begin block 2 */
+		// Start line: 200
+	/* end block 2 */
+	// End Line: 201
+
+	/* begin block 3 */
+		// Start line: 200
+	/* end block 3 */
+	// End Line: 201
+
+	/* begin block 4 */
+		// Start line: 202
+	/* end block 4 */
+	// End Line: 203
+
 int CHECK_CENTER_VERTEX_WITH_DIRS__Fiii(int X_DIR,int Y_DIR,int Z_DIR)
 
 {
-  int *piVar1;
-  int iVar2;
-  int iVar3;
+  BO_tNewtonObj *pBVar1;
+  BO_tNewtonObj *pBVar2;
+  coorddef *pcVar3;
   int iVar4;
   int iVar5;
   int iVar6;
@@ -25,107 +41,105 @@ int CHECK_CENTER_VERTEX_WITH_DIRS__Fiii(int X_DIR,int Y_DIR,int Z_DIR)
   int iVar8;
   int iVar9;
   
-  piVar1 = DAT_000002f8;
-  iVar9 = DAT_000002f4;
-  DAT_0000184c = X_DIR * scaledBasisDots + Y_DIR * INT_8013e03c + Z_DIR * INT_8013e040 +
-                 basisDotRelative;
-  DAT_00001850 = X_DIR * INT_8013e044 + Y_DIR * INT_8013e048 + Z_DIR * INT_8013e04c + INT_8013e09c;
-  DAT_00001854 = X_DIR * INT_8013e050 + Y_DIR * INT_8013e054 + Z_DIR * INT_8013e058 + INT_8013e0a0;
-  if ((((DAT_00001854 <= *(int *)(DAT_000002f0 + 0x13c)) &&
-       (-*(int *)(DAT_000002f0 + 0x13c) <= DAT_00001854)) &&
-      (DAT_0000184c <= *(int *)(DAT_000002f0 + 0x134))) &&
-     (((-*(int *)(DAT_000002f0 + 0x134) <= DAT_0000184c &&
-       (DAT_00001850 <= *(int *)(DAT_000002f0 + 0x138))) &&
-      (-*(int *)(DAT_000002f0 + 0x138) <= DAT_00001850)))) {
-    *DAT_000002f8 =
-         X_DIR * *(int *)(DAT_000002f4 + 0xf0) + Y_DIR * *(int *)(DAT_000002f4 + 0xfc) +
-         Z_DIR * *(int *)(DAT_000002f4 + 0x108);
-    piVar1[1] = X_DIR * *(int *)(iVar9 + 0xf4) + Y_DIR * *(int *)(iVar9 + 0x100) +
-                Z_DIR * *(int *)(iVar9 + 0x10c);
-    piVar1[2] = X_DIR * *(int *)(iVar9 + 0xf8) + Y_DIR * *(int *)(iVar9 + 0x104) +
-                Z_DIR * *(int *)(iVar9 + 0x110);
-    piVar1 = DAT_000002fc;
-    iVar6 = *(int *)(iVar9 + 0xf0);
-    if (iVar6 < 0) {
-      iVar6 = iVar6 + 0xff;
-    }
-    iVar2 = *(int *)(iVar9 + 0x134);
-    if (iVar2 < 0) {
-      iVar2 = iVar2 + 0xff;
-    }
-    iVar7 = *(int *)(iVar9 + 0xfc);
-    if (iVar7 < 0) {
-      iVar7 = iVar7 + 0xff;
-    }
-    iVar3 = *(int *)(iVar9 + 0x138);
-    if (iVar3 < 0) {
-      iVar3 = iVar3 + 0xff;
-    }
-    iVar8 = *(int *)(iVar9 + 0x108);
-    if (iVar8 < 0) {
-      iVar8 = iVar8 + 0xff;
-    }
-    iVar4 = *(int *)(iVar9 + 0x13c);
-    if (iVar4 < 0) {
-      iVar4 = iVar4 + 0xff;
-    }
-    *DAT_000002fc =
-         *(int *)(iVar9 + 0xa0) + X_DIR * (iVar6 >> 8) * (iVar2 >> 8) +
-         Y_DIR * (iVar7 >> 8) * (iVar3 >> 8) + Z_DIR * (iVar8 >> 8) * (iVar4 >> 8);
-    iVar6 = DAT_000002f4;
-    iVar2 = *(int *)(iVar9 + 0xf4);
-    if (iVar2 < 0) {
-      iVar2 = iVar2 + 0xff;
-    }
-    iVar7 = *(int *)(iVar9 + 0x134);
-    if (iVar7 < 0) {
-      iVar7 = iVar7 + 0xff;
-    }
-    iVar3 = *(int *)(iVar9 + 0x100);
-    if (iVar3 < 0) {
-      iVar3 = iVar3 + 0xff;
-    }
-    iVar8 = *(int *)(iVar9 + 0x138);
-    if (iVar8 < 0) {
-      iVar8 = iVar8 + 0xff;
-    }
-    iVar4 = *(int *)(DAT_000002f4 + 0x10c);
-    if (iVar4 < 0) {
-      iVar4 = iVar4 + 0xff;
-    }
-    iVar5 = *(int *)(DAT_000002f4 + 0x13c);
-    if (iVar5 < 0) {
-      iVar5 = iVar5 + 0xff;
-    }
-    piVar1[1] = *(int *)(iVar9 + 0xa4) + X_DIR * (iVar2 >> 8) * (iVar7 >> 8) +
-                Y_DIR * (iVar3 >> 8) * (iVar8 >> 8) + Z_DIR * (iVar4 >> 8) * (iVar5 >> 8);
-    iVar9 = *(int *)(iVar6 + 0xf8);
+  pcVar3 = pNormal;
+  pBVar1 = obj1;
+  xRange = (uchar *)(X_DIR * scaledBasisDots + Y_DIR * INT_8013e03c + Z_DIR * INT_8013e040 +
+                    basisDotRelative);
+  yRange = (uchar *)(X_DIR * INT_8013e044 + Y_DIR * INT_8013e048 + Z_DIR * INT_8013e04c +
+                    INT_8013e09c);
+  iVar9 = (obj0->dimension).z;
+  zRange = (uchar *)(X_DIR * INT_8013e050 + Y_DIR * INT_8013e054 + Z_DIR * INT_8013e058 +
+                    INT_8013e0a0);
+  if (((((int)zRange <= iVar9) && (-iVar9 <= (int)zRange)) &&
+      (iVar9 = (obj0->dimension).x, (int)xRange <= iVar9)) &&
+     (((-iVar9 <= (int)xRange && (iVar9 = (obj0->dimension).y, (int)yRange <= iVar9)) &&
+      (-iVar9 <= (int)yRange)))) {
+    pNormal->x = X_DIR * (obj1->orientMat).m[0] + Y_DIR * (obj1->orientMat).m[3] +
+                 Z_DIR * (obj1->orientMat).m[6];
+    pcVar3->y = X_DIR * (pBVar1->orientMat).m[1] + Y_DIR * (pBVar1->orientMat).m[4] +
+                Z_DIR * (pBVar1->orientMat).m[7];
+    pcVar3->z = X_DIR * (pBVar1->orientMat).m[2] + Y_DIR * (pBVar1->orientMat).m[5] +
+                Z_DIR * (pBVar1->orientMat).m[8];
+    pcVar3 = pP;
+    iVar9 = (pBVar1->orientMat).m[0];
     if (iVar9 < 0) {
       iVar9 = iVar9 + 0xff;
     }
-    iVar2 = *(int *)(iVar6 + 0x134);
-    if (iVar2 < 0) {
-      iVar2 = iVar2 + 0xff;
-    }
-    iVar7 = *(int *)(iVar6 + 0x104);
-    if (iVar7 < 0) {
-      iVar7 = iVar7 + 0xff;
-    }
-    iVar3 = *(int *)(iVar6 + 0x138);
-    if (iVar3 < 0) {
-      iVar3 = iVar3 + 0xff;
-    }
-    iVar8 = *(int *)(iVar6 + 0x110);
-    if (iVar8 < 0) {
-      iVar8 = iVar8 + 0xff;
-    }
-    iVar4 = *(int *)(iVar6 + 0x13c);
+    iVar4 = (pBVar1->dimension).x;
     if (iVar4 < 0) {
       iVar4 = iVar4 + 0xff;
     }
-    DAT_000002fc[2] =
-         *(int *)(iVar6 + 0xa8) + X_DIR * (iVar9 >> 8) * (iVar2 >> 8) +
-         Y_DIR * (iVar7 >> 8) * (iVar3 >> 8) + Z_DIR * (iVar8 >> 8) * (iVar4 >> 8);
+    iVar7 = (pBVar1->orientMat).m[3];
+    if (iVar7 < 0) {
+      iVar7 = iVar7 + 0xff;
+    }
+    iVar5 = (pBVar1->dimension).y;
+    if (iVar5 < 0) {
+      iVar5 = iVar5 + 0xff;
+    }
+    iVar8 = (pBVar1->orientMat).m[6];
+    if (iVar8 < 0) {
+      iVar8 = iVar8 + 0xff;
+    }
+    iVar6 = (pBVar1->dimension).z;
+    if (iVar6 < 0) {
+      iVar6 = iVar6 + 0xff;
+    }
+    pP->x = (pBVar1->position).x + X_DIR * (iVar9 >> 8) * (iVar4 >> 8) +
+            Y_DIR * (iVar7 >> 8) * (iVar5 >> 8) + Z_DIR * (iVar8 >> 8) * (iVar6 >> 8);
+    pBVar2 = obj1;
+    iVar9 = (pBVar1->orientMat).m[1];
+    if (iVar9 < 0) {
+      iVar9 = iVar9 + 0xff;
+    }
+    iVar4 = (pBVar1->dimension).x;
+    if (iVar4 < 0) {
+      iVar4 = iVar4 + 0xff;
+    }
+    iVar7 = (pBVar1->orientMat).m[4];
+    if (iVar7 < 0) {
+      iVar7 = iVar7 + 0xff;
+    }
+    iVar5 = (pBVar1->dimension).y;
+    if (iVar5 < 0) {
+      iVar5 = iVar5 + 0xff;
+    }
+    iVar8 = (obj1->orientMat).m[7];
+    if (iVar8 < 0) {
+      iVar8 = iVar8 + 0xff;
+    }
+    iVar6 = (obj1->dimension).z;
+    if (iVar6 < 0) {
+      iVar6 = iVar6 + 0xff;
+    }
+    pcVar3->y = (pBVar1->position).y + X_DIR * (iVar9 >> 8) * (iVar4 >> 8) +
+                Y_DIR * (iVar7 >> 8) * (iVar5 >> 8) + Z_DIR * (iVar8 >> 8) * (iVar6 >> 8);
+    iVar9 = (pBVar2->orientMat).m[2];
+    if (iVar9 < 0) {
+      iVar9 = iVar9 + 0xff;
+    }
+    iVar4 = (pBVar2->dimension).x;
+    if (iVar4 < 0) {
+      iVar4 = iVar4 + 0xff;
+    }
+    iVar7 = (pBVar2->orientMat).m[5];
+    if (iVar7 < 0) {
+      iVar7 = iVar7 + 0xff;
+    }
+    iVar5 = (pBVar2->dimension).y;
+    if (iVar5 < 0) {
+      iVar5 = iVar5 + 0xff;
+    }
+    iVar8 = (pBVar2->orientMat).m[8];
+    if (iVar8 < 0) {
+      iVar8 = iVar8 + 0xff;
+    }
+    iVar6 = (pBVar2->dimension).z;
+    if (iVar6 < 0) {
+      iVar6 = iVar6 + 0xff;
+    }
+    pP->z = (pBVar2->position).z + X_DIR * (iVar9 >> 8) * (iVar4 >> 8) +
+            Y_DIR * (iVar7 >> 8) * (iVar5 >> 8) + Z_DIR * (iVar8 >> 8) * (iVar6 >> 8);
     return 1;
   }
   return 0;
@@ -144,12 +158,37 @@ int CHECK_CENTER_VERTEX_WITH_DIRS__Fiii(int X_DIR,int Y_DIR,int Z_DIR)
 	// End offset: 0x8008C374
 	// End Line: 158
 
+	/* begin block 2 */
+		// Start line: 281
+	/* end block 2 */
+	// End Line: 282
+
+	/* begin block 3 */
+		// Start line: 285
+	/* end block 3 */
+	// End Line: 286
+
+	/* begin block 4 */
+		// Start line: 285
+	/* end block 4 */
+	// End Line: 286
+
+	/* begin block 5 */
+		// Start line: 286
+	/* end block 5 */
+	// End Line: 287
+
+	/* begin block 6 */
+		// Start line: 286
+	/* end block 6 */
+	// End Line: 287
+
 int CHECK_CENTER_VERTEX_WITH_DIRS_OTHER__Fiii(int X_DIR,int Y_DIR,int Z_DIR)
 
 {
-  int *piVar1;
-  int iVar2;
-  int iVar3;
+  BO_tNewtonObj *pBVar1;
+  BO_tNewtonObj *pBVar2;
+  coorddef *pcVar3;
   int iVar4;
   int iVar5;
   int iVar6;
@@ -157,109 +196,105 @@ int CHECK_CENTER_VERTEX_WITH_DIRS_OTHER__Fiii(int X_DIR,int Y_DIR,int Z_DIR)
   int iVar8;
   int iVar9;
   
-  piVar1 = DAT_000002f8;
-  iVar9 = DAT_000002f0;
-  DAT_0000184c = (X_DIR * scaledBasisDotsOther + Y_DIR * INT_8013e074 + Z_DIR * INT_8013e080) -
-                 INT_8013e0a4;
-  DAT_00001850 = (X_DIR * INT_8013e06c + Y_DIR * INT_8013e078 + Z_DIR * INT_8013e084) - INT_8013e0a8
-  ;
-  DAT_00001854 = (X_DIR * INT_8013e070 + Y_DIR * INT_8013e07c + Z_DIR * INT_8013e088) - INT_8013e0ac
-  ;
-  if ((((DAT_00001854 <= *(int *)(DAT_000002f4 + 0x13c)) &&
-       (-*(int *)(DAT_000002f4 + 0x13c) <= DAT_00001854)) &&
-      (DAT_0000184c <= *(int *)(DAT_000002f4 + 0x134))) &&
-     (((-*(int *)(DAT_000002f4 + 0x134) <= DAT_0000184c &&
-       (DAT_00001850 <= *(int *)(DAT_000002f4 + 0x138))) &&
-      (-*(int *)(DAT_000002f4 + 0x138) <= DAT_00001850)))) {
-    *DAT_000002f8 =
-         -(X_DIR * *(int *)(DAT_000002f0 + 0xf0) + Y_DIR * *(int *)(DAT_000002f0 + 0xfc) +
-          Z_DIR * *(int *)(DAT_000002f0 + 0x108));
-    piVar1[1] = -(X_DIR * *(int *)(iVar9 + 0xf4) + Y_DIR * *(int *)(iVar9 + 0x100) +
-                 Z_DIR * *(int *)(iVar9 + 0x10c));
-    piVar1[2] = -(X_DIR * *(int *)(iVar9 + 0xf8) + Y_DIR * *(int *)(iVar9 + 0x104) +
-                 Z_DIR * *(int *)(iVar9 + 0x110));
-    piVar1 = DAT_000002fc;
-    iVar6 = *(int *)(iVar9 + 0xf0);
-    if (iVar6 < 0) {
-      iVar6 = iVar6 + 0xff;
-    }
-    iVar2 = *(int *)(iVar9 + 0x134);
-    if (iVar2 < 0) {
-      iVar2 = iVar2 + 0xff;
-    }
-    iVar7 = *(int *)(iVar9 + 0xfc);
-    if (iVar7 < 0) {
-      iVar7 = iVar7 + 0xff;
-    }
-    iVar3 = *(int *)(iVar9 + 0x138);
-    if (iVar3 < 0) {
-      iVar3 = iVar3 + 0xff;
-    }
-    iVar8 = *(int *)(iVar9 + 0x108);
-    if (iVar8 < 0) {
-      iVar8 = iVar8 + 0xff;
-    }
-    iVar4 = *(int *)(iVar9 + 0x13c);
-    if (iVar4 < 0) {
-      iVar4 = iVar4 + 0xff;
-    }
-    *DAT_000002fc =
-         *(int *)(iVar9 + 0xa0) + X_DIR * (iVar6 >> 8) * (iVar2 >> 8) +
-         Y_DIR * (iVar7 >> 8) * (iVar3 >> 8) + Z_DIR * (iVar8 >> 8) * (iVar4 >> 8);
-    iVar6 = DAT_000002f0;
-    iVar2 = *(int *)(iVar9 + 0xf4);
-    if (iVar2 < 0) {
-      iVar2 = iVar2 + 0xff;
-    }
-    iVar7 = *(int *)(iVar9 + 0x134);
-    if (iVar7 < 0) {
-      iVar7 = iVar7 + 0xff;
-    }
-    iVar3 = *(int *)(iVar9 + 0x100);
-    if (iVar3 < 0) {
-      iVar3 = iVar3 + 0xff;
-    }
-    iVar8 = *(int *)(iVar9 + 0x138);
-    if (iVar8 < 0) {
-      iVar8 = iVar8 + 0xff;
-    }
-    iVar4 = *(int *)(DAT_000002f0 + 0x10c);
-    if (iVar4 < 0) {
-      iVar4 = iVar4 + 0xff;
-    }
-    iVar5 = *(int *)(DAT_000002f0 + 0x13c);
-    if (iVar5 < 0) {
-      iVar5 = iVar5 + 0xff;
-    }
-    piVar1[1] = *(int *)(iVar9 + 0xa4) + X_DIR * (iVar2 >> 8) * (iVar7 >> 8) +
-                Y_DIR * (iVar3 >> 8) * (iVar8 >> 8) + Z_DIR * (iVar4 >> 8) * (iVar5 >> 8);
-    iVar9 = *(int *)(iVar6 + 0xf8);
+  pcVar3 = pNormal;
+  pBVar1 = obj0;
+  xRange = (uchar *)((X_DIR * scaledBasisDotsOther + Y_DIR * INT_8013e074 + Z_DIR * INT_8013e080) -
+                    INT_8013e0a4);
+  yRange = (uchar *)((X_DIR * INT_8013e06c + Y_DIR * INT_8013e078 + Z_DIR * INT_8013e084) -
+                    INT_8013e0a8);
+  iVar9 = (obj1->dimension).z;
+  zRange = (uchar *)((X_DIR * INT_8013e070 + Y_DIR * INT_8013e07c + Z_DIR * INT_8013e088) -
+                    INT_8013e0ac);
+  if (((((int)zRange <= iVar9) && (-iVar9 <= (int)zRange)) &&
+      (iVar9 = (obj1->dimension).x, (int)xRange <= iVar9)) &&
+     (((-iVar9 <= (int)xRange && (iVar9 = (obj1->dimension).y, (int)yRange <= iVar9)) &&
+      (-iVar9 <= (int)yRange)))) {
+    pNormal->x = -(X_DIR * (obj0->orientMat).m[0] + Y_DIR * (obj0->orientMat).m[3] +
+                  Z_DIR * (obj0->orientMat).m[6]);
+    pcVar3->y = -(X_DIR * (pBVar1->orientMat).m[1] + Y_DIR * (pBVar1->orientMat).m[4] +
+                 Z_DIR * (pBVar1->orientMat).m[7]);
+    pcVar3->z = -(X_DIR * (pBVar1->orientMat).m[2] + Y_DIR * (pBVar1->orientMat).m[5] +
+                 Z_DIR * (pBVar1->orientMat).m[8]);
+    pcVar3 = pP;
+    iVar9 = (pBVar1->orientMat).m[0];
     if (iVar9 < 0) {
       iVar9 = iVar9 + 0xff;
     }
-    iVar2 = *(int *)(iVar6 + 0x134);
-    if (iVar2 < 0) {
-      iVar2 = iVar2 + 0xff;
-    }
-    iVar7 = *(int *)(iVar6 + 0x104);
-    if (iVar7 < 0) {
-      iVar7 = iVar7 + 0xff;
-    }
-    iVar3 = *(int *)(iVar6 + 0x138);
-    if (iVar3 < 0) {
-      iVar3 = iVar3 + 0xff;
-    }
-    iVar8 = *(int *)(iVar6 + 0x110);
-    if (iVar8 < 0) {
-      iVar8 = iVar8 + 0xff;
-    }
-    iVar4 = *(int *)(iVar6 + 0x13c);
+    iVar4 = (pBVar1->dimension).x;
     if (iVar4 < 0) {
       iVar4 = iVar4 + 0xff;
     }
-    DAT_000002fc[2] =
-         *(int *)(iVar6 + 0xa8) + X_DIR * (iVar9 >> 8) * (iVar2 >> 8) +
-         Y_DIR * (iVar7 >> 8) * (iVar3 >> 8) + Z_DIR * (iVar8 >> 8) * (iVar4 >> 8);
+    iVar7 = (pBVar1->orientMat).m[3];
+    if (iVar7 < 0) {
+      iVar7 = iVar7 + 0xff;
+    }
+    iVar5 = (pBVar1->dimension).y;
+    if (iVar5 < 0) {
+      iVar5 = iVar5 + 0xff;
+    }
+    iVar8 = (pBVar1->orientMat).m[6];
+    if (iVar8 < 0) {
+      iVar8 = iVar8 + 0xff;
+    }
+    iVar6 = (pBVar1->dimension).z;
+    if (iVar6 < 0) {
+      iVar6 = iVar6 + 0xff;
+    }
+    pP->x = (pBVar1->position).x + X_DIR * (iVar9 >> 8) * (iVar4 >> 8) +
+            Y_DIR * (iVar7 >> 8) * (iVar5 >> 8) + Z_DIR * (iVar8 >> 8) * (iVar6 >> 8);
+    pBVar2 = obj0;
+    iVar9 = (pBVar1->orientMat).m[1];
+    if (iVar9 < 0) {
+      iVar9 = iVar9 + 0xff;
+    }
+    iVar4 = (pBVar1->dimension).x;
+    if (iVar4 < 0) {
+      iVar4 = iVar4 + 0xff;
+    }
+    iVar7 = (pBVar1->orientMat).m[4];
+    if (iVar7 < 0) {
+      iVar7 = iVar7 + 0xff;
+    }
+    iVar5 = (pBVar1->dimension).y;
+    if (iVar5 < 0) {
+      iVar5 = iVar5 + 0xff;
+    }
+    iVar8 = (obj0->orientMat).m[7];
+    if (iVar8 < 0) {
+      iVar8 = iVar8 + 0xff;
+    }
+    iVar6 = (obj0->dimension).z;
+    if (iVar6 < 0) {
+      iVar6 = iVar6 + 0xff;
+    }
+    pcVar3->y = (pBVar1->position).y + X_DIR * (iVar9 >> 8) * (iVar4 >> 8) +
+                Y_DIR * (iVar7 >> 8) * (iVar5 >> 8) + Z_DIR * (iVar8 >> 8) * (iVar6 >> 8);
+    iVar9 = (pBVar2->orientMat).m[2];
+    if (iVar9 < 0) {
+      iVar9 = iVar9 + 0xff;
+    }
+    iVar4 = (pBVar2->dimension).x;
+    if (iVar4 < 0) {
+      iVar4 = iVar4 + 0xff;
+    }
+    iVar7 = (pBVar2->orientMat).m[5];
+    if (iVar7 < 0) {
+      iVar7 = iVar7 + 0xff;
+    }
+    iVar5 = (pBVar2->dimension).y;
+    if (iVar5 < 0) {
+      iVar5 = iVar5 + 0xff;
+    }
+    iVar8 = (pBVar2->orientMat).m[8];
+    if (iVar8 < 0) {
+      iVar8 = iVar8 + 0xff;
+    }
+    iVar6 = (pBVar2->dimension).z;
+    if (iVar6 < 0) {
+      iVar6 = iVar6 + 0xff;
+    }
+    pP->z = (pBVar2->position).z + X_DIR * (iVar9 >> 8) * (iVar4 >> 8) +
+            Y_DIR * (iVar7 >> 8) * (iVar5 >> 8) + Z_DIR * (iVar8 >> 8) * (iVar6 >> 8);
     return 1;
   }
   return 0;
@@ -278,107 +313,131 @@ int CHECK_CENTER_VERTEX_WITH_DIRS_OTHER__Fiii(int X_DIR,int Y_DIR,int Z_DIR)
 	// End offset: 0x8008C73C
 	// End Line: 183
 
+	/* begin block 2 */
+		// Start line: 363
+	/* end block 2 */
+	// End Line: 364
+
+	/* begin block 3 */
+		// Start line: 367
+	/* end block 3 */
+	// End Line: 368
+
+	/* begin block 4 */
+		// Start line: 367
+	/* end block 4 */
+	// End Line: 368
+
+	/* begin block 5 */
+		// Start line: 369
+	/* end block 5 */
+	// End Line: 370
+
 int CHECK_VERTEX_WITH_DIRS__Fiii(int X_DIR,int Y_DIR,int Z_DIR)
 
 {
-  int iVar1;
-  int iVar2;
-  int iVar3;
+  BO_tNewtonObj *pBVar1;
+  BO_tNewtonObj *pBVar2;
+  coorddef *pcVar3;
   int iVar4;
   int iVar5;
   int iVar6;
+  int iVar7;
+  int iVar8;
+  int iVar9;
   
-  iGp0000184c = X_DIR * scaledBasisDots + Y_DIR * INT_8013e03c + Z_DIR * INT_8013e040 +
-                basisDotRelative;
-  iGp00001850 = X_DIR * INT_8013e044 + Y_DIR * INT_8013e048 + Z_DIR * INT_8013e04c + INT_8013e09c;
-  iGp00001854 = X_DIR * INT_8013e050 + Y_DIR * INT_8013e054 + Z_DIR * INT_8013e058 + INT_8013e0a0;
-  if ((((iGp00001854 <= *(int *)(iGp000002f0 + 0x13c)) &&
-       (-*(int *)(iGp000002f0 + 0x13c) <= iGp00001854)) &&
-      (iGp0000184c <= *(int *)(iGp000002f0 + 0x134))) &&
-     (((-*(int *)(iGp000002f0 + 0x134) <= iGp0000184c &&
-       (iGp00001850 <= *(int *)(iGp000002f0 + 0x138))) &&
-      (-*(int *)(iGp000002f0 + 0x138) <= iGp00001850)))) {
-    iVar4 = *(int *)(iGp000002f4 + 0xf0);
+  pcVar3 = pP;
+  pBVar1 = obj1;
+  xRange = (uchar *)(X_DIR * scaledBasisDots + Y_DIR * INT_8013e03c + Z_DIR * INT_8013e040 +
+                    basisDotRelative);
+  yRange = (uchar *)(X_DIR * INT_8013e044 + Y_DIR * INT_8013e048 + Z_DIR * INT_8013e04c +
+                    INT_8013e09c);
+  iVar9 = (obj0->dimension).z;
+  zRange = (uchar *)(X_DIR * INT_8013e050 + Y_DIR * INT_8013e054 + Z_DIR * INT_8013e058 +
+                    INT_8013e0a0);
+  if (((((int)zRange <= iVar9) && (-iVar9 <= (int)zRange)) &&
+      (iVar9 = (obj0->dimension).x, (int)xRange <= iVar9)) &&
+     (((-iVar9 <= (int)xRange && (iVar9 = (obj0->dimension).y, (int)yRange <= iVar9)) &&
+      (-iVar9 <= (int)yRange)))) {
+    iVar9 = (obj1->orientMat).m[0];
+    if (iVar9 < 0) {
+      iVar9 = iVar9 + 0xff;
+    }
+    iVar4 = (obj1->dimension).x;
     if (iVar4 < 0) {
       iVar4 = iVar4 + 0xff;
     }
-    iVar1 = *(int *)(iGp000002f4 + 0x134);
-    if (iVar1 < 0) {
-      iVar1 = iVar1 + 0xff;
+    iVar7 = (obj1->orientMat).m[3];
+    if (iVar7 < 0) {
+      iVar7 = iVar7 + 0xff;
     }
-    iVar5 = *(int *)(iGp000002f4 + 0xfc);
+    iVar5 = (obj1->dimension).y;
     if (iVar5 < 0) {
       iVar5 = iVar5 + 0xff;
     }
-    iVar2 = *(int *)(iGp000002f4 + 0x138);
-    if (iVar2 < 0) {
-      iVar2 = iVar2 + 0xff;
+    iVar8 = (obj1->orientMat).m[6];
+    if (iVar8 < 0) {
+      iVar8 = iVar8 + 0xff;
     }
-    iVar6 = *(int *)(iGp000002f4 + 0x108);
+    iVar6 = (obj1->dimension).z;
     if (iVar6 < 0) {
       iVar6 = iVar6 + 0xff;
     }
-    iVar3 = *(int *)(iGp000002f4 + 0x13c);
-    if (iVar3 < 0) {
-      iVar3 = iVar3 + 0xff;
+    pP->x = (obj1->position).x + X_DIR * (iVar9 >> 8) * (iVar4 >> 8) +
+            Y_DIR * (iVar7 >> 8) * (iVar5 >> 8) + Z_DIR * (iVar8 >> 8) * (iVar6 >> 8);
+    pBVar2 = obj1;
+    iVar9 = (pBVar1->orientMat).m[1];
+    if (iVar9 < 0) {
+      iVar9 = iVar9 + 0xff;
     }
-    *piGp000002fc =
-         *(int *)(iGp000002f4 + 0xa0) + X_DIR * (iVar4 >> 8) * (iVar1 >> 8) +
-         Y_DIR * (iVar5 >> 8) * (iVar2 >> 8) + Z_DIR * (iVar6 >> 8) * (iVar3 >> 8);
-    iVar4 = *(int *)(iGp000002f4 + 0xf4);
+    iVar4 = (pBVar1->dimension).x;
     if (iVar4 < 0) {
       iVar4 = iVar4 + 0xff;
     }
-    iVar1 = *(int *)(iGp000002f4 + 0x134);
-    if (iVar1 < 0) {
-      iVar1 = iVar1 + 0xff;
+    iVar7 = (pBVar1->orientMat).m[4];
+    if (iVar7 < 0) {
+      iVar7 = iVar7 + 0xff;
     }
-    iVar5 = *(int *)(iGp000002f4 + 0x100);
+    iVar5 = (pBVar1->dimension).y;
     if (iVar5 < 0) {
       iVar5 = iVar5 + 0xff;
     }
-    iVar2 = *(int *)(iGp000002f4 + 0x138);
-    if (iVar2 < 0) {
-      iVar2 = iVar2 + 0xff;
+    iVar8 = (obj1->orientMat).m[7];
+    if (iVar8 < 0) {
+      iVar8 = iVar8 + 0xff;
     }
-    iVar6 = *(int *)(iGp000002f4 + 0x10c);
+    iVar6 = (obj1->dimension).z;
     if (iVar6 < 0) {
       iVar6 = iVar6 + 0xff;
     }
-    iVar3 = *(int *)(iGp000002f4 + 0x13c);
-    if (iVar3 < 0) {
-      iVar3 = iVar3 + 0xff;
+    pcVar3->y = (pBVar1->position).y + X_DIR * (iVar9 >> 8) * (iVar4 >> 8) +
+                Y_DIR * (iVar7 >> 8) * (iVar5 >> 8) + Z_DIR * (iVar8 >> 8) * (iVar6 >> 8);
+    iVar9 = (pBVar2->orientMat).m[2];
+    if (iVar9 < 0) {
+      iVar9 = iVar9 + 0xff;
     }
-    piGp000002fc[1] =
-         *(int *)(iGp000002f4 + 0xa4) + X_DIR * (iVar4 >> 8) * (iVar1 >> 8) +
-         Y_DIR * (iVar5 >> 8) * (iVar2 >> 8) + Z_DIR * (iVar6 >> 8) * (iVar3 >> 8);
-    iVar4 = *(int *)(iGp000002f4 + 0xf8);
+    iVar4 = (pBVar2->dimension).x;
     if (iVar4 < 0) {
       iVar4 = iVar4 + 0xff;
     }
-    iVar1 = *(int *)(iGp000002f4 + 0x134);
-    if (iVar1 < 0) {
-      iVar1 = iVar1 + 0xff;
+    iVar7 = (pBVar2->orientMat).m[5];
+    if (iVar7 < 0) {
+      iVar7 = iVar7 + 0xff;
     }
-    iVar5 = *(int *)(iGp000002f4 + 0x104);
+    iVar5 = (pBVar2->dimension).y;
     if (iVar5 < 0) {
       iVar5 = iVar5 + 0xff;
     }
-    iVar2 = *(int *)(iGp000002f4 + 0x138);
-    if (iVar2 < 0) {
-      iVar2 = iVar2 + 0xff;
+    iVar8 = (pBVar2->orientMat).m[8];
+    if (iVar8 < 0) {
+      iVar8 = iVar8 + 0xff;
     }
-    iVar6 = *(int *)(iGp000002f4 + 0x110);
+    iVar6 = (pBVar2->dimension).z;
     if (iVar6 < 0) {
       iVar6 = iVar6 + 0xff;
     }
-    iVar3 = *(int *)(iGp000002f4 + 0x13c);
-    if (iVar3 < 0) {
-      iVar3 = iVar3 + 0xff;
-    }
-    piGp000002fc[2] =
-         *(int *)(iGp000002f4 + 0xa8) + X_DIR * (iVar4 >> 8) * (iVar1 >> 8) +
-         Y_DIR * (iVar5 >> 8) * (iVar2 >> 8) + Z_DIR * (iVar6 >> 8) * (iVar3 >> 8);
+    pP->z = (pBVar2->position).z + X_DIR * (iVar9 >> 8) * (iVar4 >> 8) +
+            Y_DIR * (iVar7 >> 8) * (iVar5 >> 8) + Z_DIR * (iVar8 >> 8) * (iVar6 >> 8);
     return 1;
   }
   return 0;
@@ -397,107 +456,131 @@ int CHECK_VERTEX_WITH_DIRS__Fiii(int X_DIR,int Y_DIR,int Z_DIR)
 	// End offset: 0x8008CB04
 	// End Line: 210
 
+	/* begin block 2 */
+		// Start line: 437
+	/* end block 2 */
+	// End Line: 438
+
+	/* begin block 3 */
+		// Start line: 442
+	/* end block 3 */
+	// End Line: 443
+
+	/* begin block 4 */
+		// Start line: 442
+	/* end block 4 */
+	// End Line: 443
+
+	/* begin block 5 */
+		// Start line: 444
+	/* end block 5 */
+	// End Line: 445
+
 int CHECK_VERTEX_WITH_DIRS_OTHER__Fiii(int X_DIR,int Y_DIR,int Z_DIR)
 
 {
-  int iVar1;
-  int iVar2;
-  int iVar3;
+  BO_tNewtonObj *pBVar1;
+  BO_tNewtonObj *pBVar2;
+  coorddef *pcVar3;
   int iVar4;
   int iVar5;
   int iVar6;
+  int iVar7;
+  int iVar8;
+  int iVar9;
   
-  iGp0000184c = (X_DIR * scaledBasisDotsOther + Y_DIR * INT_8013e074 + Z_DIR * INT_8013e080) -
-                INT_8013e0a4;
-  iGp00001850 = (X_DIR * INT_8013e06c + Y_DIR * INT_8013e078 + Z_DIR * INT_8013e084) - INT_8013e0a8;
-  iGp00001854 = (X_DIR * INT_8013e070 + Y_DIR * INT_8013e07c + Z_DIR * INT_8013e088) - INT_8013e0ac;
-  if ((((iGp00001854 <= *(int *)(iGp000002f4 + 0x13c)) &&
-       (-*(int *)(iGp000002f4 + 0x13c) <= iGp00001854)) &&
-      (iGp0000184c <= *(int *)(iGp000002f4 + 0x134))) &&
-     (((-*(int *)(iGp000002f4 + 0x134) <= iGp0000184c &&
-       (iGp00001850 <= *(int *)(iGp000002f4 + 0x138))) &&
-      (-*(int *)(iGp000002f4 + 0x138) <= iGp00001850)))) {
-    iVar4 = *(int *)(iGp000002f0 + 0xf0);
+  pcVar3 = pP;
+  pBVar1 = obj0;
+  xRange = (uchar *)((X_DIR * scaledBasisDotsOther + Y_DIR * INT_8013e074 + Z_DIR * INT_8013e080) -
+                    INT_8013e0a4);
+  yRange = (uchar *)((X_DIR * INT_8013e06c + Y_DIR * INT_8013e078 + Z_DIR * INT_8013e084) -
+                    INT_8013e0a8);
+  iVar9 = (obj1->dimension).z;
+  zRange = (uchar *)((X_DIR * INT_8013e070 + Y_DIR * INT_8013e07c + Z_DIR * INT_8013e088) -
+                    INT_8013e0ac);
+  if (((((int)zRange <= iVar9) && (-iVar9 <= (int)zRange)) &&
+      (iVar9 = (obj1->dimension).x, (int)xRange <= iVar9)) &&
+     (((-iVar9 <= (int)xRange && (iVar9 = (obj1->dimension).y, (int)yRange <= iVar9)) &&
+      (-iVar9 <= (int)yRange)))) {
+    iVar9 = (obj0->orientMat).m[0];
+    if (iVar9 < 0) {
+      iVar9 = iVar9 + 0xff;
+    }
+    iVar4 = (obj0->dimension).x;
     if (iVar4 < 0) {
       iVar4 = iVar4 + 0xff;
     }
-    iVar1 = *(int *)(iGp000002f0 + 0x134);
-    if (iVar1 < 0) {
-      iVar1 = iVar1 + 0xff;
+    iVar7 = (obj0->orientMat).m[3];
+    if (iVar7 < 0) {
+      iVar7 = iVar7 + 0xff;
     }
-    iVar5 = *(int *)(iGp000002f0 + 0xfc);
+    iVar5 = (obj0->dimension).y;
     if (iVar5 < 0) {
       iVar5 = iVar5 + 0xff;
     }
-    iVar2 = *(int *)(iGp000002f0 + 0x138);
-    if (iVar2 < 0) {
-      iVar2 = iVar2 + 0xff;
+    iVar8 = (obj0->orientMat).m[6];
+    if (iVar8 < 0) {
+      iVar8 = iVar8 + 0xff;
     }
-    iVar6 = *(int *)(iGp000002f0 + 0x108);
+    iVar6 = (obj0->dimension).z;
     if (iVar6 < 0) {
       iVar6 = iVar6 + 0xff;
     }
-    iVar3 = *(int *)(iGp000002f0 + 0x13c);
-    if (iVar3 < 0) {
-      iVar3 = iVar3 + 0xff;
+    pP->x = (obj0->position).x + X_DIR * (iVar9 >> 8) * (iVar4 >> 8) +
+            Y_DIR * (iVar7 >> 8) * (iVar5 >> 8) + Z_DIR * (iVar8 >> 8) * (iVar6 >> 8);
+    pBVar2 = obj0;
+    iVar9 = (pBVar1->orientMat).m[1];
+    if (iVar9 < 0) {
+      iVar9 = iVar9 + 0xff;
     }
-    *piGp000002fc =
-         *(int *)(iGp000002f0 + 0xa0) + X_DIR * (iVar4 >> 8) * (iVar1 >> 8) +
-         Y_DIR * (iVar5 >> 8) * (iVar2 >> 8) + Z_DIR * (iVar6 >> 8) * (iVar3 >> 8);
-    iVar4 = *(int *)(iGp000002f0 + 0xf4);
+    iVar4 = (pBVar1->dimension).x;
     if (iVar4 < 0) {
       iVar4 = iVar4 + 0xff;
     }
-    iVar1 = *(int *)(iGp000002f0 + 0x134);
-    if (iVar1 < 0) {
-      iVar1 = iVar1 + 0xff;
+    iVar7 = (pBVar1->orientMat).m[4];
+    if (iVar7 < 0) {
+      iVar7 = iVar7 + 0xff;
     }
-    iVar5 = *(int *)(iGp000002f0 + 0x100);
+    iVar5 = (pBVar1->dimension).y;
     if (iVar5 < 0) {
       iVar5 = iVar5 + 0xff;
     }
-    iVar2 = *(int *)(iGp000002f0 + 0x138);
-    if (iVar2 < 0) {
-      iVar2 = iVar2 + 0xff;
+    iVar8 = (obj0->orientMat).m[7];
+    if (iVar8 < 0) {
+      iVar8 = iVar8 + 0xff;
     }
-    iVar6 = *(int *)(iGp000002f0 + 0x10c);
+    iVar6 = (obj0->dimension).z;
     if (iVar6 < 0) {
       iVar6 = iVar6 + 0xff;
     }
-    iVar3 = *(int *)(iGp000002f0 + 0x13c);
-    if (iVar3 < 0) {
-      iVar3 = iVar3 + 0xff;
+    pcVar3->y = (pBVar1->position).y + X_DIR * (iVar9 >> 8) * (iVar4 >> 8) +
+                Y_DIR * (iVar7 >> 8) * (iVar5 >> 8) + Z_DIR * (iVar8 >> 8) * (iVar6 >> 8);
+    iVar9 = (pBVar2->orientMat).m[2];
+    if (iVar9 < 0) {
+      iVar9 = iVar9 + 0xff;
     }
-    piGp000002fc[1] =
-         *(int *)(iGp000002f0 + 0xa4) + X_DIR * (iVar4 >> 8) * (iVar1 >> 8) +
-         Y_DIR * (iVar5 >> 8) * (iVar2 >> 8) + Z_DIR * (iVar6 >> 8) * (iVar3 >> 8);
-    iVar4 = *(int *)(iGp000002f0 + 0xf8);
+    iVar4 = (pBVar2->dimension).x;
     if (iVar4 < 0) {
       iVar4 = iVar4 + 0xff;
     }
-    iVar1 = *(int *)(iGp000002f0 + 0x134);
-    if (iVar1 < 0) {
-      iVar1 = iVar1 + 0xff;
+    iVar7 = (pBVar2->orientMat).m[5];
+    if (iVar7 < 0) {
+      iVar7 = iVar7 + 0xff;
     }
-    iVar5 = *(int *)(iGp000002f0 + 0x104);
+    iVar5 = (pBVar2->dimension).y;
     if (iVar5 < 0) {
       iVar5 = iVar5 + 0xff;
     }
-    iVar2 = *(int *)(iGp000002f0 + 0x138);
-    if (iVar2 < 0) {
-      iVar2 = iVar2 + 0xff;
+    iVar8 = (pBVar2->orientMat).m[8];
+    if (iVar8 < 0) {
+      iVar8 = iVar8 + 0xff;
     }
-    iVar6 = *(int *)(iGp000002f0 + 0x110);
+    iVar6 = (pBVar2->dimension).z;
     if (iVar6 < 0) {
       iVar6 = iVar6 + 0xff;
     }
-    iVar3 = *(int *)(iGp000002f0 + 0x13c);
-    if (iVar3 < 0) {
-      iVar3 = iVar3 + 0xff;
-    }
-    piGp000002fc[2] =
-         *(int *)(iGp000002f0 + 0xa8) + X_DIR * (iVar4 >> 8) * (iVar1 >> 8) +
-         Y_DIR * (iVar5 >> 8) * (iVar2 >> 8) + Z_DIR * (iVar6 >> 8) * (iVar3 >> 8);
+    pP->z = (pBVar2->position).z + X_DIR * (iVar9 >> 8) * (iVar4 >> 8) +
+            Y_DIR * (iVar7 >> 8) * (iVar5 >> 8) + Z_DIR * (iVar8 >> 8) * (iVar6 >> 8);
     return 1;
   }
   return 0;
@@ -577,6 +660,21 @@ int CHECK_VERTEX_WITH_DIRS_OTHER__Fiii(int X_DIR,int Y_DIR,int Z_DIR)
 	/* end block 1 */
 	// End offset: 0x8008D890
 	// End Line: 390
+
+	/* begin block 2 */
+		// Start line: 531
+	/* end block 2 */
+	// End Line: 532
+
+	/* begin block 3 */
+		// Start line: 552
+	/* end block 3 */
+	// End Line: 553
+
+	/* begin block 4 */
+		// Start line: 552
+	/* end block 4 */
+	// End Line: 553
 
 void Collide_DoObjectFixedObjectCollision__FP13BO_tNewtonObjP8coorddefN21
                (BO_tNewtonObj *o,coorddef *p,coorddef *v,coorddef *n)
@@ -798,7 +896,7 @@ void Collide_DoObjectFixedObjectCollision__FP13BO_tNewtonObjP8coorddefN21
   }
   if (iVar8 < 0xa0000) {
     local_30 = DAT_80055a00;
-    local_2c = PTR_DAT_80055a04;
+    local_2c = PTR_s_SimpleMem_80055a04;
     local_28 = DAT_80055a08;
     iVar8 = DAT_80055a00;
     if (DAT_80055a00 < 0) {
@@ -808,9 +906,9 @@ void Collide_DoObjectFixedObjectCollision__FP13BO_tNewtonObjP8coorddefN21
     if (iVar1 < 0) {
       iVar1 = iVar1 + 0xff;
     }
-    puVar14 = PTR_DAT_80055a04;
-    if ((int)PTR_DAT_80055a04 < 0) {
-      puVar14 = PTR_DAT_80055a04 + 0xff;
+    puVar14 = PTR_s_SimpleMem_80055a04;
+    if ((int)PTR_s_SimpleMem_80055a04 < 0) {
+      puVar14 = PTR_s_SimpleMem_80055a04 + 0xff;
     }
     iVar9 = (o->orientMat).m[1];
     if (iVar9 < 0) {
@@ -846,9 +944,9 @@ void Collide_DoObjectFixedObjectCollision__FP13BO_tNewtonObjP8coorddefN21
     if (iVar23 < 0) {
       iVar23 = iVar23 + 0xff;
     }
-    puVar15 = PTR_DAT_80055a04;
-    if ((int)PTR_DAT_80055a04 < 0) {
-      puVar15 = PTR_DAT_80055a04 + 0xff;
+    puVar15 = PTR_s_SimpleMem_80055a04;
+    if ((int)PTR_s_SimpleMem_80055a04 < 0) {
+      puVar15 = PTR_s_SimpleMem_80055a04 + 0xff;
     }
     iVar5 = (o->orientMat).m[7];
     if (iVar5 < 0) {
@@ -875,11 +973,11 @@ void Collide_DoObjectFixedObjectCollision__FP13BO_tNewtonObjP8coorddefN21
          (-0xf5c3 < (iVar8 >> 8) * (iVar10 >> 8) + ((int)puVar14 >> 8) * (iVar9 >> 8) +
                     (iVar2 >> 8) * (iVar3 >> 8))) goto LAB_8008d204;
     }
-    DAT_000002e4 = 1;
+    frictionLess = 1;
   }
 LAB_8008d204:
   iVar8 = 0x8000;
-  if (DAT_000002e4 == 1) {
+  if (frictionLess == 1) {
     iVar8 = 0x28f;
   }
   uVar12 = fixedmult(iVar8,uVar6);
@@ -889,7 +987,7 @@ LAB_8008d204:
   local_4c = fixedmult(uVar13,local_5c);
   uVar13 = fixedmult(uVar12,(int)(o->massInv + ((uint)o->massInv >> 0x1f)) >> 1);
   local_48 = fixedmult(uVar13,local_58);
-  DAT_000002e4 = 0;
+  frictionLess = 0;
   uVar13 = fixedmult(uVar12,o->moInertiaInv << 1);
   iVar8 = iVar17;
   if (iVar17 < 0) {
@@ -1046,6 +1144,31 @@ LAB_8008d204:
 	// End offset: 0x8008D9A0
 	// End Line: 409
 
+	/* begin block 2 */
+		// Start line: 924
+	/* end block 2 */
+	// End Line: 925
+
+	/* begin block 3 */
+		// Start line: 928
+	/* end block 3 */
+	// End Line: 929
+
+	/* begin block 4 */
+		// Start line: 928
+	/* end block 4 */
+	// End Line: 929
+
+	/* begin block 5 */
+		// Start line: 929
+	/* end block 5 */
+	// End Line: 930
+
+	/* begin block 6 */
+		// Start line: 929
+	/* end block 6 */
+	// End Line: 930
+
 void Collide_LimitAngularVel__FP13BO_tNewtonObj(BO_tNewtonObj *o)
 
 {
@@ -1189,6 +1312,21 @@ void Collide_LimitAngularVel__FP13BO_tNewtonObj(BO_tNewtonObj *o)
 	/* end block 1 */
 	// End offset: 0x8008E5AC
 	// End Line: 542
+
+	/* begin block 2 */
+		// Start line: 966
+	/* end block 2 */
+	// End Line: 967
+
+	/* begin block 3 */
+		// Start line: 976
+	/* end block 3 */
+	// End Line: 977
+
+	/* begin block 4 */
+		// Start line: 976
+	/* end block 4 */
+	// End Line: 977
 
 void Collide_TestWithPlane__FP13BO_tNewtonObjP8coorddefT1
                (BO_tNewtonObj *o,coorddef *normal,coorddef *samplePoint)
@@ -1454,7 +1592,7 @@ void Collide_TestWithPlane__FP13BO_tNewtonObjP8coorddefT1
     if (iVar3 < 0) {
       uVar2 = -iVar3;
     }
-    if ((DAT_000002e0 != 0) && (uVar2 != 0)) {
+    if ((Collide_gRaiseUp != 0) && (uVar2 != 0)) {
       impulse = (int)(uVar2 + (uVar2 >> 0x1f)) >> 1;
       uVar8 = fixedmult(impulse,normal->x);
       local_5c = fixedmult(impulse,normal->y);
@@ -1538,7 +1676,7 @@ void Collide_TestWithPlane__FP13BO_tNewtonObjP8coorddefT1
       Collide_DoObjectFixedObjectCollision__FP13BO_tNewtonObjP8coorddefN21
                 (o,&local_30,&local_50,normal);
     }
-    if (((DAT_000002e0 != 0) && (uVar2 != 0)) && (0 < (int)local_5c)) {
+    if (((Collide_gRaiseUp != 0) && (uVar2 != 0)) && (0 < (int)local_5c)) {
       uVar2 = fixedmult((int)&LAB_0009cccc,local_5c);
       impulse = (o->linearVel).y;
       uVar8 = fixedmult(impulse,impulse);
@@ -1722,6 +1860,21 @@ LAB_8008e594:
 	/* end block 1 */
 	// End offset: 0x8008F520
 	// End Line: 753
+
+	/* begin block 2 */
+		// Start line: 1260
+	/* end block 2 */
+	// End Line: 1261
+
+	/* begin block 3 */
+		// Start line: 1273
+	/* end block 3 */
+	// End Line: 1274
+
+	/* begin block 4 */
+		// Start line: 1273
+	/* end block 4 */
+	// End Line: 1274
 
 int Collide_DoObjectObjectCollision__FP13BO_tNewtonObjT0P8coorddefT2
               (BO_tNewtonObj *o0,BO_tNewtonObj *o1,coorddef *p,coorddef *normal)
@@ -2235,20 +2388,41 @@ LAB_8008f15c:
 	// End offset: 0x8009012C
 	// End Line: 1028
 
+	/* begin block 2 */
+		// Start line: 1766
+	/* end block 2 */
+	// End Line: 1767
+
+	/* begin block 3 */
+		// Start line: 1776
+	/* end block 3 */
+	// End Line: 1777
+
+	/* begin block 4 */
+		// Start line: 1776
+	/* end block 4 */
+	// End Line: 1777
+
 int Collide_DoActualObjectCollisionCheck__FP13BO_tNewtonObjT0P8coorddefT2
               (BO_tNewtonObj *o0,BO_tNewtonObj *o1,coorddef *p,coorddef *normal)
 
 {
-  int iVar1;
-  int iVar2;
+  uchar *puVar1;
+  uchar *puVar2;
   int iVar3;
   int iVar4;
   int iVar5;
-  int iVar6;
+  uchar *puVar6;
   int iVar7;
   int iVar8;
   int iVar9;
   int iVar10;
+  uchar *puVar11;
+  int iVar12;
+  uchar *puVar13;
+  int iVar14;
+  uchar *puVar15;
+  int iVar16;
   int local_60;
   int local_5c;
   int local_58;
@@ -2259,108 +2433,108 @@ int Collide_DoActualObjectCollisionCheck__FP13BO_tNewtonObjT0P8coorddefT2
   int local_3c;
   int local_38;
   
-  DAT_000002f0 = o0;
-  DAT_000002f4 = o1;
-  DAT_000002f8 = normal;
-  DAT_000002fc = p;
-  iVar1 = CHECK_CENTER_VERTEX_WITH_DIRS__Fiii(1,0,0);
-  if (iVar1 != 0) {
+  obj0 = o0;
+  obj1 = o1;
+  pNormal = normal;
+  pP = p;
+  iVar3 = CHECK_CENTER_VERTEX_WITH_DIRS__Fiii(1,0,0);
+  if (iVar3 != 0) {
     return 1;
   }
-  iVar1 = CHECK_CENTER_VERTEX_WITH_DIRS__Fiii(0,1,0);
-  if (iVar1 != 0) {
+  iVar3 = CHECK_CENTER_VERTEX_WITH_DIRS__Fiii(0,1,0);
+  if (iVar3 != 0) {
     return 1;
   }
-  iVar1 = CHECK_CENTER_VERTEX_WITH_DIRS__Fiii(0,0,1);
-  if (iVar1 != 0) {
+  iVar3 = CHECK_CENTER_VERTEX_WITH_DIRS__Fiii(0,0,1);
+  if (iVar3 != 0) {
     return 1;
   }
-  iVar1 = CHECK_CENTER_VERTEX_WITH_DIRS__Fiii(-1,0,0);
-  if (iVar1 != 0) {
+  iVar3 = CHECK_CENTER_VERTEX_WITH_DIRS__Fiii(-1,0,0);
+  if (iVar3 != 0) {
     return 1;
   }
-  iVar1 = CHECK_CENTER_VERTEX_WITH_DIRS__Fiii(0,-1,0);
-  if (iVar1 != 0) {
+  iVar3 = CHECK_CENTER_VERTEX_WITH_DIRS__Fiii(0,-1,0);
+  if (iVar3 != 0) {
     return 1;
   }
-  iVar1 = CHECK_CENTER_VERTEX_WITH_DIRS__Fiii(0,0,-1);
-  if (iVar1 != 0) {
+  iVar3 = CHECK_CENTER_VERTEX_WITH_DIRS__Fiii(0,0,-1);
+  if (iVar3 != 0) {
     return 1;
   }
-  iVar1 = CHECK_CENTER_VERTEX_WITH_DIRS_OTHER__Fiii(1,0,0);
-  if (iVar1 != 0) {
+  iVar3 = CHECK_CENTER_VERTEX_WITH_DIRS_OTHER__Fiii(1,0,0);
+  if (iVar3 != 0) {
     return 1;
   }
-  iVar1 = CHECK_CENTER_VERTEX_WITH_DIRS_OTHER__Fiii(0,1,0);
-  if (iVar1 != 0) {
+  iVar3 = CHECK_CENTER_VERTEX_WITH_DIRS_OTHER__Fiii(0,1,0);
+  if (iVar3 != 0) {
     return 1;
   }
-  iVar1 = CHECK_CENTER_VERTEX_WITH_DIRS_OTHER__Fiii(0,0,1);
-  if (iVar1 != 0) {
+  iVar3 = CHECK_CENTER_VERTEX_WITH_DIRS_OTHER__Fiii(0,0,1);
+  if (iVar3 != 0) {
     return 1;
   }
-  iVar1 = CHECK_CENTER_VERTEX_WITH_DIRS_OTHER__Fiii(-1,0,0);
-  if (iVar1 != 0) {
+  iVar3 = CHECK_CENTER_VERTEX_WITH_DIRS_OTHER__Fiii(-1,0,0);
+  if (iVar3 != 0) {
     return 1;
   }
-  iVar1 = CHECK_CENTER_VERTEX_WITH_DIRS_OTHER__Fiii(0,-1,0);
-  if (iVar1 != 0) {
+  iVar3 = CHECK_CENTER_VERTEX_WITH_DIRS_OTHER__Fiii(0,-1,0);
+  if (iVar3 != 0) {
     return 1;
   }
-  iVar1 = CHECK_CENTER_VERTEX_WITH_DIRS_OTHER__Fiii(0,0,-1);
-  if (iVar1 != 0) {
+  iVar3 = CHECK_CENTER_VERTEX_WITH_DIRS_OTHER__Fiii(0,0,-1);
+  if (iVar3 != 0) {
     return 1;
   }
-  iVar1 = CHECK_VERTEX_WITH_DIRS__Fiii(1,1,1);
-  if (((((iVar1 == 0) && (iVar1 = CHECK_VERTEX_WITH_DIRS__Fiii(1,1,-1), iVar1 == 0)) &&
-       (iVar1 = CHECK_VERTEX_WITH_DIRS__Fiii(1,-1,1), iVar1 == 0)) &&
-      ((iVar1 = CHECK_VERTEX_WITH_DIRS__Fiii(1,-1,-1), iVar1 == 0 &&
-       (iVar1 = CHECK_VERTEX_WITH_DIRS__Fiii(-1,1,1), iVar1 == 0)))) &&
-     ((iVar1 = CHECK_VERTEX_WITH_DIRS__Fiii(-1,1,-1), iVar1 == 0 &&
-      ((iVar1 = CHECK_VERTEX_WITH_DIRS__Fiii(-1,-1,1), iVar1 == 0 &&
-       (iVar1 = CHECK_VERTEX_WITH_DIRS__Fiii(-1,-1,-1), iVar1 == 0)))))) {
-    iVar1 = CHECK_VERTEX_WITH_DIRS_OTHER__Fiii(1,1,1);
-    if ((((iVar1 == 0) && (iVar1 = CHECK_VERTEX_WITH_DIRS_OTHER__Fiii(1,1,-1), iVar1 == 0)) &&
-        (iVar1 = CHECK_VERTEX_WITH_DIRS_OTHER__Fiii(1,-1,1), iVar1 == 0)) &&
-       (((iVar1 = CHECK_VERTEX_WITH_DIRS_OTHER__Fiii(1,-1,-1), iVar1 == 0 &&
-         (iVar1 = CHECK_VERTEX_WITH_DIRS_OTHER__Fiii(-1,1,1), iVar1 == 0)) &&
-        ((iVar1 = CHECK_VERTEX_WITH_DIRS_OTHER__Fiii(-1,1,-1), iVar1 == 0 &&
-         ((iVar1 = CHECK_VERTEX_WITH_DIRS_OTHER__Fiii(-1,-1,1), iVar1 == 0 &&
-          (iVar1 = CHECK_VERTEX_WITH_DIRS_OTHER__Fiii(-1,-1,-1), iVar1 == 0)))))))) {
+  iVar3 = CHECK_VERTEX_WITH_DIRS__Fiii(1,1,1);
+  if (((((iVar3 == 0) && (iVar3 = CHECK_VERTEX_WITH_DIRS__Fiii(1,1,-1), iVar3 == 0)) &&
+       (iVar3 = CHECK_VERTEX_WITH_DIRS__Fiii(1,-1,1), iVar3 == 0)) &&
+      ((iVar3 = CHECK_VERTEX_WITH_DIRS__Fiii(1,-1,-1), iVar3 == 0 &&
+       (iVar3 = CHECK_VERTEX_WITH_DIRS__Fiii(-1,1,1), iVar3 == 0)))) &&
+     ((iVar3 = CHECK_VERTEX_WITH_DIRS__Fiii(-1,1,-1), iVar3 == 0 &&
+      ((iVar3 = CHECK_VERTEX_WITH_DIRS__Fiii(-1,-1,1), iVar3 == 0 &&
+       (iVar3 = CHECK_VERTEX_WITH_DIRS__Fiii(-1,-1,-1), iVar3 == 0)))))) {
+    iVar3 = CHECK_VERTEX_WITH_DIRS_OTHER__Fiii(1,1,1);
+    if ((((iVar3 == 0) && (iVar3 = CHECK_VERTEX_WITH_DIRS_OTHER__Fiii(1,1,-1), iVar3 == 0)) &&
+        (iVar3 = CHECK_VERTEX_WITH_DIRS_OTHER__Fiii(1,-1,1), iVar3 == 0)) &&
+       (((iVar3 = CHECK_VERTEX_WITH_DIRS_OTHER__Fiii(1,-1,-1), iVar3 == 0 &&
+         (iVar3 = CHECK_VERTEX_WITH_DIRS_OTHER__Fiii(-1,1,1), iVar3 == 0)) &&
+        ((iVar3 = CHECK_VERTEX_WITH_DIRS_OTHER__Fiii(-1,1,-1), iVar3 == 0 &&
+         ((iVar3 = CHECK_VERTEX_WITH_DIRS_OTHER__Fiii(-1,-1,1), iVar3 == 0 &&
+          (iVar3 = CHECK_VERTEX_WITH_DIRS_OTHER__Fiii(-1,-1,-1), iVar3 == 0)))))))) {
       return 0;
     }
-    iVar10 = DAT_00001854;
-    iVar9 = DAT_00001850;
-    iVar1 = DAT_0000184c;
-    iVar6 = (o1->linearVel).x;
-    iVar3 = (o0->linearVel).x;
-    iVar2 = iVar6 - iVar3;
-    if (iVar2 < 1) {
-      iVar2 = iVar3 - iVar6;
+    puVar6 = zRange;
+    puVar2 = yRange;
+    puVar1 = xRange;
+    iVar12 = (o1->linearVel).x;
+    iVar7 = (o0->linearVel).x;
+    iVar3 = iVar12 - iVar7;
+    if (iVar3 < 1) {
+      iVar3 = iVar7 - iVar12;
     }
-    iVar6 = (o1->linearVel).y;
-    iVar3 = (o0->linearVel).y;
-    iVar7 = iVar6 - iVar3;
-    if (iVar7 < 1) {
-      iVar7 = iVar3 - iVar6;
+    iVar12 = (o1->linearVel).y;
+    iVar7 = (o0->linearVel).y;
+    iVar14 = iVar12 - iVar7;
+    if (iVar14 < 1) {
+      iVar14 = iVar7 - iVar12;
     }
-    iVar8 = (o1->linearVel).z;
-    iVar3 = (o0->linearVel).z;
-    iVar6 = iVar8 - iVar3;
-    if (iVar6 < 1) {
-      iVar6 = iVar3 - iVar8;
+    iVar16 = (o1->linearVel).z;
+    iVar7 = (o0->linearVel).z;
+    iVar12 = iVar16 - iVar7;
+    if (iVar12 < 1) {
+      iVar12 = iVar7 - iVar16;
     }
-    if (iVar2 < iVar7) {
-      iVar2 = iVar7;
+    if (iVar3 < iVar14) {
+      iVar3 = iVar14;
     }
-    if (iVar2 < iVar6) {
-      iVar2 = iVar6;
+    if (iVar3 < iVar12) {
+      iVar3 = iVar12;
     }
-    DAT_000002ec = (uint)(0xf0000 < iVar2);
-    if (0xf0000 < iVar2) {
-      iVar1 = (o0->linearVel).x;
-      iVar9 = (o0->linearVel).y;
-      iVar10 = (o0->linearVel).z;
+    findClosestSideDave = ZEXT14(0xf0000 < iVar3);
+    if (0xf0000 < iVar3) {
+      iVar3 = (o0->linearVel).x;
+      iVar7 = (o0->linearVel).y;
+      iVar12 = (o0->linearVel).z;
       local_60 = (o1->orientMat).m[0];
       local_5c = (o1->orientMat).m[1];
       local_58 = (o1->orientMat).m[2];
@@ -2370,101 +2544,101 @@ int Collide_DoActualObjectCollisionCheck__FP13BO_tNewtonObjT0P8coorddefT2
       local_40 = (o1->orientMat).m[6];
       local_3c = (o1->orientMat).m[7];
       local_38 = (o1->orientMat).m[8];
-      if (DAT_0000184c < 0) {
+      if ((int)xRange < 0) {
         local_60 = -local_60;
         local_58 = -local_58;
         local_5c = -local_5c;
       }
-      if (DAT_00001850 < 0) {
+      if ((int)yRange < 0) {
         local_50 = -local_50;
         local_48 = -local_48;
         local_4c = -local_4c;
       }
-      if (DAT_00001854 < 0) {
+      if ((int)zRange < 0) {
         local_40 = -local_40;
         local_38 = -local_38;
         local_3c = -local_3c;
       }
-      iVar2 = local_60;
+      iVar14 = local_60;
       if (local_60 < 0) {
-        iVar2 = local_60 + 0xff;
+        iVar14 = local_60 + 0xff;
       }
-      iVar3 = iVar1;
-      if (iVar1 < 0) {
-        iVar3 = iVar1 + 0xff;
+      iVar16 = iVar3;
+      if (iVar3 < 0) {
+        iVar16 = iVar3 + 0xff;
       }
-      iVar6 = local_5c;
+      iVar4 = local_5c;
       if (local_5c < 0) {
-        iVar6 = local_5c + 0xff;
+        iVar4 = local_5c + 0xff;
       }
-      iVar7 = iVar9;
-      if (iVar9 < 0) {
-        iVar7 = iVar9 + 0xff;
+      iVar8 = iVar7;
+      if (iVar7 < 0) {
+        iVar8 = iVar7 + 0xff;
       }
-      iVar8 = local_58;
+      iVar5 = local_58;
       if (local_58 < 0) {
-        iVar8 = local_58 + 0xff;
+        iVar5 = local_58 + 0xff;
       }
-      iVar4 = iVar10;
-      if (iVar10 < 0) {
-        iVar4 = iVar10 + 0xff;
+      iVar9 = iVar12;
+      if (iVar12 < 0) {
+        iVar9 = iVar12 + 0xff;
       }
-      iVar2 = (iVar2 >> 8) * (iVar3 >> 8) + (iVar6 >> 8) * (iVar7 >> 8) +
-              (iVar8 >> 8) * (iVar4 >> 8);
-      iVar6 = local_50;
+      iVar14 = (iVar14 >> 8) * (iVar16 >> 8) + (iVar4 >> 8) * (iVar8 >> 8) +
+               (iVar5 >> 8) * (iVar9 >> 8);
+      iVar4 = local_50;
       if (local_50 < 0) {
-        iVar6 = local_50 + 0xff;
+        iVar4 = local_50 + 0xff;
       }
-      iVar8 = local_4c;
+      iVar5 = local_4c;
       if (local_4c < 0) {
-        iVar8 = local_4c + 0xff;
+        iVar5 = local_4c + 0xff;
       }
-      iVar5 = local_48;
+      iVar10 = local_48;
       if (local_48 < 0) {
-        iVar5 = local_48 + 0xff;
+        iVar10 = local_48 + 0xff;
       }
-      iVar3 = (iVar6 >> 8) * (iVar3 >> 8) + (iVar8 >> 8) * (iVar7 >> 8) +
-              (iVar5 >> 8) * (iVar4 >> 8);
-      iVar6 = local_40;
+      iVar16 = (iVar4 >> 8) * (iVar16 >> 8) + (iVar5 >> 8) * (iVar8 >> 8) +
+               (iVar10 >> 8) * (iVar9 >> 8);
+      iVar4 = local_40;
       if (local_40 < 0) {
-        iVar6 = local_40 + 0xff;
+        iVar4 = local_40 + 0xff;
       }
-      if (iVar1 < 0) {
-        iVar1 = iVar1 + 0xff;
+      if (iVar3 < 0) {
+        iVar3 = iVar3 + 0xff;
       }
-      iVar7 = local_3c;
+      iVar8 = local_3c;
       if (local_3c < 0) {
-        iVar7 = local_3c + 0xff;
+        iVar8 = local_3c + 0xff;
       }
-      if (iVar9 < 0) {
-        iVar9 = iVar9 + 0xff;
+      if (iVar7 < 0) {
+        iVar7 = iVar7 + 0xff;
       }
-      iVar8 = local_38;
+      iVar5 = local_38;
       if (local_38 < 0) {
-        iVar8 = local_38 + 0xff;
+        iVar5 = local_38 + 0xff;
       }
-      if (iVar10 < 0) {
-        iVar10 = iVar10 + 0xff;
+      if (iVar12 < 0) {
+        iVar12 = iVar12 + 0xff;
       }
-      if (iVar2 < 0) {
-        iVar2 = -iVar2;
+      if (iVar14 < 0) {
+        iVar14 = -iVar14;
       }
+      if (iVar16 < 0) {
+        iVar16 = -iVar16;
+      }
+      iVar3 = (iVar4 >> 8) * (iVar3 >> 8) + (iVar8 >> 8) * (iVar7 >> 8) +
+              (iVar5 >> 8) * (iVar12 >> 8);
       if (iVar3 < 0) {
         iVar3 = -iVar3;
       }
-      iVar1 = (iVar6 >> 8) * (iVar1 >> 8) + (iVar7 >> 8) * (iVar9 >> 8) +
-              (iVar8 >> 8) * (iVar10 >> 8);
-      if (iVar1 < 0) {
-        iVar1 = -iVar1;
-      }
-      if ((iVar3 < iVar2) && (iVar1 < iVar2)) {
+      if ((iVar16 < iVar14) && (iVar3 < iVar14)) {
 LAB_8008ff94:
         normal->x = local_60;
         normal->y = local_5c;
         normal->z = local_58;
         return 1;
       }
-      if (iVar3 <= iVar1) {
+      if (iVar16 <= iVar3) {
 LAB_8008ffe0:
         normal->x = local_40;
         normal->y = local_3c;
@@ -2477,86 +2651,86 @@ LAB_8008ffc0:
       normal->z = local_48;
       return 1;
     }
-    if (DAT_0000184c < 0) {
-      iVar2 = (o1->dimension).x + DAT_0000184c;
+    if ((int)xRange < 0) {
+      puVar15 = xRange + (o1->dimension).x;
     }
     else {
-      iVar2 = (o1->dimension).x - DAT_0000184c;
+      puVar15 = (uchar *)((o1->dimension).x - (int)xRange);
     }
-    if (DAT_00001850 < 0) {
-      iVar3 = (o1->dimension).y + DAT_00001850;
-    }
-    else {
-      iVar3 = (o1->dimension).y - DAT_00001850;
-    }
-    if (DAT_00001854 < 0) {
-      iVar6 = (o1->dimension).z + DAT_00001854;
+    if ((int)yRange < 0) {
+      puVar13 = yRange + (o1->dimension).y;
     }
     else {
-      iVar6 = (o1->dimension).z - DAT_00001854;
+      puVar13 = (uchar *)((o1->dimension).y - (int)yRange);
     }
-    if ((iVar2 < iVar3) && (iVar2 < iVar6)) {
-      iVar9 = (o1->orientMat).m[1];
-      iVar10 = (o1->orientMat).m[2];
+    if ((int)zRange < 0) {
+      puVar11 = zRange + (o1->dimension).z;
+    }
+    else {
+      puVar11 = (uchar *)((o1->dimension).z - (int)zRange);
+    }
+    if (((int)puVar15 < (int)puVar13) && ((int)puVar15 < (int)puVar11)) {
+      iVar3 = (o1->orientMat).m[1];
+      iVar7 = (o1->orientMat).m[2];
       normal->x = (o1->orientMat).m[0];
-      normal->y = iVar9;
-      normal->z = iVar10;
-      iVar10 = iVar1;
+      normal->y = iVar3;
+      normal->z = iVar7;
+      puVar6 = puVar1;
     }
     else {
-      if (iVar3 < iVar6) {
-        iVar1 = (o1->orientMat).m[4];
-        iVar10 = (o1->orientMat).m[5];
+      if ((int)puVar13 < (int)puVar11) {
+        iVar3 = (o1->orientMat).m[4];
+        iVar7 = (o1->orientMat).m[5];
         normal->x = (o1->orientMat).m[3];
-        normal->y = iVar1;
-        normal->z = iVar10;
-        iVar10 = iVar9;
+        normal->y = iVar3;
+        normal->z = iVar7;
+        puVar6 = puVar2;
       }
       else {
-        iVar1 = (o1->orientMat).m[7];
-        iVar9 = (o1->orientMat).m[8];
+        iVar3 = (o1->orientMat).m[7];
+        iVar7 = (o1->orientMat).m[8];
         normal->x = (o1->orientMat).m[6];
-        normal->y = iVar1;
-        normal->z = iVar9;
+        normal->y = iVar3;
+        normal->z = iVar7;
       }
     }
-    if (-1 < iVar10) {
+    if (-1 < (int)puVar6) {
       return 1;
     }
   }
   else {
-    iVar10 = DAT_00001854;
-    iVar9 = DAT_00001850;
-    iVar1 = DAT_0000184c;
-    iVar6 = (o1->linearVel).x;
-    iVar3 = (o0->linearVel).x;
-    iVar2 = iVar6 - iVar3;
-    if (iVar2 < 1) {
-      iVar2 = iVar3 - iVar6;
+    puVar6 = zRange;
+    puVar2 = yRange;
+    puVar1 = xRange;
+    iVar12 = (o1->linearVel).x;
+    iVar7 = (o0->linearVel).x;
+    iVar3 = iVar12 - iVar7;
+    if (iVar3 < 1) {
+      iVar3 = iVar7 - iVar12;
     }
-    iVar6 = (o1->linearVel).y;
-    iVar3 = (o0->linearVel).y;
-    iVar7 = iVar6 - iVar3;
-    if (iVar7 < 1) {
-      iVar7 = iVar3 - iVar6;
+    iVar12 = (o1->linearVel).y;
+    iVar7 = (o0->linearVel).y;
+    iVar14 = iVar12 - iVar7;
+    if (iVar14 < 1) {
+      iVar14 = iVar7 - iVar12;
     }
-    iVar8 = (o1->linearVel).z;
-    iVar3 = (o0->linearVel).z;
-    iVar6 = iVar8 - iVar3;
-    if (iVar6 < 1) {
-      iVar6 = iVar3 - iVar8;
+    iVar16 = (o1->linearVel).z;
+    iVar7 = (o0->linearVel).z;
+    iVar12 = iVar16 - iVar7;
+    if (iVar12 < 1) {
+      iVar12 = iVar7 - iVar16;
     }
-    if (iVar2 < iVar7) {
-      iVar2 = iVar7;
+    if (iVar3 < iVar14) {
+      iVar3 = iVar14;
     }
-    if (iVar2 < iVar6) {
-      iVar2 = iVar6;
+    if (iVar3 < iVar12) {
+      iVar3 = iVar12;
     }
-    DAT_000002ec = (uint)(0xf0000 < iVar2);
-    if (0xf0000 < iVar2) {
-      iVar1 = (o1->linearVel).x;
-      iVar9 = (o1->linearVel).y;
-      iVar10 = (o1->linearVel).z;
+    findClosestSideDave = ZEXT14(0xf0000 < iVar3);
+    if (0xf0000 < iVar3) {
+      iVar3 = (o1->linearVel).x;
+      iVar7 = (o1->linearVel).y;
+      iVar12 = (o1->linearVel).z;
       local_60 = (o0->orientMat).m[0];
       local_5c = (o0->orientMat).m[1];
       local_58 = (o0->orientMat).m[2];
@@ -2566,141 +2740,141 @@ LAB_8008ffc0:
       local_40 = (o0->orientMat).m[6];
       local_3c = (o0->orientMat).m[7];
       local_38 = (o0->orientMat).m[8];
-      if (0 < DAT_0000184c) {
+      if (0 < (int)xRange) {
         local_60 = -local_60;
         local_58 = -local_58;
         local_5c = -local_5c;
       }
-      if (0 < DAT_00001850) {
+      if (0 < (int)yRange) {
         local_50 = -local_50;
         local_48 = -local_48;
         local_4c = -local_4c;
       }
-      if (0 < DAT_00001854) {
+      if (0 < (int)zRange) {
         local_40 = -local_40;
         local_38 = -local_38;
         local_3c = -local_3c;
       }
-      iVar2 = local_60;
+      iVar14 = local_60;
       if (local_60 < 0) {
-        iVar2 = local_60 + 0xff;
+        iVar14 = local_60 + 0xff;
       }
-      iVar3 = iVar1;
-      if (iVar1 < 0) {
-        iVar3 = iVar1 + 0xff;
+      iVar16 = iVar3;
+      if (iVar3 < 0) {
+        iVar16 = iVar3 + 0xff;
       }
-      iVar6 = local_5c;
+      iVar4 = local_5c;
       if (local_5c < 0) {
-        iVar6 = local_5c + 0xff;
+        iVar4 = local_5c + 0xff;
       }
-      iVar7 = iVar9;
-      if (iVar9 < 0) {
-        iVar7 = iVar9 + 0xff;
+      iVar8 = iVar7;
+      if (iVar7 < 0) {
+        iVar8 = iVar7 + 0xff;
       }
-      iVar8 = local_58;
+      iVar5 = local_58;
       if (local_58 < 0) {
-        iVar8 = local_58 + 0xff;
+        iVar5 = local_58 + 0xff;
       }
-      iVar4 = iVar10;
-      if (iVar10 < 0) {
-        iVar4 = iVar10 + 0xff;
+      iVar9 = iVar12;
+      if (iVar12 < 0) {
+        iVar9 = iVar12 + 0xff;
       }
-      iVar2 = (iVar2 >> 8) * (iVar3 >> 8) + (iVar6 >> 8) * (iVar7 >> 8) +
-              (iVar8 >> 8) * (iVar4 >> 8);
-      iVar6 = local_50;
+      iVar14 = (iVar14 >> 8) * (iVar16 >> 8) + (iVar4 >> 8) * (iVar8 >> 8) +
+               (iVar5 >> 8) * (iVar9 >> 8);
+      iVar4 = local_50;
       if (local_50 < 0) {
-        iVar6 = local_50 + 0xff;
+        iVar4 = local_50 + 0xff;
       }
-      iVar8 = local_4c;
+      iVar5 = local_4c;
       if (local_4c < 0) {
-        iVar8 = local_4c + 0xff;
+        iVar5 = local_4c + 0xff;
       }
-      iVar5 = local_48;
+      iVar10 = local_48;
       if (local_48 < 0) {
-        iVar5 = local_48 + 0xff;
+        iVar10 = local_48 + 0xff;
       }
-      iVar3 = (iVar6 >> 8) * (iVar3 >> 8) + (iVar8 >> 8) * (iVar7 >> 8) +
-              (iVar5 >> 8) * (iVar4 >> 8);
-      iVar6 = local_40;
+      iVar16 = (iVar4 >> 8) * (iVar16 >> 8) + (iVar5 >> 8) * (iVar8 >> 8) +
+               (iVar10 >> 8) * (iVar9 >> 8);
+      iVar4 = local_40;
       if (local_40 < 0) {
-        iVar6 = local_40 + 0xff;
+        iVar4 = local_40 + 0xff;
       }
-      if (iVar1 < 0) {
-        iVar1 = iVar1 + 0xff;
+      if (iVar3 < 0) {
+        iVar3 = iVar3 + 0xff;
       }
-      iVar7 = local_3c;
+      iVar8 = local_3c;
       if (local_3c < 0) {
-        iVar7 = local_3c + 0xff;
+        iVar8 = local_3c + 0xff;
       }
-      if (iVar9 < 0) {
-        iVar9 = iVar9 + 0xff;
+      if (iVar7 < 0) {
+        iVar7 = iVar7 + 0xff;
       }
-      iVar8 = local_38;
+      iVar5 = local_38;
       if (local_38 < 0) {
-        iVar8 = local_38 + 0xff;
+        iVar5 = local_38 + 0xff;
       }
-      if (iVar10 < 0) {
-        iVar10 = iVar10 + 0xff;
+      if (iVar12 < 0) {
+        iVar12 = iVar12 + 0xff;
       }
-      if (iVar2 < 0) {
-        iVar2 = -iVar2;
+      if (iVar14 < 0) {
+        iVar14 = -iVar14;
       }
+      if (iVar16 < 0) {
+        iVar16 = -iVar16;
+      }
+      iVar3 = (iVar4 >> 8) * (iVar3 >> 8) + (iVar8 >> 8) * (iVar7 >> 8) +
+              (iVar5 >> 8) * (iVar12 >> 8);
       if (iVar3 < 0) {
         iVar3 = -iVar3;
       }
-      iVar1 = (iVar6 >> 8) * (iVar1 >> 8) + (iVar7 >> 8) * (iVar9 >> 8) +
-              (iVar8 >> 8) * (iVar10 >> 8);
-      if (iVar1 < 0) {
-        iVar1 = -iVar1;
-      }
-      if ((iVar3 < iVar2) && (iVar1 < iVar2)) goto LAB_8008ff94;
-      if (iVar3 <= iVar1) goto LAB_8008ffe0;
+      if ((iVar16 < iVar14) && (iVar3 < iVar14)) goto LAB_8008ff94;
+      if (iVar16 <= iVar3) goto LAB_8008ffe0;
       goto LAB_8008ffc0;
     }
-    if (DAT_0000184c < 0) {
-      iVar2 = (o0->dimension).x + DAT_0000184c;
+    if ((int)xRange < 0) {
+      puVar15 = xRange + (o0->dimension).x;
     }
     else {
-      iVar2 = (o0->dimension).x - DAT_0000184c;
+      puVar15 = (uchar *)((o0->dimension).x - (int)xRange);
     }
-    if (DAT_00001850 < 0) {
-      iVar3 = (o0->dimension).y + DAT_00001850;
-    }
-    else {
-      iVar3 = (o0->dimension).y - DAT_00001850;
-    }
-    if (DAT_00001854 < 0) {
-      iVar6 = (o0->dimension).z + DAT_00001854;
+    if ((int)yRange < 0) {
+      puVar13 = yRange + (o0->dimension).y;
     }
     else {
-      iVar6 = (o0->dimension).z - DAT_00001854;
+      puVar13 = (uchar *)((o0->dimension).y - (int)yRange);
     }
-    if ((iVar2 < iVar3) && (iVar2 < iVar6)) {
-      iVar9 = (o0->orientMat).m[1];
-      iVar10 = (o0->orientMat).m[2];
+    if ((int)zRange < 0) {
+      puVar11 = zRange + (o0->dimension).z;
+    }
+    else {
+      puVar11 = (uchar *)((o0->dimension).z - (int)zRange);
+    }
+    if (((int)puVar15 < (int)puVar13) && ((int)puVar15 < (int)puVar11)) {
+      iVar3 = (o0->orientMat).m[1];
+      iVar7 = (o0->orientMat).m[2];
       normal->x = (o0->orientMat).m[0];
-      normal->y = iVar9;
-      normal->z = iVar10;
-      iVar10 = iVar1;
+      normal->y = iVar3;
+      normal->z = iVar7;
+      puVar6 = puVar1;
     }
     else {
-      if (iVar3 < iVar6) {
-        iVar1 = (o0->orientMat).m[4];
-        iVar10 = (o0->orientMat).m[5];
+      if ((int)puVar13 < (int)puVar11) {
+        iVar3 = (o0->orientMat).m[4];
+        iVar7 = (o0->orientMat).m[5];
         normal->x = (o0->orientMat).m[3];
-        normal->y = iVar1;
-        normal->z = iVar10;
-        iVar10 = iVar9;
+        normal->y = iVar3;
+        normal->z = iVar7;
+        puVar6 = puVar2;
       }
       else {
-        iVar1 = (o0->orientMat).m[7];
-        iVar9 = (o0->orientMat).m[8];
+        iVar3 = (o0->orientMat).m[7];
+        iVar7 = (o0->orientMat).m[8];
         normal->x = (o0->orientMat).m[6];
-        normal->y = iVar1;
-        normal->z = iVar9;
+        normal->y = iVar3;
+        normal->z = iVar7;
       }
     }
-    if (iVar10 < 1) {
+    if ((int)puVar6 < 1) {
       return 1;
     }
   }
@@ -2861,6 +3035,21 @@ LAB_8008ffc0:
 	/* end block 1 */
 	// End offset: 0x80091344
 	// End Line: 1273
+
+	/* begin block 2 */
+		// Start line: 2394
+	/* end block 2 */
+	// End Line: 2395
+
+	/* begin block 3 */
+		// Start line: 2406
+	/* end block 3 */
+	// End Line: 2407
+
+	/* begin block 4 */
+		// Start line: 2406
+	/* end block 4 */
+	// End Line: 2407
 
 int Collide_TestObjectVertices__FP13BO_tNewtonObjT0P8coorddefT2
               (BO_tNewtonObj *o0,BO_tNewtonObj *o1,coorddef *p,coorddef *normal)
@@ -3641,6 +3830,21 @@ LAB_800912c8:
 	// End offset: 0x800914B4
 	// End Line: 1416
 
+	/* begin block 2 */
+		// Start line: 3039
+	/* end block 2 */
+	// End Line: 3040
+
+	/* begin block 3 */
+		// Start line: 3132
+	/* end block 3 */
+	// End Line: 3133
+
+	/* begin block 4 */
+		// Start line: 3132
+	/* end block 4 */
+	// End Line: 3133
+
 int Collide_CheckForCollisionBetween__FP13BO_tNewtonObjT0(BO_tNewtonObj *o0,BO_tNewtonObj *o1)
 
 {
@@ -3743,6 +3947,21 @@ int Collide_CheckForCollisionBetween__FP13BO_tNewtonObjT0(BO_tNewtonObj *o0,BO_t
 	// End offset: 0x800916AC
 	// End Line: 1471
 
+	/* begin block 2 */
+		// Start line: 3253
+	/* end block 2 */
+	// End Line: 3254
+
+	/* begin block 3 */
+		// Start line: 3262
+	/* end block 3 */
+	// End Line: 3263
+
+	/* begin block 4 */
+		// Start line: 3262
+	/* end block 4 */
+	// End Line: 3263
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Collide_ClearCollisionRegistry__Fv(void)
@@ -3763,25 +3982,26 @@ void Collide_ClearCollisionRegistry__Fv(void)
   BWorldSm_Pos *slicePos;
   
   objIndex = 0;
-  cpoint = &InfiniteMassNewton.position;
-  slicePos = &InfiniteMassNewton.simRoadInfo;
-  ppBVar10 = &__Collide_gRegistry_16__;
-  DAT_000002e8 = 0;
+  cpoint = &InfiniteMassNewton[0].position;
+  slicePos = &InfiniteMassNewton[0].simRoadInfo;
+  ppBVar10 = &Collide_gRegistry16;
+  Collide_gNumRegistered = 0;
   iVar4 = 0;
   while (iVar2 = Object_GetNumIMassObjects__Fv(), objIndex < iVar2) {
     Object_GetIMassObjectMotion__FiP8coorddefP10matrixtdefT1
-              (objIndex,cpoint,(matrixtdef *)((int)InfiniteMassNewton.orientMat.m + iVar4),
-               (coorddef *)((int)&InfiniteMassNewton.linearVel.x + iVar4));
-    *(undefined4 *)((int)&InfiniteMassNewton.angularVel.x + iVar4) = 0;
-    *(undefined4 *)((int)&InfiniteMassNewton.angularVel.y + iVar4) = 0;
-    *(undefined4 *)((int)&InfiniteMassNewton.angularVel.z + iVar4) = 0;
-    *ppBVar10 = (BO_tNewtonObj *)((int)&InfiniteMassNewton.objID + iVar4);
-    DAT_000002e8 = DAT_000002e8 + 1;
+              (objIndex,cpoint,(matrixtdef *)((int)InfiniteMassNewton[0].orientMat.m + iVar4),
+               (coorddef *)((int)&InfiniteMassNewton[0].linearVel.x + iVar4));
+    *(undefined4 *)((int)&InfiniteMassNewton[0].angularVel.x + iVar4) = 0;
+    *(undefined4 *)((int)&InfiniteMassNewton[0].angularVel.y + iVar4) = 0;
+    *(undefined4 *)((int)&InfiniteMassNewton[0].angularVel.z + iVar4) = 0;
+    *ppBVar10 = (BO_tNewtonObj *)((int)&InfiniteMassNewton[0].objID + iVar4);
+    Collide_gNumRegistered = Collide_gNumRegistered + 1;
     BWorldSm_FindClosestSlice__FP8coorddefP12BWorldSm_Pos(cpoint,slicePos);
-    pTVar3 = BWorldSm_slices + (int)*(short *)((int)&InfiniteMassNewton.simRoadInfo.slice + iVar4);
-    iVar5 = *(int *)((int)&InfiniteMassNewton.position.x + iVar4) - pTVar3->center[0];
-    iVar7 = *(int *)((int)&InfiniteMassNewton.position.y + iVar4) - pTVar3->center[0];
-    iVar9 = *(int *)((int)&InfiniteMassNewton.position.z + iVar4) - pTVar3->center[0];
+    pTVar3 = BWorldSm_slices +
+             (int)*(short *)((int)&InfiniteMassNewton[0].simRoadInfo.slice + iVar4);
+    iVar5 = *(int *)((int)&InfiniteMassNewton[0].position.x + iVar4) - pTVar3->center[0];
+    iVar7 = *(int *)((int)&InfiniteMassNewton[0].position.y + iVar4) - pTVar3->center[0];
+    iVar9 = *(int *)((int)&InfiniteMassNewton[0].position.z + iVar4) - pTVar3->center[0];
     iVar2 = (int)pTVar3->right[0] * 0x200;
     iVar6 = (int)pTVar3->right[1] * 0x200;
     iVar8 = (int)pTVar3->right[2] * 0x200;
@@ -3807,7 +4027,7 @@ void Collide_ClearCollisionRegistry__Fv(void)
     ppBVar10 = ppBVar10 + 1;
     cpoint = cpoint + 0x30;
     objIndex = objIndex + 1;
-    *(int *)((int)&InfiniteMassNewton.xRelRoadCenter + iVar4) =
+    *(int *)((int)&InfiniteMassNewton[0].xRelRoadCenter + iVar4) =
          (iVar5 >> 8) * (iVar2 >> 8) + (iVar7 >> 8) * (iVar6 >> 8) + (iVar9 >> 8) * (iVar8 >> 8);
     iVar4 = iVar4 + 0x240;
   }
@@ -3834,6 +4054,21 @@ void Collide_ClearCollisionRegistry__Fv(void)
 	/* end block 1 */
 	// End offset: 0x800918B0
 	// End Line: 1498
+
+	/* begin block 2 */
+		// Start line: 3429
+	/* end block 2 */
+	// End Line: 3430
+
+	/* begin block 3 */
+		// Start line: 3437
+	/* end block 3 */
+	// End Line: 3438
+
+	/* begin block 4 */
+		// Start line: 3437
+	/* end block 4 */
+	// End Line: 3438
 
 int Collide_CheckAccuratePointRadiusCollision__FP13BO_tNewtonObjP8coorddefi
               (BO_tNewtonObj *newObj,coorddef *point,int radius)
@@ -4040,12 +4275,27 @@ int Collide_CheckAccuratePointRadiusCollision__FP13BO_tNewtonObjP8coorddefi
 	// End offset: 0x80091E94
 	// End Line: 1723
 
+	/* begin block 2 */
+		// Start line: 3491
+	/* end block 2 */
+	// End Line: 3492
+
+	/* begin block 3 */
+		// Start line: 3495
+	/* end block 3 */
+	// End Line: 3496
+
+	/* begin block 4 */
+		// Start line: 3495
+	/* end block 4 */
+	// End Line: 3496
+
 void Collide_CheckMeForCollisions__FP13BO_tNewtonObj(BO_tNewtonObj *newObj)
 
 {
   bool bVar1;
   int objIndex;
-  undefined *puVar2;
+  undefined **ppuVar2;
   uint uVar3;
   undefined **ppuVar4;
   int iVar5;
@@ -4054,9 +4304,8 @@ void Collide_CheckMeForCollisions__FP13BO_tNewtonObj(BO_tNewtonObj *newObj)
   coorddef *a;
   int iVar7;
   BO_tNewtonObj **ppBVar8;
-  undefined *puVar9;
+  int iVar9;
   int iVar10;
-  int iVar11;
   coorddef normal;
   coorddef local_90;
   coorddef acStack128 [3];
@@ -4077,7 +4326,7 @@ void Collide_CheckMeForCollisions__FP13BO_tNewtonObj(BO_tNewtonObj *newObj)
         Object_InitCollisionCheckLoop__FP12BWorldSm_PosP18Object_tSimObjListPi
                   (&newObj->simRoadInfo,(Object_tSimObjList *)&stack0xffffff60,&local_38);
         objIndex = 0;
-        while (puVar9 = &LAB_000a0000, objIndex < local_38) {
+        while (ppuVar4 = &PTR_000a0000, objIndex < local_38) {
           iVar7 = -1;
           local_30[0] = 1;
           Object_GetRadiusCollisionData__FP18Object_tSimObjListiP8coorddefPi
@@ -4088,11 +4337,11 @@ void Collide_CheckMeForCollisions__FP13BO_tNewtonObj(BO_tNewtonObj *newObj)
           a = acStack128;
           if (0 < local_30[0]) {
             do {
-              puVar2 = (undefined *)Math_DistXZ__FP8coorddefT0(a,&newObj->position);
-              if (((int)puVar2 < local_34 + newObj->dimensionRadius) && ((int)puVar2 < (int)puVar9))
-              {
+              ppuVar2 = (undefined **)Math_DistXZ__FP8coorddefT0(a,&newObj->position);
+              if (((int)ppuVar2 < local_34 + newObj->dimensionRadius) &&
+                 ((int)ppuVar2 < (int)ppuVar4)) {
                 iVar7 = iVar5;
-                puVar9 = puVar2;
+                ppuVar4 = ppuVar2;
               }
               iVar5 = iVar5 + 1;
               a = a + 1;
@@ -4148,39 +4397,39 @@ LAB_80091c3c:
               iVar5 = local_34 + 0xff;
             }
             iVar5 = iVar5 >> 8;
-            iVar10 = iVar5 * local_58.x;
+            iVar9 = iVar5 * local_58.x;
+            if (iVar9 < 0) {
+              iVar9 = iVar9 + 0xff;
+            }
+            iVar10 = iVar5 * local_58.y;
             if (iVar10 < 0) {
               iVar10 = iVar10 + 0xff;
-            }
-            iVar11 = iVar5 * local_58.y;
-            if (iVar11 < 0) {
-              iVar11 = iVar11 + 0xff;
             }
             iVar5 = iVar5 * local_58.z;
             if (iVar5 < 0) {
               iVar5 = iVar5 + 0xff;
             }
-            local_48.x = (iVar10 >> 8) + local_90.x;
+            local_48.x = (iVar9 >> 8) + local_90.x;
             local_48.z = (iVar5 >> 8) + local_90.z;
-            local_48.y = (iVar11 >> 8) + local_90.y;
+            local_48.y = (iVar10 >> 8) + local_90.y;
             iVar5 = newObj->speedXZ;
             if (iVar5 < 0x280001) {
-              if ((0x190000 < iVar5) && (iVar6 = iVar5, iVar7 = DAT_000002e4, iVar5 < 0x1e0000)) {
+              if ((0x190000 < iVar5) && (iVar6 = iVar5, iVar7 = frictionLess, iVar5 < 0x1e0000)) {
                 iVar6 = 0x1e0000;
-                iVar7 = DAT_000002e4;
+                iVar7 = frictionLess;
               }
             }
             else {
               iVar6 = iVar5 << 1;
-              iVar7 = DAT_000002e4;
+              iVar7 = frictionLess;
               if (0x960000 < iVar5 << 1) {
                 iVar6 = 0x960000;
-                iVar7 = DAT_000002e4;
+                iVar7 = frictionLess;
               }
             }
-            DAT_000002e4 = iVar7;
+            frictionLess = iVar7;
             Collide_TestWithPlane__FP13BO_tNewtonObjP8coorddefT1(newObj,&local_58,&local_48);
-            DAT_000002e4 = 0;
+            frictionLess = 0;
             Newton_DoPostBarrierCollisionHandling__FP13BO_tNewtonObjG8coorddef(newObj,normal);
             (newObj->collision).impulse = iVar6;
             (newObj->collision).collided = 1;
@@ -4204,9 +4453,9 @@ LAB_80091c3c:
       }
       objIndex = 0;
       if ((newObj->collision).disableCollisionTimer == 0) {
-        ppBVar8 = &__Collide_gRegistry_16__;
-        bVar1 = 0 < DAT_000002e8;
-        (&__Collide_gRegistry_16__)[DAT_000002e8] = newObj;
+        ppBVar8 = &Collide_gRegistry16;
+        bVar1 = 0 < Collide_gNumRegistered;
+        (&Collide_gRegistry16)[Collide_gNumRegistered] = newObj;
         if (bVar1) {
           do {
             o1 = *ppBVar8;
@@ -4263,9 +4512,9 @@ LAB_80091c3c:
             }
             objIndex = objIndex + 1;
             ppBVar8 = ppBVar8 + 1;
-          } while (objIndex < DAT_000002e8);
+          } while (objIndex < Collide_gNumRegistered);
         }
-        DAT_000002e8 = DAT_000002e8 + 1;
+        Collide_gNumRegistered = Collide_gNumRegistered + 1;
       }
     }
     else {
@@ -4274,6 +4523,7 @@ LAB_80091c3c:
   }
   return;
 }
+
 
 
 

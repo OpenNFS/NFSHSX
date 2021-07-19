@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "COLOR.H"
+
 
 // decompiled code
 // original method signature: 
@@ -11,6 +12,16 @@
 	/* end block 1 */
 	// End offset: 0x80091EF4
 	// End Line: 459
+
+	/* begin block 2 */
+		// Start line: 908
+	/* end block 2 */
+	// End Line: 909
+
+	/* begin block 3 */
+		// Start line: 908
+	/* end block 3 */
+	// End Line: 909
 
 char IsNumChar__Fc(char c)
 
@@ -40,6 +51,21 @@ char IsNumChar__Fc(char c)
 	/* end block 1 */
 	// End offset: 0x80091FAC
 	// End Line: 481
+
+	/* begin block 2 */
+		// Start line: 920
+	/* end block 2 */
+	// End Line: 921
+
+	/* begin block 3 */
+		// Start line: 924
+	/* end block 3 */
+	// End Line: 925
+
+	/* begin block 4 */
+		// Start line: 924
+	/* end block 4 */
+	// End Line: 925
 
 int Risk_ReadNextValue__FPPc(char **aScript)
 
@@ -77,6 +103,7 @@ int Risk_ReadNextValue__FPPc(char **aScript)
   *aScript = pcVar3;
   return iVar4;
 }
+
 
 
 

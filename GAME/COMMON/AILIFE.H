@@ -1,6 +1,7 @@
 #ifndef AILIFE_H
 #define AILIFE_H
 
+
 extern int AILife_EvaluateLife__FP8Car_tObj(struct Car_tObj *carObj); // 0x80067650
 
 extern void AILife_RCSetSpeeds__FP8Car_tObj(struct Car_tObj *carObj); // 0x800676B4
@@ -40,5 +41,6 @@ extern struct Car_tObj * AILife_IsSliceCloseToAnyCopCar__Fi(int slice); // 0x800
 extern struct Car_tObj * AILife_IsPositionInAnyVisibleArea__FP8coorddef(struct coorddef *pos); // 0x8006894C
 
 extern void AILife_Debug__FPce(char *format); // 0x800689D0
+
 
 #endif

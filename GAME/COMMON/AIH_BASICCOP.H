@@ -1,6 +1,7 @@
 #ifndef AIH_BASICCOP_H
 #define AIH_BASICCOP_H
 
+
 extern struct AIHigh_BasicCop * __15AIHigh_BasicCopP8Car_tObji(struct AIHigh_BasicCop *this, struct Car_tObj *carObj, int copIndex); // 0x8005C164
 
 extern void CheckSpikeBelt__15AIHigh_BasicCop(struct AIHigh_BasicCop *this); // 0x8005C1EC
@@ -16,5 +17,6 @@ extern void PlacePointOnRoad__FiP8coorddef(int slice, struct coorddef *offset); 
 extern void SetupBlockadeElements__15AIHigh_BasicCopP10blockade_t(struct AIHigh_BasicCop *this, struct blockade_t *blockade); // 0x8005C790
 
 extern void HandleBlockadeSpeech__15AIHigh_BasicCop(struct AIHigh_BasicCop *this); // 0x8005CA28
+
 
 #endif

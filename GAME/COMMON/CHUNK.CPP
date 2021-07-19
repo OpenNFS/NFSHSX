@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "CHUNK.H"
+
 
 // decompiled code
 // original method signature: 
@@ -356,6 +357,26 @@
 	// End offset: 0x8008B730
 	// End Line: 225
 
+	/* begin block 2 */
+		// Start line: 151
+	/* end block 2 */
+	// End Line: 152
+
+	/* begin block 3 */
+		// Start line: 152
+	/* end block 3 */
+	// End Line: 153
+
+	/* begin block 4 */
+		// Start line: 165
+	/* end block 4 */
+	// End Line: 166
+
+	/* begin block 5 */
+		// Start line: 165
+	/* end block 5 */
+	// End Line: 166
+
 void InstanceGroup__5ChunkP15SerializedGroupP9SimpleMem
                (Chunk *this,SerializedGroup *chunkGroup,SimpleMem *mem)
 
@@ -511,6 +532,26 @@ LAB_8008b734:
 	// End offset: 0x8008B920
 	// End Line: 275
 
+	/* begin block 2 */
+		// Start line: 571
+	/* end block 2 */
+	// End Line: 572
+
+	/* begin block 3 */
+		// Start line: 584
+	/* end block 3 */
+	// End Line: 585
+
+	/* begin block 4 */
+		// Start line: 584
+	/* end block 4 */
+	// End Line: 585
+
+	/* begin block 5 */
+		// Start line: 590
+	/* end block 5 */
+	// End Line: 591
+
 void Chunk_UpdateSys__FP13DRender_tView(DRender_tView *Vi)
 
 {
@@ -529,6 +570,26 @@ void Chunk_UpdateSys__FP13DRender_tView(DRender_tView *Vi)
 	/* end block 1 */
 	// End offset: 0x8008B928
 	// End Line: 292
+
+	/* begin block 2 */
+		// Start line: 607
+	/* end block 2 */
+	// End Line: 608
+
+	/* begin block 3 */
+		// Start line: 618
+	/* end block 3 */
+	// End Line: 619
+
+	/* begin block 4 */
+		// Start line: 618
+	/* end block 4 */
+	// End Line: 619
+
+	/* begin block 5 */
+		// Start line: 628
+	/* end block 5 */
+	// End Line: 629
 
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
@@ -551,6 +612,26 @@ void Chunk_Init__Fv(void)
 	// End offset: 0x8008B930
 	// End Line: 311
 
+	/* begin block 2 */
+		// Start line: 647
+	/* end block 2 */
+	// End Line: 648
+
+	/* begin block 3 */
+		// Start line: 656
+	/* end block 3 */
+	// End Line: 657
+
+	/* begin block 4 */
+		// Start line: 656
+	/* end block 4 */
+	// End Line: 657
+
+	/* begin block 5 */
+		// Start line: 658
+	/* end block 5 */
+	// End Line: 659
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Chunk_DeInit__Fv(void)
@@ -558,6 +639,7 @@ void Chunk_DeInit__Fv(void)
 {
   return;
 }
+
 
 
 

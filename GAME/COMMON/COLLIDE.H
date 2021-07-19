@@ -1,6 +1,7 @@
 #ifndef COLLIDE_H
 #define COLLIDE_H
 
+
 extern int CHECK_CENTER_VERTEX_WITH_DIRS__Fiii(int X_DIR, int Y_DIR, int Z_DIR); // 0x8008BA70
 
 extern int CHECK_CENTER_VERTEX_WITH_DIRS_OTHER__Fiii(int X_DIR, int Y_DIR, int Z_DIR); // 0x8008BEF0
@@ -28,5 +29,6 @@ extern void Collide_ClearCollisionRegistry__Fv(); // 0x800914D4
 extern int Collide_CheckAccuratePointRadiusCollision__FP13BO_tNewtonObjP8coorddefi(struct BO_tNewtonObj *newObj, struct coorddef *point, int radius); // 0x800916D4
 
 extern void Collide_CheckMeForCollisions__FP13BO_tNewtonObj(struct BO_tNewtonObj *newObj); // 0x800918CC
+
 
 #endif

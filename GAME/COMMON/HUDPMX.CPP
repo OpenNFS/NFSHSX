@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "HUDPMX.H"
+
 
 // decompiled code
 // original method signature: 
@@ -14,16 +15,30 @@
 	// End offset: 0x80092464
 	// End Line: 25
 
+	/* begin block 2 */
+		// Start line: 48
+	/* end block 2 */
+	// End Line: 49
+
+	/* begin block 3 */
+		// Start line: 48
+	/* end block 3 */
+	// End Line: 49
+
 void HudPmx_LoadShape__FPcP13HudPmx_tShape(char *n,HudPmx_tShape *s)
 
 {
+  uchar *f;
   int iVar1;
+  uint uVar2;
   
-  iVar1 = locateshape((int)pcGp0000185c,(int *)n);
+  iVar1 = locateshape((int)gShpfile,(int *)n);
+  f = gShpfile;
+  uVar2 = (uint)(byte)loadShapeXOff;
   s->width = *(short *)(iVar1 + 4);
   s->height = *(short *)(iVar1 + 6);
   Texture_LoadPmx__FPcT0iiiiiP12Draw_tPixMap
-            (pcGp0000185c,n,0x41,(uint)bGp00001860 + 0x80,0x80,-1,-1,(Draw_tPixMap *)s);
+            ((char *)f,n,0x41,uVar2 + 0x80,0x80,-1,-1,(Draw_tPixMap *)s);
   return;
 }
 
@@ -107,6 +122,21 @@ void HudPmx_LoadShape__FPcP13HudPmx_tShape(char *n,HudPmx_tShape *s)
 	/* end block 1 */
 	// End offset: 0x80092F08
 	// End Line: 205
+
+	/* begin block 2 */
+		// Start line: 102
+	/* end block 2 */
+	// End Line: 103
+
+	/* begin block 3 */
+		// Start line: 106
+	/* end block 3 */
+	// End Line: 107
+
+	/* begin block 4 */
+		// Start line: 106
+	/* end block 4 */
+	// End Line: 107
 
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
@@ -282,8 +312,8 @@ void HudPmx_InitTextures__Fv(void)
     ppcVar2[3] = pcVar5;
     ppuVar1 = ppuVar1 + 4;
     ppcVar2 = ppcVar2 + 4;
-  } while (ppuVar1 != &PTR_DAT_80055ac4);
-  *ppcVar2 = PTR_DAT_80055ac4;
+  } while (ppuVar1 != PTR_ARRAY_80055a70 + 0x15);
+  *ppcVar2 = PTR_ARRAY_80055a70[21];
   ppcVar2 = local_4d0;
   ppuVar1 = &PTR_DAT_80055ac8;
   do {
@@ -296,9 +326,9 @@ void HudPmx_InitTextures__Fv(void)
     ppcVar2[3] = pcVar5;
     ppuVar1 = ppuVar1 + 4;
     ppcVar2 = ppcVar2 + 4;
-  } while (ppuVar1 != &PTR_DAT_80055b38);
+  } while (ppuVar1 != PTR_ARRAY_80055ae4 + 0x15);
   local_60 = acStack1112;
-  *ppcVar2 = PTR_DAT_80055b38;
+  *ppcVar2 = PTR_ARRAY_80055ae4[21];
   sprintf(local_60,s_mp_02d_8013c95c,GameSetup_gData.track);
   ppcVar3 = &local_450;
   ppcVar2 = &local_240;
@@ -445,11 +475,11 @@ void HudPmx_InitTextures__Fv(void)
     ppcVar3 = ppcVar3 + 4;
   } while (ppcVar2 != (char **)local_30);
   iVar7 = 0;
-  uGp00001860 = 0;
+  loadShapeXOff._0_1_ = 0;
   sprintf(acStack1608,s__sfont_pfn_80055b3c,PTR_801164d0);
-  pcGp00001858 = (char *)loadfileadrz(acStack1608,0);
-  Font_LoadFont__FPciic(pcGp00001858,0x80,0x80,'\x01');
-  pHVar6 = &HudPmx_gHudNumberUV;
+  gHudFont = (uchar *)loadfileadrz(acStack1608,0);
+  Font_LoadFont__FPciic((char *)gHudFont,0x80,0x80,'\x01');
+  pHVar6 = HudPmx_gHudNumberUV;
   while (iVar7 < 10) {
     Font_GetUVWH__FcPiN41
               ((char)iVar7 + '0',(int *)local_30,(int *)local_2c,&iStack40,&iStack36,aiStack32);
@@ -460,7 +490,7 @@ void HudPmx_InitTextures__Fv(void)
     pHVar6 = pHVar6 + 1;
   }
   sprintf(acStack1608,s__shud_psh_80055b48,PTR_801164d0);
-  iGp0000185c = loadfileadr(acStack1608,0);
+  gShpfile = (uchar *)loadfileadr(acStack1608,0);
   Texture_ResetPaletteSharing__Fv();
   if (GameSetup_gData.Time == 0) {
     if (0x1d < GameSetup_gData.carInfo[0].carType) {
@@ -501,17 +531,17 @@ void HudPmx_InitTextures__Fv(void)
     s = s + 1;
   } while (iVar7 < 0x83);
   iVar7 = 0x84;
-  s = &HudPmx_tShape_801116e8;
+  s = HudPmx_tShape_ARRAY_801116e8;
   while (iVar7 < 0x9e) {
-    cGp000007eb = (char)iVar7 + -0x43;
+    DAT_8013cd37 = (char)iVar7 + -0x43;
     HudPmx_LoadShape__FPcP13HudPmx_tShape(&DAT_8013cd34,s);
     s = s + 1;
     iVar7 = iVar7 + 1;
   }
   iVar7 = 0x9e;
-  s = &HudPmx_tShape_801118f0;
+  s = HudPmx_tShape_ARRAY_801118f0;
   while (iVar7 < 0xa8) {
-    cGp000007f3 = (char)iVar7 + -0x6e;
+    DAT_8013cd3f = (char)iVar7 + -0x6e;
     HudPmx_LoadShape__FPcP13HudPmx_tShape(&DAT_8013cd3c,s);
     s = s + 1;
     iVar7 = iVar7 + 1;
@@ -534,14 +564,14 @@ void HudPmx_InitTextures__Fv(void)
     iVar7 = iVar7 + 4;
     s = s + 1;
   } while (iVar8 < 0x1c);
-  HudPmx_LoadShape__FPcP13HudPmx_tShape(&DAT_8013cd7c,&HudPmx_tShape_801114a4);
+  HudPmx_LoadShape__FPcP13HudPmx_tShape(&DAT_8013cd7c,HudPmx_tShape_ARRAY_801114a4);
   HudPmx_LoadShape__FPcP13HudPmx_tShape(&DAT_8013cba4,&HudPmx_tShape_80111238);
   HudPmx_LoadShape__FPcP13HudPmx_tShape(&DAT_8013cbac,&HudPmx_tShape_8011124c);
   if (DashHUD_gInfo.splitscreen != 0) {
-    uGp00001860 = 0x16;
+    loadShapeXOff._0_1_ = 0x16;
     HudPmx_LoadShape__FPcP13HudPmx_tShape(local_244,&HudPmx_tShape_801116d4);
   }
-  purgememadr(iGp0000185c);
+  purgememadr((int)gShpfile);
   return;
 }
 
@@ -558,14 +588,40 @@ void HudPmx_InitTextures__Fv(void)
 	// End offset: 0x80092F30
 	// End Line: 210
 
+	/* begin block 2 */
+		// Start line: 499
+	/* end block 2 */
+	// End Line: 500
+
+	/* begin block 3 */
+		// Start line: 504
+	/* end block 3 */
+	// End Line: 505
+
+	/* begin block 4 */
+		// Start line: 504
+	/* end block 4 */
+	// End Line: 505
+
+	/* begin block 5 */
+		// Start line: 505
+	/* end block 5 */
+	// End Line: 506
+
+	/* begin block 6 */
+		// Start line: 505
+	/* end block 6 */
+	// End Line: 506
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void HudPmx_Kill__Fv(void)
 
 {
-  purgememadr(DAT_00001858);
+  purgememadr((int)gHudFont);
   return;
 }
+
 
 
 

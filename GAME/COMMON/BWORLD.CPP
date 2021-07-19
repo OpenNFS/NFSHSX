@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "BWORLD.H"
+
 
 // decompiled code
 // original method signature: 
@@ -11,6 +12,26 @@
 	/* end block 1 */
 	// End offset: 0x8007D5C4
 	// End Line: 129
+
+	/* begin block 2 */
+		// Start line: 254
+	/* end block 2 */
+	// End Line: 255
+
+	/* begin block 3 */
+		// Start line: 254
+	/* end block 3 */
+	// End Line: 255
+
+	/* begin block 4 */
+		// Start line: 255
+	/* end block 4 */
+	// End Line: 256
+
+	/* begin block 5 */
+		// Start line: 255
+	/* end block 5 */
+	// End Line: 256
 
 int xzsquaredist32__FP8coorddefT0(coorddef *c1,coorddef *c2)
 
@@ -50,26 +71,42 @@ int xzsquaredist32__FP8coorddefT0(coorddef *c1,coorddef *c2)
 	// End offset: 0x8007D6AC
 	// End Line: 217
 
+	/* begin block 2 */
+		// Start line: 268
+	/* end block 2 */
+	// End Line: 269
+
+	/* begin block 3 */
+		// Start line: 280
+	/* end block 3 */
+	// End Line: 281
+
+	/* begin block 4 */
+		// Start line: 280
+	/* end block 4 */
+	// End Line: 281
+
 void UpdateContext__FP13DRender_tViewi(DRender_tView *Vi,int contextHandle)
 
 {
+  uint uVar1;
   DRender_tCalcView *pt;
   
   SetContext__Fi(contextHandle);
   pt = &Vi->cview;
   if (contextHandle == 0) {
-    DAT_00000258 = (int)*(short *)(DAT_00000244 + 4);
+    gBWSlice = (int)(gCurrContext->slicePos).slice;
   }
-  BWorldSm_FindClosestQuadRez__FP8coorddefP12BWorldSm_Posi
-            ((coorddef *)pt,(BWorldSm_Pos *)(DAT_00000244 + 4),1);
-  if (*(char *)(DAT_00000244 + 0x5e) != '\0') {
-    FindAbsClosestSliceCrude__FP8coorddefP12BWorldSm_Pos
-              ((coorddef *)pt,(BWorldSm_Pos *)(DAT_00000244 + 4));
+  BWorldSm_FindClosestQuadRez__FP8coorddefP12BWorldSm_Posi((coorddef *)pt,&gCurrContext->slicePos,1)
+  ;
+  if ((gCurrContext->slicePos).offEdge != '\0') {
+    FindAbsClosestSliceCrude__FP8coorddefP12BWorldSm_Pos((coorddef *)pt,&gCurrContext->slicePos);
     BWorldSm_FindClosestQuadRez__FP8coorddefP12BWorldSm_Posi
-              ((coorddef *)pt,(BWorldSm_Pos *)(DAT_00000244 + 4),1);
+              ((coorddef *)pt,&gCurrContext->slicePos,1);
   }
-  if (*(uint *)(DAT_00000244 + 0x88) != (uint)*(byte *)(DAT_00000244 + 0x79)) {
-    *(uint *)(DAT_00000244 + 0x88) = (uint)*(byte *)(DAT_00000244 + 0x79);
+  uVar1 = (uint)(gCurrContext->slicePos).chunk;
+  if (gCurrContext->currentChunk != uVar1) {
+    gCurrContext->currentChunk = uVar1;
   }
   return;
 }
@@ -202,6 +239,21 @@ void UpdateContext__FP13DRender_tViewi(DRender_tView *Vi,int contextHandle)
 	// End offset: 0x8007D7F4
 	// End Line: 294
 
+	/* begin block 2 */
+		// Start line: 444
+	/* end block 2 */
+	// End Line: 445
+
+	/* begin block 3 */
+		// Start line: 456
+	/* end block 3 */
+	// End Line: 457
+
+	/* begin block 4 */
+		// Start line: 456
+	/* end block 4 */
+	// End Line: 457
+
 void BWorld_BuildGlareEffects__FP13DRender_tViewP11Draw_DCacheP5Group
                (DRender_tView *Vi,Draw_DCache *sd,Group *group)
 
@@ -228,7 +280,7 @@ void BWorld_BuildGlareEffects__FP13DRender_tViewP11Draw_DCacheP5Group
     uVar1 = *(ushort *)((int)&fpt[1].x + 2);
     if ((int)*(short *)&fpt[1].x == 100) {
       local_30.x = DAT_80055880;
-      local_30.y = PTR_LAB_80055884;
+      local_30.y = PTR_PTR_80055884;
       local_30.z = DAT_80055888;
       TrgSfx_AddEnviroEffect__FiiP8coorddefT2(obj,0x101,fpt,&local_30);
       return;
@@ -294,6 +346,36 @@ void BWorld_BuildGlareEffects__FP13DRender_tViewP11Draw_DCacheP5Group
 	// End offset: 0x8007D8B8
 	// End Line: 349
 
+	/* begin block 2 */
+		// Start line: 636
+	/* end block 2 */
+	// End Line: 637
+
+	/* begin block 3 */
+		// Start line: 666
+	/* end block 3 */
+	// End Line: 667
+
+	/* begin block 4 */
+		// Start line: 666
+	/* end block 4 */
+	// End Line: 667
+
+	/* begin block 5 */
+		// Start line: 667
+	/* end block 5 */
+	// End Line: 668
+
+	/* begin block 6 */
+		// Start line: 667
+	/* end block 6 */
+	// End Line: 668
+
+	/* begin block 7 */
+		// Start line: 675
+	/* end block 7 */
+	// End Line: 676
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void BWorld_InitSpikeBelt__Fv(void)
@@ -307,7 +389,7 @@ void BWorld_InitSpikeBelt__Fv(void)
   int iVar6;
   
   iVar6 = 0x7fffffff;
-  DAT_00000264 = -1;
+  gSpikeBeltColourTableIndex = -1;
   iVar5 = 0;
   pCVar4 = Chunk_lightTable;
   while (iVar5 < Chunk_numLight) {
@@ -317,14 +399,14 @@ void BWorld_InitSpikeBelt__Fv(void)
     iVar1 = iVar1 * iVar1 + iVar2 * iVar2 + iVar3 * iVar3;
     if (iVar1 < iVar6) {
       iVar6 = iVar1;
-      DAT_00000264 = iVar5;
+      gSpikeBeltColourTableIndex = iVar5;
     }
     pCVar4 = pCVar4 + 1;
     iVar5 = iVar5 + 1;
   }
-  DAT_00000248 = 0;
-  DAT_0000024c = 0;
-  DAT_00000250 = 0;
+  gSpikeBelt = 0;
+  gSpikeBeltSlice = 0;
+  gSpikeBeltChunk = 0;
   return;
 }
 
@@ -341,14 +423,39 @@ void BWorld_InitSpikeBelt__Fv(void)
 	// End offset: 0x8007D8C4
 	// End Line: 354
 
+	/* begin block 2 */
+		// Start line: 729
+	/* end block 2 */
+	// End Line: 730
+
+	/* begin block 3 */
+		// Start line: 733
+	/* end block 3 */
+	// End Line: 734
+
+	/* begin block 4 */
+		// Start line: 733
+	/* end block 4 */
+	// End Line: 734
+
+	/* begin block 5 */
+		// Start line: 734
+	/* end block 5 */
+	// End Line: 735
+
+	/* begin block 6 */
+		// Start line: 734
+	/* end block 6 */
+	// End Line: 735
+
 void BWorld_SetSpikeBelt__Fiii(int slice,int x,int width)
 
 {
-  DAT_00000248 = 1;
-  DAT_0000024c = slice;
-  DAT_00000250 = (uint)BWorldSm_slices[slice].chunkIndex;
-  DAT_00000254 = x;
-  DAT_00000260 = width;
+  gSpikeBelt = 1;
+  gSpikeBeltSlice = slice;
+  gSpikeBeltChunk = (uint)BWorldSm_slices[slice].chunkIndex;
+  gSpikeBeltX = x;
+  gSpikeBeltWidth = width;
   return;
 }
 
@@ -365,18 +472,43 @@ void BWorld_SetSpikeBelt__Fiii(int slice,int x,int width)
 	// End offset: 0x8007D938
 	// End Line: 375
 
+	/* begin block 2 */
+		// Start line: 752
+	/* end block 2 */
+	// End Line: 753
+
+	/* begin block 3 */
+		// Start line: 758
+	/* end block 3 */
+	// End Line: 759
+
+	/* begin block 4 */
+		// Start line: 758
+	/* end block 4 */
+	// End Line: 759
+
+	/* begin block 5 */
+		// Start line: 759
+	/* end block 5 */
+	// End Line: 760
+
+	/* begin block 6 */
+		// Start line: 759
+	/* end block 6 */
+	// End Line: 760
+
 int BWorld_GetSpikeBelt__FPiN20(int *slice,int *x,int *width)
 
 {
-  if (DAT_00000248 != 1) {
+  if (gSpikeBelt != 1) {
     *width = 0;
     *x = 0;
     *slice = 0;
     return 0;
   }
-  *slice = DAT_0000024c;
-  *x = DAT_00000254;
-  *width = DAT_00000260;
+  *slice = gSpikeBeltSlice;
+  *x = gSpikeBeltX;
+  *width = gSpikeBeltWidth;
   return 1;
 }
 
@@ -510,6 +642,21 @@ int BWorld_GetSpikeBelt__FPiN20(int *slice,int *x,int *width)
 	// End offset: 0x8007DBFC
 	// End Line: 576
 
+	/* begin block 2 */
+		// Start line: 807
+	/* end block 2 */
+	// End Line: 808
+
+	/* begin block 3 */
+		// Start line: 826
+	/* end block 3 */
+	// End Line: 827
+
+	/* begin block 4 */
+		// Start line: 826
+	/* end block 4 */
+	// End Line: 827
+
 void SetupBuildMatrices__FP13DRender_tViewP11Draw_DCache(DRender_tView *Vi,Draw_DCache *sd)
 
 {
@@ -539,19 +686,19 @@ void SetupBuildMatrices__FP13DRender_tViewP11Draw_DCache(DRender_tView *Vi,Draw_
   gWorldMat.m[8] = (Vi->cview).mrotationInv.m[8];
   gWorldMat.m[7] = -(Vi->cview).mrotationInv.m[7];
   if (gNight_renderNight != (uchar *)0x0) {
-    transpose((undefined4 *)&((&Camera_gInfo)[Vi->player].target)->orientMat,
+    transpose((undefined4 *)&(&Camera_gInfo.target)[Vi->player * 0x44]->orientMat,
               (undefined4 *)&gNightMat);
     gNightMat.m[1] = -gNightMat.m[1];
     gNightMat.m[7] = -gNightMat.m[7];
     gNightMat.m[4] = -gNightMat.m[4];
     DrawW_WorldSetUpMatrix__FP10matrixtdefP6MATRIX(&gNightMat,&sd->matNight);
-    DAT_00000268 = (Car_tObj *)0x0;
+    BW_gCopCarObj = (Car_tObj *)0x0;
     contextHandle = 0xb40000;
     if (GameSetup_gData.commMode != 1) {
       iVar4 = -1;
       ppCVar5 = &PTR_8010fab0;
       while (iVar4 < Cars_gNumCopCars) {
-        pCVar3 = __Cars_gList_9__;
+        pCVar3 = Cars_gList9;
         if (-1 < iVar4) {
           pCVar3 = *ppCVar5;
         }
@@ -573,17 +720,17 @@ void SetupBuildMatrices__FP13DRender_tViewP11Draw_DCache(DRender_tView *Vi,Draw_
           }
           if (iVar2 < contextHandle) {
             contextHandle = iVar2;
-            DAT_00000268 = pCVar3;
+            BW_gCopCarObj = pCVar3;
           }
         }
         ppCVar5 = ppCVar5 + 1;
         iVar4 = iVar4 + 1;
       }
-      if (DAT_00000268 != (Car_tObj *)0x0) {
-        Night_SetCopColor__FP18GameSetup_tCarData(DAT_00000268->carInfo);
-        DAT_00000210 = DAT_00000210 + 0x40;
-        xformy((int *)&mStack56,DAT_00000210);
-        transpose((undefined4 *)&(DAT_00000268->N).orientMat,(undefined4 *)&mStack96);
+      if (BW_gCopCarObj != (Car_tObj *)0x0) {
+        Night_SetCopColor__FP18GameSetup_tCarData(BW_gCopCarObj->carInfo);
+        DAT_8013c75c = DAT_8013c75c + 0x40;
+        xformy((int *)&mStack56,DAT_8013c75c);
+        transpose((undefined4 *)&(BW_gCopCarObj->N).orientMat,(undefined4 *)&mStack96);
         Math_fasttransmult__FP10matrixtdefN20(&mStack96,&mStack56,&gCopMat);
         gCopMat.m[1] = -gCopMat.m[1];
         gCopMat.m[7] = -gCopMat.m[7];
@@ -616,6 +763,26 @@ void SetupBuildMatrices__FP13DRender_tViewP11Draw_DCache(DRender_tView *Vi,Draw_
 	// End offset: 0x8007DD44
 	// End Line: 644
 
+	/* begin block 2 */
+		// Start line: 1235
+	/* end block 2 */
+	// End Line: 1236
+
+	/* begin block 3 */
+		// Start line: 1250
+	/* end block 3 */
+	// End Line: 1251
+
+	/* begin block 4 */
+		// Start line: 1250
+	/* end block 4 */
+	// End Line: 1251
+
+	/* begin block 5 */
+		// Start line: 1260
+	/* end block 5 */
+	// End Line: 1261
+
 int BWorld_CheckChunkVisible__FP12BWorldSm_PosT0
               (BWorldSm_Pos *slicePosSource,BWorldSm_Pos *slicePosTest)
 
@@ -642,7 +809,7 @@ int BWorld_CheckChunkVisible__FP12BWorldSm_PosT0
   iVar6 = (uint)Track_gInViewCount[(uint)slicePosSource->chunk] - 1;
   uVar5 = 0;
   if (iVar6 != -1) {
-    psVar7 = __Track_gInViewList_ + (uint)slicePosSource->chunk * 0x20 + iVar6;
+    psVar7 = Track_gInViewList + (uint)slicePosSource->chunk * 0x20 + iVar6;
     do {
       uVar3 = SEXT24(*psVar7);
       if ((uVar3 & 0x3ff) == (uint)BWorldSm_slices[iVar4].chunkIndex) {
@@ -681,10 +848,30 @@ LAB_8007dd44:
 	// End offset: 0x8007DD54
 	// End Line: 661
 
+	/* begin block 2 */
+		// Start line: 1388
+	/* end block 2 */
+	// End Line: 1389
+
+	/* begin block 3 */
+		// Start line: 1402
+	/* end block 3 */
+	// End Line: 1403
+
+	/* begin block 4 */
+		// Start line: 1402
+	/* end block 4 */
+	// End Line: 1403
+
+	/* begin block 5 */
+		// Start line: 1405
+	/* end block 5 */
+	// End Line: 1406
+
 int GetRezIndex__Fi(int dist)
 
 {
-  return ((uint)(*(int *)(DAT_00000244 + 0x94) < dist) ^ 1) << 2;
+  return ((uint)(gCurrContext->lowDetailDistSq < dist) ^ 1) << 2;
 }
 
 
@@ -727,6 +914,21 @@ int GetRezIndex__Fi(int dist)
 	// End offset: 0x8007E06C
 	// End Line: 844
 
+	/* begin block 2 */
+		// Start line: 1429
+	/* end block 2 */
+	// End Line: 1430
+
+	/* begin block 3 */
+		// Start line: 1440
+	/* end block 3 */
+	// End Line: 1441
+
+	/* begin block 4 */
+		// Start line: 1440
+	/* end block 4 */
+	// End Line: 1441
+
 int SetupChunkBuildList__FP13DRender_tView(DRender_tView *Vi)
 
 {
@@ -752,13 +954,13 @@ int SetupChunkBuildList__FP13DRender_tView(DRender_tView *Vi)
   ptVar1 = &BWorld_gChunkBuildList;
   iVar5 = 0;
   iVar4 = 0;
-  puVar3 = (ushort *)(__Track_gInViewList_ + *(int *)(DAT_00000244 + 0x88) * 0x20);
-  local_30 = (uint)Track_gInViewCount[*(int *)(DAT_00000244 + 0x88)];
+  puVar3 = (ushort *)(Track_gInViewList + gCurrContext->currentChunk * 0x20);
+  local_30 = (uint)Track_gInViewCount[gCurrContext->currentChunk];
   while (iVar4 < (int)local_30) {
     uVar2 = (uint)*puVar3 & 0x3ff;
     c1 = Chunk_chunkCenters + uVar2;
     dist = xzsquaredist32__FP8coorddefT0(c1,(coorddef *)&Vi->cview);
-    if ((dist <= *(int *)(DAT_00000244 + 0x8c)) && ((*puVar3 & 0x800) == 0)) {
+    if ((dist <= gCurrContext->chunkFarZClipSq) && ((*puVar3 & 0x800) == 0)) {
       local_50.x = c1->x - (Vi->cview).translation.x;
       local_50.y = BWorldSm_slices[uVar2 * 8].center[1] - (Vi->cview).translation.y;
       local_50.z = c1->z - (Vi->cview).translation.z;
@@ -773,7 +975,7 @@ int SetupChunkBuildList__FP13DRender_tView(DRender_tView *Vi)
            (-local_5c <= local_54)) &&
           (((-1 < local_80.z || (-1 < local_6c)) || ((-1 < local_60 || (-1 < local_54)))))))) {
         ptVar1->enableBits = '\x03';
-        if (dist < *(int *)(DAT_00000244 + 0x98)) {
+        if (dist < gCurrContext->lineFarZClipSq) {
           ptVar1->enableBits = '\a';
         }
         if ((*puVar3 & 0x4000) != 0) {
@@ -819,6 +1021,31 @@ int SetupChunkBuildList__FP13DRender_tView(DRender_tView *Vi)
 	// End offset: 0x8007E0EC
 	// End Line: 855
 
+	/* begin block 2 */
+		// Start line: 1855
+	/* end block 2 */
+	// End Line: 1856
+
+	/* begin block 3 */
+		// Start line: 1859
+	/* end block 3 */
+	// End Line: 1860
+
+	/* begin block 4 */
+		// Start line: 1859
+	/* end block 4 */
+	// End Line: 1860
+
+	/* begin block 5 */
+		// Start line: 1860
+	/* end block 5 */
+	// End Line: 1861
+
+	/* begin block 6 */
+		// Start line: 1860
+	/* end block 6 */
+	// End Line: 1861
+
 void * BWorld_IsSliceInBuildList__Fi(int slice)
 
 {
@@ -829,7 +1056,7 @@ void * BWorld_IsSliceInBuildList__Fi(int slice)
   if (slice < 0) {
     slice = slice + 7;
   }
-  if (0 < iGp0000025c) {
+  if (0 < BWorld_gChunkCount) {
     ptVar1 = &BWorld_gChunkBuildList;
     do {
       iVar2 = iVar2 + 1;
@@ -837,7 +1064,7 @@ void * BWorld_IsSliceInBuildList__Fi(int slice)
         return &DAT_00000001;
       }
       ptVar1 = ptVar1 + 1;
-    } while (iVar2 < iGp0000025c);
+    } while (iVar2 < BWorld_gChunkCount);
   }
   return (void *)0x0;
 }
@@ -933,6 +1160,21 @@ void * BWorld_IsSliceInBuildList__Fi(int slice)
 	// End offset: 0x8007E3B8
 	// End Line: 1039
 
+	/* begin block 2 */
+		// Start line: 1925
+	/* end block 2 */
+	// End Line: 1926
+
+	/* begin block 3 */
+		// Start line: 1977
+	/* end block 3 */
+	// End Line: 1978
+
+	/* begin block 4 */
+		// Start line: 1977
+	/* end block 4 */
+	// End Line: 1978
+
 void BWorld_OnyxBuildFacets__FP13DRender_tView(DRender_tView *Vi)
 
 {
@@ -941,12 +1183,12 @@ void BWorld_OnyxBuildFacets__FP13DRender_tView(DRender_tView *Vi)
   tBuildEntry *ptVar3;
   
   Chunk_UpdateSys__FP13DRender_tView(Vi);
-  pDGp0000026c = Vi;
+  gVi2 = Vi;
   gWSavePtr = SetSp();
   stackSpeedUpEnbabledFlag = 1;
-  SetupBuildMatrices__FP13DRender_tViewP11Draw_DCache(pDGp0000026c,(Draw_DCache *)&DAT_1f800000);
+  SetupBuildMatrices__FP13DRender_tViewP11Draw_DCache(gVi2,(Draw_DCache *)&DAT_1f800000);
   DrawW_WorldSetUpMatrix__FP10matrixtdefP6MATRIX(&gWorldMat,(MATRIX *)&DAT_1f800014);
-  iGp0000025c = SetupChunkBuildList__FP13DRender_tView(pDGp0000026c);
+  BWorld_gChunkCount = SetupChunkBuildList__FP13DRender_tView(gVi2);
   gWSavePtr = SetSp();
   stackSpeedUpEnbabledFlag = 0;
   DAT_1f8000dc = (undefined2)TrackSpec_gSpec.fogspec.start;
@@ -972,21 +1214,21 @@ void BWorld_OnyxBuildFacets__FP13DRender_tView(DRender_tView *Vi)
     gWSavePtr = SetSp();
   }
   stackSpeedUpEnbabledFlag = 0;
-  if ((iGp00000248 != 0) && (iVar2 = 0, 0 < iGp0000025c)) {
+  if ((gSpikeBelt != 0) && (iVar2 = 0, 0 < BWorld_gChunkCount)) {
     ptVar3 = &BWorld_gChunkBuildList;
     do {
-      if ((int)ptVar3->chunkInd == iGp00000250) {
+      if ((int)ptVar3->chunkInd == gSpikeBeltChunk) {
         DrawW_BuildSpikeBelt__FP13DRender_tViewiP11Draw_DCache
-                  (Vi,iGp00000260,(Draw_DCache *)&DAT_1f800000);
+                  (Vi,gSpikeBeltWidth,(Draw_DCache *)&DAT_1f800000);
       }
       iVar2 = iVar2 + 1;
       ptVar3 = ptVar3 + 1;
-    } while (iVar2 < iGp0000025c);
+    } while (iVar2 < BWorld_gChunkCount);
   }
   iVar2 = 0;
   if (GameSetup_gData.commMode == 0) {
     ptVar3 = &BWorld_gChunkBuildList;
-    while (iVar2 < iGp0000025c) {
+    while (iVar2 < BWorld_gChunkCount) {
       if (Track_chunkList[(int)ptVar3->chunkInd].sfxBuf != (Group *)0x0) {
         BWorld_BuildGlareEffects__FP13DRender_tViewP11Draw_DCacheP5Group
                   (Vi,(Draw_DCache *)&DAT_1f800000,Track_chunkList[(int)ptVar3->chunkInd].sfxBuf);
@@ -1020,12 +1262,27 @@ void BWorld_OnyxBuildFacets__FP13DRender_tView(DRender_tView *Vi)
 	// End offset: 0x8007E3F8
 	// End Line: 1108
 
+	/* begin block 2 */
+		// Start line: 2370
+	/* end block 2 */
+	// End Line: 2371
+
+	/* begin block 3 */
+		// Start line: 2422
+	/* end block 3 */
+	// End Line: 2423
+
+	/* begin block 4 */
+		// Start line: 2422
+	/* end block 4 */
+	// End Line: 2423
+
 char * BWAllocMem__Fl(long size)
 
 {
   char *pcVar1;
   
-  iGp00000214 = iGp00000214 + size;
+  DAT_8013c760 = DAT_8013c760 + size;
   pcVar1 = Platform_GetDCTBuffer__FiPc(size,s_bworld_8013c764);
   return pcVar1;
 }
@@ -1044,6 +1301,26 @@ char * BWAllocMem__Fl(long size)
 	/* end block 1 */
 	// End offset: 0x8007E458
 	// End Line: 1156
+
+	/* begin block 2 */
+		// Start line: 2472
+	/* end block 2 */
+	// End Line: 2473
+
+	/* begin block 3 */
+		// Start line: 2505
+	/* end block 3 */
+	// End Line: 2506
+
+	/* begin block 4 */
+		// Start line: 2505
+	/* end block 4 */
+	// End Line: 2506
+
+	/* begin block 5 */
+		// Start line: 2511
+	/* end block 5 */
+	// End Line: 2512
 
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
@@ -1078,6 +1355,21 @@ void BWorld_InitContexts__Fv(void)
 	// End offset: 0x8007E460
 	// End Line: 1166
 
+	/* begin block 2 */
+		// Start line: 2539
+	/* end block 2 */
+	// End Line: 2540
+
+	/* begin block 3 */
+		// Start line: 2549
+	/* end block 3 */
+	// End Line: 2550
+
+	/* begin block 4 */
+		// Start line: 2549
+	/* end block 4 */
+	// End Line: 2550
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void BWorld_DeInitContexts__Fv(void)
@@ -1100,10 +1392,35 @@ void BWorld_DeInitContexts__Fv(void)
 	// End offset: 0x8007E480
 	// End Line: 1180
 
+	/* begin block 2 */
+		// Start line: 2564
+	/* end block 2 */
+	// End Line: 2565
+
+	/* begin block 3 */
+		// Start line: 2575
+	/* end block 3 */
+	// End Line: 2576
+
+	/* begin block 4 */
+		// Start line: 2575
+	/* end block 4 */
+	// End Line: 2576
+
+	/* begin block 5 */
+		// Start line: 2576
+	/* end block 5 */
+	// End Line: 2577
+
+	/* begin block 6 */
+		// Start line: 2576
+	/* end block 6 */
+	// End Line: 2577
+
 void SetContext__Fi(int contextHandle)
 
 {
-  iGp00000244 = contextHandle * 0x9c + -0x7fef114c;
+  gCurrContext = gContextMan.contexts + contextHandle;
   return;
 }
 
@@ -1121,6 +1438,21 @@ void SetContext__Fi(int contextHandle)
 	/* end block 1 */
 	// End offset: 0x8007E544
 	// End Line: 1222
+
+	/* begin block 2 */
+		// Start line: 2587
+	/* end block 2 */
+	// End Line: 2588
+
+	/* begin block 3 */
+		// Start line: 2597
+	/* end block 3 */
+	// End Line: 2598
+
+	/* begin block 4 */
+		// Start line: 2597
+	/* end block 4 */
+	// End Line: 2598
 
 int BWorld_OpenContext__Fii(int contextType,int client)
 
@@ -1175,6 +1507,21 @@ LAB_8007e54c:
 	// End offset: 0x8007E564
 	// End Line: 1233
 
+	/* begin block 2 */
+		// Start line: 2679
+	/* end block 2 */
+	// End Line: 2680
+
+	/* begin block 3 */
+		// Start line: 2690
+	/* end block 3 */
+	// End Line: 2691
+
+	/* begin block 4 */
+		// Start line: 2690
+	/* end block 4 */
+	// End Line: 2691
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void BWorld_Restart__Fv(void)
@@ -1185,7 +1532,7 @@ void BWorld_Restart__Fv(void)
   SetContext__Fi(0);
   BWorld_InitSpikeBelt__Fv();
   Anim_Restart__Fv();
-  uGp0000020c = 0;
+  SceneLoaded = 0;
   Object_ClearCustomObjects__Fv();
   Draw_gDoVSync = 0;
   BWorldSm_Restart__Fv();
@@ -1204,6 +1551,26 @@ void BWorld_Restart__Fv(void)
 	/* end block 1 */
 	// End offset: 0x8007E5C0
 	// End Line: 1262
+
+	/* begin block 2 */
+		// Start line: 2737
+	/* end block 2 */
+	// End Line: 2738
+
+	/* begin block 3 */
+		// Start line: 2748
+	/* end block 3 */
+	// End Line: 2749
+
+	/* begin block 4 */
+		// Start line: 2748
+	/* end block 4 */
+	// End Line: 2749
+
+	/* begin block 5 */
+		// Start line: 2757
+	/* end block 5 */
+	// End Line: 2758
 
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
@@ -1227,6 +1594,26 @@ void BWorld_StartLoop__Fv(void)
 	/* end block 1 */
 	// End offset: 0x8007E894
 	// End Line: 1376
+
+	/* begin block 2 */
+		// Start line: 2776
+	/* end block 2 */
+	// End Line: 2777
+
+	/* begin block 3 */
+		// Start line: 2786
+	/* end block 3 */
+	// End Line: 2787
+
+	/* begin block 4 */
+		// Start line: 2786
+	/* end block 4 */
+	// End Line: 2787
+
+	/* begin block 5 */
+		// Start line: 2788
+	/* end block 5 */
+	// End Line: 2789
 
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
@@ -1282,7 +1669,7 @@ void BWorld_Init__Fv(void)
         GameSetup_gData.SceneNumber = GameSetup_gData.SceneNumber + 10;
         GameSetup_gData.SceneEndLap = GameSetup_gData.SceneEndLap + 5;
       }
-      uGp0000020c = 0;
+      SceneLoaded = 0;
     }
   }
   Object_InitStatus__Fv();
@@ -1347,6 +1734,21 @@ void BWorld_Init__Fv(void)
 	// End offset: 0x8007E8B4
 	// End Line: 1390
 
+	/* begin block 2 */
+		// Start line: 2998
+	/* end block 2 */
+	// End Line: 2999
+
+	/* begin block 3 */
+		// Start line: 3008
+	/* end block 3 */
+	// End Line: 3009
+
+	/* begin block 4 */
+		// Start line: 3008
+	/* end block 4 */
+	// End Line: 3009
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void BWorld_DeInit__Fv(void)
@@ -1358,11 +1760,12 @@ void BWorld_DeInit__Fv(void)
   Object_DeInitIMassObjectInfo__Fv();
   Scene_DeInit__Fv();
   Object_DeInitCustomObjects__Fv();
-  DAT_0000020c = 0;
+  SceneLoaded = 0;
   AudList_PurgeAudio__Fv();
   Anim_DeInitSystem__Fv();
   return;
 }
+
 
 
 

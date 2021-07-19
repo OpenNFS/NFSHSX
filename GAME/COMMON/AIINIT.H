@@ -1,6 +1,7 @@
 #ifndef AIINIT_H
 #define AIINIT_H
 
+
 extern void AIInit_StartUp1__Fv(); // 0x80066BB0
 
 extern void AIInit_StartUp2__Fv(); // 0x80066C24
@@ -34,5 +35,6 @@ extern void AIInit_InitAICar2__FP8Car_tObj(struct Car_tObj *carObj); // 0x800675
 extern void AIInit_DeInitAICar2__FP8Car_tObj(struct Car_tObj *carObj); // 0x800675D0
 
 extern int AIInit_IsNonStandardCarFile__Fi(int index); // 0x800675D8
+
 
 #endif

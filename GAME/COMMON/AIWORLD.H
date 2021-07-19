@@ -1,6 +1,7 @@
 #ifndef AIWORLD_H
 #define AIWORLD_H
 
+
 extern int AIWorld_ZSplineDistance__FP8Car_tObjT0(struct Car_tObj *carObj, struct Car_tObj *otherCarObj); // 0x80072F90
 
 extern int AIWorld_ZSplineDistance__FP8coorddefT0P10matrixtdef(struct coorddef *pos1, struct coorddef *pos2, struct matrixtdef *roadMatrix); // 0x80073024
@@ -44,5 +45,6 @@ extern void AIWorld_CalcSpeed__FP8Car_tObj(struct Car_tObj *carObj); // 0x800738
 extern int AIWorld_CalcLateralVelocity__FP8Car_tObj(struct Car_tObj *carObj); // 0x8007391C
 
 extern void AIWorld_FindBarrierLessLaneAndPosition__FP8Car_tObjPiT1(struct Car_tObj *carObj, int *goodLane, int *goodPosition); // 0x80073978
+
 
 #endif

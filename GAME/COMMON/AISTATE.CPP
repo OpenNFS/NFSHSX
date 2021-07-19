@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "AISTATE.H"
+
 
 // decompiled code
 // original method signature: 
@@ -11,6 +12,16 @@
 	/* end block 1 */
 	// End offset: 0x8006F9A4
 	// End Line: 26
+
+	/* begin block 2 */
+		// Start line: 50
+	/* end block 2 */
+	// End Line: 51
+
+	/* begin block 3 */
+		// Start line: 50
+	/* end block 3 */
+	// End Line: 51
 
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
@@ -34,6 +45,21 @@ void AIState_StartUp__Fv(void)
 	// End offset: 0x8006F9C4
 	// End Line: 31
 
+	/* begin block 2 */
+		// Start line: 56
+	/* end block 2 */
+	// End Line: 57
+
+	/* begin block 3 */
+		// Start line: 60
+	/* end block 3 */
+	// End Line: 61
+
+	/* begin block 4 */
+		// Start line: 60
+	/* end block 4 */
+	// End Line: 61
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void AIState_Restart__Fv(void)
@@ -56,6 +82,31 @@ void AIState_Restart__Fv(void)
 	// End offset: 0x8006F9E4
 	// End Line: 37
 
+	/* begin block 2 */
+		// Start line: 67
+	/* end block 2 */
+	// End Line: 68
+
+	/* begin block 3 */
+		// Start line: 72
+	/* end block 3 */
+	// End Line: 73
+
+	/* begin block 4 */
+		// Start line: 72
+	/* end block 4 */
+	// End Line: 73
+
+	/* begin block 5 */
+		// Start line: 73
+	/* end block 5 */
+	// End Line: 74
+
+	/* begin block 6 */
+		// Start line: 73
+	/* end block 6 */
+	// End Line: 74
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void AIState_CleanUp__Fv(void)
@@ -77,19 +128,33 @@ void AIState_CleanUp__Fv(void)
 	// End offset: 0x8006FA48
 	// End Line: 67
 
+	/* begin block 2 */
+		// Start line: 93
+	/* end block 2 */
+	// End Line: 94
+
+	/* begin block 3 */
+		// Start line: 112
+	/* end block 3 */
+	// End Line: 113
+
+	/* begin block 4 */
+		// Start line: 112
+	/* end block 4 */
+	// End Line: 113
+
 void StateExecute__12AIState_Base(AIState_Base *this)
 
 {
-  uint uVar1;
-  Car_tObj *pCVar2;
+  Car_tObj *pCVar1;
   
-  pCVar2 = this->carObj_;
-  if ((((pCVar2->N).active != '\0') && ((pCVar2->carFlags & 4U) == 0)) &&
-     ((pCVar2->N).deadTimer == 0)) {
-    AIScript_ProcessActionsAndReactions__FP10AIScript_ti(&pCVar2->script,AI_elapsedTime);
+  pCVar1 = this->carObj_;
+  if ((((pCVar1->N).active != '\0') && ((pCVar1->carFlags & 4U) == 0)) &&
+     ((pCVar1->N).deadTimer == 0)) {
+    AIScript_ProcessActionsAndReactions__FP10AIScript_ti(&pCVar1->script,AI_elapsedTime);
   }
-  uVar1 = this->_vf[0].value;
-  (**(code **)(uVar1 + 0xc))((int)&this->carObj_ + (int)*(short *)(uVar1 + 8));
+  (**(code **)(*(int *)this->_vf + 0xc))
+            ((int)&this->carObj_ + (int)*(short *)(*(int *)this->_vf + 8));
   return;
 }
 
@@ -106,10 +171,25 @@ void StateExecute__12AIState_Base(AIState_Base *this)
 	// End offset: 0x8006FA74
 	// End Line: 74
 
+	/* begin block 2 */
+		// Start line: 139
+	/* end block 2 */
+	// End Line: 140
+
+	/* begin block 3 */
+		// Start line: 146
+	/* end block 3 */
+	// End Line: 147
+
+	/* begin block 4 */
+		// Start line: 146
+	/* end block 4 */
+	// End Line: 147
+
 AIState_Base * __12AIState_BaseP8Car_tObj(AIState_Base *this,Car_tObj *carObj)
 
 {
-  this->_vf[0].value = 0x80055640;
+  *(undefined4 *)this->_vf = 0x80055640;
   this->carObj_ = carObj;
   return this;
 }
@@ -126,6 +206,21 @@ AIState_Base * __12AIState_BaseP8Car_tObj(AIState_Base *this,Car_tObj *carObj)
 	/* end block 1 */
 	// End offset: 0x8006FA8C
 	// End Line: 95
+
+	/* begin block 2 */
+		// Start line: 168
+	/* end block 2 */
+	// End Line: 169
+
+	/* begin block 3 */
+		// Start line: 188
+	/* end block 3 */
+	// End Line: 189
+
+	/* begin block 4 */
+		// Start line: 188
+	/* end block 4 */
+	// End Line: 189
 
 void Execute__14AIState_Normal(AIState_Normal *this)
 
@@ -150,6 +245,21 @@ void Execute__14AIState_Normal(AIState_Normal *this)
 	// End offset: 0x8006FADC
 	// End Line: 106
 
+	/* begin block 2 */
+		// Start line: 206
+	/* end block 2 */
+	// End Line: 207
+
+	/* begin block 3 */
+		// Start line: 210
+	/* end block 3 */
+	// End Line: 211
+
+	/* begin block 4 */
+		// Start line: 210
+	/* end block 4 */
+	// End Line: 211
+
 AIState_Normal * __14AIState_NormalP8Car_tObj(AIState_Normal *this,Car_tObj *carObj)
 
 {
@@ -157,7 +267,7 @@ AIState_Normal * __14AIState_NormalP8Car_tObj(AIState_Normal *this,Car_tObj *car
   
   __12AIState_BaseP8Car_tObj((AIState_Base *)this,carObj);
   pCVar1 = (this->AIState_Base).carObj_;
-  (this->AIState_Base)._vf[0].value = 0x80055620;
+  *(undefined4 *)(this->AIState_Base)._vf = 0x80055620;
   pCVar1->aCarWRTDesired = 0;
   (pCVar1->desiredVector).z = 0;
   (pCVar1->desiredVector).y = 0;
@@ -195,16 +305,30 @@ AIState_Normal * __14AIState_NormalP8Car_tObj(AIState_Normal *this,Car_tObj *car
 	// End offset: 0x8006FBE0
 	// End Line: 150
 
+	/* begin block 2 */
+		// Start line: 243
+	/* end block 2 */
+	// End Line: 244
+
+	/* begin block 3 */
+		// Start line: 262
+	/* end block 3 */
+	// End Line: 263
+
+	/* begin block 4 */
+		// Start line: 262
+	/* end block 4 */
+	// End Line: 263
+
 void Execute__12AIState_Idle(AIState_Idle *this)
 
 {
   int iVar1;
   Car_tObj *carObj;
   
-  if ((this->AIState_Base)._vf[2].value == 0) {
+  if (this->idleInPlaceFlag_ == 0) {
     carObj = (this->AIState_Base).carObj_;
-    if (((carObj->speechInfo).playerCarIndex - (this->AIState_Base)._vf[1].value) + 0xffff < 0x1ffff
-       ) {
+    if (((carObj->speechInfo).playerCarIndex - this->roadPosition_) + 0xffffU < 0x1ffff) {
       (carObj->script).lastReactionIndex[5] = 0;
     }
     else {
@@ -216,8 +340,7 @@ void Execute__12AIState_Idle(AIState_Idle *this)
       }
       (carObj->script).lastReactionIndex[5] = iVar1 >> 2;
     }
-    (((this->AIState_Base).carObj_)->script).lastReactionIndex[4] =
-         (this->AIState_Base)._vf[1].value;
+    (((this->AIState_Base).carObj_)->script).lastReactionIndex[4] = this->roadPosition_;
   }
   else {
     (((this->AIState_Base).carObj_)->script).lastReactionIndex[5] = 0;
@@ -240,11 +363,36 @@ void Execute__12AIState_Idle(AIState_Idle *this)
 	// End offset: 0x8006FBF0
 	// End Line: 156
 
+	/* begin block 2 */
+		// Start line: 308
+	/* end block 2 */
+	// End Line: 309
+
+	/* begin block 3 */
+		// Start line: 313
+	/* end block 3 */
+	// End Line: 314
+
+	/* begin block 4 */
+		// Start line: 313
+	/* end block 4 */
+	// End Line: 314
+
+	/* begin block 5 */
+		// Start line: 314
+	/* end block 5 */
+	// End Line: 315
+
+	/* begin block 6 */
+		// Start line: 314
+	/* end block 6 */
+	// End Line: 315
+
 void SetIdlePosition__12AIState_Idlei(AIState_Idle *this,int roadPosition)
 
 {
-  (this->AIState_Base)._vf[1].value = roadPosition;
-  (this->AIState_Base)._vf[2].value = 0;
+  this->roadPosition_ = roadPosition;
+  this->idleInPlaceFlag_ = 0;
   return;
 }
 
@@ -261,6 +409,21 @@ void SetIdlePosition__12AIState_Idlei(AIState_Idle *this,int roadPosition)
 	// End offset: 0x8006FCCC
 	// End Line: 202
 
+	/* begin block 2 */
+		// Start line: 341
+	/* end block 2 */
+	// End Line: 342
+
+	/* begin block 3 */
+		// Start line: 365
+	/* end block 3 */
+	// End Line: 366
+
+	/* begin block 4 */
+		// Start line: 365
+	/* end block 4 */
+	// End Line: 366
+
 AIState_Chase *
 __13AIState_ChaseP8Car_tObjT1P8coorddefiiiii
           (AIState_Chase *this,Car_tObj *carObj,Car_tObj *targetCar,coorddef *relPosition,
@@ -269,19 +432,18 @@ __13AIState_ChaseP8Car_tObjT1P8coorddefiiiii
 
 {
   __12AIState_BaseP8Car_tObj((AIState_Base *)this,carObj);
-  (this->AIState_Base)._vf[0].value = 0x800555e0;
-  __10AIDelayCarP8Car_tObjT1i
-            ((AIDelayCar *)((this->AIState_Base)._vf + 1),carObj,targetCar,delayTime);
-  this->murderMode_ = nitrousTicks;
+  *(undefined4 *)(this->AIState_Base)._vf = 0x800555e0;
+  __10AIDelayCarP8Car_tObjT1i(&this->delayCar_,carObj,targetCar,delayTime);
+  this->nitrousTicks_ = nitrousTicks;
   SetTarget__13AIState_ChaseP8Car_tObjP8coorddef(this,targetCar,relPosition);
   (((this->AIState_Base).carObj_)->targetPos).x = 0x10000;
   (((this->AIState_Base).carObj_)->targetPos).y = 0x10000;
-  this->murderEndTime_ = nitrousMinForeDistance;
-  this->inTargetRegion_ = nitrousMinAftDistance;
-  this->nitrousTicks_ = aggressionLevel;
-  this->nitrousMinForeDistance_ = 0;
-  (this->delayCar_).roadPosition_ = 0;
-  this->nitrousMinAftDistance_ = 0;
+  this->nitrousMinForeDistance_ = nitrousMinForeDistance;
+  this->nitrousMinAftDistance_ = nitrousMinAftDistance;
+  this->aggressionLevel_ = aggressionLevel;
+  this->slowDownEndTime_ = 0;
+  this->noTurnAroundEndTime_ = 0;
+  this->barrierTicks32_ = 0;
   return this;
 }
 
@@ -314,13 +476,28 @@ __13AIState_ChaseP8Car_tObjT1P8coorddefiiiii
 	// End offset: 0x8006FD7C
 	// End Line: 213
 
+	/* begin block 3 */
+		// Start line: 415
+	/* end block 3 */
+	// End Line: 416
+
+	/* begin block 4 */
+		// Start line: 419
+	/* end block 4 */
+	// End Line: 420
+
+	/* begin block 5 */
+		// Start line: 419
+	/* end block 5 */
+	// End Line: 420
+
 void ___13AIState_Chase(AIState_Chase *this,int __in_chrg)
 
 {
   Car_tObj *pCVar1;
   
   pCVar1 = (this->AIState_Base).carObj_;
-  (this->AIState_Base)._vf[0].value = 0x800555e0;
+  *(undefined4 *)(this->AIState_Base)._vf = 0x800555e0;
   pCVar1->aCarWRTDesired = 0;
   (pCVar1->desiredVector).z = 0;
   (pCVar1->desiredVector).y = 0;
@@ -329,7 +506,7 @@ void ___13AIState_Chase(AIState_Chase *this,int __in_chrg)
   ((this->AIState_Base).carObj_)->driveDirectionReverseTime = 0;
   (((this->AIState_Base).carObj_)->targetPos).x = 0x10000;
   (((this->AIState_Base).carObj_)->targetPos).y = 0x10000;
-  (this->AIState_Base)._vf[0].value = 0x80055640;
+  *(undefined4 *)(this->AIState_Base)._vf = 0x80055640;
   if ((__in_chrg & 1U) != 0) {
     __builtin_delete(this);
   }
@@ -349,6 +526,21 @@ void ___13AIState_Chase(AIState_Chase *this,int __in_chrg)
 	// End offset: 0x8006FE40
 	// End Line: 238
 
+	/* begin block 2 */
+		// Start line: 439
+	/* end block 2 */
+	// End Line: 440
+
+	/* begin block 3 */
+		// Start line: 443
+	/* end block 3 */
+	// End Line: 444
+
+	/* begin block 4 */
+		// Start line: 443
+	/* end block 4 */
+	// End Line: 444
+
 void SetTarget__13AIState_ChaseP8Car_tObjP8coorddef
                (AIState_Chase *this,Car_tObj *targetCar,coorddef *relPosition)
 
@@ -356,34 +548,33 @@ void SetTarget__13AIState_ChaseP8Car_tObjP8coorddef
   int iVar1;
   int iVar2;
   int iVar3;
-  Car_tObj *pCVar4;
   
-  if ((Car_tObj *)(this->delayCar_).laneIndex_ != targetCar) {
-    SetNewTargetCar__10AIDelayCarP8Car_tObj((AIDelayCar *)((this->AIState_Base)._vf + 1),targetCar);
+  if (this->targetCar_ != targetCar) {
+    SetNewTargetCar__10AIDelayCarP8Car_tObj(&this->delayCar_,targetCar);
   }
-  *(Car_tObj **)&(this->delayCar_).laneIndex_ = targetCar;
-  iVar3 = relPosition->y;
-  pCVar4 = (Car_tObj *)relPosition->z;
-  (this->delayCar_).currentSpeed_ = relPosition->x;
-  this->noTurnAroundEndTime_ = iVar3;
-  this->targetCar_ = pCVar4;
-  iVar3 = (this->delayCar_).laneIndex_;
-  (this->relPosition_).x = 0;
-  (this->relPosition_).y = 0;
-  iVar2 = *(int *)(iVar3 + 0x134);
-  iVar1 = (this->delayCar_).currentSpeed_;
-  iVar3 = -1;
-  if ((iVar1 < -iVar2) || (iVar3 = 1, iVar2 < iVar1)) {
-    (this->relPosition_).y = iVar3;
+  this->targetCar_ = targetCar;
+  iVar2 = relPosition->y;
+  iVar3 = relPosition->z;
+  (this->relPosition_).x = relPosition->x;
+  (this->relPosition_).y = iVar2;
+  (this->relPosition_).z = iVar3;
+  this->longTargetRegion_ = 0;
+  this->latTargetRegion_ = 0;
+  iVar1 = (this->targetCar_->N).dimension.x;
+  iVar3 = (this->relPosition_).x;
+  iVar2 = -1;
+  if ((iVar3 < -iVar1) || (iVar2 = 1, iVar1 < iVar3)) {
+    this->latTargetRegion_ = iVar2;
   }
-  iVar1 = *(int *)((this->delayCar_).laneIndex_ + 0x13c);
-  iVar3 = -1;
-  if (((int)this->targetCar_ < -iVar1) || (iVar3 = 1, iVar1 < (int)this->targetCar_)) {
-    (this->relPosition_).x = iVar3;
+  iVar1 = (this->targetCar_->N).dimension.z;
+  iVar3 = (this->relPosition_).z;
+  iVar2 = -1;
+  if ((iVar3 < -iVar1) || (iVar2 = 1, iVar1 < iVar3)) {
+    this->longTargetRegion_ = iVar2;
   }
-  this->carDir_ = 0;
-  this->longMetersBetween_ = 0;
-  this->latMetersBetween_ = 0;
+  this->murderMode_ = 0;
+  this->murderEndTime_ = 0;
+  this->inTargetRegion_ = 0;
   SetUp__13AIState_Chase(this);
   return;
 }
@@ -401,12 +592,37 @@ void SetTarget__13AIState_ChaseP8Car_tObjP8coorddef
 	// End offset: 0x8006FE90
 	// End Line: 249
 
+	/* begin block 2 */
+		// Start line: 494
+	/* end block 2 */
+	// End Line: 495
+
+	/* begin block 3 */
+		// Start line: 497
+	/* end block 3 */
+	// End Line: 498
+
+	/* begin block 4 */
+		// Start line: 497
+	/* end block 4 */
+	// End Line: 498
+
+	/* begin block 5 */
+		// Start line: 498
+	/* end block 5 */
+	// End Line: 499
+
+	/* begin block 6 */
+		// Start line: 498
+	/* end block 6 */
+	// End Line: 499
+
 void SetMurderMode__13AIState_Chaseii(AIState_Chase *this,int murderMode,int murderTicks)
 
 {
-  if (this->carDir_ == 0) {
-    this->carDir_ = murderMode;
-    this->longMetersBetween_ = simGlobal.gameTicks + murderTicks;
+  if (this->murderMode_ == 0) {
+    this->murderMode_ = murderMode;
+    this->murderEndTime_ = simGlobal.gameTicks + murderTicks;
   }
   return;
 }
@@ -482,6 +698,21 @@ void SetMurderMode__13AIState_Chaseii(AIState_Chase *this,int murderMode,int mur
 	// End offset: 0x8006FFB0
 	// End Line: 280
 
+	/* begin block 2 */
+		// Start line: 518
+	/* end block 2 */
+	// End Line: 519
+
+	/* begin block 3 */
+		// Start line: 521
+	/* end block 3 */
+	// End Line: 522
+
+	/* begin block 4 */
+		// Start line: 521
+	/* end block 4 */
+	// End Line: 522
+
 void SetUp__13AIState_Chase(AIState_Chase *this)
 
 {
@@ -489,36 +720,36 @@ void SetUp__13AIState_Chase(AIState_Chase *this)
   int iVar2;
   coorddef local_20;
   
-  Update__10AIDelayCar((AIDelayCar *)((this->AIState_Base)._vf + 1));
+  Update__10AIDelayCar(&this->delayCar_);
   iVar2 = -1;
   if (-1 < (((this->AIState_Base).carObj_)->script).lastActionTime) {
     iVar2 = 1;
   }
-  this->longTargetRegion_ = iVar2;
+  this->carDir_ = iVar2;
   iVar2 = -1;
-  if (-1 < (this->delayCar_).deltaRoadPosition_) {
+  if (-1 < (this->delayCar_).currentSpeed_) {
     iVar2 = 1;
   }
   pCVar1 = (this->AIState_Base).carObj_;
-  (this->relPosition_).z = iVar2;
-  this->targetDir_ = (pCVar1->speechInfo).playerCarIndex - (this->delayCar_).position_.y;
-  local_20.x = (this->delayCar_).deltaPosition_.x;
-  local_20.y = (this->delayCar_).deltaPosition_.y;
-  local_20.z = (this->delayCar_).deltaPosition_.z;
+  this->targetDir_ = iVar2;
+  this->latMetersBetween_ = (pCVar1->speechInfo).playerCarIndex - (this->delayCar_).roadPosition_;
+  local_20.x = (this->delayCar_).position_.x;
+  local_20.y = (this->delayCar_).position_.y;
+  local_20.z = (this->delayCar_).position_.z;
   iVar2 = AIWorld_SplineDistance__FP8Car_tObjiP8coorddef
-                    ((this->AIState_Base).carObj_,(int)(this->delayCar_).basisCar_,&local_20);
+                    ((this->AIState_Base).carObj_,(this->delayCar_).slice_,&local_20);
   pCVar1 = (this->AIState_Base).carObj_;
-  this->latTargetRegion_ = iVar2;
+  this->longMetersBetween_ = iVar2;
   pCVar1->aCarWRTDesired = 0;
   (pCVar1->desiredVector).z = 0;
   (pCVar1->desiredVector).y = 0;
   (((this->AIState_Base).carObj_)->angularAcc_ch).x = 0;
-  if ((this->carDir_ != 0) && (this->longMetersBetween_ <= simGlobal.gameTicks)) {
-    this->carDir_ = 0;
-    this->longMetersBetween_ = 0;
+  if ((this->murderMode_ != 0) && (this->murderEndTime_ <= simGlobal.gameTicks)) {
+    this->murderMode_ = 0;
+    this->murderEndTime_ = 0;
   }
   if ((((this->AIState_Base).carObj_)->targetPos).x != 0x10000) {
-    this->murderMode_ = this->murderMode_ - AI_elapsedTime;
+    this->nitrousTicks_ = this->nitrousTicks_ - AI_elapsedTime;
   }
   (((this->AIState_Base).carObj_)->targetPos).x = 0x10000;
   (((this->AIState_Base).carObj_)->targetPos).y = 0x10000;
@@ -539,6 +770,26 @@ void SetUp__13AIState_Chase(AIState_Chase *this)
 	/* end block 1 */
 	// End offset: 0x8006FFF4
 	// End Line: 292
+
+	/* begin block 2 */
+		// Start line: 591
+	/* end block 2 */
+	// End Line: 592
+
+	/* begin block 3 */
+		// Start line: 596
+	/* end block 3 */
+	// End Line: 597
+
+	/* begin block 4 */
+		// Start line: 596
+	/* end block 4 */
+	// End Line: 597
+
+	/* begin block 5 */
+		// Start line: 600
+	/* end block 5 */
+	// End Line: 601
 
 void DoSlowNitrous__13AIState_Chase(AIState_Chase *this)
 
@@ -609,6 +860,21 @@ void DoSlowNitrous__13AIState_Chase(AIState_Chase *this)
 	// End offset: 0x8007013C
 	// End Line: 319
 
+	/* begin block 2 */
+		// Start line: 610
+	/* end block 2 */
+	// End Line: 611
+
+	/* begin block 3 */
+		// Start line: 614
+	/* end block 3 */
+	// End Line: 615
+
+	/* begin block 4 */
+		// Start line: 614
+	/* end block 4 */
+	// End Line: 615
+
 void DoNitrous__13AIState_Chasei(AIState_Chase *this,int checkForHumans)
 
 {
@@ -617,20 +883,20 @@ void DoNitrous__13AIState_Chasei(AIState_Chase *this,int checkForHumans)
   Car_tObj **ppCVar3;
   int iVar4;
   
-  if ((0 < this->murderMode_) && (this->nitrousMinForeDistance_ <= simGlobal.gameTicks)) {
+  if ((0 < this->nitrousTicks_) && (this->slowDownEndTime_ <= simGlobal.gameTicks)) {
     iVar4 = 0;
     (((this->AIState_Base).carObj_)->targetPos).x = 0x30000;
-    ppCVar3 = &__Cars_gHumanRaceCarList_9__;
+    ppCVar3 = &Cars_gHumanRaceCarList9;
     (((this->AIState_Base).carObj_)->targetPos).y = 0x28000;
     while ((checkForHumans != 0 && (iVar4 < Cars_gNumHumanRaceCars))) {
       iVar1 = AIWorld_ApxSplineDistance__FP8Car_tObjT0((this->AIState_Base).carObj_,*ppCVar3);
       pCVar2 = (this->AIState_Base).carObj_;
       iVar1 = iVar1 * (pCVar2->script).lastReactionIndex[3];
-      if ((0 < iVar1) && (iVar1 < this->murderEndTime_)) {
+      if ((0 < iVar1) && (iVar1 < this->nitrousMinForeDistance_)) {
         (pCVar2->targetPos).x = 0x10000;
         (((this->AIState_Base).carObj_)->targetPos).y = 0x10000;
       }
-      if ((iVar1 < 0) && (-this->inTargetRegion_ < iVar1)) {
+      if ((iVar1 < 0) && (-this->nitrousMinAftDistance_ < iVar1)) {
         (((this->AIState_Base).carObj_)->targetPos).x = 0x10000;
         (((this->AIState_Base).carObj_)->targetPos).y = 0x10000;
       }
@@ -682,6 +948,21 @@ void DoNitrous__13AIState_Chasei(AIState_Chase *this,int checkForHumans)
 	// End offset: 0x800702C0
 	// End Line: 402
 
+	/* begin block 2 */
+		// Start line: 677
+	/* end block 2 */
+	// End Line: 678
+
+	/* begin block 3 */
+		// Start line: 686
+	/* end block 3 */
+	// End Line: 687
+
+	/* begin block 4 */
+		// Start line: 686
+	/* end block 4 */
+	// End Line: 687
+
 void Execute__13AIState_Chase(AIState_Chase *this)
 
 {
@@ -692,8 +973,8 @@ void Execute__13AIState_Chase(AIState_Chase *this)
   int intercept;
   
   SetUp__13AIState_Chase(this);
-  uVar2 = fixedmult(this->latTargetRegion_,0x666);
-  iVar4 = *(int *)((this->delayCar_).laneIndex_ + 0x564);
+  uVar2 = fixedmult(this->longMetersBetween_,0x666);
+  iVar4 = (this->targetCar_->script).lastActionTime;
   if ((int)uVar2 < 0) {
     uVar2 = -uVar2;
   }
@@ -703,7 +984,7 @@ void Execute__13AIState_Chase(AIState_Chase *this)
   }
   bVar1 = false;
   if (intercept < (int)uVar2) {
-    iVar3 = this->latTargetRegion_;
+    iVar3 = this->longMetersBetween_;
     if (iVar3 < 0) {
       iVar3 = -iVar3;
     }
@@ -717,18 +998,17 @@ LAB_80070244:
     FarTargeting__13AIState_Chase(this);
     goto LAB_800702a0;
   }
-  if ((this->longTargetRegion_ * (this->relPosition_).z == 1) && (0x6aaa9 < iVar4)) {
+  if ((this->carDir_ * this->targetDir_ == 1) && (0x6aaa9 < iVar4)) {
     CloseTargeting__13AIState_Chase(this);
     goto LAB_800702a0;
   }
-  if ((-1 < this->longTargetRegion_ * this->latTargetRegion_) && (0x6aaa9 < iVar4))
-  goto LAB_80070244;
+  if ((-1 < this->carDir_ * this->longMetersBetween_) && (0x6aaa9 < iVar4)) goto LAB_80070244;
   if ((0x1aaaaa < intercept) || (bVar1)) {
 LAB_80070290:
     intercept = 0;
   }
   else {
-    iVar4 = this->latTargetRegion_;
+    iVar4 = this->longMetersBetween_;
     if (iVar4 < 0) {
       iVar4 = -iVar4;
     }
@@ -737,7 +1017,7 @@ LAB_80070290:
   }
   ApproachTargeting__13AIState_Chasei(this,intercept);
 LAB_800702a0:
-  if (simGlobal.gameTicks < this->nitrousMinForeDistance_) {
+  if (simGlobal.gameTicks < this->slowDownEndTime_) {
     DoSlowNitrous__13AIState_Chase(this);
   }
   return;
@@ -756,12 +1036,27 @@ LAB_800702a0:
 	// End offset: 0x80070328
 	// End Line: 426
 
+	/* begin block 2 */
+		// Start line: 848
+	/* end block 2 */
+	// End Line: 849
+
+	/* begin block 3 */
+		// Start line: 861
+	/* end block 3 */
+	// End Line: 862
+
+	/* begin block 4 */
+		// Start line: 861
+	/* end block 4 */
+	// End Line: 862
+
 void FarTargeting__13AIState_Chase(AIState_Chase *this)
 
 {
-  this->latMetersBetween_ = 0;
-  if ((this->delayCar_).roadPosition_ < simGlobal.gameTicks) {
-    if (this->latTargetRegion_ < 1) {
+  this->inTargetRegion_ = 0;
+  if (this->noTurnAroundEndTime_ < simGlobal.gameTicks) {
+    if (this->longMetersBetween_ < 1) {
       (((this->AIState_Base).carObj_)->script).lastReactionIndex[2] = 1;
     }
     else {
@@ -793,13 +1088,33 @@ void FarTargeting__13AIState_Chase(AIState_Chase *this)
 	// End offset: 0x80070400
 	// End Line: 458
 
+	/* begin block 2 */
+		// Start line: 916
+	/* end block 2 */
+	// End Line: 917
+
+	/* begin block 3 */
+		// Start line: 922
+	/* end block 3 */
+	// End Line: 923
+
+	/* begin block 4 */
+		// Start line: 922
+	/* end block 4 */
+	// End Line: 923
+
+	/* begin block 5 */
+		// Start line: 926
+	/* end block 5 */
+	// End Line: 927
+
 int CalculateCloseTargettingAheadSlowDownFactor__13AIState_Chase(AIState_Chase *this)
 
 {
   int iVar1;
   undefined *puVar2;
   
-  iVar1 = this->latTargetRegion_;
+  iVar1 = this->longMetersBetween_;
   if (iVar1 < 0) {
     iVar1 = -iVar1;
   }
@@ -1043,6 +1358,21 @@ int CalculateCloseTargettingAheadSlowDownFactor__13AIState_Chase(AIState_Chase *
 	// End offset: 0x80070868
 	// End Line: 631
 
+	/* begin block 2 */
+		// Start line: 959
+	/* end block 2 */
+	// End Line: 960
+
+	/* begin block 3 */
+		// Start line: 964
+	/* end block 3 */
+	// End Line: 965
+
+	/* begin block 4 */
+		// Start line: 964
+	/* end block 4 */
+	// End Line: 965
+
 void CloseTargeting__13AIState_Chase(AIState_Chase *this)
 
 {
@@ -1065,17 +1395,17 @@ void CloseTargeting__13AIState_Chase(AIState_Chase *this)
   iVar12 = (((this->AIState_Base).carObj_)->script).lastReactionIndex[3];
   DoNitrous__13AIState_Chasei(this,1);
   iVar7 = 0;
-  if (this->carDir_ == 0) {
-    iVar9 = (this->relPosition_).y;
-    iVar8 = (this->relPosition_).x;
+  if (this->murderMode_ == 0) {
+    iVar9 = this->latTargetRegion_;
+    iVar8 = this->longTargetRegion_;
   }
   else {
     iVar8 = 0;
     iVar9 = 0;
     DoNitrous__13AIState_Chasei(this,0);
   }
-  iVar13 = this->targetDir_ * iVar12;
-  iVar3 = *(int *)((this->delayCar_).laneIndex_ + 0x134);
+  iVar13 = this->latMetersBetween_ * iVar12;
+  iVar3 = (this->targetCar_->N).dimension.x;
   if (iVar13 < -iVar3) {
     iVar10 = -1;
   }
@@ -1084,8 +1414,8 @@ void CloseTargeting__13AIState_Chase(AIState_Chase *this)
       iVar10 = 1;
     }
   }
-  iVar13 = this->latTargetRegion_ * iVar12;
-  iVar3 = *(int *)((this->delayCar_).laneIndex_ + 0x13c);
+  iVar13 = this->longMetersBetween_ * iVar12;
+  iVar3 = (this->targetCar_->N).dimension.z;
   if (iVar13 < 0x20000 - iVar3) {
     iVar11 = -1;
   }
@@ -1094,8 +1424,8 @@ void CloseTargeting__13AIState_Chase(AIState_Chase *this)
       iVar11 = 1;
     }
   }
-  iVar13 = this->latTargetRegion_ * iVar12;
-  iVar3 = *(int *)((this->delayCar_).laneIndex_ + 0x13c) + 0x20000;
+  iVar13 = this->longMetersBetween_ * iVar12;
+  iVar3 = (this->targetCar_->N).dimension.z + 0x20000;
   if (iVar13 < -iVar3) {
     iVar7 = -1;
   }
@@ -1105,10 +1435,10 @@ void CloseTargeting__13AIState_Chase(AIState_Chase *this)
     }
   }
   if ((iVar10 == iVar9) && (iVar11 == iVar8)) {
-    this->latMetersBetween_ = this->latMetersBetween_ + AI_elapsedTime;
+    this->inTargetRegion_ = this->inTargetRegion_ + AI_elapsedTime;
   }
   else {
-    this->latMetersBetween_ = 0;
+    this->inTargetRegion_ = 0;
   }
   iVar13 = 0;
   iVar3 = 0;
@@ -1125,18 +1455,18 @@ void CloseTargeting__13AIState_Chase(AIState_Chase *this)
       bVar1 = false;
     }
     else {
-      if ((iVar9 == 0) && ((iVar7 == 0 && (this->carDir_ == 0)))) {
+      if ((iVar9 == 0) && ((iVar7 == 0 && (this->murderMode_ == 0)))) {
         bVar1 = false;
       }
       else {
-        if ((iVar8 == 1) && (((iVar7 == 1 && (iVar10 == 0)) && (this->latTargetRegion_ < 0x140000)))
-           ) {
+        if ((iVar8 == 1) &&
+           (((iVar7 == 1 && (iVar10 == 0)) && (this->longMetersBetween_ < 0x140000)))) {
           iVar13 = -2;
         }
       }
     }
   }
-  puVar5 = (undefined *)(this->delayCar_).deltaRoadPosition_;
+  puVar5 = (undefined *)(this->delayCar_).currentSpeed_;
   if ((int)puVar5 < 1) {
     puVar5 = (undefined *)-(int)puVar5;
   }
@@ -1145,18 +1475,18 @@ void CloseTargeting__13AIState_Chase(AIState_Chase *this)
   }
   else {
     if (((iVar8 < iVar11) || (iVar13 == -1)) ||
-       ((0x140000 < this->latTargetRegion_ &&
-        (((0x9ffff < this->latTargetRegion_ || (iVar10 != 0)) || (iVar9 == 0)))))) {
+       ((0x140000 < this->longMetersBetween_ &&
+        (((0x9ffff < this->longMetersBetween_ || (iVar10 != 0)) || (iVar9 == 0)))))) {
       puVar4 = (undefined *)CalculateCloseTargettingAheadSlowDownFactor__13AIState_Chase(this);
     }
     else {
       if (iVar13 != -2) goto LAB_80070704;
-      if (this->nitrousTicks_ == 0) {
+      if (this->aggressionLevel_ == 0) {
         puVar4 = &DAT_0000ca3d;
       }
       else {
         puVar4 = &DAT_0000a666;
-        if (this->nitrousTicks_ == 1) {
+        if (this->aggressionLevel_ == 1) {
           puVar4 = &DAT_0000bae1;
         }
       }
@@ -1184,14 +1514,14 @@ LAB_80070704:
   AI_GenericBeginCycle__FP8Car_tObj((this->AIState_Base).carObj_);
   if (bVar1) {
     iVar7 = 0xf0000;
-    if (this->carDir_ == 0) {
+    if (this->murderMode_ == 0) {
       if (iVar3 == 0) {
-        iVar10 = (this->delayCar_).currentSpeed_;
+        iVar10 = (this->relPosition_).x;
       }
       else {
-        iVar10 = *(int *)((this->delayCar_).laneIndex_ + 0x134) + 0x60000;
+        iVar10 = (this->targetCar_->N).dimension.x + 0x60000;
       }
-      iVar11 = (this->delayCar_).position_.y + iVar10 * iVar12;
+      iVar11 = (this->delayCar_).roadPosition_ + iVar10 * iVar12;
       pTVar6 = BWorldSm_slices + (int)(((this->AIState_Base).carObj_)->N).simRoadInfo.slice;
       iVar10 = -((uint)pTVar6->avgPavedWidthLf * 0x8000 * (uint)(pTVar6->laneCount >> 4));
       if (iVar10 < iVar11) {
@@ -1204,7 +1534,7 @@ LAB_80070704:
     }
     else {
       iVar7 = 0x1e0000;
-      iVar11 = (this->delayCar_).position_.y;
+      iVar11 = (this->delayCar_).roadPosition_;
     }
     (((this->AIState_Base).carObj_)->angularAcc_ch).z = iVar11;
     ((this->AIState_Base).carObj_)->driveDirectionReverseTime = iVar7;
@@ -1233,37 +1563,51 @@ LAB_80070704:
 	// End offset: 0x80070BAC
 	// End Line: 714
 
+	/* begin block 2 */
+		// Start line: 1332
+	/* end block 2 */
+	// End Line: 1333
+
+	/* begin block 3 */
+		// Start line: 1337
+	/* end block 3 */
+	// End Line: 1338
+
+	/* begin block 4 */
+		// Start line: 1337
+	/* end block 4 */
+	// End Line: 1338
+
 void ApproachTargeting__13AIState_Chasei(AIState_Chase *this,int intercept)
 
 {
   bool bVar1;
-  undefined *puVar2;
-  Car_tObj *pCVar3;
-  undefined *puVar4;
-  int iVar5;
-  int iVar6;
-  undefined *puVar7;
-  int iVar8;
+  int iVar2;
+  undefined **ppuVar3;
+  Car_tObj *pCVar4;
+  Car_tObj *pCVar5;
+  undefined **ppuVar6;
+  int iVar7;
+  undefined **ppuVar8;
   
-  pCVar3 = (this->AIState_Base).carObj_;
-  iVar5 = (this->delayCar_).laneIndex_;
-  iVar6 = (pCVar3->N).position.x - *(int *)(iVar5 + 0xa0);
-  if (iVar6 < 0) {
-    iVar6 = -iVar6;
+  pCVar5 = (this->AIState_Base).carObj_;
+  iVar7 = (pCVar5->N).position.x - (this->targetCar_->N).position.x;
+  if (iVar7 < 0) {
+    iVar7 = -iVar7;
   }
-  iVar5 = (pCVar3->N).position.z - *(int *)(iVar5 + 0xa8);
-  if (iVar5 < 0) {
-    iVar5 = -iVar5;
+  iVar2 = (pCVar5->N).position.z - (this->targetCar_->N).position.z;
+  if (iVar2 < 0) {
+    iVar2 = -iVar2;
   }
-  if (iVar5 < iVar6) {
-    iVar6 = iVar6 + (iVar5 >> 2);
+  if (iVar2 < iVar7) {
+    iVar7 = iVar7 + (iVar2 >> 2);
   }
   else {
-    iVar6 = iVar5 + (iVar6 >> 2);
+    iVar7 = iVar2 + (iVar7 >> 2);
   }
-  this->latMetersBetween_ = 0;
-  if ((this->delayCar_).roadPosition_ < simGlobal.gameTicks) {
-    if (this->latTargetRegion_ < 1) {
+  this->inTargetRegion_ = 0;
+  if (this->noTurnAroundEndTime_ < simGlobal.gameTicks) {
+    if (this->longMetersBetween_ < 1) {
       (((this->AIState_Base).carObj_)->script).lastReactionIndex[2] = 1;
     }
     else {
@@ -1271,68 +1615,69 @@ void ApproachTargeting__13AIState_Chasei(AIState_Chase *this,int intercept)
     }
   }
   AISpeeds_CalcDesiredSpeed__FP8Car_tObj((this->AIState_Base).carObj_);
-  iVar5 = this->nitrousTicks_;
-  if (iVar5 == 1) {
-    puVar4 = (undefined *)0x3c0000;
-    if ((((0x960000 < iVar6) || (puVar4 = &DAT_00320000, 0x640000 < iVar6)) ||
-        (puVar4 = &DAT_00280000, 0x320000 < iVar6)) ||
-       (puVar4 = (undefined *)0x230000, 0x190000 < iVar6)) goto LAB_80070adc;
-    puVar4 = &LAB_000a0000;
+  iVar2 = this->aggressionLevel_;
+  if (iVar2 == 1) {
+    ppuVar6 = (undefined **)0x3c0000;
+    if ((((0x960000 < iVar7) || (ppuVar6 = (undefined **)&DAT_00320000, 0x640000 < iVar7)) ||
+        (ppuVar6 = (undefined **)&DAT_00280000, 0x320000 < iVar7)) ||
+       (ppuVar6 = (undefined **)0x230000, 0x190000 < iVar7)) goto LAB_80070adc;
+    ppuVar6 = &PTR_000a0000;
   }
   else {
-    if (1 < iVar5) {
-      puVar4 = &DAT_00190000;
-      if ((((iVar5 == 2) && (puVar4 = (undefined *)0x500000, iVar6 < 0x960001)) &&
-          ((puVar4 = (undefined *)0x460000, iVar6 < 0x640001 &&
-           ((puVar4 = &DAT_00320000, iVar6 < 0x320001 && (puVar4 = &DAT_00280000, iVar6 < 0x190001))
-           )))) && ((puVar4 = (undefined *)0xe0000, iVar6 < 0xa0001 &&
-                    (puVar4 = (undefined *)0x0, 0x60000 < iVar6)))) {
-        puVar4 = (undefined *)0x60000;
+    if (1 < iVar2) {
+      ppuVar6 = (undefined **)&DAT_00190000;
+      if ((((iVar2 == 2) && (ppuVar6 = (undefined **)0x500000, iVar7 < 0x960001)) &&
+          ((ppuVar6 = (undefined **)0x460000, iVar7 < 0x640001 &&
+           ((ppuVar6 = (undefined **)&DAT_00320000, iVar7 < 0x320001 &&
+            (ppuVar6 = (undefined **)&DAT_00280000, iVar7 < 0x190001)))))) &&
+         ((ppuVar6 = (undefined **)0xe0000, iVar7 < 0xa0001 &&
+          (ppuVar6 = (undefined **)0x0, 0x60000 < iVar7)))) {
+        ppuVar6 = (undefined **)0x60000;
       }
       goto LAB_80070adc;
     }
-    puVar4 = &DAT_00190000;
-    if ((((iVar5 != 0) || (puVar4 = (undefined *)0x3c0000, 0x960000 < iVar6)) ||
-        (puVar4 = &DAT_00320000, 0x640000 < iVar6)) ||
-       ((puVar4 = &DAT_00280000, 0x320000 < iVar6 ||
-        (puVar4 = (undefined *)0x230000, 0x190000 < iVar6)))) goto LAB_80070adc;
-    puVar4 = &DAT_00140000;
+    ppuVar6 = (undefined **)&DAT_00190000;
+    if ((((iVar2 != 0) || (ppuVar6 = (undefined **)0x3c0000, 0x960000 < iVar7)) ||
+        (ppuVar6 = (undefined **)&DAT_00320000, 0x640000 < iVar7)) ||
+       ((ppuVar6 = (undefined **)&DAT_00280000, 0x320000 < iVar7 ||
+        (ppuVar6 = (undefined **)0x230000, 0x190000 < iVar7)))) goto LAB_80070adc;
+    ppuVar6 = (undefined **)&DAT_00140000;
   }
-  if ((iVar6 < 0xa0001) && (puVar4 = (undefined *)0x0, 0x60000 < iVar6)) {
-    puVar4 = (undefined *)0x30000;
+  if ((iVar7 < 0xa0001) && (ppuVar6 = (undefined **)0x0, 0x60000 < iVar7)) {
+    ppuVar6 = (undefined **)0x30000;
   }
 LAB_80070adc:
-  pCVar3 = (this->AIState_Base).carObj_;
-  puVar2 = (undefined *)-(int)puVar4;
-  if ((pCVar3->script).lastReactionIndex[3] == 1) {
-    puVar7 = (undefined *)(pCVar3->script).lastReactionIndex[5];
-    bVar1 = (int)puVar7 < (int)puVar4;
-    puVar2 = puVar4;
+  pCVar5 = (this->AIState_Base).carObj_;
+  ppuVar3 = (undefined **)-(int)ppuVar6;
+  if ((pCVar5->script).lastReactionIndex[3] == 1) {
+    ppuVar8 = (undefined **)(pCVar5->script).lastReactionIndex[5];
+    bVar1 = (int)ppuVar8 < (int)ppuVar6;
+    ppuVar3 = ppuVar6;
   }
   else {
-    puVar7 = (undefined *)(pCVar3->script).lastReactionIndex[5];
-    bVar1 = (int)puVar2 < (int)puVar7;
+    ppuVar8 = (undefined **)(pCVar5->script).lastReactionIndex[5];
+    bVar1 = (int)ppuVar3 < (int)ppuVar8;
   }
   if (bVar1) {
-    puVar2 = puVar7;
+    ppuVar3 = ppuVar8;
   }
-  *(undefined **)((pCVar3->script).lastReactionIndex + 5) = puVar2;
+  *(undefined ***)((pCVar5->script).lastReactionIndex + 5) = ppuVar3;
   AI_GenericBeginCycle__FP8Car_tObj((this->AIState_Base).carObj_);
   CheckForBarriersAndTargetAroundThem__13AIState_Chase(this);
   AI_GenericCycle__FP8Car_tObj((this->AIState_Base).carObj_);
   AI_GenericEndCycle__FP8Car_tObj((this->AIState_Base).carObj_);
   if (intercept != 0) {
-    pCVar3 = (this->AIState_Base).carObj_;
-    iVar6 = (this->delayCar_).laneIndex_;
-    iVar5 = *(int *)(iVar6 + 0xa4);
-    iVar8 = *(int *)(iVar6 + 0xa8);
-    (pCVar3->desiredVector).y = *(int *)(iVar6 + 0xa0);
-    (pCVar3->desiredVector).z = iVar5;
-    pCVar3->aCarWRTDesired = iVar8;
+    pCVar4 = (this->AIState_Base).carObj_;
+    pCVar5 = this->targetCar_;
+    iVar7 = (pCVar5->N).position.y;
+    iVar2 = (pCVar5->N).position.z;
+    (pCVar4->desiredVector).y = (pCVar5->N).position.x;
+    (pCVar4->desiredVector).z = iVar7;
+    pCVar4->aCarWRTDesired = iVar2;
     (((this->AIState_Base).carObj_)->angularAcc_ch).x =
-         *(int *)((this->delayCar_).laneIndex_ + 0x574);
+         (this->targetCar_->speechInfo).playerCarIndex;
     (((this->AIState_Base).carObj_)->angularAcc_ch).z =
-         *(int *)((this->delayCar_).laneIndex_ + 0x574);
+         (this->targetCar_->speechInfo).playerCarIndex;
     ((this->AIState_Base).carObj_)->driveDirectionReverseTime = 0xf0000;
   }
   return;
@@ -1358,26 +1703,40 @@ LAB_80070adc:
 	// End offset: 0x80070CF8
 	// End Line: 760
 
+	/* begin block 2 */
+		// Start line: 1497
+	/* end block 2 */
+	// End Line: 1498
+
+	/* begin block 3 */
+		// Start line: 1502
+	/* end block 3 */
+	// End Line: 1503
+
+	/* begin block 4 */
+		// Start line: 1502
+	/* end block 4 */
+	// End Line: 1503
+
 void CheckForBarriersAndTargetAroundThem__13AIState_Chase(AIState_Chase *this)
 
 {
-  int lane0;
-  Car_tObj *carObj;
   int slice;
+  Car_tObj *carObj;
   int lane1;
+  int lane0;
   int slice_00;
   
-  lane0 = this->latTargetRegion_;
-  if (lane0 < 0) {
-    lane0 = -lane0;
+  slice = this->longMetersBetween_;
+  if (slice < 0) {
+    slice = -slice;
   }
-  if (lane0 < 0x1f40001) {
+  if (slice < 0x1f40001) {
     carObj = (this->AIState_Base).carObj_;
     slice_00 = (int)(carObj->N).simRoadInfo.slice;
     lane1 = *(int *)(carObj->accTable + 0x60);
-    lane0 = (this->delayCar_).laneIndex_;
-    slice = (int)*(short *)(lane0 + 8);
-    lane0 = *(int *)(lane0 + 0x6c4);
+    slice = (int)(this->targetCar_->N).simRoadInfo.slice;
+    lane0 = *(int *)(this->targetCar_->accTable + 0x60);
     if (((((int)(6 - (uint)(BWorldSm_slices[slice_00].laneCount >> 4)) <= lane1) &&
          (lane1 <= (int)(((uint)BWorldSm_slices[slice_00].laneCount & 0xf) + 7))) &&
         ((int)(6 - (uint)(BWorldSm_slices[slice].laneCount >> 4)) <= lane0)) &&
@@ -1385,18 +1744,18 @@ void CheckForBarriersAndTargetAroundThem__13AIState_Chase(AIState_Chase *this)
       slice = AIWorld_CheckForBarrierBetweenLanes__Fiii(slice,lane0,lane1);
       lane1 = AIWorld_CheckForBarrierBetweenLanes__Fiii(slice_00,lane0,lane1);
       if (slice == 0) {
-        this->nitrousMinAftDistance_ = 0;
+        this->barrierTicks32_ = 0;
       }
       else {
         if (lane1 == 0) {
           carObj = (this->AIState_Base).carObj_;
-          this->nitrousMinAftDistance_ = 0;
+          this->barrierTicks32_ = 0;
           AI_TargetLane__FP8Car_tObji(carObj,lane0);
           AI_TargetLane__FP8Car_tObji((this->AIState_Base).carObj_,lane0);
           AI_TargetLane__FP8Car_tObji((this->AIState_Base).carObj_,lane0);
         }
         else {
-          this->nitrousMinAftDistance_ = this->nitrousMinAftDistance_ + AI_elapsedTime;
+          this->barrierTicks32_ = this->barrierTicks32_ + AI_elapsedTime;
         }
       }
     }
@@ -1473,6 +1832,21 @@ void CheckForBarriersAndTargetAroundThem__13AIState_Chase(AIState_Chase *this)
 	// End offset: 0x8007107C
 	// End Line: 867
 
+	/* begin block 2 */
+		// Start line: 1603
+	/* end block 2 */
+	// End Line: 1604
+
+	/* begin block 3 */
+		// Start line: 1606
+	/* end block 3 */
+	// End Line: 1607
+
+	/* begin block 4 */
+		// Start line: 1606
+	/* end block 4 */
+	// End Line: 1607
+
 int FindBarrierEndSlice__13AIState_Chase(AIState_Chase *this)
 
 {
@@ -1492,7 +1866,7 @@ int FindBarrierEndSlice__13AIState_Chase(AIState_Chase *this)
   
   pCVar2 = (this->AIState_Base).carObj_;
   iVar5 = *(int *)(pCVar2->accTable + 0x60);
-  iVar3 = *(int *)((this->delayCar_).laneIndex_ + 0x6c4);
+  iVar3 = *(int *)(this->targetCar_->accTable + 0x60);
   slice_01 = (int)(pCVar2->N).simRoadInfo.slice;
   lane0 = iVar5;
   if (iVar3 < iVar5) {
@@ -1624,20 +1998,35 @@ LAB_80070f54:
 	// End offset: 0x80071110
 	// End Line: 892
 
+	/* begin block 3 */
+		// Start line: 1835
+	/* end block 3 */
+	// End Line: 1836
+
+	/* begin block 4 */
+		// Start line: 1856
+	/* end block 4 */
+	// End Line: 1857
+
+	/* begin block 5 */
+		// Start line: 1856
+	/* end block 5 */
+	// End Line: 1857
+
 void ___15AIState_Offroad(AIState_Offroad *this,int __in_chrg)
 
 {
   Car_tObj *pCVar1;
   
   pCVar1 = (this->AIState_Base).carObj_;
-  (this->AIState_Base)._vf[0].value = 0x800555c0;
+  *(undefined4 *)(this->AIState_Base)._vf = 0x800555c0;
   pCVar1->aCarWRTDesired = 0;
   (pCVar1->desiredVector).z = 0;
   (pCVar1->desiredVector).y = 0;
   (((this->AIState_Base).carObj_)->angularAcc_ch).x = 0;
   pCVar1 = (this->AIState_Base).carObj_;
   pCVar1->carFlags = pCVar1->carFlags & 0xfffff7ff;
-  (this->AIState_Base)._vf[0].value = 0x80055640;
+  *(undefined4 *)(this->AIState_Base)._vf = 0x80055640;
   if ((__in_chrg & 1U) != 0) {
     __builtin_delete(this);
   }
@@ -1657,6 +2046,21 @@ void ___15AIState_Offroad(AIState_Offroad *this,int __in_chrg)
 	// End offset: 0x800711BC
 	// End Line: 910
 
+	/* begin block 2 */
+		// Start line: 1871
+	/* end block 2 */
+	// End Line: 1872
+
+	/* begin block 3 */
+		// Start line: 1876
+	/* end block 3 */
+	// End Line: 1877
+
+	/* begin block 4 */
+		// Start line: 1876
+	/* end block 4 */
+	// End Line: 1877
+
 AIState_Offroad *
 __15AIState_OffroadP8Car_tObjiP8coorddefP10matrixtdefiii
           (AIState_Offroad *this,Car_tObj *carObj,int startSlice,coorddef *position,
@@ -1665,51 +2069,50 @@ __15AIState_OffroadP8Car_tObjiP8coorddefP10matrixtdefiii
 {
   int *piVar1;
   Trk_NewSlice *pTVar2;
-  coorddef *pcVar3;
+  matrixtdef *pmVar3;
   Car_tObj *pCVar4;
-  uint uVar5;
+  int iVar5;
   int iVar6;
   int iVar7;
-  int iVar8;
   
   __12AIState_BaseP8Car_tObj((AIState_Base *)this,carObj);
-  pcVar3 = &this->startPosition_;
-  (this->AIState_Base)._vf[0].value = 0x800555c0;
-  (this->targetPosition_).y = 0;
-  (this->AIState_Base)._vf[1].value = startSlice;
-  uVar5 = position->y;
+  pmVar3 = &this->startOrientation_;
+  *(undefined4 *)(this->AIState_Base)._vf = 0x800555c0;
+  this->letGo_ = 0;
+  this->startSlice_ = startSlice;
+  iVar5 = position->y;
   iVar6 = position->z;
-  (this->AIState_Base)._vf[2].value = position->x;
-  (this->AIState_Base)._vf[3].value = uVar5;
-  this->startSlice_ = iVar6;
+  (this->startPosition_).x = position->x;
+  (this->startPosition_).y = iVar5;
+  (this->startPosition_).z = iVar6;
   piVar1 = orientation->m;
   do {
-    iVar6 = orientation->m[1];
-    iVar7 = orientation->m[2];
-    iVar8 = orientation->m[3];
-    pcVar3->x = orientation->m[0];
-    pcVar3->y = iVar6;
-    pcVar3->z = iVar7;
-    pcVar3[1].x = iVar8;
+    iVar5 = orientation->m[1];
+    iVar6 = orientation->m[2];
+    iVar7 = orientation->m[3];
+    pmVar3->m[0] = orientation->m[0];
+    pmVar3->m[1] = iVar5;
+    pmVar3->m[2] = iVar6;
+    pmVar3->m[3] = iVar7;
     orientation = (matrixtdef *)(orientation->m + 4);
-    pcVar3 = (coorddef *)&pcVar3[1].y;
+    pmVar3 = (matrixtdef *)(pmVar3->m + 4);
   } while (orientation != (matrixtdef *)(piVar1 + 8));
-  pcVar3->x = orientation->m[0];
-  iVar6 = (this->startOrientation_).m[4];
-  iVar7 = (this->startOrientation_).m[5];
-  (this->startOrientation_).m[6] = (this->startOrientation_).m[3];
-  (this->startOrientation_).m[7] = iVar6;
-  (this->startOrientation_).m[8] = iVar7;
-  (this->targetPosition_).z = maxSpeedKPH * 0x4700;
-  pTVar2 = BWorldSm_slices;
-  (this->startHeading_).x = endSlice;
-  this->longMetersBetween_ = releaseTime;
-  pTVar2 = pTVar2 + endSlice;
-  iVar6 = pTVar2->center[1];
-  iVar7 = pTVar2->center[2];
-  (this->startHeading_).y = pTVar2->center[0];
+  pmVar3->m[0] = orientation->m[0];
+  iVar5 = (this->startOrientation_).m[7];
+  iVar6 = (this->startOrientation_).m[8];
+  (this->startHeading_).x = (this->startOrientation_).m[6];
+  (this->startHeading_).y = iVar5;
   (this->startHeading_).z = iVar6;
-  this->targetSlice_ = iVar7;
+  this->maxSpeedMPS_ = maxSpeedKPH * 0x4700;
+  pTVar2 = BWorldSm_slices;
+  this->targetSlice_ = endSlice;
+  this->releaseTime_ = releaseTime;
+  pTVar2 = pTVar2 + endSlice;
+  iVar5 = pTVar2->center[1];
+  iVar6 = pTVar2->center[2];
+  (this->targetPosition_).x = pTVar2->center[0];
+  (this->targetPosition_).y = iVar5;
+  (this->targetPosition_).z = iVar6;
   pCVar4 = (this->AIState_Base).carObj_;
   pCVar4->carFlags = pCVar4->carFlags | 0x800;
   return this;
@@ -1761,6 +2164,21 @@ __15AIState_OffroadP8Car_tObjiP8coorddefP10matrixtdefiii
 	// End offset: 0x800712CC
 	// End Line: 937
 
+	/* begin block 2 */
+		// Start line: 1948
+	/* end block 2 */
+	// End Line: 1949
+
+	/* begin block 3 */
+		// Start line: 1954
+	/* end block 3 */
+	// End Line: 1955
+
+	/* begin block 4 */
+		// Start line: 1954
+	/* end block 4 */
+	// End Line: 1955
+
 void UnleashIfInRange__15AIState_OffroadP8Car_tObj(AIState_Offroad *this,Car_tObj *car)
 
 {
@@ -1772,13 +2190,13 @@ void UnleashIfInRange__15AIState_OffroadP8Car_tObj(AIState_Offroad *this,Car_tOb
   if (iVar2 < 0) {
     iVar2 = -iVar2;
   }
-  uVar3 = fixedmult((car->N).speedXZ,this->longMetersBetween_);
+  uVar3 = fixedmult((car->N).speedXZ,this->releaseTime_);
   bVar1 = iVar2 < (int)uVar3;
   if ((int)uVar3 < 0x140000) {
     bVar1 = iVar2 < 0x140000;
   }
   if (bVar1) {
-    (this->targetPosition_).y = 1;
+    this->letGo_ = 1;
   }
   return;
 }
@@ -1812,21 +2230,35 @@ void UnleashIfInRange__15AIState_OffroadP8Car_tObj(AIState_Offroad *this,Car_tOb
 	// End offset: 0x8007147C
 	// End Line: 979
 
+	/* begin block 2 */
+		// Start line: 1984
+	/* end block 2 */
+	// End Line: 1985
+
+	/* begin block 3 */
+		// Start line: 1992
+	/* end block 3 */
+	// End Line: 1993
+
+	/* begin block 4 */
+		// Start line: 1992
+	/* end block 4 */
+	// End Line: 1993
+
 void Execute__15AIState_Offroad(AIState_Offroad *this)
 
 {
   Car_tObj *pCVar1;
   matrixtdef *pmVar2;
-  coorddef *pcVar3;
-  uint uVar4;
+  matrixtdef *pmVar3;
+  int iVar4;
   int iVar5;
   int iVar6;
-  int iVar7;
   int local_18;
   int local_14;
   int local_10;
   
-  if ((this->targetPosition_).y == 0) {
+  if (this->letGo_ == 0) {
     memset(&local_18,0,0xc);
     pCVar1 = (this->AIState_Base).carObj_;
     (pCVar1->N).linearVel.x = local_18;
@@ -1838,36 +2270,37 @@ void Execute__15AIState_Offroad(AIState_Offroad *this)
     (pCVar1->N).angularVel.z = local_10;
     (((this->AIState_Base).carObj_)->script).lastReactionIndex[5] = 0;
     pCVar1 = (this->AIState_Base).carObj_;
-    pcVar3 = &this->startPosition_;
-    uVar4 = (this->AIState_Base)._vf[3].value;
-    iVar5 = this->startSlice_;
-    (pCVar1->N).position.x = (this->AIState_Base)._vf[2].value;
-    (pCVar1->N).position.y = uVar4;
+    pmVar3 = &this->startOrientation_;
+    iVar4 = (this->startPosition_).y;
+    iVar5 = (this->startPosition_).z;
+    (pCVar1->N).position.x = (this->startPosition_).x;
+    (pCVar1->N).position.y = iVar4;
     (pCVar1->N).position.z = iVar5;
     pmVar2 = &(((this->AIState_Base).carObj_)->N).orientMat;
     do {
-      iVar5 = pcVar3->y;
-      iVar6 = pcVar3->z;
-      iVar7 = pcVar3[1].x;
-      pmVar2->m[0] = pcVar3->x;
-      pmVar2->m[1] = iVar5;
-      pmVar2->m[2] = iVar6;
-      pmVar2->m[3] = iVar7;
-      pcVar3 = (coorddef *)&pcVar3[1].y;
+      iVar4 = pmVar3->m[1];
+      iVar5 = pmVar3->m[2];
+      iVar6 = pmVar3->m[3];
+      pmVar2->m[0] = pmVar3->m[0];
+      pmVar2->m[1] = iVar4;
+      pmVar2->m[2] = iVar5;
+      pmVar2->m[3] = iVar6;
+      pmVar3 = (matrixtdef *)(pmVar3->m + 4);
       pmVar2 = (matrixtdef *)(pmVar2->m + 4);
-    } while (pcVar3 != (coorddef *)((this->startOrientation_).m + 5));
-    pmVar2->m[0] = pcVar3->x;
+    } while (pmVar3 != (matrixtdef *)((this->startOrientation_).m + 8));
+    pmVar2->m[0] = pmVar3->m[0];
     pCVar1 = (this->AIState_Base).carObj_;
     pCVar1->aCarWRTDesired = 0;
     (pCVar1->desiredVector).z = 0;
     (pCVar1->desiredVector).y = 0;
   }
   else {
-    iVar5 = AIWorld_ApxSplineDistance__FP8Car_tObji
-                      ((this->AIState_Base).carObj_,(this->startHeading_).x);
-    (this->targetPosition_).x = iVar5;
-    (((this->AIState_Base).carObj_)->script).lastReactionIndex[5] = (this->targetPosition_).z;
-    if ((this->targetPosition_).x < 1) {
+    iVar4 = AIWorld_ApxSplineDistance__FP8Car_tObji((this->AIState_Base).carObj_,this->targetSlice_)
+    ;
+    pCVar1 = (this->AIState_Base).carObj_;
+    this->longMetersBetween_ = iVar4;
+    (pCVar1->script).lastReactionIndex[5] = this->maxSpeedMPS_;
+    if (this->longMetersBetween_ < 1) {
       (((this->AIState_Base).carObj_)->script).lastReactionIndex[2] = 1;
     }
     else {
@@ -1879,11 +2312,11 @@ void Execute__15AIState_Offroad(AIState_Offroad *this)
     AI_GenericCycle__FP8Car_tObj((this->AIState_Base).carObj_);
     AI_GenericEndCycle__FP8Car_tObj((this->AIState_Base).carObj_);
     pCVar1 = (this->AIState_Base).carObj_;
-    iVar5 = (this->startHeading_).z;
-    iVar6 = this->targetSlice_;
-    (pCVar1->desiredVector).y = (this->startHeading_).y;
-    (pCVar1->desiredVector).z = iVar5;
-    pCVar1->aCarWRTDesired = iVar6;
+    iVar4 = (this->targetPosition_).y;
+    iVar5 = (this->targetPosition_).z;
+    (pCVar1->desiredVector).y = (this->targetPosition_).x;
+    (pCVar1->desiredVector).z = iVar4;
+    pCVar1->aCarWRTDesired = iVar5;
   }
   (((this->AIState_Base).carObj_)->angularAcc_ch).x = 0;
   return;
@@ -1937,6 +2370,21 @@ void Execute__15AIState_Offroad(AIState_Offroad *this)
 	// End offset: 0x80071624
 	// End Line: 1018
 
+	/* begin block 3 */
+		// Start line: 2085
+	/* end block 3 */
+	// End Line: 2086
+
+	/* begin block 4 */
+		// Start line: 2108
+	/* end block 4 */
+	// End Line: 2109
+
+	/* begin block 5 */
+		// Start line: 2108
+	/* end block 5 */
+	// End Line: 2109
+
 AIState_Purgatory * __17AIState_PurgatoryP8Car_tObj(AIState_Purgatory *this,Car_tObj *carObj)
 
 {
@@ -1947,21 +2395,21 @@ AIState_Purgatory * __17AIState_PurgatoryP8Car_tObj(AIState_Purgatory *this,Car_
   coorddef cStack32;
   
   __12AIState_BaseP8Car_tObj((AIState_Base *)this,carObj);
-  (this->AIState_NonActive).AIState_Base._vf[0].value = 0x800555a0;
+  *(undefined4 *)(this->AIState_NonActive).AIState_Base._vf = 0x800555a0;
   memset(&cStack32,0,0xc);
   cStack32.y = carObj->carIndex * 0xa0000;
   Newton_SetInitialSlicePositionOrientationEtc__FP13BO_tNewtonObjiP8coorddefi
             ((BO_tNewtonObj *)(this->AIState_NonActive).AIState_Base.carObj_,0,&cStack32,1);
   (((this->AIState_NonActive).AIState_Base.carObj_)->N).active = '\0';
   uVar2 = randSeed;
-  (this->AIState_NonActive).AIState_Base._vf[0].value = 0x80055580;
+  *(undefined4 *)(this->AIState_NonActive).AIState_Base._vf = 0x80055580;
   fastRandom = fastRandom * uVar2;
   *(Car_tObj **)&(((this->AIState_NonActive).AIState_Base.carObj_)->speechInfo).copCarIndex =
-       __Cars_gList_9__;
+       Cars_gList9;
   bVar1 = false;
   randtemp = fastRandom;
   ((this->AIState_NonActive).AIState_Base.carObj_)->desiredLatPos =
-       ((&AITune_LifeTimer)[Cars_gNumTrafficCars] * (fastRandom >> 8 & 0xffff) >> 0x10) + 1;
+       (AITune_LifeTimer[Cars_gNumTrafficCars] * (fastRandom >> 8 & 0xffff) >> 0x10) + 1;
   fastRandom = fastRandom & 0xffff;
   iVar3 = strcmp(((this->AIState_NonActive).AIState_Base.carObj_)->carName,&DAT_8013c5d8);
   if ((iVar3 == 0) ||
@@ -1976,7 +2424,7 @@ AIState_Purgatory * __17AIState_PurgatoryP8Car_tObj(AIState_Purgatory *this,Car_
   pCVar4 = (this->AIState_NonActive).AIState_Base.carObj_;
   (pCVar4->speechInfo).speechSource = (pCVar4->speechInfo).speechSource | 4;
   if ((((this->AIState_NonActive).AIState_Base.carObj_)->carFlags & 0x10U) != 0) {
-    __sdata_size = __sdata_size + 1;
+    AIState_Purgatory_numTrafficCarsInPurgatory = AIState_Purgatory_numTrafficCarsInPurgatory + 1;
   }
   return this;
 }
@@ -2046,6 +2494,21 @@ AIState_Purgatory * __17AIState_PurgatoryP8Car_tObj(AIState_Purgatory *this,Car_
 	// End offset: 0x8007174C
 	// End Line: 1042
 
+	/* begin block 3 */
+		// Start line: 2158
+	/* end block 3 */
+	// End Line: 2159
+
+	/* begin block 4 */
+		// Start line: 2162
+	/* end block 4 */
+	// End Line: 2163
+
+	/* begin block 5 */
+		// Start line: 2162
+	/* end block 5 */
+	// End Line: 2163
+
 /* WARNING: Type propagation algorithm not settling */
 
 void ___17AIState_Purgatory(AIState_Purgatory *this,int __in_chrg)
@@ -2056,16 +2519,16 @@ void ___17AIState_Purgatory(AIState_Purgatory *this,int __in_chrg)
   Car_tObj **ppCVar3;
   
   pCVar1 = (this->AIState_NonActive).AIState_Base.carObj_;
-  (this->AIState_NonActive).AIState_Base._vf[0].value = 0x80055580;
+  *(undefined4 *)(this->AIState_NonActive).AIState_Base._vf = 0x80055580;
   pCVar1->AIFishtailEndTick = 0;
   (((this->AIState_NonActive).AIState_Base.carObj_)->N).collision.disableCollisionTimer = 0;
   pCVar1 = (this->AIState_NonActive).AIState_Base.carObj_;
   (pCVar1->speechInfo).speechSource = (pCVar1->speechInfo).speechSource & 0xfffffffb;
   if ((((this->AIState_NonActive).AIState_Base.carObj_)->carFlags & 0x10U) != 0) {
-    __sdata_size = __sdata_size + -1;
+    AIState_Purgatory_numTrafficCarsInPurgatory = AIState_Purgatory_numTrafficCarsInPurgatory + -1;
   }
   iVar2 = Cars_gNumCars + -1;
-  ppCVar3 = &__Cars_gSortedList_9__ + iVar2;
+  ppCVar3 = &Cars_gSortedList9 + iVar2;
   pCVar1 = (this->AIState_NonActive).AIState_Base.carObj_;
   (pCVar1->script).lastReactionIndex[3] = 1;
   (pCVar1->script).lastReactionIndex[2] = 1;
@@ -2073,9 +2536,9 @@ void ___17AIState_Purgatory(AIState_Purgatory *this,int __in_chrg)
     if (iVar2 < 0) {
 LAB_80071718:
       pCVar1 = (this->AIState_NonActive).AIState_Base.carObj_;
-      (this->AIState_NonActive).AIState_Base._vf[0].value = 0x800555a0;
+      *(undefined4 *)(this->AIState_NonActive).AIState_Base._vf = 0x800555a0;
       (pCVar1->N).active = '\x01';
-      (this->AIState_NonActive).AIState_Base._vf[0].value = 0x80055640;
+      *(undefined4 *)(this->AIState_NonActive).AIState_Base._vf = 0x80055640;
       if ((__in_chrg & 1U) != 0) {
         __builtin_delete(this);
       }
@@ -2121,6 +2584,31 @@ LAB_80071718:
 	// End offset: 0x800717C8
 	// End Line: 1064
 
+	/* begin block 2 */
+		// Start line: 2215
+	/* end block 2 */
+	// End Line: 2216
+
+	/* begin block 3 */
+		// Start line: 2222
+	/* end block 3 */
+	// End Line: 2223
+
+	/* begin block 4 */
+		// Start line: 2222
+	/* end block 4 */
+	// End Line: 2223
+
+	/* begin block 5 */
+		// Start line: 2223
+	/* end block 5 */
+	// End Line: 2224
+
+	/* begin block 6 */
+		// Start line: 2223
+	/* end block 6 */
+	// End Line: 2224
+
 int TestForRelease__17AIState_Purgatory(AIState_Purgatory *this)
 
 {
@@ -2133,7 +2621,8 @@ int TestForRelease__17AIState_Purgatory(AIState_Purgatory *this)
     if (GameSetup_gData.commMode == 1) {
       iVar1 = iVar1 + 0x10;
     }
-    if (Cars_gNumTrafficCars - __sdata_size < *(int *)((int)&AITune_MaxTraffic + iVar1)) {
+    if (Cars_gNumTrafficCars - (int)AIState_Purgatory_numTrafficCarsInPurgatory <
+        *(int *)((int)AITune_MaxTraffic + iVar1)) {
       return 1;
     }
     pCVar2->desiredLatPos = 1;
@@ -2153,6 +2642,26 @@ int TestForRelease__17AIState_Purgatory(AIState_Purgatory *this)
 	/* end block 1 */
 	// End offset: 0x80071838
 	// End Line: 1087
+
+	/* begin block 2 */
+		// Start line: 2260
+	/* end block 2 */
+	// End Line: 2261
+
+	/* begin block 3 */
+		// Start line: 2265
+	/* end block 3 */
+	// End Line: 2266
+
+	/* begin block 4 */
+		// Start line: 2265
+	/* end block 4 */
+	// End Line: 2266
+
+	/* begin block 5 */
+		// Start line: 2271
+	/* end block 5 */
+	// End Line: 2272
 
 /* WARNING: Type propagation algorithm not settling */
 
@@ -2183,12 +2692,37 @@ void Execute__17AIState_Purgatory(AIState_Purgatory *this)
 	// End offset: 0x80071840
 	// End Line: 1092
 
+	/* begin block 2 */
+		// Start line: 2306
+	/* end block 2 */
+	// End Line: 2307
+
+	/* begin block 3 */
+		// Start line: 2309
+	/* end block 3 */
+	// End Line: 2310
+
+	/* begin block 4 */
+		// Start line: 2309
+	/* end block 4 */
+	// End Line: 2310
+
+	/* begin block 5 */
+		// Start line: 2310
+	/* end block 5 */
+	// End Line: 2311
+
+	/* begin block 6 */
+		// Start line: 2310
+	/* end block 6 */
+	// End Line: 2311
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void StartUp__17AIState_Purgatory(void)
 
 {
-  __sdata_size = 0;
+  AIState_Purgatory_numTrafficCarsInPurgatory = (uchar *)0x0;
   return;
 }
 
@@ -2205,22 +2739,37 @@ void StartUp__17AIState_Purgatory(void)
 	// End offset: 0x8007184C
 	// End Line: 1104
 
+	/* begin block 2 */
+		// Start line: 2323
+	/* end block 2 */
+	// End Line: 2324
+
+	/* begin block 3 */
+		// Start line: 2335
+	/* end block 3 */
+	// End Line: 2336
+
+	/* begin block 4 */
+		// Start line: 2335
+	/* end block 4 */
+	// End Line: 2336
+
 AIState_RovingTraffic *
 __21AIState_RovingTrafficP8Car_tObjP9trigger_t
           (AIState_RovingTraffic *this,Car_tObj *carObj,trigger_t *trigger)
 
 {
-  uint uVar1;
+  int iVar1;
   Car_tObj *pCVar2;
   
   __12AIState_BaseP8Car_tObj((AIState_Base *)this,carObj);
-  (this->AIState_Base)._vf[0].value = 0x80055560;
+  *(undefined4 *)(this->AIState_Base)._vf = 0x80055560;
   pCVar2 = (this->AIState_Base).carObj_;
-  (this->AIState_Base)._vf[1].value = *(uint *)(*trigger + 0x3c);
-  uVar1 = *(uint *)(*trigger + 0x38);
-  (this->AIState_Base)._vf[3].value = 0;
-  this->path_ = (trigger_pathPosition_t *)0x0;
-  (this->AIState_Base)._vf[2].value = uVar1;
+  this->path_ = *(trigger_pathPosition_t **)(*trigger + 0x3c);
+  iVar1 = *(int *)(*trigger + 0x38);
+  this->pathIndex_ = 0;
+  this->waitTick_ = 0;
+  this->numPathPoints_ = iVar1;
   pCVar2->carFlags = pCVar2->carFlags | 0x800;
   return this;
 }
@@ -2269,6 +2818,21 @@ __21AIState_RovingTrafficP8Car_tObjP9trigger_t
 	/* end block 1 */
 	// End offset: 0x80071A4C
 	// End Line: 1168
+
+	/* begin block 2 */
+		// Start line: 2249
+	/* end block 2 */
+	// End Line: 2250
+
+	/* begin block 3 */
+		// Start line: 2385
+	/* end block 3 */
+	// End Line: 2386
+
+	/* begin block 4 */
+		// Start line: 2385
+	/* end block 4 */
+	// End Line: 2386
 
 /* WARNING: Type propagation algorithm not settling */
 
@@ -2393,99 +2957,108 @@ LAB_80071a40:
 	// End offset: 0x80071DF0
 	// End Line: 1225
 
+	/* begin block 2 */
+		// Start line: 2466
+	/* end block 2 */
+	// End Line: 2467
+
+	/* begin block 3 */
+		// Start line: 2469
+	/* end block 3 */
+	// End Line: 2470
+
+	/* begin block 4 */
+		// Start line: 2469
+	/* end block 4 */
+	// End Line: 2470
+
 /* WARNING: Type propagation algorithm not settling */
 
 void Execute__21AIState_RovingTraffic(AIState_RovingTraffic *this)
 
 {
-  int *piVar1;
+  trigger_pathPosition_t *ptVar1;
   Trk_NewSlice *pTVar2;
-  uint uVar3;
-  int iVar4;
+  int iVar3;
   Car_tObj *otherCarObj;
+  int iVar4;
   int iVar5;
   int iVar6;
   int iVar7;
   int iVar8;
-  int iVar9;
-  Car_tObj **ppCVar10;
+  Car_tObj **ppCVar9;
   int local_20 [2];
   
   otherCarObj = (this->AIState_Base).carObj_;
-  piVar1 = (int *)((this->AIState_Base)._vf[3].value * 0x14 + (this->AIState_Base)._vf[1].value);
-  iVar8 = piVar1[1];
-  iVar9 = piVar1[2];
-  (otherCarObj->desiredVector).y = *piVar1;
-  (otherCarObj->desiredVector).z = iVar8;
-  otherCarObj->aCarWRTDesired = iVar9;
+  ptVar1 = this->path_ + this->pathIndex_;
+  iVar7 = (ptVar1->position).y;
+  iVar8 = (ptVar1->position).z;
+  (otherCarObj->desiredVector).y = (ptVar1->position).x;
+  (otherCarObj->desiredVector).z = iVar7;
+  otherCarObj->aCarWRTDesired = iVar8;
   (((this->AIState_Base).carObj_)->script).lastReactionIndex[5] =
-       *(int *)((this->AIState_Base)._vf[3].value * 0x14 + (this->AIState_Base)._vf[1].value + 0xc)
-       * 0x7247;
+       this->path_[this->pathIndex_].targetSpeed * 0x7247;
   pTVar2 = BWorldSm_slices + (int)(((this->AIState_Base).carObj_)->N).simRoadInfo.slice;
-  iVar8 = (((this->AIState_Base).carObj_)->desiredVector).y - pTVar2->center[0];
-  iVar9 = (((this->AIState_Base).carObj_)->desiredVector).z - pTVar2->center[1];
-  iVar4 = ((this->AIState_Base).carObj_)->aCarWRTDesired - pTVar2->center[2];
+  iVar7 = (((this->AIState_Base).carObj_)->desiredVector).y - pTVar2->center[0];
+  iVar8 = (((this->AIState_Base).carObj_)->desiredVector).z - pTVar2->center[1];
+  iVar3 = ((this->AIState_Base).carObj_)->aCarWRTDesired - pTVar2->center[2];
   otherCarObj = (this->AIState_Base).carObj_;
-  iVar5 = (otherCarObj->N).roadMatrix.m[0];
+  iVar4 = (otherCarObj->N).roadMatrix.m[0];
+  if (iVar4 < 0) {
+    iVar4 = iVar4 + 0xff;
+  }
+  if (iVar7 < 0) {
+    iVar7 = iVar7 + 0xff;
+  }
+  iVar5 = (otherCarObj->N).roadMatrix.m[1];
   if (iVar5 < 0) {
     iVar5 = iVar5 + 0xff;
   }
   if (iVar8 < 0) {
     iVar8 = iVar8 + 0xff;
   }
-  iVar6 = (otherCarObj->N).roadMatrix.m[1];
+  iVar6 = (otherCarObj->N).roadMatrix.m[2];
   if (iVar6 < 0) {
     iVar6 = iVar6 + 0xff;
   }
-  if (iVar9 < 0) {
-    iVar9 = iVar9 + 0xff;
-  }
-  iVar7 = (otherCarObj->N).roadMatrix.m[2];
-  if (iVar7 < 0) {
-    iVar7 = iVar7 + 0xff;
-  }
-  if (iVar4 < 0) {
-    iVar4 = iVar4 + 0xff;
+  if (iVar3 < 0) {
+    iVar3 = iVar3 + 0xff;
   }
   (otherCarObj->angularAcc_ch).x =
-       (iVar5 >> 8) * (iVar8 >> 8) + (iVar6 >> 8) * (iVar9 >> 8) + (iVar7 >> 8) * (iVar4 >> 8);
+       (iVar4 >> 8) * (iVar7 >> 8) + (iVar5 >> 8) * (iVar8 >> 8) + (iVar6 >> 8) * (iVar3 >> 8);
   otherCarObj = (this->AIState_Base).carObj_;
-  iVar9 = (otherCarObj->desiredVector).y - (otherCarObj->N).position.x >> 0xc;
+  iVar8 = (otherCarObj->desiredVector).y - (otherCarObj->N).position.x >> 0xc;
   otherCarObj = (this->AIState_Base).carObj_;
-  iVar8 = otherCarObj->aCarWRTDesired - (otherCarObj->N).position.z >> 0xc;
-  if (iVar9 * iVar9 + iVar8 * iVar8 < 10000) {
-    if (this->path_ == (trigger_pathPosition_t *)0x0) {
-      this->path_ = (trigger_pathPosition_t *)
-                    (simGlobal.gameTicks +
-                    *(int *)((this->AIState_Base)._vf[3].value * 0x14 +
-                             (this->AIState_Base)._vf[1].value + 0x10));
+  iVar7 = otherCarObj->aCarWRTDesired - (otherCarObj->N).position.z >> 0xc;
+  if (iVar8 * iVar8 + iVar7 * iVar7 < 10000) {
+    if (this->waitTick_ == 0) {
+      this->waitTick_ = simGlobal.gameTicks + this->path_[this->pathIndex_].waitTime;
     }
-    if (simGlobal.gameTicks < (int)this->path_) {
+    if (simGlobal.gameTicks < this->waitTick_) {
       (((this->AIState_Base).carObj_)->script).lastReactionIndex[5] = 0;
     }
     else {
-      uVar3 = (this->AIState_Base)._vf[3].value;
-      this->path_ = (trigger_pathPosition_t *)0x0;
-      (this->AIState_Base)._vf[3].value = uVar3 + 1;
+      this->waitTick_ = 0;
+      this->pathIndex_ = this->pathIndex_ + 1;
     }
   }
   local_20[0] = 2;
-  iVar8 = ((this->AIState_Base).carObj_)->sortIndex + 1;
-  ppCVar10 = &__Cars_gSortedList_9__ + iVar8;
-  while ((iVar8 < Cars_gNumCars && (local_20[0] == 2))) {
-    otherCarObj = *ppCVar10;
-    ppCVar10 = ppCVar10 + 1;
-    iVar8 = iVar8 + 1;
+  iVar7 = ((this->AIState_Base).carObj_)->sortIndex + 1;
+  ppCVar9 = &Cars_gSortedList9 + iVar7;
+  while ((iVar7 < Cars_gNumCars && (local_20[0] == 2))) {
+    otherCarObj = *ppCVar9;
+    ppCVar9 = ppCVar9 + 1;
+    iVar7 = iVar7 + 1;
     CheckIfCarIsNearbyAndStop__21AIState_RovingTrafficP8Car_tObjRi(this,otherCarObj,local_20);
   }
   if (local_20[0] != 1) {
     local_20[0] = 2;
-    iVar8 = ((this->AIState_Base).carObj_)->sortIndex + -1;
-    ppCVar10 = &__Cars_gSortedList_9__ + iVar8;
-    while ((-1 < iVar8 && (local_20[0] == 2))) {
-      otherCarObj = *ppCVar10;
-      ppCVar10 = ppCVar10 + -1;
-      iVar8 = iVar8 + -1;
+    iVar7 = ((this->AIState_Base).carObj_)->sortIndex + -1;
+    ppCVar9 = &Cars_gSortedList9 + iVar7;
+    while ((-1 < iVar7 && (local_20[0] == 2))) {
+      otherCarObj = *ppCVar9;
+      ppCVar9 = ppCVar9 + -1;
+      iVar7 = iVar7 + -1;
       CheckIfCarIsNearbyAndStop__21AIState_RovingTrafficP8Car_tObjRi(this,otherCarObj,local_20);
     }
   }
@@ -2521,19 +3094,34 @@ void Execute__21AIState_RovingTraffic(AIState_RovingTraffic *this)
 	// End offset: 0x80071E60
 	// End Line: 1254
 
+	/* begin block 3 */
+		// Start line: 2492
+	/* end block 3 */
+	// End Line: 2493
+
+	/* begin block 4 */
+		// Start line: 2616
+	/* end block 4 */
+	// End Line: 2617
+
+	/* begin block 5 */
+		// Start line: 2616
+	/* end block 5 */
+	// End Line: 2617
+
 void ___14AIState_Donuts(AIState_Donuts *this,int __in_chrg)
 
 {
   Car_tObj *pCVar1;
   
   pCVar1 = (this->AIState_Base).carObj_;
-  (this->AIState_Base)._vf[0].value = 0x80055540;
+  *(undefined4 *)(this->AIState_Base)._vf = 0x80055540;
   pCVar1->aCarWRTDesired = 0;
   (pCVar1->desiredVector).z = 0;
   (pCVar1->desiredVector).y = 0;
   (((this->AIState_Base).carObj_)->angularAcc_ch).x = 0;
   ((this->AIState_Base).carObj_)->preferredLateralPosition = 0;
-  (this->AIState_Base)._vf[0].value = 0x80055640;
+  *(undefined4 *)(this->AIState_Base)._vf = 0x80055640;
   if ((__in_chrg & 1U) != 0) {
     __builtin_delete(this);
   }
@@ -2578,6 +3166,21 @@ void ___14AIState_Donuts(AIState_Donuts *this,int __in_chrg)
 	// End offset: 0x800722EC
 	// End Line: 1327
 
+	/* begin block 2 */
+		// Start line: 2632
+	/* end block 2 */
+	// End Line: 2633
+
+	/* begin block 3 */
+		// Start line: 2635
+	/* end block 3 */
+	// End Line: 2636
+
+	/* begin block 4 */
+		// Start line: 2635
+	/* end block 4 */
+	// End Line: 2636
+
 /* WARNING: Type propagation algorithm not settling */
 
 void Execute__14AIState_Donuts(AIState_Donuts *this)
@@ -2594,76 +3197,75 @@ void Execute__14AIState_Donuts(AIState_Donuts *this)
   uint uVar9;
   uint uVar10;
   uint uVar11;
-  int iVar12;
+  uint uVar12;
   int iVar13;
   int iVar14;
-  uint uVar15;
+  int iVar15;
   Car_tObj *pCVar16;
   int iVar17;
   coorddef local_20;
   
   pCVar16 = (this->AIState_Base).carObj_;
-  iVar12 = (pCVar16->N).orientMat.m[6];
+  iVar13 = (pCVar16->N).orientMat.m[6];
   iVar17 = (int)(pCVar16->N).simRoadInfo.slice;
-  if (iVar12 < 0) {
-    iVar12 = iVar12 + 0xff;
+  if (iVar13 < 0) {
+    iVar13 = iVar13 + 0xff;
   }
   iVar1 = (pCVar16->N).roadMatrix.m[6];
   if (iVar1 < 0) {
     iVar1 = iVar1 + 0xff;
   }
-  iVar13 = (pCVar16->N).orientMat.m[7];
-  if (iVar13 < 0) {
-    iVar13 = iVar13 + 0xff;
+  iVar14 = (pCVar16->N).orientMat.m[7];
+  if (iVar14 < 0) {
+    iVar14 = iVar14 + 0xff;
   }
   iVar2 = (pCVar16->N).roadMatrix.m[7];
   if (iVar2 < 0) {
     iVar2 = iVar2 + 0xff;
   }
-  iVar14 = (pCVar16->N).orientMat.m[8];
-  if (iVar14 < 0) {
-    iVar14 = iVar14 + 0xff;
+  iVar15 = (pCVar16->N).orientMat.m[8];
+  if (iVar15 < 0) {
+    iVar15 = iVar15 + 0xff;
   }
   iVar3 = (pCVar16->N).roadMatrix.m[8];
   if (iVar3 < 0) {
     iVar3 = iVar3 + 0xff;
   }
   iVar4 = 1;
-  if ((iVar12 >> 8) * (iVar1 >> 8) + (iVar13 >> 8) * (iVar2 >> 8) + (iVar14 >> 8) * (iVar3 >> 8) < 1
+  if ((iVar13 >> 8) * (iVar1 >> 8) + (iVar14 >> 8) * (iVar2 >> 8) + (iVar15 >> 8) * (iVar3 >> 8) < 1
      ) {
     iVar4 = -1;
   }
   (pCVar16->script).lastReactionIndex[3] = iVar4;
   (pCVar16->script).lastReactionIndex[2] = iVar4;
-  uVar15 = (this->AIState_Base)._vf[2].value;
-  if ((uVar15 == 1) || (uVar15 == 3)) {
+  if ((this->donutMode_ == DONUTMODE_GOCENTER) || (this->donutMode_ == DONUTMODE_BURNOUT)) {
     pCVar16 = (this->AIState_Base).carObj_;
-    iVar12 = (pCVar16->N).orientMat.m[6];
-    if (iVar12 < 0) {
-      iVar12 = iVar12 + 0xff;
+    iVar13 = (pCVar16->N).orientMat.m[6];
+    if (iVar13 < 0) {
+      iVar13 = iVar13 + 0xff;
     }
     iVar1 = (pCVar16->N).roadMatrix.m[6];
     if (iVar1 < 0) {
       iVar1 = iVar1 + 0xff;
     }
-    iVar13 = (pCVar16->N).orientMat.m[7];
-    if (iVar13 < 0) {
-      iVar13 = iVar13 + 0xff;
+    iVar14 = (pCVar16->N).orientMat.m[7];
+    if (iVar14 < 0) {
+      iVar14 = iVar14 + 0xff;
     }
     iVar2 = (pCVar16->N).roadMatrix.m[7];
     if (iVar2 < 0) {
       iVar2 = iVar2 + 0xff;
     }
-    iVar14 = (pCVar16->N).orientMat.m[8];
-    if (iVar14 < 0) {
-      iVar14 = iVar14 + 0xff;
+    iVar15 = (pCVar16->N).orientMat.m[8];
+    if (iVar15 < 0) {
+      iVar15 = iVar15 + 0xff;
     }
     iVar3 = (pCVar16->N).roadMatrix.m[8];
     if (iVar3 < 0) {
       iVar3 = iVar3 + 0xff;
     }
     iVar4 = iVar17 + 3;
-    if ((iVar12 >> 8) * (iVar1 >> 8) + (iVar13 >> 8) * (iVar2 >> 8) + (iVar14 >> 8) * (iVar3 >> 8) <
+    if ((iVar13 >> 8) * (iVar1 >> 8) + (iVar14 >> 8) * (iVar2 >> 8) + (iVar15 >> 8) * (iVar3 >> 8) <
         0) {
       iVar4 = iVar17 + -3;
       if (iVar4 < 0) {
@@ -2679,58 +3281,58 @@ void Execute__14AIState_Donuts(AIState_Donuts *this)
     local_20.x = pTVar5->center[0];
     local_20.y = pTVar5->center[1];
     local_20.z = pTVar5->center[2];
-    iVar12 = (((this->AIState_Base).carObj_)->speechInfo).playerCarIndex;
-    if (iVar12 < 0) {
-      iVar12 = -iVar12;
+    iVar13 = (((this->AIState_Base).carObj_)->speechInfo).playerCarIndex;
+    if (iVar13 < 0) {
+      iVar13 = -iVar13;
     }
     iVar1 = 0;
-    if (((this->AIState_Base)._vf[2].value == 1) && (iVar12 < 0x28000)) {
-      (this->AIState_Base)._vf[2].value = 2;
+    if ((this->donutMode_ == DONUTMODE_GOCENTER) && (iVar13 < 0x28000)) {
+      this->donutMode_ = DONUTMODE_DONUT;
     }
   }
   else {
-    uVar15 = (this->AIState_Base)._vf[1].value - 0x10000;
-    (this->AIState_Base)._vf[1].value = uVar15;
-    if ((int)uVar15 < 0x8000) {
+    iVar13 = this->donutLookForward_ + -0x10000;
+    this->donutLookForward_ = iVar13;
+    if (iVar13 < 0x8000) {
       randtemp = fastRandom * randSeed;
       fastRandom = randtemp & 0xffff;
-      *(undefined **)&(this->AIState_Base)._vf[1].value =
+      *(undefined **)&this->donutLookForward_ =
            &DAT_00140000 + ((randtemp >> 8 & 0xffff) * 5 >> 0xe) * 0x10000;
     }
     pCVar16 = (this->AIState_Base).carObj_;
     iVar1 = (pCVar16->N).orientMat.m[1];
     iVar2 = (pCVar16->N).orientMat.m[2];
     pCVar6 = (this->AIState_Base).carObj_;
-    iVar12 = (pCVar6->N).orientMat.m[6];
-    iVar13 = (pCVar6->N).orientMat.m[7];
-    iVar14 = (pCVar6->N).orientMat.m[8];
-    uVar15 = fixedmult(0x60000,(pCVar16->N).orientMat.m[0]);
-    uVar7 = fixedmult(0x60000,iVar1);
-    uVar8 = fixedmult(0x60000,iVar2);
-    uVar9 = fixedmult((this->AIState_Base)._vf[1].value,iVar12);
-    uVar10 = fixedmult((this->AIState_Base)._vf[1].value,iVar13);
-    uVar11 = fixedmult((this->AIState_Base)._vf[1].value,iVar14);
-    local_20.x = (((this->AIState_Base).carObj_)->N).position.x + uVar15 + uVar9;
-    local_20.y = (((this->AIState_Base).carObj_)->N).position.y + uVar7 + uVar10;
-    local_20.z = (((this->AIState_Base).carObj_)->N).position.z + uVar8 + uVar11;
+    iVar13 = (pCVar6->N).orientMat.m[6];
+    iVar14 = (pCVar6->N).orientMat.m[7];
+    iVar15 = (pCVar6->N).orientMat.m[8];
+    uVar7 = fixedmult(0x60000,(pCVar16->N).orientMat.m[0]);
+    uVar8 = fixedmult(0x60000,iVar1);
+    uVar9 = fixedmult(0x60000,iVar2);
+    uVar10 = fixedmult(this->donutLookForward_,iVar13);
+    uVar11 = fixedmult(this->donutLookForward_,iVar14);
+    uVar12 = fixedmult(this->donutLookForward_,iVar15);
+    local_20.x = (((this->AIState_Base).carObj_)->N).position.x + uVar7 + uVar10;
+    local_20.y = (((this->AIState_Base).carObj_)->N).position.y + uVar8 + uVar11;
+    local_20.z = (((this->AIState_Base).carObj_)->N).position.z + uVar9 + uVar12;
     pCVar16 = (this->AIState_Base).carObj_;
     iVar1 = Newton_CalculateRoadPositionFromSliceAndPosition__FiP8coorddefP10matrixtdef
                       ((int)(pCVar16->N).simRoadInfo.slice,&local_20,&(pCVar16->N).roadMatrix);
-    iVar12 = (((this->AIState_Base).carObj_)->speechInfo).playerCarIndex;
-    if (iVar12 < 0) {
+    iVar13 = (((this->AIState_Base).carObj_)->speechInfo).playerCarIndex;
+    if (iVar13 < 0) {
       if ((int)-((uint)BWorldSm_slices[iVar17].avgPavedWidthLf * 0x8000 *
-                (uint)(BWorldSm_slices[iVar17].laneCount >> 4)) <= iVar12 + -0x20000)
+                (uint)(BWorldSm_slices[iVar17].laneCount >> 4)) <= iVar13 + -0x20000)
       goto LAB_800722ec;
     }
     else {
-      if (iVar12 + 0x20000 <=
+      if (iVar13 + 0x20000 <=
           (int)((uint)BWorldSm_slices[iVar17].avgPavedWidthRt * 0x8000 *
                ((uint)BWorldSm_slices[iVar17].laneCount & 0xf))) goto LAB_800722ec;
     }
-    (this->AIState_Base)._vf[2].value = 1;
+    this->donutMode_ = DONUTMODE_GOCENTER;
   }
 LAB_800722ec:
-  ((this->AIState_Base).carObj_)->preferredLateralPosition = (this->AIState_Base)._vf[2].value;
+  ((this->AIState_Base).carObj_)->preferredLateralPosition = this->donutMode_;
   AI_GenericBeginCycle__FP8Car_tObj((this->AIState_Base).carObj_);
   AI_GenericCycle__FP8Car_tObj((this->AIState_Base).carObj_);
   AI_GenericEndCycle__FP8Car_tObj((this->AIState_Base).carObj_);
@@ -2756,15 +3358,30 @@ LAB_800722ec:
 	// End offset: 0x8007236C
 	// End Line: 1349
 
+	/* begin block 2 */
+		// Start line: 2812
+	/* end block 2 */
+	// End Line: 2813
+
+	/* begin block 3 */
+		// Start line: 2826
+	/* end block 3 */
+	// End Line: 2827
+
+	/* begin block 4 */
+		// Start line: 2826
+	/* end block 4 */
+	// End Line: 2827
+
 AIState_GotoSlice *
 __17AIState_GotoSliceP8Car_tObjii
           (AIState_GotoSlice *this,Car_tObj *carObj,int targetSlice,int stopWhenArrivedAtSlice)
 
 {
   __14AIState_NormalP8Car_tObj((AIState_Normal *)this,carObj);
-  (this->AIState_Normal).AIState_Base._vf[0].value = 0x80055520;
-  (this->AIState_Normal).AIState_Base._vf[1].value = targetSlice;
-  (this->AIState_Normal).AIState_Base._vf[2].value = stopWhenArrivedAtSlice;
+  *(undefined4 *)(this->AIState_Normal).AIState_Base._vf = 0x80055520;
+  this->targetSlice_ = targetSlice;
+  this->stopWhenArrivedAtSlice_ = stopWhenArrivedAtSlice;
   return this;
 }
 
@@ -2800,6 +3417,21 @@ __17AIState_GotoSliceP8Car_tObjii
 	// End offset: 0x800724C4
 	// End Line: 1389
 
+	/* begin block 2 */
+		// Start line: 2839
+	/* end block 2 */
+	// End Line: 2840
+
+	/* begin block 3 */
+		// Start line: 2843
+	/* end block 3 */
+	// End Line: 2844
+
+	/* begin block 4 */
+		// Start line: 2843
+	/* end block 4 */
+	// End Line: 2844
+
 /* WARNING: Type propagation algorithm not settling */
 
 void Execute__17AIState_GotoSlice(AIState_GotoSlice *this)
@@ -2812,8 +3444,7 @@ void Execute__17AIState_GotoSlice(AIState_GotoSlice *this)
   undefined *puVar5;
   
   iVar2 = AIWorld_ApxSplineDistance__FiP8Car_tObj
-                    ((this->AIState_Normal).AIState_Base._vf[1].value,
-                     (this->AIState_Normal).AIState_Base.carObj_);
+                    (this->targetSlice_,(this->AIState_Normal).AIState_Base.carObj_);
   if (iVar2 < 0) {
     (((this->AIState_Normal).AIState_Base.carObj_)->script).lastReactionIndex[2] = -1;
   }
@@ -2821,7 +3452,7 @@ void Execute__17AIState_GotoSlice(AIState_GotoSlice *this)
     (((this->AIState_Normal).AIState_Base.carObj_)->script).lastReactionIndex[2] = 1;
   }
   Execute__14AIState_Normal((AIState_Normal *)this);
-  if ((this->AIState_Normal).AIState_Base._vf[2].value != 0) {
+  if (this->stopWhenArrivedAtSlice_ != 0) {
     if (iVar2 < 0) {
       iVar2 = -iVar2;
     }
@@ -2876,14 +3507,28 @@ void Execute__17AIState_GotoSlice(AIState_GotoSlice *this)
 	// End offset: 0x800724D8
 	// End Line: 1396
 
+	/* begin block 2 */
+		// Start line: 2920
+	/* end block 2 */
+	// End Line: 2921
+
+	/* begin block 3 */
+		// Start line: 2927
+	/* end block 3 */
+	// End Line: 2928
+
+	/* begin block 4 */
+		// Start line: 2927
+	/* end block 4 */
+	// End Line: 2928
+
 int InTargetSliceRange__17AIState_GotoSlicei(AIState_GotoSlice *this,int rangeMeters)
 
 {
   int iVar1;
   
   iVar1 = AIWorld_ApxSplineDistance__FP8Car_tObji
-                    ((this->AIState_Normal).AIState_Base.carObj_,
-                     (this->AIState_Normal).AIState_Base._vf[1].value);
+                    ((this->AIState_Normal).AIState_Base.carObj_,this->targetSlice_);
   if (iVar1 < 0) {
     iVar1 = -iVar1;
   }
@@ -2903,20 +3548,35 @@ int InTargetSliceRange__17AIState_GotoSlicei(AIState_GotoSlice *this,int rangeMe
 	// End offset: 0x8007256C
 	// End Line: 1409
 
+	/* begin block 2 */
+		// Start line: 2938
+	/* end block 2 */
+	// End Line: 2939
+
+	/* begin block 3 */
+		// Start line: 2943
+	/* end block 3 */
+	// End Line: 2944
+
+	/* begin block 4 */
+		// Start line: 2943
+	/* end block 4 */
+	// End Line: 2944
+
 AIState_Cruise *
 __14AIState_CruiseP8Car_tObj12cruiseMode_ti
           (AIState_Cruise *this,Car_tObj *carObj,cruiseMode_t cruiseMode,int speedOrFactor)
 
 {
   __14AIState_NormalP8Car_tObj((AIState_Normal *)this,carObj);
-  (this->AIState_Normal).AIState_Base._vf[0].value = 0x80055500;
-  (this->AIState_Normal).AIState_Base._vf[1].value = cruiseMode;
+  *(undefined4 *)(this->AIState_Normal).AIState_Base._vf = 0x80055500;
+  this->cruiseMode_ = cruiseMode;
   if (cruiseMode == CRUISE_ATSETSPEED) {
-    (this->AIState_Normal).AIState_Base._vf[2].value = speedOrFactor;
+    this->cruiseSpeed_ = speedOrFactor;
   }
   else {
     if (cruiseMode == CRUISE_ATFACTOR) {
-      (this->AIState_Normal).AIState_Base._vf[3].value = speedOrFactor;
+      this->cruiseFactor_ = speedOrFactor;
     }
   }
   return this;
@@ -2935,32 +3595,47 @@ __14AIState_CruiseP8Car_tObj12cruiseMode_ti
 	// End offset: 0x80072628
 	// End Line: 1433
 
+	/* begin block 2 */
+		// Start line: 2959
+	/* end block 2 */
+	// End Line: 2960
+
+	/* begin block 3 */
+		// Start line: 2965
+	/* end block 3 */
+	// End Line: 2966
+
+	/* begin block 4 */
+		// Start line: 2965
+	/* end block 4 */
+	// End Line: 2966
+
 /* WARNING: Type propagation algorithm not settling */
 
 void Execute__14AIState_Cruise(AIState_Cruise *this)
 
 {
   uint uVar1;
-  Car_tObj *pCVar2;
+  cruiseMode_t cVar2;
+  Car_tObj *pCVar3;
   
-  uVar1 = (this->AIState_Normal).AIState_Base._vf[1].value;
-  if (uVar1 == 1) {
+  cVar2 = this->cruiseMode_;
+  if (cVar2 == CRUISE_ATFACTOR) {
     AISpeeds_CalcDesiredSpeed__FP8Car_tObj((this->AIState_Normal).AIState_Base.carObj_);
     uVar1 = fixedmult((((this->AIState_Normal).AIState_Base.carObj_)->script).lastReactionIndex[5],
-                      (this->AIState_Normal).AIState_Base._vf[3].value);
+                      this->cruiseFactor_);
     (((this->AIState_Normal).AIState_Base.carObj_)->script).lastReactionIndex[5] = uVar1;
   }
   else {
-    if ((int)uVar1 < 2) {
-      if (uVar1 == 0) {
-        pCVar2 = (this->AIState_Normal).AIState_Base.carObj_;
-        (pCVar2->script).lastReactionIndex[5] =
-             (this->AIState_Normal).AIState_Base._vf[2].value *
-             (pCVar2->script).lastReactionIndex[3];
+    if ((int)cVar2 < 2) {
+      if (cVar2 == CRUISE_ATSETSPEED) {
+        pCVar3 = (this->AIState_Normal).AIState_Base.carObj_;
+        (pCVar3->script).lastReactionIndex[5] =
+             this->cruiseSpeed_ * (pCVar3->script).lastReactionIndex[3];
       }
     }
     else {
-      if (uVar1 == 2) {
+      if (cVar2 == CRUISE_ATTRAFFICSPEED) {
         AISpeeds_CalcTrafficTopSpeed__FP8Car_tObj((this->AIState_Normal).AIState_Base.carObj_);
       }
     }
@@ -2970,6 +3645,7 @@ void Execute__14AIState_Cruise(AIState_Cruise *this)
   AI_GenericEndCycle__FP8Car_tObj((this->AIState_Normal).AIState_Base.carObj_);
   return;
 }
+
 
 
 

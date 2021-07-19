@@ -1,6 +1,7 @@
 #ifndef AIH_BTCCOP_H
 #define AIH_BTCCOP_H
 
+
 extern struct AIHigh_BTC_Cop * __14AIHigh_BTC_CopP8Car_tObji(struct AIHigh_BTC_Cop *this, struct Car_tObj *carObj, int copIndex); // 0x8005CB6C
 
 extern void AssignToPlayer__14AIHigh_BTC_CopP15AIHigh_BTC_Perp(struct AIHigh_BTC_Cop *this, struct AIHigh_BTC_Perp *target); // 0x8005CBAC
@@ -66,5 +67,6 @@ extern int UpdateFreezeModeAndPullOverMode__18AIHigh_BTC_Wingman(struct AIHigh_B
 extern void SetupWingman__18AIHigh_BTC_WingmanP19AIHigh_BTC_HumanCop(struct AIHigh_BTC_Wingman *this, struct AIHigh_BTC_HumanCop *humanCop); // 0x8005EF38
 
 extern void SetupBlockader__18AIHigh_BTC_WingmanP19AIHigh_BTC_HumanCopi(struct AIHigh_BTC_Wingman *this, struct AIHigh_BTC_HumanCop *humanCop, int spikeBeltRequest); // 0x8005F074
+
 
 #endif

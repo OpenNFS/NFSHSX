@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "AISPEEDS.H"
+
 
 // decompiled code
 // original method signature: 
@@ -12,12 +13,22 @@
 	// End offset: 0x8006D5B4
 	// End Line: 208
 
+	/* begin block 2 */
+		// Start line: 414
+	/* end block 2 */
+	// End Line: 415
+
+	/* begin block 3 */
+		// Start line: 414
+	/* end block 3 */
+	// End Line: 415
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void AISpeeds_StartUp__Fv(void)
 
 {
-  DAT_00000064 = reservememadr(s_aiwther_8013c5d0,0x104,0);
+  AISpeeds_WeatherMultFactors = (int *)reservememadr(s_aiwther_8013c5d0,0x104,0);
   AISpeeds_ReadTuningInfo__Fv();
   return;
 }
@@ -128,6 +139,21 @@ void AISpeeds_StartUp__Fv(void)
 	// End offset: 0x8006D810
 	// End Line: 318
 
+	/* begin block 2 */
+		// Start line: 442
+	/* end block 2 */
+	// End Line: 443
+
+	/* begin block 3 */
+		// Start line: 447
+	/* end block 3 */
+	// End Line: 448
+
+	/* begin block 4 */
+		// Start line: 447
+	/* end block 4 */
+	// End Line: 448
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void AISpeeds_ReadTuningInfo__Fv(void)
@@ -148,7 +174,7 @@ void AISpeeds_ReadTuningInfo__Fv(void)
   sprintf(acStack152,s__stuning_bin_800554d0,PTR_80116470);
   handle = Udff_Opena__FPcT0i(acStack152,(char *)0x0,1);
   Udff_GetInt__FP10Udff_tInfo(handle);
-  pAVar6 = &CaravanInfo;
+  pAVar6 = CaravanInfo;
   while (iVar7 < 6) {
     iVar1 = Udff_GetInt__FP10Udff_tInfo(handle);
     pAVar6->distanceMaintainTime32 = iVar1 << 5;
@@ -165,7 +191,7 @@ void AISpeeds_ReadTuningInfo__Fv(void)
   iVar7 = 0;
   if ((GameSetup_gData.raceType == 0) && (0 < Cars_gNumAIRaceCars)) {
     iVar7 = 0;
-    iVar1 = __Cars_gAIRaceCarList_9__->carInfo->carType;
+    iVar1 = Cars_gAIRaceCarList9[0]->carInfo->carType;
     do {
       local_28[0] = Udff_GetInt__FP10Udff_tInfo(handle);
       local_28[1] = Udff_GetInt__FP10Udff_tInfo(handle);
@@ -184,7 +210,7 @@ void AISpeeds_ReadTuningInfo__Fv(void)
       iVar7 = iVar7 + 1;
     } while (iVar7 < 0x16);
   }
-  DAT_00000068 = 0;
+  AISpeeds_trackAndNightMult = 0;
   iVar7 = 0;
   while (iVar7 < 0xc) {
     Udff_GetInt__FP10Udff_tInfo(handle);
@@ -194,14 +220,14 @@ void AISpeeds_ReadTuningInfo__Fv(void)
       iVar3 = 0x10000;
     }
     if (iVar7 == GameSetup_gData.track) {
-      DAT_00000068 = fixedmult(iVar1,iVar3);
+      AISpeeds_trackAndNightMult = fixedmult(iVar1,iVar3);
     }
     iVar7 = iVar7 + 1;
   }
   iVar7 = Udff_GetInt__FP10Udff_tInfo(handle);
   iVar3 = 0;
   iVar1 = 0;
-  piVar5 = DAT_00000064;
+  piVar5 = AISpeeds_WeatherMultFactors;
   do {
     iVar4 = iVar1;
     if (iVar1 < 0) {
@@ -232,14 +258,34 @@ void AISpeeds_ReadTuningInfo__Fv(void)
 	// End offset: 0x8006D88C
 	// End Line: 333
 
+	/* begin block 2 */
+		// Start line: 677
+	/* end block 2 */
+	// End Line: 678
+
+	/* begin block 3 */
+		// Start line: 681
+	/* end block 3 */
+	// End Line: 682
+
+	/* begin block 4 */
+		// Start line: 681
+	/* end block 4 */
+	// End Line: 682
+
+	/* begin block 5 */
+		// Start line: 684
+	/* end block 5 */
+	// End Line: 685
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void AISpeeds_CleanUp__Fv(void)
 
 {
-  if (DAT_00000064 != 0) {
-    purgememadr(DAT_00000064);
-    DAT_00000064 = 0;
+  if (AISpeeds_WeatherMultFactors != (int *)0x0) {
+    purgememadr((int)AISpeeds_WeatherMultFactors);
+    AISpeeds_WeatherMultFactors = (int *)0x0;
   }
   return;
 }
@@ -260,6 +306,31 @@ void AISpeeds_CleanUp__Fv(void)
 	// End offset: 0x8006D930
 	// End Line: 363
 
+	/* begin block 2 */
+		// Start line: 711
+	/* end block 2 */
+	// End Line: 712
+
+	/* begin block 3 */
+		// Start line: 726
+	/* end block 3 */
+	// End Line: 727
+
+	/* begin block 4 */
+		// Start line: 726
+	/* end block 4 */
+	// End Line: 727
+
+	/* begin block 5 */
+		// Start line: 727
+	/* end block 5 */
+	// End Line: 728
+
+	/* begin block 6 */
+		// Start line: 727
+	/* end block 6 */
+	// End Line: 728
+
 int 
     AISpeeds_SuperDuperSpeedUpTheCarsAtTheStartBecauseWeCannotActuallyHandleRenderingTheseCars__FP8Car_tObj
               (Car_tObj *carObj)
@@ -268,7 +339,7 @@ int
   if ((((1 < Cars_gNumAIRaceCars) && (GameSetup_gData.raceType != 1)) &&
       (simGlobal.gameTicks < 0x780)) &&
      ((Cars_gNumHumanRaceCars == 1 &&
-      ((__Cars_gHumanRaceCarList_9__->N).totalSlice < (carObj->N).totalSlice)))) {
+      ((Cars_gHumanRaceCarList9->N).totalSlice < (carObj->N).totalSlice)))) {
     return (Cars_gNumAIRaceCars - carObj->speedNitrous) * 0x3333 + 0x10000;
   }
   return 0x10000;
@@ -317,6 +388,21 @@ int
 	// End offset: 0x8006DE40
 	// End Line: 603
 
+	/* begin block 2 */
+		// Start line: 771
+	/* end block 2 */
+	// End Line: 772
+
+	/* begin block 3 */
+		// Start line: 786
+	/* end block 3 */
+	// End Line: 787
+
+	/* begin block 4 */
+		// Start line: 786
+	/* end block 4 */
+	// End Line: 787
+
 int AISpeeds_CalcOpponentTopSpeed__FP8Car_tObjPi(Car_tObj *carObj,int *unFetteredDesiredSpeed)
 
 {
@@ -336,8 +422,8 @@ int AISpeeds_CalcOpponentTopSpeed__FP8Car_tObjPi(Car_tObj *carObj,int *unFettere
   iVar1 = AISpeeds_CalcOpponentCurveSpeed__FP8Car_tObj(carObj);
   if (carObj->aiGlue == 0) {
     if (((GameSetup_gData.raceType == 1) || (GameSetup_gData.raceType == 5)) &&
-       (((__Cars_gHumanRaceCarList_9__->carFlags & 0x200U) != 0 ||
-        ((Cars_gNumHumanRaceCars == 2 && ((PTR_8010fa4c->carFlags & 0x200U) != 0)))))) {
+       (((Cars_gHumanRaceCarList9->carFlags & 0x200U) != 0 ||
+        ((Cars_gNumHumanRaceCars == 2 && ((PTR_ARRAY_8010fa4c[0]->carFlags & 0x200U) != 0)))))) {
       f_final = AISpeeds_BTCGetGlueFactor__FP8Car_tObj(carObj);
     }
     else {
@@ -359,9 +445,9 @@ int AISpeeds_CalcOpponentTopSpeed__FP8Car_tObjPi(Car_tObj *carObj,int *unFettere
   if (f_final_00 < 0) {
     f_final_00 = f_final_00 + 0xff;
   }
-  iVar8 = DAT_00000068;
-  if (DAT_00000068 < 0) {
-    iVar8 = DAT_00000068 + 0xff;
+  iVar8 = AISpeeds_trackAndNightMult;
+  if (AISpeeds_trackAndNightMult < 0) {
+    iVar8 = AISpeeds_trackAndNightMult + 0xff;
   }
   if (iVar4 < 0) {
     iVar4 = iVar4 + 0xff;
@@ -448,8 +534,8 @@ int AISpeeds_CalcOpponentTopSpeed__FP8Car_tObjPi(Car_tObj *carObj,int *unFettere
   *unFetteredDesiredSpeed = (iVar1 >> 8) * (f_final >> 8);
   if ((((carObj->carFlags & 1U) != 0) && ((carObj->stats).finishType == 2)) &&
      (((GameSetup_gData.raceType != 1 && (GameSetup_gData.raceType != 5)) ||
-      (((__Cars_gHumanRaceCarList_9__->carFlags & 0x200U) == 0 &&
-       ((Cars_gNumHumanRaceCars != 2 || ((PTR_8010fa4c->carFlags & 0x200U) == 0)))))))) {
+      (((Cars_gHumanRaceCarList9->carFlags & 0x200U) == 0 &&
+       ((Cars_gNumHumanRaceCars != 2 || ((PTR_ARRAY_8010fa4c[0]->carFlags & 0x200U) == 0)))))))) {
     iVar1 = AIWorld_ApxSplineDistance__FP8Car_tObji(carObj,0);
     f_final = 0;
     if (iVar1 < 0) {
@@ -460,7 +546,7 @@ int AISpeeds_CalcOpponentTopSpeed__FP8Car_tObjPi(Car_tObj *carObj,int *unFettere
     f_final_00 = iVar2 - iVar3;
     iVar2 = iVar2 + iVar3;
     if (0 < Cars_gNumCars) {
-      ppCVar7 = &__Cars_gTotalSortedList_9__;
+      ppCVar7 = &Cars_gTotalSortedList9;
       do {
         if (*ppCVar7 == carObj) break;
         f_final = f_final + 1;
@@ -560,6 +646,31 @@ LAB_8006de40:
 	// End offset: 0x8006DF24
 	// End Line: 640
 
+	/* begin block 2 */
+		// Start line: 1284
+	/* end block 2 */
+	// End Line: 1285
+
+	/* begin block 3 */
+		// Start line: 1305
+	/* end block 3 */
+	// End Line: 1306
+
+	/* begin block 4 */
+		// Start line: 1305
+	/* end block 4 */
+	// End Line: 1306
+
+	/* begin block 5 */
+		// Start line: 1306
+	/* end block 5 */
+	// End Line: 1307
+
+	/* begin block 6 */
+		// Start line: 1306
+	/* end block 6 */
+	// End Line: 1307
+
 int AISpeeds_NeedToSlowDownForCurve__FP8Car_tObjiii
               (Car_tObj *carObj,int distanceMeters,int currentSpeed,int futureCurveSpeed)
 
@@ -631,6 +742,21 @@ int AISpeeds_NeedToSlowDownForCurve__FP8Car_tObjiii
 	// End offset: 0x8006E078
 	// End Line: 698
 
+	/* begin block 2 */
+		// Start line: 1338
+	/* end block 2 */
+	// End Line: 1339
+
+	/* begin block 3 */
+		// Start line: 1343
+	/* end block 3 */
+	// End Line: 1344
+
+	/* begin block 4 */
+		// Start line: 1343
+	/* end block 4 */
+	// End Line: 1344
+
 int AISpeeds_CalcOpponentCurveSpeed__FP8Car_tObj(Car_tObj *carObj)
 
 {
@@ -669,7 +795,7 @@ int AISpeeds_CalcOpponentCurveSpeed__FP8Car_tObj(Car_tObj *carObj)
       if (slice < 0) {
         slice = slice + 3;
       }
-      futureCurveSpeed = fixedmult(futureCurveSpeed,*(int *)((slice >> 2) * 4 + DAT_00000064));
+      futureCurveSpeed = fixedmult(futureCurveSpeed,AISpeeds_WeatherMultFactors[slice >> 2]);
     }
     if (iVar1 == 0) break;
     slice = AISpeeds_NeedToSlowDownForCurve__FP8Car_tObjiii
@@ -763,6 +889,21 @@ int AISpeeds_CalcOpponentCurveSpeed__FP8Car_tObj(Car_tObj *carObj)
 	// End offset: 0x8006E234
 	// End Line: 762
 
+	/* begin block 2 */
+		// Start line: 1521
+	/* end block 2 */
+	// End Line: 1522
+
+	/* begin block 3 */
+		// Start line: 1532
+	/* end block 3 */
+	// End Line: 1533
+
+	/* begin block 4 */
+		// Start line: 1532
+	/* end block 4 */
+	// End Line: 1533
+
 int AISpeeds_BTCGetGlueFactor__FP8Car_tObj(Car_tObj *carObj)
 
 {
@@ -781,7 +922,7 @@ int AISpeeds_BTCGetGlueFactor__FP8Car_tObj(Car_tObj *carObj)
   pCVar9 = (Car_tObj *)0x0;
   if ((carObj->carFlags & 0x20U) == 0) {
     iVar8 = 0;
-    ppCVar6 = &__Cars_gHumanRaceCarList_9__;
+    ppCVar6 = &Cars_gHumanRaceCarList9;
     while (iVar8 < Cars_gNumHumanRaceCars) {
       otherCarObj = *ppCVar6;
       if ((otherCarObj->carFlags & 0x200U) != 0) {
@@ -844,6 +985,31 @@ int AISpeeds_BTCGetGlueFactor__FP8Car_tObj(Car_tObj *carObj)
 	// End offset: 0x8006E258
 	// End Line: 775
 
+	/* begin block 2 */
+		// Start line: 1653
+	/* end block 2 */
+	// End Line: 1654
+
+	/* begin block 3 */
+		// Start line: 1665
+	/* end block 3 */
+	// End Line: 1666
+
+	/* begin block 4 */
+		// Start line: 1665
+	/* end block 4 */
+	// End Line: 1666
+
+	/* begin block 5 */
+		// Start line: 1666
+	/* end block 5 */
+	// End Line: 1667
+
+	/* begin block 6 */
+		// Start line: 1666
+	/* end block 6 */
+	// End Line: 1667
+
 Car_tObj * AISpeeds_GetNextAICar__FP8Car_tObj(Car_tObj *carObj)
 
 {
@@ -875,6 +1041,26 @@ Car_tObj * AISpeeds_GetNextAICar__FP8Car_tObj(Car_tObj *carObj)
 	// End offset: 0x8006E2C0
 	// End Line: 794
 
+	/* begin block 2 */
+		// Start line: 1671
+	/* end block 2 */
+	// End Line: 1672
+
+	/* begin block 3 */
+		// Start line: 1675
+	/* end block 3 */
+	// End Line: 1676
+
+	/* begin block 4 */
+		// Start line: 1675
+	/* end block 4 */
+	// End Line: 1676
+
+	/* begin block 5 */
+		// Start line: 1678
+	/* end block 5 */
+	// End Line: 1679
+
 Car_tObj * AISpeeds_GetPrevAICar__FP8Car_tObj(Car_tObj *carObj)
 
 {
@@ -886,7 +1072,7 @@ Car_tObj * AISpeeds_GetPrevAICar__FP8Car_tObj(Car_tObj *carObj)
   pCVar4 = (Car_tObj *)0x0;
   iVar2 = 0;
   if (0 < Cars_gNumCars) {
-    ppCVar3 = &__Cars_gTotalSortedList_9__;
+    ppCVar3 = &Cars_gTotalSortedList9;
     do {
       pCVar1 = *ppCVar3;
       if (carObj == pCVar1) {
@@ -981,6 +1167,21 @@ Car_tObj * AISpeeds_GetPrevAICar__FP8Car_tObj(Car_tObj *carObj)
 	// End offset: 0x8006E66C
 	// End Line: 971
 
+	/* begin block 2 */
+		// Start line: 1720
+	/* end block 2 */
+	// End Line: 1721
+
+	/* begin block 3 */
+		// Start line: 1735
+	/* end block 3 */
+	// End Line: 1736
+
+	/* begin block 4 */
+		// Start line: 1735
+	/* end block 4 */
+	// End Line: 1736
+
 int AISpeeds_GetCaravanFactor__FP8Car_tObj(Car_tObj *carObj)
 
 {
@@ -1019,7 +1220,7 @@ LAB_8006e3b0:
           iVar6 = AIWorld_GameOdometer__FP8Car_tObj(carObj);
           iVar3 = iVar3 - iVar6;
           iVar6 = carObj->slackProb;
-          if ((int)(&LAB_000a0000 + iVar6) < iVar3) {
+          if ((int)&PTR_000a0000 + iVar6 < iVar3) {
             puVar4 = &DAT_00013333;
             if (iVar6 + 0x3e80000 < iVar3) {
               puVar4 = (undefined *)0x18000;
@@ -1047,28 +1248,28 @@ LAB_8006e3b0:
     puVar4 = &DAT_00011999;
   }
 LAB_8006e444:
-  if ((&CaravanInfo)[uVar5].distanceMaintainTime32 != 0) {
+  if (CaravanInfo[uVar5].distanceMaintainTime32 != 0) {
     carObj->accNitrous = carObj->accNitrous - AI_elapsedTime;
   }
   if (carObj->accNitrous < 0) {
-    uVar2 = (&CaravanInfo)[uVar5].distanceMaintainTime32;
+    uVar2 = CaravanInfo[uVar5].distanceMaintainTime32;
     iVar3 = (int)(uVar2 + (uVar2 >> 0x1f)) >> 1;
     randtemp = (fastRandom * randSeed & 0xffff) * randSeed;
     carObj->accNitrous = iVar3 + (iVar3 * ((fastRandom * randSeed & 0xffff00) >> 8) >> 0x10);
     fastRandom = randtemp & 0xffff;
     carObj->slackProb =
-         ((&CaravanInfo)[uVar5].minDistanceMeters +
-         (((&CaravanInfo)[uVar5].maxDistanceMeters - (&CaravanInfo)[uVar5].minDistanceMeters) *
+         (CaravanInfo[uVar5].minDistanceMeters +
+         ((CaravanInfo[uVar5].maxDistanceMeters - CaravanInfo[uVar5].minDistanceMeters) *
           ((randtemp & 0xffff00) >> 8) >> 0x10)) * 0x10000;
   }
   if (((((int)uVar5 < Cars_gNumAIRaceCars + -1) && (carObj->aiGlue == 0)) &&
       ((int)(uint)(carObj->N).totalSlice < GameSetup_gData.numLaps * gNumSlices + -0x14d)) &&
-     ((1 < uVar5 || (leaderBoard.leadRacer != __Cars_gHumanRaceCarList_9__)))) {
+     ((1 < uVar5 || (leaderBoard.leadRacer != Cars_gHumanRaceCarList9)))) {
     randtemp = fastRandom * randSeed;
     fastRandom = randtemp & 0xffff;
     if (((carObj_00 == (Car_tObj *)0x0) || (carObj_00->aiGlue == 0)) &&
        (((randtemp >> 8 & 0xffff) <
-         (&CaravanInfo)[uVar5].fallBackRandomTime_TickPercent * AI_elapsedTime &&
+         CaravanInfo[uVar5].fallBackRandomTime_TickPercent * AI_elapsedTime &&
         (pCVar1 = AISpeeds_GetPrevAICar__FP8Car_tObj(carObj), pCVar1 != (Car_tObj *)0x0)))) {
       *(Car_tObj **)&carObj->aiGlue = pCVar1;
     }
@@ -1166,6 +1367,21 @@ LAB_8006e444:
 	// End offset: 0x8006E874
 	// End Line: 1053
 
+	/* begin block 2 */
+		// Start line: 2071
+	/* end block 2 */
+	// End Line: 2072
+
+	/* begin block 3 */
+		// Start line: 2081
+	/* end block 3 */
+	// End Line: 2082
+
+	/* begin block 4 */
+		// Start line: 2081
+	/* end block 4 */
+	// End Line: 2082
+
 int AISpeeds_GetGlueFactor__FP8Car_tObj(Car_tObj *carObj)
 
 {
@@ -1254,6 +1470,21 @@ LAB_8006e818:
 	// End offset: 0x8006E998
 	// End Line: 1139
 
+	/* begin block 2 */
+		// Start line: 2311
+	/* end block 2 */
+	// End Line: 2312
+
+	/* begin block 3 */
+		// Start line: 2381
+	/* end block 3 */
+	// End Line: 2382
+
+	/* begin block 4 */
+		// Start line: 2381
+	/* end block 4 */
+	// End Line: 2382
+
 int AISpeeds_GetDamageFactor__FP8Car_tObj(Car_tObj *carObj)
 
 {
@@ -1272,8 +1503,8 @@ int AISpeeds_GetDamageFactor__FP8Car_tObj(Car_tObj *carObj)
           (carObj->N).damage[6] + (carObj->N).damage[7];
   carObj->wipeOutStartTick = iVar1;
   if (((GameSetup_gData.raceType == 1) || (GameSetup_gData.raceType == 5)) &&
-     (((__Cars_gHumanRaceCarList_9__->carFlags & 0x200U) != 0 ||
-      ((Cars_gNumHumanRaceCars == 2 && ((PTR_8010fa4c->carFlags & 0x200U) != 0)))))) {
+     (((Cars_gHumanRaceCarList9->carFlags & 0x200U) != 0 ||
+      ((Cars_gNumHumanRaceCars == 2 && ((PTR_ARRAY_8010fa4c[0]->carFlags & 0x200U) != 0)))))) {
     iVar3 = 0x147;
   }
   else {
@@ -1324,6 +1555,21 @@ int AISpeeds_GetDamageFactor__FP8Car_tObj(Car_tObj *carObj)
 	// End offset: 0x8006EA84
 	// End Line: 1182
 
+	/* begin block 2 */
+		// Start line: 2434
+	/* end block 2 */
+	// End Line: 2435
+
+	/* begin block 3 */
+		// Start line: 2443
+	/* end block 3 */
+	// End Line: 2444
+
+	/* begin block 4 */
+		// Start line: 2443
+	/* end block 4 */
+	// End Line: 2444
+
 int AISpeeds_LimitGlueMultiplier__FP8Car_tObji(Car_tObj *carObj,int f_final)
 
 {
@@ -1335,7 +1581,7 @@ int AISpeeds_LimitGlueMultiplier__FP8Car_tObji(Car_tObj *carObj,int f_final)
   if (0xcccb < f_final - 0x999aU) {
     iVar4 = 0x27100000;
     iVar3 = 0;
-    ppCVar2 = &__Cars_gHumanRaceCarList_9__;
+    ppCVar2 = &Cars_gHumanRaceCarList9;
     while (iVar3 < Cars_gNumHumanRaceCars) {
       iVar1 = AIWorld_ApxSplineDistance__FP8Car_tObjT0(carObj,*ppCVar2);
       if (iVar1 < 0) {
@@ -1376,6 +1622,21 @@ int AISpeeds_LimitGlueMultiplier__FP8Car_tObji(Car_tObj *carObj,int f_final)
 	// End offset: 0x8006EB40
 	// End Line: 1240
 
+	/* begin block 2 */
+		// Start line: 2529
+	/* end block 2 */
+	// End Line: 2530
+
+	/* begin block 3 */
+		// Start line: 2544
+	/* end block 3 */
+	// End Line: 2545
+
+	/* begin block 4 */
+		// Start line: 2544
+	/* end block 4 */
+	// End Line: 2545
+
 int AISpeeds_CalcCopTopSpeed__FP8Car_tObj(Car_tObj *carObj)
 
 {
@@ -1389,9 +1650,9 @@ int AISpeeds_CalcCopTopSpeed__FP8Car_tObj(Car_tObj *carObj)
     iVar3 = iVar1;
   }
   iVar2 = (carObj->targetPos).y;
-  iVar1 = DAT_00000068;
-  if (DAT_00000068 < 0) {
-    iVar1 = DAT_00000068 + 0xff;
+  iVar1 = AISpeeds_trackAndNightMult;
+  if (AISpeeds_trackAndNightMult < 0) {
+    iVar1 = AISpeeds_trackAndNightMult + 0xff;
   }
   if (iVar2 < 0) {
     iVar2 = iVar2 + 0xff;
@@ -1429,6 +1690,21 @@ int AISpeeds_CalcCopTopSpeed__FP8Car_tObj(Car_tObj *carObj)
 	// End offset: 0x8006ECE8
 	// End Line: 1290
 
+	/* begin block 2 */
+		// Start line: 2670
+	/* end block 2 */
+	// End Line: 2671
+
+	/* begin block 3 */
+		// Start line: 2679
+	/* end block 3 */
+	// End Line: 2680
+
+	/* begin block 4 */
+		// Start line: 2679
+	/* end block 4 */
+	// End Line: 2680
+
 int AISpeeds_CalcTrafficTopSpeed__FP8Car_tObj(Car_tObj *carObj)
 
 {
@@ -1441,10 +1717,10 @@ int AISpeeds_CalcTrafficTopSpeed__FP8Car_tObj(Car_tObj *carObj)
   iVar1 = AISpeeds_GetLegalSpeed__Fi((int)(carObj->N).simRoadInfo.slice);
   oldsafe = (undefined *)fixedmult(iVar1,0xc000);
   if (((GameSetup_gData.raceType == 1) || (GameSetup_gData.raceType == 5)) &&
-     (((__Cars_gHumanRaceCarList_9__->carFlags & 0x200U) != 0 ||
-      ((Cars_gNumHumanRaceCars == 2 && ((PTR_8010fa4c->carFlags & 0x200U) != 0)))))) {
+     (((Cars_gHumanRaceCarList9->carFlags & 0x200U) != 0 ||
+      ((Cars_gNumHumanRaceCars == 2 && ((PTR_ARRAY_8010fa4c[0]->carFlags & 0x200U) != 0)))))) {
     if ((carObj->script).lastReactionIndex[3] ==
-        (__Cars_gHumanRaceCarList_9__->script).lastReactionIndex[3]) goto LAB_8006ec80;
+        (Cars_gHumanRaceCarList9->script).lastReactionIndex[3]) goto LAB_8006ec80;
     iVar1 = AISpeeds_CalculateOncomingCarSpeed__FP8Car_tObj(carObj);
   }
   else {
@@ -1492,13 +1768,33 @@ LAB_8006ec80:
 	// End offset: 0x8006ED44
 	// End Line: 1304
 
+	/* begin block 2 */
+		// Start line: 2748
+	/* end block 2 */
+	// End Line: 2749
+
+	/* begin block 3 */
+		// Start line: 2753
+	/* end block 3 */
+	// End Line: 2754
+
+	/* begin block 4 */
+		// Start line: 2753
+	/* end block 4 */
+	// End Line: 2754
+
+	/* begin block 5 */
+		// Start line: 2756
+	/* end block 5 */
+	// End Line: 2757
+
 int AISpeeds_GetLegalSpeed__Fi(int slice)
 
 {
   ushort *puVar1;
   ushort *puVar2;
   
-  puVar1 = (ushort *)(&__AISpeeds_TrackSpeeds_11__)[GameSetup_gData.track];
+  puVar1 = (ushort *)AISpeeds_TrackSpeeds11[GameSetup_gData.track];
   do {
     puVar2 = puVar1;
     puVar1 = puVar2 + 2;
@@ -1521,6 +1817,26 @@ int AISpeeds_GetLegalSpeed__Fi(int slice)
 	/* end block 1 */
 	// End offset: 0x8006EDD4
 	// End Line: 1335
+
+	/* begin block 2 */
+		// Start line: 2780
+	/* end block 2 */
+	// End Line: 2781
+
+	/* begin block 3 */
+		// Start line: 2789
+	/* end block 3 */
+	// End Line: 2790
+
+	/* begin block 4 */
+		// Start line: 2789
+	/* end block 4 */
+	// End Line: 2790
+
+	/* begin block 5 */
+		// Start line: 2794
+	/* end block 5 */
+	// End Line: 2795
 
 int AISpeeds_RandomizeTrafficSpeed__FP8Car_tObji(Car_tObj *carObj,int oldsafe)
 
@@ -1566,6 +1882,21 @@ int AISpeeds_RandomizeTrafficSpeed__FP8Car_tObji(Car_tObj *carObj,int oldsafe)
 	/* end block 1 */
 	// End offset: 0x8006EE70
 	// End Line: 1367
+
+	/* begin block 2 */
+		// Start line: 2848
+	/* end block 2 */
+	// End Line: 2849
+
+	/* begin block 3 */
+		// Start line: 2862
+	/* end block 3 */
+	// End Line: 2863
+
+	/* begin block 4 */
+		// Start line: 2862
+	/* end block 4 */
+	// End Line: 2863
 
 void AISpeeds_CalcDesiredSpeed__FP8Car_tObj(Car_tObj *carObj)
 
@@ -1618,6 +1949,26 @@ void AISpeeds_CalcDesiredSpeed__FP8Car_tObj(Car_tObj *carObj)
 	// End offset: 0x8006EF20
 	// End Line: 1399
 
+	/* begin block 2 */
+		// Start line: 2916
+	/* end block 2 */
+	// End Line: 2917
+
+	/* begin block 3 */
+		// Start line: 2934
+	/* end block 3 */
+	// End Line: 2935
+
+	/* begin block 4 */
+		// Start line: 2934
+	/* end block 4 */
+	// End Line: 2935
+
+	/* begin block 5 */
+		// Start line: 2939
+	/* end block 5 */
+	// End Line: 2940
+
 int AISpeeds_CalculateOncomingCarSpeed__FP8Car_tObj(Car_tObj *carObj)
 
 {
@@ -1664,6 +2015,26 @@ int AISpeeds_CalculateOncomingCarSpeed__FP8Car_tObj(Car_tObj *carObj)
 	// End offset: 0x8006EF28
 	// End Line: 1409
 
+	/* begin block 2 */
+		// Start line: 2990
+	/* end block 2 */
+	// End Line: 2991
+
+	/* begin block 3 */
+		// Start line: 3000
+	/* end block 3 */
+	// End Line: 3001
+
+	/* begin block 4 */
+		// Start line: 3000
+	/* end block 4 */
+	// End Line: 3001
+
+	/* begin block 5 */
+		// Start line: 3004
+	/* end block 5 */
+	// End Line: 3005
+
 void AISpeeds_SetTrafficSpeedRandomFactor__FP8Car_tObj(Car_tObj *carObj)
 
 {
@@ -1709,6 +2080,31 @@ void AISpeeds_SetTrafficSpeedRandomFactor__FP8Car_tObj(Car_tObj *carObj)
 	// End offset: 0x8006F09C
 	// End Line: 1457
 
+	/* begin block 2 */
+		// Start line: 3025
+	/* end block 2 */
+	// End Line: 3026
+
+	/* begin block 3 */
+		// Start line: 3032
+	/* end block 3 */
+	// End Line: 3033
+
+	/* begin block 4 */
+		// Start line: 3032
+	/* end block 4 */
+	// End Line: 3033
+
+	/* begin block 5 */
+		// Start line: 3033
+	/* end block 5 */
+	// End Line: 3034
+
+	/* begin block 6 */
+		// Start line: 3033
+	/* end block 6 */
+	// End Line: 3034
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void AISpeeds_MaintainLeaderBoard__Fv(void)
@@ -1727,7 +2123,7 @@ void AISpeeds_MaintainLeaderBoard__Fv(void)
   leaderBoard.leadAIRacer = (Car_tObj *)0x0;
   leaderBoard.lastAIRacer = (Car_tObj *)0x0;
   iVar3 = Cars_gNumCars + -1;
-  ppCVar1 = &__Cars_gTotalSortedList_9__ + iVar3;
+  ppCVar1 = &Cars_gTotalSortedList9 + iVar3;
   while (-1 < iVar3) {
     pCVar2 = *ppCVar1;
     if ((((pCVar2->carFlags & 1U) != 0) && (leaderBoard.leadRacer == (Car_tObj *)0x0)) &&
@@ -1768,6 +2164,21 @@ void AISpeeds_MaintainLeaderBoard__Fv(void)
 	// End offset: 0x8006F0F8
 	// End Line: 1483
 
+	/* begin block 2 */
+		// Start line: 3131
+	/* end block 2 */
+	// End Line: 3132
+
+	/* begin block 3 */
+		// Start line: 3146
+	/* end block 3 */
+	// End Line: 3147
+
+	/* begin block 4 */
+		// Start line: 3146
+	/* end block 4 */
+	// End Line: 3147
+
 int AISpeeds_GetScriptFactor__FP8Car_tObj(Car_tObj *carObj)
 
 {
@@ -1806,13 +2217,28 @@ int AISpeeds_GetScriptFactor__FP8Car_tObj(Car_tObj *carObj)
 	// End offset: 0x8006F1B0
 	// End Line: 1502
 
+	/* begin block 2 */
+		// Start line: 3187
+	/* end block 2 */
+	// End Line: 3188
+
+	/* begin block 3 */
+		// Start line: 3197
+	/* end block 3 */
+	// End Line: 3198
+
+	/* begin block 4 */
+		// Start line: 3197
+	/* end block 4 */
+	// End Line: 3198
+
 int AISpeeds_GetUpgradeAccMult__Fi(int carIndex)
 
 {
   uint uVar1;
   Car_tObj *pCVar2;
   
-  pCVar2 = (&__Cars_gList_9__)[carIndex];
+  pCVar2 = (&Cars_gList9)[carIndex];
   uVar1 = 0x10000;
   if (pCVar2->carInfo->EngineMods == 1) {
     uVar1 = fixedmult(0x10000,engineUpgrade.accMult);
@@ -1842,13 +2268,28 @@ int AISpeeds_GetUpgradeAccMult__Fi(int carIndex)
 	// End offset: 0x8006F26C
 	// End Line: 1517
 
+	/* begin block 2 */
+		// Start line: 3222
+	/* end block 2 */
+	// End Line: 3223
+
+	/* begin block 3 */
+		// Start line: 3228
+	/* end block 3 */
+	// End Line: 3229
+
+	/* begin block 4 */
+		// Start line: 3228
+	/* end block 4 */
+	// End Line: 3229
+
 int AISpeeds_GetUpgradeBrakeMult__Fi(int carIndex)
 
 {
   uint uVar1;
   Car_tObj *pCVar2;
   
-  pCVar2 = (&__Cars_gList_9__)[carIndex];
+  pCVar2 = (&Cars_gList9)[carIndex];
   uVar1 = 0x10000;
   if (pCVar2->carInfo->EngineMods == 1) {
     uVar1 = fixedmult(0x10000,engineUpgrade.brakeMult);
@@ -1878,13 +2319,28 @@ int AISpeeds_GetUpgradeBrakeMult__Fi(int carIndex)
 	// End offset: 0x8006F328
 	// End Line: 1531
 
+	/* begin block 2 */
+		// Start line: 3252
+	/* end block 2 */
+	// End Line: 3253
+
+	/* begin block 3 */
+		// Start line: 3257
+	/* end block 3 */
+	// End Line: 3258
+
+	/* begin block 4 */
+		// Start line: 3257
+	/* end block 4 */
+	// End Line: 3258
+
 int AISpeeds_GetUpgradeHandlingMult__Fi(int carIndex)
 
 {
   uint uVar1;
   Car_tObj *pCVar2;
   
-  pCVar2 = (&__Cars_gList_9__)[carIndex];
+  pCVar2 = (&Cars_gList9)[carIndex];
   uVar1 = 0x10000;
   if (pCVar2->carInfo->EngineMods == 1) {
     uVar1 = fixedmult(0x10000,engineUpgrade.handlingMult);
@@ -1914,13 +2370,28 @@ int AISpeeds_GetUpgradeHandlingMult__Fi(int carIndex)
 	// End offset: 0x8006F3E4
 	// End Line: 1545
 
+	/* begin block 2 */
+		// Start line: 3281
+	/* end block 2 */
+	// End Line: 3282
+
+	/* begin block 3 */
+		// Start line: 3286
+	/* end block 3 */
+	// End Line: 3287
+
+	/* begin block 4 */
+		// Start line: 3286
+	/* end block 4 */
+	// End Line: 3287
+
 int AISpeeds_GetUpgradeTopSpeedMult__Fi(int carIndex)
 
 {
   uint uVar1;
   Car_tObj *pCVar2;
   
-  pCVar2 = (&__Cars_gList_9__)[carIndex];
+  pCVar2 = (&Cars_gList9)[carIndex];
   uVar1 = 0x10000;
   if (pCVar2->carInfo->EngineMods == 1) {
     uVar1 = fixedmult(0x10000,engineUpgrade.topSpeedMult);
@@ -1946,6 +2417,21 @@ int AISpeeds_GetUpgradeTopSpeedMult__Fi(int carIndex)
 	/* end block 1 */
 	// End offset: 0x8006F3FC
 	// End Line: 1552
+
+	/* begin block 2 */
+		// Start line: 3312
+	/* end block 2 */
+	// End Line: 3313
+
+	/* begin block 3 */
+		// Start line: 3319
+	/* end block 3 */
+	// End Line: 3320
+
+	/* begin block 4 */
+		// Start line: 3319
+	/* end block 4 */
+	// End Line: 3320
 
 int AISpeeds_CalcHumanTopSpeed__FP8Car_tObj(Car_tObj *carObj)
 
@@ -1973,6 +2459,21 @@ int AISpeeds_CalcHumanTopSpeed__FP8Car_tObj(Car_tObj *carObj)
 	/* end block 1 */
 	// End offset: 0x8006F6D4
 	// End Line: 1604
+
+	/* begin block 2 */
+		// Start line: 3341
+	/* end block 2 */
+	// End Line: 3342
+
+	/* begin block 3 */
+		// Start line: 3347
+	/* end block 3 */
+	// End Line: 3348
+
+	/* begin block 4 */
+		// Start line: 3347
+	/* end block 4 */
+	// End Line: 3348
 
 int AISpeeds_CalcHumanCurveSpeed__FP8Car_tObj(Car_tObj *carObj)
 
@@ -2080,6 +2581,7 @@ int AISpeeds_CalcHumanCurveSpeed__FP8Car_tObj(Car_tObj *carObj)
                        (*(AIDataRecord_CurveSpeedTable_t **)(carObj->accTable + 0x58),slice_00);
   return slice_00;
 }
+
 
 
 

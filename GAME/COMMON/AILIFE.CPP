@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "AILIFE.H"
+
 
 // decompiled code
 // original method signature: 
@@ -11,6 +12,16 @@
 	/* end block 1 */
 	// End offset: 0x800676A4
 	// End Line: 65
+
+	/* begin block 2 */
+		// Start line: 102
+	/* end block 2 */
+	// End Line: 103
+
+	/* begin block 3 */
+		// Start line: 102
+	/* end block 3 */
+	// End Line: 103
 
 int AILife_EvaluateLife__FP8Car_tObj(Car_tObj *carObj)
 
@@ -43,6 +54,21 @@ int AILife_EvaluateLife__FP8Car_tObj(Car_tObj *carObj)
 	/* end block 1 */
 	// End offset: 0x800676B4
 	// End Line: 83
+
+	/* begin block 2 */
+		// Start line: 146
+	/* end block 2 */
+	// End Line: 147
+
+	/* begin block 3 */
+		// Start line: 164
+	/* end block 3 */
+	// End Line: 165
+
+	/* begin block 4 */
+		// Start line: 164
+	/* end block 4 */
+	// End Line: 165
 
 void AILife_RCSetSpeeds__FP8Car_tObj(Car_tObj *carObj)
 
@@ -103,6 +129,21 @@ void AILife_RCSetSpeeds__FP8Car_tObj(Car_tObj *carObj)
 	// End offset: 0x80067AD4
 	// End Line: 174
 
+	/* begin block 2 */
+		// Start line: 178
+	/* end block 2 */
+	// End Line: 179
+
+	/* begin block 3 */
+		// Start line: 188
+	/* end block 3 */
+	// End Line: 189
+
+	/* begin block 4 */
+		// Start line: 188
+	/* end block 4 */
+	// End Line: 189
+
 void AILife_RCPickSliceAndDirection__FP8Car_tObj(Car_tObj *carObj)
 
 {
@@ -127,7 +168,7 @@ void AILife_RCPickSliceAndDirection__FP8Car_tObj(Car_tObj *carObj)
   fastRandom = randtemp & 0xffff;
   uVar8 = randtemp & 0xffff00;
   *(Car_tObj **)&(carObj->speechInfo).copCarIndex =
-       (&__Cars_gLifeBasisCarList_9__)[Cars_gNumLifeBasisCars * ((uVar12 & 0xffff00) >> 8) >> 0x10];
+       (&Cars_gLifeBasisCarList9)[Cars_gNumLifeBasisCars * ((uVar12 & 0xffff00) >> 8) >> 0x10];
   if ((uVar8 >> 8) * 1000 >> 0x10 < 500) {
     iVar11 = -1;
   }
@@ -148,7 +189,7 @@ void AILife_RCPickSliceAndDirection__FP8Car_tObj(Car_tObj *carObj)
     if ((Cars_gNumCars == -1) && (iVar9 + Cars_gNumCars == -0x80000000)) {
       trap(0x1800);
     }
-    racer = (&__Cars_gSortedList_9__)[(iVar9 + Cars_gNumCars) % Cars_gNumCars];
+    racer = (&Cars_gSortedList9)[(iVar9 + Cars_gNumCars) % Cars_gNumCars];
     if (((racer != carObj) &&
         (pCVar6 = (Car_tObj *)(carObj->speechInfo).copCarIndex, racer != pCVar6)) &&
        ((racer->carFlags & 0x100U) != 0)) {
@@ -241,6 +282,21 @@ LAB_800678dc:
 	// End offset: 0x80067C34
 	// End Line: 217
 
+	/* begin block 2 */
+		// Start line: 452
+	/* end block 2 */
+	// End Line: 453
+
+	/* begin block 3 */
+		// Start line: 461
+	/* end block 3 */
+	// End Line: 462
+
+	/* begin block 4 */
+		// Start line: 461
+	/* end block 4 */
+	// End Line: 462
+
 void AILife_RCPickDesiredLatPosition__FP8Car_tObj(Car_tObj *carObj)
 
 {
@@ -281,6 +337,21 @@ void AILife_RCPickDesiredLatPosition__FP8Car_tObj(Car_tObj *carObj)
 	// End offset: 0x80067C50
 	// End Line: 259
 
+	/* begin block 2 */
+		// Start line: 502
+	/* end block 2 */
+	// End Line: 503
+
+	/* begin block 3 */
+		// Start line: 597
+	/* end block 3 */
+	// End Line: 598
+
+	/* begin block 4 */
+		// Start line: 597
+	/* end block 4 */
+	// End Line: 598
+
 void AILife_PlaceCarAtLocation__FP8Car_tObjiiiii
                (Car_tObj *carObj,int slice,int desiredLatPos,int direction,int currentSpeed,
                int rotation1024)
@@ -309,6 +380,21 @@ void AILife_PlaceCarAtLocation__FP8Car_tObjiiiii
 	/* end block 1 */
 	// End offset: 0x80067C8C
 	// End Line: 270
+
+	/* begin block 2 */
+		// Start line: 617
+	/* end block 2 */
+	// End Line: 618
+
+	/* begin block 3 */
+		// Start line: 621
+	/* end block 3 */
+	// End Line: 622
+
+	/* begin block 4 */
+		// Start line: 621
+	/* end block 4 */
+	// End Line: 622
 
 void AILife_SetInitialSlicePositionOrientationEtc__FP8Car_tObj(Car_tObj *carObj)
 
@@ -371,6 +457,21 @@ void AILife_SetInitialSlicePositionOrientationEtc__FP8Car_tObj(Car_tObj *carObj)
 	/* end block 1 */
 	// End offset: 0x80067E90
 	// End Line: 329
+
+	/* begin block 2 */
+		// Start line: 641
+	/* end block 2 */
+	// End Line: 642
+
+	/* begin block 3 */
+		// Start line: 646
+	/* end block 3 */
+	// End Line: 647
+
+	/* begin block 4 */
+		// Start line: 646
+	/* end block 4 */
+	// End Line: 647
 
 void AILife_PlaceCarAtLocation__FP8Car_tObji(Car_tObj *carObj,int rotation1024)
 
@@ -462,6 +563,26 @@ void AILife_PlaceCarAtLocation__FP8Car_tObji(Car_tObj *carObj,int rotation1024)
 	// End offset: 0x80067F50
 	// End Line: 353
 
+	/* begin block 2 */
+		// Start line: 771
+	/* end block 2 */
+	// End Line: 772
+
+	/* begin block 3 */
+		// Start line: 780
+	/* end block 3 */
+	// End Line: 781
+
+	/* begin block 4 */
+		// Start line: 780
+	/* end block 4 */
+	// End Line: 781
+
+	/* begin block 5 */
+		// Start line: 784
+	/* end block 5 */
+	// End Line: 785
+
 void AILife_ReencarnateTraffic__FP8Car_tObj(Car_tObj *carObj)
 
 {
@@ -494,6 +615,21 @@ void AILife_ReencarnateTraffic__FP8Car_tObj(Car_tObj *carObj)
 	/* end block 1 */
 	// End offset: 0x8006811C
 	// End Line: 443
+
+	/* begin block 2 */
+		// Start line: 883
+	/* end block 2 */
+	// End Line: 884
+
+	/* begin block 3 */
+		// Start line: 892
+	/* end block 3 */
+	// End Line: 893
+
+	/* begin block 4 */
+		// Start line: 892
+	/* end block 4 */
+	// End Line: 893
 
 void AILife_ReencarnateTrafficByPosition__FP8Car_tObjiiP8coorddefP10matrixtdef
                (Car_tObj *carObj,int slice,int travelDirection,coorddef *pos,matrixtdef *ori)
@@ -632,6 +768,26 @@ void AILife_ReencarnateTrafficByPosition__FP8Car_tObjiiP8coorddefP10matrixtdef
 	// End offset: 0x800682FC
 	// End Line: 520
 
+	/* begin block 2 */
+		// Start line: 1044
+	/* end block 2 */
+	// End Line: 1045
+
+	/* begin block 3 */
+		// Start line: 1073
+	/* end block 3 */
+	// End Line: 1074
+
+	/* begin block 4 */
+		// Start line: 1073
+	/* end block 4 */
+	// End Line: 1074
+
+	/* begin block 5 */
+		// Start line: 1080
+	/* end block 5 */
+	// End Line: 1081
+
 void AILife_ReencarnateCopBySlice__FP8Car_tObjiiii
                (Car_tObj *carObj,int slice,int travelDirection,int roadSide,int moving)
 
@@ -704,6 +860,21 @@ LAB_800682dc:
 	/* end block 1 */
 	// End offset: 0x80068460
 	// End Line: 561
+
+	/* begin block 2 */
+		// Start line: 1183
+	/* end block 2 */
+	// End Line: 1184
+
+	/* begin block 3 */
+		// Start line: 1191
+	/* end block 3 */
+	// End Line: 1192
+
+	/* begin block 4 */
+		// Start line: 1191
+	/* end block 4 */
+	// End Line: 1192
 
 void AILife_ReencarnateCopByPosition__FP8Car_tObjiiP8coorddefP10matrixtdef
                (Car_tObj *carObj,int slice,int travelDirection,coorddef *pos,matrixtdef *ori)
@@ -800,6 +971,21 @@ void AILife_ReencarnateCopByPosition__FP8Car_tObjiiP8coorddefP10matrixtdef
 	// End offset: 0x800685E8
 	// End Line: 610
 
+	/* begin block 2 */
+		// Start line: 1284
+	/* end block 2 */
+	// End Line: 1285
+
+	/* begin block 3 */
+		// Start line: 1292
+	/* end block 3 */
+	// End Line: 1293
+
+	/* begin block 4 */
+		// Start line: 1292
+	/* end block 4 */
+	// End Line: 1293
+
 void AILife_ReencarnateCopByLatPosAndRotation__FP8Car_tObjiiii
                (Car_tObj *carObj,int slice,int travelDirection,int latPos,int rotation1024)
 
@@ -880,6 +1066,21 @@ void AILife_ReencarnateCopByLatPosAndRotation__FP8Car_tObjiiii
 	// End offset: 0x800686F4
 	// End Line: 646
 
+	/* begin block 2 */
+		// Start line: 1403
+	/* end block 2 */
+	// End Line: 1404
+
+	/* begin block 3 */
+		// Start line: 1417
+	/* end block 3 */
+	// End Line: 1418
+
+	/* begin block 4 */
+		// Start line: 1417
+	/* end block 4 */
+	// End Line: 1418
+
 int AILife_IsCoordInThisLiveArea__FP8coorddefP8Car_tObj(coorddef *tPos,Car_tObj *racer)
 
 {
@@ -922,6 +1123,26 @@ int AILife_IsCoordInThisLiveArea__FP8coorddefP8Car_tObj(coorddef *tPos,Car_tObj 
 	// End offset: 0x80068770
 	// End Line: 666
 
+	/* begin block 2 */
+		// Start line: 1466
+	/* end block 2 */
+	// End Line: 1467
+
+	/* begin block 3 */
+		// Start line: 1475
+	/* end block 3 */
+	// End Line: 1476
+
+	/* begin block 4 */
+		// Start line: 1475
+	/* end block 4 */
+	// End Line: 1476
+
+	/* begin block 5 */
+		// Start line: 1481
+	/* end block 5 */
+	// End Line: 1482
+
 Car_tObj * AILife_IsTrafficCarInAnyLiveArea__FP8Car_tObj(Car_tObj *traffic)
 
 {
@@ -931,7 +1152,7 @@ Car_tObj * AILife_IsTrafficCarInAnyLiveArea__FP8Car_tObj(Car_tObj *traffic)
   
   iVar3 = 0;
   if (0 < Cars_gNumLifeBasisCars) {
-    ppCVar2 = &__Cars_gLifeBasisCarList_9__;
+    ppCVar2 = &Cars_gLifeBasisCarList9;
     do {
       iVar1 = AILife_IsCoordInThisLiveArea__FP8coorddefP8Car_tObj(&(traffic->N).position,*ppCVar2);
       iVar3 = iVar3 + 1;
@@ -960,6 +1181,26 @@ Car_tObj * AILife_IsTrafficCarInAnyLiveArea__FP8Car_tObj(Car_tObj *traffic)
 	/* end block 1 */
 	// End offset: 0x800687DC
 	// End Line: 686
+
+	/* begin block 2 */
+		// Start line: 1521
+	/* end block 2 */
+	// End Line: 1522
+
+	/* begin block 3 */
+		// Start line: 1529
+	/* end block 3 */
+	// End Line: 1530
+
+	/* begin block 4 */
+		// Start line: 1529
+	/* end block 4 */
+	// End Line: 1530
+
+	/* begin block 5 */
+		// Start line: 1534
+	/* end block 5 */
+	// End Line: 1535
 
 int AILife_IsCoordInThisVisibleArea__FP8coorddefP8Car_tObj(coorddef *tPos,Car_tObj *racer)
 
@@ -996,6 +1237,21 @@ int AILife_IsCoordInThisVisibleArea__FP8coorddefP8Car_tObj(coorddef *tPos,Car_tO
 	/* end block 1 */
 	// End offset: 0x800687EC
 	// End Line: 698
+
+	/* begin block 2 */
+		// Start line: 1569
+	/* end block 2 */
+	// End Line: 1570
+
+	/* begin block 3 */
+		// Start line: 1578
+	/* end block 3 */
+	// End Line: 1579
+
+	/* begin block 4 */
+		// Start line: 1578
+	/* end block 4 */
+	// End Line: 1579
 
 Car_tObj * AILife_IsCarInAnyVisibleArea__FP8Car_tObj(Car_tObj *carObj)
 
@@ -1037,6 +1293,21 @@ Car_tObj * AILife_IsCarInAnyVisibleArea__FP8Car_tObj(Car_tObj *carObj)
 	// End offset: 0x80068894
 	// End Line: 717
 
+	/* begin block 2 */
+		// Start line: 1588
+	/* end block 2 */
+	// End Line: 1589
+
+	/* begin block 3 */
+		// Start line: 1596
+	/* end block 3 */
+	// End Line: 1597
+
+	/* begin block 4 */
+		// Start line: 1596
+	/* end block 4 */
+	// End Line: 1597
+
 Car_tObj * AILife_IsSliceInAnyVisibleArea__Fi(int slice)
 
 {
@@ -1045,7 +1316,7 @@ Car_tObj * AILife_IsSliceInAnyVisibleArea__Fi(int slice)
   int iVar3;
   
   iVar3 = 0;
-  ppCVar2 = &__Cars_gHumanRaceCarList_9__;
+  ppCVar2 = &Cars_gHumanRaceCarList9;
   while( true ) {
     if (Cars_gNumHumanRaceCars <= iVar3) {
       return (Car_tObj *)0x0;
@@ -1092,6 +1363,21 @@ Car_tObj * AILife_IsSliceInAnyVisibleArea__Fi(int slice)
 	// End offset: 0x80068934
 	// End Line: 739
 
+	/* begin block 2 */
+		// Start line: 1633
+	/* end block 2 */
+	// End Line: 1634
+
+	/* begin block 3 */
+		// Start line: 1645
+	/* end block 3 */
+	// End Line: 1646
+
+	/* begin block 4 */
+		// Start line: 1645
+	/* end block 4 */
+	// End Line: 1646
+
 Car_tObj * AILife_IsSliceCloseToAnyCopCar__Fi(int slice)
 
 {
@@ -1100,7 +1386,7 @@ Car_tObj * AILife_IsSliceCloseToAnyCopCar__Fi(int slice)
   int iVar3;
   
   iVar3 = 0;
-  ppCVar2 = &__Cars_gCopCarList_9__;
+  ppCVar2 = &Cars_gCopCarList9;
   while( true ) {
     if (Cars_gNumCopCars <= iVar3) {
       return (Car_tObj *)0x0;
@@ -1131,6 +1417,26 @@ Car_tObj * AILife_IsSliceCloseToAnyCopCar__Fi(int slice)
 	// End offset: 0x800689B8
 	// End Line: 756
 
+	/* begin block 2 */
+		// Start line: 1679
+	/* end block 2 */
+	// End Line: 1680
+
+	/* begin block 3 */
+		// Start line: 1688
+	/* end block 3 */
+	// End Line: 1689
+
+	/* begin block 4 */
+		// Start line: 1688
+	/* end block 4 */
+	// End Line: 1689
+
+	/* begin block 5 */
+		// Start line: 1690
+	/* end block 5 */
+	// End Line: 1691
+
 Car_tObj * AILife_IsPositionInAnyVisibleArea__FP8coorddef(coorddef *pos)
 
 {
@@ -1140,7 +1446,7 @@ Car_tObj * AILife_IsPositionInAnyVisibleArea__FP8coorddef(coorddef *pos)
   
   iVar3 = 0;
   if (0 < Cars_gNumHumanRaceCars) {
-    ppCVar2 = &__Cars_gHumanRaceCarList_9__;
+    ppCVar2 = &Cars_gHumanRaceCarList9;
     do {
       iVar1 = AILife_IsCoordInThisVisibleArea__FP8coorddefP8Car_tObj(pos,*ppCVar2);
       iVar3 = iVar3 + 1;
@@ -1166,11 +1472,27 @@ Car_tObj * AILife_IsPositionInAnyVisibleArea__FP8coorddef(coorddef *pos)
 	// End offset: 0x800689E0
 	// End Line: 773
 
+	/* begin block 2 */
+		// Start line: 1717
+	/* end block 2 */
+	// End Line: 1718
+
+	/* begin block 3 */
+		// Start line: 1726
+	/* end block 3 */
+	// End Line: 1727
+
+	/* begin block 4 */
+		// Start line: 1726
+	/* end block 4 */
+	// End Line: 1727
+
 void AILife_Debug__FPce(char *format)
 
 {
   return;
 }
+
 
 
 

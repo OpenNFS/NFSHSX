@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "AIDATARECORD.H"
+
 
 // decompiled code
 // original method signature: 
@@ -12,12 +13,22 @@
 	// End offset: 0x8006CE24
 	// End Line: 33
 
+	/* begin block 2 */
+		// Start line: 64
+	/* end block 2 */
+	// End Line: 65
+
+	/* begin block 3 */
+		// Start line: 64
+	/* end block 3 */
+	// End Line: 65
+
 AIDataRecord_t *
 __14AIDataRecord_t26AIDataRecord_WhichRecord_tPc
           (AIDataRecord_t *this,AIDataRecord_WhichRecord_t whichIsThis,char *preBuffer)
 
 {
-  this->_vf[0].value = 0x800554ac;
+  *(undefined4 *)this->_vf = 0x800554ac;
   AddRecordToCollection__14AIDataRecord_t(this);
   this->preAllocatedBuffer_ = preBuffer;
   this->recordMethod_ = NORMAL_M;
@@ -37,10 +48,25 @@ __14AIDataRecord_t26AIDataRecord_WhichRecord_tPc
 	// End offset: 0x8006CE6C
 	// End Line: 64
 
+	/* begin block 2 */
+		// Start line: 130
+	/* end block 2 */
+	// End Line: 131
+
+	/* begin block 3 */
+		// Start line: 141
+	/* end block 3 */
+	// End Line: 142
+
+	/* begin block 4 */
+		// Start line: 141
+	/* end block 4 */
+	// End Line: 142
+
 void ___14AIDataRecord_t(AIDataRecord_t *this,int __in_chrg)
 
 {
-  this->_vf[0].value = 0x800554ac;
+  *(undefined4 *)this->_vf = 0x800554ac;
   SaveAndPurge__14AIDataRecord_t(this);
   RemoveRecordFromCollection__14AIDataRecord_t(this);
   if ((__in_chrg & 1U) != 0) {
@@ -71,6 +97,31 @@ void ___14AIDataRecord_t(AIDataRecord_t *this,int __in_chrg)
 	// End offset: 0x8006CEF8
 	// End Line: 88
 
+	/* begin block 2 */
+		// Start line: 158
+	/* end block 2 */
+	// End Line: 159
+
+	/* begin block 3 */
+		// Start line: 169
+	/* end block 3 */
+	// End Line: 170
+
+	/* begin block 4 */
+		// Start line: 169
+	/* end block 4 */
+	// End Line: 170
+
+	/* begin block 5 */
+		// Start line: 170
+	/* end block 5 */
+	// End Line: 171
+
+	/* begin block 6 */
+		// Start line: 170
+	/* end block 6 */
+	// End Line: 171
+
 int AddRecordToCollection__14AIDataRecord_t(AIDataRecord_t *this)
 
 {
@@ -78,7 +129,7 @@ int AddRecordToCollection__14AIDataRecord_t(AIDataRecord_t *this)
   int iVar2;
   
   iVar2 = 0;
-  ppAVar1 = &__recordCollection_24__;
+  ppAVar1 = &recordCollection24;
   do {
     iVar2 = iVar2 + 1;
     if (*ppAVar1 == (AIDataRecord_t *)0x0) {
@@ -112,6 +163,31 @@ int AddRecordToCollection__14AIDataRecord_t(AIDataRecord_t *this)
 	// End offset: 0x8006CF34
 	// End Line: 101
 
+	/* begin block 2 */
+		// Start line: 193
+	/* end block 2 */
+	// End Line: 194
+
+	/* begin block 3 */
+		// Start line: 197
+	/* end block 3 */
+	// End Line: 198
+
+	/* begin block 4 */
+		// Start line: 197
+	/* end block 4 */
+	// End Line: 198
+
+	/* begin block 5 */
+		// Start line: 198
+	/* end block 5 */
+	// End Line: 199
+
+	/* begin block 6 */
+		// Start line: 198
+	/* end block 6 */
+	// End Line: 199
+
 int RemoveRecordFromCollection__14AIDataRecord_t(AIDataRecord_t *this)
 
 {
@@ -119,7 +195,7 @@ int RemoveRecordFromCollection__14AIDataRecord_t(AIDataRecord_t *this)
   int iVar2;
   
   iVar2 = 0;
-  ppAVar1 = &__recordCollection_24__;
+  ppAVar1 = &recordCollection24;
   do {
     iVar2 = iVar2 + 1;
     if (*ppAVar1 == this) {
@@ -153,6 +229,21 @@ int RemoveRecordFromCollection__14AIDataRecord_t(AIDataRecord_t *this)
 	// End offset: 0x8006CF6C
 	// End Line: 121
 
+	/* begin block 2 */
+		// Start line: 219
+	/* end block 2 */
+	// End Line: 220
+
+	/* begin block 3 */
+		// Start line: 223
+	/* end block 3 */
+	// End Line: 224
+
+	/* begin block 4 */
+		// Start line: 223
+	/* end block 4 */
+	// End Line: 224
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void StartUp1__14AIDataRecord_t(void)
@@ -165,17 +256,18 @@ void StartUp1__14AIDataRecord_t(void)
   
   iVar2 = 0x17;
   ppAVar1 = &PTR_8013dfc0;
-  DAT_0000005c = 0;
-  DAT_00000060 = 0;
+  AIDataRecord_WhichRecord = NORECORD_R;
+  AIDataRecord_RecordMethod = NORMAL_M;
   do {
     *ppAVar1 = (AIDataRecord_t *)0x0;
     iVar2 = iVar2 + -1;
     ppAVar1 = ppAVar1 + -1;
   } while (-1 < iVar2);
   this = (AIDataRecord_BestLine_t *)__builtin_new(0x58);
-  DAT_00000054 = __23AIDataRecord_BestLine_t26AIDataRecord_WhichRecord_t(this,BEST_LINE_R);
+  AIDataRecord_BestLine = __23AIDataRecord_BestLine_t26AIDataRecord_WhichRecord_t(this,BEST_LINE_R);
   this_00 = (AIDataRecord_TrackCurve_t *)__builtin_new(0x58);
-  DAT_00000058 = __25AIDataRecord_TrackCurve_t26AIDataRecord_WhichRecord_t(this_00,TRACK_CURVE_R);
+  AIDataRecord_TrackCurve =
+       __25AIDataRecord_TrackCurve_t26AIDataRecord_WhichRecord_t(this_00,TRACK_CURVE_R);
   return;
 }
 
@@ -201,27 +293,41 @@ void StartUp1__14AIDataRecord_t(void)
 	// End offset: 0x8006D000
 	// End Line: 149
 
+	/* begin block 2 */
+		// Start line: 275
+	/* end block 2 */
+	// End Line: 276
+
+	/* begin block 3 */
+		// Start line: 291
+	/* end block 3 */
+	// End Line: 292
+
+	/* begin block 4 */
+		// Start line: 291
+	/* end block 4 */
+	// End Line: 292
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void StartUp2__14AIDataRecord_t(void)
 
 {
-  uint uVar1;
-  AIDataRecord_t *pAVar2;
-  AIDataRecord_t **ppAVar3;
-  int iVar4;
+  AIDataRecord_t *pAVar1;
+  AIDataRecord_t **ppAVar2;
+  int iVar3;
   
-  iVar4 = 0;
-  ppAVar3 = &__recordCollection_24__;
+  iVar3 = 0;
+  ppAVar2 = &recordCollection24;
   do {
-    pAVar2 = *ppAVar3;
-    if (pAVar2 != (AIDataRecord_t *)0x0) {
-      uVar1 = pAVar2->_vf[0].value;
-      (**(code **)(uVar1 + 0x14))((int)&pAVar2->numElements_ + (int)*(short *)(uVar1 + 0x10));
+    pAVar1 = *ppAVar2;
+    if (pAVar1 != (AIDataRecord_t *)0x0) {
+      (**(code **)(*(int *)pAVar1->_vf + 0x14))
+                ((int)&pAVar1->numElements_ + (int)*(short *)(*(int *)pAVar1->_vf + 0x10));
     }
-    iVar4 = iVar4 + 1;
-    ppAVar3 = ppAVar3 + 1;
-  } while (iVar4 < 0x18);
+    iVar3 = iVar3 + 1;
+    ppAVar2 = ppAVar2 + 1;
+  } while (iVar3 < 0x18);
   return;
 }
 
@@ -238,20 +344,51 @@ void StartUp2__14AIDataRecord_t(void)
 	// End offset: 0x8006D074
 	// End Line: 162
 
+	/* begin block 2 */
+		// Start line: 323
+	/* end block 2 */
+	// End Line: 324
+
+	/* begin block 3 */
+		// Start line: 327
+	/* end block 3 */
+	// End Line: 328
+
+	/* begin block 4 */
+		// Start line: 327
+	/* end block 4 */
+	// End Line: 328
+
+	/* begin block 5 */
+		// Start line: 328
+	/* end block 5 */
+	// End Line: 329
+
+	/* begin block 6 */
+		// Start line: 328
+	/* end block 6 */
+	// End Line: 329
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void CleanUp1__14AIDataRecord_t(void)
 
 {
-  if (DAT_00000054 != 0) {
-    (**(code **)(*(int *)(DAT_00000054 + 0x54) + 0xc))
-              (DAT_00000054 + (int)*(short *)(*(int *)(DAT_00000054 + 0x54) + 8),3);
-    DAT_00000054 = 0;
+  int iVar1;
+  
+  if (AIDataRecord_BestLine != (AIDataRecord_BestLine_t *)0x0) {
+    iVar1 = *(int *)(AIDataRecord_BestLine->AIDataRecord_t)._vf;
+    (**(code **)(iVar1 + 0xc))
+              ((int)&(AIDataRecord_BestLine->AIDataRecord_t).numElements_ +
+               (int)*(short *)(iVar1 + 8),3);
+    AIDataRecord_BestLine = (AIDataRecord_BestLine_t *)0x0;
   }
-  if (DAT_00000058 != 0) {
-    (**(code **)(*(int *)(DAT_00000058 + 0x54) + 0xc))
-              (DAT_00000058 + (int)*(short *)(*(int *)(DAT_00000058 + 0x54) + 8),3);
-    DAT_00000058 = 0;
+  if (AIDataRecord_TrackCurve != (AIDataRecord_TrackCurve_t *)0x0) {
+    iVar1 = *(int *)(AIDataRecord_TrackCurve->AIDataRecord_t)._vf;
+    (**(code **)(iVar1 + 0xc))
+              ((int)&(AIDataRecord_TrackCurve->AIDataRecord_t).numElements_ +
+               (int)*(short *)(iVar1 + 8),3);
+    AIDataRecord_TrackCurve = (AIDataRecord_TrackCurve_t *)0x0;
   }
   return;
 }
@@ -268,6 +405,31 @@ void CleanUp1__14AIDataRecord_t(void)
 	/* end block 1 */
 	// End offset: 0x8006D084
 	// End Line: 167
+
+	/* begin block 2 */
+		// Start line: 351
+	/* end block 2 */
+	// End Line: 352
+
+	/* begin block 3 */
+		// Start line: 356
+	/* end block 3 */
+	// End Line: 357
+
+	/* begin block 4 */
+		// Start line: 356
+	/* end block 4 */
+	// End Line: 357
+
+	/* begin block 5 */
+		// Start line: 357
+	/* end block 5 */
+	// End Line: 358
+
+	/* begin block 6 */
+		// Start line: 357
+	/* end block 6 */
+	// End Line: 358
 
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
@@ -389,6 +551,21 @@ void CleanUp2__14AIDataRecord_t(void)
 	// End offset: 0x8006D0CC
 	// End Line: 205
 
+	/* begin block 2 */
+		// Start line: 361
+	/* end block 2 */
+	// End Line: 362
+
+	/* begin block 3 */
+		// Start line: 364
+	/* end block 3 */
+	// End Line: 365
+
+	/* begin block 4 */
+		// Start line: 364
+	/* end block 4 */
+	// End Line: 365
+
 void Setup__14AIDataRecord_t(AIDataRecord_t *this)
 
 {
@@ -505,6 +682,21 @@ void Setup__14AIDataRecord_t(AIDataRecord_t *this)
 	// End offset: 0x8006D108
 	// End Line: 239
 
+	/* begin block 2 */
+		// Start line: 453
+	/* end block 2 */
+	// End Line: 454
+
+	/* begin block 3 */
+		// Start line: 474
+	/* end block 3 */
+	// End Line: 475
+
+	/* begin block 4 */
+		// Start line: 474
+	/* end block 4 */
+	// End Line: 475
+
 int Load__14AIDataRecord_t(AIDataRecord_t *this)
 
 {
@@ -606,6 +798,21 @@ int Load__14AIDataRecord_t(AIDataRecord_t *this)
 	// End offset: 0x8006D160
 	// End Line: 271
 
+	/* begin block 2 */
+		// Start line: 507
+	/* end block 2 */
+	// End Line: 508
+
+	/* begin block 3 */
+		// Start line: 511
+	/* end block 3 */
+	// End Line: 512
+
+	/* begin block 4 */
+		// Start line: 511
+	/* end block 4 */
+	// End Line: 512
+
 int SaveAndPurge__14AIDataRecord_t(AIDataRecord_t *this)
 
 {
@@ -635,6 +842,21 @@ int SaveAndPurge__14AIDataRecord_t(AIDataRecord_t *this)
 	// End offset: 0x8006D170
 	// End Line: 395
 
+	/* begin block 2 */
+		// Start line: 689
+	/* end block 2 */
+	// End Line: 690
+
+	/* begin block 3 */
+		// Start line: 813
+	/* end block 3 */
+	// End Line: 814
+
+	/* begin block 4 */
+		// Start line: 813
+	/* end block 4 */
+	// End Line: 814
+
 AIDataRecord_AccTable_t *
 __23AIDataRecord_AccTable_tPci26AIDataRecord_WhichRecord_t
           (AIDataRecord_AccTable_t *this,char *preBuffer,int scale,
@@ -642,12 +864,12 @@ __23AIDataRecord_AccTable_tPci26AIDataRecord_WhichRecord_t
 
 {
   __14AIDataRecord_t26AIDataRecord_WhichRecord_tPc((AIDataRecord_t *)this,whichIsThis,preBuffer);
-  (this->AIDataRecord_t)._vf[0].value = 0x80055494;
+  *(undefined4 *)(this->AIDataRecord_t)._vf = 0x80055494;
   (this->AIDataRecord_t).numElements_ = 0x70;
   (this->AIDataRecord_t).bSize_ = 0xe0;
-  (this->AIDataRecord_t)._vf[1].value = scale;
+  this->scale_ = scale;
   sprintf((this->AIDataRecord_t).name_,s__s_s_acc_800553b8,PTR_8011647c,
-          __Cars_gHumanRaceCarList_9__->carName);
+          Cars_gHumanRaceCarList9->carName);
   return this;
 }
 
@@ -663,6 +885,31 @@ __23AIDataRecord_AccTable_tPci26AIDataRecord_WhichRecord_t
 	/* end block 1 */
 	// End offset: 0x8006D1F4
 	// End Line: 405
+
+	/* begin block 2 */
+		// Start line: 835
+	/* end block 2 */
+	// End Line: 836
+
+	/* begin block 3 */
+		// Start line: 839
+	/* end block 3 */
+	// End Line: 840
+
+	/* begin block 4 */
+		// Start line: 839
+	/* end block 4 */
+	// End Line: 840
+
+	/* begin block 5 */
+		// Start line: 840
+	/* end block 5 */
+	// End Line: 841
+
+	/* begin block 6 */
+		// Start line: 840
+	/* end block 6 */
+	// End Line: 841
 
 int Get__23AIDataRecord_AccTable_ti(AIDataRecord_AccTable_t *this,int speed)
 
@@ -699,6 +946,21 @@ int Get__23AIDataRecord_AccTable_ti(AIDataRecord_AccTable_t *this,int speed)
 	// End offset: 0x8006D264
 	// End Line: 419
 
+	/* begin block 2 */
+		// Start line: 845
+	/* end block 2 */
+	// End Line: 846
+
+	/* begin block 3 */
+		// Start line: 849
+	/* end block 3 */
+	// End Line: 850
+
+	/* begin block 4 */
+		// Start line: 849
+	/* end block 4 */
+	// End Line: 850
+
 void Setup__23AIDataRecord_AccTable_t(AIDataRecord_AccTable_t *this)
 
 {
@@ -710,7 +972,7 @@ void Setup__23AIDataRecord_AccTable_t(AIDataRecord_AccTable_t *this)
   speed = 0;
   while (speed < 0x70) {
     iVar1 = Get__23AIDataRecord_AccTable_ti(this,speed);
-    uVar2 = fixedmult(iVar1,(this->AIDataRecord_t)._vf[1].value);
+    uVar2 = fixedmult(iVar1,this->scale_);
     iVar1 = speed * 2;
     speed = speed + 1;
     *(short *)((this->AIDataRecord_t).dataBuffer_ + iVar1) = (short)(uVar2 >> 8);
@@ -754,31 +1016,44 @@ void Setup__23AIDataRecord_AccTable_t(AIDataRecord_AccTable_t *this)
 	// End offset: 0x8006D2F8
 	// End Line: 465
 
+	/* begin block 2 */
+		// Start line: 909
+	/* end block 2 */
+	// End Line: 910
+
+	/* begin block 3 */
+		// Start line: 948
+	/* end block 3 */
+	// End Line: 949
+
+	/* begin block 4 */
+		// Start line: 948
+	/* end block 4 */
+	// End Line: 949
+
 AIDataRecord_BestLine_t *
 __23AIDataRecord_BestLine_t26AIDataRecord_WhichRecord_t
           (AIDataRecord_BestLine_t *this,AIDataRecord_WhichRecord_t whichIsThis)
 
 {
   int iVar1;
-  AIDataRecord_RecordMethod_t AVar2;
   char *__format;
-  char *pcVar3;
+  char *pcVar2;
   
   __14AIDataRecord_t26AIDataRecord_WhichRecord_tPc((AIDataRecord_t *)this,whichIsThis,(char *)0x0);
   iVar1 = gNumSlices;
-  AVar2 = (this->AIDataRecord_t).recordMethod_;
-  (this->AIDataRecord_t)._vf[0].value = 0x8005547c;
+  *(undefined4 *)(this->AIDataRecord_t)._vf = 0x8005547c;
   (this->AIDataRecord_t).numElements_ = iVar1;
   (this->AIDataRecord_t).bSize_ = iVar1;
-  if (AVar2 == NORMAL_M) {
+  if ((this->AIDataRecord_t).recordMethod_ == NORMAL_M) {
     __format = s__sTr_02d_qbe_800553c4;
-    pcVar3 = PTR_80116498;
+    pcVar2 = PTR_80116498;
   }
   else {
     __format = s__sTr_02d_bes_800553d4;
-    pcVar3 = PTR_8011649c;
+    pcVar2 = PTR_ARRAY_8011649c[0];
   }
-  sprintf((this->AIDataRecord_t).name_,__format,pcVar3,GameSetup_gData.track);
+  sprintf((this->AIDataRecord_t).name_,__format,pcVar2,GameSetup_gData.track);
   return this;
 }
 
@@ -818,6 +1093,21 @@ __23AIDataRecord_BestLine_t26AIDataRecord_WhichRecord_t
 	// End offset: 0x8006D390
 	// End Line: 543
 
+	/* begin block 2 */
+		// Start line: 1035
+	/* end block 2 */
+	// End Line: 1036
+
+	/* begin block 3 */
+		// Start line: 1106
+	/* end block 3 */
+	// End Line: 1107
+
+	/* begin block 4 */
+		// Start line: 1106
+	/* end block 4 */
+	// End Line: 1107
+
 AIDataRecord_TrackCurve_t *
 __25AIDataRecord_TrackCurve_t26AIDataRecord_WhichRecord_t
           (AIDataRecord_TrackCurve_t *this,AIDataRecord_WhichRecord_t whichIsThis)
@@ -829,7 +1119,7 @@ __25AIDataRecord_TrackCurve_t26AIDataRecord_WhichRecord_t
   
   __14AIDataRecord_t26AIDataRecord_WhichRecord_tPc((AIDataRecord_t *)this,whichIsThis,(char *)0x0);
   iVar1 = gNumSlices;
-  (this->AIDataRecord_t)._vf[0].value = 0x80055464;
+  *(undefined4 *)(this->AIDataRecord_t)._vf = 0x80055464;
   (this->AIDataRecord_t).numElements_ = iVar1;
   (this->AIDataRecord_t).bSize_ = iVar1 + 1;
   if ((this->AIDataRecord_t).recordMethod_ == NORMAL_M) {
@@ -856,6 +1146,31 @@ __25AIDataRecord_TrackCurve_t26AIDataRecord_WhichRecord_t
 	/* end block 1 */
 	// End offset: 0x8006D3A4
 	// End Line: 548
+
+	/* begin block 2 */
+		// Start line: 1126
+	/* end block 2 */
+	// End Line: 1127
+
+	/* begin block 3 */
+		// Start line: 1130
+	/* end block 3 */
+	// End Line: 1131
+
+	/* begin block 4 */
+		// Start line: 1130
+	/* end block 4 */
+	// End Line: 1131
+
+	/* begin block 5 */
+		// Start line: 1131
+	/* end block 5 */
+	// End Line: 1132
+
+	/* begin block 6 */
+		// Start line: 1131
+	/* end block 6 */
+	// End Line: 1132
 
 int Get__25AIDataRecord_TrackCurve_ti(AIDataRecord_TrackCurve_t *this,int slice)
 
@@ -899,30 +1214,43 @@ int Get__25AIDataRecord_TrackCurve_ti(AIDataRecord_TrackCurve_t *this,int slice)
 	// End offset: 0x8006D434
 	// End Line: 625
 
+	/* begin block 2 */
+		// Start line: 1202
+	/* end block 2 */
+	// End Line: 1203
+
+	/* begin block 3 */
+		// Start line: 1272
+	/* end block 3 */
+	// End Line: 1273
+
+	/* begin block 4 */
+		// Start line: 1272
+	/* end block 4 */
+	// End Line: 1273
+
 AIDataRecord_CurveSpeedTable_t *
 __30AIDataRecord_CurveSpeedTable_tPc26AIDataRecord_WhichRecord_t
           (AIDataRecord_CurveSpeedTable_t *this,char *carName,AIDataRecord_WhichRecord_t whichIsThis
           )
 
 {
-  AIDataRecord_RecordMethod_t AVar1;
   char *__format;
-  char *pcVar2;
+  char *pcVar1;
   
   __14AIDataRecord_t26AIDataRecord_WhichRecord_tPc((AIDataRecord_t *)this,whichIsThis,(char *)0x0);
-  AVar1 = (this->AIDataRecord_t).recordMethod_;
-  (this->AIDataRecord_t)._vf[0].value = 0x8005544c;
+  *(undefined4 *)(this->AIDataRecord_t)._vf = 0x8005544c;
   (this->AIDataRecord_t).numElements_ = 0x100;
   (this->AIDataRecord_t).bSize_ = 0x100;
-  if (AVar1 == NORMAL_M) {
+  if ((this->AIDataRecord_t).recordMethod_ == NORMAL_M) {
     __format = s__s_s_qcs_80055404;
-    pcVar2 = PTR_80116478;
+    pcVar1 = PTR_80116478;
   }
   else {
     __format = s__s_s_csp_80055410;
-    pcVar2 = PTR_8011647c;
+    pcVar1 = PTR_8011647c;
   }
-  sprintf((this->AIDataRecord_t).name_,__format,pcVar2,carName);
+  sprintf((this->AIDataRecord_t).name_,__format,pcVar1,carName);
   return this;
 }
 
@@ -938,6 +1266,26 @@ __30AIDataRecord_CurveSpeedTable_tPc26AIDataRecord_WhichRecord_t
 	/* end block 1 */
 	// End offset: 0x8006D468
 	// End Line: 637
+
+	/* begin block 2 */
+		// Start line: 1291
+	/* end block 2 */
+	// End Line: 1292
+
+	/* begin block 3 */
+		// Start line: 1296
+	/* end block 3 */
+	// End Line: 1297
+
+	/* begin block 4 */
+		// Start line: 1296
+	/* end block 4 */
+	// End Line: 1297
+
+	/* begin block 5 */
+		// Start line: 1298
+	/* end block 5 */
+	// End Line: 1299
 
 int Get__30AIDataRecord_CurveSpeedTable_ti(AIDataRecord_CurveSpeedTable_t *this,int curve)
 
@@ -1000,6 +1348,21 @@ int Get__30AIDataRecord_CurveSpeedTable_ti(AIDataRecord_CurveSpeedTable_t *this,
 	// End offset: 0x8006D4F0
 	// End Line: 687
 
+	/* begin block 2 */
+		// Start line: 1354
+	/* end block 2 */
+	// End Line: 1355
+
+	/* begin block 3 */
+		// Start line: 1398
+	/* end block 3 */
+	// End Line: 1399
+
+	/* begin block 4 */
+		// Start line: 1398
+	/* end block 4 */
+	// End Line: 1399
+
 void Upgrade__30AIDataRecord_CurveSpeedTable_ti
                (AIDataRecord_CurveSpeedTable_t *this,int handlingUpgrade)
 
@@ -1021,6 +1384,7 @@ void Upgrade__30AIDataRecord_CurveSpeedTable_ti
   }
   return;
 }
+
 
 
 
