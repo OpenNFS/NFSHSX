@@ -1,6 +1,7 @@
 #ifndef PLATFORM_H
 #define PLATFORM_H
 
+
 extern void Platform_InitMemory__Fv(); // 0x800DC2B8
 
 extern char * Platform_ReserveMemory__FiPc(int size, char *string); // 0x800DC2E8
@@ -16,5 +17,6 @@ extern void nfs2eacinit__Fv(); // 0x800DC458
 extern void Platform_ResetDCTBuffer__Fv(); // 0x800DC4A0
 
 extern char * Platform_GetDCTBuffer__FiPc(int size, char *string); // 0x800DC4B4
+
 
 #endif

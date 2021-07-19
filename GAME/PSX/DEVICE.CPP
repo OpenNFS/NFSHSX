@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "DEVICE.H"
+
 
 // decompiled code
 // original method signature: 
@@ -12,23 +13,45 @@
 	// End offset: 0x800BD454
 	// End Line: 67
 
+	/* begin block 2 */
+		// Start line: 102
+	/* end block 2 */
+	// End Line: 103
+
+	/* begin block 3 */
+		// Start line: 102
+	/* end block 3 */
+	// End Line: 103
+
+	/* begin block 4 */
+		// Start line: 103
+	/* end block 4 */
+	// End Line: 104
+
+	/* begin block 5 */
+		// Start line: 103
+	/* end block 5 */
+	// End Line: 104
+
 int Device_VerifyType__Fi(int port)
 
 {
   uint uVar1;
   uint uVar2;
+  int iVar3;
   
   if (gUseFrontend != 0) {
-    if (gPadinfo.buf[port].nopad != '\0') {
+    iVar3 = port * 8;
+    if ((&gPadinfo.buf[0].nopad)[iVar3] != '\0') {
       return 0;
     }
     uVar1 = -(uint)(port != 0);
     uVar2 = uVar1 & 2;
-    if ((uint)gPadinfo.buf[port].ID != (int)*(short *)((int)frontEnd.controlType + uVar2)) {
+    if ((uint)(&gPadinfo.buf[0].ID)[iVar3] != (int)*(short *)((int)frontEnd.controlType + uVar2)) {
       InGame_ResetPSXController__Fii
                 ((uint)(port != 0),
                  *(int *)((int)GameSetup_gData.controllerData.controllerConfig + (uVar1 & 4)));
-      *(ushort *)((int)frontEnd.controlType + uVar2) = (ushort)gPadinfo.buf[port].ID;
+      *(ushort *)((int)frontEnd.controlType + uVar2) = (ushort)(&gPadinfo.buf[0].ID)[iVar3];
       return 1;
     }
   }
@@ -49,6 +72,21 @@ int Device_VerifyType__Fi(int port)
 	/* end block 1 */
 	// End offset: 0x800BD4C8
 	// End Line: 88
+
+	/* begin block 2 */
+		// Start line: 139
+	/* end block 2 */
+	// End Line: 140
+
+	/* begin block 3 */
+		// Start line: 145
+	/* end block 3 */
+	// End Line: 146
+
+	/* begin block 4 */
+		// Start line: 145
+	/* end block 4 */
+	// End Line: 146
 
 int Device_Fail__Fi(int port)
 
@@ -85,6 +123,21 @@ int Device_Fail__Fi(int port)
 	// End offset: 0x800BD5A8
 	// End Line: 161
 
+	/* begin block 2 */
+		// Start line: 197
+	/* end block 2 */
+	// End Line: 198
+
+	/* begin block 3 */
+		// Start line: 219
+	/* end block 3 */
+	// End Line: 220
+
+	/* begin block 4 */
+		// Start line: 219
+	/* end block 4 */
+	// End Line: 220
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Device_Update__Fv(void)
@@ -95,35 +148,35 @@ void Device_Update__Fv(void)
   
   PAD_update();
   if (simVar.pauseSim == 0) {
-    if (DAT_00001234 != 0) {
-      DAT_00001234 = 0;
-      DAT_00001230 = 0xffffffff;
-      DAT_00001238 = 0;
-      DAT_0000123c = 0;
+    if (Device_gPaused != 0) {
+      Device_gPaused = 0;
+      Device_gPausePort = -1;
+      Device_gToggleTime = 0;
+      INT_8013d788 = 0;
     }
   }
   else {
-    DAT_00001234 = 1;
-    DAT_00001238 = 0x11;
-    DAT_0000123c = 0x11;
+    Device_gPaused = 1;
+    Device_gToggleTime = 0x11;
+    INT_8013d788 = 0x11;
   }
   if (simVar.pauseSim == 0) {
     iVar2 = Device_Fail__Fi(0);
     iVar1 = GameSetup_gData.commMode;
     if (iVar2 == 0) {
       if ((GameSetup_gData.commMode == 1) && (iVar2 = Device_Fail__Fi(4), iVar2 != 0)) {
-        DAT_0000122c = iVar1;
-        DAT_00001230 = 4;
-        DAT_00001248 = 1;
+        Device_gForcePause = iVar1;
+        Device_gPausePort = 4;
+        Device_gPausePortIndex = '\x01';
       }
       else {
-        DAT_0000122c = 0;
+        Device_gForcePause = 0;
       }
     }
     else {
-      DAT_0000122c = 1;
-      DAT_00001230 = 0;
-      DAT_00001248 = 0;
+      Device_gForcePause = 1;
+      Device_gPausePort = 0;
+      Device_gPausePortIndex = '\0';
     }
   }
   return;
@@ -142,18 +195,48 @@ void Device_Update__Fv(void)
 	// End offset: 0x800BD5B8
 	// End Line: 171
 
+	/* begin block 2 */
+		// Start line: 330
+	/* end block 2 */
+	// End Line: 331
+
+	/* begin block 3 */
+		// Start line: 339
+	/* end block 3 */
+	// End Line: 340
+
+	/* begin block 4 */
+		// Start line: 339
+	/* end block 4 */
+	// End Line: 340
+
+	/* begin block 5 */
+		// Start line: 340
+	/* end block 5 */
+	// End Line: 341
+
+	/* begin block 6 */
+		// Start line: 340
+	/* end block 6 */
+	// End Line: 341
+
+	/* begin block 7 */
+		// Start line: 342
+	/* end block 7 */
+	// End Line: 343
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Device_StartUp__Fv(void)
 
 {
-  DAT_0000122c = 0;
-  DAT_00001230 = 0xffffffff;
-  DAT_00001234 = 0;
-  DAT_00001238 = 0;
-  DAT_0000123c = 0;
-  DAT_00001240 = 0;
-  DAT_00001244 = 0;
+  Device_gForcePause = 0;
+  Device_gPausePort = -1;
+  Device_gPaused = 0;
+  Device_gToggleTime = 0;
+  INT_8013d788 = 0;
+  Device_gPrev = 0;
+  INT_8013d790 = 0;
   return;
 }
 
@@ -170,6 +253,26 @@ void Device_StartUp__Fv(void)
 	// End offset: 0x800BD5E0
 	// End Line: 201
 
+	/* begin block 2 */
+		// Start line: 378
+	/* end block 2 */
+	// End Line: 379
+
+	/* begin block 3 */
+		// Start line: 386
+	/* end block 3 */
+	// End Line: 387
+
+	/* begin block 4 */
+		// Start line: 386
+	/* end block 4 */
+	// End Line: 387
+
+	/* begin block 5 */
+		// Start line: 391
+	/* end block 5 */
+	// End Line: 392
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Device_SetHardCodedKeys__Fv(void)
@@ -181,10 +284,10 @@ void Device_SetHardCodedKeys__Fv(void)
   INT_80113e80 = (int)&DAT_00008003;
   INT_80113e84 = (int)&DAT_00002003;
   INT_80113e88 = (int)&DAT_00400003;
-  INT_80113e8c = 0x803;
-  INT_80113e94 = 0x103;
-  INT_80113ed4 = (int)&DAT_00100003;
-  INT_80113ed8 = 0x800003;
+  INT_ARRAY_80113e8c[0] = 0x803;
+  INT_ARRAY_80113e94[0] = 0x103;
+  INT_80113ed4 = 0x100003;
+  INT_ARRAY_80113ed8[0] = 0x800003;
   return;
 }
 
@@ -201,6 +304,21 @@ void Device_SetHardCodedKeys__Fv(void)
 	// End offset: 0x800BD698
 	// End Line: 251
 
+	/* begin block 2 */
+		// Start line: 455
+	/* end block 2 */
+	// End Line: 456
+
+	/* begin block 3 */
+		// Start line: 494
+	/* end block 3 */
+	// End Line: 495
+
+	/* begin block 4 */
+		// Start line: 494
+	/* end block 4 */
+	// End Line: 495
+
 int Device_PSXPad__FUl(ulong param)
 
 {
@@ -208,7 +326,8 @@ int Device_PSXPad__FUl(ulong param)
   
   iVar1 = Device_VerifyType__Fi(param >> 0x10);
   if ((iVar1 == 0) ||
-     (iVar1 = 0xff, (~(uint)*(ushort *)&gPadinfo.buf[param >> 0x10].data & 0xffff & param) == 0)) {
+     (iVar1 = 0xff,
+     (~(uint)*(ushort *)(&gPadinfo.buf[0].data + (param >> 0x10)) & 0xffff & param) == 0)) {
     iVar1 = 0;
   }
   return iVar1;
@@ -229,6 +348,21 @@ int Device_PSXPad__FUl(ulong param)
 	// End offset: 0x800BD8C8
 	// End Line: 303
 
+	/* begin block 2 */
+		// Start line: 518
+	/* end block 2 */
+	// End Line: 519
+
+	/* begin block 3 */
+		// Start line: 529
+	/* end block 3 */
+	// End Line: 530
+
+	/* begin block 4 */
+		// Start line: 529
+	/* end block 4 */
+	// End Line: 530
+
 void * Device_ReadPad__FiUl(int port,ulong param)
 
 {
@@ -240,10 +374,12 @@ void * Device_ReadPad__FiUl(int port,ulong param)
   if (iVar2 == 0) {
     return (void *)0x0;
   }
-  if (gPadinfo.buf[port].ID == '#') {
-    if (((param & 0xffff) != 0x4000) || (*(byte *)((int)&gPadinfo.buf[port].data + 3) < 0x40)) {
-      if ((gPadinfo.buf[port].ID == '#') &&
-         (((param & 0xffff) == 0x8000 && (0x3f < *(byte *)((int)&gPadinfo.buf[port].data + 4))))) {
+  if ((&gPadinfo.buf[0].ID)[port * 8] == '#') {
+    if (((param & 0xffff) != 0x4000) ||
+       (*(byte *)((int)&gPadinfo.buf[0].data + port * 8 + 3) < 0x40)) {
+      if (((&gPadinfo.buf[0].ID)[port * 8] == '#') &&
+         (((param & 0xffff) == 0x8000 &&
+          (0x3f < *(byte *)((int)&gPadinfo.buf[0].data + port * 8 + 4))))) {
         return &DAT_00000001;
       }
       goto LAB_800bd758;
@@ -253,36 +389,37 @@ LAB_800bd79c:
   }
   else {
 LAB_800bd758:
-    if (gPadinfo.buf[port].ID == 's') {
+    iVar2 = port * 8;
+    if ((&gPadinfo.buf[0].ID)[iVar2] == 's') {
       if ((param & 0xffff) == 0x80) {
-        if (*(byte *)((int)&gPadinfo.buf[port].data + 2) < 0x41) goto LAB_800bd79c;
-        if (*(byte *)((int)&gPadinfo.buf[port].data + 4) < 0x41) {
+        if (*(byte *)((int)&gPadinfo.buf[0].data + iVar2 + 2) < 0x41) goto LAB_800bd79c;
+        if (*(byte *)((int)&gPadinfo.buf[0].data + iVar2 + 4) < 0x41) {
           return &DAT_00000001;
         }
       }
-      if (gPadinfo.buf[port].ID == 's') {
+      if ((&gPadinfo.buf[0].ID)[port * 8] == 's') {
         if ((param & 0xffff) == 0x20) {
-          if (0xbf < *(byte *)((int)&gPadinfo.buf[port].data + 2)) {
+          if (0xbf < *(byte *)((int)&gPadinfo.buf[0].data + iVar2 + 2)) {
             return &DAT_00000001;
           }
-          if (0xbf < *(byte *)((int)&gPadinfo.buf[port].data + 4)) {
+          if (0xbf < *(byte *)((int)&gPadinfo.buf[0].data + iVar2 + 4)) {
             return &DAT_00000001;
           }
         }
-        if (gPadinfo.buf[port].ID == 's') {
+        if ((&gPadinfo.buf[0].ID)[port * 8] == 's') {
           if ((param & 0xffff) == 0x10) {
-            if (*(byte *)((int)&gPadinfo.buf[port].data + 5) < 0x41) {
+            if (*(byte *)((int)&gPadinfo.buf[0].data + iVar2 + 5) < 0x41) {
               return &DAT_00000001;
             }
-            if (*(byte *)((int)&gPadinfo.buf[port].data + 3) < 0x41) {
+            if (*(byte *)((int)&gPadinfo.buf[0].data + iVar2 + 3) < 0x41) {
               return &DAT_00000001;
             }
           }
-          if ((gPadinfo.buf[port].ID == 's') && ((param & 0xffff) == 0x40)) {
-            if (0xbf < *(byte *)((int)&gPadinfo.buf[port].data + 5)) {
+          if (((&gPadinfo.buf[0].ID)[port * 8] == 's') && ((param & 0xffff) == 0x40)) {
+            if (0xbf < *(byte *)((int)&gPadinfo.buf[0].data + iVar2 + 5)) {
               return &DAT_00000001;
             }
-            if (0xbf < *(byte *)((int)&gPadinfo.buf[port].data + 3)) {
+            if (0xbf < *(byte *)((int)&gPadinfo.buf[0].data + iVar2 + 3)) {
               return &DAT_00000001;
             }
           }
@@ -308,6 +445,26 @@ LAB_800bd758:
 	// End offset: 0x800BD9A8
 	// End Line: 343
 
+	/* begin block 2 */
+		// Start line: 615
+	/* end block 2 */
+	// End Line: 616
+
+	/* begin block 3 */
+		// Start line: 619
+	/* end block 3 */
+	// End Line: 620
+
+	/* begin block 4 */
+		// Start line: 619
+	/* end block 4 */
+	// End Line: 620
+
+	/* begin block 5 */
+		// Start line: 621
+	/* end block 5 */
+	// End Line: 622
+
 int Device_PSXPadMulti__FUl(ulong param)
 
 {
@@ -324,8 +481,8 @@ int Device_PSXPadMulti__FUl(ulong param)
         }
         else {
           if ((param & 0xffff) == 8) {
-            DAT_00001248 = 1;
-            DAT_00001230 = 4;
+            Device_gPausePortIndex = '\x01';
+            Device_gPausePort = 4;
           }
           iVar2 = 0xff;
         }
@@ -334,13 +491,13 @@ int Device_PSXPadMulti__FUl(ulong param)
     else {
       iVar2 = 0xff;
       if ((param & 0xffff) == 8) {
-        DAT_00001230 = 0;
-        DAT_00001248 = 0;
+        Device_gPausePort = 0;
+        Device_gPausePortIndex = '\0';
       }
     }
   }
   else {
-    pvVar1 = Device_ReadPad__FiUl(DAT_00001230,param);
+    pvVar1 = Device_ReadPad__FiUl(Device_gPausePort,param);
     iVar2 = 0xff;
     if (pvVar1 == (void *)0x0) {
       iVar2 = 0;
@@ -366,6 +523,21 @@ int Device_PSXPadMulti__FUl(ulong param)
 	// End offset: 0x800BDAA4
 	// End Line: 385
 
+	/* begin block 2 */
+		// Start line: 703
+	/* end block 2 */
+	// End Line: 704
+
+	/* begin block 3 */
+		// Start line: 713
+	/* end block 3 */
+	// End Line: 714
+
+	/* begin block 4 */
+		// Start line: 713
+	/* end block 4 */
+	// End Line: 714
+
 int Device_Analog__FUl(ulong param)
 
 {
@@ -380,7 +552,8 @@ int Device_Analog__FUl(ulong param)
   if (iVar1 == 0) {
     return 0;
   }
-  uVar2 = (uint)*(byte *)((int)&gPadinfo.buf[param >> 0x14].data + (param >> 0x10 & 3) + 2);
+  uVar2 = (uint)*(byte *)((int)&gPadinfo.buf[0].data + (param >> 0x14) * 8 + (param >> 0x10 & 3) + 2
+                         );
   uVar5 = param >> 8 & 0xff;
   uVar4 = param & 0xff;
   if (uVar5 < uVar4) {
@@ -433,11 +606,37 @@ LAB_800bda70:
 	// End offset: 0x800BDAB8
 	// End Line: 395
 
+	/* begin block 2 */
+		// Start line: 789
+	/* end block 2 */
+	// End Line: 790
+
+	/* begin block 3 */
+		// Start line: 798
+	/* end block 3 */
+	// End Line: 799
+
+	/* begin block 4 */
+		// Start line: 798
+	/* end block 4 */
+	// End Line: 799
+
+	/* begin block 5 */
+		// Start line: 799
+	/* end block 5 */
+	// End Line: 800
+
+	/* begin block 6 */
+		// Start line: 799
+	/* end block 6 */
+	// End Line: 800
+
 int Device_Null__FUl(ulong param)
 
 {
   return 0;
 }
+
 
 
 

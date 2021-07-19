@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "PSXCONTROLLER.H"
+
 
 // decompiled code
 // original method signature: 
@@ -15,10 +16,20 @@
 	// End offset: 0x800DC8A4
 	// End Line: 160
 
+	/* begin block 2 */
+		// Start line: 194
+	/* end block 2 */
+	// End Line: 195
+
+	/* begin block 3 */
+		// Start line: 194
+	/* end block 3 */
+	// End Line: 195
+
 void InGame_ResetPSXController__Fii(int player,int config)
 
 {
-  uchar uVar1;
+  char cVar1;
   int iVar2;
   int iVar3;
   int iVar4;
@@ -26,17 +37,17 @@ void InGame_ResetPSXController__Fii(int player,int config)
   int iVar5;
   int *piVar6;
   
-  uVar1 = gPadinfo.buf[player * 4].ID;
-  if (uVar1 == '#') {
+  cVar1 = *(char *)((int)gPadinfo.buf + player * 0x20 + 1);
+  if (cVar1 == '#') {
     iVar2 = 0;
   }
   else {
-    if ((uVar1 == 'S') || (iVar2 = 2, uVar1 == 's')) {
+    if ((cVar1 == 'S') || (iVar2 = 2, cVar1 == 's')) {
       iVar2 = 1;
     }
   }
-  if ((int)frontEnd.controlType[player] != (uint)gPadinfo.buf[player * 4].ID) {
-    frontEnd.controlType[player] = (ushort)gPadinfo.buf[player * 4].ID;
+  if ((int)frontEnd.controlType[player] != (uint)*(byte *)((int)gPadinfo.buf + player * 0x20 + 1)) {
+    frontEnd.controlType[player] = (ushort)*(byte *)((int)gPadinfo.buf + player * 0x20 + 1);
   }
   GameSetup_gData.controllerData.controllerConfig[player] = config;
   iVar3 = config * 0x9c + iVar2 * 4;
@@ -50,14 +61,14 @@ void InGame_ResetPSXController__Fii(int player,int config)
   iVar4 = InGame_GetPSXPadValue__Fii((int)(&PTR_DAT_80120e20)[iVar2 + config * 0x27],player);
   (&Input_gHandler)[0x52 - *piVar6] = iVar4;
   iVar4 = InGame_GetPSXPadValue__Fii(*(int *)(&DAT_80120e5c + iVar3),player);
-  (&INT_80113ecc)[player] = iVar4;
+  INT_ARRAY_80113ecc[player] = iVar4;
   iVar4 = InGame_GetPSXPadValue__Fii((int)(&PTR_DAT_80120e50)[iVar2 + config * 0x27],player);
   (&Input_gHandler)[0x75 - *piVar6] = iVar4;
   iVar4 = InGame_GetPSXPadValue__Fii((int)(&PTR_DAT_80120e50)[iVar2 + config * 0x27],player);
   (&Input_gHandler)[0x65 - *piVar6] = iVar4;
   iVar4 = InGame_GetPSXPadValue__Fii((int)(&PTR_DAT_80120e2c)[iVar2 + config * 0x27],player);
   (&Input_gHandler)[0x53 - *piVar6] = iVar4;
-  if (((&__Cars_gHumanRaceCarList_9__)[player]->carFlags & 0x200U) == 0) {
+  if (((&Cars_gHumanRaceCarList9)[player]->carFlags & 0x200U) == 0) {
     iVar4 = InGame_GetPSXPadValue__Fii((&mappings)[iVar2 + config * 0x27],0);
     (&Input_gHandler)[0x7d - *piVar6] = iVar4;
     iVar4 = InGame_GetPSXPadValue__Fii((int)(&PTR_DAT_80120e08)[iVar2 + config * 0x27],0);
@@ -100,15 +111,15 @@ void InGame_ResetPSXController__Fii(int player,int config)
   }
   iVar3 = InGame_GetPSXPadValue__Fii(value,player);
   (&Input_gHandler)[0x54 - *piVar6] = iVar3;
-  iVar4 = config * 0x9c + iVar2 * 4;
-  iVar3 = InGame_GetPSXPadValue__Fii(*(int *)(&DAT_80120e38 + iVar4),player);
+  iVar3 = config * 0x9c + iVar2 * 4;
+  iVar2 = InGame_GetPSXPadValue__Fii(*(int *)(&DAT_80120e38 + iVar3),player);
   piVar6 = &hoff + player;
-  (&Input_gHandler)[0x66 - *piVar6] = iVar3;
-  iVar3 = InGame_GetPSXPadValue__Fii(*(int *)(&DAT_80120e44 + iVar4),player);
-  (&Input_gHandler)[0x67 - *piVar6] = iVar3;
-  iVar3 = InGame_GetPSXPadValue__Fii(*(int *)(&DAT_80120e8c + iVar4),player);
-  (&Input_gHandler)[0x68 - *piVar6] = iVar3;
-  iVar2 = InGame_GetPSXPadValue__Fii((int)(&PTR_DAT_80120e80)[iVar2 + config * 0x27],player);
+  (&Input_gHandler)[0x66 - *piVar6] = iVar2;
+  iVar2 = InGame_GetPSXPadValue__Fii(*(int *)(&DAT_80120e44 + iVar3),player);
+  (&Input_gHandler)[0x67 - *piVar6] = iVar2;
+  iVar2 = InGame_GetPSXPadValue__Fii(*(int *)(&DAT_80120e8c + iVar3),player);
+  (&Input_gHandler)[0x68 - *piVar6] = iVar2;
+  iVar2 = InGame_GetPSXPadValue__Fii(*(int *)(&DAT_80120e80 + iVar3),player);
   (&Input_gHandler)[0x4d - *piVar6] = iVar2;
   return;
 }
@@ -130,6 +141,21 @@ void InGame_ResetPSXController__Fii(int player,int config)
 	// End offset: 0x800DCD20
 	// End Line: 333
 
+	/* begin block 2 */
+		// Start line: 384
+	/* end block 2 */
+	// End Line: 385
+
+	/* begin block 3 */
+		// Start line: 418
+	/* end block 3 */
+	// End Line: 419
+
+	/* begin block 4 */
+		// Start line: 418
+	/* end block 4 */
+	// End Line: 419
+
 int InGame_GetPSXPadValue__Fii(int value,int player)
 
 {
@@ -140,8 +166,8 @@ int InGame_GetPSXPadValue__Fii(int value,int player)
   uint uVar5;
   
   PAD_update();
-  if (gPadinfo.buf[player * 4].nopad == '\0') {
-    bVar2 = gPadinfo.buf[player * 4].ID;
+  if (((PAD_COMMON *)((int)gPadinfo.buf + player * 0x20))->nopad == '\0') {
+    bVar2 = *(byte *)((int)gPadinfo.buf + player * 0x20 + 1);
   }
   else {
     bVar2 = 0;
@@ -253,6 +279,31 @@ LAB_800dcbac:
 	// End offset: 0x800DCD34
 	// End Line: 340
 
+	/* begin block 2 */
+		// Start line: 694
+	/* end block 2 */
+	// End Line: 695
+
+	/* begin block 3 */
+		// Start line: 700
+	/* end block 3 */
+	// End Line: 701
+
+	/* begin block 4 */
+		// Start line: 700
+	/* end block 4 */
+	// End Line: 701
+
+	/* begin block 5 */
+		// Start line: 701
+	/* end block 5 */
+	// End Line: 702
+
+	/* begin block 6 */
+		// Start line: 701
+	/* end block 6 */
+	// End Line: 702
+
 int InGame_GetDevice__Fi(int control)
 
 {
@@ -297,6 +348,21 @@ int InGame_GetDevice__Fi(int control)
 	// End offset: 0x800DCEA0
 	// End Line: 366
 
+	/* begin block 2 */
+		// Start line: 712
+	/* end block 2 */
+	// End Line: 713
+
+	/* begin block 3 */
+		// Start line: 722
+	/* end block 3 */
+	// End Line: 723
+
+	/* begin block 4 */
+		// Start line: 722
+	/* end block 4 */
+	// End Line: 723
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void InGame_SetRamp__Fv(void)
@@ -311,7 +377,7 @@ void InGame_SetRamp__Fv(void)
   if ((Replay_ReplayMode < 2) && (iVar5 = 0, 0 < Cars_gNumHumanRaceCars)) {
     iVar2 = 0;
     do {
-      piVar4 = (int *)((int)&__Cars_gHumanRaceCarList_9__ + (iVar2 >> 0xe));
+      piVar4 = (int *)((int)&Cars_gHumanRaceCarList9 + (iVar2 >> 0xe));
       iVar1 = *(int *)(*piVar4 + 0x288);
       *(undefined4 *)(iVar1 + 0x1c) = 1;
       *(undefined4 *)(iVar1 + 0x20) = 1;
@@ -335,6 +401,7 @@ void InGame_SetRamp__Fv(void)
   }
   return;
 }
+
 
 
 

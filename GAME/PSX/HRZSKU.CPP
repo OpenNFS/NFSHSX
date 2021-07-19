@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "HRZSKU.H"
+
 
 // decompiled code
 // original method signature: 
@@ -29,6 +30,16 @@
 	/* end block 1 */
 	// End offset: 0x800CF6AC
 	// End Line: 157
+
+	/* begin block 2 */
+		// Start line: 256
+	/* end block 2 */
+	// End Line: 257
+
+	/* begin block 3 */
+		// Start line: 256
+	/* end block 3 */
+	// End Line: 257
 
 void Horizon_InterpolateLineSCoords__FP7DVECTORN20Piii
                (DVECTOR *sc,DVECTOR *s0,DVECTOR *s1,int *percentage,int n,int bPercentageArray)
@@ -140,6 +151,31 @@ void Horizon_InterpolateLineSCoords__FP7DVECTORN20Piii
 	// End offset: 0x800CF878
 	// End Line: 212
 
+	/* begin block 2 */
+		// Start line: 341
+	/* end block 2 */
+	// End Line: 342
+
+	/* begin block 3 */
+		// Start line: 370
+	/* end block 3 */
+	// End Line: 371
+
+	/* begin block 4 */
+		// Start line: 370
+	/* end block 4 */
+	// End Line: 371
+
+	/* begin block 5 */
+		// Start line: 371
+	/* end block 5 */
+	// End Line: 372
+
+	/* begin block 6 */
+		// Start line: 371
+	/* end block 6 */
+	// End Line: 372
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Sky_InitStars__Fv(void)
@@ -151,42 +187,42 @@ void Sky_InitStars__Fv(void)
   undefined *puVar4;
   uint uVar5;
   uint uVar6;
-  short *psVar7;
+  SVECTOR *pSVar7;
   int iVar8;
   
-  if (DAT_0000132c == (short *)0x0) {
+  if (starPosInSky == (SVECTOR *)0x0) {
     lVar1 = random();
-    seedrandom(*(int *)(DAT_00001340 + 0x5c));
-    DAT_0000132c = reservememadr(s_stars_8013d880,*(int *)(DAT_00001340 + 0x44) << 3,0);
-    DAT_00001330 = reservememadr(s_starCols_800568b4,*(int *)(DAT_00001340 + 0x44) << 2,0);
+    seedrandom(Sky_gTrackSpec->starRandomSeed);
+    starPosInSky = (SVECTOR *)reservememadr(s_stars_8013d880,Sky_gTrackSpec->numStars << 3,0);
+    starColors = (ulong *)reservememadr(s_starCols_800568b4,Sky_gTrackSpec->numStars << 2,0);
     iVar8 = 0;
-    while (iVar8 < *(int *)(DAT_00001340 + 0x44)) {
+    while (iVar8 < Sky_gTrackSpec->numStars) {
       uVar2 = random();
       uVar3 = random();
-      uVar6 = *(int *)(DAT_00001340 + 0x4c) - *(int *)(DAT_00001340 + 0x48);
+      uVar6 = Sky_gTrackSpec->starAngleHigh - Sky_gTrackSpec->starAngleLow;
       if (uVar6 == 0) {
         trap(0x1c00);
       }
-      uVar6 = *(int *)(DAT_00001340 + 0x48) + uVar3 % uVar6;
+      uVar6 = Sky_gTrackSpec->starAngleLow + uVar3 % uVar6;
       puVar4 = fixedsin(uVar6);
       uVar3 = fixedmult((int)puVar4,1000);
       puVar4 = fixedcos(uVar6);
       uVar6 = fixedmult((int)puVar4,1000);
       puVar4 = fixedsin(uVar2 & 0xffff);
       uVar5 = fixedmult((int)puVar4,uVar6);
-      psVar7 = DAT_0000132c + iVar8 * 4;
-      *psVar7 = (short)uVar5;
-      psVar7[1] = (short)uVar3;
+      pSVar7 = starPosInSky + iVar8;
+      pSVar7->vx = (short)uVar5;
+      pSVar7->vy = (short)uVar3;
       puVar4 = fixedcos(uVar2 & 0xffff);
       uVar2 = fixedmult((int)puVar4,uVar6);
-      DAT_0000132c[iVar8 * 4 + 2] = (short)uVar2;
+      starPosInSky[iVar8].vz = (short)uVar2;
       uVar2 = random();
-      uVar3 = *(int *)(DAT_00001340 + 0x54) - *(int *)(DAT_00001340 + 0x50);
+      uVar3 = Sky_gTrackSpec->starBrightMax - Sky_gTrackSpec->starBrightMin;
       if (uVar3 == 0) {
         trap(0x1c00);
       }
-      uVar2 = *(int *)(DAT_00001340 + 0x50) + uVar2 % uVar3;
-      *(uint *)(DAT_00001330 + iVar8 * 2) = uVar2 * 0x10000 | uVar2 * 0x100 | uVar2;
+      uVar2 = Sky_gTrackSpec->starBrightMin + uVar2 % uVar3;
+      starColors[iVar8] = uVar2 * 0x10000 | uVar2 * 0x100 | uVar2;
       iVar8 = iVar8 + 1;
     }
     seedrandom(lVar1);
@@ -207,19 +243,44 @@ void Sky_InitStars__Fv(void)
 	// End offset: 0x800CF8CC
 	// End Line: 222
 
+	/* begin block 2 */
+		// Start line: 433
+	/* end block 2 */
+	// End Line: 434
+
+	/* begin block 3 */
+		// Start line: 438
+	/* end block 3 */
+	// End Line: 439
+
+	/* begin block 4 */
+		// Start line: 438
+	/* end block 4 */
+	// End Line: 439
+
+	/* begin block 5 */
+		// Start line: 439
+	/* end block 5 */
+	// End Line: 440
+
+	/* begin block 6 */
+		// Start line: 439
+	/* end block 6 */
+	// End Line: 440
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Sky_KillStars__Fv(void)
 
 {
-  if (DAT_0000132c != 0) {
-    purgememadr(DAT_0000132c);
+  if (starPosInSky != (SVECTOR *)0x0) {
+    purgememadr((int)starPosInSky);
   }
-  if (DAT_00001330 != 0) {
-    purgememadr(DAT_00001330);
+  if (starColors != (ulong *)0x0) {
+    purgememadr((int)starColors);
   }
-  DAT_0000132c = 0;
-  DAT_00001330 = 0;
+  starPosInSky = (SVECTOR *)0x0;
+  starColors = (ulong *)0x0;
   return;
 }
 
@@ -274,6 +335,21 @@ void Sky_KillStars__Fv(void)
 	// End offset: 0x800CFA34
 	// End Line: 253
 
+	/* begin block 2 */
+		// Start line: 457
+	/* end block 2 */
+	// End Line: 458
+
+	/* begin block 3 */
+		// Start line: 462
+	/* end block 3 */
+	// End Line: 463
+
+	/* begin block 4 */
+		// Start line: 462
+	/* end block 4 */
+	// End Line: 463
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Hrz_InitSkyColor__Fv(void)
@@ -287,8 +363,8 @@ void Hrz_InitSkyColor__Fv(void)
   CVECTOR *pCVar6;
   int iVar7;
   int iVar8;
-  uint uVar9;
-  uint uVar10;
+  CVECTOR CVar9;
+  CVECTOR CVar10;
   char local_8;
   byte bStack7;
   byte bStack6;
@@ -296,20 +372,20 @@ void Hrz_InitSkyColor__Fv(void)
   iVar8 = 0;
   iVar7 = 0;
   while (iVar8 < 5) {
-    uVar9 = *(uint *)(DAT_00001340 + iVar8 * 4 + 0x1c);
-    uVar10 = *(uint *)(DAT_00001340 + iVar8 * 4 + 8);
-    local_8 = (char)uVar10;
-    iVar1 = (uVar9 & 0xff) - (uVar10 & 0xff);
+    CVar9 = Sky_gTrackSpec->backcolors[iVar8];
+    CVar10 = Sky_gTrackSpec->frontcolors[iVar8];
+    local_8 = SUB41(CVar10,0);
+    iVar1 = ((uint)CVar9 & 0xff) - ((uint)CVar10 & 0xff);
     if (iVar1 < 0) {
       iVar1 = iVar1 + 7;
     }
-    bStack7 = (byte)(uVar10 >> 8);
-    iVar2 = (uVar9 >> 8 & 0xff) - (uint)bStack7;
+    bStack7 = (byte)((uint)CVar10 >> 8);
+    iVar2 = ((uint)CVar9 >> 8 & 0xff) - (uint)bStack7;
     if (iVar2 < 0) {
       iVar2 = iVar2 + 7;
     }
-    bStack6 = (byte)(uVar10 >> 0x10);
-    iVar3 = (uVar9 >> 0x10 & 0xff) - (uint)bStack6;
+    bStack6 = (byte)((uint)CVar10 >> 0x10);
+    iVar3 = ((uint)CVar9 >> 0x10 & 0xff) - (uint)bStack6;
     if (iVar3 < 0) {
       iVar3 = iVar3 + 7;
     }
@@ -353,12 +429,32 @@ void Hrz_InitSkyColor__Fv(void)
 	// End offset: 0x800CFD4C
 	// End Line: 333
 
+	/* begin block 2 */
+		// Start line: 524
+	/* end block 2 */
+	// End Line: 525
+
+	/* begin block 3 */
+		// Start line: 529
+	/* end block 3 */
+	// End Line: 530
+
+	/* begin block 4 */
+		// Start line: 529
+	/* end block 4 */
+	// End Line: 530
+
+	/* begin block 5 */
+		// Start line: 533
+	/* end block 5 */
+	// End Line: 534
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Hrz_InitSky__Fv(void)
 
 {
-  int *piVar1;
+  CSkySpec *pCVar1;
   undefined *puVar2;
   uint uVar3;
   uint uVar4;
@@ -370,46 +466,46 @@ void Hrz_InitSky__Fv(void)
   int iVar10;
   int viewid;
   
-  puVar2 = fixedcos(DAT_00001340[0xd]);
+  puVar2 = fixedcos(Sky_gTrackSpec->sunAngleInSky);
   uVar3 = fixedmult((int)puVar2,1000);
-  DAT_000018a4 = (undefined2)uVar3;
-  puVar2 = fixedsin(DAT_00001340[0xd]);
+  sunPosInSky._0_2_ = (undefined2)uVar3;
+  puVar2 = fixedsin(Sky_gTrackSpec->sunAngleInSky);
   uVar3 = fixedmult((int)puVar2,1000);
-  DAT_000018a8 = (undefined2)uVar3;
-  DAT_000018a6 = (short)TrackSpec_gSpec.skyspec.sunHeightInSky +
-                 (short)TrackSpec_gSpec.skyspec.yoffset;
-  puVar2 = fixedcos(DAT_00001340[0xf]);
+  PTR_8013ddf4._0_2_ = (undefined2)uVar3;
+  sunPosInSky._2_2_ =
+       (short)TrackSpec_gSpec.skyspec.sunHeightInSky + (short)TrackSpec_gSpec.skyspec.yoffset;
+  puVar2 = fixedcos(Sky_gTrackSpec->moonAngleInSky);
   uVar3 = fixedmult((int)puVar2,1000);
-  DAT_000018ac = (undefined2)uVar3;
-  puVar2 = fixedsin(DAT_00001340[0xf]);
+  moonPosInSky._0_2_ = (undefined2)uVar3;
+  puVar2 = fixedsin(Sky_gTrackSpec->moonAngleInSky);
   uVar3 = fixedmult((int)puVar2,1000);
-  DAT_000018b0 = (undefined2)uVar3;
-  DAT_000018ae = (short)TrackSpec_gSpec.skyspec.moonHeightInSky +
-                 (short)TrackSpec_gSpec.skyspec.yoffset;
+  PTR_8013ddfc._0_2_ = (undefined2)uVar3;
+  moonPosInSky._2_2_ =
+       (short)TrackSpec_gSpec.skyspec.moonHeightInSky + (short)TrackSpec_gSpec.skyspec.yoffset;
   viewid = Draw_gPlayer1View;
   if (GameSetup_gData.commMode == 1) {
     Draw_SetViewColor__Fiiii
-              (Draw_gPlayer1View,(uint)*(byte *)(DAT_00001340 + 0xc),
-               (uint)*(byte *)((int)DAT_00001340 + 0x31),(uint)*(byte *)((int)DAT_00001340 + 0x32));
+              (Draw_gPlayer1View,(uint)(Sky_gTrackSpec->clearcolor).r,
+               (uint)(Sky_gTrackSpec->clearcolor).g,(uint)(Sky_gTrackSpec->clearcolor).b);
     viewid = Draw_gPlayer2View;
   }
   iVar10 = 0;
   Draw_SetViewColor__Fiiii
-            (viewid,(uint)*(byte *)(DAT_00001340 + 0xc),(uint)*(byte *)((int)DAT_00001340 + 0x31),
-             (uint)*(byte *)((int)DAT_00001340 + 0x32));
+            (viewid,(uint)(Sky_gTrackSpec->clearcolor).r,(uint)(Sky_gTrackSpec->clearcolor).g,
+             (uint)(Sky_gTrackSpec->clearcolor).b);
   viewid = 0;
   do {
-    if ((DAT_00001340[1] & 0x80U) == 0) {
-      if (((DAT_00001340[1] & 2U) == 0) || (uVar3 = iVar10 << 0xb, 3 < iVar10)) {
+    if ((Sky_gTrackSpec->flags & 0x80U) == 0) {
+      if (((Sky_gTrackSpec->flags & 2U) == 0) || (uVar3 = iVar10 << 0xb, 3 < iVar10)) {
         uVar3 = iVar10 << 0xc;
       }
       puVar2 = fixedcos(uVar3);
       uVar4 = fixedmult((int)puVar2,1000);
     }
     else {
-      puVar2 = fixedcos(DAT_00001340[iVar10 + 0x20]);
+      puVar2 = fixedcos(Sky_gTrackSpec->ringAngles[iVar10]);
       uVar4 = fixedmult((int)puVar2,1000);
-      uVar3 = DAT_00001340[iVar10 + 0x20];
+      uVar3 = Sky_gTrackSpec->ringAngles[iVar10];
     }
     iVar8 = 0;
     puVar2 = fixedsin(uVar3);
@@ -418,13 +514,13 @@ void Hrz_InitSky__Fv(void)
     do {
       iVar6 = iVar8 * 0x1000;
       iVar8 = iVar8 + 1;
-      uVar7 = (iVar6 - DAT_00001340[0xd]) + 0x4000;
+      uVar7 = (iVar6 - Sky_gTrackSpec->sunAngleInSky) + 0x4000;
       puVar2 = fixedsin(uVar7);
       uVar5 = fixedmult((int)puVar2,uVar4);
-      piVar1 = DAT_00001340;
+      pCVar1 = Sky_gTrackSpec;
       viewid = viewid + 1;
       pSVar9->vx = (short)uVar5;
-      pSVar9->vy = *(short *)(piVar1 + 0x1a) + (short)uVar3;
+      pSVar9->vy = *(short *)&pCVar1->yoffset + (short)uVar3;
       puVar2 = fixedcos(uVar7);
       uVar5 = fixedmult((int)puVar2,uVar4);
       pSVar9->vz = (short)uVar5;
@@ -433,7 +529,7 @@ void Hrz_InitSky__Fv(void)
     iVar10 = iVar10 + 1;
   } while (iVar10 < 5);
   viewid = 0;
-  if (*DAT_00001340 == 1) {
+  if (Sky_gTrackSpec->type == 1) {
     iVar10 = 0;
     do {
       iVar8 = 0;
@@ -444,13 +540,12 @@ void Hrz_InitSky__Fv(void)
         }
         iVar6 = iVar8 + (iVar6 >> 2) * -4;
         iVar8 = iVar8 + 1;
-        (&gSkyPixmapIndex)[iVar10] = *(char *)((int)DAT_00001340 + iVar6 + viewid * 4 + 0x6c) + '\b'
-        ;
+        gSkyPixmapIndex[iVar10] = *(char *)((int)Sky_gTrackSpec + iVar6 + viewid * 4 + 0x6c) + '\b';
         iVar10 = iVar10 + 1;
       } while (iVar8 < 0x10);
       viewid = viewid + 1;
     } while (viewid < 4);
-    if ((*DAT_00001340 == 1) && ((DAT_00001340[1] & 0x20U) == 0)) goto LAB_800cfd4c;
+    if ((Sky_gTrackSpec->type == 1) && ((Sky_gTrackSpec->flags & 0x20U) == 0)) goto LAB_800cfd4c;
   }
   Hrz_InitSkyColor__Fv();
 LAB_800cfd4c:
@@ -534,124 +629,140 @@ LAB_800cfd4c:
 	// End offset: 0x800D0038
 	// End Line: 410
 
-/* WARNING: Could not reconcile some variable overlaps */
+	/* begin block 2 */
+		// Start line: 712
+	/* end block 2 */
+	// End Line: 713
+
+	/* begin block 3 */
+		// Start line: 717
+	/* end block 3 */
+	// End Line: 718
+
+	/* begin block 4 */
+		// Start line: 717
+	/* end block 4 */
+	// End Line: 718
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Hrz_Init2DRing__Fv(void)
 
 {
-  undefined *puVar1;
-  uint uVar2;
-  Draw_tPixMap *pDVar3;
-  int iVar4;
-  undefined2 *puVar5;
-  Draw_tPixMap **ppDVar6;
-  uint *puVar7;
-  int iVar8;
-  char cVar9;
-  int *piVar10;
-  int iVar11;
-  CVECTOR *pCVar12;
-  uint uVar13;
+  CHorizonSpec *pCVar1;
+  undefined *puVar2;
+  uint uVar3;
+  Draw_tPixMap *pDVar4;
+  CVECTOR CVar5;
+  int iVar6;
+  SVECTOR *pSVar7;
+  Draw_tPixMap **ppDVar8;
+  CVECTOR *pCVar9;
+  int iVar10;
+  char cVar11;
+  int *piVar12;
+  CVECTOR CVar13;
   int iVar14;
-  int iVar15;
+  uint uVar15;
   int iVar16;
-  uint local_50 [2];
-  undefined4 local_48;
+  int iVar17;
+  int iVar18;
+  CVECTOR local_50 [2];
+  CVECTOR local_48;
   char local_40;
   char local_3f;
   char local_3e;
   
-  iVar15 = 0;
+  iVar17 = 0;
   do {
-    uVar13 = iVar15 * 0x1000 + *(int *)(DAT_0000133c + 4);
-    puVar1 = fixedsin(uVar13);
-    uVar2 = fixedmult((int)puVar1,(int)&DAT_00007d00);
-    iVar14 = iVar15 * 8;
-    puVar5 = (undefined2 *)(iVar14 + DAT_00001344);
-    *puVar5 = (short)uVar2;
-    puVar5[1] = 0;
-    puVar1 = fixedcos(uVar13);
-    uVar2 = fixedmult((int)puVar1,(int)&DAT_00007d00);
-    iVar15 = iVar15 + 1;
-    *(undefined2 *)(iVar14 + DAT_00001344 + 4) = (short)uVar2;
-    iVar14 = DAT_0000133c;
-    uVar2 = 1;
-  } while (iVar15 < 0x11);
-  iVar15 = 0;
-  puVar7 = local_50;
-  ppDVar6 = &__gpPmx_16__;
-  while (iVar15 < 0x10) {
-    pDVar3 = (&__gHorizonPixmap_16__)[(uint)*(byte *)(iVar14 + iVar15 + 0x20) & 7];
-    *ppDVar6 = pDVar3;
-    uVar13 = (uint)pDVar3->v2 - (uint)pDVar3->v1;
-    *puVar7 = uVar13;
-    if ((int)uVar2 < (int)uVar13) {
-      uVar2 = uVar13;
+    uVar15 = iVar17 * 0x1000 + Hrz_gTrackSpec->angle;
+    puVar2 = fixedsin(uVar15);
+    uVar3 = fixedmult((int)puVar2,(int)&DAT_00007d00);
+    pSVar7 = gRngCoordTop + iVar17;
+    pSVar7->vx = (short)uVar3;
+    pSVar7->vy = 0;
+    puVar2 = fixedcos(uVar15);
+    uVar3 = fixedmult((int)puVar2,(int)&DAT_00007d00);
+    iVar16 = iVar17 + 1;
+    gRngCoordTop[iVar17].vz = (short)uVar3;
+    pCVar1 = Hrz_gTrackSpec;
+    CVar13 = (CVECTOR)0x1;
+    iVar17 = iVar16;
+  } while (iVar16 < 0x11);
+  iVar17 = 0;
+  pCVar9 = local_50;
+  ppDVar8 = gpPmx16;
+  while (iVar17 < 0x10) {
+    pDVar4 = gHorizonPixmap16[(uint)(byte)pCVar1->ringPMX[iVar17] & 7];
+    *ppDVar8 = pDVar4;
+    CVar5 = (CVECTOR)((uint)pDVar4->v2 - (uint)pDVar4->v1);
+    *pCVar9 = CVar5;
+    if ((int)CVar13 < (int)CVar5) {
+      CVar13 = CVar5;
     }
-    puVar7 = puVar7 + 1;
-    ppDVar6 = ppDVar6 + 1;
-    iVar15 = iVar15 + 1;
+    pCVar9 = pCVar9 + 1;
+    ppDVar8 = ppDVar8 + 1;
+    iVar17 = iVar17 + 1;
   }
-  iVar15 = 0;
-  piVar10 = &gfxPmxHeightPercentage;
-  puVar7 = local_50;
+  iVar17 = 0;
+  piVar12 = gfxPmxHeightPercentage;
+  pCVar9 = local_50;
   do {
-    uVar13 = *puVar7;
-    if (uVar2 == 0) {
+    CVar5 = *pCVar9;
+    if (CVar13 == (CVECTOR)0x0) {
       trap(0x1c00);
     }
-    if ((uVar2 == 0xffffffff) && (uVar13 << 0x10 == -0x80000000)) {
+    if ((CVar13 == (CVECTOR)0xffffffff) && ((int)CVar5 << 0x10 == -0x80000000)) {
       trap(0x1800);
     }
-    puVar7 = puVar7 + 1;
-    iVar15 = iVar15 + 1;
-    *piVar10 = (int)(uVar13 << 0x10) / (int)uVar2;
-    piVar10 = piVar10 + 1;
-  } while (iVar15 < 0x10);
-  iVar15 = 0;
-  pCVar12 = &gHrzRingColor;
-  iVar14 = 0;
-  while (iVar16 = 0, iVar15 < 2) {
-    local_50[0] = *(uint *)(DAT_0000133c + iVar15 * 4 + 0x18);
-    local_48 = *(uint *)(DAT_0000133c + iVar15 * 4 + 0x10);
-    iVar11 = iVar14;
+    pCVar9 = pCVar9 + 1;
+    iVar17 = iVar17 + 1;
+    *piVar12 = ((int)CVar5 << 0x10) / (int)CVar13;
+    piVar12 = piVar12 + 1;
+  } while (iVar17 < 0x10);
+  iVar17 = 0;
+  pCVar9 = &gHrzRingColor;
+  iVar16 = 0;
+  while (iVar18 = 0, iVar17 < 2) {
+    local_50[0] = Hrz_gTrackSpec->backColor[iVar17];
+    local_48 = Hrz_gTrackSpec->frontColor[iVar17];
+    iVar14 = iVar16;
     while( true ) {
-      cVar9 = (char)iVar16;
-      if (0xf < iVar16) break;
-      if (8 < iVar16) {
-        cVar9 = '\x10' - cVar9;
+      cVar11 = (char)iVar18;
+      if (0xf < iVar18) break;
+      if (8 < iVar18) {
+        cVar11 = '\x10' - cVar11;
       }
-      iVar4 = (local_50[0] & 0xff) - (local_48 & 0xff);
-      if (iVar4 < 0) {
-        iVar4 = iVar4 + 7;
+      iVar6 = ((uint)local_50[0] & 0xff) - ((uint)local_48 & 0xff);
+      if (iVar6 < 0) {
+        iVar6 = iVar6 + 7;
       }
-      local_48._1_1_ = (byte)(local_48 >> 8);
-      local_40 = (char)(iVar4 >> 3);
-      iVar4 = (local_50[0] >> 8 & 0xff) - (uint)local_48._1_1_;
-      if (iVar4 < 0) {
-        iVar4 = iVar4 + 7;
+      local_48.g = (uchar)((uint)local_48 >> 8);
+      local_40 = (char)(iVar6 >> 3);
+      iVar6 = ((uint)local_50[0] >> 8 & 0xff) - (uint)local_48.g;
+      if (iVar6 < 0) {
+        iVar6 = iVar6 + 7;
       }
-      local_48._2_1_ = (byte)(local_48 >> 0x10);
-      iVar8 = (local_50[0] >> 0x10 & 0xff) - (uint)local_48._2_1_;
-      local_3f = (char)(iVar4 >> 3);
-      if (iVar8 < 0) {
-        iVar8 = iVar8 + 7;
+      local_48.b = (uchar)((uint)local_48 >> 0x10);
+      iVar10 = ((uint)local_50[0] >> 0x10 & 0xff) - (uint)local_48.b;
+      local_3f = (char)(iVar6 >> 3);
+      if (iVar10 < 0) {
+        iVar10 = iVar10 + 7;
       }
-      local_3e = (char)(iVar8 >> 3);
-      (&gHrzRingColor.r)[iVar11] = (char)local_48 + local_40 * cVar9;
-      (&gHrzRingColor.g)[iVar11] = local_48._1_1_ + local_3f * cVar9;
-      iVar16 = iVar16 + 1;
-      (&gHrzRingColor.b)[iVar11] = local_48._2_1_ + local_3e * cVar9;
-      iVar11 = iVar11 + 4;
+      local_3e = (char)(iVar10 >> 3);
+      (&gHrzRingColor.r)[iVar14] = local_48.r + local_40 * cVar11;
+      (&gHrzRingColor.g)[iVar14] = local_48.g + local_3f * cVar11;
+      iVar18 = iVar18 + 1;
+      (&gHrzRingColor.b)[iVar14] = local_48.b + local_3e * cVar11;
+      iVar14 = iVar14 + 4;
     }
-    pCVar12[0x10] = *pCVar12;
-    pCVar12 = pCVar12 + 0x11;
-    iVar14 = iVar14 + 0x44;
-    iVar15 = iVar15 + 1;
+    pCVar9[0x10] = *pCVar9;
+    pCVar9 = pCVar9 + 0x11;
+    iVar16 = iVar16 + 0x44;
+    iVar17 = iVar17 + 1;
   }
   Hrz_InitSky__Fv();
-  CVECTOR_8013e384 = *(undefined4 *)(DAT_00001340 + 8);
+  CVECTOR_ARRAY_8013e384[0] = Sky_gTrackSpec->frontcolors[0];
   return;
 }
 
@@ -669,6 +780,21 @@ void Hrz_Init2DRing__Fv(void)
 	/* end block 1 */
 	// End offset: 0x800D00F8
 	// End Line: 429
+
+	/* begin block 2 */
+		// Start line: 898
+	/* end block 2 */
+	// End Line: 899
+
+	/* begin block 3 */
+		// Start line: 903
+	/* end block 3 */
+	// End Line: 904
+
+	/* begin block 4 */
+		// Start line: 903
+	/* end block 4 */
+	// End Line: 904
 
 void Hrz_GetHorizonPixMap__FP12Draw_tPixMap(Draw_tPixMap *p)
 
@@ -693,11 +819,11 @@ void Hrz_GetHorizonPixMap__FP12Draw_tPixMap(Draw_tPixMap *p)
   rpmx = &gHorizonExtraSkyPixmaps;
   iVar3 = 0x20;
   do {
-    ppDVar1 = (Draw_tPixMap **)((int)&__gHorizonPixmap_16__ + iVar3);
+    ppDVar1 = (Draw_tPixMap **)((int)gHorizonPixmap16 + iVar3);
     iVar3 = iVar3 + 4;
     iVar2 = iVar2 + 1;
     Texture_CloneUVPmx__FP12Draw_tPixMapiT0(*ppDVar1,0,rpmx);
-    ppDVar1 = (Draw_tPixMap **)((int)&__gHorizonPixmap_16__ + iVar4);
+    ppDVar1 = (Draw_tPixMap **)((int)gHorizonPixmap16 + iVar4);
     iVar4 = iVar4 + 4;
     *ppDVar1 = rpmx;
     rpmx = rpmx + 1;
@@ -718,14 +844,29 @@ void Hrz_GetHorizonPixMap__FP12Draw_tPixMap(Draw_tPixMap *p)
 	// End offset: 0x800D0174
 	// End Line: 444
 
+	/* begin block 2 */
+		// Start line: 931
+	/* end block 2 */
+	// End Line: 932
+
+	/* begin block 3 */
+		// Start line: 935
+	/* end block 3 */
+	// End Line: 936
+
+	/* begin block 4 */
+		// Start line: 935
+	/* end block 4 */
+	// End Line: 936
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Hrz_InitHorizon__Fv(void)
 
 {
-  uGp0000133c = 0x801232a4;
-  uGp00001340 = 0x801232d4;
-  psGp00001344 = reservememadr(s_gRngCoordTop_800568c0,0x88,0);
+  Hrz_gTrackSpec = &TrackSpec_gSpec.horizonspec;
+  Sky_gTrackSpec = &TrackSpec_gSpec.skyspec;
+  gRngCoordTop = (SVECTOR *)reservememadr(s_gRngCoordTop_800568c0,0x88,0);
   Hrz_Init2DRing__Fv();
   if ((TrackSpec_gSpec.skyspec.flags & 0x10U) != 0) {
     Sky_InitStars__Fv();
@@ -746,12 +887,32 @@ void Hrz_InitHorizon__Fv(void)
 	// End offset: 0x800D0184
 	// End Line: 448
 
+	/* begin block 2 */
+		// Start line: 967
+	/* end block 2 */
+	// End Line: 968
+
+	/* begin block 3 */
+		// Start line: 971
+	/* end block 3 */
+	// End Line: 972
+
+	/* begin block 4 */
+		// Start line: 971
+	/* end block 4 */
+	// End Line: 972
+
+	/* begin block 5 */
+		// Start line: 973
+	/* end block 5 */
+	// End Line: 974
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Hrz_KillHorizon__Fv(void)
 
 {
-  purgememadr(iGp00001344);
+  purgememadr((int)gRngCoordTop);
   Sky_KillStars__Fv();
   return;
 }
@@ -771,6 +932,21 @@ void Hrz_KillHorizon__Fv(void)
 	/* end block 1 */
 	// End offset: 0x800D03A8
 	// End Line: 823
+
+	/* begin block 2 */
+		// Start line: 1312
+	/* end block 2 */
+	// End Line: 1313
+
+	/* begin block 3 */
+		// Start line: 1645
+	/* end block 3 */
+	// End Line: 1646
+
+	/* begin block 4 */
+		// Start line: 1645
+	/* end block 4 */
+	// End Line: 1646
 
 void Hrz_LightningAddFork__FScScSc(char direction,char column,char row)
 
@@ -861,6 +1037,21 @@ LAB_800d0390:
 	// End offset: 0x800D03C8
 	// End Line: 827
 
+	/* begin block 2 */
+		// Start line: 1739
+	/* end block 2 */
+	// End Line: 1740
+
+	/* begin block 3 */
+		// Start line: 1743
+	/* end block 3 */
+	// End Line: 1744
+
+	/* begin block 4 */
+		// Start line: 1743
+	/* end block 4 */
+	// End Line: 1744
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Hrz_CalculateLightning__Fv(void)
@@ -899,6 +1090,26 @@ void Hrz_CalculateLightning__Fv(void)
 	// End offset: 0x800D0404
 	// End Line: 837
 
+	/* begin block 2 */
+		// Start line: 1756
+	/* end block 2 */
+	// End Line: 1757
+
+	/* begin block 3 */
+		// Start line: 1760
+	/* end block 3 */
+	// End Line: 1761
+
+	/* begin block 4 */
+		// Start line: 1760
+	/* end block 4 */
+	// End Line: 1761
+
+	/* begin block 5 */
+		// Start line: 1763
+	/* end block 5 */
+	// End Line: 1764
+
 void Hrz_TextureQuad__FP7DVECTORccP11Draw_DCache(DVECTOR *pt,char type,char bright,Draw_DCache *sd)
 
 {
@@ -930,7 +1141,7 @@ void Hrz_TextureQuad__FP7DVECTORccP11Draw_DCache(DVECTOR *pt,char type,char brig
   *(short *)((int)puVar2 + 0x12) = pt->vy;
   *(short *)(puVar2 + 8) = pt->vx + 0x10;
   *(short *)((int)puVar2 + 0x22) = pt->vy + 0x10;
-  pDVar3 = (&__gLightningPixmap_16__)[(uint)(byte)type];
+  pDVar3 = gLightningPixmap16[(uint)(byte)type];
   uVar4 = *(uint *)&pDVar3->u1;
   uVar5 = *(uint *)&pDVar3->u2;
   uVar7 = *(uint *)&pDVar3->u3;
@@ -956,6 +1167,21 @@ void Hrz_TextureQuad__FP7DVECTORccP11Draw_DCache(DVECTOR *pt,char type,char brig
 	// End offset: 0x800D0534
 	// End Line: 863
 
+	/* begin block 2 */
+		// Start line: 1817
+	/* end block 2 */
+	// End Line: 1818
+
+	/* begin block 3 */
+		// Start line: 1823
+	/* end block 3 */
+	// End Line: 1824
+
+	/* begin block 4 */
+		// Start line: 1823
+	/* end block 4 */
+	// End Line: 1824
+
 void Hrz_SetLightingPosInSky__FP13DRender_tView(DRender_tView *Vi)
 
 {
@@ -968,11 +1194,14 @@ void Hrz_SetLightingPosInSky__FP13DRender_tView(DRender_tView *Vi)
   iVar3 = (Vi->cview).mrotation.m[7];
   iVar4 = (Vi->cview).mrotation.m[8];
   uVar1 = random();
-  sGp00001348 = (short)(iVar2 >> 2) + (short)uVar1 + (short)(uVar1 / 8000) * -8000 + -4000;
+  Hrz_gLightningPosInSky.vx =
+       (short)(iVar2 >> 2) + (short)uVar1 + (short)(uVar1 / 8000) * -8000 + -4000;
   uVar1 = random();
-  sGp0000134a = (short)(iVar3 >> 2) + 8000 + (short)uVar1 + (short)(uVar1 / 3000) * -3000;
+  Hrz_gLightningPosInSky.vy =
+       (short)(iVar3 >> 2) + 8000 + (short)uVar1 + (short)(uVar1 / 3000) * -3000;
   uVar1 = random();
-  sGp0000134c = (short)(iVar4 >> 2) + (short)uVar1 + (short)(uVar1 / 8000) * -8000 + -4000;
+  Hrz_gLightningPosInSky.vz =
+       (short)(iVar4 >> 2) + (short)uVar1 + (short)(uVar1 / 8000) * -8000 + -4000;
   return;
 }
 
@@ -994,6 +1223,21 @@ void Hrz_SetLightingPosInSky__FP13DRender_tView(DRender_tView *Vi)
 	/* end block 1 */
 	// End offset: 0x800D0748
 	// End Line: 898
+
+	/* begin block 2 */
+		// Start line: 1838
+	/* end block 2 */
+	// End Line: 1839
+
+	/* begin block 3 */
+		// Start line: 1843
+	/* end block 3 */
+	// End Line: 1844
+
+	/* begin block 4 */
+		// Start line: 1843
+	/* end block 4 */
+	// End Line: 1844
 
 /* WARNING: Could not reconcile some variable overlaps */
 
@@ -1062,6 +1306,21 @@ void Hrz_BuildForkLightning__FP11Draw_DCache(Draw_DCache *sd)
 	// End offset: 0x800D082C
 	// End Line: 955
 
+	/* begin block 2 */
+		// Start line: 1921
+	/* end block 2 */
+	// End Line: 1922
+
+	/* begin block 3 */
+		// Start line: 1924
+	/* end block 3 */
+	// End Line: 1925
+
+	/* begin block 4 */
+		// Start line: 1924
+	/* end block 4 */
+	// End Line: 1925
+
 void Hrz_LightningFlicker__Fi(int on)
 
 {
@@ -1069,7 +1328,7 @@ void Hrz_LightningFlicker__Fi(int on)
   int iVar2;
   
   if (on == 0) {
-    *(undefined4 *)(iGp00001340 + 8) = CVECTOR_8013e384;
+    Sky_gTrackSpec->frontcolors[0] = CVECTOR_ARRAY_8013e384[0];
     Hrz_InitSkyColor__Fv();
   }
   else {
@@ -1077,7 +1336,7 @@ void Hrz_LightningFlicker__Fi(int on)
       if ((char)Night_gShowForks == '\0') {
         iVar2 = 0x54;
         pCVar1 = &CVECTOR_80120770;
-        *(undefined4 *)(iGp00001340 + 8) = 0xffc0c0;
+        Sky_gTrackSpec->frontcolors[0] = (CVECTOR)0xffc0c0;
         do {
           *pCVar1 = (CVECTOR)0xffc0c0;
           iVar2 = iVar2 + -1;
@@ -1089,7 +1348,7 @@ void Hrz_LightningFlicker__Fi(int on)
       if ((char)Night_gShowForks == '\0') {
         iVar2 = 0x54;
         pCVar1 = &CVECTOR_80120770;
-        *(undefined4 *)(iGp00001340 + 8) = 0xc02828;
+        Sky_gTrackSpec->frontcolors[0] = (CVECTOR)0xc02828;
         do {
           *pCVar1 = (CVECTOR)0xc02828;
           iVar2 = iVar2 + -1;
@@ -1161,6 +1420,21 @@ void Hrz_LightningFlicker__Fi(int on)
 	// End offset: 0x800D083C
 	// End Line: 983
 
+	/* begin block 2 */
+		// Start line: 2066
+	/* end block 2 */
+	// End Line: 2067
+
+	/* begin block 3 */
+		// Start line: 2094
+	/* end block 3 */
+	// End Line: 2095
+
+	/* begin block 4 */
+		// Start line: 2094
+	/* end block 4 */
+	// End Line: 2095
+
 void HrzSetPsxMatrix__FP10matrixtdef(matrixtdef *m)
 
 {
@@ -1192,6 +1466,26 @@ void HrzSetPsxMatrix__FP10matrixtdef(matrixtdef *m)
 	// End offset: 0x800D091C
 	// End Line: 1022
 
+	/* begin block 2 */
+		// Start line: 2227
+	/* end block 2 */
+	// End Line: 2228
+
+	/* begin block 3 */
+		// Start line: 2231
+	/* end block 3 */
+	// End Line: 2232
+
+	/* begin block 4 */
+		// Start line: 2231
+	/* end block 4 */
+	// End Line: 2232
+
+	/* begin block 5 */
+		// Start line: 2234
+	/* end block 5 */
+	// End Line: 2235
+
 void HrzSetPsxTranslation__FP8coorddef(coorddef *t)
 
 {
@@ -1213,6 +1507,31 @@ void HrzSetPsxTranslation__FP8coorddef(coorddef *t)
 	/* end block 1 */
 	// End offset: 0x800D09A8
 	// End Line: 1046
+
+	/* begin block 2 */
+		// Start line: 2252
+	/* end block 2 */
+	// End Line: 2253
+
+	/* begin block 3 */
+		// Start line: 2256
+	/* end block 3 */
+	// End Line: 2257
+
+	/* begin block 4 */
+		// Start line: 2256
+	/* end block 4 */
+	// End Line: 2257
+
+	/* begin block 5 */
+		// Start line: 2257
+	/* end block 5 */
+	// End Line: 2258
+
+	/* begin block 6 */
+		// Start line: 2257
+	/* end block 6 */
+	// End Line: 2258
 
 void Hrz_RotProj16__FiP7SVECTORPiP7DVECTOR(int n,SVECTOR *s,int *z,DVECTOR *p)
 
@@ -1256,6 +1575,21 @@ void Hrz_RotProj16__FiP7SVECTORPiP7DVECTOR(int n,SVECTOR *s,int *z,DVECTOR *p)
 	/* end block 1 */
 	// End offset: 0x800D09B0
 	// End Line: 1051
+
+	/* begin block 2 */
+		// Start line: 2287
+	/* end block 2 */
+	// End Line: 2288
+
+	/* begin block 3 */
+		// Start line: 2292
+	/* end block 3 */
+	// End Line: 2293
+
+	/* begin block 4 */
+		// Start line: 2292
+	/* end block 4 */
+	// End Line: 2293
 
 void Hrz_SetDitheringPrim__Fii(int dither,int otz)
 
@@ -1394,6 +1728,21 @@ void Hrz_SetDitheringPrim__Fii(int dither,int otz)
 	// End offset: 0x800D1140
 	// End Line: 1278
 
+	/* begin block 2 */
+		// Start line: 2310
+	/* end block 2 */
+	// End Line: 2311
+
+	/* begin block 3 */
+		// Start line: 2315
+	/* end block 3 */
+	// End Line: 2316
+
+	/* begin block 4 */
+		// Start line: 2315
+	/* end block 4 */
+	// End Line: 2316
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Hrz_BuildSky__Fv(void)
@@ -1401,8 +1750,8 @@ void Hrz_BuildSky__Fv(void)
 {
   CVECTOR *pCVar1;
   undefined4 uVar2;
-  int *piVar3;
-  uint *puVar4;
+  uint *puVar3;
+  CSkySpec *pCVar4;
   undefined4 in_zero;
   undefined4 in_at;
   uint uVar5;
@@ -1427,7 +1776,7 @@ void Hrz_BuildSky__Fv(void)
   if (GameSetup_gData.commMode == 1) {
     sVar17 = 0x3c;
   }
-  if ((DAT_00001340[1] & 1U) == 0) {
+  if ((Sky_gTrackSpec->flags & 1U) == 0) {
     memset(&cStack56,0,0xc);
     HrzSetPsxTranslation__FP8coorddef(&cStack56);
     pSVar11 = &gSkyMesh;
@@ -1502,7 +1851,7 @@ void Hrz_BuildSky__Fv(void)
       iVar13 = iVar13 + -1;
     }
   }
-  if ((DAT_00001340[1] & 0x40U) != 0) {
+  if ((Sky_gTrackSpec->flags & 0x40U) != 0) {
     Hrz_SetDitheringPrim__Fii(0,Draw_gViewOtSize + -2);
   }
   uVar2 = DAT_1f800094;
@@ -1511,13 +1860,13 @@ void Hrz_BuildSky__Fv(void)
               ((SVECTOR *)&sunPosInSky,(Draw_FlareCache *)&DAT_1f800000);
   }
   iVar12 = 0;
-  pcVar16 = &gSkyPixmapIndex;
+  pcVar16 = gSkyPixmapIndex;
   DAT_1f800094 = uVar2;
   do {
-    puVar4 = DAT_1f800004;
-    piVar3 = DAT_00001340;
+    pCVar4 = Sky_gTrackSpec;
+    puVar3 = DAT_1f800004;
     if (0x3f < iVar12) {
-      if ((DAT_00001340[1] & 0x40U) != 0) {
+      if ((Sky_gTrackSpec->flags & 0x40U) != 0) {
         Hrz_SetDitheringPrim__Fii(1,Draw_gViewOtSize + -2);
       }
       return;
@@ -1543,46 +1892,46 @@ void Hrz_BuildSky__Fv(void)
                  (-1 < *(short *)((int)&DAT_1f80005c + iVar13 * 4 + 2))) ||
                 ((-1 < (short)(&DAT_1f80001a)[iVar13 * 2] ||
                  (-1 < (int)((uint)(ushort)(&DAT_1f800016)[iVar13 * 2] << 0x10))))))))))) {
-      if (*DAT_00001340 == 1) {
-        if ((DAT_00001340[1] & 0x20U) != 0) {
+      if (Sky_gTrackSpec->type == 1) {
+        if ((Sky_gTrackSpec->flags & 0x20U) != 0) {
           iVar9 = Draw_gViewOtSize * 4 + DAT_1f800000;
-          pDVar14 = (&__gHorizonPixmap_16__)[(uint)(byte)*pcVar16];
+          pDVar14 = gHorizonPixmap16[(uint)(byte)*pcVar16];
           *DAT_1f800004 = *DAT_1f800004 & 0xff000000 | *(uint *)(iVar9 + -8) & 0xffffff;
           *(uint *)(iVar9 + -8) = *(uint *)(iVar9 + -8) & 0xff000000 | (uint)DAT_1f800004 & 0xffffff
           ;
           pCVar1 = (CVECTOR *)(DAT_1f800004 + 1);
           DAT_1f800004 = DAT_1f800004 + 0xd;
           *pCVar1 = (&CVECTOR_80120664)[iVar13];
-          *(CVECTOR *)(puVar4 + 4) = (&CVECTOR_80120668)[iVar13];
-          *(CVECTOR *)(puVar4 + 7) = (&gSkyColor)[iVar13];
-          CVar8 = (&CVECTOR_80120624)[iVar13];
-          *(undefined *)((int)puVar4 + 3) = 0xc;
-          *(undefined *)((int)puVar4 + 7) = 0x3c;
-          *(CVECTOR *)(puVar4 + 10) = CVar8;
-          puVar4[3] = *(uint *)pDVar14;
-          puVar4[6] = *(uint *)&pDVar14->u1;
-          puVar4[9] = *(uint *)&pDVar14->u2;
-          puVar4[0xc] = *(uint *)&pDVar14->u3;
-          puVar4[2] = *(uint *)(&DAT_1f800058 + iVar13 * 2);
-          puVar4[5] = (&DAT_1f80005c)[iVar13];
-          puVar4[8] = *(uint *)(&DAT_1f800014 + iVar13 * 2);
-          puVar4[0xb] = *(uint *)(&DAT_1f800018 + iVar13 * 2);
+          *(CVECTOR *)(puVar3 + 4) = CVECTOR_ARRAY_80120668[iVar13];
+          *(CVECTOR *)(puVar3 + 7) = (&gSkyColor)[iVar13];
+          CVar8 = CVECTOR_ARRAY_80120624[iVar13];
+          *(undefined *)((int)puVar3 + 3) = 0xc;
+          *(undefined *)((int)puVar3 + 7) = 0x3c;
+          *(CVECTOR *)(puVar3 + 10) = CVar8;
+          puVar3[3] = *(uint *)pDVar14;
+          puVar3[6] = *(uint *)&pDVar14->u1;
+          puVar3[9] = *(uint *)&pDVar14->u2;
+          puVar3[0xc] = *(uint *)&pDVar14->u3;
+          puVar3[2] = *(uint *)(&DAT_1f800058 + iVar13 * 2);
+          puVar3[5] = (&DAT_1f80005c)[iVar13];
+          puVar3[8] = *(uint *)(&DAT_1f800014 + iVar13 * 2);
+          puVar3[0xb] = *(uint *)(&DAT_1f800018 + iVar13 * 2);
           goto LAB_800d1108;
         }
         iVar9 = Draw_gViewOtSize * 4 + DAT_1f800000;
-        pDVar14 = (&__gHorizonPixmap_16__)[(uint)(byte)*pcVar16];
+        pDVar14 = gHorizonPixmap16[(uint)(byte)*pcVar16];
         *DAT_1f800004 = *DAT_1f800004 & 0xff000000 | *(uint *)(iVar9 + -8) & 0xffffff;
         uVar5 = (uint)DAT_1f800004 & 0xffffff;
         DAT_1f800004 = DAT_1f800004 + 10;
         *(uint *)(iVar9 + -8) = *(uint *)(iVar9 + -8) & 0xff000000 | uVar5;
-        uVar5 = piVar3[2];
-        *(undefined *)((int)puVar4 + 3) = 9;
-        puVar4[1] = uVar5;
-        *(undefined *)((int)puVar4 + 7) = 0x2c;
-        puVar4[3] = *(uint *)pDVar14;
-        puVar4[5] = *(uint *)&pDVar14->u1;
-        puVar4[7] = *(uint *)&pDVar14->u2;
-        puVar4[9] = *(uint *)&pDVar14->u3;
+        CVar8 = pCVar4->frontcolors[0];
+        *(undefined *)((int)puVar3 + 3) = 9;
+        *(CVECTOR *)(puVar3 + 1) = CVar8;
+        *(undefined *)((int)puVar3 + 7) = 0x2c;
+        puVar3[3] = *(uint *)pDVar14;
+        puVar3[5] = *(uint *)&pDVar14->u1;
+        puVar3[7] = *(uint *)&pDVar14->u2;
+        puVar3[9] = *(uint *)&pDVar14->u3;
       }
       else {
         iVar9 = Draw_gViewOtSize * 4 + DAT_1f800000;
@@ -1591,17 +1940,17 @@ void Hrz_BuildSky__Fv(void)
         pCVar1 = (CVECTOR *)(DAT_1f800004 + 1);
         DAT_1f800004 = DAT_1f800004 + 9;
         *pCVar1 = (&CVECTOR_80120664)[iVar13];
-        *(CVECTOR *)(puVar4 + 3) = (&CVECTOR_80120668)[iVar13];
-        *(CVECTOR *)(puVar4 + 5) = (&gSkyColor)[iVar13];
-        CVar8 = (&CVECTOR_80120624)[iVar13];
-        *(undefined *)((int)puVar4 + 3) = 8;
-        *(undefined *)((int)puVar4 + 7) = 0x38;
-        *(CVECTOR *)(puVar4 + 7) = CVar8;
+        *(CVECTOR *)(puVar3 + 3) = CVECTOR_ARRAY_80120668[iVar13];
+        *(CVECTOR *)(puVar3 + 5) = (&gSkyColor)[iVar13];
+        CVar8 = CVECTOR_ARRAY_80120624[iVar13];
+        *(undefined *)((int)puVar3 + 3) = 8;
+        *(undefined *)((int)puVar3 + 7) = 0x38;
+        *(CVECTOR *)(puVar3 + 7) = CVar8;
       }
-      puVar4[2] = *(uint *)(&DAT_1f800058 + iVar13 * 2);
-      puVar4[4] = (&DAT_1f80005c)[iVar13];
-      puVar4[6] = *(uint *)(&DAT_1f800014 + iVar13 * 2);
-      puVar4[8] = *(uint *)(&DAT_1f800018 + iVar13 * 2);
+      puVar3[2] = *(uint *)(&DAT_1f800058 + iVar13 * 2);
+      puVar3[4] = (&DAT_1f80005c)[iVar13];
+      puVar3[6] = *(uint *)(&DAT_1f800014 + iVar13 * 2);
+      puVar3[8] = *(uint *)(&DAT_1f800018 + iVar13 * 2);
     }
 LAB_800d1108:
     pcVar16 = (char *)((byte *)pcVar16 + 1);
@@ -1631,6 +1980,21 @@ LAB_800d1108:
 	// End offset: 0x800D1300
 	// End Line: 1331
 
+	/* begin block 2 */
+		// Start line: 2814
+	/* end block 2 */
+	// End Line: 2815
+
+	/* begin block 3 */
+		// Start line: 2821
+	/* end block 3 */
+	// End Line: 2822
+
+	/* begin block 4 */
+		// Start line: 2821
+	/* end block 4 */
+	// End Line: 2822
+
 /* WARNING: Could not reconcile some variable overlaps */
 
 void Sky_RenderStars__FP13Draw_SkyCachei(Draw_SkyCache *sd,int otz)
@@ -1641,28 +2005,29 @@ void Sky_RenderStars__FP13Draw_SkyCachei(Draw_SkyCache *sd,int otz)
   undefined4 in_at;
   uint uVar2;
   int iVar3;
-  uint *puVar4;
-  int iVar5;
-  undefined4 *puVar6;
-  int iVar7;
+  ulong uVar4;
+  uint *puVar5;
+  int iVar6;
+  SVECTOR *pSVar7;
+  int iVar8;
   coorddef cStack72;
   uint local_38;
   
-  puVar6 = DAT_0000132c;
-  iVar7 = 0x78;
+  pSVar7 = starPosInSky;
+  iVar8 = 0x78;
   if (GameSetup_gData.commMode == 1) {
-    iVar7 = 0x3c;
+    iVar8 = 0x3c;
   }
   memset(&cStack72,0,0xc);
   HrzSetPsxTranslation__FP8coorddef(&cStack72);
-  iVar5 = 0;
-  if (0 < *(int *)(DAT_00001340 + 0x44)) {
+  iVar6 = 0;
+  if (0 < Sky_gTrackSpec->numStars) {
     do {
       puVar1 = DAT_1f800004;
-      setCopReg(2,in_zero,*puVar6);
-      setCopReg(2,in_at,puVar6[1]);
+      setCopReg(2,in_zero,*(undefined4 *)pSVar7);
+      setCopReg(2,in_at,*(undefined4 *)&pSVar7->vz);
       copFunction(2,0x180001);
-      puVar6 = puVar6 + 2;
+      pSVar7 = pSVar7 + 1;
       iVar3 = getCopReg(2,0x13);
       if (0 < iVar3) {
         uVar2 = getCopReg(2,0xe);
@@ -1670,24 +2035,24 @@ void Sky_RenderStars__FP13Draw_SkyCachei(Draw_SkyCache *sd,int otz)
         iVar3 = getCopReg(2,0x1a);
         getCopReg(2,0x1b);
         local_38._0_2_ = (short)uVar2;
-        iVar3 = (iVar3 >> 2) + iVar7;
+        iVar3 = (iVar3 >> 2) + iVar8;
         local_38 = uVar2 & 0xffff | iVar3 * 0x10000;
         if (((((short)local_38 <= (sd->head).clipW) && (-1 < (short)local_38)) &&
             (iVar3 = iVar3 * 0x10000 >> 0x10, iVar3 <= (int)(sd->head).clipH)) && (-1 < iVar3)) {
-          puVar4 = (uint *)(otz * 4 + DAT_1f800000);
-          *DAT_1f800004 = *DAT_1f800004 & 0xff000000 | *puVar4 & 0xffffff;
+          puVar5 = (uint *)(otz * 4 + DAT_1f800000);
+          *DAT_1f800004 = *DAT_1f800004 & 0xff000000 | *puVar5 & 0xffffff;
           uVar2 = (uint)DAT_1f800004 & 0xffffff;
           DAT_1f800004 = DAT_1f800004 + 3;
-          *puVar4 = *puVar4 & 0xff000000 | uVar2;
-          uVar2 = *(uint *)(iVar5 * 4 + DAT_00001330);
+          *puVar5 = *puVar5 & 0xff000000 | uVar2;
+          uVar4 = starColors[iVar6];
           *(undefined *)((int)puVar1 + 3) = 2;
-          puVar1[1] = uVar2;
+          puVar1[1] = uVar4;
           *(undefined *)((int)puVar1 + 7) = 0x68;
           puVar1[2] = local_38;
         }
       }
-      iVar5 = iVar5 + 1;
-    } while (iVar5 < *(int *)(DAT_00001340 + 0x44));
+      iVar6 = iVar6 + 1;
+    } while (iVar6 < Sky_gTrackSpec->numStars);
   }
   return;
 }
@@ -1794,6 +2159,21 @@ void Sky_RenderStars__FP13Draw_SkyCachei(Draw_SkyCache *sd,int otz)
 	// End offset: 0x800D1A50
 	// End Line: 1557
 
+	/* begin block 2 */
+		// Start line: 2934
+	/* end block 2 */
+	// End Line: 2935
+
+	/* begin block 3 */
+		// Start line: 2942
+	/* end block 3 */
+	// End Line: 2943
+
+	/* begin block 4 */
+		// Start line: 2942
+	/* end block 4 */
+	// End Line: 2943
+
 /* WARNING: Could not reconcile some variable overlaps */
 
 void Hrz_BuildHorizon__FP13DRender_tView(DRender_tView *Vi)
@@ -1823,10 +2203,10 @@ void Hrz_BuildHorizon__FP13DRender_tView(DRender_tView *Vi)
   int local_40;
   int local_3c;
   uint local_38;
-  undefined *local_34;
+  undefined **local_34;
   long local_30;
   
-  local_34 = &DAT_000107ae;
+  local_34 = &PTR_000107ae;
   memset(&cStack104,0,0xc);
   local_30 = 0;
   if (700 < Camera_gGeomScreen) {
@@ -1835,7 +2215,7 @@ void Hrz_BuildHorizon__FP13DRender_tView(DRender_tView *Vi)
   }
   HrzSetPsxMatrix__FP10matrixtdef(&(Vi->cview).mrotationInv);
   HrzSetPsxTranslation__FP8coorddef(&cStack104);
-  Hrz_RotProj16__FiP7SVECTORPiP7DVECTOR(0x11,DAT_00001344,&DAT_1f800124,(DVECTOR *)&DAT_1f800058);
+  Hrz_RotProj16__FiP7SVECTORPiP7DVECTOR(0x11,gRngCoordTop,&DAT_1f800124,(DVECTOR *)&DAT_1f800058);
   iVar10 = 0;
   iVar8 = 0;
   piVar5 = &DAT_1f800124;
@@ -1848,10 +2228,11 @@ void Hrz_BuildHorizon__FP13DRender_tView(DRender_tView *Vi)
     iVar9 = iVar9 + 1;
     piVar5 = piVar5 + 1;
   } while (iVar9 < 0x10);
-  pSVar6 = DAT_00001344 + iVar10;
-  local_58 = CONCAT22(*(short *)(DAT_0000133c + 8) + *(short *)(DAT_0000133c + 0xc),pSVar6->vx);
+  pSVar6 = gRngCoordTop + iVar10;
+  local_58 = CONCAT22(*(short *)&Hrz_gTrackSpec->yoffset + *(short *)&Hrz_gTrackSpec->height,
+                      pSVar6->vx);
   local_54 = CONCAT22(local_54._2_2_,pSVar6->vz);
-  local_50 = CONCAT22(*(undefined2 *)(DAT_0000133c + 8),pSVar6->vx);
+  local_50 = CONCAT22(*(undefined2 *)&Hrz_gTrackSpec->yoffset,pSVar6->vx);
   local_4c = CONCAT22(local_4c._2_2_,pSVar6->vz);
   setCopReg(2,in_zero,local_50);
   setCopReg(2,in_at,local_4c);
@@ -1892,10 +2273,10 @@ void Hrz_BuildHorizon__FP13DRender_tView(DRender_tView *Vi)
   local_38 = local_48;
   Horizon_InterpolateLineSCoords__FP7DVECTORN20Piii
             ((DVECTOR *)&DAT_1f80009c,(DVECTOR *)&DAT_1f800058,(DVECTOR *)&DAT_1f800014,
-             &gfxPmxHeightPercentage,0x10,1);
+             gfxPmxHeightPercentage,0x10,1);
   Horizon_InterpolateLineSCoords__FP7DVECTORN20Piii
             ((DVECTOR *)&DAT_1f8000e0,(DVECTOR *)&DAT_1f80005c,(DVECTOR *)&DAT_1f800018,
-             &gfxPmxHeightPercentage,0x10,1);
+             gfxPmxHeightPercentage,0x10,1);
   iVar8 = 0;
   if (TrackSpec_gSpec.horizonstate != 0) {
     iVar9 = 0x1f800000;
@@ -1922,8 +2303,8 @@ void Hrz_BuildHorizon__FP13DRender_tView(DRender_tView *Vi)
                     (&local_48,(DVECTOR *)((int)&DAT_1f80009c + iVar10),
                      (DVECTOR *)((int)&DAT_1f8000e0 + iVar10),(int *)&local_34,1,0);
           puVar4 = DAT_1f800004;
-          puVar11 = *(uint **)((int)&__gpPmx_16__ + iVar10);
-          if (*(char *)(DAT_0000133c + iVar8 + 0x20) != '\x10') {
+          puVar11 = *(uint **)((int)gpPmx16 + iVar10);
+          if (Hrz_gTrackSpec->ringPMX[iVar8] != '\x10') {
             iVar7 = Draw_gViewOtSize * 4 + DAT_1f800000;
             *DAT_1f800004 = *DAT_1f800004 & 0xff000000 | *(uint *)(iVar7 + -8) & 0xffffff;
             *(uint *)(iVar7 + -8) =
@@ -1939,7 +2320,7 @@ void Hrz_BuildHorizon__FP13DRender_tView(DRender_tView *Vi)
             puVar4[6] = puVar11[1];
             puVar4[9] = puVar11[2];
             puVar4[0xc] = puVar11[3];
-            if (*(byte *)(DAT_0000133c + iVar8 + 0x20) < 8) {
+            if ((byte)Hrz_gTrackSpec->ringPMX[iVar8] < 8) {
               puVar4[2] = *(uint *)((int)&DAT_1f80009c + iVar10);
               puVar4[5] = local_48;
               puVar4[8] = *(uint *)((int)&DAT_1f800058 + iVar10);
@@ -1980,6 +2361,7 @@ void Hrz_BuildHorizon__FP13DRender_tView(DRender_tView *Vi)
   }
   return;
 }
+
 
 
 

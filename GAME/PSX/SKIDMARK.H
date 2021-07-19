@@ -1,6 +1,7 @@
 #ifndef SKIDMARK_H
 #define SKIDMARK_H
 
+
 extern void CalcStartSegment__FP16Skidmark_SegmentT0P8coorddefN22i(struct Skidmark_Segment *r1, struct Skidmark_Segment *r2, struct coorddef *cp, struct coorddef *pt1, struct coorddef *pt2, int tireWidth); // 0x800DE6F4
 
 extern void CalcOneSegment__FP16Skidmark_SegmentP8coorddefN21i(struct Skidmark_Segment *r1, struct coorddef *cp, struct coorddef *pt1, struct coorddef *pt2, int tireWidth); // 0x800DE8C4
@@ -22,5 +23,6 @@ extern void Skidmark_InitSkidmark__Fv(); // 0x800DF504
 extern void Skidmark_RestartSkidmark__Fv(); // 0x800DF578
 
 extern void Skidmark_KillSkidmark__Fv(); // 0x800DF58C
+
 
 #endif

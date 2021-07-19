@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "DRAWC.H"
+
 
 // decompiled code
 // original method signature: 
@@ -11,6 +12,21 @@
 	/* end block 1 */
 	// End offset: 0x800BE6D0
 	// End Line: 115
+
+	/* begin block 2 */
+		// Start line: 224
+	/* end block 2 */
+	// End Line: 225
+
+	/* begin block 3 */
+		// Start line: 224
+	/* end block 3 */
+	// End Line: 225
+
+	/* begin block 4 */
+		// Start line: 226
+	/* end block 4 */
+	// End Line: 227
 
 void ChangeTPage__FPUsi(ushort *tpage,int nabr)
 
@@ -31,6 +47,31 @@ void ChangeTPage__FPUsi(ushort *tpage,int nabr)
 	/* end block 1 */
 	// End offset: 0x800BE6E8
 	// End Line: 120
+
+	/* begin block 2 */
+		// Start line: 233
+	/* end block 2 */
+	// End Line: 234
+
+	/* begin block 3 */
+		// Start line: 238
+	/* end block 3 */
+	// End Line: 239
+
+	/* begin block 4 */
+		// Start line: 238
+	/* end block 4 */
+	// End Line: 239
+
+	/* begin block 5 */
+		// Start line: 239
+	/* end block 5 */
+	// End Line: 240
+
+	/* begin block 6 */
+		// Start line: 239
+	/* end block 6 */
+	// End Line: 240
 
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
@@ -58,6 +99,21 @@ void DrawC_SetEnviroment__Fv(void)
 	// End offset: 0x800BE8D4
 	// End Line: 178
 
+	/* begin block 2 */
+		// Start line: 243
+	/* end block 2 */
+	// End Line: 244
+
+	/* begin block 3 */
+		// Start line: 246
+	/* end block 3 */
+	// End Line: 247
+
+	/* begin block 4 */
+		// Start line: 246
+	/* end block 4 */
+	// End Line: 247
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void DrawC_ReadLightingData__Fv(void)
@@ -71,23 +127,23 @@ void DrawC_ReadLightingData__Fv(void)
   char acStack288 [256];
   char *local_20 [2];
   
-  sprintf(acStack288,s__sTr_02d_env_80056814,PTR_80116480,GameSetup_gData.track);
+  sprintf(acStack288,s__sTr_02d_env_80056814,PTR_ARRAY_80116480[0],GameSetup_gData.track);
   pcVar1 = (char *)loadfileadr(acStack288,0x10);
   local_20[0] = pcVar1;
-  iGp000012ac = Risk_ReadNextValue__FPPc(local_20);
-  psGp000012a4 = reservememadr(s_envmap_8013d7d0,iGp000012ac * 6,0);
+  DrawC_gEnvMapMax = Risk_ReadNextValue__FPPc(local_20);
+  DrawC_gEnvMap = (DrawC_tEnvMap *)reservememadr(s_envmap_8013d7d0,DrawC_gEnvMapMax * 6,0);
   iVar5 = 0;
-  if (0 < iGp000012ac) {
+  if (0 < DrawC_gEnvMapMax) {
     iVar4 = 0;
     do {
       iVar2 = Risk_ReadNextValue__FPPc(local_20);
-      *(undefined2 *)(iVar4 + (int)psGp000012a4) = (short)iVar2;
+      *(undefined2 *)((int)&DrawC_gEnvMap->slice + iVar4) = (short)iVar2;
       iVar2 = Risk_ReadNextValue__FPPc(local_20);
-      *(undefined2 *)((int)psGp000012a4 + iVar4 + 2) = (short)iVar2;
+      *(undefined2 *)((int)&DrawC_gEnvMap->tex + iVar4) = (short)iVar2;
       iVar2 = Risk_ReadNextValue__FPPc(local_20);
-      *(undefined2 *)((int)psGp000012a4 + iVar4 + 4) = (short)(iVar2 << 8);
+      *(undefined2 *)((int)&DrawC_gEnvMap->extra + iVar4) = (short)(iVar2 << 8);
       iVar2 = Risk_ReadNextValue__FPPc(local_20);
-      psVar3 = (short *)(iVar4 + (int)psGp000012a4);
+      psVar3 = (short *)((int)&DrawC_gEnvMap->slice + iVar4);
       psVar3[2] = psVar3[2] + (short)iVar2;
       if (*psVar3 < 0) {
         *psVar3 = 0x7fff;
@@ -95,22 +151,22 @@ void DrawC_ReadLightingData__Fv(void)
       }
       iVar5 = iVar5 + 1;
       iVar4 = iVar4 + 6;
-    } while (iVar5 < iGp000012ac);
+    } while (iVar5 < DrawC_gEnvMapMax);
   }
-  iGp000012b0 = Risk_ReadNextValue__FPPc(local_20);
-  psGp000012a8 = reservememadr(s_Shadow_8013d7d8,iGp000012b0 * 6,0);
+  DrawC_gShadowMax = Risk_ReadNextValue__FPPc(local_20);
+  DrawC_gShadow = (DrawC_tEnvMap *)reservememadr(s_Shadow_8013d7d8,DrawC_gShadowMax * 6,0);
   iVar5 = 0;
-  if (0 < iGp000012b0) {
+  if (0 < DrawC_gShadowMax) {
     iVar4 = 0;
     do {
       iVar2 = Risk_ReadNextValue__FPPc(local_20);
-      *(undefined2 *)(iVar4 + (int)psGp000012a8) = (short)iVar2;
+      *(undefined2 *)((int)&DrawC_gShadow->slice + iVar4) = (short)iVar2;
       iVar2 = Risk_ReadNextValue__FPPc(local_20);
-      *(undefined2 *)((int)psGp000012a8 + iVar4 + 2) = (short)iVar2;
+      *(undefined2 *)((int)&DrawC_gShadow->tex + iVar4) = (short)iVar2;
       iVar2 = Risk_ReadNextValue__FPPc(local_20);
-      *(undefined2 *)((int)psGp000012a8 + iVar4 + 4) = (short)(iVar2 << 8);
+      *(undefined2 *)((int)&DrawC_gShadow->extra + iVar4) = (short)(iVar2 << 8);
       iVar2 = Risk_ReadNextValue__FPPc(local_20);
-      psVar3 = (short *)(iVar4 + (int)psGp000012a8);
+      psVar3 = (short *)((int)&DrawC_gShadow->slice + iVar4);
       psVar3[2] = psVar3[2] + (short)iVar2;
       if (*psVar3 < 0) {
         *psVar3 = 0x7fff;
@@ -118,7 +174,7 @@ void DrawC_ReadLightingData__Fv(void)
       }
       iVar5 = iVar5 + 1;
       iVar4 = iVar4 + 6;
-    } while (iVar5 < iGp000012b0);
+    } while (iVar5 < DrawC_gShadowMax);
   }
   purgememadr((int)pcVar1);
   return;
@@ -136,6 +192,21 @@ void DrawC_ReadLightingData__Fv(void)
 	/* end block 1 */
 	// End offset: 0x800BE8F8
 	// End Line: 182
+
+	/* begin block 2 */
+		// Start line: 394
+	/* end block 2 */
+	// End Line: 395
+
+	/* begin block 3 */
+		// Start line: 398
+	/* end block 3 */
+	// End Line: 399
+
+	/* begin block 4 */
+		// Start line: 398
+	/* end block 4 */
+	// End Line: 399
 
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
@@ -158,6 +229,21 @@ void DrawC_ReadeMapData__Fv(void)
 	/* end block 1 */
 	// End offset: 0x800BE918
 	// End Line: 191
+
+	/* begin block 2 */
+		// Start line: 408
+	/* end block 2 */
+	// End Line: 409
+
+	/* begin block 3 */
+		// Start line: 416
+	/* end block 3 */
+	// End Line: 417
+
+	/* begin block 4 */
+		// Start line: 416
+	/* end block 4 */
+	// End Line: 417
 
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
@@ -183,13 +269,38 @@ void DrawC_BuildRenderingData__Fv(void)
 	// End offset: 0x800BE948
 	// End Line: 209
 
+	/* begin block 2 */
+		// Start line: 442
+	/* end block 2 */
+	// End Line: 443
+
+	/* begin block 3 */
+		// Start line: 452
+	/* end block 3 */
+	// End Line: 453
+
+	/* begin block 4 */
+		// Start line: 452
+	/* end block 4 */
+	// End Line: 453
+
+	/* begin block 5 */
+		// Start line: 453
+	/* end block 5 */
+	// End Line: 454
+
+	/* begin block 6 */
+		// Start line: 453
+	/* end block 6 */
+	// End Line: 454
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void DrawC_KillRenderingData__Fv(void)
 
 {
-  purgememadr(DAT_000012a4);
-  purgememadr(DAT_000012a8);
+  purgememadr((int)DrawC_gEnvMap);
+  purgememadr((int)DrawC_gShadow);
   return;
 }
 
@@ -248,6 +359,21 @@ void DrawC_KillRenderingData__Fv(void)
 	// End offset: 0x800BEB10
 	// End Line: 266
 
+	/* begin block 2 */
+		// Start line: 461
+	/* end block 2 */
+	// End Line: 462
+
+	/* begin block 3 */
+		// Start line: 465
+	/* end block 3 */
+	// End Line: 466
+
+	/* begin block 4 */
+		// Start line: 465
+	/* end block 4 */
+	// End Line: 466
+
 /* WARNING: Could not reconcile some variable overlaps */
 
 void DrawC_NightHeadlight__FP8Car_tObj(Car_tObj *carObj)
@@ -267,8 +393,8 @@ void DrawC_NightHeadlight__FP8Car_tObj(Car_tObj *carObj)
   CVECTOR *local_18;
   
   local_18 = (CVECTOR *)&(carObj->render).bodyRoll;
-  if ((((&__Cars_gList_9__)[gCView.player]->control).lights & 6U) != 0) {
-    ppCVar1 = &__Cars_gHumanRaceCarList_9__ + gCView.player;
+  if ((((&Cars_gList9)[gCView.player]->control).lights & 6U) != 0) {
+    ppCVar1 = &Cars_gHumanRaceCarList9 + gCView.player;
     local_38 = (carObj->N).position.x - ((*ppCVar1)->N).position.x;
     local_34 = (carObj->N).position.y - ((*ppCVar1)->N).position.y;
     local_30 = (carObj->N).position.z - ((*ppCVar1)->N).position.z;
@@ -335,6 +461,21 @@ void DrawC_NightHeadlight__FP8Car_tObj(Car_tObj *carObj)
 	/* end block 1 */
 	// End offset: 0x800BED28
 	// End Line: 527
+
+	/* begin block 2 */
+		// Start line: 752
+	/* end block 2 */
+	// End Line: 753
+
+	/* begin block 3 */
+		// Start line: 875
+	/* end block 3 */
+	// End Line: 876
+
+	/* begin block 4 */
+		// Start line: 875
+	/* end block 4 */
+	// End Line: 876
 
 void DrawC_MenuColorData__FiP8Car_tObji(int color,Car_tObj *carObj,int player)
 
@@ -564,6 +705,21 @@ void DrawC_MenuColorData__FiP8Car_tObji(int color,Car_tObj *carObj,int player)
 	// End offset: 0x800BFC54
 	// End Line: 1532
 
+	/* begin block 2 */
+		// Start line: 1794
+	/* end block 2 */
+	// End Line: 1795
+
+	/* begin block 3 */
+		// Start line: 2415
+	/* end block 3 */
+	// End Line: 2416
+
+	/* begin block 4 */
+		// Start line: 2415
+	/* end block 4 */
+	// End Line: 2416
+
 int DrawC_PrimStart__FP12Draw_tVertexP8Car_tObjiP13Draw_CarCache
               (Draw_tVertex *center,Car_tObj *carObj,int lightAvg,Draw_CarCache *sd)
 
@@ -588,8 +744,8 @@ int DrawC_PrimStart__FP12Draw_tVertexP8Car_tObjiP13Draw_CarCache
   undefined4 uVar16;
   undefined4 uVar17;
   undefined4 uVar18;
-  int nabr;
   int iVar19;
+  int nabr;
   int iVar20;
   ushort local_30;
   ushort local_2e;
@@ -610,119 +766,119 @@ int DrawC_PrimStart__FP12Draw_tVertexP8Car_tObjiP13Draw_CarCache
   setCopReg(2,in_zero,*(undefined4 *)&center->sv);
   setCopReg(2,in_at,*(undefined4 *)&(center->sv).z);
   copFunction(2,0x180001);
-  nabr = getCopReg(2,0x9800);
-  sd->sub_otz = nabr >> 2;
-  iVar19 = sd->sub_otz;
-  nabr = iVar19 >> 1;
+  iVar19 = getCopReg(2,0x9800);
+  sd->sub_otz = iVar19 >> 2;
+  nabr = sd->sub_otz;
+  iVar19 = nabr >> 1;
   if (R3DCar_InMenu == 0) {
-    sd->sub_otz = nabr;
-    if ((nabr < 0) || (Draw_gViewOtSize + -3 < nabr)) {
+    sd->sub_otz = iVar19;
+    if ((iVar19 < 0) || (Draw_gViewOtSize + -3 < iVar19)) {
       return -1;
     }
   }
   else {
     sd->sub_otz = 0;
   }
-  nabr = (carObj->render).textureStartIndex;
+  iVar19 = (carObj->render).textureStartIndex;
   carObj->audio[6].surface1 = sd->sub_otz;
-  if (nabr == 0) {
+  if (iVar19 == 0) {
     puVar6 = (ulong *)carObj->audio[6].force;
     sd->sub_ot = puVar6;
-    nabr = carObj->audio[6].panangle;
-    sd->sub_otSize = nabr;
-    ClearOTagR(puVar6,nabr);
+    iVar19 = carObj->audio[6].panangle;
+    sd->sub_otSize = iVar19;
+    ClearOTagR(puVar6,iVar19);
     sd->sub_otz = 0;
-    nabr = *(int *)&carObj->render;
+    iVar19 = *(int *)&carObj->render;
   }
   else {
-    sd->sub_ot = *(ulong **)(nabr + 0x86c);
-    sd->sub_otSize = *(int *)(nabr + 0x870);
-    sd->sub_otz = (sd->sub_otz - *(int *)(nabr + 0x864)) * 2;
-    nabr = *(int *)(nabr + 0x874);
+    sd->sub_ot = *(ulong **)(iVar19 + 0x86c);
+    sd->sub_otSize = *(int *)(iVar19 + 0x870);
+    sd->sub_otz = (sd->sub_otz - *(int *)(iVar19 + 0x864)) * 2;
+    iVar19 = *(int *)(iVar19 + 0x874);
   }
   iVar7 = sd->sub_otz * 4;
   sd->sub_otz = iVar7;
-  carObj->audio[6].surface2 = iVar7 + nabr + iVar19 * -4;
+  carObj->audio[6].surface2 = iVar7 + iVar19 + nabr * -4;
   sd->sub_otSize = sd->sub_otSize + -1;
   sd->pmxStart = CarIO_carPixMap + carObj->audio[5].type;
   sd->offsetU0 = *(uchar *)((carObj->render).palCopyNum + 5);
   sd->offsetV0 = *(uchar *)((carObj->render).palCopyNum + 6);
   sd->offsetU1 = *(uchar *)((carObj->render).palCopyNum + 7);
   sd->offsetV1 = *(uchar *)((carObj->render).palCopyNum + 8);
-  nabr = 0x32;
+  iVar19 = 0x32;
   sd->offsetU2 = *(uchar *)((int)(carObj->render).palCopyNum + 0xf);
   psVar8 = &SHORT_8011f56c;
   sd->offsetV2 = *(uchar *)((int)(carObj->render).palCopyNum + 0x11);
   do {
     *psVar8 = 0;
-    nabr = nabr + -1;
+    iVar19 = iVar19 + -1;
     psVar8 = psVar8 + -1;
-  } while (-1 < nabr);
+  } while (-1 < iVar19);
   if (R3DCar_InMenu == 0) {
-    nabr = (carObj->N).damage[0];
-    if (nabr < 0x1e0001) {
-      if (0xa0000 < nabr) {
+    iVar19 = (carObj->N).damage[0];
+    if (iVar19 < 0x1e0001) {
+      if (0xa0000 < iVar19) {
         DrawC_gOverlay = DrawC_gOverlay | 2;
-        SHORT_8011f50c = SHORT_8011f50c | 2;
+        SHORT_ARRAY_8011f50c[0] = SHORT_ARRAY_8011f50c[0] | 2;
       }
     }
     else {
       DrawC_gOverlay = DrawC_gOverlay | 1;
-      SHORT_8011f50c = SHORT_8011f50c | 1;
+      SHORT_ARRAY_8011f50c[0] = SHORT_ARRAY_8011f50c[0] | 1;
     }
-    nabr = (carObj->N).damage[2];
-    if (nabr < 0x1e0001) {
-      if (0xa0000 < nabr) {
+    iVar19 = (carObj->N).damage[2];
+    if (iVar19 < 0x1e0001) {
+      if (0xa0000 < iVar19) {
         DrawC_gOverlay = DrawC_gOverlay | 0x200;
-        SHORT_8011f50c = SHORT_8011f50c | 0x200;
+        SHORT_ARRAY_8011f50c[0] = SHORT_ARRAY_8011f50c[0] | 0x200;
       }
     }
     else {
       DrawC_gOverlay = DrawC_gOverlay | 0x100;
-      SHORT_8011f50c = SHORT_8011f50c | 0x100;
+      SHORT_ARRAY_8011f50c[0] = SHORT_ARRAY_8011f50c[0] | 0x100;
     }
-    nabr = (carObj->N).damage[3];
-    if (nabr < 0x1e0001) {
-      if (0xa0000 < nabr) {
-        SHORT_8011f50c = SHORT_8011f50c | 0x800;
+    iVar19 = (carObj->N).damage[3];
+    if (iVar19 < 0x1e0001) {
+      if (0xa0000 < iVar19) {
+        SHORT_ARRAY_8011f50c[0] = SHORT_ARRAY_8011f50c[0] | 0x800;
       }
     }
     else {
-      SHORT_8011f50c = SHORT_8011f50c | 0x400;
+      SHORT_ARRAY_8011f50c[0] = SHORT_ARRAY_8011f50c[0] | 0x400;
     }
-    nabr = (carObj->N).damage[4];
-    if (nabr < 0x1e0001) {
-      if (0xa0000 < nabr) {
+    iVar19 = (carObj->N).damage[4];
+    if (iVar19 < 0x1e0001) {
+      if (0xa0000 < iVar19) {
         SHORT_8011f50a = SHORT_8011f50a | 0x200;
-        SHORT_8011f50c = SHORT_8011f50c | 0x2000;
+        SHORT_ARRAY_8011f50c[0] = SHORT_ARRAY_8011f50c[0] | 0x2000;
       }
     }
     else {
       SHORT_8011f50a = SHORT_8011f50a | 0x100;
-      SHORT_8011f50c = SHORT_8011f50c | 0x1000;
+      SHORT_ARRAY_8011f50c[0] = SHORT_ARRAY_8011f50c[0] | 0x1000;
     }
-    nabr = (carObj->N).damage[6];
-    if (nabr < 0x1e0001) {
-      if (0xa0000 < nabr) {
+    iVar19 = (carObj->N).damage[6];
+    if (iVar19 < 0x1e0001) {
+      if (0xa0000 < iVar19) {
         SHORT_8011f50a = SHORT_8011f50a | 2;
-        SHORT_8011f50c = SHORT_8011f50c | 0x20;
+        SHORT_ARRAY_8011f50c[0] = SHORT_ARRAY_8011f50c[0] | 0x20;
       }
     }
     else {
       SHORT_8011f50a = SHORT_8011f50a | 1;
-      SHORT_8011f50c = SHORT_8011f50c | 0x10;
+      SHORT_ARRAY_8011f50c[0] = SHORT_ARRAY_8011f50c[0] | 0x10;
     }
-    nabr = (carObj->N).damage[7];
-    if (nabr < 0x1e0001) {
-      if (0xa0000 < nabr) {
-        SHORT_8011f50c = SHORT_8011f50c | 8;
+    iVar19 = (carObj->N).damage[7];
+    if (iVar19 < 0x1e0001) {
+      if (0xa0000 < iVar19) {
+        SHORT_ARRAY_8011f50c[0] = SHORT_ARRAY_8011f50c[0] | 8;
       }
     }
     else {
-      SHORT_8011f50c = SHORT_8011f50c | 4;
+      SHORT_ARRAY_8011f50c[0] = SHORT_ARRAY_8011f50c[0] | 4;
     }
     if (0x30000 < (carObj->N).damage[8]) {
-      SHORT_8011f510 = SHORT_8011f510 | 0x101;
+      SHORT_ARRAY_8011f510[0] = SHORT_ARRAY_8011f510[0] | 0x101;
     }
     if ((*(ushort *)((int)&(carObj->render).light + 2) & 1) != 0) {
       if ((SHORT_8011f50a & 1U) == 0) {
@@ -745,10 +901,10 @@ int DrawC_PrimStart__FP12Draw_tVertexP8Car_tObjiP13Draw_CarCache
     uVar1 = *(ushort *)&(carObj->render).light;
     if ((uVar1 & 0x11) != 0) {
       if (((uVar1 & 0x40) != 0) || ((DrawC_gOverlay & 1U) == 0)) {
-        SHORT_8011f542 = SHORT_8011f542 | 0x81;
+        SHORT_ARRAY_8011f542[0] = SHORT_ARRAY_8011f542[0] | 0x81;
       }
       if (((*(ushort *)&(carObj->render).light & 4) != 0) || ((DrawC_gOverlay & 0x100U) == 0)) {
-        SHORT_8011f542 = SHORT_8011f542 | 0x8100;
+        SHORT_ARRAY_8011f542[0] = SHORT_ARRAY_8011f542[0] | 0x8100;
       }
     }
     if ((*(ushort *)((int)&(carObj->render).light + 2) & 2) != 0) {
@@ -788,7 +944,7 @@ int DrawC_PrimStart__FP12Draw_tVertexP8Car_tObjiP13Draw_CarCache
           SHORT_8011f540 = SHORT_8011f540 | 0x8100;
         }
       }
-      if (1 < (byte)(&R3DCar_SignalBrakeFlare)[iVar20]) {
+      if (1 < (byte)R3DCar_SignalBrakeFlare[iVar20]) {
         if ((SHORT_8011f540 & 0x40U) == 0) {
           SHORT_8011f540 = SHORT_8011f540 | SHORT_8011f538 & 0xffU;
         }
@@ -796,7 +952,7 @@ int DrawC_PrimStart__FP12Draw_tVertexP8Car_tObjiP13Draw_CarCache
           SHORT_8011f540 = SHORT_8011f540 | SHORT_8011f538 & 0xff00U;
         }
       }
-      if ((&R3DCar_SignalBrakeFlare)[iVar20] == '\x03') {
+      if (R3DCar_SignalBrakeFlare[iVar20] == '\x03') {
         SHORT_8011f538 = SHORT_8011f540;
         SHORT_8011f540 = sVar4;
       }
@@ -809,18 +965,18 @@ LAB_800bf508:
   }
   uVar1 = SHORT_8011f53e | 2U;
   uVar5 = SHORT_8011f540 | 0x200U;
-  if (SHORT_8011f510 == 0) {
+  if (SHORT_ARRAY_8011f510[0] == 0) {
     uVar5 = SHORT_8011f53e | 0x83;
     SHORT_8011f53e = SHORT_8011f53e | 2U;
     uVar1 = SHORT_8011f540 | 0x200U;
-    if ((&DrawC_SirenFlash)[(uint)*(ushort *)&(carObj->render).palCopy & 0xf] != 0) {
+    if (DrawC_SirenFlash[(uint)*(ushort *)&(carObj->render).palCopy & 0xf] != 0) {
       SHORT_8011f53e = uVar5;
       uVar1 = SHORT_8011f540 | 0x281;
     }
     SHORT_8011f540 = uVar1;
     uVar1 = SHORT_8011f53e;
     uVar5 = SHORT_8011f540;
-    if ((&DrawC_SirenFlash)[(uint)*(ushort *)((int)&(carObj->render).palCopy + 2) & 0xf] != 0) {
+    if (DrawC_SirenFlash[(uint)*(ushort *)((int)&(carObj->render).palCopy + 2) & 0xf] != 0) {
       uVar1 = SHORT_8011f53e | 0x8100;
       uVar5 = SHORT_8011f540 | 0x8100;
     }
@@ -828,36 +984,34 @@ LAB_800bf508:
   SHORT_8011f540 = uVar5;
   SHORT_8011f53e = uVar1;
   if ((R3DCar_InMenu != 0) || (((carObj->speechInfo).speechSource & 2) != 0)) {
-    SHORT_8011f542 = SHORT_8011f542 & 0x7e7e;
+    SHORT_ARRAY_8011f542[0] = SHORT_ARRAY_8011f542[0] & 0x7e7e;
     if ((*(ushort *)((int)&(carObj->render).light + 2) & 1) == 0) {
       SHORT_8011f538 = SHORT_8011f538 & 0x7f7f;
       SHORT_8011f53a = SHORT_8011f53a & 0x7f7f;
     }
-    if (((&DrawC_HeadLightFlash)[(uint)*(ushort *)&(carObj->render).palCopy & 0xf] != 0) &&
+    if ((DrawC_HeadLightFlash[(uint)*(ushort *)&(carObj->render).palCopy & 0xf] != 0) &&
        (((*(ushort *)&(carObj->render).light & 0x40) != 0 || ((DrawC_gOverlay & 1U) == 0)))) {
-      SHORT_8011f542 = SHORT_8011f542 | 0x81;
+      SHORT_ARRAY_8011f542[0] = SHORT_ARRAY_8011f542[0] | 0x81;
     }
-    if (((&DrawC_HeadLightFlash)[(uint)*(ushort *)((int)&(carObj->render).palCopy + 2) & 0xf] != 0)
-       && (((*(ushort *)&(carObj->render).light & 4) != 0 || ((DrawC_gOverlay & 0x100U) == 0)))) {
-      SHORT_8011f542 = SHORT_8011f542 | 0x8100;
+    if ((DrawC_HeadLightFlash[(uint)*(ushort *)((int)&(carObj->render).palCopy + 2) & 0xf] != 0) &&
+       (((*(ushort *)&(carObj->render).light & 4) != 0 || ((DrawC_gOverlay & 0x100U) == 0)))) {
+      SHORT_ARRAY_8011f542[0] = SHORT_ARRAY_8011f542[0] | 0x8100;
     }
     if ((SHORT_8011f50a & 1U) == 0) {
-      if ((&DrawC_TailLightFlash)[(uint)*(ushort *)&(carObj->render).palCopy & 0xf] != 0) {
+      if (DrawC_TailLightFlash[(uint)*(ushort *)&(carObj->render).palCopy & 0xf] != 0) {
         SHORT_8011f538 = SHORT_8011f538 | 0x80;
         SHORT_8011f53a = SHORT_8011f53a | 0x80;
       }
-      if ((&DrawC_HeadLightFlash)[(uint)*(ushort *)&(carObj->render).palCopy & 0xf] != 0) {
+      if (DrawC_HeadLightFlash[(uint)*(ushort *)&(carObj->render).palCopy & 0xf] != 0) {
         SHORT_8011f53c = SHORT_8011f53c | 0x80;
       }
     }
     if ((SHORT_8011f50a & 0x100U) == 0) {
-      if ((&DrawC_TailLightFlash)[(uint)*(ushort *)((int)&(carObj->render).palCopy + 2) & 0xf] != 0)
-      {
+      if (DrawC_TailLightFlash[(uint)*(ushort *)((int)&(carObj->render).palCopy + 2) & 0xf] != 0) {
         SHORT_8011f538 = SHORT_8011f538 | 0x8000;
         SHORT_8011f53a = SHORT_8011f53a | 0x8000;
       }
-      if ((&DrawC_HeadLightFlash)[(uint)*(ushort *)((int)&(carObj->render).palCopy + 2) & 0xf] != 0)
-      {
+      if (DrawC_HeadLightFlash[(uint)*(ushort *)((int)&(carObj->render).palCopy + 2) & 0xf] != 0) {
         SHORT_8011f53c = SHORT_8011f53c | 0x8000;
       }
     }
@@ -870,17 +1024,15 @@ LAB_800bf7fc:
   DrawC_gMatA.t[2] = 0;
   DrawC_gMatA.t[1] = 0;
   DrawC_gMatA.t[0] = 0;
-  DAT_000012c4 = 0;
+  DrawC_gWetRoad = 0;
   if (R3DCar_InMenu == 0) {
     iVar20 = 3;
     pDVar9 = Draw_GetDRAWENV__Fii(gCView.id,gFlip);
     iVar19 = (int)(carObj->N).simRoadInfo.quad;
-    nabr = (int)(carObj->N).eIndexEnvMap * 6 + DAT_000012a4;
-    uVar15 = (uint)*(ushort *)(nabr + 2);
-    uVar13 = (uint)*(ushort *)(nabr + 4);
-    nabr = (int)(carObj->N).eIndexShadow * 6 + DAT_000012a8;
-    uVar12 = (uint)*(ushort *)(nabr + 2);
-    uVar11 = (uint)*(ushort *)(nabr + 4);
+    uVar15 = (uint)(ushort)DrawC_gEnvMap[(int)(carObj->N).eIndexEnvMap].tex;
+    uVar13 = (uint)(ushort)DrawC_gEnvMap[(int)(carObj->N).eIndexEnvMap].extra;
+    uVar12 = (uint)(ushort)DrawC_gShadow[(int)(carObj->N).eIndexShadow].tex;
+    uVar11 = (uint)(ushort)DrawC_gShadow[(int)(carObj->N).eIndexShadow].extra;
     nabr = 2;
     if (iVar19 < (int)(uVar13 & 0xff)) {
       uVar15 = (int)(uVar13 << 0x10) >> 0x18;
@@ -905,10 +1057,10 @@ LAB_800bf7fc:
       *(undefined4 *)&sd->ePmx0 = 0;
     }
     else {
-      uVar18 = *(undefined4 *)&(&Track_gReflectionMaps)[iVar19].u1;
-      uVar16 = *(undefined4 *)&(&Track_gReflectionMaps)[iVar19].u2;
-      uVar17 = *(undefined4 *)&(&Track_gReflectionMaps)[iVar19].u3;
-      *(undefined4 *)&sd->ePmx0 = *(undefined4 *)(&Track_gReflectionMaps + iVar19);
+      uVar18 = *(undefined4 *)&Track_gReflectionMaps[iVar19].u1;
+      uVar16 = *(undefined4 *)&Track_gReflectionMaps[iVar19].u2;
+      uVar17 = *(undefined4 *)&Track_gReflectionMaps[iVar19].u3;
+      *(undefined4 *)&sd->ePmx0 = *(undefined4 *)(Track_gReflectionMaps + iVar19);
       *(undefined4 *)&(sd->ePmx0).u1 = uVar18;
       *(undefined4 *)&(sd->ePmx0).u2 = uVar16;
       *(undefined4 *)&(sd->ePmx0).u3 = uVar17;
@@ -918,45 +1070,44 @@ LAB_800bf7fc:
       *(undefined4 *)&sd->ePmx1 = 0;
     }
     else {
-      local_30 = (ushort)(&Track_gReflectionMaps)[iVar19].u0;
+      local_30 = (ushort)Track_gReflectionMaps[iVar19].u0;
       local_2c = 0x80;
       local_2a = 0x40;
-      local_2e = (ushort)(&Track_gReflectionMaps)[iVar19].v0;
-      SetDrawMode((int)&sd->drawModeOn,(uint)pDVar9->dfe,0,
-                  (uint)(&Track_gReflectionMaps)[iVar19].tpage,(byte *)&local_30);
+      local_2e = (ushort)Track_gReflectionMaps[iVar19].v0;
+      SetDrawMode((int)&sd->drawModeOn,(uint)pDVar9->dfe,0,(uint)Track_gReflectionMaps[iVar19].tpage
+                  ,(byte *)&local_30);
       local_2a = 0;
       local_2c = 0;
       local_2e = 0;
       local_30 = 0;
       SetDrawMode((int)&sd->drawModeOff,(uint)pDVar9->dfe,0,(uint)pDVar9->tpage,(byte *)&local_30);
-      uVar18 = *(undefined4 *)&(&Track_gReflectionMaps)[iVar19].u1;
-      uVar16 = *(undefined4 *)&(&Track_gReflectionMaps)[iVar19].u2;
-      uVar17 = *(undefined4 *)&(&Track_gReflectionMaps)[iVar19].u3;
-      *(undefined4 *)&sd->ePmx1 = *(undefined4 *)(&Track_gReflectionMaps + iVar19);
+      uVar18 = *(undefined4 *)&Track_gReflectionMaps[iVar19].u1;
+      uVar16 = *(undefined4 *)&Track_gReflectionMaps[iVar19].u2;
+      uVar17 = *(undefined4 *)&Track_gReflectionMaps[iVar19].u3;
+      *(undefined4 *)&sd->ePmx1 = *(undefined4 *)(Track_gReflectionMaps + iVar19);
       *(undefined4 *)&(sd->ePmx1).u1 = uVar18;
       *(undefined4 *)&(sd->ePmx1).u2 = uVar16;
       *(undefined4 *)&(sd->ePmx1).u3 = uVar17;
       ChangeTPage__FPUsi(&(sd->ePmx1).tpage,nabr);
     }
     sd->eAddZ = ((int)(carObj->N).positionXZ >> iVar20 + 3 & 0x3fU) +
-                (int)(&DrawC_gEnvMapOffset)[(uint)((sd->ePmx1).v0 >> 6)];
+                (int)DrawC_gEnvMapOffset[(uint)((sd->ePmx1).v0 >> 6)];
     if (((GameSetup_gData.Weather != 0) &&
         (puVar10 = (undefined *)BWorldSm_TunnelFlagSm__FP12BWorldSm_Pos(&(carObj->N).simRoadInfo),
-        puVar10 != &DAT_00000001)) && ((&Cars_kSkidMarkSurface)[(carObj->N).driveSurfaceType] == 1))
-    {
-      DAT_000012c4 = (&Cars_kSkidMarkSurface)[(carObj->N).driveSurfaceType];
+        puVar10 != &DAT_00000001)) && (Cars_kSkidMarkSurface[(carObj->N).driveSurfaceType] == 1)) {
+      DrawC_gWetRoad = Cars_kSkidMarkSurface[(carObj->N).driveSurfaceType];
     }
-    DAT_000012c8 = (undefined2)
-                   ((uint)(((carObj->N).dimension.y * 3 >> 1) + (carObj->N).objAltitude) >> 8);
+    DrawC_gReflectOffset =
+         (short)((uint)(((carObj->N).dimension.y * 3 >> 1) + (carObj->N).objAltitude) >> 8);
   }
   else {
     pDVar9 = Draw_GetDRAWENV__Fii(gCView.id,gFlip);
     SetDrawMode((int)&sd->drawModeOn,(uint)pDVar9->dfe,1,(uint)pDVar9->tpage,(byte *)0x0);
     SetDrawMode((int)&sd->drawModeOff,(uint)pDVar9->dfe,0,(uint)pDVar9->tpage,(byte *)0x0);
-    uVar18 = *(undefined4 *)&__gMenuPixmap_8__->u1;
-    uVar16 = *(undefined4 *)&__gMenuPixmap_8__->u2;
-    uVar17 = *(undefined4 *)&__gMenuPixmap_8__->u3;
-    *(undefined4 *)&sd->ePmx0 = *(undefined4 *)__gMenuPixmap_8__;
+    uVar18 = *(undefined4 *)&gMenuPixmap8->u1;
+    uVar16 = *(undefined4 *)&gMenuPixmap8->u2;
+    uVar17 = *(undefined4 *)&gMenuPixmap8->u3;
+    *(undefined4 *)&sd->ePmx0 = *(undefined4 *)gMenuPixmap8;
     *(undefined4 *)&(sd->ePmx0).u1 = uVar18;
     *(undefined4 *)&(sd->ePmx0).u2 = uVar16;
     *(undefined4 *)&(sd->ePmx0).u3 = uVar17;
@@ -1010,6 +1161,31 @@ LAB_800bf7fc:
 	/* end block 1 */
 	// End offset: 0x800BFD3C
 	// End Line: 1562
+
+	/* begin block 2 */
+		// Start line: 3263
+	/* end block 2 */
+	// End Line: 3264
+
+	/* begin block 3 */
+		// Start line: 3267
+	/* end block 3 */
+	// End Line: 3268
+
+	/* begin block 4 */
+		// Start line: 3267
+	/* end block 4 */
+	// End Line: 3268
+
+	/* begin block 5 */
+		// Start line: 3268
+	/* end block 5 */
+	// End Line: 3269
+
+	/* begin block 6 */
+		// Start line: 3268
+	/* end block 6 */
+	// End Line: 3269
 
 void DrawC_PrimStop__FP8Car_tObjP13Draw_CarCache(Car_tObj *carObj,Draw_CarCache *sd)
 
@@ -1982,6 +2158,21 @@ void DrawC_PrimStop__FP8Car_tObjP13Draw_CarCache(Car_tObj *carObj,Draw_CarCache 
 	// End offset: 0x800C12CC
 	// End Line: 2544
 
+	/* begin block 2 */
+		// Start line: 3534
+	/* end block 2 */
+	// End Line: 3535
+
+	/* begin block 3 */
+		// Start line: 3743
+	/* end block 3 */
+	// End Line: 3744
+
+	/* begin block 4 */
+		// Start line: 3743
+	/* end block 4 */
+	// End Line: 3744
+
 void DrawC_Prim__FP10matrixtdefP8coorddefP16Transformer_zObjP20Transformer_zOverlayiP13Draw_CarCache
                (matrixtdef *m,coorddef *t,Transformer_zObj *obj,Transformer_zOverlay *overlay,
                int envmap,Draw_CarCache *sd)
@@ -2124,10 +2315,10 @@ void DrawC_Prim__FP10matrixtdefP8coorddefP16Transformer_zObjP20Transformer_zOver
     uVar36 = uVar36 - 1;
     uVar18 = envmap & 9;
     if (uVar36 == 0xffffffff) break;
-    uVar8 = *(ushort *)((int)puVar26 + -2);
+    uVar8 = ((ushort *)puVar26)[-1];
     uVar9 = *(ushort *)puVar26;
     uVar35 = (uint)uVar9;
-    puVar26 = (uint *)((int)puVar26 + 6);
+    puVar26 = (uint *)((ushort *)puVar26 + 3);
     psVar23 = &pCVar32->x;
     pCVar32 = pCVar32 + 1;
     (pDVar34->vt).x = *psVar23;
@@ -2976,9 +3167,9 @@ LAB_800c0e18:
     puVar37[2] = *(uint *)&sd->dvx0;
     puVar37[4] = uVar35;
     puVar37[6] = uVar31;
-    puVar26 = &DAT_00000024;
+    puVar26 = (uint *)0x24;
     if ((uVar18 & 1) != 0) {
-      puVar26 = (uint *)((int)&DAT_00000024 + 2);
+      puVar26 = (uint *)0x26;
     }
     puVar37[1] = sd->color;
     *(undefined *)((int)puVar37 + 7) = (char)puVar26;
@@ -3112,6 +3303,21 @@ LAB_800c0e18:
 	/* end block 1 */
 	// End offset: 0x800C1554
 	// End Line: 2642
+
+	/* begin block 2 */
+		// Start line: 5402
+	/* end block 2 */
+	// End Line: 5403
+
+	/* begin block 3 */
+		// Start line: 5413
+	/* end block 3 */
+	// End Line: 5414
+
+	/* begin block 4 */
+		// Start line: 5413
+	/* end block 4 */
+	// End Line: 5414
 
 void DrawC_DividePrim__FP7COORD16N20PUsN23P12Draw_tPixMapP13Draw_CarCache
                (COORD16 *vt0,COORD16 *vt1,COORD16 *vt2,ushort *u0,ushort *u1,ushort *u2,
@@ -4248,6 +4454,21 @@ void DrawC_DividePrim__FP7COORD16N20PUsN23P12Draw_tPixMapP13Draw_CarCache
 	// End offset: 0x800C3280
 	// End Line: 3496
 
+	/* begin block 2 */
+		// Start line: 5606
+	/* end block 2 */
+	// End Line: 5607
+
+	/* begin block 3 */
+		// Start line: 5609
+	/* end block 3 */
+	// End Line: 5610
+
+	/* begin block 4 */
+		// Start line: 5609
+	/* end block 4 */
+	// End Line: 5610
+
 void 
      DrawC_PrimClip__FP10matrixtdefP8coorddefP16Transformer_zObjP20Transformer_zOverlayiP13Draw_CarCache
                (matrixtdef *m,coorddef *t,Transformer_zObj *obj,Transformer_zOverlay *overlay,
@@ -4389,7 +4610,7 @@ void
     sVar4 = psVar24[-1];
     sVar5 = *psVar24;
     (pDVar32->vt).x = vt2->x;
-    *(short *)((int)puVar26 + -2) = sVar4;
+    ((short *)puVar26)[-1] = sVar4;
     *(short *)puVar26 = sVar5;
     setCopReg(2,in_zero,*(undefined4 *)&pDVar32->vt);
     setCopReg(2,in_at,*(undefined4 *)&(pDVar32->vt).z);
@@ -4405,9 +4626,9 @@ void
     uVar41 = (sd->tv).vz;
     vt2 = vt2 + 1;
     (pDVar32->vt).x = (short)(sd->tv).vx;
-    *(undefined2 *)((int)puVar26 + -2) = (short)lVar15;
+    ((short *)puVar26)[-1] = (short)lVar15;
     *(short *)puVar26 = (short)uVar41;
-    puVar26 = puVar26 + 2;
+    puVar26 = (uint *)((short *)puVar26 + 4);
     pDVar32 = pDVar32 + 1;
   }
   setCopControlWord(2,0,DrawC_gScreenMat.m[0]._0_4_);
@@ -5341,9 +5562,9 @@ LAB_800c2dc0:
     puVar35[2] = *(uint *)&sd->dvx0;
     puVar35[4] = uVar41;
     puVar35[6] = uVar42;
-    puVar26 = &DAT_00000024;
+    puVar26 = (uint *)0x24;
     if ((uVar18 & 1) != 0) {
-      puVar26 = (uint *)((int)&DAT_00000024 + 2);
+      puVar26 = (uint *)0x26;
     }
     puVar35[1] = sd->color;
     *(undefined *)((int)puVar35 + 7) = (char)puVar26;
@@ -5744,6 +5965,21 @@ LAB_800c2dc0:
 	/* end block 1 */
 	// End offset: 0x800C3A08
 	// End Line: 3870
+
+	/* begin block 2 */
+		// Start line: 7615
+	/* end block 2 */
+	// End Line: 7616
+
+	/* begin block 3 */
+		// Start line: 7671
+	/* end block 3 */
+	// End Line: 7672
+
+	/* begin block 4 */
+		// Start line: 7671
+	/* end block 4 */
+	// End Line: 7672
 
 void 
      DrawC_PrimMenu__FP10matrixtdefP8coorddefP16Transformer_zObjP20Transformer_zOverlayiP13Draw_CarCache
@@ -6254,6 +6490,21 @@ LAB_800c3550:
 	// End offset: 0x800C3EA8
 	// End Line: 3991
 
+	/* begin block 2 */
+		// Start line: 8382
+	/* end block 2 */
+	// End Line: 8383
+
+	/* begin block 3 */
+		// Start line: 8394
+	/* end block 3 */
+	// End Line: 8395
+
+	/* begin block 4 */
+		// Start line: 8394
+	/* end block 4 */
+	// End Line: 8395
+
 void DrawC_PrimHalo__FP10matrixtdefP8coorddefP16Transformer_zObjiiiP13Draw_CarCache
                (matrixtdef *m,coorddef *t,Transformer_zObj *obj,int type,int index,int reflect,
                Draw_CarCache *sd)
@@ -6459,6 +6710,26 @@ LAB_800c3dc8:
 	// End offset: 0x800C40C4
 	// End Line: 4050
 
+	/* begin block 2 */
+		// Start line: 8640
+	/* end block 2 */
+	// End Line: 8641
+
+	/* begin block 3 */
+		// Start line: 8647
+	/* end block 3 */
+	// End Line: 8648
+
+	/* begin block 4 */
+		// Start line: 8647
+	/* end block 4 */
+	// End Line: 8648
+
+	/* begin block 5 */
+		// Start line: 8651
+	/* end block 5 */
+	// End Line: 8652
+
 void DrawC_ShadowPrim__FP12Draw_tVertexP13Draw_CarCache(Draw_tVertex *shadowVT,Draw_CarCache *sd)
 
 {
@@ -6475,9 +6746,9 @@ void DrawC_ShadowPrim__FP12Draw_tVertexP13Draw_CarCache(Draw_tVertex *shadowVT,D
   uint *puVar9;
   Draw_tPixMap *pDVar10;
   
-  pDVar10 = __gShadowPixmap_2__;
+  pDVar10 = gShadowPixmap2[0];
   if (R3DCar_InMenu != 0) {
-    pDVar10 = PTR_80120fd4;
+    pDVar10 = PTR_ARRAY_80120fd4[0];
   }
   uVar7 = 2;
   ChangeTPage__FPUsi(&pDVar10->tpage,2);
@@ -6574,6 +6845,21 @@ void DrawC_ShadowPrim__FP12Draw_tVertexP13Draw_CarCache(Draw_tVertex *shadowVT,D
 	/* end block 1 */
 	// End offset: 0x800C42BC
 	// End Line: 4113
+
+	/* begin block 2 */
+		// Start line: 8770
+	/* end block 2 */
+	// End Line: 8771
+
+	/* begin block 3 */
+		// Start line: 8775
+	/* end block 3 */
+	// End Line: 8776
+
+	/* begin block 4 */
+		// Start line: 8775
+	/* end block 4 */
+	// End Line: 8776
 
 void DrawC_DivideShadowPrim__FP7COORD16N30PUsN34P12Draw_tPixMapP13Draw_CarCache
                (COORD16 *vt0,COORD16 *vt1,COORD16 *vt2,COORD16 *vt3,ushort *u0,ushort *u1,ushort *u2
@@ -6732,6 +7018,26 @@ void DrawC_DivideShadowPrim__FP7COORD16N30PUsN34P12Draw_tPixMapP13Draw_CarCache
 	// End offset: 0x800C4314
 	// End Line: 4122
 
+	/* begin block 2 */
+		// Start line: 8900
+	/* end block 2 */
+	// End Line: 8901
+
+	/* begin block 3 */
+		// Start line: 8903
+	/* end block 3 */
+	// End Line: 8904
+
+	/* begin block 4 */
+		// Start line: 8903
+	/* end block 4 */
+	// End Line: 8904
+
+	/* begin block 5 */
+		// Start line: 8905
+	/* end block 5 */
+	// End Line: 8906
+
 void DrawC_ShadowPrimClip__FP12Draw_tVertexP13Draw_CarCache
                (Draw_tVertex *shadowVT,Draw_CarCache *sd)
 
@@ -6748,9 +7054,9 @@ void DrawC_ShadowPrimClip__FP12Draw_tVertexP13Draw_CarCache
   COORD16 *vt2;
   Draw_tPixMap *pmx;
   
-  pmx = __gShadowPixmap_2__;
+  pmx = gShadowPixmap2[0];
   if (R3DCar_InMenu != 0) {
-    pmx = PTR_80120fd4;
+    pmx = PTR_ARRAY_80120fd4[0];
   }
   ChangeTPage__FPUsi(&pmx->tpage,2);
   setCopControlWord(2,0,DrawC_gScreenMat.m[0]._0_4_);
@@ -7018,6 +7324,21 @@ void DrawC_ShadowPrimClip__FP12Draw_tVertexP13Draw_CarCache
 	/* end block 1 */
 	// End offset: 0x800C4B04
 	// End Line: 4255
+
+	/* begin block 2 */
+		// Start line: 9410
+	/* end block 2 */
+	// End Line: 9411
+
+	/* begin block 3 */
+		// Start line: 9415
+	/* end block 3 */
+	// End Line: 9416
+
+	/* begin block 4 */
+		// Start line: 9415
+	/* end block 4 */
+	// End Line: 9416
 
 void DrawC_SpotPrims__FP10matrixtdefP8coorddefP13Draw_CarCache
                (matrixtdef *m,coorddef *t,Draw_CarCache *sd)
@@ -7324,6 +7645,21 @@ void DrawC_SpotPrims__FP10matrixtdefP8coorddefP13Draw_CarCache
 	// End offset: 0x800C5008
 	// End Line: 4377
 
+	/* begin block 2 */
+		// Start line: 9577
+	/* end block 2 */
+	// End Line: 9578
+
+	/* begin block 3 */
+		// Start line: 9583
+	/* end block 3 */
+	// End Line: 9584
+
+	/* begin block 4 */
+		// Start line: 9583
+	/* end block 4 */
+	// End Line: 9584
+
 void DrawC_ShowroomPrims__FP10matrixtdefP8coorddefP13Draw_CarCache
                (matrixtdef *m,coorddef *t,Draw_CarCache *sd)
 
@@ -7365,7 +7701,7 @@ void DrawC_ShowroomPrims__FP10matrixtdefP8coorddefP13Draw_CarCache
     }
     local_28 = (int)(puVar5 + ((int)puVar6 >> 8) * -0x100) >> 3;
     local_20 = -1;
-    if (DAT_000012c0 == 0) {
+    if (DrawC_gMenuLightsDirection == 0) {
       local_24 = local_28 + 0x10U & 0x1f;
       local_1c = 0xffffffff;
     }
@@ -7434,7 +7770,7 @@ void DrawC_ShowroomPrims__FP10matrixtdefP8coorddefP13Draw_CarCache
     setCopControlWord(2,0x3800,(sd->matB).t[2]);
     iVar16 = 0;
     pCVar18 = &Fe3D_lightsVertex;
-    pCVar19 = &COORD16_8005133a;
+    pCVar19 = COORD16_ARRAY_8005133a;
     sd->otz = 0;
     while (iVar16 < 0x20) {
       iVar15 = iVar16 * 2 + 2;
@@ -7460,10 +7796,10 @@ void DrawC_ShowroomPrims__FP10matrixtdefP8coorddefP13Draw_CarCache
       (sd->vt2).x = pCVar19->x;
       (sd->vt2).y = sVar4;
       (sd->vt2).z = sVar1;
-      uVar2 = (&COORD16_8005133a)[iVar15].y;
+      uVar2 = COORD16_ARRAY_8005133a[iVar15].y;
       uVar12 = (uint)uVar2;
-      sVar4 = (&COORD16_8005133a)[iVar15].z;
-      (sd->vt3).x = (&COORD16_8005133a)[iVar15].x;
+      sVar4 = COORD16_ARRAY_8005133a[iVar15].z;
+      (sd->vt3).x = COORD16_ARRAY_8005133a[iVar15].x;
       (sd->vt3).y = uVar2;
       (sd->vt3).z = sVar4;
       while (iVar11 < 2) {
@@ -7495,7 +7831,7 @@ void DrawC_ShowroomPrims__FP10matrixtdefP8coorddefP13Draw_CarCache
             puVar7 = &DAT_00300a00;
           }
           else {
-            puVar7 = (undefined *)(&hilight_colors)[(int)local_48[iVar16]];
+            puVar7 = (undefined *)hilight_colors[(int)local_48[iVar16]];
           }
           *(undefined **)(puVar14 + 1) = puVar7;
           *(undefined *)((int)puVar14 + 7) = 0x2e;
@@ -7517,6 +7853,7 @@ void DrawC_ShowroomPrims__FP10matrixtdefP8coorddefP13Draw_CarCache
   }
   return;
 }
+
 
 
 

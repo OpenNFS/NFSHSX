@@ -1,6 +1,7 @@
 #ifndef NIGHT_H
 #define NIGHT_H
 
+
 extern int Night_FindClosestColor__FG7CVECTORPi(struct CVECTOR colorMatch, int *bestIndex); // 0x800DB318
 
 extern void Night_CreateNightTableElement__FiliPUc(int colorIndex, long colorH, int bright, unsigned char *colorval); // 0x800DB3E0
@@ -38,5 +39,6 @@ extern void Night_RestartNightDriving__Fv(); // 0x800DC020
 extern void Night_SetEnviroment__FP13DRender_tView(struct DRender_tView *Vi); // 0x800DC0A8
 
 extern void Night_AdditiveNightCalc__FP6VECTORP7CVECTOR(struct VECTOR *v, struct CVECTOR *color); // 0x800DC1B8
+
 
 #endif

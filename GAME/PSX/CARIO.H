@@ -1,6 +1,7 @@
 #ifndef CARIO_H
 #define CARIO_H
 
+
 extern void CarIO_StartUp__Fv(); // 0x800BBF10
 
 extern void CarIO_CleanUp__Fv(); // 0x800BBF7C
@@ -22,5 +23,6 @@ extern void CarIO_ReadInCarTextureData__FPcP8Car_tObjii(char *shpfile, struct Ca
 extern void CarIO_UpdateCarTextureData__FPcP8Car_tObji(char *shpfile, struct Car_tObj *carObj, int player); // 0x800BCEB0
 
 extern void CarIO_ReleaseCarCluts__FP8Car_tObj(struct Car_tObj *carObj); // 0x800BD358
+
 
 #endif

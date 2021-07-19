@@ -1,6 +1,7 @@
 #ifndef TEXTURE_H
 #define TEXTURE_H
 
+
 extern void Texture_InitPaletteSharing__Fv(); // 0x800DF5B4
 
 extern void Texture_DeInitPaletteSharing__Fv(); // 0x800DF630
@@ -48,5 +49,6 @@ extern void Texture_LoadMenuTexture__Fv(); // 0x800E0698
 extern void Texture_KillTrackTexture__Fv(); // 0x800E084C
 
 extern void Texture_KillMenuTexture__Fv(); // 0x800E0854
+
 
 #endif

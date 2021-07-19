@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "DRAW.H"
+
 
 // decompiled code
 // original method signature: 
@@ -16,6 +17,21 @@
 	// End offset: 0x800BDAC0
 	// End Line: 73
 
+	/* begin block 2 */
+		// Start line: 144
+	/* end block 2 */
+	// End Line: 145
+
+	/* begin block 3 */
+		// Start line: 144
+	/* end block 3 */
+	// End Line: 145
+
+	/* begin block 4 */
+		// Start line: 150
+	/* end block 4 */
+	// End Line: 151
+
 int Draw_SetView__Fiiiiiiiii(int x0,int y0,int x1,int y1,int w,int h,int dtd,int isbg,int otsize)
 
 {
@@ -23,24 +39,24 @@ int Draw_SetView__Fiiiiiiiii(int x0,int y0,int x1,int y1,int w,int h,int dtd,int
   int iVar2;
   Draw_tView *pDVar3;
   
-  iVar1 = DAT_00001260;
-  pDVar3 = &Draw_gView + DAT_00001260;
-  SetDefDrawEnv((undefined2 *)(&Draw_gView)[DAT_00001260].drawenv,(short)x0,(short)y0,(short)w,h);
-  SetDefDrawEnv((undefined2 *)((&Draw_gView)[iVar1].drawenv + 1),(short)x1,(short)y1,(short)w,h);
-  (&Draw_gView)[iVar1].drawenv[0].r0 = '\0';
-  (&Draw_gView)[iVar1].drawenv[0].g0 = '\0';
-  (&Draw_gView)[iVar1].drawenv[0].b0 = '\0';
-  (&Draw_gView)[iVar1].drawenv[1].r0 = '\0';
-  (&Draw_gView)[iVar1].drawenv[1].g0 = '\0';
-  (&Draw_gView)[iVar1].drawenv[1].b0 = '\0';
-  (&Draw_gView)[iVar1].drawenv[1].isbg = (uchar)isbg;
-  (&Draw_gView)[iVar1].drawenv[0].isbg = (uchar)isbg;
-  (&Draw_gView)[iVar1].drawenv[1].dtd = (uchar)dtd;
-  (&Draw_gView)[iVar1].drawenv[0].dtd = (uchar)dtd;
-  iVar2 = DAT_00001260;
+  iVar1 = Draw_gNumView;
+  pDVar3 = Draw_gView + Draw_gNumView;
+  SetDefDrawEnv((undefined2 *)Draw_gView[Draw_gNumView].drawenv,(short)x0,(short)y0,(short)w,h);
+  SetDefDrawEnv((undefined2 *)(Draw_gView[iVar1].drawenv + 1),(short)x1,(short)y1,(short)w,h);
+  Draw_gView[iVar1].drawenv[0].r0 = '\0';
+  Draw_gView[iVar1].drawenv[0].g0 = '\0';
+  Draw_gView[iVar1].drawenv[0].b0 = '\0';
+  Draw_gView[iVar1].drawenv[1].r0 = '\0';
+  Draw_gView[iVar1].drawenv[1].g0 = '\0';
+  Draw_gView[iVar1].drawenv[1].b0 = '\0';
+  Draw_gView[iVar1].drawenv[1].isbg = (uchar)isbg;
+  Draw_gView[iVar1].drawenv[0].isbg = (uchar)isbg;
+  Draw_gView[iVar1].drawenv[1].dtd = (uchar)dtd;
+  Draw_gView[iVar1].drawenv[0].dtd = (uchar)dtd;
+  iVar2 = Draw_gNumView;
   pDVar3->otsize = otsize;
-  (&Draw_gView)[iVar1].membudget = 0;
-  DAT_00001260 = DAT_00001260 + 1;
+  Draw_gView[iVar1].membudget = 0;
+  Draw_gNumView = Draw_gNumView + 1;
   return iVar2;
 }
 
@@ -57,12 +73,37 @@ int Draw_SetView__Fiiiiiiiii(int x0,int y0,int x1,int y1,int w,int h,int dtd,int
 	// End offset: 0x800BDBD4
 	// End Line: 115
 
+	/* begin block 2 */
+		// Start line: 251
+	/* end block 2 */
+	// End Line: 252
+
+	/* begin block 3 */
+		// Start line: 263
+	/* end block 3 */
+	// End Line: 264
+
+	/* begin block 4 */
+		// Start line: 263
+	/* end block 4 */
+	// End Line: 264
+
+	/* begin block 5 */
+		// Start line: 264
+	/* end block 5 */
+	// End Line: 265
+
+	/* begin block 6 */
+		// Start line: 264
+	/* end block 6 */
+	// End Line: 265
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Draw_InitViews__Fv(void)
 
 {
-  DAT_00001260 = 0;
+  Draw_gNumView = 0;
   return;
 }
 
@@ -95,6 +136,21 @@ void Draw_InitViews__Fv(void)
 	// End offset: 0x800BDC50
 	// End Line: 135
 
+	/* begin block 2 */
+		// Start line: 278
+	/* end block 2 */
+	// End Line: 279
+
+	/* begin block 3 */
+		// Start line: 291
+	/* end block 3 */
+	// End Line: 292
+
+	/* begin block 4 */
+		// Start line: 291
+	/* end block 4 */
+	// End Line: 292
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Draw_InitViewOT__Fv(void)
@@ -105,8 +161,8 @@ void Draw_InitViewOT__Fv(void)
   int iVar3;
   
   iVar3 = 0;
-  pDVar2 = &Draw_gView;
-  while (iVar3 < DAT_00001260) {
+  pDVar2 = Draw_gView;
+  while (iVar3 < Draw_gNumView) {
     iVar3 = iVar3 + 1;
     psVar1 = reservememadr((char *)&PTR_DAT_8013d798,pDVar2->otsize << 2,0x10);
     *(short **)pDVar2->ot = psVar1;
@@ -146,6 +202,21 @@ void Draw_InitViewOT__Fv(void)
 	// End offset: 0x800BDCCC
 	// End Line: 146
 
+	/* begin block 2 */
+		// Start line: 314
+	/* end block 2 */
+	// End Line: 315
+
+	/* begin block 3 */
+		// Start line: 318
+	/* end block 3 */
+	// End Line: 319
+
+	/* begin block 4 */
+		// Start line: 318
+	/* end block 4 */
+	// End Line: 319
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Draw_InitViewOTInGame__Fv(void)
@@ -156,8 +227,8 @@ void Draw_InitViewOTInGame__Fv(void)
   int iVar3;
   
   iVar3 = 0;
-  pDVar2 = &Draw_gView;
-  while (iVar3 < DAT_00001260) {
+  pDVar2 = Draw_gView;
+  while (iVar3 < Draw_gNumView) {
     iVar3 = iVar3 + 1;
     p_Var1 = (_func_42 *)Platform_ReserveMemory__FiPc(pDVar2->otsize << 2,(char *)&PTR_DAT_8013d798)
     ;
@@ -199,6 +270,21 @@ void Draw_InitViewOTInGame__Fv(void)
 	// End offset: 0x800BDD54
 	// End Line: 169
 
+	/* begin block 2 */
+		// Start line: 349
+	/* end block 2 */
+	// End Line: 350
+
+	/* begin block 3 */
+		// Start line: 361
+	/* end block 3 */
+	// End Line: 362
+
+	/* begin block 4 */
+		// Start line: 361
+	/* end block 4 */
+	// End Line: 362
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Draw_DeInitViews__Fv(void)
@@ -208,8 +294,8 @@ void Draw_DeInitViews__Fv(void)
   int iVar2;
   
   iVar2 = 0;
-  pDVar1 = &Draw_gView;
-  while (iVar2 < DAT_00001260) {
+  pDVar1 = Draw_gView;
+  while (iVar2 < Draw_gNumView) {
     if (pDVar1->ot[0] != (_func_42 *)0x0) {
       purgememadr((int)pDVar1->ot[0]);
     }
@@ -253,6 +339,26 @@ void Draw_DeInitViews__Fv(void)
 	// End offset: 0x800BDD94
 	// End Line: 184
 
+	/* begin block 2 */
+		// Start line: 391
+	/* end block 2 */
+	// End Line: 392
+
+	/* begin block 3 */
+		// Start line: 395
+	/* end block 3 */
+	// End Line: 396
+
+	/* begin block 4 */
+		// Start line: 395
+	/* end block 4 */
+	// End Line: 396
+
+	/* begin block 5 */
+		// Start line: 397
+	/* end block 5 */
+	// End Line: 398
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Draw_DeInitViewsInGame__Fv(void)
@@ -263,9 +369,9 @@ void Draw_DeInitViewsInGame__Fv(void)
   Draw_tView *pDVar3;
   int iVar4;
   
-  iVar2 = DAT_00001260;
+  iVar2 = Draw_gNumView;
   iVar4 = 0;
-  pDVar3 = &Draw_gView;
+  pDVar3 = Draw_gView;
   while (bVar1 = iVar4 < iVar2, iVar4 = iVar4 + 1, bVar1) {
     pDVar3->ot[0] = (_func_42 *)0x0;
     pDVar3->ot[1] = (_func_42 *)0x0;
@@ -287,6 +393,31 @@ void Draw_DeInitViewsInGame__Fv(void)
 	// End offset: 0x800BDD9C
 	// End Line: 189
 
+	/* begin block 2 */
+		// Start line: 421
+	/* end block 2 */
+	// End Line: 422
+
+	/* begin block 3 */
+		// Start line: 425
+	/* end block 3 */
+	// End Line: 426
+
+	/* begin block 4 */
+		// Start line: 425
+	/* end block 4 */
+	// End Line: 426
+
+	/* begin block 5 */
+		// Start line: 426
+	/* end block 5 */
+	// End Line: 427
+
+	/* begin block 6 */
+		// Start line: 426
+	/* end block 6 */
+	// End Line: 427
+
 DRAWENV * Draw_GetDRAWENV__Fii(int viewid,int page)
 
 {
@@ -306,10 +437,35 @@ DRAWENV * Draw_GetDRAWENV__Fii(int viewid,int page)
 	// End offset: 0x800BDDD8
 	// End Line: 199
 
+	/* begin block 2 */
+		// Start line: 390
+	/* end block 2 */
+	// End Line: 391
+
+	/* begin block 3 */
+		// Start line: 440
+	/* end block 3 */
+	// End Line: 441
+
+	/* begin block 4 */
+		// Start line: 440
+	/* end block 4 */
+	// End Line: 441
+
+	/* begin block 5 */
+		// Start line: 441
+	/* end block 5 */
+	// End Line: 442
+
+	/* begin block 6 */
+		// Start line: 441
+	/* end block 6 */
+	// End Line: 442
+
 void Draw_SetViewMemBudget__Fii(int viewid,int totalmem)
 
 {
-  (&Draw_gView)[viewid].membudget = totalmem;
+  Draw_gView[viewid].membudget = totalmem;
   return;
 }
 
@@ -328,18 +484,38 @@ void Draw_SetViewMemBudget__Fii(int viewid,int totalmem)
 	// End offset: 0x800BDE58
 	// End Line: 220
 
+	/* begin block 2 */
+		// Start line: 416
+	/* end block 2 */
+	// End Line: 417
+
+	/* begin block 3 */
+		// Start line: 467
+	/* end block 3 */
+	// End Line: 468
+
+	/* begin block 4 */
+		// Start line: 467
+	/* end block 4 */
+	// End Line: 468
+
+	/* begin block 5 */
+		// Start line: 470
+	/* end block 5 */
+	// End Line: 471
+
 void Draw_SetViewColor__Fiiii(int viewid,int r,int g,int b)
 
 {
-  if ((&Draw_gView)[viewid].drawenv[0].isbg != '\0') {
-    (&Draw_gView)[viewid].drawenv[0].r0 = (uchar)r;
-    (&Draw_gView)[viewid].drawenv[0].g0 = (uchar)g;
-    (&Draw_gView)[viewid].drawenv[0].b0 = (uchar)b;
+  if (Draw_gView[viewid].drawenv[0].isbg != '\0') {
+    Draw_gView[viewid].drawenv[0].r0 = (uchar)r;
+    Draw_gView[viewid].drawenv[0].g0 = (uchar)g;
+    Draw_gView[viewid].drawenv[0].b0 = (uchar)b;
   }
-  if ((&Draw_gView)[viewid].drawenv[1].isbg != '\0') {
-    (&Draw_gView)[viewid].drawenv[1].r0 = (uchar)r;
-    (&Draw_gView)[viewid].drawenv[1].g0 = (uchar)g;
-    (&Draw_gView)[viewid].drawenv[1].b0 = (uchar)b;
+  if (Draw_gView[viewid].drawenv[1].isbg != '\0') {
+    Draw_gView[viewid].drawenv[1].r0 = (uchar)r;
+    Draw_gView[viewid].drawenv[1].g0 = (uchar)g;
+    Draw_gView[viewid].drawenv[1].b0 = (uchar)b;
   }
   return;
 }
@@ -383,13 +559,28 @@ void Draw_SetViewColor__Fiiii(int viewid,int r,int g,int b)
 	// End offset: 0x800BDF8C
 	// End Line: 293
 
+	/* begin block 2 */
+		// Start line: 497
+	/* end block 2 */
+	// End Line: 498
+
+	/* begin block 3 */
+		// Start line: 515
+	/* end block 3 */
+	// End Line: 516
+
+	/* begin block 4 */
+		// Start line: 515
+	/* end block 4 */
+	// End Line: 516
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void AllocatePrimitivesBuffer__Fv(void)
 
 {
   int iVar1;
-  undefined *puVar2;
+  int iVar2;
   
   if (GameSetup_gData.commMode == 1) {
     Draw_InitViewOT__Fv();
@@ -398,23 +589,23 @@ void AllocatePrimitivesBuffer__Fv(void)
     Draw_InitViewOTInGame__Fv();
   }
   if (GameSetup_gData.commMode == 1) {
-    DAT_00001278 = &DAT_00022500;
+    gTotalMem = (int)&LAB_00022500;
   }
   else {
-    DAT_00001278 = &DAT_0001f600;
+    gTotalMem = (int)&LAB_0001f600;
   }
-  gEnviro.server = Platform_ReserveMemory__FiPc((int)DAT_00001278,(char *)&PTR_DAT_8013d7a0);
-  dflip_8011f43c.server = Platform_ReserveMemory__FiPc((int)DAT_00001278,(char *)&PTR_DAT_8013d7a4);
+  gEnviro.server = Platform_ReserveMemory__FiPc(gTotalMem,(char *)&PTR_DAT_8013d7a0);
+  dflip_8011f43c.server = Platform_ReserveMemory__FiPc(gTotalMem,(char *)&PTR_DAT_8013d7a4);
   iVar1 = Draw_gPlayer2View;
   if (GameSetup_gData.commMode == 1) {
-    puVar2 = (undefined *)(((int)DAT_00001278 >> 1) + -0x1a00);
-    *(undefined **)&(&Draw_gView)[Draw_gPlayer1View].membudget = puVar2;
+    iVar2 = (gTotalMem >> 1) + -0x1a00;
+    Draw_gView[Draw_gPlayer1View].membudget = iVar2;
   }
   else {
-    puVar2 = DAT_00001278 + -0x1a00;
+    iVar2 = gTotalMem + -0x1a00;
     iVar1 = Draw_gPlayer1View;
   }
-  *(undefined **)&(&Draw_gView)[iVar1].membudget = puVar2;
+  Draw_gView[iVar1].membudget = iVar2;
   return;
 }
 
@@ -430,6 +621,21 @@ void AllocatePrimitivesBuffer__Fv(void)
 	/* end block 1 */
 	// End offset: 0x800BDFE8
 	// End Line: 319
+
+	/* begin block 2 */
+		// Start line: 655
+	/* end block 2 */
+	// End Line: 656
+
+	/* begin block 3 */
+		// Start line: 675
+	/* end block 3 */
+	// End Line: 676
+
+	/* begin block 4 */
+		// Start line: 675
+	/* end block 4 */
+	// End Line: 676
 
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
@@ -461,6 +667,21 @@ void ClearPrimitivesBuffer__Fv(void)
 	/* end block 1 */
 	// End offset: 0x800BE050
 	// End Line: 340
+
+	/* begin block 2 */
+		// Start line: 698
+	/* end block 2 */
+	// End Line: 699
+
+	/* begin block 3 */
+		// Start line: 703
+	/* end block 3 */
+	// End Line: 704
+
+	/* begin block 4 */
+		// Start line: 703
+	/* end block 4 */
+	// End Line: 704
 
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
@@ -495,27 +716,42 @@ void ClearPlatformPrimitivesBuffer__Fv(void)
 	// End offset: 0x800BE110
 	// End Line: 375
 
+	/* begin block 2 */
+		// Start line: 744
+	/* end block 2 */
+	// End Line: 745
+
+	/* begin block 3 */
+		// Start line: 757
+	/* end block 3 */
+	// End Line: 758
+
+	/* begin block 4 */
+		// Start line: 757
+	/* end block 4 */
+	// End Line: 758
+
 void Draw_StartRenderingView__Fi(int viewid)
 
 {
   int iVar1;
   
-  iGp00001264 = (&Draw_gView)[viewid].otsize;
-  iVar1 = iGp00001264 * 7;
+  Draw_gViewOtSize = Draw_gView[viewid].otsize;
+  iVar1 = Draw_gViewOtSize * 7;
   if (iVar1 < 0) {
     iVar1 = iVar1 + 7;
   }
   if ((viewid == Draw_gPlayer1View) || (viewid == Draw_gPlayer2View)) {
-    DAT_1f800008 = DAT_1f800004 + (&Draw_gView)[viewid].membudget;
+    DAT_1f800008 = (char *)(DAT_1f800004 + Draw_gView[viewid].membudget);
   }
   else {
-    DAT_1f800008 = iGp00001274;
+    DAT_1f800008 = Draw_gMaxPrim;
   }
-  DAT_1f800000 = (&(&Draw_gView)[viewid].otsize)[iGp00001268 + 0x30];
+  DAT_1f800000 = (&Draw_gView[viewid].otsize)[gFlip + 0x30];
   DAT_1f80000c = 0;
-  DAT_1f800010 = (&Draw_gView)[viewid].drawenv[0].clip.w;
-  DAT_1f800012 = (&Draw_gView)[viewid].drawenv[0].clip.h;
-  iGp00001270 = iVar1 >> 3;
+  DAT_1f800010 = Draw_gView[viewid].drawenv[0].clip.w;
+  DAT_1f800012 = Draw_gView[viewid].drawenv[0].clip.h;
+  Draw_gMidGroundOtz = iVar1 >> 3;
   return;
 }
 
@@ -536,6 +772,21 @@ void Draw_StartRenderingView__Fi(int viewid)
 	// End offset: 0x800BE194
 	// End Line: 397
 
+	/* begin block 2 */
+		// Start line: 833
+	/* end block 2 */
+	// End Line: 834
+
+	/* begin block 3 */
+		// Start line: 846
+	/* end block 3 */
+	// End Line: 847
+
+	/* begin block 4 */
+		// Start line: 846
+	/* end block 4 */
+	// End Line: 847
+
 void Draw_StopRenderingView__Fi(int viewid)
 
 {
@@ -549,37 +800,39 @@ void Draw_StopRenderingView__Fi(int viewid)
   int iVar8;
   int iVar9;
   int iVar10;
+  int iVar11;
   int local_68 [24];
   
-  pDVar5 = &Draw_gView + viewid;
-  piVar4 = &pDVar5->otsize + iGp00001268 * 0x17 + 2;
+  pDVar5 = Draw_gView + viewid;
+  iVar9 = gFlip * 0x17;
+  piVar4 = &pDVar5->otsize + iVar9 + 2;
   piVar2 = local_68;
   do {
     piVar7 = piVar2;
     piVar3 = piVar4;
     iVar8 = piVar3[1];
-    iVar9 = piVar3[2];
-    iVar10 = piVar3[3];
+    iVar10 = piVar3[2];
+    iVar11 = piVar3[3];
     *piVar7 = *piVar3;
     piVar7[1] = iVar8;
-    piVar7[2] = iVar9;
-    piVar7[3] = iVar10;
+    piVar7[2] = iVar10;
+    piVar7[3] = iVar11;
     piVar4 = piVar3 + 4;
     piVar2 = piVar7 + 4;
-  } while (piVar4 != &pDVar5->otsize + iGp00001268 * 0x17 + 0x16);
-  iVar8 = piVar3[5];
-  iVar9 = piVar3[6];
+  } while (piVar4 != &pDVar5->otsize + iVar9 + 0x16);
+  iVar9 = piVar3[5];
+  iVar8 = piVar3[6];
   piVar7[4] = *piVar4;
-  piVar7[5] = iVar8;
-  piVar7[6] = iVar9;
+  piVar7[5] = iVar9;
+  piVar7[6] = iVar8;
   puVar1 = DAT_1f800004;
-  iVar8 = DAT_1f800000;
+  iVar9 = DAT_1f800000;
   *DAT_1f800004 =
        *DAT_1f800004 & 0xff000000 | *(uint *)(pDVar5->otsize * 4 + DAT_1f800000 + -4) & 0xffffff;
-  iVar8 = pDVar5->otsize * 4 + iVar8;
+  iVar9 = pDVar5->otsize * 4 + iVar9;
   uVar6 = (uint)DAT_1f800004 & 0xffffff;
   DAT_1f800004 = DAT_1f800004 + 0x10;
-  *(uint *)(iVar8 + -4) = *(uint *)(iVar8 + -4) & 0xff000000 | uVar6;
+  *(uint *)(iVar9 + -4) = *(uint *)(iVar9 + -4) & 0xff000000 | uVar6;
   SetDrawEnv((int)puVar1,(ushort *)local_68);
   return;
 }
@@ -597,15 +850,30 @@ void Draw_StopRenderingView__Fi(int viewid)
 	// End offset: 0x800BE2B0
 	// End Line: 420
 
+	/* begin block 2 */
+		// Start line: 890
+	/* end block 2 */
+	// End Line: 891
+
+	/* begin block 3 */
+		// Start line: 901
+	/* end block 3 */
+	// End Line: 902
+
+	/* begin block 4 */
+		// Start line: 901
+	/* end block 4 */
+	// End Line: 902
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Draw_CheckFirstFrameRender__Fv(void)
 
 {
-  if (iGp00001268 == -1) {
+  if (gFlip == -1) {
     Draw_DirectSetEnvironment__Fiiiiiiiiii(0x140,0x100,0x140,0xf0,1,0,1,0,0,0);
     Draw_DirectSetEnvironment__Fiiiiiiiiii(0,0x100,0x140,0xf0,1,1,1,0,0,0);
-    iGp00001268 = 1;
+    gFlip = 1;
     AllocatePrimitivesBuffer__Fv();
   }
   return;
@@ -640,6 +908,21 @@ void Draw_CheckFirstFrameRender__Fv(void)
 	// End offset: 0x800BE314
 	// End Line: 442
 
+	/* begin block 2 */
+		// Start line: 936
+	/* end block 2 */
+	// End Line: 937
+
+	/* begin block 3 */
+		// Start line: 949
+	/* end block 3 */
+	// End Line: 950
+
+	/* begin block 4 */
+		// Start line: 949
+	/* end block 4 */
+	// End Line: 950
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Draw_StartFrameRender__Fv(void)
@@ -652,15 +935,15 @@ void Draw_StartFrameRender__Fv(void)
   int iVar5;
   
   iVar5 = 0;
-  pDVar4 = &Draw_gView;
-  while (bVar1 = iVar5 < iGp00001260, iVar5 = iVar5 + 1, bVar1) {
+  pDVar4 = Draw_gView;
+  while (bVar1 = iVar5 < Draw_gNumView, iVar5 = iVar5 + 1, bVar1) {
     piVar2 = &pDVar4->otsize;
     piVar3 = &pDVar4->otsize;
     pDVar4 = pDVar4 + 1;
-    ClearOTagR((undefined4 *)piVar3[iGp00001268 + 0x30],*piVar2);
+    ClearOTagR((undefined4 *)piVar3[gFlip + 0x30],*piVar2);
   }
-  DAT_1f800004 = (&gEnviro)[iGp00001268].server;
-  pcGp00001274 = (&gEnviro)[iGp00001268].server + iGp00001278;
+  DAT_1f800004 = (&gEnviro)[gFlip].server;
+  Draw_gMaxPrim = (&gEnviro)[gFlip].server + gTotalMem;
   return;
 }
 
@@ -668,7 +951,7 @@ void Draw_StartFrameRender__Fv(void)
 
 // decompiled code
 // original method signature: 
-// void /*$ra*/ Draw_SetDrawSyncCallback__FPFv_v(void (*p)() /*$a0*/)
+// void /*$ra*/ Draw_SetDrawSyncCallback__FPFv_v(TDRFuncPtr_Draw_SetDrawSyncCallback__FPFv_v0p p /*$a0*/)
  // line 448, offset 0x800be360
 	/* begin block 1 */
 		// Start line: 449
@@ -677,10 +960,35 @@ void Draw_StartFrameRender__Fv(void)
 	// End offset: 0x800BE360
 	// End Line: 450
 
+	/* begin block 2 */
+		// Start line: 982
+	/* end block 2 */
+	// End Line: 983
+
+	/* begin block 3 */
+		// Start line: 987
+	/* end block 3 */
+	// End Line: 988
+
+	/* begin block 4 */
+		// Start line: 987
+	/* end block 4 */
+	// End Line: 988
+
+	/* begin block 5 */
+		// Start line: 988
+	/* end block 5 */
+	// End Line: 989
+
+	/* begin block 6 */
+		// Start line: 988
+	/* end block 6 */
+	// End Line: 989
+
 void Draw_SetDrawSyncCallback__FPFv_v(TDRFuncPtr_Draw_SetDrawSyncCallback__FPFv_v0p p)
 
 {
-  pTGp0000189c = p;
+  Draw_gSyncCallback = (uchar *)p;
   return;
 }
 
@@ -713,6 +1021,21 @@ void Draw_SetDrawSyncCallback__FPFv_v(TDRFuncPtr_Draw_SetDrawSyncCallback__FPFv_
 	// End offset: 0x800BE42C
 	// End Line: 488
 
+	/* begin block 2 */
+		// Start line: 1003
+	/* end block 2 */
+	// End Line: 1004
+
+	/* begin block 3 */
+		// Start line: 1017
+	/* end block 3 */
+	// End Line: 1018
+
+	/* begin block 4 */
+		// Start line: 1017
+	/* end block 4 */
+	// End Line: 1018
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Draw_StopFrameRender__Fv(void)
@@ -723,21 +1046,21 @@ void Draw_StopFrameRender__Fv(void)
   int iVar3;
   
   DrawSync(0);
-  iGp0000126c = iGp0000126c + 1;
-  if (pcGp0000189c != (code *)0x0) {
-    (*pcGp0000189c)();
+  gLoop = gLoop + 1;
+  if (Draw_gSyncCallback != (uchar *)0x0) {
+    (*(code *)Draw_gSyncCallback)();
   }
-  if (iGp0000125c != 0) {
+  if (Draw_gDoVSync != 0) {
     VSync(0);
   }
   iVar3 = 0;
-  PutDispEnv((ushort *)(&gEnviro + iGp00001268));
-  pDVar2 = &Draw_gView;
-  while (bVar1 = iVar3 < iGp00001260, iVar3 = iVar3 + 1, bVar1) {
-    DrawOTag((&pDVar2->otsize)[iGp00001268 + 0x30] + pDVar2->otsize * 4 + -4);
+  PutDispEnv((ushort *)(&gEnviro + gFlip));
+  pDVar2 = Draw_gView;
+  while (bVar1 = iVar3 < Draw_gNumView, iVar3 = iVar3 + 1, bVar1) {
+    DrawOTag((&pDVar2->otsize)[gFlip + 0x30] + pDVar2->otsize * 4 + -4);
     pDVar2 = pDVar2 + 1;
   }
-  iGp00001268 = 1 - iGp00001268;
+  gFlip = 1 - gFlip;
   return;
 }
 
@@ -753,6 +1076,21 @@ void Draw_StopFrameRender__Fv(void)
 	/* end block 1 */
 	// End offset: 0x800BE450
 	// End Line: 494
+
+	/* begin block 2 */
+		// Start line: 1079
+	/* end block 2 */
+	// End Line: 1080
+
+	/* begin block 3 */
+		// Start line: 1085
+	/* end block 3 */
+	// End Line: 1086
+
+	/* begin block 4 */
+		// Start line: 1085
+	/* end block 4 */
+	// End Line: 1086
 
 void Draw_DrawDirectScreen__FP8shapetblii(shapetbl *tile,int x,int y)
 
@@ -806,6 +1144,21 @@ void Draw_DrawDirectScreen__FP8shapetblii(shapetbl *tile,int x,int y)
 	// End offset: 0x800BE558
 	// End Line: 547
 
+	/* begin block 2 */
+		// Start line: 1115
+	/* end block 2 */
+	// End Line: 1116
+
+	/* begin block 3 */
+		// Start line: 1130
+	/* end block 3 */
+	// End Line: 1131
+
+	/* begin block 4 */
+		// Start line: 1130
+	/* end block 4 */
+	// End Line: 1131
+
 void Draw_DirectSetEnvironment__Fiiiiiiiiii
                (int x,int y,int w,int h,int edraw,int edisplay,int erase,int r,int g,int b)
 
@@ -849,6 +1202,21 @@ void Draw_DirectSetEnvironment__Fiiiiiiiiii
 	// End offset: 0x800BE57C
 	// End Line: 552
 
+	/* begin block 2 */
+		// Start line: 1201
+	/* end block 2 */
+	// End Line: 1202
+
+	/* begin block 3 */
+		// Start line: 1206
+	/* end block 3 */
+	// End Line: 1207
+
+	/* begin block 4 */
+		// Start line: 1206
+	/* end block 4 */
+	// End Line: 1207
+
 void Draw_SetEnvironment__Fiiiiiiii(int w,int h,int edraw,int edisplay,int erase,int r,int g,int b)
 
 {
@@ -869,10 +1237,25 @@ void Draw_SetEnvironment__Fiiiiiiii(int w,int h,int edraw,int edisplay,int erase
 	// End offset: 0x800BE5D8
 	// End Line: 578
 
+	/* begin block 2 */
+		// Start line: 1142
+	/* end block 2 */
+	// End Line: 1143
+
+	/* begin block 3 */
+		// Start line: 1248
+	/* end block 3 */
+	// End Line: 1249
+
+	/* begin block 4 */
+		// Start line: 1248
+	/* end block 4 */
+	// End Line: 1249
+
 void Draw_InitRenderEngine__Fiiiiii(int x0,int y0,int x1,int y1,int w,int h)
 
 {
-  uGp00001268 = 0xffffffff;
+  gFlip = -1;
   gEnviro.server = (char *)0x0;
   dflip_8011f43c.server = (char *)0x0;
   SetDefDispEnv((undefined2 *)&gEnviro,(short)x0,(short)y0,(short)w,h);
@@ -893,6 +1276,31 @@ void Draw_InitRenderEngine__Fiiiiii(int x0,int y0,int x1,int y1,int w,int h)
 	/* end block 1 */
 	// End offset: 0x800BE67C
 	// End Line: 597
+
+	/* begin block 2 */
+		// Start line: 1297
+	/* end block 2 */
+	// End Line: 1298
+
+	/* begin block 3 */
+		// Start line: 1302
+	/* end block 3 */
+	// End Line: 1303
+
+	/* begin block 4 */
+		// Start line: 1302
+	/* end block 4 */
+	// End Line: 1303
+
+	/* begin block 5 */
+		// Start line: 1303
+	/* end block 5 */
+	// End Line: 1304
+
+	/* begin block 6 */
+		// Start line: 1303
+	/* end block 6 */
+	// End Line: 1304
 
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
@@ -915,13 +1323,28 @@ void Draw_RestartRenderEngine__Fv(void)
 	// End offset: 0x800BE684
 	// End Line: 601
 
+	/* begin block 2 */
+		// Start line: 1307
+	/* end block 2 */
+	// End Line: 1308
+
+	/* begin block 3 */
+		// Start line: 1310
+	/* end block 3 */
+	// End Line: 1311
+
+	/* begin block 4 */
+		// Start line: 1310
+	/* end block 4 */
+	// End Line: 1311
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Draw_DeInitRenderEngine__Fv(void)
 
 {
   ClearPlatformPrimitivesBuffer__Fv();
-  uGp00001268 = 0xffffffff;
+  gFlip = -1;
   return;
 }
 
@@ -938,15 +1361,31 @@ void Draw_DeInitRenderEngine__Fv(void)
 	// End offset: 0x800BE6A8
 	// End Line: 610
 
+	/* begin block 2 */
+		// Start line: 1322
+	/* end block 2 */
+	// End Line: 1323
+
+	/* begin block 3 */
+		// Start line: 1328
+	/* end block 3 */
+	// End Line: 1329
+
+	/* begin block 4 */
+		// Start line: 1328
+	/* end block 4 */
+	// End Line: 1329
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Draw_InitLibRender__Fv(void)
 
 {
-  uGp0000126c = 1;
+  gLoop = 1;
   InitGeom();
   return;
 }
+
 
 
 

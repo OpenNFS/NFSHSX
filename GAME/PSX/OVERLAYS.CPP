@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "OVERLAYS.H"
+
 
 // decompiled code
 // original method signature: 
@@ -11,6 +12,16 @@
 	/* end block 1 */
 	// End offset: 0x800D9968
 	// End Line: 40
+
+	/* begin block 2 */
+		// Start line: 78
+	/* end block 2 */
+	// End Line: 79
+
+	/* begin block 3 */
+		// Start line: 78
+	/* end block 3 */
+	// End Line: 79
 
 void OptionsBarThing__Fiiii(int x,int y,int w,int h)
 
@@ -69,6 +80,21 @@ void OptionsBarThing__Fiiii(int x,int y,int w,int h)
 	/* end block 1 */
 	// End offset: 0x800D9F40
 	// End Line: 156
+
+	/* begin block 2 */
+		// Start line: 101
+	/* end block 2 */
+	// End Line: 102
+
+	/* begin block 3 */
+		// Start line: 107
+	/* end block 3 */
+	// End Line: 108
+
+	/* begin block 4 */
+		// Start line: 107
+	/* end block 4 */
+	// End Line: 108
 
 /* WARNING: Could not reconcile some variable overlaps */
 /* WARNING: Unknown calling convention yet parameter storage is locked */
@@ -154,10 +180,10 @@ void RaceSummary__Fv(void)
       Hud_RenderPauseBox__Fiiii(x,y,w,y_00);
       return;
     }
-    y_00 = ((&__Cars_gRaceCarList_9__)[(int)(short)uVar2]->stats).finalPosition;
-    if (y_00 * 2 + 4 < DAT_0000144c) {
+    y_00 = ((&Cars_gRaceCarList9)[(int)(short)uVar2]->stats).finalPosition;
+    if (y_00 * 2 + 4 < StatsTimer) {
       y = 4;
-      if (((&__Cars_gRaceCarList_9__)[(int)(short)uVar2]->carFlags & 4U) != 0) {
+      if (((&Cars_gRaceCarList9)[(int)(short)uVar2]->carFlags & 4U) != 0) {
         y = 3;
       }
       Font_TextColor__Fi(y);
@@ -165,7 +191,7 @@ void RaceSummary__Fv(void)
       y = iVar3 + y_00 * 0xc;
       Font_TextXY__FPcii(acStack152,(uint)local_50 | 1,y);
       Font_TextColor__Fi(3);
-      piVar1 = (int *)((int)&__Cars_gRaceCarList_9__ + ((int)((uint)uVar2 << 0x10) >> 0xe));
+      piVar1 = (int *)((int)&Cars_gRaceCarList9 + ((int)((uint)uVar2 << 0x10) >> 0xe));
       sprintf(acStack152,(char *)&PTR_DAT_8013d990,*(int *)(*piVar1 + 0x288) + 0x5c);
       Font_TextXY__FPcii(acStack152,(uint)local_48,y);
       y = 4;
@@ -174,7 +200,7 @@ void RaceSummary__Fv(void)
       }
       Font_TextColor__Fi(y);
       sprintf(acStack152,(char *)&PTR_DAT_8013d990,
-              (&__Cars_gRaceCarList_9__)[(int)(short)uVar2]->carNameLocalized);
+              (&Cars_gRaceCarList9)[(int)(short)uVar2]->carNameLocalized);
       Font_TextXY__FPcii(acStack152,(uint)local_40,iVar3 + y_00 * 0xc);
       if (GameSetup_gData.pinkSlipsForfeit == (int)(short)uVar2) {
         y = 0x36;
@@ -184,9 +210,9 @@ LAB_800d9ea4:
       }
       else {
         if ((GameSetup_gData.raceType == 1) &&
-           (y = 0x3d, ((&__Cars_gRaceCarList_9__)[(int)(short)uVar2]->stats).finalNumArrests != 0))
+           (y = 0x3d, ((&Cars_gRaceCarList9)[(int)(short)uVar2]->stats).finalNumArrests != 0))
         goto LAB_800d9ea4;
-        y = *(int *)((int)&__Cars_gRaceCarList_9__ + ((int)((uint)uVar2 << 0x10) >> 0xe));
+        y = *(int *)((int)&Cars_gRaceCarList9 + ((int)((uint)uVar2 << 0x10) >> 0xe));
         if (*(int *)(y + 0x3cc) != 2) {
           y = 0x35;
           goto LAB_800d9ea4;
@@ -195,8 +221,8 @@ LAB_800d9ea4:
       }
       Font_TextXY__FPcii(acStack152,(uint)local_38,iVar3 + y_00 * 0xc);
       if (GameSetup_gData.numLaps != 1) {
-        y = *(int *)(*(int *)((int)&__Cars_gRaceCarList_9__ + ((int)((uint)uVar2 << 0x10) >> 0xe)) +
-                    1000);
+        y = *(int *)(*(int *)((int)&Cars_gRaceCarList9 + ((int)((uint)uVar2 << 0x10) >> 0xe)) + 1000
+                    );
         if (y == 0) {
           y = 0;
         }
@@ -247,6 +273,21 @@ LAB_800d9ea4:
 	/* end block 1 */
 	// End offset: 0x800DA69C
 	// End Line: 321
+
+	/* begin block 2 */
+		// Start line: 423
+	/* end block 2 */
+	// End Line: 424
+
+	/* begin block 3 */
+		// Start line: 430
+	/* end block 3 */
+	// End Line: 431
+
+	/* begin block 4 */
+		// Start line: 430
+	/* end block 4 */
+	// End Line: 431
 
 /* WARNING: Could not reconcile some variable overlaps */
 /* WARNING: Unknown calling convention yet parameter storage is locked */
@@ -329,22 +370,22 @@ void RaceStatistics__Fv(void)
       Hud_RenderPauseBox__Fiiii(x,y,w,h);
       return;
     }
-    x = textpixels((&__Cars_gRaceCarList_9__)[y]->carInfo->driver);
+    x = textpixels((&Cars_gRaceCarList9)[y]->carInfo->driver);
     Hud_FBuildF4__FiiiiiUlcc(0,(int)sVar3 + -2,w + 0xb,1,local_38 - ((w - local_34) + 0x13),0,0,0);
     sVar2 = (short)h;
     if (0 < y) {
       Hud_FBuildF4__FiiiiiUlcc(0,(int)sVar2 + -2,local_34,1,local_30,0,0,0);
     }
-    if (2 < DAT_00001450) {
+    if (2 < INT_8013d99c) {
       Font_TextColor__Fi(3);
-      sprintf(acStack144,(char *)&PTR_DAT_8013d990,(&__Cars_gRaceCarList_9__)[y]->carInfo->driver);
+      sprintf(acStack144,(char *)&PTR_DAT_8013d990,(&Cars_gRaceCarList9)[y]->carInfo->driver);
       Font_TextXY__FPcii(acStack144,(int)sVar3 - ((x >> 1) + 2),w + -4);
     }
     if ((GameSetup_gData.numLaps != 1) && (x = 0, 0 < GameSetup_gData.numLaps)) {
       y_00 = 0;
       do {
-        if ((y_00 >> 0x10) * 2 + 4 < DAT_00001450) {
-          pCVar1 = (&__Cars_gHumanRaceCarList_9__)[y];
+        if ((y_00 >> 0x10) * 2 + 4 < INT_8013d99c) {
+          pCVar1 = (&Cars_gHumanRaceCarList9)[y];
           y_00 = (pCVar1->stats).finalLapTime[y_00 >> 0x10];
           if ((y_00 == 0) || (color = 3, y_00 != (pCVar1->stats).finalBestLap)) {
             color = 4;
@@ -354,7 +395,7 @@ void RaceStatistics__Fv(void)
           y_00 = (int)(short)x;
           sprintf(acStack144,string,y_00 + 1);
           Font_TextXY__FPcii(acStack144,(int)sVar2,w + y_00 * 0xc + 0xc);
-          y_00 = ((&__Cars_gHumanRaceCarList_9__)[y]->stats).finalLapTime[y_00];
+          y_00 = ((&Cars_gHumanRaceCarList9)[y]->stats).finalLapTime[y_00];
           if (y_00 == 0) {
             y_00 = 0;
           }
@@ -365,7 +406,7 @@ void RaceStatistics__Fv(void)
         y_00 = x * 0x10000;
       } while (x * 0x10000 >> 0x10 < GameSetup_gData.numLaps);
     }
-    if (GameSetup_gData.numLaps * 2 + 4 < DAT_00001450) {
+    if (GameSetup_gData.numLaps * 2 + 4 < INT_8013d99c) {
       string = TextSys_Word__Fi(0x37);
       sprintf(acStack144,string);
       Font_TextColor__Fi(3);
@@ -381,7 +422,7 @@ LAB_800da4e8:
         sprintf(acStack144,string);
       }
       else {
-        pCVar1 = (&__Cars_gHumanRaceCarList_9__)[(int)(short)uVar4];
+        pCVar1 = (&Cars_gHumanRaceCarList9)[(int)(short)uVar4];
         if ((pCVar1->stats).finalFinishType != 2) {
           if ((GameSetup_gData.raceType != 1) || (y = 0x3d, (pCVar1->stats).finalNumArrests == 0)) {
             y = 0x35;
@@ -397,7 +438,7 @@ LAB_800da4e8:
       Font_TextXY__FPcii(acStack144,(int)sVar3 + 5,y + 0xc);
     }
     if (GameSetup_gData.raceType == 1) {
-      if (GameSetup_gData.numLaps * 2 + 6 < DAT_00001450) {
+      if (GameSetup_gData.numLaps * 2 + 6 < INT_8013d99c) {
         string = TextSys_Word__Fi(0x3e);
         sprintf(acStack144,string);
         Font_TextColor__Fi(3);
@@ -405,11 +446,11 @@ LAB_800da4e8:
         Font_TextXY__FPcii(acStack144,(int)sVar2,y + 1);
         sprintf(acStack144,(char *)&PTR_DAT_8013d98c,
                 *(undefined4 *)
-                 (*(int *)((int)&__Cars_gHumanRaceCarList_9__ + ((int)((uint)uVar4 << 0x10) >> 0xe))
-                 + 0x3c0));
+                 (*(int *)((int)&Cars_gHumanRaceCarList9 + ((int)((uint)uVar4 << 0x10) >> 0xe)) +
+                 0x3c0));
         Font_TextXY__FPcii(acStack144,(int)sVar3 + 5,y + 1);
       }
-      if (GameSetup_gData.numLaps * 2 + 8 < DAT_00001450) {
+      if (GameSetup_gData.numLaps * 2 + 8 < INT_8013d99c) {
         string = TextSys_Word__Fi(0x3f);
         sprintf(acStack144,string);
         Font_TextColor__Fi(3);
@@ -417,8 +458,8 @@ LAB_800da4e8:
         Font_TextXY__FPcii(acStack144,(int)sVar2,y + 0xd);
         sprintf(acStack144,(char *)&PTR_DAT_8013d98c,
                 *(undefined4 *)
-                 (*(int *)((int)&__Cars_gHumanRaceCarList_9__ + ((int)((uint)uVar4 << 0x10) >> 0xe))
-                 + 0x3c4));
+                 (*(int *)((int)&Cars_gHumanRaceCarList9 + ((int)((uint)uVar4 << 0x10) >> 0xe)) +
+                 0x3c4));
         Font_TextXY__FPcii(acStack144,(int)sVar3 + 5,y + 0xd);
       }
     }
@@ -458,6 +499,21 @@ LAB_800da4e8:
 	// End offset: 0x800DAE30
 	// End Line: 442
 
+	/* begin block 2 */
+		// Start line: 836
+	/* end block 2 */
+	// End Line: 837
+
+	/* begin block 3 */
+		// Start line: 841
+	/* end block 3 */
+	// End Line: 842
+
+	/* begin block 4 */
+		// Start line: 841
+	/* end block 4 */
+	// End Line: 842
+
 void Hud_BTCStats__Fsb(short player,void *postgame)
 
 {
@@ -489,7 +545,7 @@ void Hud_BTCStats__Fsb(short player,void *postgame)
   bVar2 = false;
   bVar3 = false;
   if (1 < Cars_gNumHumanRaceCars) {
-    if (((&__Cars_gHumanRaceCarList_9__)[1 - (int)player]->carFlags & 0x200U) == 0) {
+    if (((&Cars_gHumanRaceCarList9)[1 - (int)player]->carFlags & 0x200U) == 0) {
       bVar2 = true;
     }
     else {
@@ -502,8 +558,8 @@ void Hud_BTCStats__Fsb(short player,void *postgame)
   }
   local_50 = 0;
   if ((postgame == (void *)0x0) ||
-     ((&BTCPerpInfo)[(int)player * 10 + (int)(&Hud_NextPerp)[(int)player] + -1].caught !=
-      (void *)0x0)) {
+     (BTCPerpInfo[(int)player * 10 + (int)(&Hud_NextPerp)[(int)player] + -1].caught != (void *)0x0))
+  {
     local_50 = 1;
   }
   local_40 = (short)uVar5 + 6;
@@ -563,7 +619,7 @@ void Hud_BTCStats__Fsb(short player,void *postgame)
     Font_TextColor__Fi(4);
     sVar4 = (short)iVar6;
     iVar6 = y + 0x91;
-    Font_TextXY__FPcii((char *)(*(int *)(*(int *)((int)&__Cars_gRaceCarList_9__ +
+    Font_TextXY__FPcii((char *)(*(int *)(*(int *)((int)&Cars_gRaceCarList9 +
                                                  ((int)((uint)local_58 << 0x10) >> 0xe)) + 0x288) +
                                0x5c),(int)local_84,(int)sVar4);
   }
@@ -623,13 +679,13 @@ void Hud_BTCStats__Fsb(short player,void *postgame)
         y_00 = local_30 + wordnum * 0xc;
         Font_TextXY__FPcii(acStack128,(int)local_88,y_00);
         if (!bVar2) {
-          sprintf(acStack128,(char *)&PTR_DAT_8013d990,&BTCPerpInfo + wordnum + wordnum_00 * 10);
+          sprintf(acStack128,(char *)&PTR_DAT_8013d990,BTCPerpInfo + wordnum + wordnum_00 * 10);
           Font_TextXY__FPcii(acStack128,(int)local_86,y_00);
         }
-        Hud_ParseTime__FiPc((&BTCPerpInfo)[wordnum_00 * 10 + wordnum].time,acStack128);
+        Hud_ParseTime__FiPc(BTCPerpInfo[wordnum_00 * 10 + wordnum].time,acStack128);
         Font_TextXY__FPcii(acStack128,(int)local_84,y_00);
         h = 0x49;
-        if ((&BTCPerpInfo)[wordnum_00 * 10 + wordnum].caught != (void *)0x0) {
+        if (BTCPerpInfo[wordnum_00 * 10 + wordnum].caught != (void *)0x0) {
           h = 0x3d;
         }
         string = TextSys_Word__Fi(h);
@@ -674,6 +730,31 @@ void Hud_BTCStats__Fsb(short player,void *postgame)
 	// End offset: 0x800DB0A8
 	// End Line: 508
 
+	/* begin block 2 */
+		// Start line: 1120
+	/* end block 2 */
+	// End Line: 1121
+
+	/* begin block 3 */
+		// Start line: 1129
+	/* end block 3 */
+	// End Line: 1130
+
+	/* begin block 4 */
+		// Start line: 1129
+	/* end block 4 */
+	// End Line: 1130
+
+	/* begin block 5 */
+		// Start line: 1130
+	/* end block 5 */
+	// End Line: 1131
+
+	/* begin block 6 */
+		// Start line: 1130
+	/* end block 6 */
+	// End Line: 1131
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Hud_RenderStatsView__Fv(void)
@@ -683,7 +764,7 @@ void Hud_RenderStatsView__Fv(void)
   uint uVar1;
   
   uVar1 = simGlobal.gameTicks >> 9 & 1;
-  if ((__Cars_gHumanRaceCarList_9__->carFlags & 0x200U) == 0) {
+  if ((Cars_gHumanRaceCarList9->carFlags & 0x200U) == 0) {
     if (GameSetup_gData.commMode == 1) goto LAB_800daef0;
     if (Cars_gNumRaceCars != 1) goto LAB_800dafe8;
 LAB_800dafe4:
@@ -696,43 +777,44 @@ LAB_800daed0:
       goto LAB_800dafe8;
     }
 LAB_800daef0:
-    if ((__Cars_gHumanRaceCarList_9__->carFlags & 0x200U) == 0) {
-      if ((PTR_8010fa4c->carFlags & 0x200U) != 0) goto LAB_800daf4c;
+    if ((Cars_gHumanRaceCarList9->carFlags & 0x200U) == 0) {
+      if ((PTR_ARRAY_8010fa4c[0]->carFlags & 0x200U) != 0) goto LAB_800daf4c;
     }
     else {
-      if ((PTR_8010fa4c->carFlags & 0x200U) == 0) {
+      if ((PTR_ARRAY_8010fa4c[0]->carFlags & 0x200U) == 0) {
         uVar1 = 0;
         goto LAB_800dafe8;
       }
 LAB_800daf4c:
-      if ((__Cars_gHumanRaceCarList_9__->carFlags & 0x200U) == 0) goto LAB_800dafe4;
-      if ((DAT_00001448 != 0) || (GameSetup_gData.commMode != 1)) goto LAB_800daed0;
+      if ((Cars_gHumanRaceCarList9->carFlags & 0x200U) == 0) goto LAB_800dafe4;
+      if ((Hud_NextPerp != 0) || (GameSetup_gData.commMode != 1)) goto LAB_800daed0;
     }
-    if (((PTR_8010fa4c->carFlags & 0x200U) != 0) &&
-       ((GameSetup_gData.commMode == 1 && (DAT_0000144a != 0)))) {
+    if (((PTR_ARRAY_8010fa4c[0]->carFlags & 0x200U) != 0) &&
+       ((GameSetup_gData.commMode == 1 && (SHORT_8013d996 != 0)))) {
       uVar1 = 1;
     }
   }
 LAB_800dafe8:
   if (uVar1 == 0) {
-    DAT_00001450 = (undefined *)0x0;
-    DAT_0000144c = (undefined *)((int)DAT_0000144c + 1);
-    if (10000 < (int)DAT_0000144c) {
-      DAT_0000144c = &DAT_00002710;
+    INT_8013d99c = 0;
+    StatsTimer = StatsTimer + 1;
+    if (10000 < StatsTimer) {
+      StatsTimer = (int)&DAT_00002710;
     }
     player = 0;
-    if ((__Cars_gHumanRaceCarList_9__->carFlags & 0x200U) == 0) {
+    if ((Cars_gHumanRaceCarList9->carFlags & 0x200U) == 0) {
       RaceSummary__Fv();
       return;
     }
   }
   else {
-    DAT_0000144c = (undefined *)0x0;
-    DAT_00001450 = (undefined *)((int)DAT_00001450 + 1);
-    if (10000 < (int)DAT_00001450) {
-      DAT_00001450 = &DAT_00002710;
+    StatsTimer = 0;
+    INT_8013d99c = INT_8013d99c + 1;
+    if (10000 < INT_8013d99c) {
+      INT_8013d99c = (int)&DAT_00002710;
     }
-    if (((PTR_8010fa4c->carFlags & 0x200U) == 0) || (player = 1, GameSetup_gData.commMode != 1)) {
+    if (((PTR_ARRAY_8010fa4c[0]->carFlags & 0x200U) == 0) ||
+       (player = 1, GameSetup_gData.commMode != 1)) {
       RaceStatistics__Fv();
       return;
     }
@@ -740,6 +822,7 @@ LAB_800dafe8:
   Hud_BTCStats__Fsb(player,&DAT_00000001);
   return;
 }
+
 
 
 

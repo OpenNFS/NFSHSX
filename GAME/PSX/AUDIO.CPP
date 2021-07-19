@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "AUDIO.H"
+
 
 // decompiled code
 // original method signature: 
@@ -37,6 +38,26 @@
 	// End offset: 0x800BBC4C
 	// End Line: 79
 
+	/* begin block 2 */
+		// Start line: 100
+	/* end block 2 */
+	// End Line: 101
+
+	/* begin block 3 */
+		// Start line: 109
+	/* end block 3 */
+	// End Line: 110
+
+	/* begin block 4 */
+		// Start line: 107
+	/* end block 4 */
+	// End Line: 108
+
+	/* begin block 5 */
+		// Start line: 107
+	/* end block 5 */
+	// End Line: 108
+
 void Audio_InitDriver__Fii(int buffersize,int spusize)
 
 {
@@ -58,14 +79,14 @@ void Audio_InitDriver__Fii(int buffersize,int spusize)
     local_44 = 0x30;
     SNDSYS_setopts((int)auStack80);
     SNDSYS_vectortoreal();
-    DAT_00000fb4 = reservememadr(s_audio_heap_80056754,0x1000,0);
-    SNDSYS_init(DAT_00000fb4,0x1000);
+    Audio_gHeap = reservememadr(s_audio_heap_80056754,0x1000,0);
+    SNDSYS_init(Audio_gHeap,0x1000);
     AudioCmn_InitReverb__Fv();
   }
   if (0 < buffersize) {
-    AudioMus_SysStartUp__FiiPc(buffersize,spusize,(char *)&PTR_DAT_8013d504);
+    AudioMus_SysStartUp__FiiPc(buffersize,spusize,(char *)PTR_ARRAY_8013d504);
   }
-  DAT_00000fb0 = 0;
+  Audio_direct3davail = 0;
   return;
 }
 
@@ -96,6 +117,21 @@ void Audio_InitDriver__Fii(int buffersize,int spusize)
 	// End offset: 0x800BBCB0
 	// End Line: 92
 
+	/* begin block 2 */
+		// Start line: 156
+	/* end block 2 */
+	// End Line: 157
+
+	/* begin block 3 */
+		// Start line: 162
+	/* end block 3 */
+	// End Line: 163
+
+	/* begin block 4 */
+		// Start line: 162
+	/* end block 4 */
+	// End Line: 163
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Audio_DeInitDriver__Fv(void)
@@ -104,7 +140,7 @@ void Audio_DeInitDriver__Fv(void)
   AudioMus_SysCleanUp__Fv();
   if ((AudioCmn_kAudioOn != 0) || (AudioCmn_kAudioStreamingOn != 0)) {
     SNDSYS_restore();
-    purgememadr(DAT_00000fb4);
+    purgememadr((int)Audio_gHeap);
   }
   return;
 }
@@ -123,6 +159,21 @@ void Audio_DeInitDriver__Fv(void)
 	/* end block 1 */
 	// End offset: 0x800BBD08
 	// End Line: 145
+
+	/* begin block 2 */
+		// Start line: 260
+	/* end block 2 */
+	// End Line: 261
+
+	/* begin block 3 */
+		// Start line: 224
+	/* end block 3 */
+	// End Line: 225
+
+	/* begin block 4 */
+		// Start line: 224
+	/* end block 4 */
+	// End Line: 225
 
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
@@ -158,6 +209,21 @@ void Audio_CleanUp__Fv(void)
 	// End offset: 0x800BBD54
 	// End Line: 159
 
+	/* begin block 2 */
+		// Start line: 261
+	/* end block 2 */
+	// End Line: 262
+
+	/* begin block 3 */
+		// Start line: 268
+	/* end block 3 */
+	// End Line: 269
+
+	/* begin block 4 */
+		// Start line: 268
+	/* end block 4 */
+	// End Line: 269
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Audio_FECleanUp__Fv(void)
@@ -188,6 +254,21 @@ void Audio_FECleanUp__Fv(void)
 	/* end block 1 */
 	// End offset: 0x800BBE3C
 	// End Line: 201
+
+	/* begin block 2 */
+		// Start line: 293
+	/* end block 2 */
+	// End Line: 294
+
+	/* begin block 3 */
+		// Start line: 302
+	/* end block 3 */
+	// End Line: 303
+
+	/* begin block 4 */
+		// Start line: 302
+	/* end block 4 */
+	// End Line: 303
 
 int AudioCmn_AddBank__FPciT0i(char *filename,int size,char *pdata,int BankNum)
 
@@ -245,6 +326,21 @@ int AudioCmn_AddBank__FPciT0i(char *filename,int size,char *pdata,int BankNum)
 	// End offset: 0x800BBEF8
 	// End Line: 231
 
+	/* begin block 2 */
+		// Start line: 409
+	/* end block 2 */
+	// End Line: 410
+
+	/* begin block 3 */
+		// Start line: 413
+	/* end block 3 */
+	// End Line: 414
+
+	/* begin block 4 */
+		// Start line: 413
+	/* end block 4 */
+	// End Line: 414
+
 int AudioCmn_LoadBank__FPci(char *filename,int BankNum)
 
 {
@@ -253,7 +349,7 @@ int AudioCmn_LoadBank__FPci(char *filename,int BankNum)
   char acStack96 [80];
   
   strcpy(acStack96,filename);
-  strcat(acStack96,(char *)&PTR_DAT_8013d514);
+  strcat(acStack96,(char *)PTR_ARRAY_8013d514);
   pdata = (char *)loadfileadrz(acStack96,0x10);
   size = 0;
   if (pdata != (char *)0x0) {
@@ -262,6 +358,7 @@ int AudioCmn_LoadBank__FPci(char *filename,int BankNum)
   }
   return size;
 }
+
 
 
 

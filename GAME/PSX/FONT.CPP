@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "FONT.H"
+
 
 // decompiled code
 // original method signature: 
@@ -12,14 +13,34 @@
 	// End offset: 0x800CB20C
 	// End Line: 85
 
+	/* begin block 2 */
+		// Start line: 166
+	/* end block 2 */
+	// End Line: 167
+
+	/* begin block 3 */
+		// Start line: 166
+	/* end block 3 */
+	// End Line: 167
+
+	/* begin block 4 */
+		// Start line: 167
+	/* end block 4 */
+	// End Line: 168
+
+	/* begin block 5 */
+		// Start line: 167
+	/* end block 5 */
+	// End Line: 168
+
 void Font_TextColor__Fi(int color)
 
 {
   uint uVar1;
   
-  uVar1 = (uint)(ushort)DAT_00001308 + color * 0x10;
-  DAT_00001318 = DAT_8011fdbe << 6 | (ushort)(uVar1 >> 4) & 0x3f;
+  uVar1 = (uint)(ushort)font_clutx + color * 0x10;
   DAT_8011fdbc = (short)uVar1;
+  gFontClut = DAT_8011fdbe << 6 | (ushort)(uVar1 >> 4) & 0x3f;
   return;
 }
 
@@ -36,10 +57,35 @@ void Font_TextColor__Fi(int color)
 	// End offset: 0x800CB244
 	// End Line: 91
 
+	/* begin block 2 */
+		// Start line: 176
+	/* end block 2 */
+	// End Line: 177
+
+	/* begin block 3 */
+		// Start line: 180
+	/* end block 3 */
+	// End Line: 181
+
+	/* begin block 4 */
+		// Start line: 180
+	/* end block 4 */
+	// End Line: 181
+
+	/* begin block 5 */
+		// Start line: 181
+	/* end block 5 */
+	// End Line: 182
+
+	/* begin block 6 */
+		// Start line: 181
+	/* end block 6 */
+	// End Line: 182
+
 void Font_TextTint__Fi(int rgb)
 
 {
-  DAT_00001310 = rgb & 0xffffffU | 0x66000000;
+  font_tint = rgb & 0xffffffU | 0x66000000;
   return;
 }
 
@@ -56,15 +102,30 @@ void Font_TextTint__Fi(int rgb)
 	// End offset: 0x800CB264
 	// End Line: 97
 
+	/* begin block 2 */
+		// Start line: 188
+	/* end block 2 */
+	// End Line: 189
+
+	/* begin block 3 */
+		// Start line: 194
+	/* end block 3 */
+	// End Line: 195
+
+	/* begin block 4 */
+		// Start line: 194
+	/* end block 4 */
+	// End Line: 195
+
 void Font_SetABR__Fi(int abr)
 
 {
   uint uVar1;
   
-  DAT_00001314 = abr;
+  font_abr = abr;
   uVar1 = GetTPage((uint)*DAT_80135c28 & 3,abr,(*(int *)(DAT_80135c28 + 0xc) << 0x14) >> 0x14,
                    (*(int *)(DAT_80135c28 + 0xc) << 4) >> 0x14);
-  DAT_0000131c = (short)uVar1;
+  font_currentTPage = (ushort)uVar1;
   return;
 }
 
@@ -86,6 +147,21 @@ void Font_SetABR__Fi(int abr)
 	// End offset: 0x800CB2AC
 	// End Line: 129
 
+	/* begin block 2 */
+		// Start line: 236
+	/* end block 2 */
+	// End Line: 237
+
+	/* begin block 3 */
+		// Start line: 263
+	/* end block 3 */
+	// End Line: 264
+
+	/* begin block 4 */
+		// Start line: 263
+	/* end block 4 */
+	// End Line: 264
+
 void Font_Blit__FiiPviiP12charactertbli(int x,int y,void *src,int u,int v,charactertbl *ch)
 
 {
@@ -93,25 +169,26 @@ void Font_Blit__FiiPviiP12charactertbli(int x,int y,void *src,int u,int v,charac
   byte bVar2;
   uint *puVar3;
   uint *puVar4;
-  int iVar5;
-  uint uVar6;
+  ulong uVar5;
+  int iVar6;
+  uint uVar7;
   
   puVar4 = DAT_1f800004;
   puVar3 = DAT_1f800000;
-  iVar5 = *(int *)((int)src + 0xc);
+  iVar6 = *(int *)((int)src + 0xc);
   bVar1 = ch->width;
   bVar2 = ch->height;
   *DAT_1f800004 = *DAT_1f800004 & 0xff000000 | *DAT_1f800000 & 0xffffff;
-  uVar6 = (uint)DAT_1f800004 & 0xffffff;
+  uVar7 = (uint)DAT_1f800004 & 0xffffff;
   DAT_1f800004 = DAT_1f800004 + 5;
-  *puVar3 = *puVar3 & 0xff000000 | uVar6;
+  *puVar3 = *puVar3 & 0xff000000 | uVar7;
   *(undefined *)((int)puVar4 + 3) = 4;
-  uVar6 = DAT_00001310;
+  uVar5 = font_tint;
   puVar4[2] = y << 0x10 | x;
-  puVar4[1] = uVar6;
-  uVar6 = (uint)DAT_00001318;
+  puVar4[1] = uVar5;
+  uVar7 = (uint)gFontClut;
   puVar4[4] = (uint)bVar2 << 0x10 | (uint)bVar1;
-  puVar4[3] = uVar6 << 0x10 | (((iVar5 << 4) >> 0x14) + v & 0xffU) << 8 | u;
+  puVar4[3] = uVar7 << 0x10 | (((iVar6 << 4) >> 0x14) + v & 0xffU) << 8 | u;
   SetSemiTrans((int)puVar4,1);
   return;
 }
@@ -147,6 +224,21 @@ void Font_Blit__FiiPviiP12charactertbli(int x,int y,void *src,int u,int v,charac
 	// End offset: 0x800CB64C
 	// End Line: 255
 
+	/* begin block 2 */
+		// Start line: 425
+	/* end block 2 */
+	// End Line: 426
+
+	/* begin block 3 */
+		// Start line: 441
+	/* end block 3 */
+	// End Line: 442
+
+	/* begin block 4 */
+		// Start line: 441
+	/* end block 4 */
+	// End Line: 442
+
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
 void Font_ComputeColors__Fiiic(int colour,int forecolour,int backcolour,char in_game)
@@ -172,8 +264,8 @@ void Font_ComputeColors__Fiiic(int colour,int forecolour,int backcolour,char in_
   DAT_8011fdb8 = 0;
   DAT_8011fdba = 0;
   _shpfontclut = 0x23;
-  DAT_8011fdbc = (undefined2)DAT_00001308;
-  DAT_8011fdbe = DAT_0000130c;
+  DAT_8011fdbc = (undefined2)font_clutx;
+  DAT_8011fdbe = (undefined2)font_cluty;
   uVar1 = (int)((uint)bStack62 * 0x1f) / 0xff;
   uVar5 = ((int)((forecolour & 0xffU) * 0x1f) / 0xff) * 0x400;
   uVar3 = ((int)((uint)bStack63 * 0x1f) / 0xff) * 0x20;
@@ -211,8 +303,8 @@ LAB_800cb62c:
     puVar8 = puVar8 + 2;
     if (0xf < iVar7) {
       Texture_Vramf__FP8shapetbliiii
-                ((shapetbl *)&shpfontclut,DAT_00001308,_DAT_0000130c,DAT_00001308 + colour * 0x10,
-                 _DAT_0000130c);
+                ((shapetbl *)&shpfontclut,font_clutx,font_cluty,font_clutx + colour * 0x10,
+                 font_cluty);
       DrawSync(0);
       return;
     }
@@ -235,6 +327,21 @@ LAB_800cb62c:
 	/* end block 1 */
 	// End offset: 0x800CB720
 	// End Line: 281
+
+	/* begin block 2 */
+		// Start line: 806
+	/* end block 2 */
+	// End Line: 807
+
+	/* begin block 3 */
+		// Start line: 813
+	/* end block 3 */
+	// End Line: 814
+
+	/* begin block 4 */
+		// Start line: 813
+	/* end block 4 */
+	// End Line: 814
 
 charactertbl * Font_textbsearch__FiPcUlUl(int key,char *base,ulong nmemb,ulong size)
 
@@ -278,6 +385,21 @@ charactertbl * Font_textbsearch__FiPcUlUl(int key,char *base,ulong nmemb,ulong s
 	// End offset: 0x800CB7B0
 	// End Line: 300
 
+	/* begin block 2 */
+		// Start line: 860
+	/* end block 2 */
+	// End Line: 861
+
+	/* begin block 3 */
+		// Start line: 866
+	/* end block 3 */
+	// End Line: 867
+
+	/* begin block 4 */
+		// Start line: 866
+	/* end block 4 */
+	// End Line: 867
+
 charactertbl * Font_Getcharacter__Fi(int targetindex)
 
 {
@@ -298,7 +420,7 @@ charactertbl * Font_Getcharacter__Fi(int targetindex)
 
 // decompiled code
 // original method signature: 
-// void /*$ra*/ Font_SetBlitter__FPFiiPviiP12charactertbli_v(void (*blitter)() /*$a0*/)
+// void /*$ra*/ Font_SetBlitter__FPFiiPviiP12charactertbli_v(TDRFuncPtr_Font_SetBlitter__FPFiiPviiP12charactertbli_v0blitter blitter /*$a0*/)
  // line 305, offset 0x800cb7cc
 	/* begin block 1 */
 		// Start line: 306
@@ -307,11 +429,36 @@ charactertbl * Font_Getcharacter__Fi(int targetindex)
 	// End offset: 0x800CB7CC
 	// End Line: 307
 
+	/* begin block 2 */
+		// Start line: 913
+	/* end block 2 */
+	// End Line: 914
+
+	/* begin block 3 */
+		// Start line: 919
+	/* end block 3 */
+	// End Line: 920
+
+	/* begin block 4 */
+		// Start line: 919
+	/* end block 4 */
+	// End Line: 920
+
+	/* begin block 5 */
+		// Start line: 920
+	/* end block 5 */
+	// End Line: 921
+
+	/* begin block 6 */
+		// Start line: 920
+	/* end block 6 */
+	// End Line: 921
+
 void Font_SetBlitter__FPFiiPviiP12charactertbli_v
                (TDRFuncPtr_Font_SetBlitter__FPFiiPviiP12charactertbli_v0blitter blitter)
 
 {
-  DAT_000018a0 = blitter;
+  gCurrentBlitter = (uchar *)blitter;
   return;
 }
 
@@ -328,12 +475,37 @@ void Font_SetBlitter__FPFiiPviiP12charactertbli_v
 	// End offset: 0x800CB7D8
 	// End Line: 313
 
+	/* begin block 2 */
+		// Start line: 926
+	/* end block 2 */
+	// End Line: 927
+
+	/* begin block 3 */
+		// Start line: 931
+	/* end block 3 */
+	// End Line: 932
+
+	/* begin block 4 */
+		// Start line: 931
+	/* end block 4 */
+	// End Line: 932
+
+	/* begin block 5 */
+		// Start line: 932
+	/* end block 5 */
+	// End Line: 933
+
+	/* begin block 6 */
+		// Start line: 932
+	/* end block 6 */
+	// End Line: 933
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Font_ReSetBlitter__Fv(void)
 
 {
-  DAT_000018a0 = Font_Blit__FiiPviiP12charactertbli;
+  gCurrentBlitter = (uchar *)Font_Blit__FiiPviiP12charactertbli;
   return;
 }
 
@@ -350,6 +522,21 @@ void Font_ReSetBlitter__Fv(void)
 	// End offset: 0x800CB7EC
 	// End Line: 318
 
+	/* begin block 2 */
+		// Start line: 938
+	/* end block 2 */
+	// End Line: 939
+
+	/* begin block 3 */
+		// Start line: 943
+	/* end block 3 */
+	// End Line: 944
+
+	/* begin block 4 */
+		// Start line: 943
+	/* end block 4 */
+	// End Line: 944
+
 void Font_SwitchFont__FPc(char *f1)
 
 {
@@ -360,12 +547,11 @@ void Font_SwitchFont__FPc(char *f1)
   DAT_80135c34 = 0;
   DAT_80135c38 = 0;
   DAT_80135c3c = 0;
-  uVar1 = GetTPage((uint)*DAT_80135c28 & 3,DAT_00001314,
-                   (*(int *)(DAT_80135c28 + 0xc) << 0x14) >> 0x14,
+  uVar1 = GetTPage((uint)*DAT_80135c28 & 3,font_abr,(*(int *)(DAT_80135c28 + 0xc) << 0x14) >> 0x14,
                    (*(int *)(DAT_80135c28 + 0xc) << 4) >> 0x14);
-  DAT_0000131c = (undefined2)uVar1;
+  font_currentTPage = (ushort)uVar1;
   pcVar2 = Font_Getcharacter__Fi(0x20);
-  DAT_0000131a = pcVar2->advance;
+  gFontSpaceWidth = pcVar2->advance;
   return;
 }
 
@@ -382,17 +568,41 @@ void Font_SwitchFont__FPc(char *f1)
 	// End offset: 0x800CB890
 	// End Line: 338
 
-/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+	/* begin block 2 */
+		// Start line: 977
+	/* end block 2 */
+	// End Line: 978
+
+	/* begin block 3 */
+		// Start line: 981
+	/* end block 3 */
+	// End Line: 982
+
+	/* begin block 4 */
+		// Start line: 981
+	/* end block 4 */
+	// End Line: 982
+
+	/* begin block 5 */
+		// Start line: 982
+	/* end block 5 */
+	// End Line: 983
+
+	/* begin block 6 */
+		// Start line: 982
+	/* end block 6 */
+	// End Line: 983
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Font_DeInit__Fv(void)
 
 {
-  if (DAT_00001308 != -1) {
-    Texture_MenuReleaseClutId__Fs(DAT_0000130c << 6 | (ushort)(DAT_00001308 >> 4) & 0x3f);
+  if (font_clutx != -1) {
+    Texture_MenuReleaseClutId__Fs((short)font_cluty << 6 | (ushort)(font_clutx >> 4) & 0x3f);
   }
-  DAT_00001308 = 0xffffffff;
-  _DAT_0000130c = 0xffffffff;
+  font_clutx = -1;
+  font_cluty = -1;
   return;
 }
 
@@ -409,14 +619,38 @@ void Font_DeInit__Fv(void)
 	// End offset: 0x800CB8A8
 	// End Line: 344
 
-/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+	/* begin block 2 */
+		// Start line: 997
+	/* end block 2 */
+	// End Line: 998
+
+	/* begin block 3 */
+		// Start line: 1001
+	/* end block 3 */
+	// End Line: 1002
+
+	/* begin block 4 */
+		// Start line: 1001
+	/* end block 4 */
+	// End Line: 1002
+
+	/* begin block 5 */
+		// Start line: 1002
+	/* end block 5 */
+	// End Line: 1003
+
+	/* begin block 6 */
+		// Start line: 1002
+	/* end block 6 */
+	// End Line: 1003
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Font_ExitFromGame__Fv(void)
 
 {
-  DAT_00001308 = 0xffffffff;
-  _DAT_0000130c = 0xffffffff;
+  font_clutx = -1;
+  font_cluty = -1;
   return;
 }
 
@@ -437,7 +671,20 @@ void Font_ExitFromGame__Fv(void)
 	// End offset: 0x800CBA24
 	// End Line: 390
 
-/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+	/* begin block 2 */
+		// Start line: 1009
+	/* end block 2 */
+	// End Line: 1010
+
+	/* begin block 3 */
+		// Start line: 1013
+	/* end block 3 */
+	// End Line: 1014
+
+	/* begin block 4 */
+		// Start line: 1013
+	/* end block 4 */
+	// End Line: 1014
 
 int Font_LoadFont__FPciic(char *f1,int x,int y,char in_game)
 
@@ -452,35 +699,32 @@ int Font_LoadFont__FPciic(char *f1,int x,int y,char in_game)
   
   setfont((int)f1);
   shp = DAT_80135c28;
-  uVar4 = (int)*(short *)&DAT_80135c28->field_0x4 *
-          (int)*(short *)((int)&DAT_80135c28->field_0x4 + 2);
+  uVar4 = (int)*(short *)&DAT_80135c28->next * (int)*(short *)((int)&DAT_80135c28->next + 2);
   forecolour = (int)(uVar4 + (uVar4 >> 0x1f)) >> 1;
   colour = 0;
   psVar1 = DAT_80135c28;
   if (0 < forecolour) {
     do {
       colour = colour + 1;
-      *(byte *)&psVar1->field_0x10 =
-           (byte)(((uint)*(byte *)&psVar1->field_0x10 & 0xf) << 4) |
-           *(byte *)&psVar1->field_0x10 >> 4;
-      psVar1 = (shapetbl *)((int)&shp->field_0x0 + colour);
+      *(byte *)&psVar1->shapex =
+           (byte)(((uint)*(byte *)&psVar1->shapex & 0xf) << 4) | *(byte *)&psVar1->shapex >> 4;
+      psVar1 = (shapetbl *)((int)&shp->type + colour);
     } while (colour < forecolour);
   }
-  if (DAT_00001308 == -1) {
+  if (font_clutx == -1) {
     Texture_GetClutId__FiPiT1(1,&font_clutx,&font_cluty);
   }
   colour = 0;
-  Texture_Vramf__FP8shapetbliiii(shp,x,y,DAT_00001308,_DAT_0000130c);
+  Texture_Vramf__FP8shapetbliiii(shp,x,y,font_clutx,font_cluty);
   waitdraw();
-  shp->field_0x0 = (uint)*(byte *)&shp->field_0x0 | (int)(&shpfontclut + -(int)shp) * 0x100;
+  shp->type = (uint)*(byte *)&shp->type | (int)(&shpfontclut + -(int)shp) * 0x100;
   psVar1 = shp;
   if (0 < forecolour) {
     do {
       colour = colour + 1;
-      *(byte *)&psVar1->field_0x10 =
-           (byte)(((uint)*(byte *)&psVar1->field_0x10 & 0xf) << 4) |
-           *(byte *)&psVar1->field_0x10 >> 4;
-      psVar1 = (shapetbl *)((int)&shp->field_0x0 + colour);
+      *(byte *)&psVar1->shapex =
+           (byte)(((uint)*(byte *)&psVar1->shapex & 0xf) << 4) | *(byte *)&psVar1->shapex >> 4;
+      psVar1 = (shapetbl *)((int)&shp->type + colour);
     } while (colour < forecolour);
   }
   plVar3 = &colourRGB;
@@ -497,7 +741,7 @@ int Font_LoadFont__FPciic(char *f1,int x,int y,char in_game)
   resizememadr((int)f1,(int)((int)DAT_80135c28 - (int)(f1 + -0x10)));
   Font_TextTint__Fi(0x808080);
   Font_TextColor__Fi(2);
-  return y + (int)*(short *)((int)&shp->field_0x4 + 2);
+  return y + (int)*(short *)((int)&shp->next + 2);
 }
 
 
@@ -563,6 +807,21 @@ int Font_LoadFont__FPciic(char *f1,int x,int y,char in_game)
 	// End offset: 0x800CBB5C
 	// End Line: 453
 
+	/* begin block 2 */
+		// Start line: 1137
+	/* end block 2 */
+	// End Line: 1138
+
+	/* begin block 3 */
+		// Start line: 1152
+	/* end block 3 */
+	// End Line: 1153
+
+	/* begin block 4 */
+		// Start line: 1152
+	/* end block 4 */
+	// End Line: 1153
+
 void Font_TextXY__FPcii(char *string,int x,int y)
 
 {
@@ -580,20 +839,21 @@ void Font_TextXY__FPcii(char *string,int x,int y)
     targetindex = (uint)bVar1;
     string = (char *)((byte *)string + 1);
     if (bVar1 < 0x21) {
-      x = x + (uint)DAT_0000131a;
+      x = x + (uint)gFontSpaceWidth;
     }
     else {
       pcVar4 = Font_Getcharacter__Fi(targetindex);
       if (pcVar4 != (charactertbl *)0x0) {
         uVar5 = geti((int *)pcVar4->u,2);
         uVar6 = geti((int *)pcVar4->v,2);
-        (*DAT_000018a0)(x + (int)pcVar4->xoffset,y + (int)pcVar4->yoffset,DAT_80135c28,uVar5,uVar6,
-                        pcVar4,DAT_80135c18);
+        (*(code *)gCurrentBlitter)
+                  (x + (int)pcVar4->xoffset,y + (int)pcVar4->yoffset,DAT_80135c28,uVar5,uVar6,pcVar4
+                   ,DAT_80135c18);
         x = x + (int)pcVar4->advance;
       }
     }
   }
-  uVar5 = (uint)DAT_0000131c;
+  uVar5 = (uint)font_currentTPage;
   *DAT_1f800004 = *DAT_1f800004 & 0xff000000 | *DAT_1f800000 & 0xffffff;
   targetindex = (uint)DAT_1f800004 & 0xffffff;
   DAT_1f800004 = DAT_1f800004 + 3;
@@ -617,6 +877,21 @@ void Font_TextXY__FPcii(char *string,int x,int y)
 	// End offset: 0x800CBBE8
 	// End Line: 542
 
+	/* begin block 2 */
+		// Start line: 1338
+	/* end block 2 */
+	// End Line: 1339
+
+	/* begin block 3 */
+		// Start line: 1426
+	/* end block 3 */
+	// End Line: 1427
+
+	/* begin block 4 */
+		// Start line: 1426
+	/* end block 4 */
+	// End Line: 1427
+
 void Font_GetUVWH__FcPiN41(char code,int *u,int *v,int *w,int *h,int *yoff)
 
 {
@@ -633,6 +908,7 @@ void Font_GetUVWH__FcPiN41(char code,int *u,int *v,int *w,int *h,int *yoff)
   *yoff = (int)pcVar1->yoffset;
   return;
 }
+
 
 
 

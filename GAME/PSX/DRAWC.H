@@ -1,6 +1,7 @@
 #ifndef DRAWC_H
 #define DRAWC_H
 
+
 extern void ChangeTPage__FPUsi(unsigned short *tpage, int nabr); // 0x800BE6D0
 
 extern void DrawC_SetEnviroment__Fv(); // 0x800BE6E8
@@ -40,5 +41,6 @@ extern void DrawC_ShadowPrimClip__FP12Draw_tVertexP13Draw_CarCache(struct Draw_t
 extern void DrawC_SpotPrims__FP10matrixtdefP8coorddefP13Draw_CarCache(struct matrixtdef *m, struct coorddef *t, struct Draw_CarCache *sd); // 0x800C4800
 
 extern void DrawC_ShowroomPrims__FP10matrixtdefP8coorddefP13Draw_CarCache(struct matrixtdef *m, struct coorddef *t, struct Draw_CarCache *sd); // 0x800C4B84
+
 
 #endif

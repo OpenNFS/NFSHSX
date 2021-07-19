@@ -1,6 +1,7 @@
 #ifndef TRSPROJ_H
 #define TRSPROJ_H
 
+
 extern void TrsProj_SetTransPrecision__Fi(int val); // 0x800E192C
 
 extern void TrsProj_ResetTransPrecision__Fv(); // 0x800E1938
@@ -22,5 +23,6 @@ extern void TrsProj_TransPt__FP8coorddefT0(struct coorddef *s, struct coorddef *
 extern void TrsProj_TransPtN16__FP10RelCoord16P8coorddefi(struct RelCoord16 *s, struct coorddef *d, int n); // 0x800E1C58
 
 extern void TrsProj_TransformProjectVertex__FP10matrixtdefP8coorddefiT1P12Draw_tVertex(struct matrixtdef *m, struct coorddef *t, int n, struct coorddef *s, struct Draw_tVertex *v); // 0x800E1CE0
+
 
 #endif

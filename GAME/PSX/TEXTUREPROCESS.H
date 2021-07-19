@@ -1,6 +1,7 @@
 #ifndef TEXTUREPROCESS_H
 #define TEXTUREPROCESS_H
 
+
 extern int TextureProcess_TransColorCheck__FPci(char *data, int numentry); // 0x800E0884
 
 extern void TextureProcess_ColorClut__FiiPciii(int level, int maxlevel, char *data, int numentry, int cx, int cy); // 0x800E08B8
@@ -32,5 +33,6 @@ extern void CV_ProcessWorldColors_FINAL__FiP7CVECTORs(int constrast, struct CVEC
 extern void CV_ColorTracks__Fiii(int track, int weather, int night); // 0x800E1308
 
 extern void CV_InitColorVertices__Fv(); // 0x800E1510
+
 
 #endif

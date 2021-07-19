@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "TEXTPIX.H"
+
 
 // decompiled code
 // original method signature: 
@@ -33,6 +34,16 @@
 	/* end block 1 */
 	// End offset: 0x800E3E00
 	// End Line: 98
+
+	/* begin block 2 */
+		// Start line: 122
+	/* end block 2 */
+	// End Line: 123
+
+	/* begin block 3 */
+		// Start line: 122
+	/* end block 3 */
+	// End Line: 123
 
 int textnpixels(char *str,int n)
 
@@ -68,6 +79,21 @@ int textnpixels(char *str,int n)
 // original method signature: 
 // int /*$ra*/ textpixels(char *string /*$a0*/)
  // line 101, offset 0x800e3e20
+	/* begin block 1 */
+		// Start line: 218
+	/* end block 1 */
+	// End Line: 219
+
+	/* begin block 2 */
+		// Start line: 221
+	/* end block 2 */
+	// End Line: 222
+
+	/* begin block 3 */
+		// Start line: 221
+	/* end block 3 */
+	// End Line: 222
+
 int textpixels(char *string)
 
 {
@@ -76,6 +102,7 @@ int textpixels(char *string)
   iVar1 = textnpixels(string,0x100);
   return iVar1;
 }
+
 
 
 

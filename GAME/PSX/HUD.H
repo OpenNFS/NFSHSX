@@ -1,6 +1,7 @@
 #ifndef HUD_H
 #define HUD_H
 
+
 extern void Hud_CreateHudViews__Fv(); // 0x800D1A80
 
 extern void Hud_GoTpage__Fi(int page); // 0x800D1D6C
@@ -124,5 +125,6 @@ extern void Hud_BTC_BonusTime__Fl(long extratime); // 0x800D990C
 extern void Hud_Perp_OverlayOn__Fii(int player, int level); // 0x800D9924
 
 extern void Hud_Perp_OverlayOff__Fi(int player); // 0x800D9950
+
 
 #endif

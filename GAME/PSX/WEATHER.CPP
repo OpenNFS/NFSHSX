@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "WEATHER.H"
+
 
 // decompiled code
 // original method signature: 
@@ -11,6 +12,26 @@
 	/* end block 1 */
 	// End offset: 0x800E1DC0
 	// End Line: 109
+
+	/* begin block 2 */
+		// Start line: 214
+	/* end block 2 */
+	// End Line: 215
+
+	/* begin block 3 */
+		// Start line: 214
+	/* end block 3 */
+	// End Line: 215
+
+	/* begin block 4 */
+		// Start line: 215
+	/* end block 4 */
+	// End Line: 216
+
+	/* begin block 5 */
+		// Start line: 215
+	/* end block 5 */
+	// End Line: 216
 
 int Weather_GetNumParticles__Fi(int player)
 
@@ -66,6 +87,21 @@ int Weather_GetNumParticles__Fi(int player)
 	// End offset: 0x800E1DD0
 	// End Line: 113
 
+	/* begin block 2 */
+		// Start line: 220
+	/* end block 2 */
+	// End Line: 221
+
+	/* begin block 3 */
+		// Start line: 224
+	/* end block 3 */
+	// End Line: 225
+
+	/* begin block 4 */
+		// Start line: 224
+	/* end block 4 */
+	// End Line: 225
+
 void Weather_SetMatrix__FP10matrixtdef(matrixtdef *m)
 
 {
@@ -97,6 +133,21 @@ void Weather_SetMatrix__FP10matrixtdef(matrixtdef *m)
 	/* end block 1 */
 	// End offset: 0x800E1E94
 	// End Line: 128
+
+	/* begin block 2 */
+		// Start line: 254
+	/* end block 2 */
+	// End Line: 255
+
+	/* begin block 3 */
+		// Start line: 258
+	/* end block 3 */
+	// End Line: 259
+
+	/* begin block 4 */
+		// Start line: 258
+	/* end block 4 */
+	// End Line: 259
 
 /* WARNING: Could not reconcile some variable overlaps */
 /* WARNING: Unknown calling convention yet parameter storage is locked */
@@ -131,6 +182,31 @@ void Weather_SetIdentMatrix__Fv(void)
 	// End offset: 0x800E1F18
 	// End Line: 152
 
+	/* begin block 2 */
+		// Start line: 294
+	/* end block 2 */
+	// End Line: 295
+
+	/* begin block 3 */
+		// Start line: 305
+	/* end block 3 */
+	// End Line: 306
+
+	/* begin block 4 */
+		// Start line: 305
+	/* end block 4 */
+	// End Line: 306
+
+	/* begin block 5 */
+		// Start line: 306
+	/* end block 5 */
+	// End Line: 307
+
+	/* begin block 6 */
+		// Start line: 306
+	/* end block 6 */
+	// End Line: 307
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Weather_InitSnow__Fv(void)
@@ -163,6 +239,31 @@ void Weather_InitSnow__Fv(void)
 	/* end block 1 */
 	// End offset: 0x800E1F78
 	// End Line: 168
+
+	/* begin block 2 */
+		// Start line: 341
+	/* end block 2 */
+	// End Line: 342
+
+	/* begin block 3 */
+		// Start line: 345
+	/* end block 3 */
+	// End Line: 346
+
+	/* begin block 4 */
+		// Start line: 345
+	/* end block 4 */
+	// End Line: 346
+
+	/* begin block 5 */
+		// Start line: 346
+	/* end block 5 */
+	// End Line: 347
+
+	/* begin block 6 */
+		// Start line: 346
+	/* end block 6 */
+	// End Line: 347
 
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
@@ -215,34 +316,47 @@ void Weather_InitRain__Fv(void)
 	// End offset: 0x800E20CC
 	// End Line: 192
 
+	/* begin block 2 */
+		// Start line: 383
+	/* end block 2 */
+	// End Line: 384
+
+	/* begin block 3 */
+		// Start line: 387
+	/* end block 3 */
+	// End Line: 388
+
+	/* begin block 4 */
+		// Start line: 387
+	/* end block 4 */
+	// End Line: 388
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Weather_InitSplats__Fv(void)
 
 {
   uint uVar1;
-  int iVar2;
-  uint uVar3;
-  int iVar4;
+  uint uVar2;
+  int iVar3;
   
-  iVar4 = 0;
-  while (iVar4 < 0x13) {
-    uVar3 = 0xf0;
+  iVar3 = 0;
+  while (iVar3 < 0x13) {
+    uVar2 = 0xf0;
     if (GameSetup_gData.commMode == 1) {
-      uVar3 = 0x78;
+      uVar2 = 0x78;
     }
-    iVar2 = iVar4 * 8;
     uVar1 = random();
-    *(short *)(iVar2 + DAT_00001660) =
+    Weather_gSplatInfo[iVar3].pos.vx =
          (short)uVar1 + (short)((ulonglong)uVar1 * 0xcccccccd >> 0x28) * -0x140;
     uVar1 = random();
-    if (uVar3 == 0) {
+    if (uVar2 == 0) {
       trap(0x1c00);
     }
-    *(undefined2 *)(iVar2 + DAT_00001660 + 2) = (short)(uVar1 % uVar3);
-    uVar3 = random();
-    iVar4 = iVar4 + 1;
-    *(uint *)(iVar2 + DAT_00001660 + 4) = uVar3 % 300;
+    Weather_gSplatInfo[iVar3].pos.vy = (short)(uVar1 % uVar2);
+    uVar2 = random();
+    Weather_gSplatInfo[iVar3].startTick = uVar2 % 300;
+    iVar3 = iVar3 + 1;
   }
   return;
 }
@@ -261,6 +375,21 @@ void Weather_InitSplats__Fv(void)
 	/* end block 1 */
 	// End offset: 0x800E211C
 	// End Line: 250
+
+	/* begin block 2 */
+		// Start line: 459
+	/* end block 2 */
+	// End Line: 460
+
+	/* begin block 3 */
+		// Start line: 506
+	/* end block 3 */
+	// End Line: 507
+
+	/* begin block 4 */
+		// Start line: 506
+	/* end block 4 */
+	// End Line: 507
 
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
@@ -293,24 +422,39 @@ int Weather_GetNewState__Fv(void)
 	// End offset: 0x800E2190
 	// End Line: 270
 
+	/* begin block 2 */
+		// Start line: 537
+	/* end block 2 */
+	// End Line: 538
+
+	/* begin block 3 */
+		// Start line: 541
+	/* end block 3 */
+	// End Line: 542
+
+	/* begin block 4 */
+		// Start line: 541
+	/* end block 4 */
+	// End Line: 542
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Weather_ChangeDensityState__Fv(void)
 
 {
-  iGp000016ac = Weather_GetNewState__Fv();
-  if (iGp000016a4 + iGp000016ac < 4) {
-    if (iGp000016a4 + iGp000016ac < 0) {
-      iGp000016ac = 1;
+  Weather_gDensityChangeFactor = Weather_GetNewState__Fv();
+  if (Weather_gDensityGoalState + Weather_gDensityChangeFactor < 4) {
+    if (Weather_gDensityGoalState + Weather_gDensityChangeFactor < 0) {
+      Weather_gDensityChangeFactor = 1;
     }
   }
   else {
-    iGp000016ac = -1;
+    Weather_gDensityChangeFactor = -1;
   }
-  if (iGp000016ac == 0) {
-    iGp000016b4 = simGlobal.gameTicks + 0x400;
+  if (Weather_gDensityChangeFactor == 0) {
+    Weather_gDensityTimerGoal = simGlobal.gameTicks + 0x400;
   }
-  iGp000016a4 = iGp000016a4 + iGp000016ac;
+  Weather_gDensityGoalState = Weather_gDensityGoalState + Weather_gDensityChangeFactor;
   return;
 }
 
@@ -329,24 +473,39 @@ void Weather_ChangeDensityState__Fv(void)
 	// End offset: 0x800E2208
 	// End Line: 293
 
+	/* begin block 2 */
+		// Start line: 582
+	/* end block 2 */
+	// End Line: 583
+
+	/* begin block 3 */
+		// Start line: 586
+	/* end block 3 */
+	// End Line: 587
+
+	/* begin block 4 */
+		// Start line: 586
+	/* end block 4 */
+	// End Line: 587
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Weather_ChangeIntensityState__Fv(void)
 
 {
-  iGp000016b0 = Weather_GetNewState__Fv();
-  if (iGp000016c0 < iGp000016a8 + iGp000016b0) {
-    iGp000016b0 = -1;
+  Weather_gIntensityChangeFactor = Weather_GetNewState__Fv();
+  if (Weather_gTrackIntensityLimit < Weather_gIntensityGoalState + Weather_gIntensityChangeFactor) {
+    Weather_gIntensityChangeFactor = -1;
   }
   else {
-    if (iGp000016a8 + iGp000016b0 < 0) {
-      iGp000016b0 = 1;
+    if (Weather_gIntensityGoalState + Weather_gIntensityChangeFactor < 0) {
+      Weather_gIntensityChangeFactor = 1;
     }
   }
-  if (iGp000016b0 == 0) {
-    iGp000016b8 = simGlobal.gameTicks + 0x400;
+  if (Weather_gIntensityChangeFactor == 0) {
+    Weather_gIntensityTimerGoal = simGlobal.gameTicks + 0x400;
   }
-  iGp000016a8 = iGp000016a8 + iGp000016b0;
+  Weather_gIntensityGoalState = Weather_gIntensityGoalState + Weather_gIntensityChangeFactor;
   return;
 }
 
@@ -363,25 +522,45 @@ void Weather_ChangeIntensityState__Fv(void)
 	// End offset: 0x800E22E0
 	// End Line: 320
 
+	/* begin block 2 */
+		// Start line: 631
+	/* end block 2 */
+	// End Line: 632
+
+	/* begin block 3 */
+		// Start line: 635
+	/* end block 3 */
+	// End Line: 636
+
+	/* begin block 4 */
+		// Start line: 635
+	/* end block 4 */
+	// End Line: 636
+
+	/* begin block 5 */
+		// Start line: 637
+	/* end block 5 */
+	// End Line: 638
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Weather_ChangeDensityBasedOnTime__Fv(void)
 
 {
-  if (iGp000016ac < 1) {
-    if (iGp000016ac < 0) {
-      if ((&Weather_gDensityTbl)[iGp000016a4] < Weather_gSys.num[0]) goto LAB_800e22c4;
+  if (Weather_gDensityChangeFactor < 1) {
+    if (Weather_gDensityChangeFactor < 0) {
+      if (Weather_gDensityTbl[Weather_gDensityGoalState] < Weather_gSys.num[0]) goto LAB_800e22c4;
     }
     else {
-      if (simGlobal.gameTicks <= iGp000016b4) goto LAB_800e22c4;
+      if (simGlobal.gameTicks <= Weather_gDensityTimerGoal) goto LAB_800e22c4;
     }
   }
   else {
-    if (Weather_gSys.num[0] < (&Weather_gDensityTbl)[iGp000016a4]) goto LAB_800e22c4;
+    if (Weather_gSys.num[0] < Weather_gDensityTbl[Weather_gDensityGoalState]) goto LAB_800e22c4;
   }
   Weather_ChangeDensityState__Fv();
 LAB_800e22c4:
-  Weather_gSys.num[0] = Weather_gSys.num[0] + iGp000016ac;
+  Weather_gSys.num[0] = Weather_gSys.num[0] + Weather_gDensityChangeFactor;
   if (Weather_gSys.num[0] < 1) {
     Weather_gSys.num[0] = 0;
   }
@@ -401,26 +580,50 @@ LAB_800e22c4:
 	// End offset: 0x800E23D8
 	// End Line: 351
 
+	/* begin block 2 */
+		// Start line: 687
+	/* end block 2 */
+	// End Line: 688
+
+	/* begin block 3 */
+		// Start line: 691
+	/* end block 3 */
+	// End Line: 692
+
+	/* begin block 4 */
+		// Start line: 691
+	/* end block 4 */
+	// End Line: 692
+
+	/* begin block 5 */
+		// Start line: 693
+	/* end block 5 */
+	// End Line: 694
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Weather_ChangeIntensityBasedOnTime__Fv(void)
 
 {
-  if (iGp000016b0 < 1) {
-    if (iGp000016b0 < 0) {
-      if ((&Weather_gIntensityTbl)[iGp000016a8] < (int)Weather_gSys.velocity.vy) goto LAB_800e239c;
+  if (Weather_gIntensityChangeFactor < 1) {
+    if (Weather_gIntensityChangeFactor < 0) {
+      if (Weather_gIntensityTbl[Weather_gIntensityGoalState] < (int)Weather_gSys.velocity.vy)
+      goto LAB_800e239c;
     }
     else {
-      if (simGlobal.gameTicks <= iGp000016b8) goto LAB_800e239c;
+      if (simGlobal.gameTicks <= Weather_gIntensityTimerGoal) goto LAB_800e239c;
     }
   }
   else {
-    if ((int)Weather_gSys.velocity.vy < (&Weather_gIntensityTbl)[iGp000016a8]) goto LAB_800e239c;
+    if ((int)Weather_gSys.velocity.vy < Weather_gIntensityTbl[Weather_gIntensityGoalState])
+    goto LAB_800e239c;
   }
   Weather_ChangeIntensityState__Fv();
 LAB_800e239c:
-  uGp000016a0 = (uint)((short)(Weather_gSys.velocity.vy + (short)iGp000016b0) < -0x20);
-  Weather_gSys.velocity.vy = Weather_gSys.velocity.vy + (short)iGp000016b0;
+  Weather_gType =
+       (Weather_tState)
+       ((short)(Weather_gSys.velocity.vy + (short)Weather_gIntensityChangeFactor) < -0x20);
+  Weather_gSys.velocity.vy = Weather_gSys.velocity.vy + (short)Weather_gIntensityChangeFactor;
   return;
 }
 
@@ -439,29 +642,49 @@ LAB_800e239c:
 	// End offset: 0x800E2474
 	// End Line: 379
 
+	/* begin block 2 */
+		// Start line: 752
+	/* end block 2 */
+	// End Line: 753
+
+	/* begin block 3 */
+		// Start line: 757
+	/* end block 3 */
+	// End Line: 758
+
+	/* begin block 4 */
+		// Start line: 757
+	/* end block 4 */
+	// End Line: 758
+
+	/* begin block 5 */
+		// Start line: 760
+	/* end block 5 */
+	// End Line: 761
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Weather_InitStateControls__Fv(void)
 
 {
   if ((GameSetup_gData.track == 0) || (GameSetup_gData.track == 4)) {
-    uGp000016bc = 1;
-    iGp000016a8 = 3;
+    Weather_gSnowTrack = 1;
+    Weather_gIntensityGoalState = 3;
   }
   else {
-    uGp000016bc = 0;
-    iGp000016a8 = 0;
+    Weather_gSnowTrack = 0;
+    Weather_gIntensityGoalState = 0;
   }
-  uGp000016a0 = (uint)(iGp000016a8 != 3);
+  Weather_gType = (Weather_tState)(Weather_gIntensityGoalState != 3);
   Weather_gSys.num[0] = INT_80123390;
-  Weather_gSys.velocity.vy = *(short *)(&Weather_gIntensityTbl + iGp000016a8);
-  uGp000016a4 = 3;
-  uGp000016ac = 0;
-  uGp000016b0 = 0;
-  iGp000016b4 = simGlobal.gameTicks + 0x400;
-  iGp000016b8 = simGlobal.gameTicks + 0x400;
-  iGp000016c0 = (&Weather_gTrackIntensityLimitTbl)[GameSetup_gData.track];
-  iGp00001900 = simGlobal.gameTicks;
+  Weather_gSys.velocity.vy = *(short *)(Weather_gIntensityTbl + Weather_gIntensityGoalState);
+  Weather_gDensityGoalState = 3;
+  Weather_gDensityChangeFactor = 0;
+  Weather_gIntensityChangeFactor = 0;
+  Weather_gDensityTimerGoal = simGlobal.gameTicks + 0x400;
+  Weather_gIntensityTimerGoal = simGlobal.gameTicks + 0x400;
+  Weather_gTrackIntensityLimit = Weather_gTrackIntensityLimitTbl[GameSetup_gData.track];
+  timechange = simGlobal.gameTicks;
   return;
 }
 
@@ -494,12 +717,27 @@ void Weather_InitStateControls__Fv(void)
 	// End offset: 0x800E2520
 	// End Line: 403
 
+	/* begin block 2 */
+		// Start line: 835
+	/* end block 2 */
+	// End Line: 836
+
+	/* begin block 3 */
+		// Start line: 839
+	/* end block 3 */
+	// End Line: 840
+
+	/* begin block 4 */
+		// Start line: 839
+	/* end block 4 */
+	// End Line: 840
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Weather_Restart__Fv(void)
 
 {
-  undefined *puVar1;
+  char *pcVar1;
   int iVar2;
   
   if (GameSetup_gData.Weather != 0) {
@@ -507,12 +745,12 @@ void Weather_Restart__Fv(void)
       Weather_InitStateControls__Fv();
     }
     iVar2 = 0;
-    iGp0000190c = simGlobal.gameTicks;
-    iGp00001908 = simGlobal.gameTicks;
+    INT_8013de58 = simGlobal.gameTicks;
+    Weather_gLastProcessTime = simGlobal.gameTicks;
     do {
-      puVar1 = (undefined *)(iGp00001658 + iVar2);
+      pcVar1 = Weather_gWasDrawn + iVar2;
       iVar2 = iVar2 + 1;
-      *puVar1 = 0;
+      *pcVar1 = '\0';
     } while (iVar2 < 0x98);
   }
   return;
@@ -556,13 +794,28 @@ void Weather_Restart__Fv(void)
 	// End offset: 0x800E2860
 	// End Line: 497
 
+	/* begin block 2 */
+		// Start line: 877
+	/* end block 2 */
+	// End Line: 878
+
+	/* begin block 3 */
+		// Start line: 889
+	/* end block 3 */
+	// End Line: 890
+
+	/* begin block 4 */
+		// Start line: 889
+	/* end block 4 */
+	// End Line: 890
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Weather_Init__Fv(void)
 
 {
   uint uVar1;
-  undefined *puVar2;
+  char *pcVar2;
   matrixtdef *pmVar3;
   matrixtdef *pmVar4;
   matrixtdef *pmVar5;
@@ -570,11 +823,11 @@ void Weather_Init__Fv(void)
   int iVar7;
   int iVar8;
   short *psVar9;
-  short *psVar10;
+  SVECTOR *pSVar10;
   
-  uGp00001678 = 0x8012329c;
+  Weather_gTrackSpec = &TrackSpec_gSpec.weatherspec;
   if (GameSetup_gData.Weather != 0) {
-    iGp000016a0 = TrackSpec_gSpec.weatherspec.type;
+    Weather_gType = TrackSpec_gSpec.weatherspec.type;
     if (TrackSpec_gSpec.weatherspec.type == 1) {
       Weather_InitRain__Fv();
     }
@@ -583,31 +836,31 @@ void Weather_Init__Fv(void)
         Weather_InitSnow__Fv();
       }
     }
-    if (psGp00001660 == (short *)0x0) {
-      psGp00001660 = reservememadr(s_raindrop_80056afc,0xa8,0);
+    if (Weather_gSplatInfo == (Weather_tSplatInfo *)0x0) {
+      Weather_gSplatInfo = (Weather_tSplatInfo *)reservememadr(s_raindrop_80056afc,0xa8,0);
     }
-    if (psGp0000165c == (short *)0x0) {
-      psGp0000165c = reservememadr(s_weather1_80056b08,0x4c0,0);
+    if (Weather_gPos == (SVECTOR *)0x0) {
+      Weather_gPos = (SVECTOR *)reservememadr(s_weather1_80056b08,0x4c0,0);
     }
-    if (psGp00001664 == (short *)0x0) {
-      psGp00001664 = reservememadr(s_weather2_80056b14,0x260,0);
+    if (Weather_gPrevPos == (DVECTOR *)0x0) {
+      Weather_gPrevPos = (DVECTOR *)reservememadr(s_weather2_80056b14,0x260,0);
     }
-    if (psGp00001658 == (short *)0x0) {
-      psGp00001658 = reservememadr(s_weather3_80056b20,0x98,0);
+    if (Weather_gWasDrawn == (char *)0x0) {
+      Weather_gWasDrawn = (char *)reservememadr(s_weather3_80056b20,0x98,0);
     }
-    iGp0000190c = simGlobal.gameTicks;
-    iGp00001908 = simGlobal.gameTicks;
-    psGp00001684 = psGp0000165c;
-    psGp0000168c = psGp00001664;
-    psGp00001694 = psGp00001658;
-    psGp0000167c = psGp00001660;
+    INT_8013de58 = simGlobal.gameTicks;
+    Weather_gLastProcessTime = simGlobal.gameTicks;
+    Weather_gPServer2 = Weather_gPos;
+    Weather_gPrevPServer2 = Weather_gPrevPos;
+    Weather_gDrawnServer2 = Weather_gWasDrawn;
+    Weather_gSplatInfoServer2 = Weather_gSplatInfo;
     if (GameSetup_gData.commMode == 1) {
-      psGp00001688 = psGp0000165c + 0x130;
-      psGp00001690 = psGp00001664 + 0x98;
-      psGp00001698 = psGp00001658 + 0x26;
+      PTR_8013dbd4 = Weather_gPos + 0x4c;
+      PTR_8013dbdc = Weather_gPrevPos + 0x4c;
+      PTR_8013dbe4 = Weather_gWasDrawn + 0x4c;
       Weather_gSys.num[0] = 0x4c;
       Weather_gSys.num[1] = 0x4c;
-      psGp00001680 = psGp00001660 + 0x24;
+      PTR_8013dbcc = Weather_gSplatInfo + 9;
     }
     pmVar3 = &prevCamMat;
     pmVar4 = &Camera_gInfo.rotation;
@@ -639,20 +892,20 @@ void Weather_Init__Fv(void)
       pmVar4->m[1] = iVar6;
       pmVar4->m[2] = iVar7;
       pmVar4->m[3] = iVar8;
+      pSVar10 = Weather_gPos;
       pmVar3 = (matrixtdef *)(pmVar3->m + 4);
       pmVar4 = (matrixtdef *)(pmVar4->m + 4);
     } while (pmVar3 != (matrixtdef *)(prevCamMat.m + 8));
     iVar6 = 0x97;
     pmVar4->m[0] = prevCamMat.m[8];
-    psVar9 = psGp0000165c + 2;
-    psVar10 = psGp0000165c;
+    psVar9 = &pSVar10->vz;
     do {
       iVar6 = iVar6 + -1;
       uVar1 = random();
       if ((int)Weather_gSys.width == 0) {
         trap(0x1c00);
       }
-      *psVar10 = (short)(uVar1 % (int)Weather_gSys.width) * 2 - Weather_gSys.width;
+      pSVar10->vx = (short)(uVar1 % (int)Weather_gSys.width) * 2 - Weather_gSys.width;
       uVar1 = random();
       if ((int)Weather_gSys.height == 0) {
         trap(0x1c00);
@@ -662,17 +915,17 @@ void Weather_Init__Fv(void)
       if ((int)Weather_gSys.length == 0) {
         trap(0x1c00);
       }
-      psVar10 = psVar10 + 4;
+      pSVar10 = pSVar10 + 1;
       *psVar9 = Weather_gSys.znear + (short)(uVar1 % (int)Weather_gSys.length);
       psVar9 = psVar9 + 4;
     } while (iVar6 != -1);
     iVar6 = 0;
     do {
-      puVar2 = (undefined *)((int)psGp00001658 + iVar6);
+      pcVar2 = Weather_gWasDrawn + iVar6;
       iVar6 = iVar6 + 1;
-      *puVar2 = 0;
+      *pcVar2 = '\0';
     } while (iVar6 < 0x98);
-    uGp00001654 = 0;
+    gCurrentNumSplats = 0;
     Weather_InitSplats__Fv();
   }
   return;
@@ -691,28 +944,48 @@ void Weather_Init__Fv(void)
 	// End offset: 0x800E2900
 	// End Line: 528
 
+	/* begin block 2 */
+		// Start line: 1085
+	/* end block 2 */
+	// End Line: 1086
+
+	/* begin block 3 */
+		// Start line: 1090
+	/* end block 3 */
+	// End Line: 1091
+
+	/* begin block 4 */
+		// Start line: 1090
+	/* end block 4 */
+	// End Line: 1091
+
+	/* begin block 5 */
+		// Start line: 1092
+	/* end block 5 */
+	// End Line: 1093
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Weather_DeInit__Fv(void)
 
 {
   if (GameSetup_gData.Weather != 0) {
-    if (DAT_00001660 != 0) {
-      purgememadr(DAT_00001660);
+    if (Weather_gSplatInfo != (Weather_tSplatInfo *)0x0) {
+      purgememadr((int)Weather_gSplatInfo);
     }
-    if (DAT_0000165c != 0) {
-      purgememadr(DAT_0000165c);
+    if (Weather_gPos != (SVECTOR *)0x0) {
+      purgememadr((int)Weather_gPos);
     }
-    if (DAT_00001664 != 0) {
-      purgememadr(DAT_00001664);
+    if (Weather_gPrevPos != (DVECTOR *)0x0) {
+      purgememadr((int)Weather_gPrevPos);
     }
-    if (DAT_00001658 != 0) {
-      purgememadr(DAT_00001658);
+    if (Weather_gWasDrawn != (char *)0x0) {
+      purgememadr((int)Weather_gWasDrawn);
     }
-    DAT_00001660 = 0;
-    DAT_0000165c = 0;
-    DAT_00001664 = 0;
-    DAT_00001658 = 0;
+    Weather_gSplatInfo = (Weather_tSplatInfo *)0x0;
+    Weather_gPos = (SVECTOR *)0x0;
+    Weather_gPrevPos = (DVECTOR *)0x0;
+    Weather_gWasDrawn = (char *)0x0;
   }
   return;
 }
@@ -760,6 +1033,21 @@ void Weather_DeInit__Fv(void)
 	/* end block 1 */
 	// End offset: 0x800E29A8
 	// End Line: 611
+
+	/* begin block 2 */
+		// Start line: 1198
+	/* end block 2 */
+	// End Line: 1199
+
+	/* begin block 3 */
+		// Start line: 1252
+	/* end block 3 */
+	// End Line: 1253
+
+	/* begin block 4 */
+		// Start line: 1252
+	/* end block 4 */
+	// End Line: 1253
 
 void Weather_TransformVertex__FP10matrixtdefiP7SVECTOR(matrixtdef *m,int n,SVECTOR *s)
 
@@ -812,6 +1100,21 @@ void Weather_TransformVertex__FP10matrixtdefiP7SVECTOR(matrixtdef *m,int n,SVECT
 	/* end block 1 */
 	// End offset: 0x800E2D34
 	// End Line: 669
+
+	/* begin block 2 */
+		// Start line: 1328
+	/* end block 2 */
+	// End Line: 1329
+
+	/* begin block 3 */
+		// Start line: 1336
+	/* end block 3 */
+	// End Line: 1337
+
+	/* begin block 4 */
+		// Start line: 1336
+	/* end block 4 */
+	// End Line: 1337
 
 short Weather_CheckAndResetParticles__FP7SVECTOR(SVECTOR *pt)
 
@@ -947,6 +1250,21 @@ LAB_800e2c34:
 	// End offset: 0x800E2EAC
 	// End Line: 699
 
+	/* begin block 2 */
+		// Start line: 1455
+	/* end block 2 */
+	// End Line: 1456
+
+	/* begin block 3 */
+		// Start line: 1460
+	/* end block 3 */
+	// End Line: 1461
+
+	/* begin block 4 */
+		// Start line: 1460
+	/* end block 4 */
+	// End Line: 1461
+
 void Weather_QuickReOrthogonalize__FP10matrixtdefT0(matrixtdef *rot,matrixtdef *rotNew)
 
 {
@@ -964,11 +1282,11 @@ void Weather_QuickReOrthogonalize__FP10matrixtdefT0(matrixtdef *rot,matrixtdef *
   int local_30;
   
   iVar2 = DAT_80056b34;
-  puVar1 = PTR_DAT_80056b30;
+  puVar1 = PTR_s_SimpleMem_80056b30;
   iVar8 = DAT_80056b2c;
   v = (coorddef *)(rotNew->m + 6);
   local_38 = DAT_80056b2c;
-  local_34 = PTR_DAT_80056b30;
+  local_34 = PTR_s_SimpleMem_80056b30;
   local_30 = DAT_80056b34;
   iVar6 = rot->m[7];
   iVar7 = rot->m[8];
@@ -1109,6 +1427,21 @@ void Weather_QuickReOrthogonalize__FP10matrixtdefT0(matrixtdef *rot,matrixtdef *
 	/* end block 1 */
 	// End offset: 0x800E3394
 	// End Line: 888
+
+	/* begin block 2 */
+		// Start line: 1567
+	/* end block 2 */
+	// End Line: 1568
+
+	/* begin block 3 */
+		// Start line: 1571
+	/* end block 3 */
+	// End Line: 1572
+
+	/* begin block 4 */
+		// Start line: 1571
+	/* end block 4 */
+	// End Line: 1572
 
 /* WARNING: Could not reconcile some variable overlaps */
 
@@ -1278,6 +1611,21 @@ void Weather_ProcessParticles__FP13DRender_tViewiP7SVECTORPc
 	// End offset: 0x800E33BC
 	// End Line: 924
 
+	/* begin block 2 */
+		// Start line: 1841
+	/* end block 2 */
+	// End Line: 1842
+
+	/* begin block 3 */
+		// Start line: 2062
+	/* end block 3 */
+	// End Line: 2063
+
+	/* begin block 4 */
+		// Start line: 2062
+	/* end block 4 */
+	// End Line: 2063
+
 /* WARNING: Could not reconcile some variable overlaps */
 
 void Weather_CreateSnow__FP7SVECTOR(SVECTOR *pt)
@@ -1331,7 +1679,7 @@ void Weather_CreateSnow__FP7SVECTOR(SVECTOR *pt)
   puVar1[1] = 0x2e202020;
   uVar6 = getCopReg(2,0xe);
   puVar1[8] = uVar6;
-  puVar2 = *(uint **)((int)&__gWeatherPixmap_3__ + ((uint)pt & 4));
+  puVar2 = *(uint **)((int)&gWeatherPixmap3 + ((uint)pt & 4));
   uVar4 = puVar2[1];
   uVar5 = puVar2[2];
   uVar6 = puVar2[3];
@@ -1374,6 +1722,21 @@ void Weather_CreateSnow__FP7SVECTOR(SVECTOR *pt)
 	/* end block 1 */
 	// End offset: 0x800E3714
 	// End Line: 1004
+
+	/* begin block 2 */
+		// Start line: 2164
+	/* end block 2 */
+	// End Line: 2165
+
+	/* begin block 3 */
+		// Start line: 2170
+	/* end block 3 */
+	// End Line: 2171
+
+	/* begin block 4 */
+		// Start line: 2170
+	/* end block 4 */
+	// End Line: 2171
 
 void Weather_CreateRain__FP7SVECTORP7DVECTORPc(SVECTOR *pt0,DVECTOR *pt1,char *wd)
 
@@ -1463,6 +1826,21 @@ void Weather_CreateRain__FP7SVECTORP7DVECTORPc(SVECTOR *pt0,DVECTOR *pt1,char *w
 	// End offset: 0x800E37B8
 	// End Line: 1020
 
+	/* begin block 2 */
+		// Start line: 2265
+	/* end block 2 */
+	// End Line: 2266
+
+	/* begin block 3 */
+		// Start line: 2269
+	/* end block 3 */
+	// End Line: 2270
+
+	/* begin block 4 */
+		// Start line: 2269
+	/* end block 4 */
+	// End Line: 2270
+
 void Weather_CreateSplat__FP18Weather_tSplatInfo(Weather_tSplatInfo *splat)
 
 {
@@ -1539,6 +1917,21 @@ void Weather_CreateSplat__FP18Weather_tSplatInfo(Weather_tSplatInfo *splat)
 	// End offset: 0x800E39F8
 	// End Line: 1065
 
+	/* begin block 2 */
+		// Start line: 2346
+	/* end block 2 */
+	// End Line: 2347
+
+	/* begin block 3 */
+		// Start line: 2350
+	/* end block 3 */
+	// End Line: 2351
+
+	/* begin block 4 */
+		// Start line: 2350
+	/* end block 4 */
+	// End Line: 2351
+
 void Weather_DoSplats__FiP18Weather_tSplatInfo(int num,Weather_tSplatInfo *splats)
 
 {
@@ -1547,16 +1940,16 @@ void Weather_DoSplats__FiP18Weather_tSplatInfo(int num,Weather_tSplatInfo *splat
   uint uVar3;
   int iVar4;
   
-  if (DAT_00001654 < num) {
-    DAT_00001654 = num;
+  if (gCurrentNumSplats < num) {
+    gCurrentNumSplats = num;
   }
   iVar4 = 0;
-  if (0 < DAT_00001654) {
+  if (0 < gCurrentNumSplats) {
     do {
-      iVar1 = DAT_00001654;
+      iVar1 = gCurrentNumSplats;
       if (splats->startTick <= simGlobal.gameTicks) {
         if (splats->startTick + 0x20 < simGlobal.gameTicks) {
-          if ((DAT_00001654 <= num) || (iVar1 = iVar4, iVar4 != DAT_00001654 + -1)) {
+          if ((gCurrentNumSplats <= num) || (iVar1 = iVar4, iVar4 != gCurrentNumSplats + -1)) {
             uVar3 = random();
             (splats->pos).vx =
                  (short)uVar3 + (short)((ulonglong)uVar3 * 0xcccccccd >> 0x28) * -0x140;
@@ -1571,18 +1964,18 @@ void Weather_DoSplats__FiP18Weather_tSplatInfo(int num,Weather_tSplatInfo *splat
             (splats->pos).vy = sVar2;
             uVar3 = random();
             splats->startTick = simGlobal.gameTicks + uVar3 % 100;
-            iVar1 = DAT_00001654;
+            iVar1 = gCurrentNumSplats;
           }
         }
         else {
           Weather_CreateSplat__FP18Weather_tSplatInfo(splats);
-          iVar1 = DAT_00001654;
+          iVar1 = gCurrentNumSplats;
         }
       }
-      DAT_00001654 = iVar1;
+      gCurrentNumSplats = iVar1;
       splats = splats + 1;
       iVar4 = iVar4 + 1;
-    } while (iVar4 < DAT_00001654);
+    } while (iVar4 < gCurrentNumSplats);
   }
   return;
 }
@@ -1635,6 +2028,21 @@ void Weather_DoSplats__FiP18Weather_tSplatInfo(int num,Weather_tSplatInfo *splat
 	// End offset: 0x800E3D04
 	// End Line: 1155
 
+	/* begin block 2 */
+		// Start line: 2406
+	/* end block 2 */
+	// End Line: 2407
+
+	/* begin block 3 */
+		// Start line: 2411
+	/* end block 3 */
+	// End Line: 2412
+
+	/* begin block 4 */
+		// Start line: 2411
+	/* end block 4 */
+	// End Line: 2412
+
 void Weather_DoWeather__FP13DRender_tView(DRender_tView *Vi)
 
 {
@@ -1653,23 +2061,23 @@ void Weather_DoWeather__FP13DRender_tView(DRender_tView *Vi)
   DVECTOR *pt1;
   
   cviewP = Vi->player;
-  wpt = (&__Weather_gPServer_2__)[cviewP];
-  pt1 = (&__Weather_gPrevPServer_2__)[cviewP];
-  wd = (&__Weather_gDrawnServer_2__)[cviewP];
-  if ((GameSetup_gData.commMode != 1) && (0x20 < simGlobal.gameTicks - DAT_00001900)) {
-    DAT_00001900 = simGlobal.gameTicks;
-    if (DAT_000016bc == 0) {
+  wpt = (&Weather_gPServer2)[cviewP];
+  pt1 = (&Weather_gPrevPServer2)[cviewP];
+  wd = (&Weather_gDrawnServer2)[cviewP];
+  if ((GameSetup_gData.commMode != 1) && (0x20 < simGlobal.gameTicks - timechange)) {
+    timechange = simGlobal.gameTicks;
+    if (Weather_gSnowTrack == 0) {
       Weather_ChangeIntensityBasedOnTime__Fv();
     }
     Weather_ChangeDensityBasedOnTime__Fv();
   }
   if (Weather_gSys.num[0] != 0) {
     puVar9 = (uchar *)(&Input_gLookBehind)[cviewP];
-    puVar3 = (&PTR_8013dbb4)[cviewP];
-    (&PTR_8013dbb4)[cviewP] = puVar9;
+    puVar3 = PTR_ARRAY_8013dbb4[cviewP];
+    PTR_ARRAY_8013dbb4[cviewP] = puVar9;
     puVar4 = (uchar *)Camera_GetMode__Fi(cviewP);
-    puVar6 = (&PTR_8013dbbc)[cviewP];
-    (&PTR_8013dbbc)[cviewP] = puVar4;
+    puVar6 = PTR_ARRAY_8013dbbc[cviewP];
+    PTR_ARRAY_8013dbbc[cviewP] = puVar4;
     if (puVar4 != puVar6 || puVar9 != puVar3 && puVar9 == (uchar *)0x1) {
       iVar7 = 0;
       pcVar5 = wd;
@@ -1686,14 +2094,14 @@ void Weather_DoWeather__FP13DRender_tView(DRender_tView *Vi)
       Weather_ProcessParticles__FP13DRender_tViewiP7SVECTORPc(Vi,Weather_gSys.num[cviewP],wpt,wd);
     }
     Weather_SetIdentMatrix__Fv();
-    if ((*(uint *)&(&Camera_gInfo)[cviewP].field_0x74 >> 0x1b & 1) != 0) {
+    if ((*(uint *)(&Camera_gInfo.modechange + cviewP * 0x110) >> 0x1b & 1) != 0) {
       Weather_DoSplats__FiP18Weather_tSplatInfo
-                (Weather_gSys.num[cviewP] >> 3,(&__Weather_gSplatInfoServer_2__)[cviewP]);
+                (Weather_gSys.num[cviewP] >> 3,(&Weather_gSplatInfoServer2)[cviewP]);
     }
     iVar7 = 0;
     if (0 < Weather_gSys.num[cviewP]) {
       do {
-        if (DAT_000016a0 == 1) {
+        if (Weather_gType == Weather_kRain) {
           Weather_CreateRain__FP7SVECTORP7DVECTORPc(wpt,pt1,wd + iVar7);
         }
         else {
@@ -1728,18 +2136,40 @@ void Weather_DoWeather__FP13DRender_tView(DRender_tView *Vi)
 	// End offset: 0x800E3D7C
 	// End Line: 1185
 
+	/* begin block 2 */
+		// Start line: 2620
+	/* end block 2 */
+	// End Line: 2621
+
+	/* begin block 3 */
+		// Start line: 2623
+	/* end block 3 */
+	// End Line: 2624
+
+	/* begin block 4 */
+		// Start line: 2623
+	/* end block 4 */
+	// End Line: 2624
+
+	/* begin block 5 */
+		// Start line: 2625
+	/* end block 5 */
+	// End Line: 2626
+
 void Weather_BuildWeather__FP13DRender_tView(DRender_tView *Vi)
 
 {
   void *pvVar1;
   
   if ((GameSetup_gData.Weather != 0) &&
-     (pvVar1 = BWorldSm_TunnelFlagSm__FP12BWorldSm_Pos(&(&Camera_gInfo)[Vi->player].slicePos),
+     (pvVar1 = BWorldSm_TunnelFlagSm__FP12BWorldSm_Pos
+                         ((BWorldSm_Pos *)(&Camera_gInfo.forceFocus + Vi->player * 0x44)),
      pvVar1 == (void *)0x0)) {
     Weather_DoWeather__FP13DRender_tView(Vi);
   }
   return;
 }
+
 
 
 

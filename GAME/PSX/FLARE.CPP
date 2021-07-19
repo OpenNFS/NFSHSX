@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "FLARE.H"
+
 
 // decompiled code
 // original method signature: 
@@ -13,6 +14,21 @@
 	/* end block 1 */
 	// End offset: 0x800CBCB0
 	// End Line: 80
+
+	/* begin block 2 */
+		// Start line: 150
+	/* end block 2 */
+	// End Line: 151
+
+	/* begin block 3 */
+		// Start line: 150
+	/* end block 3 */
+	// End Line: 151
+
+	/* begin block 4 */
+		// Start line: 154
+	/* end block 4 */
+	// End Line: 155
 
 void Flare_Tri__FPlN20i(long *cp,long *p1,long *p2,int otz)
 
@@ -28,7 +44,7 @@ void Flare_Tri__FPlN20i(long *cp,long *p1,long *p2,int otz)
   DAT_1f800004 = DAT_1f800004 + 7;
   *puVar2 = *puVar2 & 0xff000000 | uVar3;
   puVar1[1] = 0x32000000;
-  uVar3 = DAT_00001320;
+  uVar3 = gfrgb;
   puVar1[5] = 0;
   *(undefined *)((int)puVar1 + 3) = 6;
   puVar1[3] = uVar3;
@@ -86,6 +102,21 @@ void Flare_Tri__FPlN20i(long *cp,long *p1,long *p2,int otz)
 	// End offset: 0x800CBD4C
 	// End Line: 185
 
+	/* begin block 2 */
+		// Start line: 278
+	/* end block 2 */
+	// End Line: 279
+
+	/* begin block 3 */
+		// Start line: 373
+	/* end block 3 */
+	// End Line: 374
+
+	/* begin block 4 */
+		// Start line: 373
+	/* end block 4 */
+	// End Line: 374
+
 void Flare_SetMatrix__FP10matrixtdef(matrixtdef *m)
 
 {
@@ -115,6 +146,26 @@ void Flare_SetMatrix__FP10matrixtdef(matrixtdef *m)
 	/* end block 1 */
 	// End offset: 0x800CBDF8
 	// End Line: 199
+
+	/* begin block 2 */
+		// Start line: 393
+	/* end block 2 */
+	// End Line: 394
+
+	/* begin block 3 */
+		// Start line: 397
+	/* end block 3 */
+	// End Line: 398
+
+	/* begin block 4 */
+		// Start line: 397
+	/* end block 4 */
+	// End Line: 398
+
+	/* begin block 5 */
+		// Start line: 399
+	/* end block 5 */
+	// End Line: 400
 
 void Flare_IdentMatrix__FP6MATRIX(MATRIX *mtx)
 
@@ -160,11 +211,26 @@ void Flare_IdentMatrix__FP6MATRIX(MATRIX *mtx)
 	// End offset: 0x800CC02C
 	// End Line: 242
 
+	/* begin block 2 */
+		// Start line: 415
+	/* end block 2 */
+	// End Line: 416
+
+	/* begin block 3 */
+		// Start line: 421
+	/* end block 3 */
+	// End Line: 422
+
+	/* begin block 4 */
+		// Start line: 421
+	/* end block 4 */
+	// End Line: 422
+
 void Flare_OctFlare__FPli(long *center,int otz)
 
 {
-  uint uVar1;
-  uint *puVar2;
+  uint *puVar1;
+  uint uVar2;
   undefined4 in_zero;
   undefined4 in_at;
   uint uVar3;
@@ -174,7 +240,7 @@ void Flare_OctFlare__FPli(long *center,int otz)
   int iVar7;
   uint auStack56 [14];
   
-  uVar1 = DAT_00001320;
+  uVar2 = gfrgb;
   setCopReg(2,in_zero,Flare_gOct._0_4_);
   setCopReg(2,in_at,Flare_gOct._4_4_);
   copFunction(2,0x180001);
@@ -208,10 +274,10 @@ void Flare_OctFlare__FPli(long *center,int otz)
   copFunction(2,0x180001);
   getCopReg(2,0xe);
   iVar7 = 8;
-  psVar6 = &gfOctPt2;
-  psVar5 = &gfHexPt1;
+  psVar6 = gfOctPt2;
+  psVar5 = gfHexPt1;
   while( true ) {
-    puVar2 = DAT_1f800004;
+    puVar1 = DAT_1f800004;
     psVar6 = psVar6 + -1;
     iVar7 = iVar7 + -1;
     psVar5 = psVar5 + -1;
@@ -221,13 +287,13 @@ void Flare_OctFlare__FPli(long *center,int otz)
     uVar3 = (uint)DAT_1f800004 & 0xffffff;
     DAT_1f800004 = DAT_1f800004 + 7;
     *puVar4 = *puVar4 & 0xff000000 | uVar3;
-    puVar2[1] = 0x32000000;
-    puVar2[3] = uVar1;
-    puVar2[5] = 0;
-    *(undefined *)((int)puVar2 + 3) = 6;
-    puVar2[2] = auStack56[(int)*psVar5];
-    puVar2[4] = *center;
-    puVar2[6] = auStack56[(int)*psVar6];
+    puVar1[1] = 0x32000000;
+    puVar1[3] = uVar2;
+    puVar1[5] = 0;
+    *(undefined *)((int)puVar1 + 3) = 6;
+    puVar1[2] = auStack56[(int)*psVar5];
+    puVar1[4] = *center;
+    puVar1[6] = auStack56[(int)*psVar6];
   }
   return;
 }
@@ -279,15 +345,30 @@ void Flare_OctFlare__FPli(long *center,int otz)
 	// End offset: 0x800CC3A0
 	// End Line: 317
 
+	/* begin block 2 */
+		// Start line: 498
+	/* end block 2 */
+	// End Line: 499
+
+	/* begin block 3 */
+		// Start line: 504
+	/* end block 3 */
+	// End Line: 505
+
+	/* begin block 4 */
+		// Start line: 504
+	/* end block 4 */
+	// End Line: 505
+
 void Flare_OctFlareSpikes__FPli(long *center,int otz)
 
 {
   short sVar1;
   short sVar2;
   short sVar3;
-  uint uVar4;
+  uint *puVar4;
   uint uVar5;
-  uint *puVar6;
+  uint uVar6;
   undefined4 in_zero;
   undefined4 in_at;
   uint uVar7;
@@ -299,8 +380,8 @@ void Flare_OctFlareSpikes__FPli(long *center,int otz)
   uint uVar13;
   uint local_48 [14];
   
-  uVar5 = DAT_00001324;
-  uVar4 = DAT_00001320;
+  uVar6 = gfrgb2;
+  uVar5 = gfrgb;
   setCopReg(2,in_zero,Flare_gSpikes._0_4_);
   setCopReg(2,in_at,Flare_gSpikes._4_4_);
   copFunction(2,0x180001);
@@ -350,12 +431,12 @@ void Flare_OctFlareSpikes__FPli(long *center,int otz)
   copFunction(2,0x180001);
   getCopReg(2,0xe);
   iVar9 = 8;
-  psVar12 = &gfOctPt1;
-  psVar11 = &gfSpikePt2;
-  psVar10 = &gfSpikePt1;
+  psVar12 = gfOctPt1;
+  psVar11 = gfSpikePt2;
+  psVar10 = gfSpikePt1;
   uVar13 = *center;
   while( true ) {
-    puVar6 = DAT_1f800004;
+    puVar4 = DAT_1f800004;
     psVar12 = psVar12 + -1;
     psVar11 = psVar11 + -1;
     iVar9 = iVar9 + -1;
@@ -369,32 +450,32 @@ void Flare_OctFlareSpikes__FPli(long *center,int otz)
     uVar7 = (uint)DAT_1f800004 & 0xffffff;
     DAT_1f800004 = DAT_1f800004 + 9;
     *puVar8 = *puVar8 & 0xff000000 | uVar7;
-    puVar6[1] = 0x3a000000;
-    *(undefined *)((int)puVar6 + 3) = 8;
-    puVar6[3] = uVar5;
-    puVar6[5] = 0;
-    puVar6[7] = 0;
+    puVar4[1] = 0x3a000000;
+    *(undefined *)((int)puVar4 + 3) = 8;
+    puVar4[3] = uVar6;
+    puVar4[5] = 0;
+    puVar4[7] = 0;
     uVar7 = local_48[(int)sVar1];
-    puVar6[4] = uVar13;
-    puVar6[2] = uVar7;
-    puVar6[6] = local_48[(int)sVar3];
-    puVar6[8] = local_48[(int)sVar2];
-    puVar6 = DAT_1f800004;
-    sVar1 = (&gfOctPt1)[iVar9];
-    sVar2 = (&gfOctPt2)[iVar9];
+    puVar4[4] = uVar13;
+    puVar4[2] = uVar7;
+    puVar4[6] = local_48[(int)sVar3];
+    puVar4[8] = local_48[(int)sVar2];
+    puVar4 = DAT_1f800004;
+    sVar1 = gfOctPt1[iVar9];
+    sVar2 = gfOctPt2[iVar9];
     puVar8 = (uint *)(otz * 4 + DAT_1f800000);
     *DAT_1f800004 = *DAT_1f800004 & 0xff000000 | *puVar8 & 0xffffff;
     uVar7 = (uint)DAT_1f800004 & 0xffffff;
     DAT_1f800004 = DAT_1f800004 + 7;
     *puVar8 = *puVar8 & 0xff000000 | uVar7;
-    puVar6[1] = 0x32000000;
-    *(undefined *)((int)puVar6 + 3) = 6;
-    puVar6[3] = uVar4;
-    puVar6[5] = 0;
+    puVar4[1] = 0x32000000;
+    *(undefined *)((int)puVar4 + 3) = 6;
+    puVar4[3] = uVar5;
+    puVar4[5] = 0;
     uVar7 = local_48[(int)sVar1];
-    puVar6[4] = uVar13;
-    puVar6[2] = uVar7;
-    puVar6[6] = local_48[(int)sVar2];
+    puVar4[4] = uVar13;
+    puVar4[2] = uVar7;
+    puVar4[6] = local_48[(int)sVar2];
   }
   return;
 }
@@ -430,6 +511,21 @@ void Flare_OctFlareSpikes__FPli(long *center,int otz)
 	/* end block 1 */
 	// End offset: 0x800CC68C
 	// End Line: 364
+
+	/* begin block 2 */
+		// Start line: 702
+	/* end block 2 */
+	// End Line: 703
+
+	/* begin block 3 */
+		// Start line: 709
+	/* end block 3 */
+	// End Line: 710
+
+	/* begin block 4 */
+		// Start line: 709
+	/* end block 4 */
+	// End Line: 710
 
 void Flare_Spikes__FPli(long *center,int otz)
 
@@ -494,9 +590,9 @@ void Flare_Spikes__FPli(long *center,int otz)
   copFunction(2,0x180001);
   getCopReg(2,0xe);
   iVar7 = 8;
-  psVar6 = &gfSpikePt2;
-  psVar5 = &gfOctPt1;
-  psVar4 = &gfSpikePt1;
+  psVar6 = gfSpikePt2;
+  psVar5 = gfOctPt1;
+  psVar4 = gfSpikePt1;
   while( true ) {
     puVar1 = DAT_1f800004;
     psVar6 = psVar6 + -1;
@@ -510,10 +606,11 @@ void Flare_Spikes__FPli(long *center,int otz)
     DAT_1f800004 = DAT_1f800004 + 9;
     *puVar3 = *puVar3 & 0xff000000 | uVar2;
     puVar1[1] = 0x3a000000;
+    uVar2 = gfrgb2;
     puVar1[5] = 0;
     puVar1[7] = 0;
     *(undefined *)((int)puVar1 + 3) = 8;
-    puVar1[3] = uGp00001324;
+    puVar1[3] = uVar2;
     puVar1[2] = local_38[(int)*psVar4];
     puVar1[4] = *center;
     puVar1[6] = local_38[(int)*psVar5];
@@ -554,6 +651,21 @@ void Flare_Spikes__FPli(long *center,int otz)
 	// End offset: 0x800CC860
 	// End Line: 401
 
+	/* begin block 2 */
+		// Start line: 806
+	/* end block 2 */
+	// End Line: 807
+
+	/* begin block 3 */
+		// Start line: 813
+	/* end block 3 */
+	// End Line: 814
+
+	/* begin block 4 */
+		// Start line: 813
+	/* end block 4 */
+	// End Line: 814
+
 void Flare_HexFlare__FPli(long *center,int otz)
 
 {
@@ -592,7 +704,7 @@ void Flare_HexFlare__FPli(long *center,int otz)
   copFunction(2,0x180001);
   getCopReg(2,0xe);
   iVar6 = 6;
-  psVar5 = &gfHexPt2;
+  psVar5 = gfHexPt2;
   pSVar4 = &Flare_gSpikes;
   while( true ) {
     puVar1 = DAT_1f800004;
@@ -606,9 +718,10 @@ void Flare_HexFlare__FPli(long *center,int otz)
     DAT_1f800004 = DAT_1f800004 + 7;
     *puVar3 = *puVar3 & 0xff000000 | uVar2;
     puVar1[1] = 0x32000000;
+    uVar2 = gfrgb;
     puVar1[5] = 0;
     *(undefined *)((int)puVar1 + 3) = 6;
-    puVar1[3] = uGp00001320;
+    puVar1[3] = uVar2;
     puVar1[2] = local_20[(int)pSVar4->vx];
     puVar1[4] = *center;
     puVar1[6] = local_20[(int)*psVar5];
@@ -648,6 +761,21 @@ void Flare_HexFlare__FPli(long *center,int otz)
 	// End offset: 0x800CCA34
 	// End Line: 438
 
+	/* begin block 2 */
+		// Start line: 887
+	/* end block 2 */
+	// End Line: 888
+
+	/* begin block 3 */
+		// Start line: 894
+	/* end block 3 */
+	// End Line: 895
+
+	/* begin block 4 */
+		// Start line: 894
+	/* end block 4 */
+	// End Line: 895
+
 void Flare_ReflectHexFlare__FPli(long *center,int otz)
 
 {
@@ -686,7 +814,7 @@ void Flare_ReflectHexFlare__FPli(long *center,int otz)
   copFunction(2,0x180001);
   getCopReg(2,0xe);
   iVar6 = 6;
-  psVar5 = &gfHexPt2;
+  psVar5 = gfHexPt2;
   pSVar4 = &Flare_gSpikes;
   while( true ) {
     puVar1 = DAT_1f800004;
@@ -700,7 +828,7 @@ void Flare_ReflectHexFlare__FPli(long *center,int otz)
     DAT_1f800004 = DAT_1f800004 + 7;
     *puVar3 = *puVar3 & 0xff000000 | uVar2;
     puVar1[1] = 0x32000000;
-    uVar2 = DAT_00001320;
+    uVar2 = gfrgb;
     puVar1[5] = 0;
     *(undefined *)((int)puVar1 + 3) = 6;
     puVar1[3] = uVar2;
@@ -726,6 +854,21 @@ void Flare_ReflectHexFlare__FPli(long *center,int otz)
 	/* end block 1 */
 	// End offset: 0x800CCA3C
 	// End Line: 444
+
+	/* begin block 2 */
+		// Start line: 967
+	/* end block 2 */
+	// End Line: 968
+
+	/* begin block 3 */
+		// Start line: 973
+	/* end block 3 */
+	// End Line: 974
+
+	/* begin block 4 */
+		// Start line: 973
+	/* end block 4 */
+	// End Line: 974
 
 void Flare_QuadFlare__FPli(long *center,int otz)
 
@@ -876,6 +1019,21 @@ void Flare_QuadFlare__FPli(long *center,int otz)
 	// End offset: 0x800CD500
 	// End Line: 842
 
+	/* begin block 2 */
+		// Start line: 1138
+	/* end block 2 */
+	// End Line: 1139
+
+	/* begin block 3 */
+		// Start line: 1273
+	/* end block 3 */
+	// End Line: 1274
+
+	/* begin block 4 */
+		// Start line: 1273
+	/* end block 4 */
+	// End Line: 1274
+
 /* WARNING: Could not reconcile some variable overlaps */
 
 void Flare_CarShapedHalo__FiP7COORD16N21siP15Draw_FlareCache
@@ -959,10 +1117,10 @@ void Flare_CarShapedHalo__FiP7COORD16N21siP15Draw_FlareCache
     setCopReg(2,in_zero,*(undefined4 *)ptCenter);
     setCopReg(2,in_at,*(undefined4 *)&ptCenter->z);
     copFunction(2,0x180001);
-    local_c0 = (&Flare_gType)[iVar4].chalo;
-    local_bc = (&Flare_gType)[iVar4].cbeam;
-    uVar9 = (&Flare_gType)[iVar4].scale;
-    uVar10 = (&Flare_gType)[iVar4].flags;
+    local_c0 = Flare_gType[iVar4].chalo;
+    local_bc = Flare_gType[iVar4].cbeam;
+    uVar9 = Flare_gType[iVar4].scale;
+    uVar10 = Flare_gType[iVar4].flags;
     if ((type & 0x80U) != 0) {
       local_c0._1_1_ = (byte)(local_c0 >> 8);
       local_c0._0_3_ =
@@ -1017,8 +1175,8 @@ void Flare_CarShapedHalo__FiP7COORD16N21siP15Draw_FlareCache
         iVar14 = (int)local_ae * (int)local_ae;
         iVar15 = (int)local_ac * (int)local_ac;
       }
-      uVar9 = (iVar13 + iVar14 + iVar15 >> 1) << (uVar9 & 0x1f);
-      DAT_00001328 = uVar9;
+      iVar14 = (iVar13 + iVar14 + iVar15 >> 1) << (uVar9 & 0x1f);
+      gscale = iVar14;
       if ((uVar10 & 1) != 0) {
         setCopControlWord(2,0x2800,0);
         setCopControlWord(2,0x3000,0);
@@ -1029,7 +1187,7 @@ void Flare_CarShapedHalo__FiP7COORD16N21siP15Draw_FlareCache
         local_98 = getCopReg(2,0x19);
         local_94 = getCopReg(2,0x1a);
         local_90 = getCopReg(2,0x1b);
-        DAT_00001328 = uVar9;
+        gscale = iVar14;
         VectorNormal((undefined4 *)&local_98,(undefined4 *)(&local_98 + 0x18));
         if ((uVar10 & 2) != 0) {
           local_78 = (local_78 + -0xf33) * 0x14;
@@ -1038,14 +1196,14 @@ void Flare_CarShapedHalo__FiP7COORD16N21siP15Draw_FlareCache
         if (local_78 < 0) {
           local_78 = 0;
         }
-        DAT_00001328 = (int)(DAT_00001328 * local_78) >> 0xb;
+        gscale = gscale * local_78 >> 0xb;
       }
       if ((type & 0x100U) == 0) {
         local_48 = 0;
         local_54 = 0;
         local_4c = 0;
-        local_58 = DAT_00001328 + (iVar3 >> 5);
-        local_50 = DAT_00001328;
+        local_58 = gscale + (iVar3 >> 5);
+        local_50 = gscale;
         Flare_IdentMatrix__FP6MATRIX((MATRIX *)&local_98);
         Flare_IdentMatrix__FP6MATRIX((MATRIX *)&local_78);
         setCopControlWord(2,0x2800,iVar4);
@@ -1134,14 +1292,14 @@ void Flare_CarShapedHalo__FiP7COORD16N21siP15Draw_FlareCache
         }
       }
       else {
-        local_70 = uVar9 + (iVar3 >> 7);
+        local_70 = iVar14 + (iVar3 >> 7);
         local_98 = gfrgb;
         local_60 = 0;
         local_6c = 0;
         local_64 = 0;
-        DAT_00001320._0_1_ = (byte)DAT_00001320 >> 1;
-        DAT_00001320._1_1_ = DAT_00001320._1_1_ >> 1;
-        DAT_00001320._2_1_ = DAT_00001320._2_1_ >> 1;
+        gfrgb._0_3_ = CONCAT12((byte)(gfrgb >> 0x10) >> 1,CONCAT11(gfrgb.g >> 1,(char)(gfrgb >> 1)))
+                      & 0xffff7f;
+        gfrgb = gfrgb & 0xff000000 | (uint)gfrgb._0_3_;
         local_68 = local_70;
         Flare_IdentMatrix__FP6MATRIX((MATRIX *)&local_50);
         setCopControlWord(2,0x2800,iVar4);
@@ -1368,6 +1526,21 @@ void Flare_CarShapedHalo__FiP7COORD16N21siP15Draw_FlareCache
 	// End offset: 0x800CDE70
 	// End Line: 1094
 
+	/* begin block 2 */
+		// Start line: 1847
+	/* end block 2 */
+	// End Line: 1848
+
+	/* begin block 3 */
+		// Start line: 1850
+	/* end block 3 */
+	// End Line: 1851
+
+	/* begin block 4 */
+		// Start line: 1850
+	/* end block 4 */
+	// End Line: 1851
+
 /* WARNING: Could not reconcile some variable overlaps */
 
 void Flare_Halo2__FP13DRender_tViewiiP8coorddefT3P15Draw_FlareCache
@@ -1417,7 +1590,7 @@ void Flare_Halo2__FP13DRender_tViewiiP8coorddefT3P15Draw_FlareCache
   int local_30;
   
   uVar10 = type & 0xff;
-  uVar11 = (&Flare_gType)[uVar10].flags;
+  uVar11 = Flare_gType[uVar10].flags;
   uVar12 = 0;
   if (fpt2 == (coorddef *)0x0) {
     uVar11 = uVar11 & 0xfffffffa;
@@ -1447,10 +1620,10 @@ LAB_800cd648:
   setCopReg(2,in_zero,iVar4 - iVar9 >> 10 & 0xffffU | (iVar6 - iVar5 >> 10) << 0x10);
   setCopReg(2,in_at,local_c4);
   copFunction(2,0x180001);
-  local_b8 = (&Flare_gType)[uVar10].chalo;
-  local_b4 = (&Flare_gType)[uVar10].cbeam;
+  local_b8 = Flare_gType[uVar10].chalo;
+  local_b4 = Flare_gType[uVar10].cbeam;
   if (scale == -1) {
-    scale = (&Flare_gType)[uVar10].scale;
+    scale = Flare_gType[uVar10].scale;
   }
   iVar4 = getCopReg(2,0x19);
   iVar5 = getCopReg(2,0x1a);
@@ -1481,10 +1654,10 @@ LAB_800cd648:
       }
       gfrgb = local_b8;
       gfrgb2 = local_b4;
-      DAT_00001328 = scale;
+      gscale = scale;
       if ((uVar11 & 0x40) != 0) {
         puVar8 = (uint *)(local_30 * 4 + DAT_1f800000);
-        DAT_00001328 = scale;
+        gscale = scale;
         *DAT_1f800004 = *DAT_1f800004 & 0xff000000 | *puVar8 & 0xffffff;
         uVar10 = (uint)DAT_1f800004 & 0xffffff;
         DAT_1f800004 = DAT_1f800004 + 3;
@@ -1517,7 +1690,7 @@ LAB_800cd648:
           if (local_78 == 0) {
             return;
           }
-          DAT_00001328 = (int)(DAT_00001328 * local_78) >> 0xb;
+          gscale = gscale * local_78 >> 0xb;
           iVar7 = iVar6;
           if (type == 0x1e) {
             iVar7 = iVar6;
@@ -1530,8 +1703,8 @@ LAB_800cd648:
         local_60 = 0;
         local_6c = 0;
         local_64 = 0;
-        local_70 = DAT_00001328;
-        local_68 = DAT_00001328;
+        local_70 = gscale;
+        local_68 = gscale;
         Flare_IdentMatrix__FP6MATRIX((MATRIX *)&local_90);
         setCopControlWord(2,0x2800,iVar4);
         setCopControlWord(2,0x3000,iVar5);
@@ -1582,8 +1755,8 @@ LAB_800cd648:
         local_40 = 0;
         local_4c = 0;
         local_44 = 0;
-        local_48 = DAT_00001328;
-        local_50 = DAT_00001328 + ((int)(uVar10 * iVar6) >> 4);
+        local_48 = gscale;
+        local_50 = gscale + ((int)(uVar10 * iVar6) >> 4);
         Flare_IdentMatrix__FP6MATRIX((MATRIX *)&local_90);
         Flare_IdentMatrix__FP6MATRIX((MATRIX *)&local_70);
         setCopControlWord(2,0x2800,iVar4);
@@ -1697,6 +1870,21 @@ LAB_800cd648:
 	// End offset: 0x800CDE9C
 	// End Line: 1098
 
+	/* begin block 2 */
+		// Start line: 2455
+	/* end block 2 */
+	// End Line: 2456
+
+	/* begin block 3 */
+		// Start line: 2458
+	/* end block 3 */
+	// End Line: 2459
+
+	/* begin block 4 */
+		// Start line: 2458
+	/* end block 4 */
+	// End Line: 2459
+
 void Flare_Halo__FP13DRender_tViewiiP8coorddefP15Draw_FlareCache
                (DRender_tView *Vi,int scale,int type,coorddef *fpt,Draw_FlareCache *sd)
 
@@ -1721,31 +1909,46 @@ void Flare_Halo__FP13DRender_tViewiiP8coorddefP15Draw_FlareCache
 	// End offset: 0x800CDEC4
 	// End Line: 1106
 
+	/* begin block 2 */
+		// Start line: 2467
+	/* end block 2 */
+	// End Line: 2468
+
+	/* begin block 3 */
+		// Start line: 2474
+	/* end block 3 */
+	// End Line: 2475
+
+	/* begin block 4 */
+		// Start line: 2474
+	/* end block 4 */
+	// End Line: 2475
+
 void Flare_2DSpike__FPlT0i(long *center,long *end,int otz)
 
 {
   undefined *puVar1;
-  uint uVar2;
-  uint *puVar3;
+  uint *puVar2;
+  uint uVar3;
   uint uVar4;
   uint uVar5;
   uint *puVar6;
   
-  puVar3 = DAT_1f800004;
+  puVar2 = DAT_1f800004;
   uVar4 = *center;
   uVar5 = *end;
   puVar6 = (uint *)(otz * 4 + DAT_1f800000);
   *DAT_1f800004 = *DAT_1f800004 & 0xff000000 | *puVar6 & 0xffffff;
   *puVar6 = *puVar6 & 0xff000000 | (uint)DAT_1f800004 & 0xffffff;
-  uVar2 = DAT_00001324;
+  uVar3 = gfrgb2;
   puVar1 = (undefined *)((int)DAT_1f800004 + 3);
   DAT_1f800004 = DAT_1f800004 + 5;
   *puVar1 = 4;
-  puVar3[3] = 0;
-  puVar3[1] = uVar2;
-  *(undefined *)((int)puVar3 + 7) = 0x52;
-  puVar3[2] = uVar4;
-  puVar3[4] = uVar5;
+  puVar2[3] = 0;
+  puVar2[1] = uVar3;
+  *(undefined *)((int)puVar2 + 7) = 0x52;
+  puVar2[2] = uVar4;
+  puVar2[4] = uVar5;
   return;
 }
 
@@ -1813,6 +2016,21 @@ void Flare_2DSpike__FPlT0i(long *center,long *end,int otz)
 	// End offset: 0x800CE324
 	// End Line: 1212
 
+	/* begin block 2 */
+		// Start line: 2521
+	/* end block 2 */
+	// End Line: 2522
+
+	/* begin block 3 */
+		// Start line: 2526
+	/* end block 3 */
+	// End Line: 2527
+
+	/* begin block 4 */
+		// Start line: 2526
+	/* end block 4 */
+	// End Line: 2527
+
 void Flare_2DHalo__Fiiiii(int x,int y,int scalex,int scaley,int type)
 
 {
@@ -1855,8 +2073,8 @@ void Flare_2DHalo__Fiiiii(int x,int y,int scalex,int scaley,int type)
   sVar7 = (short)x;
   sVar8 = (short)y;
   if (DAT_1f800004 < (uint *)(DAT_1f800008 - 0x1000U)) {
-    DAT_00001320 = (&Flare_gType)[type & 0xffU].chalo;
-    DAT_00001324 = (&Flare_gType)[type & 0xffU].cbeam;
+    gfrgb = Flare_gType[type & 0xffU].chalo;
+    gfrgb2 = Flare_gType[type & 0xffU].cbeam;
     *DAT_1f800004 = *DAT_1f800004 & 0xff000000 | *DAT_1f800000 & 0xffffff;
     uVar3 = (uint)DAT_1f800004 & 0xffffff;
     DAT_1f800004 = DAT_1f800004 + 3;
@@ -1959,6 +2177,21 @@ void Flare_2DHalo__Fiiiii(int x,int y,int scalex,int scaley,int type)
 	// End offset: 0x800CE418
 	// End Line: 1253
 
+	/* begin block 2 */
+		// Start line: 2796
+	/* end block 2 */
+	// End Line: 2797
+
+	/* begin block 3 */
+		// Start line: 2814
+	/* end block 3 */
+	// End Line: 2815
+
+	/* begin block 4 */
+		// Start line: 2814
+	/* end block 4 */
+	// End Line: 2815
+
 void Flare_PreCalcHexLightBeam__FPli(long *center,int otz)
 
 {
@@ -1982,10 +2215,11 @@ void Flare_PreCalcHexLightBeam__FPli(long *center,int otz)
     uVar2 = (uint)DAT_1f800004 & 0xffffff;
     DAT_1f800004 = DAT_1f800004 + 5;
     *puVar4 = *puVar4 & 0xff000000 | uVar2;
+    uVar2 = gfrgb2;
     copFunction(2,0x180001);
     *(undefined *)((int)puVar1 + 3) = 4;
     puVar1[3] = 0;
-    puVar1[1] = uGp00001324;
+    puVar1[1] = uVar2;
     *(undefined *)((int)puVar1 + 7) = 0x52;
     uVar2 = getCopReg(2,0xe);
     pSVar5 = pSVar5 + 1;
@@ -2010,6 +2244,26 @@ void Flare_PreCalcHexLightBeam__FPli(long *center,int otz)
 	/* end block 1 */
 	// End offset: 0x800CE420
 	// End Line: 1309
+
+	/* begin block 2 */
+		// Start line: 2921
+	/* end block 2 */
+	// End Line: 2922
+
+	/* begin block 3 */
+		// Start line: 2974
+	/* end block 3 */
+	// End Line: 2975
+
+	/* begin block 4 */
+		// Start line: 2974
+	/* end block 4 */
+	// End Line: 2975
+
+	/* begin block 5 */
+		// Start line: 2977
+	/* end block 5 */
+	// End Line: 2978
 
 void Flare_Quad__FPlP7CVECTORi(long *pt,CVECTOR *color,int otz)
 
@@ -2051,6 +2305,26 @@ void Flare_Quad__FPlP7CVECTORi(long *pt,CVECTOR *color,int otz)
 	// End offset: 0x800CE4C4
 	// End Line: 1323
 
+	/* begin block 2 */
+		// Start line: 2999
+	/* end block 2 */
+	// End Line: 3000
+
+	/* begin block 3 */
+		// Start line: 3003
+	/* end block 3 */
+	// End Line: 3004
+
+	/* begin block 4 */
+		// Start line: 3003
+	/* end block 4 */
+	// End Line: 3004
+
+	/* begin block 5 */
+		// Start line: 3006
+	/* end block 5 */
+	// End Line: 3007
+
 void Flare_QuadNotTransparent__FPlP7CVECTORi(long *pt,CVECTOR *color,int otz)
 
 {
@@ -2090,6 +2364,26 @@ void Flare_QuadNotTransparent__FPlP7CVECTORi(long *pt,CVECTOR *color,int otz)
 	/* end block 1 */
 	// End offset: 0x800CE568
 	// End Line: 1339
+
+	/* begin block 2 */
+		// Start line: 3034
+	/* end block 2 */
+	// End Line: 3035
+
+	/* begin block 3 */
+		// Start line: 3038
+	/* end block 3 */
+	// End Line: 3039
+
+	/* begin block 4 */
+		// Start line: 3038
+	/* end block 4 */
+	// End Line: 3039
+
+	/* begin block 5 */
+		// Start line: 3041
+	/* end block 5 */
+	// End Line: 3042
 
 void Flare_QuadRing__FPlP7CVECTORi(long *pt,CVECTOR *color,int otz)
 
@@ -2146,6 +2440,26 @@ void Flare_QuadRing__FPlP7CVECTORi(long *pt,CVECTOR *color,int otz)
 	// End offset: 0x800CE61C
 	// End Line: 1372
 
+	/* begin block 2 */
+		// Start line: 3101
+	/* end block 2 */
+	// End Line: 3102
+
+	/* begin block 3 */
+		// Start line: 3117
+	/* end block 3 */
+	// End Line: 3118
+
+	/* begin block 4 */
+		// Start line: 3117
+	/* end block 4 */
+	// End Line: 3118
+
+	/* begin block 5 */
+		// Start line: 3120
+	/* end block 5 */
+	// End Line: 3121
+
 void Flare_TextureQuad__FPlP7CVECTORci(long *pt,CVECTOR *color,char type,int otz)
 
 {
@@ -2171,7 +2485,7 @@ void Flare_TextureQuad__FPlP7CVECTORci(long *pt,CVECTOR *color,char type,int otz
   puVar1[4] = pt[1];
   puVar1[6] = pt[2];
   puVar1[8] = pt[3];
-  pDVar2 = (&__gFlarePixmap_3__)[(uint)(byte)type];
+  pDVar2 = (&gFlarePixmap3)[(uint)(byte)type];
   uVar4 = *(uint *)&pDVar2->u1;
   uVar5 = *(uint *)&pDVar2->u2;
   uVar7 = *(uint *)&pDVar2->u3;
@@ -2196,6 +2510,21 @@ void Flare_TextureQuad__FPlP7CVECTORci(long *pt,CVECTOR *color,char type,int otz
 	/* end block 1 */
 	// End offset: 0x800CE6F8
 	// End Line: 1387
+
+	/* begin block 2 */
+		// Start line: 3157
+	/* end block 2 */
+	// End Line: 3158
+
+	/* begin block 3 */
+		// Start line: 3161
+	/* end block 3 */
+	// End Line: 3162
+
+	/* begin block 4 */
+		// Start line: 3161
+	/* end block 4 */
+	// End Line: 3162
 
 void Flare_SingleColorTex__FP7DVECTORP7CVECTORiici
                (DVECTOR *xy,CVECTOR *color,int width,int height,int type,int otz)
@@ -2238,6 +2567,21 @@ void Flare_SingleColorTex__FP7DVECTORP7CVECTORiici
 	/* end block 1 */
 	// End offset: 0x800CE864
 	// End Line: 1427
+
+	/* begin block 2 */
+		// Start line: 3200
+	/* end block 2 */
+	// End Line: 3201
+
+	/* begin block 3 */
+		// Start line: 3204
+	/* end block 3 */
+	// End Line: 3205
+
+	/* begin block 4 */
+		// Start line: 3204
+	/* end block 4 */
+	// End Line: 3205
 
 void Flare_SingleColorHex__FP7DVECTORP7CVECTORiii
                (DVECTOR *xy,CVECTOR *color,int width,int height,int otz)
@@ -2297,6 +2641,21 @@ void Flare_SingleColorHex__FP7DVECTORP7CVECTORiii
 	// End offset: 0x800CE944
 	// End Line: 1455
 
+	/* begin block 2 */
+		// Start line: 3277
+	/* end block 2 */
+	// End Line: 3278
+
+	/* begin block 3 */
+		// Start line: 3293
+	/* end block 3 */
+	// End Line: 3294
+
+	/* begin block 4 */
+		// Start line: 3293
+	/* end block 4 */
+	// End Line: 3294
+
 void Flare_SingleColorOct__FP7DVECTORP7CVECTORiii
                (DVECTOR *xy,CVECTOR *color,int width,int height,int otz)
 
@@ -2354,6 +2713,21 @@ void Flare_SingleColorOct__FP7DVECTORP7CVECTORiii
 	/* end block 1 */
 	// End offset: 0x800CEAB0
 	// End Line: 1482
+
+	/* begin block 2 */
+		// Start line: 3334
+	/* end block 2 */
+	// End Line: 3335
+
+	/* begin block 3 */
+		// Start line: 3338
+	/* end block 3 */
+	// End Line: 3339
+
+	/* begin block 4 */
+		// Start line: 3338
+	/* end block 4 */
+	// End Line: 3339
 
 void Flare_SingleColorOctRing__FP7DVECTORP7CVECTORiii
                (DVECTOR *xy,CVECTOR *color,int width,int height,int otz)
@@ -2432,13 +2806,38 @@ void Flare_SingleColorOctRing__FP7DVECTORP7CVECTORiii
 	// End offset: 0x800CEB44
 	// End Line: 1570
 
+	/* begin block 2 */
+		// Start line: 3495
+	/* end block 2 */
+	// End Line: 3496
+
+	/* begin block 3 */
+		// Start line: 3575
+	/* end block 3 */
+	// End Line: 3576
+
+	/* begin block 4 */
+		// Start line: 3575
+	/* end block 4 */
+	// End Line: 3576
+
+	/* begin block 5 */
+		// Start line: 3576
+	/* end block 5 */
+	// End Line: 3577
+
+	/* begin block 6 */
+		// Start line: 3576
+	/* end block 6 */
+	// End Line: 3577
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Flare_InitLensFlare__Fv(void)
 
 {
   gFlare_LensFlare.size = 0x50;
-  gFlare_LensFlare.piece = &Flare_SunFlarePieces;
+  gFlare_LensFlare.piece = Flare_SunFlarePieces;
   gFlare_LensFlare.isDrawn[0] = '\0';
   gFlare_LensFlare.isDrawn[1] = '\0';
   return;
@@ -2538,6 +2937,21 @@ void Flare_InitLensFlare__Fv(void)
 	// End offset: 0x800CF1A0
 	// End Line: 1737
 
+	/* begin block 2 */
+		// Start line: 3588
+	/* end block 2 */
+	// End Line: 3589
+
+	/* begin block 3 */
+		// Start line: 3595
+	/* end block 3 */
+	// End Line: 3596
+
+	/* begin block 4 */
+		// Start line: 3595
+	/* end block 4 */
+	// End Line: 3596
+
 void Flare_LensFlare__FP7DVECTORP15Draw_FlareCache(DVECTOR *screenPos,Draw_FlareCache *sd)
 
 {
@@ -2619,7 +3033,7 @@ void Flare_LensFlare__FP7DVECTORP15Draw_FlareCache(DVECTOR *screenPos,Draw_Flare
       local_70 = 0;
       local_7c = 0;
       local_74 = 0;
-      DAT_00001324 = TrackSpec_gSpec.skyspec.sunBeamColor;
+      gfrgb2 = TrackSpec_gSpec.skyspec.sunBeamColor;
       gFlare_LensFlare.pos[0].vx = sVar1;
       gFlare_LensFlare.pos[0].vy = sVar2;
       local_78 = uVar14 << 6;
@@ -2812,6 +3226,21 @@ switchD_800cf0c0_caseD_5:
 	// End offset: 0x800CF4A8
 	// End Line: 1818
 
+	/* begin block 2 */
+		// Start line: 4209
+	/* end block 2 */
+	// End Line: 4210
+
+	/* begin block 3 */
+		// Start line: 4213
+	/* end block 3 */
+	// End Line: 4214
+
+	/* begin block 4 */
+		// Start line: 4213
+	/* end block 4 */
+	// End Line: 4214
+
 void Flare_Sun__FP7SVECTORP15Draw_FlareCache(SVECTOR *worldPos,Draw_FlareCache *sd)
 
 {
@@ -2918,6 +3347,21 @@ void Flare_Sun__FP7SVECTORP15Draw_FlareCache(SVECTOR *worldPos,Draw_FlareCache *
 	// End offset: 0x800CF564
 	// End Line: 1864
 
+	/* begin block 2 */
+		// Start line: 4402
+	/* end block 2 */
+	// End Line: 4403
+
+	/* begin block 3 */
+		// Start line: 4406
+	/* end block 3 */
+	// End Line: 4407
+
+	/* begin block 4 */
+		// Start line: 4406
+	/* end block 4 */
+	// End Line: 4407
+
 void Flare_Moon__FP7SVECTORP15Draw_FlareCache(SVECTOR *worldPos,Draw_FlareCache *sd)
 
 {
@@ -2950,6 +3394,7 @@ void Flare_Moon__FP7SVECTORP15Draw_FlareCache(SVECTOR *worldPos,Draw_FlareCache 
   }
   return;
 }
+
 
 
 

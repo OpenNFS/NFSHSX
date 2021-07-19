@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "DRAWW.H"
+
 
 // decompiled code
 // original method signature: 
@@ -58,6 +59,16 @@
 	/* end block 1 */
 	// End offset: 0x800C5028
 	// End Line: 236
+
+	/* begin block 2 */
+		// Start line: 470
+	/* end block 2 */
+	// End Line: 471
+
+	/* begin block 3 */
+		// Start line: 470
+	/* end block 3 */
+	// End Line: 471
 
 void DrawW_AddSubdividPrimGT4__FP8POLY_GT4P12Draw_SVertexN31P25Draw_tGiveShelbyMoreCache
                (POLY_GT4 *prim,Draw_SVertex *v0,Draw_SVertex *v1,Draw_SVertex *v2,Draw_SVertex *v3,
@@ -160,6 +171,21 @@ void DrawW_AddSubdividPrimGT4__FP8POLY_GT4P12Draw_SVertexN31P25Draw_tGiveShelbyM
 	// End offset: 0x800C50B4
 	// End Line: 317
 
+	/* begin block 2 */
+		// Start line: 598
+	/* end block 2 */
+	// End Line: 599
+
+	/* begin block 3 */
+		// Start line: 632
+	/* end block 3 */
+	// End Line: 633
+
+	/* begin block 4 */
+		// Start line: 632
+	/* end block 4 */
+	// End Line: 633
+
 void DrawW_AddSubdividPrimGT3__FP8POLY_GT3P12Draw_SVertexN21P25Draw_tGiveShelbyMoreCache
                (POLY_GT3 *prim,Draw_SVertex *v0,Draw_SVertex *v1,Draw_SVertex *v2,
                Draw_tGiveShelbyMoreCache *sd)
@@ -209,6 +235,26 @@ void DrawW_AddSubdividPrimGT3__FP8POLY_GT3P12Draw_SVertexN21P25Draw_tGiveShelbyM
 	// End offset: 0x800C5124
 	// End Line: 390
 
+	/* begin block 2 */
+		// Start line: 744
+	/* end block 2 */
+	// End Line: 745
+
+	/* begin block 3 */
+		// Start line: 774
+	/* end block 3 */
+	// End Line: 775
+
+	/* begin block 4 */
+		// Start line: 774
+	/* end block 4 */
+	// End Line: 775
+
+	/* begin block 5 */
+		// Start line: 776
+	/* end block 5 */
+	// End Line: 777
+
 void DrawW_DivVertice__FP12Draw_SVertexN20(Draw_SVertex *v0,Draw_SVertex *v1,Draw_SVertex *v2)
 
 {
@@ -240,6 +286,26 @@ void DrawW_DivVertice__FP12Draw_SVertexN20(Draw_SVertex *v0,Draw_SVertex *v1,Dra
 	/* end block 1 */
 	// End offset: 0x800C527C
 	// End Line: 419
+
+	/* begin block 2 */
+		// Start line: 800
+	/* end block 2 */
+	// End Line: 801
+
+	/* begin block 3 */
+		// Start line: 804
+	/* end block 3 */
+	// End Line: 805
+
+	/* begin block 4 */
+		// Start line: 804
+	/* end block 4 */
+	// End Line: 805
+
+	/* begin block 5 */
+		// Start line: 806
+	/* end block 5 */
+	// End Line: 807
 
 int DrawW_CalcSubdivision__FP25Draw_tGiveShelbyMoreCacheP12Draw_SVertexN31
               (Draw_tGiveShelbyMoreCache *sd,Draw_SVertex *v0,Draw_SVertex *v1,Draw_SVertex *v2,
@@ -396,6 +462,21 @@ int DrawW_CalcSubdivision__FP25Draw_tGiveShelbyMoreCacheP12Draw_SVertexN31
 	/* end block 1 */
 	// End offset: 0x800C5B84
 	// End Line: 588
+
+	/* begin block 2 */
+		// Start line: 848
+	/* end block 2 */
+	// End Line: 849
+
+	/* begin block 3 */
+		// Start line: 855
+	/* end block 3 */
+	// End Line: 856
+
+	/* begin block 4 */
+		// Start line: 855
+	/* end block 4 */
+	// End Line: 856
 
 void DrawW_SubdividFacet__FP25Draw_tGiveShelbyMoreCacheiP12Draw_SVertexN32ss
                (Draw_tGiveShelbyMoreCache *sd,int l,Draw_SVertex *v0,Draw_SVertex *v1,
@@ -653,6 +734,26 @@ LAB_800c598c:
 	// End offset: 0x800C5BB4
 	// End Line: 596
 
+	/* begin block 2 */
+		// Start line: 1247
+	/* end block 2 */
+	// End Line: 1248
+
+	/* begin block 3 */
+		// Start line: 1250
+	/* end block 3 */
+	// End Line: 1251
+
+	/* begin block 4 */
+		// Start line: 1250
+	/* end block 4 */
+	// End Line: 1251
+
+	/* begin block 5 */
+		// Start line: 1252
+	/* end block 5 */
+	// End Line: 1253
+
 void DrawW_LoadPrecVECTOR__FP12Draw_SVertexP6VECTOR(Draw_SVertex *v,VECTOR *dv)
 
 {
@@ -718,6 +819,21 @@ void DrawW_LoadPrecVECTOR__FP12Draw_SVertexP6VECTOR(Draw_SVertex *v,VECTOR *dv)
 	/* end block 1 */
 	// End offset: 0x800C5ECC
 	// End Line: 697
+
+	/* begin block 2 */
+		// Start line: 1282
+	/* end block 2 */
+	// End Line: 1283
+
+	/* begin block 3 */
+		// Start line: 1288
+	/* end block 3 */
+	// End Line: 1289
+
+	/* begin block 4 */
+		// Start line: 1288
+	/* end block 4 */
+	// End Line: 1289
 
 void DrawW_SetUpSubdividFacet__FiP25Draw_tGiveShelbyMoreCache
                (int face,Draw_tGiveShelbyMoreCache *sd)
@@ -891,6 +1007,26 @@ LAB_800c5ed0:
 	// End offset: 0x800C5FB0
 	// End Line: 745
 
+	/* begin block 2 */
+		// Start line: 1485
+	/* end block 2 */
+	// End Line: 1486
+
+	/* begin block 3 */
+		// Start line: 1500
+	/* end block 3 */
+	// End Line: 1501
+
+	/* begin block 4 */
+		// Start line: 1500
+	/* end block 4 */
+	// End Line: 1501
+
+	/* begin block 5 */
+		// Start line: 1503
+	/* end block 5 */
+	// End Line: 1504
+
 void Night_NightCopCalc__FP6VECTORPs(VECTOR *v,short *idx)
 
 {
@@ -903,7 +1039,7 @@ void Night_NightCopCalc__FP6VECTORPs(VECTOR *v,short *idx)
     if (bVar1) {
       iVar2 = -iVar2;
     }
-    *idx = (ushort)(&__Night_gCopColor)[(uint)bVar1]
+    *idx = (ushort)(&Night_gCopColor)[(uint)bVar1]
                    [((int)(uint)Night_gNightTbl[(iVar2 >> 5) * 0x40 + (v->vx + 0x400 >> 5)] >> 1) +
                     (int)*idx * 8];
   }
@@ -961,6 +1097,26 @@ void Night_NightCopCalc__FP6VECTORPs(VECTOR *v,short *idx)
 	// End offset: 0x800C6094
 	// End Line: 789
 
+	/* begin block 2 */
+		// Start line: 1600
+	/* end block 2 */
+	// End Line: 1601
+
+	/* begin block 3 */
+		// Start line: 1606
+	/* end block 3 */
+	// End Line: 1607
+
+	/* begin block 4 */
+		// Start line: 1606
+	/* end block 4 */
+	// End Line: 1607
+
+	/* begin block 5 */
+		// Start line: 1614
+	/* end block 5 */
+	// End Line: 1615
+
 void Night_NightCalc__FP6VECTORPsP25Draw_tGiveShelbyMoreCache
                (VECTOR *v,short *idx,Draw_tGiveShelbyMoreCache *sd)
 
@@ -975,13 +1131,13 @@ void Night_NightCalc__FP6VECTORPsP25Draw_tGiveShelbyMoreCache
   iVar4 = v->vz;
   iVar5 = (int)sd->night_ZNear;
   if (sd->night_DrawLightning != '\0') {
-    *idx = (ushort)(&__Night_gWeatherLightingTable)[(uint)sd->night_LightningType][(int)*idx];
+    *idx = (ushort)(&Night_gWeatherLightingTable)[(uint)sd->night_LightningType][(int)*idx];
   }
   if ((iVar5 < iVar4) && (iVar4 < iVar5 + (1 << ((uint)bVar1 + 6 & 0x1f)))) {
     iVar3 = v->vx;
     iVar2 = 1 << ((uint)sd->night_XDistShift + 5 & 0x1f);
     if ((-iVar2 < iVar3) && (iVar3 < iVar2)) {
-      *idx = (ushort)__Night_gCurrentNightColor_
+      *idx = (ushort)Night_gCurrentNightColor
                      [(uint)Night_gNightTbl
                             [(iVar4 - iVar5 >> ((uint)sd->night_ZDistShift & 0x1f)) * 0x40 +
                              (iVar3 + iVar2 >> ((uint)sd->night_XDistShift & 0x1f))] +
@@ -1072,6 +1228,21 @@ void Night_NightCalc__FP6VECTORPsP25Draw_tGiveShelbyMoreCache
 	/* end block 1 */
 	// End offset: 0x800C648C
 	// End Line: 894
+
+	/* begin block 2 */
+		// Start line: 1715
+	/* end block 2 */
+	// End Line: 1716
+
+	/* begin block 3 */
+		// Start line: 1729
+	/* end block 3 */
+	// End Line: 1730
+
+	/* begin block 4 */
+		// Start line: 1729
+	/* end block 4 */
+	// End Line: 1730
 
 void DrawW_NightColorCalc__FP25Draw_tGiveShelbyMoreCacheP8POLY_GT4P8CCOORD16N32
                (Draw_tGiveShelbyMoreCache *sd,POLY_GT4 *prim,CCOORD16 *vt0,CCOORD16 *vt1,
@@ -1477,6 +1648,21 @@ void DrawW_NightColorCalc__FP25Draw_tGiveShelbyMoreCacheP8POLY_GT4P8CCOORD16N32
 	// End offset: 0x800C6E10
 	// End Line: 1294
 
+	/* begin block 2 */
+		// Start line: 1957
+	/* end block 2 */
+	// End Line: 1958
+
+	/* begin block 3 */
+		// Start line: 1993
+	/* end block 3 */
+	// End Line: 1994
+
+	/* begin block 4 */
+		// Start line: 1993
+	/* end block 4 */
+	// End Line: 1994
+
 /* WARNING: Could not reconcile some variable overlaps */
 
 void DrawW_DrawQuad__FP25Draw_tGiveShelbyMoreCacheP8Trk_Quad
@@ -1737,7 +1923,7 @@ void DrawW_DrawQuad__FP25Draw_tGiveShelbyMoreCacheP8Trk_Quad
             iVar18 = 0xf;
           }
         }
-        prim->clut = (&gClutDepth)[(uint)pDVar24->pad2 * 0x10 + iVar18];
+        prim->clut = gClutDepth[(uint)pDVar24->pad2 * 0x10 + iVar18];
       }
       if (bVar8) {
         cVar4 = sd->zeroGTETransFlag;
@@ -1751,15 +1937,15 @@ void DrawW_DrawQuad__FP25Draw_tGiveShelbyMoreCacheP8Trk_Quad
           setCopControlWord(2,0x3000,(sd->identMat).t[1]);
           setCopControlWord(2,0x3800,(sd->identMat).t[2]);
         }
-        if (iGp000012d0 == 0) {
+        if (stackSpeedUpEnbabledFlag == 0) {
           DrawW_SetUpSubdividFacet__FiP25Draw_tGiveShelbyMoreCache(face,sd);
         }
         else {
-          uGp000012e4 = SetSp();
-          iGp000012d0 = 0;
+          gWSavePtr = SetSp();
+          stackSpeedUpEnbabledFlag = 0;
           DrawW_SetUpSubdividFacet__FiP25Draw_tGiveShelbyMoreCache(face,sd);
-          uGp000012e4 = SetSp();
-          iGp000012d0 = 1;
+          gWSavePtr = SetSp();
+          stackSpeedUpEnbabledFlag = 1;
         }
         setCopControlWord(2,0,*(undefined4 *)(sd->matB).m);
         setCopControlWord(2,0x800,*(undefined4 *)((sd->matB).m + 2));
@@ -1817,6 +2003,21 @@ void DrawW_DrawQuad__FP25Draw_tGiveShelbyMoreCacheP8Trk_Quad
 	/* end block 1 */
 	// End offset: 0x800C6E9C
 	// End Line: 1325
+
+	/* begin block 2 */
+		// Start line: 2822
+	/* end block 2 */
+	// End Line: 2823
+
+	/* begin block 3 */
+		// Start line: 2827
+	/* end block 3 */
+	// End Line: 2828
+
+	/* begin block 4 */
+		// Start line: 2827
+	/* end block 4 */
+	// End Line: 2828
 
 void DrawW_kCtrlWorld_High__FP25Draw_tGiveShelbyMoreCache(Draw_tGiveShelbyMoreCache *sd)
 
@@ -1894,6 +2095,21 @@ void DrawW_kCtrlWorld_High__FP25Draw_tGiveShelbyMoreCache(Draw_tGiveShelbyMoreCa
 	/* end block 1 */
 	// End offset: 0x800C6F80
 	// End Line: 1376
+
+	/* begin block 2 */
+		// Start line: 2887
+	/* end block 2 */
+	// End Line: 2888
+
+	/* begin block 3 */
+		// Start line: 2894
+	/* end block 3 */
+	// End Line: 2895
+
+	/* begin block 4 */
+		// Start line: 2894
+	/* end block 4 */
+	// End Line: 2895
 
 void DrawW_StripDraw_High__FP25Draw_tGiveShelbyMoreCache(Draw_tGiveShelbyMoreCache *sd)
 
@@ -2204,6 +2420,21 @@ void DrawW_StripDraw_High__FP25Draw_tGiveShelbyMoreCache(Draw_tGiveShelbyMoreCac
 	// End offset: 0x800C750C
 	// End Line: 1655
 
+	/* begin block 2 */
+		// Start line: 3021
+	/* end block 2 */
+	// End Line: 3022
+
+	/* begin block 3 */
+		// Start line: 3036
+	/* end block 3 */
+	// End Line: 3037
+
+	/* begin block 4 */
+		// Start line: 3036
+	/* end block 4 */
+	// End Line: 3037
+
 void DrawW_DoTrough__FP13DRender_tViewP11tBuildEntry(DRender_tView *Vi,tBuildEntry *buildList)
 
 {
@@ -2248,15 +2479,18 @@ void DrawW_DoTrough__FP13DRender_tViewP11tBuildEntry(DRender_tView *Vi,tBuildEnt
       pcVar5 = Chunk_chunkCenters + (uint)DAT_1f8000e4;
       if (gNight_renderNight != (uchar *)0x0) {
         DAT_1f800106 = 4;
-        iVar1 = pcVar5->x - (((&Camera_gInfo)[Vi->player].target)->position).x >> 10;
-        iVar2 = pcVar5->z - (((&Camera_gInfo)[Vi->player].target)->position).z >> 10;
+        iVar1 = pcVar5->x - ((&Camera_gInfo.target)[Vi->player * 0x44]->position).x >> 10;
+        iVar2 = pcVar5->z - ((&Camera_gInfo.target)[Vi->player * 0x44]->position).z >> 10;
         if (iVar1 * iVar1 + iVar2 * iVar2 < 0x47e0000) {
-          if ((((&__Cars_gList_9__)[Vi->player]->control).lights & 6U) != 0) {
+          if ((((&Cars_gList9)[Vi->player]->control).lights & 6U) != 0) {
             DAT_1f800106 = 5;
           }
-          local_50 = (Vi->cview).translation.x - (((&Camera_gInfo)[Vi->player].target)->position).x;
-          local_4c = (Vi->cview).translation.y - (((&Camera_gInfo)[Vi->player].target)->position).y;
-          local_48 = (Vi->cview).translation.z - (((&Camera_gInfo)[Vi->player].target)->position).z;
+          local_50 = (Vi->cview).translation.x -
+                     ((&Camera_gInfo.target)[Vi->player * 0x44]->position).x;
+          local_4c = (Vi->cview).translation.y -
+                     ((&Camera_gInfo.target)[Vi->player * 0x44]->position).y;
+          local_48 = (Vi->cview).translation.z -
+                     ((&Camera_gInfo.target)[Vi->player * 0x44]->position).z;
           transform(&local_50,(int *)&gNightMat,(int *)&cStack64);
           DrawW_WorldSetUpTranslation__FP8coorddefP6MATRIX(&cStack64,(MATRIX *)&DAT_1f800034);
         }
@@ -2398,6 +2632,26 @@ LAB_800c746c:
 	// End offset: 0x800C753C
 	// End Line: 1666
 
+	/* begin block 2 */
+		// Start line: 3819
+	/* end block 2 */
+	// End Line: 3820
+
+	/* begin block 3 */
+		// Start line: 3828
+	/* end block 3 */
+	// End Line: 3829
+
+	/* begin block 4 */
+		// Start line: 3828
+	/* end block 4 */
+	// End Line: 3829
+
+	/* begin block 5 */
+		// Start line: 3830
+	/* end block 5 */
+	// End Line: 3831
+
 void DrawW_WorldSetUpMatrix__FP10matrixtdefP6MATRIX(matrixtdef *m,MATRIX *mat)
 
 {
@@ -2444,6 +2698,31 @@ void DrawW_WorldSetUpMatrix__FP10matrixtdefP6MATRIX(matrixtdef *m,MATRIX *mat)
 	// End offset: 0x800C75D8
 	// End Line: 1676
 
+	/* begin block 2 */
+		// Start line: 3846
+	/* end block 2 */
+	// End Line: 3847
+
+	/* begin block 3 */
+		// Start line: 3850
+	/* end block 3 */
+	// End Line: 3851
+
+	/* begin block 4 */
+		// Start line: 3850
+	/* end block 4 */
+	// End Line: 3851
+
+	/* begin block 5 */
+		// Start line: 3851
+	/* end block 5 */
+	// End Line: 3852
+
+	/* begin block 6 */
+		// Start line: 3851
+	/* end block 6 */
+	// End Line: 3852
+
 void DrawW_WorldSetUpTranslation__FP8coorddefP6MATRIX(coorddef *t,MATRIX *mat)
 
 {
@@ -2482,6 +2761,31 @@ void DrawW_WorldSetUpTranslation__FP8coorddefP6MATRIX(coorddef *t,MATRIX *mat)
 	/* end block 1 */
 	// End offset: 0x800C763C
 	// End Line: 1701
+
+	/* begin block 2 */
+		// Start line: 3886
+	/* end block 2 */
+	// End Line: 3887
+
+	/* begin block 3 */
+		// Start line: 3900
+	/* end block 3 */
+	// End Line: 3901
+
+	/* begin block 4 */
+		// Start line: 3900
+	/* end block 4 */
+	// End Line: 3901
+
+	/* begin block 5 */
+		// Start line: 3901
+	/* end block 5 */
+	// End Line: 3902
+
+	/* begin block 6 */
+		// Start line: 3901
+	/* end block 6 */
+	// End Line: 3902
 
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
@@ -2532,6 +2836,31 @@ void DrawW_ResetAnimationTimer__Fv(void)
 	// End offset: 0x800C76C0
 	// End Line: 1717
 
+	/* begin block 2 */
+		// Start line: 3908
+	/* end block 2 */
+	// End Line: 3909
+
+	/* begin block 3 */
+		// Start line: 3912
+	/* end block 3 */
+	// End Line: 3913
+
+	/* begin block 4 */
+		// Start line: 3912
+	/* end block 4 */
+	// End Line: 3913
+
+	/* begin block 5 */
+		// Start line: 3913
+	/* end block 5 */
+	// End Line: 3914
+
+	/* begin block 6 */
+		// Start line: 3913
+	/* end block 6 */
+	// End Line: 3914
+
 int DrawW_GetAnimationTime__FP15Trk_AnimateInst(Trk_AnimateInst *animInst)
 
 {
@@ -2541,8 +2870,8 @@ int DrawW_GetAnimationTime__FP15Trk_AnimateInst(Trk_AnimateInst *animInst)
   if (((animInst->objectIndex != '\0') && (GameSetup_gData.track != 3)) &&
      (GameSetup_gData.track != 7)) {
     iVar2 = ((int)animInst->count + -2) * (int)animInst->interval;
-    iVar1 = (&animation_timer)[(uint)animInst->objectIndex - 1];
-    if (iVar2 <= (&animation_timer)[(uint)animInst->objectIndex - 1]) {
+    iVar1 = animation_timer[(uint)animInst->objectIndex - 1];
+    if (iVar2 <= animation_timer[(uint)animInst->objectIndex - 1]) {
       iVar1 = iVar2;
     }
     return iVar1;
@@ -2636,6 +2965,31 @@ int DrawW_GetAnimationTime__FP15Trk_AnimateInst(Trk_AnimateInst *animInst)
 	// End offset: 0x800C7800
 	// End Line: 1780
 
+	/* begin block 2 */
+		// Start line: 3948
+	/* end block 2 */
+	// End Line: 3949
+
+	/* begin block 3 */
+		// Start line: 3953
+	/* end block 3 */
+	// End Line: 3954
+
+	/* begin block 4 */
+		// Start line: 3953
+	/* end block 4 */
+	// End Line: 3954
+
+	/* begin block 5 */
+		// Start line: 3954
+	/* end block 5 */
+	// End Line: 3955
+
+	/* begin block 6 */
+		// Start line: 3954
+	/* end block 6 */
+	// End Line: 3955
+
 void DrawW_SetAnimationTime__FP15Trk_AnimateInstPii(Trk_AnimateInst *animInst,int *table,int time)
 
 {
@@ -2648,14 +3002,14 @@ void DrawW_SetAnimationTime__FP15Trk_AnimateInstPii(Trk_AnimateInst *animInst,in
   
   iVar1 = Cars_gNumHumanRaceCars;
   iVar3 = (uint)animInst->objectIndex - 1;
-  if ((&animation_timer)[iVar3] < 0xf01) {
-    piVar2 = &animation_timer + iVar3;
+  if (animation_timer[iVar3] < 0xf01) {
+    piVar2 = animation_timer + iVar3;
     iVar6 = 0;
     if (0 < *piVar2) {
       *piVar2 = *piVar2 + 1;
       return;
     }
-    ppCVar5 = &__Cars_gHumanRaceCarList_9__;
+    ppCVar5 = &Cars_gHumanRaceCarList9;
     while (iVar6 < iVar1) {
       iVar4 = (int)((*ppCVar5)->N).simRoadInfo.slice;
       if ((table[iVar3 * 2] <= iVar4) && (iVar4 <= (table + iVar3 * 2)[1])) {
@@ -2667,11 +3021,11 @@ void DrawW_SetAnimationTime__FP15Trk_AnimateInstPii(Trk_AnimateInst *animInst,in
   }
   else {
     iVar6 = 0;
-    ppCVar5 = &__Cars_gHumanRaceCarList_9__;
+    ppCVar5 = &Cars_gHumanRaceCarList9;
     while (iVar6 < iVar1) {
       iVar4 = (int)((*ppCVar5)->N).simRoadInfo.slice;
       if ((iVar4 < table[iVar3 * 2]) || ((table + iVar3 * 2)[1] < iVar4)) {
-        (&animation_timer)[iVar3] = 0;
+        animation_timer[iVar3] = 0;
       }
       ppCVar5 = ppCVar5 + 1;
       iVar6 = iVar6 + 1;
@@ -2714,6 +3068,31 @@ void DrawW_SetAnimationTime__FP15Trk_AnimateInstPii(Trk_AnimateInst *animInst,in
 	// End offset: 0x800C788C
 	// End Line: 1804
 
+	/* begin block 2 */
+		// Start line: 4074
+	/* end block 2 */
+	// End Line: 4075
+
+	/* begin block 3 */
+		// Start line: 4079
+	/* end block 3 */
+	// End Line: 4080
+
+	/* begin block 4 */
+		// Start line: 4079
+	/* end block 4 */
+	// End Line: 4080
+
+	/* begin block 5 */
+		// Start line: 4080
+	/* end block 5 */
+	// End Line: 4081
+
+	/* begin block 6 */
+		// Start line: 4080
+	/* end block 6 */
+	// End Line: 4081
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void DrawW_DoObjectAnimations__Fv(void)
@@ -2726,16 +3105,16 @@ void DrawW_DoObjectAnimations__Fv(void)
   
   time = simGlobal.gameTicks;
   if (GameSetup_gData.track == 0) {
-    table = &trk0;
+    table = trk0;
   }
   else {
     if (GameSetup_gData.track != 4) {
       return;
     }
-    table = &trk4;
+    table = trk4;
   }
   iVar2 = 0;
-  ppTVar1 = &__Anim_gInstanceFromIndex_32__;
+  ppTVar1 = &Anim_gInstanceFromIndex32;
   do {
     if ((*ppTVar1)->objectIndex != '\0') {
       DrawW_SetAnimationTime__FP15Trk_AnimateInstPii(*ppTVar1,table,time);
@@ -2858,6 +3237,21 @@ void DrawW_DoObjectAnimations__Fv(void)
 	// End offset: 0x800C7B6C
 	// End Line: 2049
 
+	/* begin block 2 */
+		// Start line: 4226
+	/* end block 2 */
+	// End Line: 4227
+
+	/* begin block 3 */
+		// Start line: 4330
+	/* end block 3 */
+	// End Line: 4331
+
+	/* begin block 4 */
+		// Start line: 4330
+	/* end block 4 */
+	// End Line: 4331
+
 int DrawW_BuildObjectFacets__FP13DRender_tViewP15ChunkObjectInfo
               (DRender_tView *Vi,ChunkObjectInfo *gObjInfo)
 
@@ -2903,7 +3297,7 @@ int DrawW_BuildObjectFacets__FP13DRender_tViewP15ChunkObjectInfo
       if ((local_34 == (short *)0x0) || ((((ushort)local_34[iVar3] >> 0xc ^ 1) & 1) == 0)) {
         offset = local_3c;
         if (local_3c == 0) {
-          offset = (int)(&goffsets)[(uint)animInst->zoffset];
+          offset = (int)goffsets[(uint)animInst->zoffset];
         }
         bVar1 = animInst->type;
         if (bVar1 == 1) {
@@ -3053,6 +3447,21 @@ int DrawW_BuildObjectFacets__FP13DRender_tViewP15ChunkObjectInfo
 	// End offset: 0x800C7E8C
 	// End Line: 2152
 
+	/* begin block 2 */
+		// Start line: 4659
+	/* end block 2 */
+	// End Line: 4660
+
+	/* begin block 3 */
+		// Start line: 4665
+	/* end block 3 */
+	// End Line: 4666
+
+	/* begin block 4 */
+		// Start line: 4665
+	/* end block 4 */
+	// End Line: 4666
+
 int DrawW_BuildCustomObjectFacets__FP13DRender_tViewP11Draw_DCacheP13Trk_SimObjectP5Groupi
               (DRender_tView *Vi,Draw_DCache *sd,Trk_SimObject *simObjs,Group *group,int zClipSq)
 
@@ -3065,10 +3474,11 @@ int DrawW_BuildCustomObjectFacets__FP13DRender_tViewP11Draw_DCacheP13Trk_SimObje
   void *pvVar6;
   uint uVar7;
   uint uVar8;
-  int iVar9;
+  int *piVar9;
   int iVar10;
-  Group *pGVar11;
-  int iVar12;
+  int iVar11;
+  Group *pGVar12;
+  int iVar13;
   Trk_ObjectDef *objDef;
   matrixtdef local_60;
   int local_38;
@@ -3076,7 +3486,7 @@ int DrawW_BuildCustomObjectFacets__FP13DRender_tViewP11Draw_DCacheP13Trk_SimObje
   int local_30;
   int local_2c;
   
-  pGVar11 = group + 1;
+  pGVar12 = group + 1;
   local_30 = 0;
   local_2c = group->m_num_elements;
   if (local_2c == 0) {
@@ -3089,64 +3499,64 @@ int DrawW_BuildCustomObjectFacets__FP13DRender_tViewP11Draw_DCacheP13Trk_SimObje
     setCopControlWord(2,0x2800,(sd->matB).t[0]);
     setCopControlWord(2,0x3000,(sd->matB).t[1]);
     setCopControlWord(2,0x3800,(sd->matB).t[2]);
-    iVar12 = 0;
-    while (iVar12 < local_2c) {
-      cVar2 = *(char *)((int)&pGVar11->m_num_elements + 2);
-      cVar1 = (&DAT_8013d828)[(uint)*(byte *)&pGVar11[1].m_num_elements];
+    iVar13 = 0;
+    while (iVar13 < local_2c) {
+      cVar2 = *(char *)((int)&pGVar12->m_num_elements + 2);
+      cVar1 = (&DAT_8013d828)[(uint)*(byte *)&pGVar12[1].m_num_elements];
       if ((cVar2 == '\x05') || (cVar2 == '\x02')) {
-        objDef = Track_gObjDefs[(int)*(short *)((int)&pGVar11[1].m_num_elements + 2)];
+        objDef = Track_gObjDefs[(int)*(short *)((int)&pGVar12[1].m_num_elements + 2)];
         if ((cVar2 == '\x02') ||
            (pOVar4 = Object_GetAnim__FP13Trk_SimObject
-                               (simObjs + (uint)*(byte *)((int)&pGVar11[8].m_num_elements + 2)),
+                               (simObjs + (uint)*(byte *)((int)&pGVar12[8].m_num_elements + 2)),
            pOVar4 == (ObjectAnim *)0x0)) {
-          iVar5 = xzsquaredist32__FP8coorddefT0((coorddef *)(pGVar11 + 2),(coorddef *)&Vi->cview);
+          iVar5 = xzsquaredist32__FP8coorddefT0((coorddef *)(pGVar12 + 2),(coorddef *)&Vi->cview);
           bVar3 = false;
           if ((zClipSq <= iVar5) ||
-             ((*(char *)((int)&pGVar11->m_num_elements + 2) == '\x02' &&
+             ((*(char *)((int)&pGVar12->m_num_elements + 2) == '\x02' &&
               (pvVar6 = ObjectClipped__FP13DRender_tViewiP8coorddefP25Draw_tGiveShelbyMoreCache
-                                  (Vi,(int)*(short *)((int)&pGVar11[1].m_num_elements + 2),
-                                   (coorddef *)(pGVar11 + 2),(Draw_tGiveShelbyMoreCache *)sd),
+                                  (Vi,(int)*(short *)((int)&pGVar12[1].m_num_elements + 2),
+                                   (coorddef *)(pGVar12 + 2),(Draw_tGiveShelbyMoreCache *)sd),
               pvVar6 != (void *)0x0)))) {
             bVar3 = true;
           }
           if (!bVar3) {
-            local_38 = pGVar11[5].m_num_elements;
-            local_34 = pGVar11[6].m_num_elements;
+            local_38 = pGVar12[5].m_num_elements;
+            local_34 = pGVar12[6].m_num_elements;
             Quatern_QuatToMat__FP5tQuatP10matrixtdef((tQuat *)&local_38,&local_60);
-            iVar5 = (int)*(short *)&pGVar11[7].m_num_elements << 8;
-            iVar9 = (int)*(short *)((int)&pGVar11[7].m_num_elements + 2) << 8;
-            iVar10 = (int)*(short *)&pGVar11[8].m_num_elements << 8;
+            iVar5 = (int)*(short *)&pGVar12[7].m_num_elements << 8;
+            iVar10 = (int)*(short *)((int)&pGVar12[7].m_num_elements + 2) << 8;
+            iVar11 = (int)*(short *)&pGVar12[8].m_num_elements << 8;
             uVar7 = fixedmult(local_60.m[0],iVar5);
             uVar8 = fixedmult(local_60.m[3],iVar5);
             local_60.m[6] = fixedmult(local_60.m[6],iVar5);
             local_60.m[0] = uVar7;
             local_60.m[3] = uVar8;
-            uVar7 = fixedmult(local_60.m[1],iVar9);
-            uVar8 = fixedmult(local_60.m[4],iVar9);
-            local_60.m[7] = fixedmult(local_60.m[7],iVar9);
+            uVar7 = fixedmult(local_60.m[1],iVar10);
+            uVar8 = fixedmult(local_60.m[4],iVar10);
+            local_60.m[7] = fixedmult(local_60.m[7],iVar10);
             local_60.m[1] = uVar7;
             local_60.m[4] = uVar8;
-            uVar7 = fixedmult(local_60.m[2],iVar10);
-            uVar8 = fixedmult(local_60.m[5],iVar10);
-            local_60.m[8] = fixedmult(local_60.m[8],iVar10);
+            uVar7 = fixedmult(local_60.m[2],iVar11);
+            uVar8 = fixedmult(local_60.m[5],iVar11);
+            local_60.m[8] = fixedmult(local_60.m[8],iVar11);
             local_60.m[2] = uVar7;
             local_60.m[5] = uVar8;
             iVar5 = 
                     DrawObjectTransform__FP13DRender_tViewP11Draw_DCacheP10matrixtdefP13Trk_ObjectDefP8coorddefis
-                              (Vi,sd,&local_60,objDef,(coorddef *)(pGVar11 + 2),(int)cVar1,-1);
+                              (Vi,sd,&local_60,objDef,(coorddef *)(pGVar12 + 2),(int)cVar1,-1);
             local_30 = local_30 + iVar5;
           }
         }
         else {
-          pOVar4 = Object_GetAnim__FP13Trk_SimObject
-                             (simObjs + (uint)*(byte *)((int)&pGVar11[8].m_num_elements + 2));
-          uVar7 = pOVar4->_vf[0].value;
-          (**(code **)(uVar7 + 0x14))
-                    ((int)&pOVar4->_vf[0].value + (int)*(short *)(uVar7 + 0x10),Vi,sd,(int)cVar1);
+          piVar9 = (int *)Object_GetAnim__FP13Trk_SimObject
+                                    (simObjs + (uint)*(byte *)((int)&pGVar12[8].m_num_elements + 2))
+          ;
+          (**(code **)(*piVar9 + 0x14))
+                    ((int)piVar9 + (int)*(short *)(*piVar9 + 0x10),Vi,sd,(int)cVar1);
         }
       }
-      pGVar11 = (Group *)((int)&pGVar11->m_num_elements + (int)*(short *)&pGVar11->m_num_elements);
-      iVar12 = iVar12 + 1;
+      pGVar12 = (Group *)((int)&pGVar12->m_num_elements + (int)*(short *)&pGVar12->m_num_elements);
+      iVar13 = iVar13 + 1;
     }
   }
   return local_30;
@@ -3168,6 +3578,21 @@ int DrawW_BuildCustomObjectFacets__FP13DRender_tViewP11Draw_DCacheP13Trk_SimObje
 	/* end block 1 */
 	// End offset: 0x800C8168
 	// End Line: 2223
+
+	/* begin block 2 */
+		// Start line: 4895
+	/* end block 2 */
+	// End Line: 4896
+
+	/* begin block 3 */
+		// Start line: 4900
+	/* end block 3 */
+	// End Line: 4901
+
+	/* begin block 4 */
+		// Start line: 4900
+	/* end block 4 */
+	// End Line: 4901
 
 int DrawObjectTransform__FP13DRender_tViewP11Draw_DCacheP10matrixtdefP13Trk_ObjectDefP8coorddefis
               (DRender_tView *Vi,Draw_DCache *sd,matrixtdef *matrix,Trk_ObjectDef *objDef,
@@ -3193,12 +3618,12 @@ int DrawObjectTransform__FP13DRender_tViewP11Draw_DCacheP10matrixtdefP13Trk_Obje
   *(Track_tMaterial **)sd[1].matB.m = pTVar2;
   if (puVar3 != (uchar *)0x0) {
     *(undefined *)((int)sd[1].matB.t + 2) = 4;
-    if ((((&__Cars_gList_9__)[Vi->player]->control).lights & 6U) != 0) {
+    if ((((&Cars_gList9)[Vi->player]->control).lights & 6U) != 0) {
       *(undefined *)((int)sd[1].matB.t + 2) = 5;
     }
-    local_48.x = pCp->x - (((&Camera_gInfo)[Vi->player].target)->position).x;
-    local_48.y = pCp->y - (((&Camera_gInfo)[Vi->player].target)->position).y;
-    local_48.z = pCp->z - (((&Camera_gInfo)[Vi->player].target)->position).z;
+    local_48.x = pCp->x - ((&Camera_gInfo.target)[Vi->player * 0x44]->position).x;
+    local_48.y = pCp->y - ((&Camera_gInfo.target)[Vi->player * 0x44]->position).y;
+    local_48.z = pCp->z - ((&Camera_gInfo.target)[Vi->player * 0x44]->position).z;
     transform((int *)&local_48,(int *)&gNightMat,(int *)&local_38);
     DrawW_WorldSetUpTranslation__FP8coorddefP6MATRIX(&local_38,&sd->matNight);
     if (BW_gCopCarObj != (Car_tObj *)0x0) {
@@ -3276,6 +3701,21 @@ int DrawObjectTransform__FP13DRender_tViewP11Draw_DCacheP10matrixtdefP13Trk_Obje
 	// End offset: 0x800C84C8
 	// End Line: 2330
 
+	/* begin block 2 */
+		// Start line: 5158
+	/* end block 2 */
+	// End Line: 5159
+
+	/* begin block 3 */
+		// Start line: 5178
+	/* end block 3 */
+	// End Line: 5179
+
+	/* begin block 4 */
+		// Start line: 5178
+	/* end block 4 */
+	// End Line: 5179
+
 int DrawObjectSimple__FP13DRender_tViewP11Draw_DCacheP13Trk_ObjectDefP8coorddefi
               (DRender_tView *Vi,Draw_DCache *sd,Trk_ObjectDef *objDef,coorddef *pCp,int offset)
 
@@ -3300,12 +3740,12 @@ int DrawObjectSimple__FP13DRender_tViewP11Draw_DCacheP13Trk_ObjectDefP8coorddefi
   *(Trk_ObjectDef **)&sd[1].head.mirror = objDef + (uint)bVar1 * 2 + 1;
   if (puVar3 != (uchar *)0x0) {
     *(undefined *)((int)sd[1].matB.t + 2) = 4;
-    if ((((&__Cars_gList_9__)[Vi->player]->control).lights & 6U) != 0) {
+    if ((((&Cars_gList9)[Vi->player]->control).lights & 6U) != 0) {
       *(undefined *)((int)sd[1].matB.t + 2) = 5;
     }
-    local_40 = (Vi->cview).translation.x - (((&Camera_gInfo)[Vi->player].target)->position).x;
-    local_3c = (Vi->cview).translation.y - (((&Camera_gInfo)[Vi->player].target)->position).y;
-    local_38 = (Vi->cview).translation.z - (((&Camera_gInfo)[Vi->player].target)->position).z;
+    local_40 = (Vi->cview).translation.x - ((&Camera_gInfo.target)[Vi->player * 0x44]->position).x;
+    local_3c = (Vi->cview).translation.y - ((&Camera_gInfo.target)[Vi->player * 0x44]->position).y;
+    local_38 = (Vi->cview).translation.z - ((&Camera_gInfo.target)[Vi->player * 0x44]->position).z;
     transform(&local_40,(int *)&gNightMat,(int *)&cStack48);
     DrawW_WorldSetUpTranslation__FP8coorddefP6MATRIX(&cStack48,&sd->matNight);
     if (BW_gCopCarObj != (Car_tObj *)0x0) {
@@ -3536,6 +3976,21 @@ int DrawObjectSimple__FP13DRender_tViewP11Draw_DCacheP13Trk_ObjectDefP8coorddefi
 	// End offset: 0x800C8BA0
 	// End Line: 2650
 
+	/* begin block 2 */
+		// Start line: 5392
+	/* end block 2 */
+	// End Line: 5393
+
+	/* begin block 3 */
+		// Start line: 5404
+	/* end block 3 */
+	// End Line: 5405
+
+	/* begin block 4 */
+		// Start line: 5404
+	/* end block 4 */
+	// End Line: 5405
+
 int DrawW_BuildChunkObjectFacets__FP13DRender_tViewP15ChunkObjectInfo
               (DRender_tView *Vi,ChunkObjectInfo *gObjInfo)
 
@@ -3545,13 +4000,14 @@ int DrawW_BuildChunkObjectFacets__FP13DRender_tViewP15ChunkObjectInfo
   uint uVar3;
   uint uVar4;
   ObjectAnim *pOVar5;
+  int *piVar6;
   int local_68;
-  short sVar6;
-  int iVar7;
+  short sVar7;
   int iVar8;
-  Group *pGVar9;
+  int iVar9;
+  Group *pGVar10;
   Trk_ObjectDef *objDef;
-  int iVar10;
+  int iVar11;
   int offset;
   matrixtdef local_60;
   Trk_SimObject *local_38;
@@ -3560,12 +4016,12 @@ int DrawW_BuildChunkObjectFacets__FP13DRender_tViewP15ChunkObjectInfo
   int local_2c;
   
   local_38 = gObjInfo->simObjs;
-  pGVar9 = gObjInfo->objInstanceBuf + 1;
+  pGVar10 = gObjInfo->objInstanceBuf + 1;
   local_30 = gObjInfo->objInstanceBuf->m_num_elements;
   local_34 = gObjInfo->doFrustumClip;
-  iVar10 = 0;
+  iVar11 = 0;
   if (local_30 == 0) {
-    iVar10 = 0;
+    iVar11 = 0;
   }
   else {
     DAT_1f800030 = 0;
@@ -3576,38 +4032,38 @@ int DrawW_BuildChunkObjectFacets__FP13DRender_tViewP15ChunkObjectInfo
     setCopControlWord(2,0x3800,0);
     local_2c = 0;
     while (local_2c < local_30) {
-      bVar1 = *(byte *)((int)&pGVar9->m_num_elements + 2);
-      offset = (int)(&goffsets)[(uint)*(byte *)&pGVar9[1].m_num_elements];
+      bVar1 = *(byte *)((int)&pGVar10->m_num_elements + 2);
+      offset = (int)goffsets[(uint)*(byte *)&pGVar10[1].m_num_elements];
       if (((bVar1 & 0x80) != 0) ||
          ((((bVar1 != 5 && (local_34 != 0)) &&
            (pvVar2 = ObjectClipped__FP13DRender_tViewiP8coorddefP25Draw_tGiveShelbyMoreCache
-                               (Vi,(int)*(short *)((int)&pGVar9[1].m_num_elements + 2),
-                                (coorddef *)(pGVar9 + 2),(Draw_tGiveShelbyMoreCache *)&DAT_1f800000)
-           , pvVar2 != (void *)0x0)) && (*(char *)((int)&pGVar9->m_num_elements + 2) != '\x02'))))
-      goto LAB_800c8b88;
+                               (Vi,(int)*(short *)((int)&pGVar10[1].m_num_elements + 2),
+                                (coorddef *)(pGVar10 + 2),(Draw_tGiveShelbyMoreCache *)&DAT_1f800000
+                               ), pvVar2 != (void *)0x0)) &&
+          (*(char *)((int)&pGVar10->m_num_elements + 2) != '\x02')))) goto LAB_800c8b88;
       DAT_1f800148 = 0x400;
-      sVar6 = -1;
-      if ((*(byte *)((int)&pGVar9[1].m_num_elements + 1) & 1) == 0) {
+      sVar7 = -1;
+      if ((*(byte *)((int)&pGVar10[1].m_num_elements + 1) & 1) == 0) {
         if (bVar1 == 2) {
-          Quatern_QuatToMat__FP5tQuatP10matrixtdef((tQuat *)(pGVar9 + 5),&local_60);
-          local_68 = (int)*(short *)&pGVar9[7].m_num_elements << 8;
-          iVar7 = (int)*(short *)((int)&pGVar9[7].m_num_elements + 2) << 8;
-          iVar8 = (int)*(short *)&pGVar9[8].m_num_elements << 8;
+          Quatern_QuatToMat__FP5tQuatP10matrixtdef((tQuat *)(pGVar10 + 5),&local_60);
+          local_68 = (int)*(short *)&pGVar10[7].m_num_elements << 8;
+          iVar8 = (int)*(short *)((int)&pGVar10[7].m_num_elements + 2) << 8;
+          iVar9 = (int)*(short *)&pGVar10[8].m_num_elements << 8;
           uVar3 = fixedmult(local_60.m[0],local_68);
           uVar4 = fixedmult(local_60.m[3],local_68);
           local_60.m[6] = fixedmult(local_60.m[6],local_68);
           local_60.m[0] = uVar3;
           local_60.m[3] = uVar4;
-          uVar3 = fixedmult(local_60.m[1],iVar7);
-          uVar4 = fixedmult(local_60.m[4],iVar7);
-          local_60.m[7] = fixedmult(local_60.m[7],iVar7);
+          uVar3 = fixedmult(local_60.m[1],iVar8);
+          uVar4 = fixedmult(local_60.m[4],iVar8);
+          local_60.m[7] = fixedmult(local_60.m[7],iVar8);
           local_60.m[1] = uVar3;
           local_60.m[4] = uVar4;
-          uVar3 = fixedmult(local_60.m[2],iVar8);
-          uVar4 = fixedmult(local_60.m[5],iVar8);
-          local_60.m[8] = fixedmult(local_60.m[8],iVar8);
-          objDef = Track_gObjDefs[(int)*(short *)((int)&pGVar9[1].m_num_elements + 2)];
-          local_68 = (int)*(short *)((int)&pGVar9[8].m_num_elements + 2);
+          uVar3 = fixedmult(local_60.m[2],iVar9);
+          uVar4 = fixedmult(local_60.m[5],iVar9);
+          local_60.m[8] = fixedmult(local_60.m[8],iVar9);
+          objDef = Track_gObjDefs[(int)*(short *)((int)&pGVar10[1].m_num_elements + 2)];
+          local_68 = (int)*(short *)((int)&pGVar10[8].m_num_elements + 2);
           local_60.m[2] = uVar3;
           local_60.m[5] = uVar4;
           goto LAB_800c8b34;
@@ -3616,67 +4072,66 @@ int DrawW_BuildChunkObjectFacets__FP13DRender_tViewP15ChunkObjectInfo
           if (bVar1 == 1) {
             offset = DrawObjectSimple__FP13DRender_tViewP11Draw_DCacheP13Trk_ObjectDefP8coorddefi
                                (Vi,(Draw_DCache *)&DAT_1f800000,
-                                Track_gObjDefs[(int)*(short *)((int)&pGVar9[1].m_num_elements + 2)],
-                                (coorddef *)(pGVar9 + 2),offset);
-            iVar10 = iVar10 + offset;
+                                Track_gObjDefs[(int)*(short *)((int)&pGVar10[1].m_num_elements + 2)]
+                                ,(coorddef *)(pGVar10 + 2),offset);
+            iVar11 = iVar11 + offset;
           }
         }
         else {
           if (bVar1 == 5) {
-            objDef = Track_gObjDefs[(int)*(short *)((int)&pGVar9[1].m_num_elements + 2)];
+            objDef = Track_gObjDefs[(int)*(short *)((int)&pGVar10[1].m_num_elements + 2)];
             pOVar5 = Object_GetAnim__FP13Trk_SimObject
-                               (local_38 + (uint)*(byte *)((int)&pGVar9[8].m_num_elements + 2));
+                               (local_38 + (uint)*(byte *)((int)&pGVar10[8].m_num_elements + 2));
             if (pOVar5 == (ObjectAnim *)0x0) {
-              Quatern_QuatToMat__FP5tQuatP10matrixtdef((tQuat *)(pGVar9 + 5),&local_60);
-              local_68 = (int)*(short *)&pGVar9[7].m_num_elements << 8;
-              iVar7 = (int)*(short *)((int)&pGVar9[7].m_num_elements + 2) << 8;
-              iVar8 = (int)*(short *)&pGVar9[8].m_num_elements << 8;
+              Quatern_QuatToMat__FP5tQuatP10matrixtdef((tQuat *)(pGVar10 + 5),&local_60);
+              local_68 = (int)*(short *)&pGVar10[7].m_num_elements << 8;
+              iVar8 = (int)*(short *)((int)&pGVar10[7].m_num_elements + 2) << 8;
+              iVar9 = (int)*(short *)&pGVar10[8].m_num_elements << 8;
               uVar3 = fixedmult(local_60.m[0],local_68);
               uVar4 = fixedmult(local_60.m[3],local_68);
               local_60.m[6] = fixedmult(local_60.m[6],local_68);
               local_60.m[0] = uVar3;
               local_60.m[3] = uVar4;
-              uVar3 = fixedmult(local_60.m[1],iVar7);
-              uVar4 = fixedmult(local_60.m[4],iVar7);
-              local_60.m[7] = fixedmult(local_60.m[7],iVar7);
+              uVar3 = fixedmult(local_60.m[1],iVar8);
+              uVar4 = fixedmult(local_60.m[4],iVar8);
+              local_60.m[7] = fixedmult(local_60.m[7],iVar8);
               local_60.m[1] = uVar3;
               local_60.m[4] = uVar4;
-              uVar3 = fixedmult(local_60.m[2],iVar8);
-              uVar4 = fixedmult(local_60.m[5],iVar8);
-              local_60.m[8] = fixedmult(local_60.m[8],iVar8);
+              uVar3 = fixedmult(local_60.m[2],iVar9);
+              uVar4 = fixedmult(local_60.m[5],iVar9);
+              local_60.m[8] = fixedmult(local_60.m[8],iVar9);
               local_68 = -1;
               local_60.m[2] = uVar3;
               local_60.m[5] = uVar4;
               goto LAB_800c8b34;
             }
-            pOVar5 = Object_GetAnim__FP13Trk_SimObject
-                               (local_38 + (uint)*(byte *)((int)&pGVar9[8].m_num_elements + 2));
-            uVar3 = pOVar5->_vf[0].value;
-            (**(code **)(uVar3 + 0x14))
-                      ((int)&pOVar5->_vf[0].value + (int)*(short *)(uVar3 + 0x10),Vi,0x1f800000,
-                       offset);
+            piVar6 = (int *)Object_GetAnim__FP13Trk_SimObject
+                                      (local_38 +
+                                       (uint)*(byte *)((int)&pGVar10[8].m_num_elements + 2));
+            (**(code **)(*piVar6 + 0x14))
+                      ((int)piVar6 + (int)*(short *)(*piVar6 + 0x10),Vi,0x1f800000,offset);
           }
           else {
             if (bVar1 == 9) {
-              xformy((int *)&local_60,(int)*(short *)&pGVar9[5].m_num_elements);
-              local_68 = (int)*(short *)&pGVar9[6].m_num_elements << 8;
-              iVar7 = (int)*(short *)((int)&pGVar9[5].m_num_elements + 2) << 8;
+              xformy((int *)&local_60,(int)*(short *)&pGVar10[5].m_num_elements);
+              local_68 = (int)*(short *)&pGVar10[6].m_num_elements << 8;
+              iVar8 = (int)*(short *)((int)&pGVar10[5].m_num_elements + 2) << 8;
               uVar3 = fixedmult(local_60.m[0],local_68);
               uVar4 = fixedmult(local_60.m[3],local_68);
               local_60.m[6] = fixedmult(local_60.m[6],local_68);
               local_60.m[0] = uVar3;
               local_60.m[3] = uVar4;
-              uVar3 = fixedmult(local_60.m[1],iVar7);
-              uVar4 = fixedmult(local_60.m[4],iVar7);
-              local_60.m[7] = fixedmult(local_60.m[7],iVar7);
+              uVar3 = fixedmult(local_60.m[1],iVar8);
+              uVar4 = fixedmult(local_60.m[4],iVar8);
+              local_60.m[7] = fixedmult(local_60.m[7],iVar8);
               local_60.m[1] = uVar3;
               local_60.m[4] = uVar4;
               uVar3 = fixedmult(local_60.m[2],local_68);
               uVar4 = fixedmult(local_60.m[5],local_68);
               local_60.m[8] = fixedmult(local_60.m[8],local_68);
               DAT_1f800148 = 0;
-              objDef = Track_gObjDefs[(int)*(short *)((int)&pGVar9[1].m_num_elements + 2)];
-              local_68 = (int)*(short *)((int)&pGVar9[6].m_num_elements + 2);
+              objDef = Track_gObjDefs[(int)*(short *)((int)&pGVar10[1].m_num_elements + 2)];
+              local_68 = (int)*(short *)((int)&pGVar10[6].m_num_elements + 2);
               local_60.m[2] = uVar3;
               local_60.m[5] = uVar4;
               goto LAB_800c8b34;
@@ -3685,45 +4140,45 @@ int DrawW_BuildChunkObjectFacets__FP13DRender_tViewP15ChunkObjectInfo
         }
       }
       else {
-        uVar3 = fixedatan(pGVar9[2].m_num_elements - (Vi->cview).translation.x,
-                          pGVar9[4].m_num_elements - (Vi->cview).translation.z);
+        uVar3 = fixedatan(pGVar10[2].m_num_elements - (Vi->cview).translation.x,
+                          pGVar10[4].m_num_elements - (Vi->cview).translation.z);
         fixedxformy((int *)&local_60,uVar3);
         if (bVar1 == 9) {
-          local_68 = (int)*(short *)&pGVar9[6].m_num_elements << 8;
-          iVar7 = (int)*(short *)((int)&pGVar9[5].m_num_elements + 2) << 8;
+          local_68 = (int)*(short *)&pGVar10[6].m_num_elements << 8;
+          iVar8 = (int)*(short *)((int)&pGVar10[5].m_num_elements + 2) << 8;
           uVar3 = fixedmult(local_60.m[0],local_68);
           uVar4 = fixedmult(local_60.m[3],local_68);
           local_60.m[6] = fixedmult(local_60.m[6],local_68);
           local_60.m[0] = uVar3;
           local_60.m[3] = uVar4;
-          uVar3 = fixedmult(local_60.m[1],iVar7);
-          uVar4 = fixedmult(local_60.m[4],iVar7);
-          local_60.m[7] = fixedmult(local_60.m[7],iVar7);
+          uVar3 = fixedmult(local_60.m[1],iVar8);
+          uVar4 = fixedmult(local_60.m[4],iVar8);
+          local_60.m[7] = fixedmult(local_60.m[7],iVar8);
           local_60.m[1] = uVar3;
           local_60.m[4] = uVar4;
           uVar3 = fixedmult(local_60.m[2],local_68);
           uVar4 = fixedmult(local_60.m[5],local_68);
           local_60.m[8] = fixedmult(local_60.m[8],local_68);
-          sVar6 = *(short *)((int)&pGVar9[6].m_num_elements + 2);
+          sVar7 = *(short *)((int)&pGVar10[6].m_num_elements + 2);
           DAT_1f800148 = 0;
           local_60.m[2] = uVar3;
           local_60.m[5] = uVar4;
         }
-        objDef = Track_gObjDefs[(int)*(short *)((int)&pGVar9[1].m_num_elements + 2)];
-        local_68 = (int)sVar6;
+        objDef = Track_gObjDefs[(int)*(short *)((int)&pGVar10[1].m_num_elements + 2)];
+        local_68 = (int)sVar7;
 LAB_800c8b34:
         offset = 
                  DrawObjectTransform__FP13DRender_tViewP11Draw_DCacheP10matrixtdefP13Trk_ObjectDefP8coorddefis
                            (Vi,(Draw_DCache *)&DAT_1f800000,&local_60,objDef,
-                            (coorddef *)(pGVar9 + 2),offset,local_68);
-        iVar10 = iVar10 + offset;
+                            (coorddef *)(pGVar10 + 2),offset,local_68);
+        iVar11 = iVar11 + offset;
       }
 LAB_800c8b88:
       local_2c = local_2c + 1;
-      pGVar9 = (Group *)((int)&pGVar9->m_num_elements + (int)*(short *)&pGVar9->m_num_elements);
+      pGVar10 = (Group *)((int)&pGVar10->m_num_elements + (int)*(short *)&pGVar10->m_num_elements);
     }
   }
-  return iVar10;
+  return iVar11;
 }
 
 
@@ -3759,6 +4214,21 @@ LAB_800c8b88:
 	/* end block 1 */
 	// End offset: 0x800C8CB4
 	// End Line: 2710
+
+	/* begin block 2 */
+		// Start line: 6145
+	/* end block 2 */
+	// End Line: 6146
+
+	/* begin block 3 */
+		// Start line: 6156
+	/* end block 3 */
+	// End Line: 6157
+
+	/* begin block 4 */
+		// Start line: 6156
+	/* end block 4 */
+	// End Line: 6157
 
 void * ObjectClipped__FP13DRender_tViewiP8coorddefP25Draw_tGiveShelbyMoreCache
                  (DRender_tView *Vi,int ind,coorddef *pCp,Draw_tGiveShelbyMoreCache *sd)
@@ -3881,6 +4351,21 @@ void * ObjectClipped__FP13DRender_tViewiP8coorddefP25Draw_tGiveShelbyMoreCache
 	// End offset: 0x800C900C
 	// End Line: 2865
 
+	/* begin block 2 */
+		// Start line: 6298
+	/* end block 2 */
+	// End Line: 6299
+
+	/* begin block 3 */
+		// Start line: 6306
+	/* end block 3 */
+	// End Line: 6307
+
+	/* begin block 4 */
+		// Start line: 6306
+	/* end block 4 */
+	// End Line: 6307
+
 void DrawW_DoObjects__FP13DRender_tViewP11tBuildEntry(DRender_tView *Vi,tBuildEntry *buildList)
 
 {
@@ -3894,7 +4379,7 @@ void DrawW_DoObjects__FP13DRender_tViewP11tBuildEntry(DRender_tView *Vi,tBuildEn
   iVar4 = 0;
   iVar5 = gCurrContext->currentChunk;
   DAT_1f8000fc = &gInitialArt;
-  DAT_000012f0 = Vi;
+  gVi = Vi;
   while (iVar4 < iVar1) {
     if ((buildList->enableBits & 2U) != 0) {
       pCVar3 = Track_chunkList + (int)buildList->chunkInd;
@@ -3904,12 +4389,11 @@ void DrawW_DoObjects__FP13DRender_tViewP11tBuildEntry(DRender_tView *Vi,tBuildEn
         gChunkObjInfo.objInstanceBuf = pCVar3->objInstanceBuf;
         gChunkObjInfo.doFrustumClip = ZEXT14(buildList->geomRez == '\x04');
         gChunkObjInfo.simObjs = (Trk_SimObject *)(pGVar2 + 1);
-        DAT_000012e4 = SetSp();
-        DAT_000012d0 = 1;
-        DrawW_BuildChunkObjectFacets__FP13DRender_tViewP15ChunkObjectInfo
-                  (DAT_000012f0,&gChunkObjInfo);
-        DAT_000012e4 = SetSp();
-        DAT_000012d0 = 0;
+        gWSavePtr = SetSp();
+        stackSpeedUpEnbabledFlag = 1;
+        DrawW_BuildChunkObjectFacets__FP13DRender_tViewP15ChunkObjectInfo(gVi,&gChunkObjInfo);
+        gWSavePtr = SetSp();
+        stackSpeedUpEnbabledFlag = 0;
       }
       if (((GameSetup_gData.Time == 0) && (GameSetup_gData.Weather == 0)) &&
          (pCVar3->objSpecialInstanceBuf != (Group *)0x0)) {
@@ -3921,7 +4405,7 @@ void DrawW_DoObjects__FP13DRender_tViewP11tBuildEntry(DRender_tView *Vi,tBuildEn
         gChunkObjInfo.offset = 0x32;
         gChunkObjInfo.doFrustumClip = 1;
         gChunkObjInfo.simObjs = (Trk_SimObject *)(pGVar2 + 1);
-        DrawW_BuildObjectFacets__FP13DRender_tViewP15ChunkObjectInfo(DAT_000012f0,&gChunkObjInfo);
+        DrawW_BuildObjectFacets__FP13DRender_tViewP15ChunkObjectInfo(gVi,&gChunkObjInfo);
       }
     }
     buildList = buildList + 1;
@@ -3940,11 +4424,11 @@ void DrawW_DoObjects__FP13DRender_tViewP11tBuildEntry(DRender_tView *Vi,tBuildEn
       gChunkObjInfo.doFrustumClip = 1;
       gChunkObjInfo.zClipSq = gCurrContext->polyFarZClipSq;
       gChunkObjInfo.visList = (short *)0x0;
-      DAT_000012e4 = SetSp();
-      DAT_000012d0 = 1;
-      DrawW_BuildObjectFacets__FP13DRender_tViewP15ChunkObjectInfo(DAT_000012f0,&gChunkObjInfo);
-      DAT_000012e4 = SetSp();
-      DAT_000012d0 = 0;
+      gWSavePtr = SetSp();
+      stackSpeedUpEnbabledFlag = 1;
+      DrawW_BuildObjectFacets__FP13DRender_tViewP15ChunkObjectInfo(gVi,&gChunkObjInfo);
+      gWSavePtr = SetSp();
+      stackSpeedUpEnbabledFlag = 0;
     }
   }
   if (gPersistMidgroundObjInst != (Group *)0x0) {
@@ -3953,12 +4437,12 @@ void DrawW_DoObjects__FP13DRender_tViewP11tBuildEntry(DRender_tView *Vi,tBuildEn
     gChunkObjInfo.zClipSq = -1;
     gChunkObjInfo.offset = -1;
     gChunkObjInfo.doFrustumClip = 1;
-    gChunkObjInfo.visList = __Track_gInViewList_ + iVar5 * 0x20;
-    DAT_000012e4 = SetSp();
-    DAT_000012d0 = 1;
-    DrawW_BuildObjectFacets__FP13DRender_tViewP15ChunkObjectInfo(DAT_000012f0,&gChunkObjInfo);
-    DAT_000012e4 = SetSp();
-    DAT_000012d0 = 0;
+    gChunkObjInfo.visList = Track_gInViewList + iVar5 * 0x20;
+    gWSavePtr = SetSp();
+    stackSpeedUpEnbabledFlag = 1;
+    DrawW_BuildObjectFacets__FP13DRender_tViewP15ChunkObjectInfo(gVi,&gChunkObjInfo);
+    gWSavePtr = SetSp();
+    stackSpeedUpEnbabledFlag = 0;
   }
   if ((Object_customObjInst != (Group *)0x0) && (0 < Object_customObjInst->m_num_elements)) {
     DrawW_BuildCustomObjectFacets__FP13DRender_tViewP11Draw_DCacheP13Trk_SimObjectP5Groupi
@@ -3992,6 +4476,31 @@ void DrawW_DoObjects__FP13DRender_tViewP11tBuildEntry(DRender_tView *Vi,tBuildEn
 	/* end block 1 */
 	// End offset: 0x800C9094
 	// End Line: 2895
+
+	/* begin block 2 */
+		// Start line: 6776
+	/* end block 2 */
+	// End Line: 6777
+
+	/* begin block 3 */
+		// Start line: 6800
+	/* end block 3 */
+	// End Line: 6801
+
+	/* begin block 4 */
+		// Start line: 6800
+	/* end block 4 */
+	// End Line: 6801
+
+	/* begin block 5 */
+		// Start line: 6801
+	/* end block 5 */
+	// End Line: 6802
+
+	/* begin block 6 */
+		// Start line: 6801
+	/* end block 6 */
+	// End Line: 6802
 
 int Draw_CircleClip__FP8coorddefT0i(coorddef *pt1,coorddef *pt2,int r)
 
@@ -4172,6 +4681,21 @@ int Draw_CircleClip__FP8coorddefT0i(coorddef *pt1,coorddef *pt2,int r)
 	// End offset: 0x800C95F0
 	// End Line: 3035
 
+	/* begin block 2 */
+		// Start line: 6820
+	/* end block 2 */
+	// End Line: 6821
+
+	/* begin block 3 */
+		// Start line: 6824
+	/* end block 3 */
+	// End Line: 6825
+
+	/* begin block 4 */
+		// Start line: 6824
+	/* end block 4 */
+	// End Line: 6825
+
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
 void Draw_kCtrlSkidmark__FP18Draw_tCtrlSkidmark(Draw_tCtrlSkidmark *fskid)
@@ -4279,7 +4803,7 @@ void Draw_kCtrlSkidmark__FP18Draw_tCtrlSkidmark(Draw_tCtrlSkidmark *fskid)
            ((((-DAT_1f800098 < DAT_1f8000a0 || (-DAT_1f8000a8 < DAT_1f8000b0)) ||
              (-DAT_1f8000b8 < DAT_1f8000c0)) || (-DAT_1f8000c8 < DAT_1f8000d0)))) {
           uVar10 = pcVar11[3].x;
-          pDVar9 = (&__gSkidMarkPixmap_2__)[uVar10 & 1];
+          pDVar9 = (&gSkidMarkPixmap2)[uVar10 & 1];
           uVar7 = getCopReg(2,0xc);
           puVar3[5] = uVar7;
           uVar7 = getCopReg(2,0xd);
@@ -4326,7 +4850,7 @@ void Draw_kCtrlSkidmark__FP18Draw_tCtrlSkidmark(Draw_tCtrlSkidmark *fskid)
                 iVar5 = 0xf;
               }
             }
-            *(short *)((int)puVar3 + 0xe) = (&gClutDepth)[(uint)pDVar9->pad2 * 0x10 + iVar5];
+            *(short *)((int)puVar3 + 0xe) = gClutDepth[(uint)pDVar9->pad2 * 0x10 + iVar5];
           }
           iVar5 = DAT_1f800000 + DAT_1f800094 * 4;
           uVar7 = iVar5 + 2;
@@ -4390,6 +4914,21 @@ void Draw_kCtrlSkidmark__FP18Draw_tCtrlSkidmark(Draw_tCtrlSkidmark *fskid)
 	/* end block 1 */
 	// End offset: 0x800C9874
 	// End Line: 3104
+
+	/* begin block 2 */
+		// Start line: 7237
+	/* end block 2 */
+	// End Line: 7238
+
+	/* begin block 3 */
+		// Start line: 7248
+	/* end block 3 */
+	// End Line: 7249
+
+	/* begin block 4 */
+		// Start line: 7248
+	/* end block 4 */
+	// End Line: 7249
 
 void DrawW_SetUpSubdividFacet_Line__FP25Draw_tGiveShelbyMoreCache(Draw_tGiveShelbyMoreCache *sd)
 
@@ -4670,6 +5209,21 @@ LAB_800c9878:
 	// End offset: 0x800CA074
 	// End Line: 3331
 
+	/* begin block 2 */
+		// Start line: 7382
+	/* end block 2 */
+	// End Line: 7383
+
+	/* begin block 3 */
+		// Start line: 7387
+	/* end block 3 */
+	// End Line: 7388
+
+	/* begin block 4 */
+		// Start line: 7387
+	/* end block 4 */
+	// End Line: 7388
+
 void DrawW_OnyxLinePrim__FP8CCOORD16P8Trk_LineiP25Draw_tGiveShelbyMoreCache
                (CCOORD16 *geomVertices,Trk_Line *lineQuad,int count,Draw_tGiveShelbyMoreCache *sd)
 
@@ -4709,7 +5263,7 @@ void DrawW_OnyxLinePrim__FP8CCOORD16P8Trk_LineiP25Draw_tGiveShelbyMoreCache
   pDVar14 = (Draw_tGiveShelbyMoreCache *)count;
   while (pCVar5 = geomVertices, iVar18 < count + -1) {
     while ((iVar18 < count + -1 && (lineQuad->type != -1))) {
-      pDVar17 = (&__gDLPixmap_10__)[(uint)lineQuad->type];
+      pDVar17 = gDLPixmap10[(uint)lineQuad->type];
       uVar11 = *(undefined4 *)(pCVar5 + 1);
       uVar13 = *(undefined4 *)&geomVertices[1].z;
       uVar12 = *(undefined4 *)geomVertices;
@@ -4901,7 +5455,7 @@ void DrawW_OnyxLinePrim__FP8CCOORD16P8Trk_LineiP25Draw_tGiveShelbyMoreCache
                   iVar6 = 0xf;
                 }
               }
-              pPVar16->clut = (&gClutDepth)[(uint)pDVar17->pad2 * 0x10 + iVar6];
+              pPVar16->clut = gClutDepth[(uint)pDVar17->pad2 * 0x10 + iVar6];
             }
             if (local_2c != 0) {
               setCopControlWord(2,0,*(undefined4 *)(sd->identMat).m);
@@ -4912,15 +5466,15 @@ void DrawW_OnyxLinePrim__FP8CCOORD16P8Trk_LineiP25Draw_tGiveShelbyMoreCache
               setCopControlWord(2,0x2800,(sd->identMat).t[0]);
               setCopControlWord(2,0x3000,(sd->identMat).t[1]);
               setCopControlWord(2,0x3800,(sd->identMat).t[2]);
-              if (DAT_000012d0 == 0) {
+              if (stackSpeedUpEnbabledFlag == 0) {
                 DrawW_SetUpSubdividFacet_Line__FP25Draw_tGiveShelbyMoreCache(sd);
               }
               else {
-                DAT_000012e4 = SetSp();
-                DAT_000012d0 = 0;
+                gWSavePtr = SetSp();
+                stackSpeedUpEnbabledFlag = 0;
                 DrawW_SetUpSubdividFacet_Line__FP25Draw_tGiveShelbyMoreCache(sd);
-                DAT_000012e4 = SetSp();
-                DAT_000012d0 = 1;
+                gWSavePtr = SetSp();
+                stackSpeedUpEnbabledFlag = 1;
               }
               setCopControlWord(2,0,*(undefined4 *)(sd->matB).m);
               setCopControlWord(2,0x800,*(undefined4 *)((sd->matB).m + 2));
@@ -5005,6 +5559,21 @@ void DrawW_OnyxLinePrim__FP8CCOORD16P8Trk_LineiP25Draw_tGiveShelbyMoreCache
 	/* end block 1 */
 	// End offset: 0x800CA1D0
 	// End Line: 3393
+
+	/* begin block 2 */
+		// Start line: 7917
+	/* end block 2 */
+	// End Line: 7918
+
+	/* begin block 3 */
+		// Start line: 7931
+	/* end block 3 */
+	// End Line: 7932
+
+	/* begin block 4 */
+		// Start line: 7931
+	/* end block 4 */
+	// End Line: 7932
 
 void DrawW_BuildChunkCenterLineFacets__FP5ChunkP5GroupP25Draw_tGiveShelbyMoreCacheP7COORD16
                (Chunk *chunkDat,Group *group,Draw_tGiveShelbyMoreCache *sd,COORD16 *trans)
@@ -5180,6 +5749,21 @@ void DrawW_BuildChunkCenterLineFacets__FP5ChunkP5GroupP25Draw_tGiveShelbyMoreCac
 	// End offset: 0x800CA4F0
 	// End Line: 3468
 
+	/* begin block 2 */
+		// Start line: 8088
+	/* end block 2 */
+	// End Line: 8089
+
+	/* begin block 3 */
+		// Start line: 8092
+	/* end block 3 */
+	// End Line: 8093
+
+	/* begin block 4 */
+		// Start line: 8092
+	/* end block 4 */
+	// End Line: 8093
+
 void DrawW_DoLines__FP13DRender_tViewP11tBuildEntryP11Draw_DCache
                (DRender_tView *Vi,tBuildEntry *buildList,Draw_DCache *sd)
 
@@ -5213,12 +5797,15 @@ void DrawW_DoLines__FP13DRender_tViewP11tBuildEntryP11Draw_DCache
         if (gNight_renderNight != (uchar *)0x0) {
           bVar1 = *(byte *)((int)sd[1].matB.t + 2);
           *(byte *)((int)sd[1].matB.t + 2) = bVar1 | 4;
-          if ((((&__Cars_gList_9__)[Vi->player]->control).lights & 6U) != 0) {
+          if ((((&Cars_gList9)[Vi->player]->control).lights & 6U) != 0) {
             *(byte *)((int)sd[1].matB.t + 2) = bVar1 | 5;
           }
-          local_50 = (Vi->cview).translation.x - (((&Camera_gInfo)[Vi->player].target)->position).x;
-          local_4c = (Vi->cview).translation.y - (((&Camera_gInfo)[Vi->player].target)->position).y;
-          local_48 = (Vi->cview).translation.z - (((&Camera_gInfo)[Vi->player].target)->position).z;
+          local_50 = (Vi->cview).translation.x -
+                     ((&Camera_gInfo.target)[Vi->player * 0x44]->position).x;
+          local_4c = (Vi->cview).translation.y -
+                     ((&Camera_gInfo.target)[Vi->player * 0x44]->position).y;
+          local_48 = (Vi->cview).translation.z -
+                     ((&Camera_gInfo.target)[Vi->player * 0x44]->position).z;
           transform(&local_50,(int *)&gNightMat,(int *)&cStack64);
           DrawW_WorldSetUpTranslation__FP8coorddefP6MATRIX(&cStack64,&sd->matNight);
           if (BW_gCopCarObj != (Car_tObj *)0x0) {
@@ -5288,6 +5875,26 @@ void DrawW_DoLines__FP13DRender_tViewP11tBuildEntryP11Draw_DCache
 	/* end block 1 */
 	// End offset: 0x800CA85C
 	// End Line: 3778
+
+	/* begin block 2 */
+		// Start line: 8523
+	/* end block 2 */
+	// End Line: 8524
+
+	/* begin block 3 */
+		// Start line: 8748
+	/* end block 3 */
+	// End Line: 8749
+
+	/* begin block 4 */
+		// Start line: 8748
+	/* end block 4 */
+	// End Line: 8749
+
+	/* begin block 5 */
+		// Start line: 8754
+	/* end block 5 */
+	// End Line: 8755
 
 void DrawW_BuildSpikeBelt__FP13DRender_tViewiP11Draw_DCache
                (DRender_tView *Vi,int scale,Draw_DCache *sd)
@@ -5466,6 +6073,21 @@ void DrawW_BuildSpikeBelt__FP13DRender_tViewiP11Draw_DCache
 	// End offset: 0x800CA950
 	// End Line: 3831
 
+	/* begin block 2 */
+		// Start line: 9175
+	/* end block 2 */
+	// End Line: 9176
+
+	/* begin block 3 */
+		// Start line: 9190
+	/* end block 3 */
+	// End Line: 9191
+
+	/* begin block 4 */
+		// Start line: 9190
+	/* end block 4 */
+	// End Line: 9191
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void DepthCue_Init__Fv(void)
@@ -5476,6 +6098,7 @@ void DepthCue_Init__Fv(void)
               (uint)TrackSpec_gSpec.depthcuespec.color.b);
   return;
 }
+
 
 
 

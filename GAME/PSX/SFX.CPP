@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "SFX.H"
+
 
 // decompiled code
 // original method signature: 
@@ -23,6 +24,16 @@
 	/* end block 1 */
 	// End offset: 0x800DD050
 	// End Line: 41
+
+	/* begin block 2 */
+		// Start line: 80
+	/* end block 2 */
+	// End Line: 81
+
+	/* begin block 3 */
+		// Start line: 80
+	/* end block 3 */
+	// End Line: 81
 
 /* WARNING: Could not reconcile some variable overlaps */
 
@@ -109,6 +120,21 @@ void Sfx_Transform__FP8coorddefP7SVECTORT0(coorddef *worldpt,SVECTOR *campt,coor
 	// End offset: 0x800DD2E0
 	// End Line: 114
 
+	/* begin block 2 */
+		// Start line: 196
+	/* end block 2 */
+	// End Line: 197
+
+	/* begin block 3 */
+		// Start line: 227
+	/* end block 3 */
+	// End Line: 228
+
+	/* begin block 4 */
+		// Start line: 227
+	/* end block 4 */
+	// End Line: 228
+
 void Sfx_BuildSmokeFacet__FP17Souffle_tISouffleP10sfxsouffleP12Draw_tPixMap
                (Souffle_tISouffle *is,sfxsouffle *dSouffle,Draw_tPixMap *cpixmap)
 
@@ -148,7 +174,7 @@ void Sfx_BuildSmokeFacet__FP17Souffle_tISouffleP10sfxsouffleP12Draw_tPixMap
   if (0xf < iVar9) {
     sVar10 = 0xf;
   }
-  pDVar5 = (&__gSMokePixmap_2__)[is->rndpixmap];
+  pDVar5 = (&gSMokePixmap2)[is->rndpixmap];
   uVar6 = *(undefined4 *)&pDVar5->u1;
   uVar7 = *(undefined4 *)&pDVar5->u2;
   uVar8 = *(undefined4 *)&pDVar5->u3;
@@ -184,6 +210,21 @@ void Sfx_BuildSmokeFacet__FP17Souffle_tISouffleP10sfxsouffleP12Draw_tPixMap
 	/* end block 1 */
 	// End offset: 0x800DD370
 	// End Line: 164
+
+	/* begin block 2 */
+		// Start line: 294
+	/* end block 2 */
+	// End Line: 295
+
+	/* begin block 3 */
+		// Start line: 343
+	/* end block 3 */
+	// End Line: 344
+
+	/* begin block 4 */
+		// Start line: 343
+	/* end block 4 */
+	// End Line: 344
 
 void Sfx_ThickenXZ__FP7SVECTORP8coorddefN21(SVECTOR *d,coorddef *pt1,coorddef *pt2,coorddef *cp)
 
@@ -230,6 +271,26 @@ void Sfx_ThickenXZ__FP7SVECTORP8coorddefN21(SVECTOR *d,coorddef *pt1,coorddef *p
 	/* end block 1 */
 	// End offset: 0x800DD544
 	// End Line: 295
+
+	/* begin block 2 */
+		// Start line: 504
+	/* end block 2 */
+	// End Line: 505
+
+	/* begin block 3 */
+		// Start line: 603
+	/* end block 3 */
+	// End Line: 604
+
+	/* begin block 4 */
+		// Start line: 603
+	/* end block 4 */
+	// End Line: 604
+
+	/* begin block 5 */
+		// Start line: 605
+	/* end block 5 */
+	// End Line: 606
 
 void Sfx_BuildFastDisolveFacet__FP17Souffle_tISouffleP10sfxsouffleP12Draw_tPixMapT2
                (Souffle_tISouffle *is,sfxsouffle *dSouffle,Draw_tPixMap *t,Draw_tPixMap *c)
@@ -291,6 +352,21 @@ void Sfx_BuildFastDisolveFacet__FP17Souffle_tISouffleP10sfxsouffleP12Draw_tPixMa
 	/* end block 1 */
 	// End offset: 0x800DD77C
 	// End Line: 363
+
+	/* begin block 2 */
+		// Start line: 624
+	/* end block 2 */
+	// End Line: 625
+
+	/* begin block 3 */
+		// Start line: 635
+	/* end block 3 */
+	// End Line: 636
+
+	/* begin block 4 */
+		// Start line: 635
+	/* end block 4 */
+	// End Line: 636
 
 void Sfx_AdditivePrim__FP12Draw_tPixMapP7SVECTORiiP10Sfx_tCache
                (Draw_tPixMap *pmx,SVECTOR *pt,int mode,int offset,Sfx_tCache *sd)
@@ -668,6 +744,21 @@ void Sfx_AdditivePrim__FP12Draw_tPixMapP7SVECTORiiP10Sfx_tCache
 	// End offset: 0x800DE61C
 	// End Line: 524
 
+	/* begin block 2 */
+		// Start line: 759
+	/* end block 2 */
+	// End Line: 760
+
+	/* begin block 3 */
+		// Start line: 763
+	/* end block 3 */
+	// End Line: 764
+
+	/* begin block 4 */
+		// Start line: 763
+	/* end block 4 */
+	// End Line: 764
+
 /* WARNING: Could not reconcile some variable overlaps */
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
@@ -788,7 +879,7 @@ void Sfx_BuildSouffleFacet__FP13DRender_tViewP17Souffle_tISouffle
       return;
     }
     mode = 2;
-    c = (&__gSparkHPixmap_6__)[6 - (uint)(byte)is->cycle];
+    c = gSparkHPixmap6[6 - (uint)(byte)is->cycle];
     local_c8 = *(undefined4 *)c;
     local_c4 = *(undefined4 *)&c->u1;
     local_c0 = *(undefined4 *)&c->u2;
@@ -831,7 +922,7 @@ void Sfx_BuildSouffleFacet__FP13DRender_tViewP17Souffle_tISouffle
     local_a4 = CONCAT22(local_a4._2_2_,(is->trans).vz);
     local_a0 = CONCAT22((is->trans).vy - sVar6,(is->trans).vx - sVar5);
     local_9c = CONCAT22(local_9c._2_2_,(is->trans).vz);
-    ppDVar7 = &__gGravelPixmap_2__;
+    ppDVar7 = &gGravelPixmap2;
     mode = is->rndpixmap << 2;
     c = gGrassPalette;
     break;
@@ -894,7 +985,7 @@ void Sfx_BuildSouffleFacet__FP13DRender_tViewP17Souffle_tISouffle
       return;
     }
     *(undefined *)((int)puVar9 + 3) = 9;
-    c = (&__gSparkHPixmap_6__)[6 - (uint)(byte)is->cycle];
+    c = gSparkHPixmap6[6 - (uint)(byte)is->cycle];
     uVar3 = *(uint *)&c->u1;
     uVar4 = *(uint *)&c->u2;
     uVar11 = *(uint *)&c->u3;
@@ -928,7 +1019,7 @@ void Sfx_BuildSouffleFacet__FP13DRender_tViewP17Souffle_tISouffle
     local_a4 = CONCAT22(local_a4._2_2_,(is->trans).vz);
     local_a0 = CONCAT22((is->trans).vy - sVar6,(is->trans).vx - sVar5);
     local_9c = CONCAT22(local_9c._2_2_,(is->trans).vz);
-    ppDVar7 = &__gGravelPixmap_2__;
+    ppDVar7 = &gGravelPixmap2;
     mode = is->rndpixmap << 2;
     c = gSnowPalette;
     break;
@@ -991,7 +1082,7 @@ void Sfx_BuildSouffleFacet__FP13DRender_tViewP17Souffle_tISouffle
       return;
     }
     *(undefined *)((int)puVar9 + 3) = 9;
-    c = (&__gSparkHPixmap_6__)[6 - (uint)(byte)is->cycle];
+    c = gSparkHPixmap6[6 - (uint)(byte)is->cycle];
     uVar3 = *(uint *)&c->u1;
     uVar4 = *(uint *)&c->u2;
     uVar11 = *(uint *)&c->u3;
@@ -1029,7 +1120,7 @@ void Sfx_BuildSouffleFacet__FP13DRender_tViewP17Souffle_tISouffle
 LAB_800de0e0:
     local_a0 = CONCAT22(sVar6,sVar5);
     local_9c = CONCAT22(local_9c._2_2_,(is->trans).vz);
-    ppDVar7 = &__gSMokePixmap_2__;
+    ppDVar7 = &gSMokePixmap2;
     mode = is->rndpixmap << 2;
     break;
   case '\r':
@@ -1127,6 +1218,21 @@ switchD_800dd7e0_caseD_5:
 	// End offset: 0x800DE6E4
 	// End Line: 578
 
+	/* begin block 2 */
+		// Start line: 1130
+	/* end block 2 */
+	// End Line: 1131
+
+	/* begin block 3 */
+		// Start line: 1139
+	/* end block 3 */
+	// End Line: 1140
+
+	/* begin block 4 */
+		// Start line: 1139
+	/* end block 4 */
+	// End Line: 1140
+
 void Sfx_Add__FP17Souffle_tISouffle(Souffle_tISouffle *is)
 
 {
@@ -1170,6 +1276,7 @@ LAB_800de688:
   }
   return;
 }
+
 
 
 

@@ -1,6 +1,7 @@
 #ifndef DRAW_H
 #define DRAW_H
 
+
 extern int Draw_SetView__Fiiiiiiiii(int x0, int y0, int x1, int y1, int w, int h, int dtd, int isbg, int otsize); // 0x800BDAC0
 
 extern void Draw_InitViews__Fv(); // 0x800BDBD4
@@ -33,7 +34,7 @@ extern void Draw_CheckFirstFrameRender__Fv(); // 0x800BE230
 
 extern void Draw_StartFrameRender__Fv(); // 0x800BE2C0
 
-extern void Draw_SetDrawSyncCallback__FPFv_v(void (*p)()); // 0x800BE360
+extern void Draw_SetDrawSyncCallback__FPFv_v(TDRFuncPtr_Draw_SetDrawSyncCallback__FPFv_v0p p); // 0x800BE360
 
 extern void Draw_StopFrameRender__Fv(); // 0x800BE36C
 
@@ -50,5 +51,11 @@ extern void Draw_RestartRenderEngine__Fv(); // 0x800BE67C
 extern void Draw_DeInitRenderEngine__Fv(); // 0x800BE684
 
 extern void Draw_InitLibRender__Fv(); // 0x800BE6A8
+
+
+typedef void (*TDRFuncPtr_Draw_SetDrawSyncCallback__FPFv_v0p)();
+
+
+
 
 #endif

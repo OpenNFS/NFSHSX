@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "TRSPROJ.H"
+
 
 // decompiled code
 // original method signature: 
@@ -12,10 +13,30 @@
 	// End offset: 0x800E192C
 	// End Line: 31
 
+	/* begin block 2 */
+		// Start line: 58
+	/* end block 2 */
+	// End Line: 59
+
+	/* begin block 3 */
+		// Start line: 58
+	/* end block 3 */
+	// End Line: 59
+
+	/* begin block 4 */
+		// Start line: 59
+	/* end block 4 */
+	// End Line: 60
+
+	/* begin block 5 */
+		// Start line: 59
+	/* end block 5 */
+	// End Line: 60
+
 void TrsProj_SetTransPrecision__Fi(int val)
 
 {
-  DAT_00001650 = val;
+  TrsProj_precision = val;
   return;
 }
 
@@ -32,12 +53,37 @@ void TrsProj_SetTransPrecision__Fi(int val)
 	// End offset: 0x800E1938
 	// End Line: 43
 
+	/* begin block 2 */
+		// Start line: 71
+	/* end block 2 */
+	// End Line: 72
+
+	/* begin block 3 */
+		// Start line: 82
+	/* end block 3 */
+	// End Line: 83
+
+	/* begin block 4 */
+		// Start line: 82
+	/* end block 4 */
+	// End Line: 83
+
+	/* begin block 5 */
+		// Start line: 83
+	/* end block 5 */
+	// End Line: 84
+
+	/* begin block 6 */
+		// Start line: 83
+	/* end block 6 */
+	// End Line: 84
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void TrsProj_ResetTransPrecision__Fv(void)
 
 {
-  DAT_00001650 = 10;
+  TrsProj_precision = 10;
   return;
 }
 
@@ -53,6 +99,21 @@ void TrsProj_ResetTransPrecision__Fv(void)
 	/* end block 1 */
 	// End offset: 0x800E1948
 	// End Line: 53
+
+	/* begin block 2 */
+		// Start line: 94
+	/* end block 2 */
+	// End Line: 95
+
+	/* begin block 3 */
+		// Start line: 104
+	/* end block 3 */
+	// End Line: 105
+
+	/* begin block 4 */
+		// Start line: 104
+	/* end block 4 */
+	// End Line: 105
 
 void TrsProj_SetProjection__Fiiii(int cx,int cy,int w,int h)
 
@@ -76,6 +137,26 @@ void TrsProj_SetProjection__Fiiii(int cx,int cy,int w,int h)
 	// End offset: 0x800E19C8
 	// End Line: 70
 
+	/* begin block 2 */
+		// Start line: 137
+	/* end block 2 */
+	// End Line: 138
+
+	/* begin block 3 */
+		// Start line: 141
+	/* end block 3 */
+	// End Line: 142
+
+	/* begin block 4 */
+		// Start line: 141
+	/* end block 4 */
+	// End Line: 142
+
+	/* begin block 5 */
+		// Start line: 143
+	/* end block 5 */
+	// End Line: 144
+
 void TrsProj_SetMenuProjection__Fiiii(int cx,int cy,int w,int h)
 
 {
@@ -97,6 +178,21 @@ void TrsProj_SetMenuProjection__Fiiii(int cx,int cy,int w,int h)
 	/* end block 1 */
 	// End offset: 0x800E1A4C
 	// End Line: 101
+
+	/* begin block 2 */
+		// Start line: 155
+	/* end block 2 */
+	// End Line: 156
+
+	/* begin block 3 */
+		// Start line: 159
+	/* end block 3 */
+	// End Line: 160
+
+	/* begin block 4 */
+		// Start line: 159
+	/* end block 4 */
+	// End Line: 160
 
 void TrsProj_SetViewTrsProjEnviro__FP13DRender_tView(DRender_tView *Vi)
 
@@ -161,6 +257,21 @@ void TrsProj_SetViewTrsProjEnviro__FP13DRender_tView(DRender_tView *Vi)
 	// End offset: 0x800E1B3C
 	// End Line: 152
 
+	/* begin block 2 */
+		// Start line: 244
+	/* end block 2 */
+	// End Line: 245
+
+	/* begin block 3 */
+		// Start line: 281
+	/* end block 3 */
+	// End Line: 282
+
+	/* begin block 4 */
+		// Start line: 281
+	/* end block 4 */
+	// End Line: 282
+
 void TrsProj_SetPsxMatrix__FP10matrixtdefP8coorddef(matrixtdef *m,coorddef *t)
 
 {
@@ -198,6 +309,26 @@ void TrsProj_SetPsxMatrix__FP10matrixtdefP8coorddef(matrixtdef *m,coorddef *t)
 	// End offset: 0x800E1B4C
 	// End Line: 158
 
+	/* begin block 2 */
+		// Start line: 317
+	/* end block 2 */
+	// End Line: 318
+
+	/* begin block 3 */
+		// Start line: 323
+	/* end block 3 */
+	// End Line: 324
+
+	/* begin block 4 */
+		// Start line: 323
+	/* end block 4 */
+	// End Line: 324
+
+	/* begin block 5 */
+		// Start line: 326
+	/* end block 5 */
+	// End Line: 327
+
 void TrsProj_SetPsxTrans__FP8coorddef(coorddef *t)
 
 {
@@ -221,6 +352,21 @@ void TrsProj_SetPsxTrans__FP8coorddef(coorddef *t)
 	/* end block 1 */
 	// End offset: 0x800E1B9C
 	// End Line: 169
+
+	/* begin block 2 */
+		// Start line: 344
+	/* end block 2 */
+	// End Line: 345
+
+	/* begin block 3 */
+		// Start line: 348
+	/* end block 3 */
+	// End Line: 349
+
+	/* begin block 4 */
+		// Start line: 348
+	/* end block 4 */
+	// End Line: 349
 
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
@@ -248,6 +394,26 @@ void TrsProj_SetPsxTransZero__Fv(void)
 	/* end block 1 */
 	// End offset: 0x800E1BCC
 	// End Line: 178
+
+	/* begin block 2 */
+		// Start line: 360
+	/* end block 2 */
+	// End Line: 361
+
+	/* begin block 3 */
+		// Start line: 366
+	/* end block 3 */
+	// End Line: 367
+
+	/* begin block 4 */
+		// Start line: 366
+	/* end block 4 */
+	// End Line: 367
+
+	/* begin block 5 */
+		// Start line: 370
+	/* end block 5 */
+	// End Line: 371
 
 void TrsProj_TransPt__FP8coorddefT0(coorddef *s,coorddef *d)
 
@@ -287,6 +453,21 @@ void TrsProj_TransPt__FP8coorddefT0(coorddef *s,coorddef *d)
 	/* end block 1 */
 	// End offset: 0x800E1CD8
 	// End Line: 244
+
+	/* begin block 2 */
+		// Start line: 432
+	/* end block 2 */
+	// End Line: 433
+
+	/* begin block 3 */
+		// Start line: 464
+	/* end block 3 */
+	// End Line: 465
+
+	/* begin block 4 */
+		// Start line: 464
+	/* end block 4 */
+	// End Line: 465
 
 void TrsProj_TransPtN16__FP10RelCoord16P8coorddefi(RelCoord16 *s,coorddef *d,int n)
 
@@ -341,6 +522,21 @@ void TrsProj_TransPtN16__FP10RelCoord16P8coorddefi(RelCoord16 *s,coorddef *d,int
 	// End offset: 0x800E1D94
 	// End Line: 265
 
+	/* begin block 2 */
+		// Start line: 519
+	/* end block 2 */
+	// End Line: 520
+
+	/* begin block 3 */
+		// Start line: 526
+	/* end block 3 */
+	// End Line: 527
+
+	/* begin block 4 */
+		// Start line: 526
+	/* end block 4 */
+	// End Line: 527
+
 void TrsProj_TransformProjectVertex__FP10matrixtdefP8coorddefiT1P12Draw_tVertex
                (matrixtdef *m,coorddef *t,int n,coorddef *s,Draw_tVertex *v)
 
@@ -370,6 +566,7 @@ void TrsProj_TransformProjectVertex__FP10matrixtdefP8coorddefiT1P12Draw_tVertex
   }
   return;
 }
+
 
 
 

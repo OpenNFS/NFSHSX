@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "HUD.H"
+
 
 // decompiled code
 // original method signature: 
@@ -21,6 +22,16 @@
 	// End offset: 0x800D1D1C
 	// End Line: 376
 
+	/* begin block 2 */
+		// Start line: 546
+	/* end block 2 */
+	// End Line: 547
+
+	/* begin block 3 */
+		// Start line: 546
+	/* end block 3 */
+	// End Line: 547
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Hud_CreateHudViews__Fv(void)
@@ -31,12 +42,12 @@ void Hud_CreateHudViews__Fv(void)
   
   Hud_InitTables__Fv();
   pGVar2 = &GameSetup_gData;
-  DAT_000013f0 = 0;
+  Hud_BeTheCop = (void *)0x0;
   iVar1 = 0;
   if (0 < GameSetup_gData.numCars) {
     do {
       if ((pGVar2->carInfo[0].carClass & 0x40U) != 0) {
-        DAT_000013f0 = 1;
+        Hud_BeTheCop = &DAT_00000001;
       }
       iVar1 = iVar1 + 1;
       pGVar2 = (GameSetup_tData *)((pGVar2->controllerData).shockImpact + 1);
@@ -44,35 +55,36 @@ void Hud_CreateHudViews__Fv(void)
   }
   if (GameSetup_gData.numPlayerRaceCars < 2) {
     if ((GameSetup_gData.numPlayerRaceCars + GameSetup_gData.numOpponentRaceCars == 1) ||
-       (DAT_000013f0 != 0)) {
-      DAT_00001420 = 8;
+       (Hud_BeTheCop != (void *)0x0)) {
+      HudMapOffsetY = 8;
     }
     else {
-      DAT_00001420 = 0;
+      HudMapOffsetY = 0;
     }
   }
   else {
-    DAT_00001420 = -6;
+    HudMapOffsetY = -6;
   }
   if (GameSetup_gData.commMode == 1) {
-    DAT_0000140c = Draw_SetView__Fiiiiiiiii
-                             (0x105,DAT_00001420 + 0x13e,0x245,DAT_00001420 + 0x13e,0x2d,0x30,0,0,1)
-    ;
-    DAT_00001410 = Draw_SetView__Fiiiiiiiii
-                             (0x105,DAT_00001420 + 0x1a9,0x245,DAT_00001420 + 0x1a9,0x2d,0x30,0,0,1)
-    ;
-    DAT_00001404 = Draw_SetView__Fiiiiiiiii(0,0x100,0x140,0x100,0x140,0x78,0,0,1);
-    DAT_00001408 = Draw_SetView__Fiiiiiiiii(0,0x178,0x140,0x178,0x140,0x78,0,0,1);
-    DAT_00001414 = Draw_SetView__Fiiiiiiiii(0x115,0x113,0x255,0x113,0x1c,0x1c,0,0,1);
-    DAT_00001418 = Draw_SetView__Fiiiiiiiii(0x115,0x17c,0x255,0x17c,0x1c,0x1c,0,0,1);
+    Hud_gMapView = Draw_SetView__Fiiiiiiiii
+                             (0x105,HudMapOffsetY + 0x13e,0x245,HudMapOffsetY + 0x13e,0x2d,0x30,0,0,
+                              1);
+    INT_8013d95c = Draw_SetView__Fiiiiiiiii
+                             (0x105,HudMapOffsetY + 0x1a9,0x245,HudMapOffsetY + 0x1a9,0x2d,0x30,0,0,
+                              1);
+    Hud_gHudView = Draw_SetView__Fiiiiiiiii(0,0x100,0x140,0x100,0x140,0x78,0,0,1);
+    INT_8013d954 = Draw_SetView__Fiiiiiiiii(0,0x178,0x140,0x178,0x140,0x78,0,0,1);
+    Hud_gTacView = Draw_SetView__Fiiiiiiiii(0x115,0x113,0x255,0x113,0x1c,0x1c,0,0,1);
+    INT_8013d964 = Draw_SetView__Fiiiiiiiii(0x115,0x17c,0x255,0x17c,0x1c,0x1c,0,0,1);
   }
   else {
-    DAT_0000140c = Draw_SetView__Fiiiiiiiii
-                             (0xff,DAT_00001420 + 0x1a4,0x23f,DAT_00001420 + 0x1a4,0x2d,0x30,0,0,1);
-    DAT_00001404 = Draw_SetView__Fiiiiiiiii(0,0x100,0x140,0x100,0x140,0xf0,0,0,1);
-    DAT_00001414 = Draw_SetView__Fiiiiiiiii(0xb8,0x115,0x1f8,0x115,0x1c,0x1c,0,0,1);
+    Hud_gMapView = Draw_SetView__Fiiiiiiiii
+                             (0xff,HudMapOffsetY + 0x1a4,0x23f,HudMapOffsetY + 0x1a4,0x2d,0x30,0,0,1
+                             );
+    Hud_gHudView = Draw_SetView__Fiiiiiiiii(0,0x100,0x140,0x100,0x140,0xf0,0,0,1);
+    Hud_gTacView = Draw_SetView__Fiiiiiiiii(0xb8,0x115,0x1f8,0x115,0x1c,0x1c,0,0,1);
   }
-  DAT_0000141c = Draw_SetView__Fiiiiiiiii(0,0x100,0x140,0x100,0x140,0xf0,0,0,1);
+  Hud_gStatsView = Draw_SetView__Fiiiiiiiii(0,0x100,0x140,0x100,0x140,0xf0,0,0,1);
   return;
 }
 
@@ -90,6 +102,21 @@ void Hud_CreateHudViews__Fv(void)
 	/* end block 1 */
 	// End offset: 0x800D1D6C
 	// End Line: 381
+
+	/* begin block 2 */
+		// Start line: 797
+	/* end block 2 */
+	// End Line: 798
+
+	/* begin block 3 */
+		// Start line: 802
+	/* end block 3 */
+	// End Line: 803
+
+	/* begin block 4 */
+		// Start line: 802
+	/* end block 4 */
+	// End Line: 803
 
 void Hud_GoTpage__Fi(int page)
 
@@ -125,6 +152,21 @@ void Hud_GoTpage__Fi(int page)
 	// End offset: 0x800D1DFC
 	// End Line: 480
 
+	/* begin block 2 */
+		// Start line: 906
+	/* end block 2 */
+	// End Line: 907
+
+	/* begin block 3 */
+		// Start line: 1002
+	/* end block 3 */
+	// End Line: 1003
+
+	/* begin block 4 */
+		// Start line: 1002
+	/* end block 4 */
+	// End Line: 1003
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Hud_DebugInfo__Fv(void)
@@ -134,7 +176,7 @@ void Hud_DebugInfo__Fv(void)
   int iVar2;
   char acStack40 [24];
   
-  sprintf(acStack40,s_SLC__d_8013d8c4,(int)(__Cars_gList_9__->N).simRoadInfo.slice);
+  sprintf(acStack40,s_SLC__d_8013d8c4,(int)(Cars_gList9->N).simRoadInfo.slice);
   Font_TextXY__FPcii(acStack40,0xe6,0x2d);
   iVar1 = textpixels(acStack40);
   Hud_FBuildF4__FiiiiiUlcc(1,0xe6,0x30,iVar1 + 5,10,(ulong)&DAT_00050505,0,0);
@@ -162,6 +204,26 @@ void Hud_DebugInfo__Fv(void)
 	// End offset: 0x800D1F90
 	// End Line: 537
 
+	/* begin block 2 */
+		// Start line: 1192
+	/* end block 2 */
+	// End Line: 1193
+
+	/* begin block 3 */
+		// Start line: 1197
+	/* end block 3 */
+	// End Line: 1198
+
+	/* begin block 4 */
+		// Start line: 1197
+	/* end block 4 */
+	// End Line: 1198
+
+	/* begin block 5 */
+		// Start line: 1212
+	/* end block 5 */
+	// End Line: 1213
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Hud_DebugCrap__Fv(void)
@@ -184,6 +246,21 @@ void Hud_DebugCrap__Fv(void)
 	/* end block 1 */
 	// End offset: 0x800D1F98
 	// End Line: 557
+
+	/* begin block 2 */
+		// Start line: 1232
+	/* end block 2 */
+	// End Line: 1233
+
+	/* begin block 3 */
+		// Start line: 1237
+	/* end block 3 */
+	// End Line: 1238
+
+	/* begin block 4 */
+		// Start line: 1237
+	/* end block 4 */
+	// End Line: 1238
 
 void Hud_BuildSprite__FP4SPRTiiiUli(SPRT *sprt,int shapeIdx,int x,int y,ulong color,int trans)
 
@@ -211,10 +288,36 @@ void Hud_BuildSprite__FP4SPRTiiiUli(SPRT *sprt,int shapeIdx,int x,int y,ulong co
 	// End offset: 0x800D2044
 	// End Line: 574
 
+	/* begin block 2 */
+		// Start line: 1271
+	/* end block 2 */
+	// End Line: 1272
+
+	/* begin block 3 */
+		// Start line: 1275
+	/* end block 3 */
+	// End Line: 1276
+
+	/* begin block 4 */
+		// Start line: 1275
+	/* end block 4 */
+	// End Line: 1276
+
+	/* begin block 5 */
+		// Start line: 1276
+	/* end block 5 */
+	// End Line: 1277
+
+	/* begin block 6 */
+		// Start line: 1276
+	/* end block 6 */
+	// End Line: 1277
+
 void Hud_BuildSprite2__FP4SPRTiii(SPRT *sprt,int shapeIdx,int x,int y)
 
 {
-  Hud_BuildSprite__FP4SPRTiiiUli(sprt,shapeIdx,x,y,uGp000018c8,(uint)bGp000018c4);
+  Hud_BuildSprite__FP4SPRTiiiUli
+            (sprt,shapeIdx,x,y,(ulong)currentSpriteColor,(uint)(byte)currentSpriteTransparent);
   return;
 }
 
@@ -232,6 +335,21 @@ void Hud_BuildSprite2__FP4SPRTiii(SPRT *sprt,int shapeIdx,int x,int y)
 	/* end block 1 */
 	// End offset: 0x800D2070
 	// End Line: 580
+
+	/* begin block 2 */
+		// Start line: 1283
+	/* end block 2 */
+	// End Line: 1284
+
+	/* begin block 3 */
+		// Start line: 1288
+	/* end block 3 */
+	// End Line: 1289
+
+	/* begin block 4 */
+		// Start line: 1288
+	/* end block 4 */
+	// End Line: 1289
 
 void Hud_FBuildSprite__FiiiUli(int shapeIdx,int x,int y,ulong color,int trans)
 
@@ -269,6 +387,21 @@ void Hud_FBuildSprite__FiiiUli(int shapeIdx,int x,int y,ulong color,int trans)
 	// End offset: 0x800D2104
 	// End Line: 587
 
+	/* begin block 2 */
+		// Start line: 1303
+	/* end block 2 */
+	// End Line: 1304
+
+	/* begin block 3 */
+		// Start line: 1307
+	/* end block 3 */
+	// End Line: 1308
+
+	/* begin block 4 */
+		// Start line: 1307
+	/* end block 4 */
+	// End Line: 1308
+
 void Hud_BuildSpriteFromFont__FP4SPRTcii(SPRT *sprt,char ch,int x,int y)
 
 {
@@ -281,7 +414,7 @@ void Hud_BuildSpriteFromFont__FP4SPRTcii(SPRT *sprt,char ch,int x,int y)
   Font_GetUVWH__FcPiN41(ch,(int *)local_28,(int *)local_24,(int *)local_20,(int *)local_1c,local_18)
   ;
   *(undefined *)((int)&sprt->tag + 3) = 4;
-  *(uint *)&sprt->r0 = uGp000018c8 | 0x66000000;
+  *(uint *)&sprt->r0 = (uint)currentSpriteColor | 0x66000000;
   *(int *)&sprt->x0 = (y + local_18[0]) * 0x10000 | x;
   sprt->u0 = local_28[0];
   sprt->v0 = local_24[0];
@@ -303,6 +436,21 @@ void Hud_BuildSpriteFromFont__FP4SPRTcii(SPRT *sprt,char ch,int x,int y)
 	/* end block 1 */
 	// End offset: 0x800D21C4
 	// End Line: 621
+
+	/* begin block 2 */
+		// Start line: 1363
+	/* end block 2 */
+	// End Line: 1364
+
+	/* begin block 3 */
+		// Start line: 1383
+	/* end block 3 */
+	// End Line: 1384
+
+	/* begin block 4 */
+		// Start line: 1383
+	/* end block 4 */
+	// End Line: 1384
 
 void Hud_BuildF3__FP7POLY_F3P13HudPmx_tShapeiiUl
                (POLY_F3 *prim,HudPmx_tShape *shape,int x,int y,ulong color)
@@ -334,6 +482,31 @@ void Hud_BuildF3__FP7POLY_F3P13HudPmx_tShapeiiUl
 	/* end block 1 */
 	// End offset: 0x800D2288
 	// End Line: 630
+
+	/* begin block 2 */
+		// Start line: 1397
+	/* end block 2 */
+	// End Line: 1398
+
+	/* begin block 3 */
+		// Start line: 1401
+	/* end block 3 */
+	// End Line: 1402
+
+	/* begin block 4 */
+		// Start line: 1401
+	/* end block 4 */
+	// End Line: 1402
+
+	/* begin block 5 */
+		// Start line: 1402
+	/* end block 5 */
+	// End Line: 1403
+
+	/* begin block 6 */
+		// Start line: 1402
+	/* end block 6 */
+	// End Line: 1403
 
 void Hud_BuildGT4__FP8POLY_GT4P13HudPmx_tShapeiiUl
                (POLY_GT4 *prim,HudPmx_tShape *shape,int x,int y,ulong color)
@@ -368,6 +541,21 @@ void Hud_BuildGT4__FP8POLY_GT4P13HudPmx_tShapeiiUl
 	// End offset: 0x800D2334
 	// End Line: 648
 
+	/* begin block 2 */
+		// Start line: 1445
+	/* end block 2 */
+	// End Line: 1446
+
+	/* begin block 3 */
+		// Start line: 1449
+	/* end block 3 */
+	// End Line: 1450
+
+	/* begin block 4 */
+		// Start line: 1449
+	/* end block 4 */
+	// End Line: 1450
+
 void Hud_BuildFT4__FP8POLY_FT4P13HudPmx_tShapeiiUli
                (POLY_FT4 *prim,HudPmx_tShape *shape,int x,int y,ulong color,int trans)
 
@@ -398,6 +586,21 @@ void Hud_BuildFT4__FP8POLY_FT4P13HudPmx_tShapeiiUli
 	/* end block 1 */
 	// End offset: 0x800D2424
 	// End Line: 663
+
+	/* begin block 2 */
+		// Start line: 1475
+	/* end block 2 */
+	// End Line: 1476
+
+	/* begin block 3 */
+		// Start line: 1479
+	/* end block 3 */
+	// End Line: 1480
+
+	/* begin block 4 */
+		// Start line: 1479
+	/* end block 4 */
+	// End Line: 1480
 
 void Hud_BuildMirrorFT4__FP8POLY_FT4P13HudPmx_tShapeiiUli
                (POLY_FT4 *prim,HudPmx_tShape *shape,int x,int y,ulong color,int trans)
@@ -434,6 +637,21 @@ void Hud_BuildMirrorFT4__FP8POLY_FT4P13HudPmx_tShapeiiUli
 	/* end block 1 */
 	// End offset: 0x800D2528
 	// End Line: 683
+
+	/* begin block 2 */
+		// Start line: 1515
+	/* end block 2 */
+	// End Line: 1516
+
+	/* begin block 3 */
+		// Start line: 1520
+	/* end block 3 */
+	// End Line: 1521
+
+	/* begin block 4 */
+		// Start line: 1520
+	/* end block 4 */
+	// End Line: 1521
 
 void Hud_BuildMapMirrorFT4__FP8POLY_FT4P13HudPmx_tShapeiiUli
                (POLY_FT4 *prim,HudPmx_tShape *shape,int x,int y,ulong color,int trans)
@@ -475,6 +693,21 @@ void Hud_BuildMapMirrorFT4__FP8POLY_FT4P13HudPmx_tShapeiiUli
 	// End offset: 0x800D2634
 	// End Line: 713
 
+	/* begin block 2 */
+		// Start line: 1587
+	/* end block 2 */
+	// End Line: 1588
+
+	/* begin block 3 */
+		// Start line: 1595
+	/* end block 3 */
+	// End Line: 1596
+
+	/* begin block 4 */
+		// Start line: 1595
+	/* end block 4 */
+	// End Line: 1596
+
 void Hud_BuildF4__FP7POLY_F4iiiiiUl(POLY_F4 *prim,int trans,int x,int y,int w,int h,ulong color)
 
 {
@@ -503,6 +736,21 @@ void Hud_BuildF4__FP7POLY_F4iiiiiUl(POLY_F4 *prim,int trans,int x,int y,int w,in
 	/* end block 1 */
 	// End offset: 0x800D26D8
 	// End Line: 729
+
+	/* begin block 2 */
+		// Start line: 1626
+	/* end block 2 */
+	// End Line: 1627
+
+	/* begin block 3 */
+		// Start line: 1630
+	/* end block 3 */
+	// End Line: 1631
+
+	/* begin block 4 */
+		// Start line: 1630
+	/* end block 4 */
+	// End Line: 1631
 
 void Hud_BuildG4__FP7POLY_G4iiiiiUlUlUlUl
                (POLY_G4 *prim,int trans,int x,int y,int w,int h,ulong col1,ulong col2,ulong col3,
@@ -538,6 +786,21 @@ void Hud_BuildG4__FP7POLY_G4iiiiiUlUlUlUl
 	// End offset: 0x800D2794
 	// End Line: 748
 
+	/* begin block 2 */
+		// Start line: 1667
+	/* end block 2 */
+	// End Line: 1668
+
+	/* begin block 3 */
+		// Start line: 1671
+	/* end block 3 */
+	// End Line: 1672
+
+	/* begin block 4 */
+		// Start line: 1671
+	/* end block 4 */
+	// End Line: 1672
+
 void Hud_BuildF4o__FP7POLY_F4iiiiiUlScSc
                (POLY_F4 *prim,int trans,int x,int y,int w,int h,ulong color,int x0off,int x1off)
 
@@ -569,6 +832,21 @@ void Hud_BuildF4o__FP7POLY_F4iiiiiUlScSc
 	/* end block 1 */
 	// End offset: 0x800D2868
 	// End Line: 763
+
+	/* begin block 2 */
+		// Start line: 1699
+	/* end block 2 */
+	// End Line: 1700
+
+	/* begin block 3 */
+		// Start line: 1704
+	/* end block 3 */
+	// End Line: 1705
+
+	/* begin block 4 */
+		// Start line: 1704
+	/* end block 4 */
+	// End Line: 1705
 
 void Hud_FBuildGT4__FP13HudPmx_tShapeiiUl(HudPmx_tShape *shape,int x,int y,ulong col1)
 
@@ -602,6 +880,21 @@ void Hud_FBuildGT4__FP13HudPmx_tShapeiiUl(HudPmx_tShape *shape,int x,int y,ulong
 	// End offset: 0x800D28F4
 	// End Line: 769
 
+	/* begin block 2 */
+		// Start line: 1716
+	/* end block 2 */
+	// End Line: 1717
+
+	/* begin block 3 */
+		// Start line: 1719
+	/* end block 3 */
+	// End Line: 1720
+
+	/* begin block 4 */
+		// Start line: 1719
+	/* end block 4 */
+	// End Line: 1720
+
 void Hud_FBuildFT4__FP13HudPmx_tShapeiiUl(HudPmx_tShape *shape,int x,int y,ulong col1)
 
 {
@@ -633,6 +926,21 @@ void Hud_FBuildFT4__FP13HudPmx_tShapeiiUl(HudPmx_tShape *shape,int x,int y,ulong
 	/* end block 1 */
 	// End offset: 0x800D2984
 	// End Line: 777
+
+	/* begin block 2 */
+		// Start line: 1733
+	/* end block 2 */
+	// End Line: 1734
+
+	/* begin block 3 */
+		// Start line: 1738
+	/* end block 3 */
+	// End Line: 1739
+
+	/* begin block 4 */
+		// Start line: 1738
+	/* end block 4 */
+	// End Line: 1739
 
 void Hud_FBuildF4__FiiiiiUlcc
                (int transparent,int x,int y,int w,int h,ulong col1,int x0off,int x1off)
@@ -669,6 +977,21 @@ void Hud_FBuildF4__FiiiiiUlcc
 	// End offset: 0x800D2A94
 	// End Line: 796
 
+	/* begin block 2 */
+		// Start line: 1576
+	/* end block 2 */
+	// End Line: 1577
+
+	/* begin block 3 */
+		// Start line: 1764
+	/* end block 3 */
+	// End Line: 1765
+
+	/* begin block 4 */
+		// Start line: 1764
+	/* end block 4 */
+	// End Line: 1765
+
 void uppercase__FPc(char *string)
 
 {
@@ -704,20 +1027,35 @@ void uppercase__FPc(char *string)
 	// End offset: 0x800D2AE4
 	// End Line: 809
 
+	/* begin block 2 */
+		// Start line: 1779
+	/* end block 2 */
+	// End Line: 1780
+
+	/* begin block 3 */
+		// Start line: 1784
+	/* end block 3 */
+	// End Line: 1785
+
+	/* begin block 4 */
+		// Start line: 1784
+	/* end block 4 */
+	// End Line: 1785
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Hud_Kill__Fv(void)
 
 {
   HudPmx_Kill__Fv();
-  if (DAT_000018bc != 0) {
-    purgememadr(DAT_000018bc);
+  if (gSprite0 != (uchar *)0x0) {
+    purgememadr((int)gSprite0);
   }
-  DAT_000018bc = 0;
-  if (DAT_000018c0 != 0) {
-    purgememadr(DAT_000018c0);
+  gSprite0 = (uchar *)0x0;
+  if (gSprite1 != (uchar *)0x0) {
+    purgememadr((int)gSprite1);
   }
-  DAT_000018c0 = 0;
+  gSprite1 = (uchar *)0x0;
   return;
 }
 
@@ -734,14 +1072,29 @@ void Hud_Kill__Fv(void)
 	// End offset: 0x800D2B3C
 	// End Line: 821
 
+	/* begin block 2 */
+		// Start line: 1806
+	/* end block 2 */
+	// End Line: 1807
+
+	/* begin block 3 */
+		// Start line: 1811
+	/* end block 3 */
+	// End Line: 1812
+
+	/* begin block 4 */
+		// Start line: 1811
+	/* end block 4 */
+	// End Line: 1812
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Hud_Init0__Fv(void)
 
 {
-  DAT_000018bc = reservememadr(&DAT_8013d8cc,0x80c,0);
+  gSprite0 = (uchar *)reservememadr(&DAT_8013d8cc,0x80c,0);
   if (GameSetup_gData.commMode == 1) {
-    DAT_000018c0 = reservememadr(&DAT_8013d8d4,0x80c,0);
+    gSprite1 = (uchar *)reservememadr(&DAT_8013d8d4,0x80c,0);
   }
   return;
 }
@@ -779,6 +1132,21 @@ void Hud_Init0__Fv(void)
 	// End offset: 0x800D2E3C
 	// End Line: 872
 
+	/* begin block 2 */
+		// Start line: 1835
+	/* end block 2 */
+	// End Line: 1836
+
+	/* begin block 3 */
+		// Start line: 1842
+	/* end block 3 */
+	// End Line: 1843
+
+	/* begin block 4 */
+		// Start line: 1842
+	/* end block 4 */
+	// End Line: 1843
+
 void Hud_InitMapFrame__Fii(int i,int mode)
 
 {
@@ -786,7 +1154,7 @@ void Hud_InitMapFrame__Fii(int i,int mode)
   int iVar2;
   int iVar3;
   int iVar4;
-  int iVar5;
+  uchar *puVar5;
   int x;
   POLY_FT4 *prim;
   int iVar6;
@@ -794,15 +1162,15 @@ void Hud_InitMapFrame__Fii(int i,int mode)
   int iVar8;
   POLY_F4 *local_38;
   
-  iVar5 = DAT_000018bc;
+  puVar5 = gSprite0;
   if (i != 0) {
-    iVar5 = DAT_000018c0;
+    puVar5 = gSprite1;
   }
-  local_38 = &gHudF4;
+  local_38 = gHudF4;
   if (i != 0) {
     local_38 = &POLY_F4_8013e4f8;
   }
-  prim = &gHudFT4;
+  prim = gHudFT4;
   if (i != 0) {
     prim = &POLY_FT4_8013e668;
   }
@@ -812,49 +1180,50 @@ void Hud_InitMapFrame__Fii(int i,int mode)
   }
   iVar6 = (int)HudPmx_tShape_80110db0.height;
   iVar7 = (int)HudPmx_tShape_80110db0.width;
-  iVar1 = (int)HudPmx_tShape_80110e28.height;
-  iVar2 = (int)HudPmx_tShape_80110e78.width;
-  x = (int)*(short *)(DAT_000018b8 + 0x38);
-  iVar8 = (int)HudPmx_tShape_80110e78.height;
-  iVar3 = (int)HudPmx_tShape_80110e28.width;
+  iVar1 = (int)HudPmx_tShape_ARRAY_80110e14[1].height;
+  iVar2 = (int)HudPmx_tShape_ARRAY_80110e14[5].width;
+  x = (int)*(short *)(g1Player + 0x38);
+  iVar8 = (int)HudPmx_tShape_ARRAY_80110e14[5].height;
+  iVar3 = (int)HudPmx_tShape_ARRAY_80110e14[1].width;
   if (mode == 1) {
     x = x + -0x1e;
   }
-  DAT_000018c8 = 0xff5721;
-  DAT_000018c4 = 0;
+  currentSpriteColor = (uchar *)0xff5721;
+  currentSpriteTransparent._0_1_ = 0;
   Hud_BuildSprite2__FP4SPRTiii
-            ((SPRT *)(iVar5 + 0x4ec),0xe,x,
-             (int)*(short *)(DAT_000018b8 + 0x3a) + DAT_00001420 + iVar4);
+            ((SPRT *)(puVar5 + 0x4ec),0xe,x,(int)*(short *)(g1Player + 0x3a) + HudMapOffsetY + iVar4
+            );
   Hud_BuildSprite2__FP4SPRTiii
-            ((SPRT *)(iVar5 + 0x500),0xf,(int)*(short *)(DAT_000018b8 + 0x38) + iVar7 + iVar3,
-             (int)*(short *)(DAT_000018b8 + 0x3a) + DAT_00001420 + iVar4);
+            ((SPRT *)(puVar5 + 0x500),0xf,(int)*(short *)(g1Player + 0x38) + iVar7 + iVar3,
+             (int)*(short *)(g1Player + 0x3a) + HudMapOffsetY + iVar4);
   Hud_BuildSprite2__FP4SPRTiii
-            ((SPRT *)(iVar5 + 0x514),0x10,x,
-             (int)*(short *)(DAT_000018b8 + 0x3a) + DAT_00001420 + iVar6 + iVar8 + iVar4);
+            ((SPRT *)(puVar5 + 0x514),0x10,x,
+             (int)*(short *)(g1Player + 0x3a) + HudMapOffsetY + iVar6 + iVar8 + iVar4);
   Hud_BuildSprite2__FP4SPRTiii
-            ((SPRT *)(iVar5 + 0x528),0x11,(int)*(short *)(DAT_000018b8 + 0x38) + iVar7 + iVar3,
-             (int)*(short *)(DAT_000018b8 + 0x3a) + DAT_00001420 + iVar6 + iVar8 + iVar4);
+            ((SPRT *)(puVar5 + 0x528),0x11,(int)*(short *)(g1Player + 0x38) + iVar7 + iVar3,
+             (int)*(short *)(g1Player + 0x3a) + HudMapOffsetY + iVar6 + iVar8 + iVar4);
   Hud_BuildSprite2__FP4SPRTiii
-            ((SPRT *)(iVar5 + 0x53c),mode + 0x14,x + iVar7,
-             (int)*(short *)(DAT_000018b8 + 0x3a) + DAT_00001420 + iVar4);
+            ((SPRT *)(puVar5 + 0x53c),mode + 0x14,x + iVar7,
+             (int)*(short *)(g1Player + 0x3a) + HudMapOffsetY + iVar4);
   Hud_BuildSprite2__FP4SPRTiii
-            ((SPRT *)(iVar5 + 0x550),mode + 0x14,x + iVar7,
-             (((int)*(short *)(DAT_000018b8 + 0x3a) + DAT_00001420 + iVar6 * 2 + iVar8) - iVar1) +
+            ((SPRT *)(puVar5 + 0x550),mode + 0x14,x + iVar7,
+             (((int)*(short *)(g1Player + 0x3a) + HudMapOffsetY + iVar6 * 2 + iVar8) - iVar1) +
              iVar4);
   Hud_BuildSprite2__FP4SPRTiii
-            ((SPRT *)(iVar5 + 0x564),0x18,x,
-             (int)*(short *)(DAT_000018b8 + 0x3a) + DAT_00001420 + iVar6 + iVar4);
+            ((SPRT *)(puVar5 + 0x564),0x18,x,
+             (int)*(short *)(g1Player + 0x3a) + HudMapOffsetY + iVar6 + iVar4);
   Hud_BuildSprite2__FP4SPRTiii
-            ((SPRT *)(iVar5 + 0x578),0x18,
-             ((int)*(short *)(DAT_000018b8 + 0x38) + iVar7 * 2 + iVar3) - iVar2,
-             (int)*(short *)(DAT_000018b8 + 0x3a) + DAT_00001420 + iVar6 + iVar4);
+            ((SPRT *)(puVar5 + 0x578),0x18,
+             ((int)*(short *)(g1Player + 0x38) + iVar7 * 2 + iVar3) - iVar2,
+             (int)*(short *)(g1Player + 0x3a) + HudMapOffsetY + iVar6 + iVar4);
   Hud_BuildF4__FP7POLY_F4iiiiiUl(local_38 + 4,1,0,0,0x2d,0x30,0);
   if (GameSetup_gData.mirrorTrack == 0) {
-    Hud_BuildFT4__FP8POLY_FT4P13HudPmx_tShapeiiUli(prim,&HudPmx_tShape_801115f8,0,0,0x808080,1);
+    Hud_BuildFT4__FP8POLY_FT4P13HudPmx_tShapeiiUli(prim,HudPmx_tShape_ARRAY_801115f8,0,0,0x808080,1)
+    ;
   }
   else {
     Hud_BuildMapMirrorFT4__FP8POLY_FT4P13HudPmx_tShapeiiUli
-              (prim,&HudPmx_tShape_801115f8,0,0,0x808080,1);
+              (prim,HudPmx_tShape_ARRAY_801115f8,0,0,0x808080,1);
   }
   Hud_BuildFT4__FP8POLY_FT4P13HudPmx_tShapeiiUli(prim + 1,&HudPmx_tShape_80111558,0,0,0x808080,1);
   Hud_BuildMirrorFT4__FP8POLY_FT4P13HudPmx_tShapeiiUli
@@ -884,6 +1253,21 @@ void Hud_InitMapFrame__Fii(int i,int mode)
 	/* end block 1 */
 	// End offset: 0x800D2FFC
 	// End Line: 924
+
+	/* begin block 2 */
+		// Start line: 1960
+	/* end block 2 */
+	// End Line: 1961
+
+	/* begin block 3 */
+		// Start line: 1969
+	/* end block 3 */
+	// End Line: 1970
+
+	/* begin block 4 */
+		// Start line: 1969
+	/* end block 4 */
+	// End Line: 1970
 
 void Hud_BuildTimeSprites__FP4SPRTPcii(SPRT *sprt,char *str,int x,int y)
 
@@ -979,6 +1363,21 @@ void Hud_BuildTimeSprites__FP4SPRTPcii(SPRT *sprt,char *str,int x,int y)
 	// End offset: 0x800D39B8
 	// End Line: 1154
 
+	/* begin block 2 */
+		// Start line: 2069
+	/* end block 2 */
+	// End Line: 2070
+
+	/* begin block 3 */
+		// Start line: 2076
+	/* end block 3 */
+	// End Line: 2077
+
+	/* begin block 4 */
+		// Start line: 2076
+	/* end block 4 */
+	// End Line: 2077
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Hud_Init__Fv(void)
@@ -986,7 +1385,7 @@ void Hud_Init__Fv(void)
 {
   short sVar1;
   short sVar2;
-  short *psVar3;
+  uchar *puVar3;
   uint uVar4;
   uchar **ppuVar5;
   uchar **ppuVar6;
@@ -1025,16 +1424,16 @@ void Hud_Init__Fv(void)
   y_01 = 0;
   local_30 = 0;
   local_2c = &GameSetup_gData;
-  while (sprt = DAT_000018bc, y_01 <= DashHUD_gInfo.splitscreen) {
-    sprt = DAT_000018bc;
+  while (puVar3 = gSprite0, y_01 <= DashHUD_gInfo.splitscreen) {
+    sprt = (SPRT *)gSprite0;
     if (y_01 != 0) {
-      sprt = DAT_000018c0;
+      sprt = (SPRT *)gSprite1;
     }
-    local_3c = &gHudF4;
+    local_3c = gHudF4;
     if (y_01 != 0) {
       local_3c = &POLY_F4_8013e4f8;
     }
-    prim = &gHudG4;
+    prim = gHudG4;
     if (y_01 != 0) {
       prim = &POLY_G4_8013e7c0;
     }
@@ -1047,23 +1446,24 @@ void Hud_Init__Fv(void)
       shapeIdx = shapeIdx + 0x10;
     }
     Hud_BuildSprite__FP4SPRTiiiUli
-              (sprt,0x68,(int)*DAT_000018b8,((int)DAT_000018b8[1] + x) - shapeIdx,
+              (sprt,0x68,(int)*(short *)g1Player,((int)*(short *)(g1Player + 2) + x) - shapeIdx,
                (ulong)&DAT_0000bebe,0);
-    DAT_000018c8 = 0x808080;
-    Hud_BuildSprite2__FP4SPRTiii(sprt + 1,0x80,(int)DAT_000018b8[2],(int)DAT_000018b8[3] + x);
+    currentSpriteColor = (uchar *)0x808080;
+    Hud_BuildSprite2__FP4SPRTiii
+              (sprt + 1,0x80,(int)*(short *)(g1Player + 4),(int)*(short *)(g1Player + 6) + x);
     shapeIdx = 0x81;
     if (y_01 != 0) {
       shapeIdx = 0x83;
     }
     Hud_BuildSprite2__FP4SPRTiii(sprt + 2,shapeIdx,0,0);
     *(undefined4 *)&sprt[2].w = 0x1c001c;
-    shapeIdx = (int)HudPmx_tShape_801114f4.width;
+    shapeIdx = (int)HudPmx_tShape_ARRAY_801114a4[4].width;
     w = 0x46;
-    if (DAT_000013f0 != 0) {
+    if (Hud_BeTheCop != (void *)0x0) {
       w = 0x2e;
     }
-    sVar1 = DAT_000018b8[4];
-    y = (int)DAT_000018b8[5] + x;
+    sVar1 = *(short *)(g1Player + 8);
+    y = (int)*(short *)(g1Player + 10) + x;
     Hud_BuildSprite2__FP4SPRTiii(sprt + 4,0x69,(int)sVar1,y);
     shapeIdx = (int)sVar1 + shapeIdx;
     Hud_BuildG4__FP7POLY_G4iiiiiUlUlUlUl
@@ -1071,10 +1471,10 @@ void Hud_Init__Fv(void)
     shapeIdx = shapeIdx + w;
     Hud_BuildSprite2__FP4SPRTiii(sprt + 5,0x7d,shapeIdx,y);
     Hud_BuildF4__FP7POLY_F4iiiiiUl(local_3c,1,shapeIdx,y + 7,7,3,(ulong)&DAT_00707070);
-    shapeIdx = (int)HudPmx_tShape_801114f4.width;
-    sVar1 = DAT_000018b8[6];
+    shapeIdx = (int)HudPmx_tShape_ARRAY_801114a4[4].width;
+    sVar1 = *(short *)(g1Player + 0xc);
     uVar4 = (uint)(local_2c->carInfo[0].HudTime == 0);
-    w = (int)DAT_000018b8[7] + x + uVar4 * -0x10;
+    w = (int)*(short *)(g1Player + 0xe) + x + uVar4 * -0x10;
     Hud_BuildSprite2__FP4SPRTiii(sprt + 6,0x6b,(int)sVar1,w);
     shapeIdx = (int)sVar1 + shapeIdx;
     Hud_BuildG4__FP7POLY_G4iiiiiUlUlUlUl
@@ -1082,9 +1482,9 @@ void Hud_Init__Fv(void)
     shapeIdx = shapeIdx + 0x1d;
     Hud_BuildF4__FP7POLY_F4iiiiiUl(local_3c + 1,1,shapeIdx,w + 7,7,3,(ulong)&DAT_00707070);
     Hud_BuildSprite2__FP4SPRTiii(sprt + 7,0x7d,shapeIdx,w);
-    shapeIdx = (int)HudPmx_tShape_801114f4.width;
-    sVar1 = DAT_000018b8[8];
-    w = (int)DAT_000018b8[9] + x;
+    shapeIdx = (int)HudPmx_tShape_ARRAY_801114a4[4].width;
+    sVar1 = *(short *)(g1Player + 0x10);
+    w = (int)*(short *)(g1Player + 0x12) + x;
     Hud_BuildSprite2__FP4SPRTiii(sprt + 8,0x69,(int)sVar1,w);
     shapeIdx = (int)sVar1 + shapeIdx;
     Hud_BuildG4__FP7POLY_G4iiiiiUlUlUlUl
@@ -1094,17 +1494,17 @@ void Hud_Init__Fv(void)
     Hud_BuildSprite2__FP4SPRTiii(sprt + 9,0x7d,shapeIdx,w);
     w = (int)HudPmx_tShape_801115d0.width;
     shapeIdx = 0x26;
-    if ((DAT_000013f0 == 0) &&
+    if ((Hud_BeTheCop == (void *)0x0) &&
        (shapeIdx = 0x32, *(int *)((int)GameSetup_gData.checkpointHUD + local_30) == 0)) {
       shapeIdx = 0x3d;
     }
-    if (DAT_000013f0 == 0) {
-      y = (int)DAT_000018b8[10];
-      y_00 = (int)DAT_000018b8[0xb] + x;
+    if (Hud_BeTheCop == (void *)0x0) {
+      y = (int)*(short *)(g1Player + 0x14);
+      y_00 = (int)*(short *)(g1Player + 0x16) + x;
     }
     else {
-      y = (int)DAT_000018b8[4] + 0xe;
-      y_00 = (int)DAT_000018b8[5] + x + 0xe;
+      y = (int)*(short *)(g1Player + 8) + 0xe;
+      y_00 = (int)*(short *)(g1Player + 10) + x + 0xe;
     }
     Hud_BuildSprite2__FP4SPRTiii(sprt + 10,0x76,y,y_00);
     Hud_BuildG4__FP7POLY_G4iiiiiUlUlUlUl
@@ -1112,24 +1512,28 @@ void Hud_Init__Fv(void)
     shapeIdx = y + w + shapeIdx;
     Hud_BuildF4__FP7POLY_F4iiiiiUl(local_3c + 3,1,shapeIdx,y_00 + 7,7,3,(ulong)&DAT_00707070);
     Hud_BuildSprite__FP4SPRTiiiUli(sprt + 0xb,0x7d,shapeIdx,y_00,0x808080,0);
-    DAT_000018c8 = 0xa0a0a0;
+    currentSpriteColor = (uchar *)0xa0a0a0;
     Hud_BuildTimeSprites__FP4SPRTPcii
-              (sprt + 0xc,s_00M00S00_800568ec,(int)DAT_000018b8[4] + (int)DAT_000018b8[0xc],
-               (int)DAT_000018b8[5] + x + (int)DAT_000018b8[0xd]);
+              (sprt + 0xc,s_00M00S00_800568ec,
+               (int)*(short *)(g1Player + 8) + (int)*(short *)(g1Player + 0x18),
+               (int)*(short *)(g1Player + 10) + x + (int)*(short *)(g1Player + 0x1a));
     Hud_BuildTimeSprites__FP4SPRTPcii
-              (sprt + 0x14,(char *)&PTR_DAT_8013d8ec,(int)DAT_000018b8[6] + (int)DAT_000018b8[0xe],
-               (int)DAT_000018b8[7] + (int)DAT_000018b8[0xf] + x + uVar4 * -0x10);
-    DAT_000018c8 = 0xa0a0a0;
+              (sprt + 0x14,(char *)&PTR_DAT_8013d8ec,
+               (int)*(short *)(g1Player + 0xc) + (int)*(short *)(g1Player + 0x1c),
+               (int)*(short *)(g1Player + 0xe) + (int)*(short *)(g1Player + 0x1e) + x +
+               uVar4 * -0x10);
+    currentSpriteColor = (uchar *)0xa0a0a0;
     Hud_BuildTimeSprites__FP4SPRTPcii
-              (sprt + 0x17,s_0M00S00_8013d8f0,(int)DAT_000018b8[8] + (int)DAT_000018b8[0x10],
-               (int)DAT_000018b8[9] + (int)DAT_000018b8[0x11] + x + 1);
-    if (DAT_000013f0 == 0) {
-      shapeIdx = (int)DAT_000018b8[10] + (int)DAT_000018b8[0x12];
-      w = (int)DAT_000018b8[0xb] + x + 1;
+              (sprt + 0x17,s_0M00S00_8013d8f0,
+               (int)*(short *)(g1Player + 0x10) + (int)*(short *)(g1Player + 0x20),
+               (int)*(short *)(g1Player + 0x12) + (int)*(short *)(g1Player + 0x22) + x + 1);
+    if (Hud_BeTheCop == (void *)0x0) {
+      shapeIdx = (int)*(short *)(g1Player + 0x14) + (int)*(short *)(g1Player + 0x24);
+      w = (int)*(short *)(g1Player + 0x16) + x + 1;
     }
     else {
-      shapeIdx = (int)DAT_000018b8[4] + 0x10;
-      w = (int)DAT_000018b8[5] + x + 0xc;
+      shapeIdx = (int)*(short *)(g1Player + 8) + 0x10;
+      w = (int)*(short *)(g1Player + 10) + x + 0xc;
     }
     if (*(int *)((int)GameSetup_gData.checkpointHUD + local_30) == 0) {
       str = s_0M00S00_8013d8f0;
@@ -1139,29 +1543,29 @@ void Hud_Init__Fv(void)
     }
     Hud_BuildTimeSprites__FP4SPRTPcii
               (sprt + 0x1e,str,shapeIdx + (int)HudPmx_tShape_801115d0.width,w);
-    *(int *)((int)&HudSplitTimeDiff1 + local_30) = (int)sprt[0x1f].y0 - (int)sprt[0x1e].y0;
-    psVar3 = DAT_000018b8;
-    DAT_000018c8 = 0xa0a0a0;
-    *(int *)((int)&HudSplitTimeDiff2 + local_30) = (int)sprt[0x22].y0 - (int)sprt[0x1e].y0;
-    shapeIdx = (int)HudPmx_tShape_80111008.width;
-    sVar1 = psVar3[0x1c];
-    sVar2 = psVar3[0x14];
-    y = (int)HudPmx_tShape_80111224.width;
-    w = (int)psVar3[0x1d] + DAT_00001420 + (int)psVar3[0x15] + x;
+    *(int *)((int)HudSplitTimeDiff1 + local_30) = (int)sprt[0x1f].y0 - (int)sprt[0x1e].y0;
+    puVar3 = g1Player;
+    currentSpriteColor = (uchar *)0xa0a0a0;
+    *(int *)((int)HudSplitTimeDiff2 + local_30) = (int)sprt[0x22].y0 - (int)sprt[0x1e].y0;
+    shapeIdx = (int)HudPmx_tShape_ARRAY_80111008[0].width;
+    sVar1 = *(short *)(puVar3 + 0x38);
+    sVar2 = *(short *)(puVar3 + 0x28);
+    y = (int)HudPmx_tShape_ARRAY_8011115c[10].width;
+    w = (int)*(short *)(puVar3 + 0x3a) + HudMapOffsetY + (int)*(short *)(puVar3 + 0x2a) + x;
     if ((y_01 == 0) && (DashHUD_gInfo.splitscreen != 0)) {
       w = w + -2;
     }
     y_00 = 0;
     iVar9 = 0x334;
     Hud_BuildSprite__FP4SPRTiiiUli
-              (sprt + 0x28,0x3e,(int)DAT_000018b8[0x1c] + 0x13,w + -1,0x808080,0);
+              (sprt + 0x28,0x3e,(int)*(short *)(g1Player + 0x38) + 0x13,w + -1,0x808080,0);
     Hud_BuildSprite2__FP4SPRTiii(sprt + 0x25,0x2c,(int)sVar1 + (int)sVar2,w);
     shapeIdx = (int)sVar1 + (int)sVar2 + shapeIdx;
     Hud_BuildSprite2__FP4SPRTiii(sprt + 0x26,0x47,shapeIdx,w);
     Hud_BuildSprite2__FP4SPRTiii(sprt + 0x27,0x36,shapeIdx + y,w);
-    DAT_000018c8 = 0x808080;
-    shapeIdx = (int)DAT_000018b8[2] + (int)DAT_000018b8[0x16];
-    x = (int)DAT_000018b8[3] + (int)DAT_000018b8[0x17] + x;
+    currentSpriteColor = (uchar *)0x808080;
+    shapeIdx = (int)*(short *)(g1Player + 4) + (int)*(short *)(g1Player + 0x2c);
+    x = (int)*(short *)(g1Player + 6) + (int)*(short *)(g1Player + 0x2e) + x;
     Hud_BuildSprite2__FP4SPRTiii(sprt + 0x31,0x1a,shapeIdx + -1,x);
     Hud_BuildSprite2__FP4SPRTiii(sprt + 0x32,0x1b,shapeIdx + -2,x + -1);
     do {
@@ -1176,27 +1580,27 @@ void Hud_Init__Fv(void)
     local_2c = (GameSetup_tData *)((local_2c->controllerData).shockImpact + 1);
   }
   shapeIdx = 0;
-  DAT_000018c8 = 0x808080;
-  DAT_000018c4 = 1;
-  x = (int)DAT_000018b8[0x1a];
-  y_01 = (int)DAT_000018b8[0x1b];
-  Hud_BuildSprite2__FP4SPRTiii(DAT_000018bc + 0x37,0x6f,x,y_01);
-  Hud_BuildSprite2__FP4SPRTiii(sprt + 0x33,0x6c,x + 0x12,y_01);
-  Hud_BuildSprite2__FP4SPRTiii(sprt + 0x34,0x6e,x + 0x25,y_01);
-  Hud_BuildSprite2__FP4SPRTiii(sprt + 0x35,0x3f,x + 0x3a,y_01);
-  Hud_BuildSprite2__FP4SPRTiii(sprt + 0x38,0x72,x + 0x4a,y_01);
-  Hud_BuildSprite2__FP4SPRTiii(sprt + 0x36,0,x + 0x6d,y_01 + -7);
-  Hud_BuildSprite2__FP4SPRTiii(sprt + 0x39,3,0,y_01 + 4);
-  DAT_000018c4 = 0;
+  currentSpriteColor = (uchar *)0x808080;
+  currentSpriteTransparent._0_1_ = 1;
+  x = (int)*(short *)(g1Player + 0x34);
+  y_01 = (int)*(short *)(g1Player + 0x36);
+  Hud_BuildSprite2__FP4SPRTiii((SPRT *)(gSprite0 + 0x44c),0x6f,x,y_01);
+  Hud_BuildSprite2__FP4SPRTiii((SPRT *)(puVar3 + 0x3fc),0x6c,x + 0x12,y_01);
+  Hud_BuildSprite2__FP4SPRTiii((SPRT *)(puVar3 + 0x410),0x6e,x + 0x25,y_01);
+  Hud_BuildSprite2__FP4SPRTiii((SPRT *)(puVar3 + 0x424),0x3f,x + 0x3a,y_01);
+  Hud_BuildSprite2__FP4SPRTiii((SPRT *)(puVar3 + 0x460),0x72,x + 0x4a,y_01);
+  Hud_BuildSprite2__FP4SPRTiii((SPRT *)(puVar3 + 0x438),0,x + 0x6d,y_01 + -7);
+  Hud_BuildSprite2__FP4SPRTiii((SPRT *)(puVar3 + 0x474),3,0,y_01 + 4);
+  currentSpriteTransparent._0_1_ = 0;
   Hud_InitCdPlayer__Fv();
   Hud_Reset__Fv();
   ppuVar6 = &PerpOverlayMessage;
   ppuVar5 = &PerpOverlayOn;
-  DAT_000018dc = 0;
-  DAT_000013e8 = 0;
-  DAT_000013ec = 0;
-  DAT_000018e4 = 0;
-  DAT_000013dc = 0;
+  BTC_BonusTime = (uchar *)0x0;
+  BTC_Countdown = 0;
+  FinalBTC_Countdown = 0;
+  BTC_UserHasControl[0] = (uchar *)0x0;
+  HudBustedOverlay = (void *)0x0;
   do {
     *ppuVar5 = (uchar *)0x0;
     *ppuVar6 = (uchar *)0x0;
@@ -1204,7 +1608,7 @@ void Hud_Init__Fv(void)
     shapeIdx = shapeIdx + 1;
     ppuVar5 = ppuVar5 + 1;
   } while (shapeIdx < 2);
-  DAT_000013f4 = 0;
+  Hud_kTurnSongOffNext = (void *)0x0;
   return;
 }
 
@@ -1221,15 +1625,43 @@ void Hud_Init__Fv(void)
 	// End offset: 0x800D3A0C
 	// End Line: 1229
 
+	/* begin block 2 */
+		// Start line: 2874
+	/* end block 2 */
+	// End Line: 2875
+
+	/* begin block 3 */
+		// Start line: 2948
+	/* end block 3 */
+	// End Line: 2949
+
+	/* begin block 4 */
+		// Start line: 2948
+	/* end block 4 */
+	// End Line: 2949
+
+	/* begin block 5 */
+		// Start line: 2949
+	/* end block 5 */
+	// End Line: 2950
+
+	/* begin block 6 */
+		// Start line: 2949
+	/* end block 6 */
+	// End Line: 2950
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Hud_InitTables__Fv(void)
 
 {
-  DAT_000018b8 = &Hud_gElementPositions;
+  tSmallCoordXY *ptVar1;
+  
+  ptVar1 = Hud_gElementPositions;
   if (1 < GameSetup_gData.numPlayerRaceCars) {
-    DAT_000018b8 = (tSmallCoordXY *)&PTR_DAT_80120970;
+    ptVar1 = (tSmallCoordXY *)PTR_ARRAY_80120970;
   }
+  g1Player = (uchar *)ptVar1;
   return;
 }
 
@@ -1251,6 +1683,31 @@ void Hud_InitTables__Fv(void)
 	/* end block 1 */
 	// End offset: 0x800D3ABC
 	// End Line: 1244
+
+	/* begin block 2 */
+		// Start line: 2954
+	/* end block 2 */
+	// End Line: 2955
+
+	/* begin block 3 */
+		// Start line: 2958
+	/* end block 3 */
+	// End Line: 2959
+
+	/* begin block 4 */
+		// Start line: 2958
+	/* end block 4 */
+	// End Line: 2959
+
+	/* begin block 5 */
+		// Start line: 2959
+	/* end block 5 */
+	// End Line: 2960
+
+	/* begin block 6 */
+		// Start line: 2959
+	/* end block 6 */
+	// End Line: 2960
 
 void Hud_BuildETimeString__FP4SPRTi(SPRT *sprt,int time)
 
@@ -1280,13 +1737,13 @@ void Hud_BuildETimeString__FP4SPRTi(SPRT *sprt,int time)
     iVar5 = iVar5 + 0x3f;
   }
   iVar3 = iVar5 >> 6;
-  *(HudPmx_tUV *)&sprt->u0 = (&HudPmx_gHudNumberUV)[iVar4 / 10];
-  *(HudPmx_tUV *)&sprt[1].u0 = (&HudPmx_gHudNumberUV)[iVar4 % 10];
-  *(HudPmx_tUV *)&sprt[3].u0 = (&HudPmx_gHudNumberUV)[iVar2 / 10];
-  *(HudPmx_tUV *)&sprt[4].u0 = (&HudPmx_gHudNumberUV)[iVar2 % 10];
+  *(HudPmx_tUV *)&sprt->u0 = HudPmx_gHudNumberUV[iVar4 / 10];
+  *(HudPmx_tUV *)&sprt[1].u0 = HudPmx_gHudNumberUV[iVar4 % 10];
+  *(HudPmx_tUV *)&sprt[3].u0 = HudPmx_gHudNumberUV[iVar2 / 10];
+  *(HudPmx_tUV *)&sprt[4].u0 = HudPmx_gHudNumberUV[iVar2 % 10];
   iVar1 = (iVar3 / 10 + (iVar3 >> 0x1f)) - (iVar5 >> 0x1f);
-  *(HudPmx_tUV *)&sprt[6].u0 = (&HudPmx_gHudNumberUV)[iVar1];
-  *(HudPmx_tUV *)&sprt[7].u0 = (&HudPmx_gHudNumberUV)[iVar3 + iVar1 * -10];
+  *(HudPmx_tUV *)&sprt[6].u0 = HudPmx_gHudNumberUV[iVar1];
+  *(HudPmx_tUV *)&sprt[7].u0 = HudPmx_gHudNumberUV[iVar3 + iVar1 * -10];
   return;
 }
 
@@ -1306,13 +1763,38 @@ void Hud_BuildETimeString__FP4SPRTi(SPRT *sprt,int time)
 	// End offset: 0x800D3D3C
 	// End Line: 1270
 
+	/* begin block 2 */
+		// Start line: 3014
+	/* end block 2 */
+	// End Line: 3015
+
+	/* begin block 3 */
+		// Start line: 3019
+	/* end block 3 */
+	// End Line: 3020
+
+	/* begin block 4 */
+		// Start line: 3019
+	/* end block 4 */
+	// End Line: 3020
+
+	/* begin block 5 */
+		// Start line: 3020
+	/* end block 5 */
+	// End Line: 3021
+
+	/* begin block 6 */
+		// Start line: 3020
+	/* end block 6 */
+	// End Line: 3021
+
 void * Hud_BuildDistanceString__FP4SPRTi(SPRT *sprt,int player)
 
 {
   int iVar1;
   int iVar2;
   
-  iVar2 = ((&__Cars_gHumanRaceCarList_9__)[player]->stats).checkpointUpdate;
+  iVar2 = ((&Cars_gHumanRaceCarList9)[player]->stats).checkpointUpdate;
   iVar1 = iVar2 * 6;
   if (iVar1 < 0) {
     iVar1 = iVar2 * -6;
@@ -1321,10 +1803,10 @@ void * Hud_BuildDistanceString__FP4SPRTi(SPRT *sprt,int player)
     iVar1 = (iVar1 * 1000) / 0x647;
   }
   if (iVar1 < 10000) {
-    *(HudPmx_tUV *)&sprt->u0 = (&HudPmx_gHudNumberUV)[iVar1 / 1000];
-    *(HudPmx_tUV *)&sprt[2].u0 = (&HudPmx_gHudNumberUV)[(iVar1 % 1000) / 100];
-    *(HudPmx_tUV *)&sprt[3].u0 = (&HudPmx_gHudNumberUV)[(iVar1 % 100) / 10];
-    *(HudPmx_tUV *)&sprt[4].u0 = (&HudPmx_gHudNumberUV)[iVar1 % 10];
+    *(HudPmx_tUV *)&sprt->u0 = HudPmx_gHudNumberUV[iVar1 / 1000];
+    *(HudPmx_tUV *)&sprt[2].u0 = HudPmx_gHudNumberUV[(iVar1 % 1000) / 100];
+    *(HudPmx_tUV *)&sprt[3].u0 = HudPmx_gHudNumberUV[(iVar1 % 100) / 10];
+    *(HudPmx_tUV *)&sprt[4].u0 = HudPmx_gHudNumberUV[iVar1 % 10];
     return &DAT_00000001;
   }
   return (void *)0x0;
@@ -1349,6 +1831,21 @@ void * Hud_BuildDistanceString__FP4SPRTi(SPRT *sprt,int player)
 	// End offset: 0x800D3DBC
 	// End Line: 1285
 
+	/* begin block 2 */
+		// Start line: 3075
+	/* end block 2 */
+	// End Line: 3076
+
+	/* begin block 3 */
+		// Start line: 3079
+	/* end block 3 */
+	// End Line: 3080
+
+	/* begin block 4 */
+		// Start line: 3079
+	/* end block 4 */
+	// End Line: 3080
+
 void Hud_BuildTimeString__FP4SPRTi(SPRT *sprt,int time)
 
 {
@@ -1372,12 +1869,12 @@ void Hud_BuildTimeString__FP4SPRTi(SPRT *sprt,int time)
     iVar4 = iVar4 + 0x3f;
   }
   iVar3 = iVar4 >> 6;
-  *(HudPmx_tUV *)&sprt->u0 = (&HudPmx_gHudNumberUV)[iVar2 % 10];
-  *(HudPmx_tUV *)&sprt[2].u0 = (&HudPmx_gHudNumberUV)[iVar1 / 10];
-  *(HudPmx_tUV *)&sprt[3].u0 = (&HudPmx_gHudNumberUV)[iVar1 % 10];
+  *(HudPmx_tUV *)&sprt->u0 = HudPmx_gHudNumberUV[iVar2 % 10];
+  *(HudPmx_tUV *)&sprt[2].u0 = HudPmx_gHudNumberUV[iVar1 / 10];
+  *(HudPmx_tUV *)&sprt[3].u0 = HudPmx_gHudNumberUV[iVar1 % 10];
   iVar2 = (iVar3 / 10 + (iVar3 >> 0x1f)) - (iVar4 >> 0x1f);
-  *(HudPmx_tUV *)&sprt[5].u0 = (&HudPmx_gHudNumberUV)[iVar2];
-  *(HudPmx_tUV *)&sprt[6].u0 = (&HudPmx_gHudNumberUV)[iVar3 + iVar2 * -10];
+  *(HudPmx_tUV *)&sprt[5].u0 = HudPmx_gHudNumberUV[iVar2];
+  *(HudPmx_tUV *)&sprt[6].u0 = HudPmx_gHudNumberUV[iVar3 + iVar2 * -10];
   return;
 }
 
@@ -1424,6 +1921,21 @@ void Hud_BuildTimeString__FP4SPRTi(SPRT *sprt,int time)
 	// End offset: 0x800D401C
 	// End Line: 1404
 
+	/* begin block 2 */
+		// Start line: 3214
+	/* end block 2 */
+	// End Line: 3215
+
+	/* begin block 3 */
+		// Start line: 3302
+	/* end block 3 */
+	// End Line: 3303
+
+	/* begin block 4 */
+		// Start line: 3302
+	/* end block 4 */
+	// End Line: 3303
+
 /* WARNING: Could not reconcile some variable overlaps */
 
 void Hud_BuildTach__Fi(int player)
@@ -1444,15 +1956,15 @@ void Hud_BuildTach__Fi(int player)
   undefined *puVar10;
   int local_40;
   int local_3c;
-  int local_38;
+  uchar *local_38;
   int local_34;
   ulong local_30;
   
   if (player == 0) {
-    local_38 = DAT_000018bc;
+    local_38 = gSprite0;
   }
   else {
-    local_38 = DAT_000018c0;
+    local_38 = gSprite1;
   }
   iVar6 = GameSetup_gData.carInfo[player].carType;
   y = 0x1d;
@@ -1460,10 +1972,10 @@ void Hud_BuildTach__Fi(int player)
     y = iVar6;
   }
   if (GameSetup_gData.Time == 0) {
-    puVar7 = &day_needle;
+    puVar7 = day_needle;
   }
   else {
-    puVar7 = &night_needle;
+    puVar7 = night_needle;
   }
   local_30 = puVar7[y];
   puVar10 = &DAT_00005999 + (DashHUD_gInfo.rpm * 0x10000) / 0x2a30;
@@ -1471,7 +1983,7 @@ void Hud_BuildTach__Fi(int player)
     puVar10 = &DAT_00005999;
   }
   if (0x13334 < (int)puVar10) {
-    puVar10 = &DAT_00013334;
+    puVar10 = &LAB_00013334;
   }
   fixedsincos((uint)puVar10,&local_40,&local_3c);
   if (player == 0) {
@@ -1538,7 +2050,7 @@ void Hud_BuildTach__Fi(int player)
   prim_00->y2 = -(short)uVar8 + 0x10;
   prim_00->y1 = prim_00->y1 + 2;
   *(uint *)(local_38 + 0x28) = *(uint *)(local_38 + 0x28) & 0xff000000 | *puVar1 & 0xffffff;
-  *puVar1 = *puVar1 & 0xff000000 | local_38 + 0x28U & 0xffffff;
+  *puVar1 = *puVar1 & 0xff000000 | (uint)(local_38 + 0x28) & 0xffffff;
   return;
 }
 
@@ -1605,6 +2117,21 @@ void Hud_BuildTach__Fi(int player)
 	// End offset: 0x800D45E4
 	// End Line: 1543
 
+	/* begin block 2 */
+		// Start line: 3527
+	/* end block 2 */
+	// End Line: 3528
+
+	/* begin block 3 */
+		// Start line: 3535
+	/* end block 3 */
+	// End Line: 3536
+
+	/* begin block 4 */
+		// Start line: 3535
+	/* end block 4 */
+	// End Line: 3536
+
 int Hud_BuildString__FPciiiib(char *str,int x,int y,int color,int player,void *justwidth)
 
 {
@@ -1619,6 +2146,7 @@ int Hud_BuildString__FPciiiib(char *str,int x,int y,int color,int player,void *j
   Hud_GoTpage__Fi(1);
   sVar3 = strlen(str);
   local_38 = 0;
+  player = player * 0x20;
   x_00 = x;
   do {
     if ((int)sVar3 <= local_38) {
@@ -1647,10 +2175,10 @@ int Hud_BuildString__FPciiiib(char *str,int x,int y,int color,int player,void *j
         }
         x_00 = x_00 + 5 + (int)sVar2;
         if (GameSetup_gData.commMode == 1) {
-          if (gPadinfo.buf[4].ID == '#') {
+          if (gPadinfo.buf[3].data._1_1_ == '#') {
             if (gPadinfo.buf[0].ID != '#') {
 LAB_800d443c:
-              if (gPadinfo.buf[4].ID == '#') {
+              if (gPadinfo.buf[3].data._1_1_ == '#') {
                 if (justwidth == (void *)0x0) {
                   Hud_FBuildSprite__FiiiUli(0xad,x_00,y,color,0);
                 }
@@ -1676,21 +2204,21 @@ LAB_800d443c:
         iVar4 = 0;
         if (cVar1 == '^') {
           bVar5 = 0xaa;
-          if (gPadinfo.buf[player * 4].ID == '#') {
+          if (*(char *)((int)gPadinfo.buf + player + 1) == '#') {
             bVar5 = 0xad;
           }
         }
         else {
           if (cVar1 == '(') {
             bVar5 = 0xa9;
-            if (gPadinfo.buf[player * 4].ID == '#') {
+            if (*(char *)((int)gPadinfo.buf + player + 1) == '#') {
               bVar5 = 0xab;
             }
           }
           else {
             if (cVar1 == ')') {
               bVar5 = 0xa8;
-              if (gPadinfo.buf[player * 4].ID == '#') {
+              if (*(char *)((int)gPadinfo.buf + player + 1) == '#') {
                 bVar5 = 0xac;
               }
             }
@@ -1896,197 +2424,217 @@ LAB_800d45cc:
 	// End offset: 0x800D4E44
 	// End Line: 1713
 
+	/* begin block 2 */
+		// Start line: 3732
+	/* end block 2 */
+	// End Line: 3733
+
+	/* begin block 3 */
+		// Start line: 3739
+	/* end block 3 */
+	// End Line: 3740
+
+	/* begin block 4 */
+		// Start line: 3739
+	/* end block 4 */
+	// End Line: 3740
+
 void Hud_BuildNumbers0__Fi(int player)
 
 {
-  uint *puVar1;
-  short sVar2;
-  void *pvVar3;
-  short sVar4;
+  bool bVar1;
+  uint *puVar2;
+  short sVar3;
+  void *pvVar4;
   short sVar5;
+  short sVar6;
   int time;
   SPRT *sprt;
-  uint *puVar6;
-  int iVar7;
-  uint *puVar8;
-  int iVar9;
-  POLY_G4 *pPVar10;
-  POLY_F4 *pPVar11;
-  uint uVar12;
+  uint *puVar7;
+  int iVar8;
+  uchar *time_00;
+  uint *puVar9;
+  uchar *puVar10;
+  POLY_G4 *pPVar11;
+  POLY_F4 *pPVar12;
+  uint uVar13;
   
-  iVar9 = iGp000018bc;
+  puVar10 = gSprite0;
   if (player != 0) {
-    iVar9 = iGp000018c0;
+    puVar10 = gSprite1;
   }
-  pPVar11 = &gHudF4;
+  pPVar12 = gHudF4;
   if (player != 0) {
-    pPVar11 = &POLY_F4_8013e4f8;
+    pPVar12 = &POLY_F4_8013e4f8;
   }
-  pPVar10 = &gHudG4;
+  pPVar11 = gHudG4;
   if (player != 0) {
-    pPVar10 = &POLY_G4_8013e7c0;
+    pPVar11 = &POLY_G4_8013e7c0;
   }
-  sVar2 = 0;
+  sVar3 = 0;
   if (player != 0) {
-    sVar2 = -0xf;
+    sVar3 = -0xf;
   }
   if (GameSetup_gData.carInfo[player].HudTime != 0) {
     if ((DashHUD_gInfo.flashtime == 0) || ((simGlobal.gameTicks & 0x10U) == 0)) {
       time = DashHUD_gInfo.laptime;
-      if (iGp000013f0 != 0) {
-        time = iGp000013e8;
+      if (Hud_BeTheCop != (void *)0x0) {
+        time = BTC_Countdown;
       }
-      Hud_BuildETimeString__FP4SPRTi((SPRT *)(iVar9 + 0xf0),time);
+      Hud_BuildETimeString__FP4SPRTi((SPRT *)(puVar10 + 0xf0),time);
     }
-    puVar8 = DAT_1f800000;
+    puVar9 = DAT_1f800000;
     time = 8;
-    if (iGp000013f0 != 0) {
+    if (Hud_BeTheCop != (void *)0x0) {
       time = 5;
     }
-    iVar7 = 0xc;
+    iVar8 = 0xc;
     if (0xc < time + 0xcU) {
-      puVar6 = (uint *)(iVar9 + 0xf0);
+      puVar7 = (uint *)(puVar10 + 0xf0);
       do {
-        iVar7 = iVar7 + 1;
-        *puVar6 = *puVar6 & 0xff000000 | *puVar8 & 0xffffff;
-        *puVar8 = *puVar8 & 0xff000000 | (uint)puVar6 & 0xffffff;
-        puVar6 = puVar6 + 5;
-      } while (iVar7 < (int)(time + 0xcU));
+        iVar8 = iVar8 + 1;
+        *puVar7 = *puVar7 & 0xff000000 | *puVar9 & 0xffffff;
+        *puVar9 = *puVar9 & 0xff000000 | (uint)puVar7 & 0xffffff;
+        puVar7 = puVar7 + 5;
+      } while (iVar8 < (int)(time + 0xcU));
     }
-    puVar8 = DAT_1f800000;
+    puVar9 = DAT_1f800000;
     time = 4;
-    puVar6 = (uint *)(iVar9 + 0x50);
+    puVar7 = (uint *)(puVar10 + 0x50);
     do {
       time = time + 1;
-      *puVar6 = *puVar6 & 0xff000000 | *puVar8 & 0xffffff;
-      *puVar8 = *puVar8 & 0xff000000 | (uint)puVar6 & 0xffffff;
-      puVar1 = DAT_1f800000;
-      puVar6 = puVar6 + 5;
+      *puVar7 = *puVar7 & 0xff000000 | *puVar9 & 0xffffff;
+      *puVar9 = *puVar9 & 0xff000000 | (uint)puVar7 & 0xffffff;
+      puVar2 = DAT_1f800000;
+      puVar7 = puVar7 + 5;
     } while (time < 6);
-    pPVar10->tag = pPVar10->tag & 0xff000000 | *DAT_1f800000 & 0xffffff;
-    *puVar1 = *puVar1 & 0xff000000 | (uint)pPVar10 & 0xffffff;
-    pPVar11->tag = pPVar11->tag & 0xff000000 | (uint)pPVar10 & 0xffffff;
-    *puVar1 = *puVar1 & 0xff000000 | (uint)pPVar11 & 0xffffff;
+    pPVar11->tag = pPVar11->tag & 0xff000000 | *DAT_1f800000 & 0xffffff;
+    *puVar2 = *puVar2 & 0xff000000 | (uint)pPVar11 & 0xffffff;
+    pPVar12->tag = pPVar12->tag & 0xff000000 | (uint)pPVar11 & 0xffffff;
+    *puVar2 = *puVar2 & 0xff000000 | (uint)pPVar12 & 0xffffff;
   }
-  if (iGp000013f0 == 0) {
-    sVar4 = *(short *)(iGp000018b8 + 0x16) + sVar2 + *(short *)(iGp000018b8 + 0x26);
-    sVar2 = sVar4 + 10;
-    *(short *)(iVar9 + 0xd2) = sVar4;
-    pPVar10[2].y0 = sVar4;
-    pPVar10[2].y1 = sVar4;
-    pPVar10[2].y2 = sVar2;
-    pPVar10[2].y3 = sVar2;
-    *(short *)(iVar9 + 0xe6) = sVar4;
-    sVar5 = sVar4 + 1;
-    pPVar11[3].y0 = sVar4 + 7;
-    pPVar11[3].y1 = sVar4 + 7;
-    pPVar11[3].y2 = sVar2;
-    pPVar11[3].y3 = sVar2;
-    *(short *)(iVar9 + 0x262) = sVar5;
-    sVar2 = *(short *)(&HudSplitTimeDiff1 + player);
-    *(short *)(iVar9 + 0x28a) = sVar5;
-    *(short *)(iVar9 + 0x29e) = sVar5;
-    *(short *)(iVar9 + 0x276) = sVar2 + sVar5;
-    sVar2 = *(short *)(&HudSplitTimeDiff2 + player);
-    *(short *)(iVar9 + 0x2c6) = sVar5;
-    *(short *)(iVar9 + 0x2da) = sVar5;
-    *(short *)(iVar9 + 0x2b2) = sVar2 + sVar5;
+  if (Hud_BeTheCop == (void *)0x0) {
+    sVar5 = *(short *)(g1Player + 0x16) + sVar3 + *(short *)(g1Player + 0x26);
+    sVar3 = sVar5 + 10;
+    *(short *)(puVar10 + 0xd2) = sVar5;
+    pPVar11[2].y0 = sVar5;
+    pPVar11[2].y1 = sVar5;
+    pPVar11[2].y2 = sVar3;
+    pPVar11[2].y3 = sVar3;
+    *(short *)(puVar10 + 0xe6) = sVar5;
+    sVar6 = sVar5 + 1;
+    pPVar12[3].y0 = sVar5 + 7;
+    pPVar12[3].y1 = sVar5 + 7;
+    pPVar12[3].y2 = sVar3;
+    pPVar12[3].y3 = sVar3;
+    *(short *)(puVar10 + 0x262) = sVar6;
+    sVar3 = *(short *)(HudSplitTimeDiff1 + player);
+    *(short *)(puVar10 + 0x28a) = sVar6;
+    *(short *)(puVar10 + 0x29e) = sVar6;
+    *(short *)(puVar10 + 0x276) = sVar3 + sVar6;
+    sVar3 = *(short *)(HudSplitTimeDiff2 + player);
+    *(short *)(puVar10 + 0x2c6) = sVar6;
+    *(short *)(puVar10 + 0x2da) = sVar6;
+    *(short *)(puVar10 + 0x2b2) = sVar3 + sVar6;
   }
-  if ((iGp000018dc == 0) || (iGp000013f0 == 0)) {
+  time_00 = BTC_BonusTime;
+  if ((BTC_BonusTime == (uchar *)0x0) || (Hud_BeTheCop == (void *)0x0)) {
     if (GameSetup_gData.checkpointType == 0) {
       return;
     }
     if (GameSetup_gData.checkpointHUD[player] == 0) {
-      if (((&__Cars_gHumanRaceCarList_9__)[player]->stats).checkpointDisplay < 1) {
+      if (((&Cars_gHumanRaceCarList9)[player]->stats).checkpointDisplay < 1) {
         return;
       }
-      time = ((&__Cars_gHumanRaceCarList_9__)[player]->stats).checkpointDifference;
+      time = ((&Cars_gHumanRaceCarList9)[player]->stats).checkpointDifference;
       if (time < -0x95ff) {
         return;
       }
       if (0x95ff < time) {
         return;
       }
-      if (iGp000013f0 != 0) {
+      if (Hud_BeTheCop != (void *)0x0) {
         return;
       }
       if (DashHUD_gInfo.wrongway[player] != 0) {
         return;
       }
       if (time < 0) {
-        *(undefined4 *)(iVar9 + 0xd4) = HudPmx_tShape_801115e4.pixmap._0_4_;
+        *(undefined4 *)(puVar10 + 0xd4) = HudPmx_tShape_801115e4.pixmap._0_4_;
       }
       else {
-        *(undefined4 *)(iVar9 + 0xd4) = HudPmx_tShape_801115d0.pixmap._0_4_;
+        *(undefined4 *)(puVar10 + 0xd4) = HudPmx_tShape_801115d0.pixmap._0_4_;
       }
-      sprt = (SPRT *)(iVar9 + 600);
+      sprt = (SPRT *)(puVar10 + 600);
       time = 0x1e;
       Hud_BuildTimeString__FP4SPRTi
-                (sprt,((&__Cars_gHumanRaceCarList_9__)[player]->stats).checkpointDifference);
-      puVar8 = DAT_1f800000;
+                (sprt,((&Cars_gHumanRaceCarList9)[player]->stats).checkpointDifference);
+      puVar9 = DAT_1f800000;
       do {
         time = time + 1;
-        sprt->tag = sprt->tag & 0xff000000 | *puVar8 & 0xffffff;
-        *puVar8 = *puVar8 & 0xff000000 | (uint)sprt & 0xffffff;
+        sprt->tag = sprt->tag & 0xff000000 | *puVar9 & 0xffffff;
+        *puVar9 = *puVar9 & 0xff000000 | (uint)sprt & 0xffffff;
         sprt = sprt + 1;
       } while (time < 0x25);
       time = 10;
-      puVar8 = (uint *)(iVar9 + 200);
-      uVar12 = (uint)puVar8 & 0xffffff;
+      puVar9 = (uint *)(puVar10 + 200);
+      uVar13 = (uint)puVar9 & 0xffffff;
       do {
-        puVar6 = DAT_1f800000;
+        puVar7 = DAT_1f800000;
         if (time == 10) {
           Hud_GoTpage__Fi(0);
-          puVar6 = DAT_1f800000;
-          *(uint *)(iVar9 + 200) = *(uint *)(iVar9 + 200) & 0xff000000 | *DAT_1f800000 & 0xffffff;
-          *puVar6 = *puVar6 & 0xff000000 | uVar12;
+          puVar7 = DAT_1f800000;
+          *(uint *)(puVar10 + 200) =
+               *(uint *)(puVar10 + 200) & 0xff000000 | *DAT_1f800000 & 0xffffff;
+          *puVar7 = *puVar7 & 0xff000000 | uVar13;
           Hud_GoTpage__Fi(1);
         }
         else {
-          *puVar8 = *puVar8 & 0xff000000 | *DAT_1f800000 & 0xffffff;
-          *puVar6 = *puVar6 & 0xff000000 | (uint)puVar8 & 0xffffff;
+          *puVar9 = *puVar9 & 0xff000000 | *DAT_1f800000 & 0xffffff;
+          *puVar7 = *puVar7 & 0xff000000 | (uint)puVar9 & 0xffffff;
         }
-        puVar8 = puVar8 + 5;
+        puVar9 = puVar9 + 5;
         time = time + 1;
       } while (time < 0xc);
     }
     else {
-      pvVar3 = Hud_BuildDistanceString__FP4SPRTi((SPRT *)(iVar9 + 600),player);
-      if (pvVar3 == (void *)0x0) {
+      pvVar4 = Hud_BuildDistanceString__FP4SPRTi((SPRT *)(puVar10 + 600),player);
+      if (pvVar4 == (void *)0x0) {
         return;
       }
-      if (((&__Cars_gHumanRaceCarList_9__)[player]->stats).checkpointUpdate < 0) {
-        *(undefined4 *)(iVar9 + 0xd4) = HudPmx_tShape_801115e4.pixmap._0_4_;
+      if (((&Cars_gHumanRaceCarList9)[player]->stats).checkpointUpdate < 0) {
+        *(undefined4 *)(puVar10 + 0xd4) = HudPmx_tShape_801115e4.pixmap._0_4_;
       }
       else {
-        *(undefined4 *)(iVar9 + 0xd4) = HudPmx_tShape_801115d0.pixmap._0_4_;
+        *(undefined4 *)(puVar10 + 0xd4) = HudPmx_tShape_801115d0.pixmap._0_4_;
       }
-      puVar8 = DAT_1f800000;
+      puVar9 = DAT_1f800000;
       time = 0x1e;
-      puVar6 = (uint *)(iVar9 + 600);
+      puVar7 = (uint *)(puVar10 + 600);
       do {
         time = time + 1;
-        *puVar6 = *puVar6 & 0xff000000 | *puVar8 & 0xffffff;
-        *puVar8 = *puVar8 & 0xff000000 | (uint)puVar6 & 0xffffff;
-        puVar6 = puVar6 + 5;
+        *puVar7 = *puVar7 & 0xff000000 | *puVar9 & 0xffffff;
+        *puVar9 = *puVar9 & 0xff000000 | (uint)puVar7 & 0xffffff;
+        puVar7 = puVar7 + 5;
       } while (time < 0x23);
       time = 10;
-      puVar8 = (uint *)(iVar9 + 200);
-      uVar12 = (uint)puVar8 & 0xffffff;
+      puVar9 = (uint *)(puVar10 + 200);
+      uVar13 = (uint)puVar9 & 0xffffff;
       do {
-        puVar6 = DAT_1f800000;
+        puVar7 = DAT_1f800000;
         if (time == 10) {
           Hud_GoTpage__Fi(0);
-          puVar6 = DAT_1f800000;
-          *(uint *)(iVar9 + 200) = *(uint *)(iVar9 + 200) & 0xff000000 | *DAT_1f800000 & 0xffffff;
-          *puVar6 = *puVar6 & 0xff000000 | uVar12;
+          puVar7 = DAT_1f800000;
+          *(uint *)(puVar10 + 200) =
+               *(uint *)(puVar10 + 200) & 0xff000000 | *DAT_1f800000 & 0xffffff;
+          *puVar7 = *puVar7 & 0xff000000 | uVar13;
           Hud_GoTpage__Fi(1);
         }
         else {
-          *puVar8 = *puVar8 & 0xff000000 | *DAT_1f800000 & 0xffffff;
-          *puVar6 = *puVar6 & 0xff000000 | (uint)puVar8 & 0xffffff;
+          *puVar9 = *puVar9 & 0xff000000 | *DAT_1f800000 & 0xffffff;
+          *puVar7 = *puVar7 & 0xff000000 | (uint)puVar9 & 0xffffff;
         }
-        puVar8 = puVar8 + 5;
+        puVar9 = puVar9 + 5;
         time = time + 1;
       } while (time < 0xc);
     }
@@ -2095,46 +2643,46 @@ void Hud_BuildNumbers0__Fi(int player)
     if (GameSetup_gData.carInfo[player].HudTime == 0) {
       return;
     }
-    sprt = (SPRT *)(iVar9 + 600);
-    *(undefined4 *)(iVar9 + 0xd4) = HudPmx_tShape_801115d0.pixmap._0_4_;
-    time = iGp000018dc;
-    if (iGp000018dc < 0) {
-      time = 0;
+    sprt = (SPRT *)(puVar10 + 600);
+    bVar1 = (int)BTC_BonusTime < 0;
+    *(undefined4 *)(puVar10 + 0xd4) = HudPmx_tShape_801115d0.pixmap._0_4_;
+    if (bVar1) {
+      time_00 = (uchar *)0x0;
     }
-    Hud_BuildTimeString__FP4SPRTi(sprt,time);
-    puVar8 = DAT_1f800000;
+    Hud_BuildTimeString__FP4SPRTi(sprt,(int)time_00);
+    puVar9 = DAT_1f800000;
     time = 0x1e;
     do {
       time = time + 1;
-      sprt->tag = sprt->tag & 0xff000000 | *puVar8 & 0xffffff;
-      *puVar8 = *puVar8 & 0xff000000 | (uint)sprt & 0xffffff;
+      sprt->tag = sprt->tag & 0xff000000 | *puVar9 & 0xffffff;
+      *puVar9 = *puVar9 & 0xff000000 | (uint)sprt & 0xffffff;
       sprt = sprt + 1;
     } while (time < 0x22);
     time = 10;
-    puVar8 = (uint *)(iVar9 + 200);
-    uVar12 = (uint)puVar8 & 0xffffff;
+    puVar9 = (uint *)(puVar10 + 200);
+    uVar13 = (uint)puVar9 & 0xffffff;
     do {
-      puVar6 = DAT_1f800000;
+      puVar7 = DAT_1f800000;
       if (time == 10) {
         Hud_GoTpage__Fi(0);
-        puVar6 = DAT_1f800000;
-        *(uint *)(iVar9 + 200) = *(uint *)(iVar9 + 200) & 0xff000000 | *DAT_1f800000 & 0xffffff;
-        *puVar6 = *puVar6 & 0xff000000 | uVar12;
+        puVar7 = DAT_1f800000;
+        *(uint *)(puVar10 + 200) = *(uint *)(puVar10 + 200) & 0xff000000 | *DAT_1f800000 & 0xffffff;
+        *puVar7 = *puVar7 & 0xff000000 | uVar13;
         Hud_GoTpage__Fi(1);
       }
       else {
-        *puVar8 = *puVar8 & 0xff000000 | *DAT_1f800000 & 0xffffff;
-        *puVar6 = *puVar6 & 0xff000000 | (uint)puVar8 & 0xffffff;
+        *puVar9 = *puVar9 & 0xff000000 | *DAT_1f800000 & 0xffffff;
+        *puVar7 = *puVar7 & 0xff000000 | (uint)puVar9 & 0xffffff;
       }
-      puVar8 = puVar8 + 5;
+      puVar9 = puVar9 + 5;
       time = time + 1;
     } while (time < 0xc);
   }
-  puVar8 = DAT_1f800000;
-  pPVar10[2].tag = pPVar10[2].tag & 0xff000000 | *DAT_1f800000 & 0xffffff;
-  *puVar8 = *puVar8 & 0xff000000 | (uint)(pPVar10 + 2) & 0xffffff;
-  pPVar11[3].tag = pPVar11[3].tag & 0xff000000 | (uint)(pPVar10 + 2) & 0xffffff;
-  *puVar8 = *puVar8 & 0xff000000 | (uint)(pPVar11 + 3) & 0xffffff;
+  puVar9 = DAT_1f800000;
+  pPVar11[2].tag = pPVar11[2].tag & 0xff000000 | *DAT_1f800000 & 0xffffff;
+  *puVar9 = *puVar9 & 0xff000000 | (uint)(pPVar11 + 2) & 0xffffff;
+  pPVar12[3].tag = pPVar12[3].tag & 0xff000000 | (uint)(pPVar11 + 2) & 0xffffff;
+  *puVar9 = *puVar9 & 0xff000000 | (uint)(pPVar12 + 3) & 0xffffff;
   return;
 }
 
@@ -2232,6 +2780,21 @@ void Hud_BuildNumbers0__Fi(int player)
 	// End offset: 0x800D5A18
 	// End Line: 1898
 
+	/* begin block 2 */
+		// Start line: 4097
+	/* end block 2 */
+	// End Line: 4098
+
+	/* begin block 3 */
+		// Start line: 4106
+	/* end block 3 */
+	// End Line: 4107
+
+	/* begin block 4 */
+		// Start line: 4106
+	/* end block 4 */
+	// End Line: 4107
+
 void Hud_BuildNumbers__Fi(int player)
 
 {
@@ -2258,15 +2821,15 @@ void Hud_BuildNumbers__Fi(int player)
   int y;
   int iVar19;
   
-  puVar18 = DAT_000018bc;
+  puVar18 = (uint *)gSprite0;
   if (player != 0) {
-    puVar18 = DAT_000018c0;
+    puVar18 = (uint *)gSprite1;
   }
-  pPVar15 = &gHudF4;
+  pPVar15 = gHudF4;
   if (player != 0) {
     pPVar15 = &POLY_F4_8013e4f8;
   }
-  pPVar13 = &gHudG4;
+  pPVar13 = gHudG4;
   if (player != 0) {
     pPVar13 = &POLY_G4_8013e7c0;
   }
@@ -2274,11 +2837,11 @@ void Hud_BuildNumbers__Fi(int player)
   if (player != 0) {
     y = -0xf;
   }
-  if (((GameSetup_gData.carInfo[player].HudLapnum != 0) && (DAT_000013f0 == 0)) &&
+  if (((GameSetup_gData.carInfo[player].HudLapnum != 0) && (Hud_BeTheCop == (void *)0x0)) &&
      (iVar9 = 0x14, DashHUD_gInfo.maxlaps != 1)) {
-    *(HudPmx_tUV *)(puVar18 + 0x67) = (&HudPmx_gHudNumberUV)[DashHUD_gInfo.lap];
+    *(HudPmx_tUV *)(puVar18 + 0x67) = HudPmx_gHudNumberUV[DashHUD_gInfo.lap];
     puVar6 = puVar18 + 100;
-    *(HudPmx_tUV *)(puVar18 + 0x71) = (&HudPmx_gHudNumberUV)[DashHUD_gInfo.maxlaps];
+    *(HudPmx_tUV *)(puVar18 + 0x71) = HudPmx_gHudNumberUV[DashHUD_gInfo.maxlaps];
     puVar8 = DAT_1f800000;
     do {
       iVar9 = iVar9 + 1;
@@ -2302,7 +2865,8 @@ void Hud_BuildNumbers__Fi(int player)
     *puVar6 = *puVar6 & 0xff000000 | (uint)(pPVar15 + 1) & 0xffffff;
   }
   if ((((GameSetup_gData.carInfo[player].HudTime != 0) && (DashHUD_gInfo.record != 0)) &&
-      ((DashHUD_gInfo.record < 0x9600 && ((DAT_000013f0 == 0 && (DAT_000018fc == 0)))))) &&
+      ((DashHUD_gInfo.record < 0x9600 &&
+       ((Hud_BeTheCop == (void *)0x0 && (Hud_gShowedCDPlayer == (void *)0x0)))))) &&
      (DashHUD_gInfo.maxlaps != 1)) {
     if ((DashHUD_gInfo.flashtime == 0) || ((simGlobal.gameTicks & 0x10U) == 0)) {
       Hud_BuildTimeString__FP4SPRTi((SPRT *)(puVar18 + 0x73),DashHUD_gInfo.record);
@@ -2331,16 +2895,16 @@ void Hud_BuildNumbers__Fi(int player)
     pPVar15[2].tag = pPVar15[2].tag & 0xff000000 | (uint)(pPVar13 + 3) & 0xffffff;
     *puVar6 = *puVar6 & 0xff000000 | (uint)(pPVar15 + 2) & 0xffffff;
   }
-  if (((GameSetup_gData.carInfo[player].HudPosition != 0) && (DAT_000013f0 == 0)) &&
+  if (((GameSetup_gData.carInfo[player].HudPosition != 0) && (Hud_BeTheCop == (void *)0x0)) &&
      (1 < DashHUD_gInfo.opponents)) {
     *(short *)(puVar18 + 0xbb) =
-         (*(short *)(DAT_000018b8 + 0x38) + *(short *)(DAT_000018b8 + 0x28) +
-         HudPmx_tShape_80111008.width + -2) - (&HudPmx_gShapes)[DashHUD_gInfo.position + 0x2c].width
-    ;
-    puVar18[0xbc] = *(uint *)&(&HudPmx_tShape_80111008)[DashHUD_gInfo.position].pixmap;
+         (*(short *)(g1Player + 0x38) + *(short *)(g1Player + 0x28) +
+         HudPmx_tShape_ARRAY_80111008[0].width + -2) -
+         (&HudPmx_gShapes)[DashHUD_gInfo.position + 0x2c].width;
+    puVar18[0xbc] = *(uint *)&HudPmx_tShape_ARRAY_80111008[DashHUD_gInfo.position].pixmap;
     iVar9 = 0x25;
     *(short *)(puVar18 + 0xbd) = (&HudPmx_gShapes)[DashHUD_gInfo.position + 0x2c].width;
-    puVar18[0xc6] = *(uint *)&(&HudPmx_tShape_801110bc)[DashHUD_gInfo.opponents].pixmap;
+    puVar18[0xc6] = *(uint *)&HudPmx_tShape_ARRAY_801110bc[DashHUD_gInfo.opponents].pixmap;
     puVar8 = DAT_1f800000;
     puVar6 = puVar18 + 0xb9;
     *(short *)(puVar18 + 199) = (&HudPmx_gShapes)[DashHUD_gInfo.opponents + 0x35].width;
@@ -2397,13 +2961,13 @@ LAB_800d5640:
       uVar7 = uVar7 + 0xffff;
     }
     iVar10 = (int)uVar7 >> 0x10;
-    iVar9 = (int)HudPmx_tShape_8011101c.width;
-    iVar12 = (int)HudPmx_tShape_80111094.width;
-    iVar16 = (int)HudPmx_tShape_80111008.width + 1;
-    x = iVar16 * 2 + (int)*(short *)(DAT_000018b8 + 4) + (int)*(short *)(DAT_000018b8 + 0x30) + 4;
+    iVar9 = (int)HudPmx_tShape_ARRAY_80111008[1].width;
+    iVar12 = (int)HudPmx_tShape_ARRAY_80111008[7].width;
+    iVar16 = (int)HudPmx_tShape_ARRAY_80111008[0].width + 1;
+    x = iVar16 * 2 + (int)*(short *)(g1Player + 4) + (int)*(short *)(g1Player + 0x30) + 4;
     puVar3 = &DAT_1f800004->tag;
-    sVar1 = *(short *)(DAT_000018b8 + 0x32);
-    sVar2 = *(short *)(DAT_000018b8 + 6);
+    sVar1 = *(short *)(g1Player + 0x32);
+    sVar2 = *(short *)(g1Player + 6);
     uVar11 = (uint)DAT_1f800004 & 0xffffff;
     puVar4 = &DAT_1f800004->tag;
     DAT_1f800004 = DAT_1f800004 + 1;
@@ -2415,7 +2979,7 @@ LAB_800d5640:
     iVar14 = (iVar10 / 100 + (iVar10 >> 0x1f)) - ((int)uVar7 >> 0x1f);
     iVar19 = iVar9 + iVar14 * -10;
     Hud_BuildGT4__FP8POLY_GT4P13HudPmx_tShapeiiUl
-              (prim,&HudPmx_tShape_80111008 + iVar10 + iVar9 * -10,x,y,0xc8c8c8);
+              (prim,HudPmx_tShape_ARRAY_80111008 + iVar10 + iVar9 * -10,x,y,0xc8c8c8);
     *(undefined4 *)&prim->r3 = 0x505050;
     *(undefined4 *)&prim->r2 = 0x505050;
     prim = DAT_1f800004;
@@ -2437,7 +3001,7 @@ LAB_800d5640:
       DAT_1f800004 = DAT_1f800004 + 1;
       *puVar8 = *puVar8 & 0xff000000 | uVar7;
       Hud_BuildGT4__FP8POLY_GT4P13HudPmx_tShapeiiUl
-                (prim,&HudPmx_tShape_80111008 + iVar19,x,y,0xc8c8c8);
+                (prim,HudPmx_tShape_ARRAY_80111008 + iVar19,x,y,0xc8c8c8);
       *(undefined4 *)&prim->r3 = 0x505050;
       *(undefined4 *)&prim->r2 = 0x505050;
     }
@@ -2453,7 +3017,7 @@ LAB_800d5640:
       DAT_1f800004 = DAT_1f800004 + 1;
       *puVar8 = *puVar8 & 0xff000000 | uVar7;
       Hud_BuildGT4__FP8POLY_GT4P13HudPmx_tShapeiiUl
-                (prim,&HudPmx_tShape_80111008 + iVar14,(x + -1) - (int)sVar1,y,0xc8c8c8);
+                (prim,HudPmx_tShape_ARRAY_80111008 + iVar14,(x + -1) - (int)sVar1,y,0xc8c8c8);
       *(undefined4 *)&prim->r3 = 0x505050;
       *(undefined4 *)&prim->r2 = 0x505050;
     }
@@ -2481,6 +3045,26 @@ LAB_800d5640:
 	// End offset: 0x800D5AE0
 	// End Line: 1927
 
+	/* begin block 2 */
+		// Start line: 4837
+	/* end block 2 */
+	// End Line: 4838
+
+	/* begin block 3 */
+		// Start line: 4857
+	/* end block 3 */
+	// End Line: 4858
+
+	/* begin block 4 */
+		// Start line: 4857
+	/* end block 4 */
+	// End Line: 4858
+
+	/* begin block 5 */
+		// Start line: 4862
+	/* end block 5 */
+	// End Line: 4863
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Hud_InitMap__Fv(void)
@@ -2496,7 +3080,7 @@ void Hud_InitMap__Fv(void)
   iVar3 = 0;
   if (0 < Cars_gNumRaceCars) {
     pCVar5 = &Hud_gMarkerColor;
-    ppCVar4 = &__Cars_gRaceCarList_9__;
+    ppCVar4 = &Cars_gRaceCarList9;
     do {
       pCVar2 = *ppCVar4;
       ppCVar4 = ppCVar4 + 1;
@@ -2509,7 +3093,7 @@ void Hud_InitMap__Fv(void)
   iVar3 = 0;
   if (0 < Cars_gNumCopCars) {
     pCVar5 = &Hud_gCopMarkerColor;
-    ppCVar4 = &__Cars_gCopCarList_9__;
+    ppCVar4 = &Cars_gCopCarList9;
     do {
       pCVar2 = *ppCVar4;
       ppCVar4 = ppCVar4 + 1;
@@ -2605,12 +3189,27 @@ void Hud_InitMap__Fv(void)
 	// End offset: 0x800D5F88
 	// End Line: 2134
 
+	/* begin block 2 */
+		// Start line: 4968
+	/* end block 2 */
+	// End Line: 4969
+
+	/* begin block 3 */
+		// Start line: 5061
+	/* end block 3 */
+	// End Line: 5062
+
+	/* begin block 4 */
+		// Start line: 5061
+	/* end block 4 */
+	// End Line: 5062
+
 void Hud_BuildMapMarkers__Fi(int player)
 
 {
-  int iVar1;
-  uint *puVar2;
+  uint *puVar1;
   SPRT *sprt;
+  int iVar2;
   int iVar3;
   uint uVar4;
   uint uVar5;
@@ -2623,90 +3222,90 @@ void Hud_BuildMapMarkers__Fi(int player)
   int shapeIdx;
   int iVar11;
   
-  iVar1 = DAT_00001430;
+  iVar2 = gMapOffX;
   iVar10 = 0;
-  ppCVar8 = &__Cars_gCopCarList_9__;
-  iVar3 = DAT_00001434 + 2;
+  ppCVar8 = &Cars_gCopCarList9;
+  iVar3 = gMapOffY + 2;
   while (iVar10 < Cars_gNumCopCars) {
     if (((*ppCVar8)->N).active != '\0') {
       iVar7 = BWorldSm_slices[(int)((*ppCVar8)->N).simRoadInfo.slice].center[0];
-      shapeIdx = iVar7 / DAT_00001428;
-      if (DAT_00001428 == 0) {
+      shapeIdx = iVar7 / gMapScaleX;
+      if (gMapScaleX == 0) {
         trap(0x1c00);
       }
-      if ((DAT_00001428 == -1) && (iVar7 == -0x80000000)) {
+      if ((gMapScaleX == -1) && (iVar7 == -0x80000000)) {
         trap(0x1800);
       }
       iVar7 = BWorldSm_slices[(int)((*ppCVar8)->N).simRoadInfo.slice].center[2];
-      iVar11 = iVar7 / DAT_0000142c;
-      if (DAT_0000142c == 0) {
+      iVar11 = iVar7 / gMapScaleY;
+      if (gMapScaleY == 0) {
         trap(0x1c00);
       }
-      if ((DAT_0000142c == -1) && (iVar7 == -0x80000000)) {
+      if ((gMapScaleY == -1) && (iVar7 == -0x80000000)) {
         trap(0x1800);
       }
-      uVar4 = fixedmult(DAT_000013fc,shapeIdx);
-      uVar5 = fixedmult(DAT_00001400,iVar11);
-      iVar7 = (iVar1 + uVar4) - uVar5;
-      uVar4 = fixedmult(DAT_00001400,shapeIdx);
-      uVar5 = fixedmult(DAT_000013fc,iVar11);
+      uVar4 = fixedmult(mapMarkerMCos,shapeIdx);
+      uVar5 = fixedmult(mapMarkerMSin,iVar11);
+      iVar7 = (iVar2 + uVar4) - uVar5;
+      uVar4 = fixedmult(mapMarkerMSin,shapeIdx);
+      uVar5 = fixedmult(mapMarkerMCos,iVar11);
       sprt = DAT_1f800004;
-      puVar2 = DAT_1f800000;
+      puVar1 = DAT_1f800000;
       if (GameSetup_gData.mirrorTrack != 0) {
         iVar7 = -iVar7;
       }
       DAT_1f800004->tag = DAT_1f800004->tag & 0xff000000 | *DAT_1f800000 & 0xffffff;
-      *puVar2 = *puVar2 & 0xff000000 | (uint)DAT_1f800004 & 0xffffff;
+      *puVar1 = *puVar1 & 0xff000000 | (uint)DAT_1f800004 & 0xffffff;
       DAT_1f800004 = DAT_1f800004 + 1;
       if ((((*ppCVar8)->speechInfo).speechSource & 2) == 0) {
-        DAT_000018c8 = (&Hud_gCopMarkerColor)[iVar10];
+        currentSpriteColor = *(uchar **)(&Hud_gCopMarkerColor + iVar10);
       }
       else {
-        DAT_000018c8 = (CVECTOR)0xff;
-        if ((gFlip == 0) && (DAT_000018c8 = (CVECTOR)0xff, simVar.quickPauseSim == 0)) {
-          DAT_000018c8 = (CVECTOR)0xff0000;
+        currentSpriteColor = (uchar *)0xff;
+        if ((gFlip == 0) && (currentSpriteColor = (uchar *)0xff, simVar.quickPauseSim == 0)) {
+          currentSpriteColor = (uchar *)0xff0000;
         }
       }
       Hud_BuildSprite__FP4SPRTiiiUli
                 (sprt,0x7a,iVar7 + 0x14U & 0xffff,0x18 - (iVar3 + uVar4 + uVar5) & 0xffff,
-                 (ulong)DAT_000018c8,0);
+                 (ulong)currentSpriteColor,0);
     }
     ppCVar8 = ppCVar8 + 1;
     iVar10 = iVar10 + 1;
   }
   iVar10 = 0;
   pCVar9 = &Hud_gMarkerColor;
-  ppCVar8 = &__Cars_gRaceCarList_9__;
+  ppCVar8 = &Cars_gRaceCarList9;
   while (iVar10 < Cars_gNumRaceCars) {
     if (((*ppCVar8)->N).active != '\0') {
       iVar7 = BWorldSm_slices[(int)((*ppCVar8)->N).simRoadInfo.slice].center[0];
-      shapeIdx = iVar7 / DAT_00001428;
-      if (DAT_00001428 == 0) {
+      shapeIdx = iVar7 / gMapScaleX;
+      if (gMapScaleX == 0) {
         trap(0x1c00);
       }
-      if ((DAT_00001428 == -1) && (iVar7 == -0x80000000)) {
+      if ((gMapScaleX == -1) && (iVar7 == -0x80000000)) {
         trap(0x1800);
       }
       iVar7 = BWorldSm_slices[(int)((*ppCVar8)->N).simRoadInfo.slice].center[2];
-      iVar11 = iVar7 / DAT_0000142c;
-      if (DAT_0000142c == 0) {
+      iVar11 = iVar7 / gMapScaleY;
+      if (gMapScaleY == 0) {
         trap(0x1c00);
       }
-      if ((DAT_0000142c == -1) && (iVar7 == -0x80000000)) {
+      if ((gMapScaleY == -1) && (iVar7 == -0x80000000)) {
         trap(0x1800);
       }
-      uVar4 = fixedmult(DAT_000013fc,shapeIdx);
-      uVar5 = fixedmult(DAT_00001400,iVar11);
-      iVar7 = (iVar1 + uVar4) - uVar5;
-      uVar4 = fixedmult(DAT_00001400,shapeIdx);
-      uVar5 = fixedmult(DAT_000013fc,iVar11);
+      uVar4 = fixedmult(mapMarkerMCos,shapeIdx);
+      uVar5 = fixedmult(mapMarkerMSin,iVar11);
+      iVar7 = (iVar2 + uVar4) - uVar5;
+      uVar4 = fixedmult(mapMarkerMSin,shapeIdx);
+      uVar5 = fixedmult(mapMarkerMCos,iVar11);
       sprt = DAT_1f800004;
-      puVar2 = DAT_1f800000;
+      puVar1 = DAT_1f800000;
       if (GameSetup_gData.mirrorTrack != 0) {
         iVar7 = -iVar7;
       }
       DAT_1f800004->tag = DAT_1f800004->tag & 0xff000000 | *DAT_1f800000 & 0xffffff;
-      *puVar2 = *puVar2 & 0xff000000 | (uint)DAT_1f800004 & 0xffffff;
+      *puVar1 = *puVar1 & 0xff000000 | (uint)DAT_1f800004 & 0xffffff;
       uVar6 = (*ppCVar8)->carFlags;
       DAT_1f800004 = DAT_1f800004 + 1;
       if ((uVar6 & 0x200) == 0) {
@@ -2732,7 +3331,7 @@ void Hud_BuildMapMarkers__Fi(int player)
         }
         shapeIdx = 0x79;
         uVar6 = iVar7 + 0x13;
-        DAT_000018c8 = color;
+        currentSpriteColor = (uchar *)color;
       }
       Hud_BuildSprite__FP4SPRTiiiUli
                 (sprt,shapeIdx,uVar6 & 0xffff,0x18 - (iVar3 + uVar4 + uVar5) & 0xffff,(ulong)color,0
@@ -2786,16 +3385,41 @@ void Hud_BuildMapMarkers__Fi(int player)
 	// End offset: 0x800D6050
 	// End Line: 2158
 
+	/* begin block 2 */
+		// Start line: 5449
+	/* end block 2 */
+	// End Line: 5450
+
+	/* begin block 3 */
+		// Start line: 5464
+	/* end block 3 */
+	// End Line: 5465
+
+	/* begin block 4 */
+		// Start line: 5464
+	/* end block 4 */
+	// End Line: 5465
+
+	/* begin block 5 */
+		// Start line: 5465
+	/* end block 5 */
+	// End Line: 5466
+
+	/* begin block 6 */
+		// Start line: 5465
+	/* end block 6 */
+	// End Line: 5466
+
 void Hud_WingmanFlash__Fii(int player,int index)
 
 {
-  if ((Replay_ReplayMode < 2) && (DAT_000013dc == 0)) {
-    if ((&Hud_gWingmanInterface)[player] != '\x01') {
+  if ((Replay_ReplayMode < 2) && (HudBustedOverlay == (void *)0x0)) {
+    if (Hud_gWingmanInterface[player] != '\x01') {
       Hud_InitMapFrame__Fii(player,1);
-      (&Hud_gWingmanInterface)[player] = '\x01';
+      Hud_gWingmanInterface[player] = '\x01';
     }
-    (&Hud_gWingmanFlashIcon)[player] = (char)index;
-    *(uchar **)(&Hud_gWingmanFlashTicks + player) = ticks + 100;
+    Hud_gWingmanFlashIcon[player] = (char)index;
+    *(uchar **)(Hud_gWingmanFlashTicks + player) = ticks + 100;
   }
   return;
 }
@@ -2856,6 +3480,21 @@ void Hud_WingmanFlash__Fii(int player,int index)
 	// End offset: 0x800D6318
 	// End Line: 2196
 
+	/* begin block 2 */
+		// Start line: 5489
+	/* end block 2 */
+	// End Line: 5490
+
+	/* begin block 3 */
+		// Start line: 5494
+	/* end block 3 */
+	// End Line: 5495
+
+	/* begin block 4 */
+		// Start line: 5494
+	/* end block 4 */
+	// End Line: 5495
+
 void Hud_BuildWingmanInterface__Fi(int player)
 
 {
@@ -2873,9 +3512,9 @@ void Hud_BuildWingmanInterface__Fi(int player)
   if (player != 0) {
     x = -0xf;
   }
-  iVar4 = (&Hud_gWingmanFlashTicks)[player] - (int)ticks;
-  iVar3 = (int)*(short *)(iGp000018b8 + 0x38);
-  y_00 = (int)*(short *)(iGp000018b8 + 0x3a) + iGp00001420 + x + 2;
+  iVar4 = Hud_gWingmanFlashTicks[player] - (int)ticks;
+  iVar3 = (int)*(short *)(g1Player + 0x38);
+  y_00 = (int)*(short *)(g1Player + 0x3a) + HudMapOffsetY + x + 2;
   str = TextSys_Word__Fi(0x29);
   x = iVar3 + -0x1b;
   Hud_BuildString__FPciiiib(str,x,y_00 + 3,0x808080,0,(void *)0x0);
@@ -2895,9 +3534,8 @@ void Hud_BuildWingmanInterface__Fi(int player)
     DAT_1f800004 = DAT_1f800004 + 1;
     *puVar1 = *puVar1 & 0xff000000 | uVar2;
     Hud_BuildF4__FP7POLY_F4iiiiiUl
-              (prim,0,iVar3 + -0x10,
-               y_00 + ((uint)(byte)(&Hud_gWingmanFlashIcon)[player] + 1) * 9 + 2,0x3f,8,
-               (iVar4 % 0x14) * 10);
+              (prim,0,iVar3 + -0x10,y_00 + ((uint)(byte)Hud_gWingmanFlashIcon[player] + 1) * 9 + 2,
+               0x3f,8,(iVar4 % 0x14) * 10);
   }
   iVar4 = 0;
   x = 2;
@@ -2936,15 +3574,35 @@ void Hud_BuildWingmanInterface__Fi(int player)
 	// End offset: 0x800D63B8
 	// End Line: 2220
 
+	/* begin block 2 */
+		// Start line: 5621
+	/* end block 2 */
+	// End Line: 5622
+
+	/* begin block 3 */
+		// Start line: 5640
+	/* end block 3 */
+	// End Line: 5641
+
+	/* begin block 4 */
+		// Start line: 5640
+	/* end block 4 */
+	// End Line: 5641
+
+	/* begin block 5 */
+		// Start line: 5644
+	/* end block 5 */
+	// End Line: 5645
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Hud_InitCdPlayer__Fv(void)
 
 {
-  uGp000013e0 = 0;
-  uGp000013e4 = (uint)(Replay_ReplayMode < 2);
-  uGp00001438 = 0;
-  uGp0000143c = 0;
+  Hud_gCdActive = 0;
+  Hud_ActivateCDPlayer = (uint)(Replay_ReplayMode < 2);
+  Hud_gCdLastTick = 0;
+  Hud_gCdScrollTitle = 0;
   return;
 }
 
@@ -3164,6 +3822,31 @@ void Hud_InitCdPlayer__Fv(void)
 	// End offset: 0x800D6B18
 	// End Line: 2485
 
+	/* begin block 2 */
+		// Start line: 5657
+	/* end block 2 */
+	// End Line: 5658
+
+	/* begin block 3 */
+		// Start line: 5663
+	/* end block 3 */
+	// End Line: 5664
+
+	/* begin block 4 */
+		// Start line: 5663
+	/* end block 4 */
+	// End Line: 5664
+
+	/* begin block 5 */
+		// Start line: 5664
+	/* end block 5 */
+	// End Line: 5665
+
+	/* begin block 6 */
+		// Start line: 5664
+	/* end block 6 */
+	// End Line: 5665
+
 void Hud_BuildCdPlayer__Fii(int type)
 
 {
@@ -3189,11 +3872,11 @@ void Hud_BuildCdPlayer__Fii(int type)
   char acStack64 [17];
   undefined local_2f;
   
-  sVar1 = *(short *)(iGp000018b8 + 0x3c);
-  y = (int)*(short *)(iGp000018b8 + 0x3e);
+  sVar1 = *(short *)(g1Player + 0x3c);
+  y = (int)*(short *)(g1Player + 0x3e);
   x = (int)sVar1 + 2;
   if (type == 0) {
-    iGp000013b4 = 1;
+    DAT_8013d900 = 1;
   }
   y_00 = 0;
   local_2f = 0;
@@ -3201,38 +3884,38 @@ void Hud_BuildCdPlayer__Fii(int type)
   if (pAVar4 == (AudioMus_tCurrentSong *)0x0) {
     return;
   }
-  if (iGp000013e0 == 0) {
+  if (Hud_gCdActive == 0) {
     bVar2 = false;
-    if ((((simGlobal.gameTicks < 0x240) || (((byte)countdown < 4 && (iGp000013f0 == 0)))) ||
-        ((uVar3 = PAD_state(4), (uVar3 & 0x400) != 0 && (DashHUD_gInfo.splitscreen != 0)))) ||
+    if ((((simGlobal.gameTicks < 0x240) || (((byte)countdown < 4 && (Hud_BeTheCop == (void *)0x0))))
+        || ((uVar3 = PAD_state(4), (uVar3 & 0x400) != 0 && (DashHUD_gInfo.splitscreen != 0)))) ||
        ((uVar3 = PAD_state(0), (uVar3 & 0x400) != 0 &&
-        ((iGp000013f0 == 0 || (DashHUD_gInfo.splitscreen != 0)))))) {
+        ((Hud_BeTheCop == (void *)0x0 || (DashHUD_gInfo.splitscreen != 0)))))) {
       bVar2 = true;
     }
     if ((bVar2) ||
        ((((gPadinfo.buf[0].ID == '#' && (0xbf < gPadinfo.buf[0].data._5_1_)) &&
-         ((iGp000013f0 == 0 || (DashHUD_gInfo.splitscreen != 0)))) ||
-        (((gPadinfo.buf[4].ID == '#' && (0xbf < gPadinfo.buf[4].data._5_1_)) &&
+         ((Hud_BeTheCop == (void *)0x0 || (DashHUD_gInfo.splitscreen != 0)))) ||
+        (((gPadinfo.buf[3].data._1_1_ == '#' && (0xbf < gPadinfo.buf[3].data._7_1_)) &&
          (DashHUD_gInfo.splitscreen != 0)))))) {
-      iGp000013e0 = 1;
-      iGp000013e4 = 1;
+      Hud_gCdActive = 1;
+      Hud_ActivateCDPlayer = 1;
     }
   }
-  if (iGp000013e4 != 0) {
-    if (iGp000013f0 != 0) {
-      iGp000013e0 = 1;
+  if (Hud_ActivateCDPlayer != 0) {
+    if (Hud_BeTheCop != (void *)0x0) {
+      Hud_gCdActive = 1;
     }
-    iGp000013e4 = 0;
-    iGp0000143c = 1;
-    puGp00001438 = ticks;
+    Hud_ActivateCDPlayer = 0;
+    Hud_gCdScrollTitle = 1;
+    Hud_gCdLastTick = (int)ticks;
     if (type == 0) {
-      iGp000013b4 = 1;
+      DAT_8013d900 = 1;
     }
     else {
-      iGp000013b4 = 0;
+      DAT_8013d900 = 0;
     }
   }
-  if (iGp000013b4 != 0) {
+  if (DAT_8013d900 != 0) {
     type = 0;
   }
   local_b8 = pAVar4->remaining;
@@ -3255,8 +3938,8 @@ void Hud_BuildCdPlayer__Fii(int type)
   if ((type == 0) && (__s != (char *)0x0)) {
     uppercase__FPc(__s);
   }
-  if (iGp000013e0 == 0) {
-    uGp000013f4 = 1;
+  if (Hud_gCdActive == 0) {
+    Hud_kTurnSongOffNext = &DAT_00000001;
     return;
   }
   if (w < 1) {
@@ -3280,34 +3963,34 @@ void Hud_BuildCdPlayer__Fii(int type)
     __s_00 = (byte *)TextSys_Word__Fi(wordnum);
 LAB_800d6724:
     if (__s_00 == (byte *)0x0) {
-      iGp000013b4 = 0;
-      puGp00001438 = ticks;
+      DAT_8013d900 = 0;
+      Hud_gCdLastTick = (int)ticks;
       goto LAB_800d68a4;
     }
   }
   else {
     sprintf(acStack168,&DAT_8013d908,w);
     if (__s_00 == (byte *)0x0) {
-      iGp0000143c = 1;
-      puGp00001438 = ticks;
+      Hud_gCdScrollTitle = 1;
+      Hud_gCdLastTick = (int)ticks;
       goto LAB_800d6724;
     }
   }
   y_00 = Hud_BuildString__FPciiiib((char *)__s_00,0,0,0,0,&DAT_00000001);
-  if (iGp0000143c < y_00 + 0x4c) {
-    while ((int)puGp00001438 < (int)ticks) {
-      iGp0000143c = iGp0000143c + 1;
-      puGp00001438 = puGp00001438 + 4;
+  if (Hud_gCdScrollTitle < y_00 + 0x4c) {
+    while (Hud_gCdLastTick < (int)ticks) {
+      Hud_gCdScrollTitle = Hud_gCdScrollTitle + 1;
+      Hud_gCdLastTick = Hud_gCdLastTick + 4;
     }
   }
   else {
-    if ((int)(puGp00001438 + 0x80) < (int)ticks) {
-      iGp000013e0 = 0;
+    if (Hud_gCdLastTick + 0x80 < (int)ticks) {
+      Hud_gCdActive = 0;
     }
   }
   y_00 = 0;
   pbVar7 = local_a0;
-  wordnum = 0x4c - iGp0000143c;
+  wordnum = 0x4c - Hud_gCdScrollTitle;
   if (*__s_00 != 0) {
     pbVar6 = __s_00;
     do {
@@ -3342,36 +4025,36 @@ LAB_800d68a4:
     if (__s_00 == (byte *)0x0) {
       return;
     }
-    uGp000018fc = 1;
+    Hud_gShowedCDPlayer = &DAT_00000001;
     Hud_BuildString__FPciiiib
-              ((char *)local_a0,(x + y_00 + 10) - (iGp0000143c + -0x4c),y + 0xc,(int)&DAT_0000bebe,0
-               ,(void *)0x0);
+              ((char *)local_a0,(x + y_00 + 10) - (Hud_gCdScrollTitle + -0x4c),y + 0xc,
+               (int)&DAT_0000bebe,0,(void *)0x0);
     if (__s != (char *)0x0) {
       Hud_BuildString__FPciiiib(__s,(int)sVar1 + 0xc,y + 0x15,0x808080,0,(void *)0x0);
     }
     Hud_GoTpage__Fi(0);
     Hud_BlackThinBox__Fiiii
-              ((int)*(short *)(iGp000018b8 + 0x3c) + 10,(int)*(short *)(iGp000018b8 + 0x3e) + 10,
-               0x50,0x12);
+              ((int)*(short *)(g1Player + 0x3c) + 10,(int)*(short *)(g1Player + 0x3e) + 10,0x50,0x12
+              );
     y = 0;
     w = 0x50;
     local_b8 = 0x12;
-    x = (int)*(short *)(iGp000018b8 + 0x3c) + 10;
-    y_00 = (int)*(short *)(iGp000018b8 + 0x3e) + 10;
+    x = (int)*(short *)(g1Player + 0x3c) + 10;
+    y_00 = (int)*(short *)(g1Player + 0x3e) + 10;
   }
   else {
-    uGp000018fc = 1;
+    Hud_gShowedCDPlayer = &DAT_00000001;
     Font_TextColor__Fi(4);
     Font_TextXY__FPcii(acStack168,x,y);
     if (__s_00 != (byte *)0x0) {
       Font_TextColor__Fi(3);
       Hud_BuildString__FPciiiib
-                ((char *)local_a0,(x + y_00 + 0x16) - (iGp0000143c + -0x4c),y + 5,(int)&DAT_0000bebe
-                 ,0,(void *)0x0);
+                ((char *)local_a0,(x + y_00 + 0x16) - (Hud_gCdScrollTitle + -0x4c),y + 5,
+                 (int)&DAT_0000bebe,0,(void *)0x0);
       Hud_GoTpage__Fi(0);
       if (w != 0) {
         sprintf(acStack64,s__1d_c_02d_800568f8,local_b8 / 60000,
-                (uint)(byte)(&HudminChar)[GameSetup_gData.userSetting.language],
+                (uint)(byte)HudminChar[GameSetup_gData.userSetting.language],
                 (local_b8 % 60000) / 1000);
         Font_TextColor__Fi(4);
         y_00 = textpixels(acStack64);
@@ -3379,17 +4062,16 @@ LAB_800d68a4:
       }
     }
     Hud_BlackThinBox__Fiiii
-              ((int)*(short *)(iGp000018b8 + 0x3c),(int)*(short *)(iGp000018b8 + 0x3e),0x66,0x1c);
+              ((int)*(short *)(g1Player + 0x3c),(int)*(short *)(g1Player + 0x3e),0x66,0x1c);
     Hud_FBuildF4__FiiiiiUlcc
-              (0,(int)*(short *)(iGp000018b8 + 0x3c),(int)*(short *)(iGp000018b8 + 0x3e),0x66,0xe,0,
-               0,0);
+              (0,(int)*(short *)(g1Player + 0x3c),(int)*(short *)(g1Player + 0x3e),0x66,0xe,0,0,0);
     Hud_FBuildF4__FiiiiiUlcc
-              (0,(int)*(short *)(iGp000018b8 + 0x3c),(int)*(short *)(iGp000018b8 + 0x3e) + 0x1b,0x66
-               ,1,0,0,0);
+              (0,(int)*(short *)(g1Player + 0x3c),(int)*(short *)(g1Player + 0x3e) + 0x1b,0x66,1,0,0
+               ,0);
     y = 1;
     w = 0x66;
-    x = (int)*(short *)(iGp000018b8 + 0x3c);
-    y_00 = (int)*(short *)(iGp000018b8 + 0x3e);
+    x = (int)*(short *)(g1Player + 0x3c);
+    y_00 = (int)*(short *)(g1Player + 0x3e);
     local_b8 = 0x1c;
   }
   Hud_FBuildF4__FiiiiiUlcc(y,x,y_00,w,local_b8,0,0,0);
@@ -3477,6 +4159,21 @@ LAB_800d68a4:
 	// End offset: 0x800D7220
 	// End Line: 2615
 
+	/* begin block 2 */
+		// Start line: 6217
+	/* end block 2 */
+	// End Line: 6218
+
+	/* begin block 3 */
+		// Start line: 6227
+	/* end block 3 */
+	// End Line: 6228
+
+	/* begin block 4 */
+		// Start line: 6227
+	/* end block 4 */
+	// End Line: 6228
+
 int Hud_BuildRadar__Fi(int player)
 
 {
@@ -3505,7 +4202,7 @@ int Hud_BuildRadar__Fi(int player)
   
   iVar16 = 0;
   iVar18 = 0;
-  pBVar3 = (&Camera_gInfo)[player].anchor;
+  pBVar3 = (&Camera_gInfo.anchor)[player * 0x44];
   iVar15 = (pBVar3->orientMat).m[0] >> 8;
   iVar14 = (pBVar3->orientMat).m[6] >> 8;
   iVar13 = (pBVar3->orientMat).m[2] >> 8;
@@ -3513,7 +4210,7 @@ int Hud_BuildRadar__Fi(int player)
   shapeIdx = (pBVar3->position).x >> 8;
   iVar12 = -(pBVar3->position).z >> 8;
   if (0 < Cars_gNumRaceCars) {
-    ppCVar10 = &__Cars_gRaceCarList_9__;
+    ppCVar10 = &Cars_gRaceCarList9;
     iVar11 = 0;
     do {
       iVar8 = (((*ppCVar10)->N).position.x >> 8) - shapeIdx;
@@ -3537,7 +4234,7 @@ int Hud_BuildRadar__Fi(int player)
   }
   iVar16 = 0;
   if (0 < Cars_gNumCopCars) {
-    ppCVar10 = &__Cars_gCopCarList_9__;
+    ppCVar10 = &Cars_gCopCarList9;
     iVar11 = Cars_gNumRaceCars;
     do {
       pCVar6 = *ppCVar10;
@@ -3565,7 +4262,7 @@ int Hud_BuildRadar__Fi(int player)
     iVar12 = 0;
     if (0 < Cars_gNumRaceCars) {
       piVar9 = local_e0;
-      ppCVar10 = &__Cars_gRaceCarList_9__;
+      ppCVar10 = &Cars_gRaceCarList9;
       do {
         if (((*ppCVar10)->N).active != '\0') {
           shapeIdx = piVar9[2] >> 2;
@@ -3601,7 +4298,7 @@ int Hud_BuildRadar__Fi(int player)
     }
   }
   iVar7 = 0;
-  ppCVar10 = &__Cars_gCopCarList_9__;
+  ppCVar10 = &Cars_gCopCarList9;
   while (sprt = DAT_1f800004, puVar2 = DAT_1f800000, iVar7 < Cars_gNumCopCars) {
     if (((*ppCVar10)->N).active != '\0') {
       DAT_1f800004->tag = DAT_1f800004->tag & 0xff000000 | *DAT_1f800000 & 0xffffff;
@@ -3609,12 +4306,13 @@ int Hud_BuildRadar__Fi(int player)
       bVar1 = gFlip != 0;
       DAT_1f800004 = DAT_1f800004 + 1;
       *puVar2 = *puVar2 & 0xff000000 | uVar5;
-      if ((bVar1) || (DAT_000018c8 = 0xff0000, simVar.quickPauseSim != 0)) {
-        DAT_000018c8 = 0xff;
+      if ((bVar1) || (currentSpriteColor = (uchar *)0xff0000, simVar.quickPauseSim != 0)) {
+        currentSpriteColor = (uchar *)0xff;
       }
       Hud_BuildSprite__FP4SPRTiiiUli
                 (sprt,0x7a,local_e0[(iVar7 + Cars_gNumRaceCars) * 3] + 0x14U & 0xffff,
-                 local_e0[(iVar7 + Cars_gNumRaceCars) * 3 + 2] + 0x18U & 0xffff,DAT_000018c8,0);
+                 local_e0[(iVar7 + Cars_gNumRaceCars) * 3 + 2] + 0x18U & 0xffff,
+                 (ulong)currentSpriteColor,0);
     }
     ppCVar10 = ppCVar10 + 1;
     iVar7 = iVar7 + 1;
@@ -3622,7 +4320,7 @@ int Hud_BuildRadar__Fi(int player)
   iVar7 = 0;
   iVar12 = 0;
   pCVar17 = &Hud_gMarkerColor;
-  ppCVar10 = &__Cars_gRaceCarList_9__;
+  ppCVar10 = &Cars_gRaceCarList9;
   while (sprt = DAT_1f800004, puVar2 = DAT_1f800000, iVar7 < Cars_gNumRaceCars) {
     if ((iVar7 != player) && (((*ppCVar10)->N).active != '\0')) {
       DAT_1f800004->tag = DAT_1f800004->tag & 0xff000000 | *DAT_1f800000 & 0xffffff;
@@ -3668,38 +4366,51 @@ int Hud_BuildRadar__Fi(int player)
 	// End offset: 0x800D749C
 	// End Line: 2842
 
+	/* begin block 2 */
+		// Start line: 6680
+	/* end block 2 */
+	// End Line: 6681
+
+	/* begin block 3 */
+		// Start line: 6818
+	/* end block 3 */
+	// End Line: 6819
+
+	/* begin block 4 */
+		// Start line: 6818
+	/* end block 4 */
+	// End Line: 6819
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Hud_BuildReplay__Fv(void)
 
 {
-  int iVar1;
+  uint *puVar1;
   uint *puVar2;
-  uint *puVar3;
+  uchar *puVar3;
   undefined4 uVar4;
   int iVar5;
-  uint uVar6;
-  uint *puVar7;
-  int iVar8;
+  uint *puVar6;
+  int iVar7;
   byte local_8 [8];
   
-  iVar8 = 0x33;
+  iVar7 = 0x33;
   iVar5 = 0x3fc;
   do {
-    iVar1 = DAT_000018bc;
-    iVar8 = iVar8 + 1;
-    *(undefined4 *)(iVar5 + DAT_000018bc + 4) = 0x66808080;
+    puVar3 = gSprite0;
+    iVar7 = iVar7 + 1;
+    *(undefined4 *)(gSprite0 + iVar5 + 4) = 0x66808080;
     iVar5 = iVar5 + 0x14;
-  } while (iVar8 < 0x3f);
-  *(undefined4 *)((uint)local_8[Replay_ReplayInterface.selection] * 0x14 + iVar1 + 0x400) =
+  } while (iVar7 < 0x3f);
+  *(undefined4 *)(puVar3 + (uint)local_8[Replay_ReplayInterface.selection] * 0x14 + 0x400) =
        0x6600bebe;
   if (Replay_ReplayInterface.selection == 3) {
-    *(undefined4 *)(iVar1 + 0x464) = 0x6600bebe;
+    *(undefined4 *)(puVar3 + 0x464) = 0x6600bebe;
   }
-  *(undefined4 *)(DAT_000018bc + 0x41c) =
+  *(undefined4 *)(gSprite0 + 0x41c) =
        *(undefined4 *)
-        &((HudPmx_tShape *)((int)&HudPmx_tShape_80111530 + Replay_ReplayInterface.pause * -0x14))->
-         pixmap;
+        ((int)HudPmx_tShape_ARRAY_801114a4 + Replay_ReplayInterface.pause * -0x14 + 0x8c);
   if (Replay_ReplayInterface.speed == 1) {
     iVar5 = 0x73;
   }
@@ -3717,42 +4428,39 @@ void Hud_BuildReplay__Fv(void)
       }
     }
   }
-  *(uchar *)(DAT_000018bc + 0x46c) = (&HudPmx_gShapes)[iVar5].pixmap.u0;
-  *(uchar *)(DAT_000018bc + 0x46d) = (&HudPmx_gShapes)[iVar5].pixmap.v0;
-  iVar5 = DAT_000018bc;
-  *(undefined4 *)(DAT_000018bc + 0x480) =
-       *(undefined4 *)&(&HudPmx_tShape_80110cc0)[Replay_ReplayInterface.camera].pixmap;
-  *(short *)(iVar5 + 0x47c) = *(short *)(DAT_000018b8 + 0x34) + 0x75;
+  gSprite0[0x46c] = (&HudPmx_gShapes)[iVar5].pixmap.u0;
+  gSprite0[0x46d] = (&HudPmx_gShapes)[iVar5].pixmap.v0;
+  puVar3 = gSprite0;
+  *(undefined4 *)(gSprite0 + 0x480) =
+       *(undefined4 *)&HudPmx_tShape_ARRAY_80110cc0[Replay_ReplayInterface.camera].pixmap;
+  *(short *)(puVar3 + 0x47c) = *(short *)(g1Player + 0x34) + 0x75;
   if (Replay_ReplayInterface.selection == 4) {
     uVar4 = 0x6600bebe;
   }
   else {
     uVar4 = 0x66808080;
   }
-  *(undefined4 *)(iVar5 + 0x478) = uVar4;
-  puVar2 = DAT_1f800000;
-  iVar5 = DAT_000018bc;
-  iVar8 = 0x33;
-  puVar7 = (uint *)(DAT_000018bc + 0x3fc);
-  *(uint *)(DAT_000018bc + 0x474) =
-       *(uint *)(DAT_000018bc + 0x474) & 0xff000000 | *DAT_1f800000 & 0xffffff;
-  *puVar2 = *puVar2 & 0xff000000 | iVar5 + 0x474U & 0xffffff;
+  *(undefined4 *)(puVar3 + 0x478) = uVar4;
+  puVar3 = gSprite0;
+  puVar1 = DAT_1f800000;
+  iVar5 = 0x33;
+  puVar6 = (uint *)(gSprite0 + 0x3fc);
+  *(uint *)(gSprite0 + 0x474) = *(uint *)(gSprite0 + 0x474) & 0xff000000 | *DAT_1f800000 & 0xffffff;
+  *puVar1 = *puVar1 & 0xff000000 | (uint)(puVar3 + 0x474) & 0xffffff;
   do {
-    iVar8 = iVar8 + 1;
-    *puVar7 = *puVar7 & 0xff000000 | *puVar2 & 0xffffff;
-    *puVar2 = *puVar2 & 0xff000000 | (uint)puVar7 & 0xffffff;
-    puVar3 = DAT_1f800000;
-    iVar5 = DAT_000018bc;
-    puVar7 = puVar7 + 5;
-  } while (iVar8 < 0x38);
-  *(uint *)(DAT_000018bc + 0x460) =
-       *(uint *)(DAT_000018bc + 0x460) & 0xff000000 | *DAT_1f800000 & 0xffffff;
-  uVar6 = iVar5 + 0x460U & 0xffffff;
-  *puVar3 = *puVar3 & 0xff000000 | uVar6;
-  DAT_8013e414 = DAT_8013e414 & 0xff000000 | uVar6;
-  *puVar3 = *puVar3 & 0xff000000 | 0x13e414;
+    iVar5 = iVar5 + 1;
+    *puVar6 = *puVar6 & 0xff000000 | *puVar1 & 0xffffff;
+    *puVar1 = *puVar1 & 0xff000000 | (uint)puVar6 & 0xffffff;
+    puVar3 = gSprite0;
+    puVar2 = DAT_1f800000;
+    puVar6 = puVar6 + 5;
+  } while (iVar5 < 0x38);
+  *(uint *)(gSprite0 + 0x460) = *(uint *)(gSprite0 + 0x460) & 0xff000000 | *DAT_1f800000 & 0xffffff;
+  *puVar2 = *puVar2 & 0xff000000 | (uint)(puVar3 + 0x460) & 0xffffff;
+  DAT_8013e414 = DAT_8013e414 & 0xff000000 | (uint)(puVar3 + 0x460) & 0xffffff;
+  *puVar2 = *puVar2 & 0xff000000 | 0x13e414;
   DAT_8013e3b4 = DAT_8013e3b4 & 0xff000000 | 0x13e414;
-  *puVar3 = *puVar3 & 0xff000000 | 0x13e3b4;
+  *puVar2 = *puVar2 & 0xff000000 | 0x13e3b4;
   return;
 }
 
@@ -3774,6 +4482,21 @@ void Hud_BuildReplay__Fv(void)
 	// End offset: 0x800D7698
 	// End Line: 2890
 
+	/* begin block 2 */
+		// Start line: 7055
+	/* end block 2 */
+	// End Line: 7056
+
+	/* begin block 3 */
+		// Start line: 7068
+	/* end block 3 */
+	// End Line: 7069
+
+	/* begin block 4 */
+		// Start line: 7068
+	/* end block 4 */
+	// End Line: 7069
+
 int Hud_NextPlayer__Fi(int player)
 
 {
@@ -3785,7 +4508,7 @@ int Hud_NextPlayer__Fi(int player)
   Car_tObj *carObj;
   
   bVar1 = 0 < (&Input_gLookBehind)[player] != 0 < DashHUD_gInfo.wrongway[player];
-  carObj = (&__Cars_gHumanRaceCarList_9__)[player];
+  carObj = (&Cars_gHumanRaceCarList9)[player];
   if (1 < Cars_gNumRaceCars) {
     iVar2 = Stats_GetPosition__FP8Car_tObj(carObj);
     iVar5 = 0;
@@ -3807,7 +4530,7 @@ int Hud_NextPlayer__Fi(int player)
             iVar2 = 0;
             iVar3 = 0;
           }
-          uVar4 = *(uint *)(*(int *)((int)&__Cars_gSortedList_9__ + iVar3) + 0x260);
+          uVar4 = *(uint *)(*(int *)((int)&Cars_gSortedList9 + iVar3) + 0x260);
           if ((uVar4 & 4) != 0) {
             if (player == 0) {
               return 8;
@@ -3816,7 +4539,7 @@ int Hud_NextPlayer__Fi(int player)
           }
           iVar5 = iVar5 + 1;
           if ((uVar4 & 8) != 0) {
-            return *(int *)(*(int *)((int)&__Cars_gSortedList_9__ + iVar3) + 0x4ec);
+            return *(int *)(*(int *)((int)&Cars_gSortedList9 + iVar3) + 0x4ec);
           }
         } while (iVar5 < Cars_gNumCars + -1);
       }
@@ -3843,6 +4566,21 @@ int Hud_NextPlayer__Fi(int player)
 	// End offset: 0x800D7820
 	// End Line: 2925
 
+	/* begin block 2 */
+		// Start line: 7147
+	/* end block 2 */
+	// End Line: 7148
+
+	/* begin block 3 */
+		// Start line: 7153
+	/* end block 3 */
+	// End Line: 7154
+
+	/* begin block 4 */
+		// Start line: 7153
+	/* end block 4 */
+	// End Line: 7154
+
 char * Hud_NextPlayerNameOrCarOrTime__Fi(int player)
 
 {
@@ -3853,7 +4591,7 @@ char * Hud_NextPlayerNameOrCarOrTime__Fi(int player)
   Car_tObj *carObj;
   
   bVar1 = 0 < (&Input_gLookBehind)[player] != 0 < DashHUD_gInfo.wrongway[player];
-  carObj = (&__Cars_gHumanRaceCarList_9__)[player];
+  carObj = (&Cars_gHumanRaceCarList9)[player];
   if (1 < Cars_gNumRaceCars) {
     iVar2 = Stats_GetPosition__FP8Car_tObj(carObj);
     iVar4 = 0;
@@ -3875,7 +4613,7 @@ char * Hud_NextPlayerNameOrCarOrTime__Fi(int player)
             iVar2 = 0;
             iVar3 = 0;
           }
-          iVar3 = *(int *)((int)&__Cars_gSortedList_9__ + iVar3);
+          iVar3 = *(int *)((int)&Cars_gSortedList9 + iVar3);
           if ((*(uint *)(iVar3 + 0x260) & 0xc) != 0) {
             if (GameSetup_gData.carInfo[player].HudOpponentID != 2) {
               return (char *)(*(int *)(iVar3 + 0x288) + 0x5c);
@@ -3887,7 +4625,7 @@ char * Hud_NextPlayerNameOrCarOrTime__Fi(int player)
       }
     }
   }
-  return (char *)&PTR_DAT_8013d91c;
+  return &DAT_8013d91c;
 }
 
 
@@ -3949,6 +4687,21 @@ char * Hud_NextPlayerNameOrCarOrTime__Fi(int player)
 	// End offset: 0x800D7A8C
 	// End Line: 2981
 
+	/* begin block 2 */
+		// Start line: 7241
+	/* end block 2 */
+	// End Line: 7242
+
+	/* begin block 3 */
+		// Start line: 7252
+	/* end block 3 */
+	// End Line: 7253
+
+	/* begin block 4 */
+		// Start line: 7252
+	/* end block 4 */
+	// End Line: 7253
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Hud_RenderMapView__Fv(void)
@@ -3969,8 +4722,8 @@ void Hud_RenderMapView__Fv(void)
   pGVar6 = &GameSetup_gData;
   while (player <= DashHUD_gInfo.splitscreen) {
     if (((pGVar6->carInfo[0].HudMap != 0) && (*(int *)((int)DashHUD_gInfo.showhud + iVar5) != 0)) &&
-       ((&Hud_gWingmanInterface)[player] == '\0')) {
-      pPVar4 = &gHudFT4;
+       (Hud_gWingmanInterface[player] == '\0')) {
+      pPVar4 = gHudFT4;
       if (player != 0) {
         pPVar4 = &POLY_FT4_8013e668;
       }
@@ -4027,6 +4780,21 @@ void Hud_RenderMapView__Fv(void)
 	// End offset: 0x800D7ABC
 	// End Line: 3083
 
+	/* begin block 2 */
+		// Start line: 7460
+	/* end block 2 */
+	// End Line: 7461
+
+	/* begin block 3 */
+		// Start line: 7562
+	/* end block 3 */
+	// End Line: 7563
+
+	/* begin block 4 */
+		// Start line: 7562
+	/* end block 4 */
+	// End Line: 7563
+
 void Hud_BlackThinBox__Fiiii(int x,int y,int w,int h)
 
 {
@@ -4081,6 +4849,21 @@ void Hud_BlackThinBox__Fiiii(int x,int y,int w,int h)
 	// End offset: 0x800D7E00
 	// End Line: 3253
 
+	/* begin block 2 */
+		// Start line: 7690
+	/* end block 2 */
+	// End Line: 7691
+
+	/* begin block 3 */
+		// Start line: 7729
+	/* end block 3 */
+	// End Line: 7730
+
+	/* begin block 4 */
+		// Start line: 7729
+	/* end block 4 */
+	// End Line: 7730
+
 void Hud_Draw321Num__Fiiiiii(int x,int y,int num,int flare_intensity)
 
 {
@@ -4100,7 +4883,7 @@ void Hud_Draw321Num__Fiiiiii(int x,int y,int num,int flare_intensity)
       x_00 = 0;
       iVar3 = x;
       do {
-        if (((&Hud_Character)[num] & 1 << (uVar4 & 0x1f)) != 0) {
+        if ((Hud_Character[num] & 1 << (uVar4 & 0x1f)) != 0) {
           Flare_2DHalo__Fiiiii(iVar3 + 4,iVar6 + 4,flare_intensity,flare_intensity,6);
         }
         iVar3 = iVar3 + 10;
@@ -4124,8 +4907,7 @@ void Hud_Draw321Num__Fiiiiii(int x,int y,int num,int flare_intensity)
       uVar1 = uVar4 & 0x1f;
       uVar4 = uVar4 + 1;
       Hud_FBuildSprite__FiiiUli
-                ((uint)(((&Hud_Character)[num] & 1 << uVar1) != 0) | 0x3c,x_00,iVar6 + 1,0x808080,0)
-      ;
+                ((uint)((Hud_Character[num] & 1 << uVar1) != 0) | 0x3c,x_00,iVar6 + 1,0x808080,0);
       x_00 = iVar3 + 0xb;
       iVar3 = iVar3 + 10;
     } while (iVar2 < 5);
@@ -4200,24 +4982,39 @@ void Hud_Draw321Num__Fiiiiii(int x,int y,int num,int flare_intensity)
 	// End offset: 0x800D7F84
 	// End Line: 3340
 
+	/* begin block 2 */
+		// Start line: 7940
+	/* end block 2 */
+	// End Line: 7941
+
+	/* begin block 3 */
+		// Start line: 7947
+	/* end block 3 */
+	// End Line: 7948
+
+	/* begin block 4 */
+		// Start line: 7947
+	/* end block 4 */
+	// End Line: 7948
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Hud_Render321Go__Fv(void)
 
 {
-  undefined4 *puVar1;
+  uchar *puVar1;
   undefined *flare_intensity;
   int num;
   int y;
   
-  gCView.id = DAT_0000141c;
-  Draw_StartRenderingView__Fi(DAT_0000141c);
-  y = (int)*(short *)(DAT_000018b8 + 0x46);
-  if ((int)DAT_000013d1 != (uint)(byte)countdown) {
-    DAT_000013d1 = countdown;
-    DAT_000018b4 = ticks;
+  gCView.id = Hud_gStatsView;
+  Draw_StartRenderingView__Fi(Hud_gStatsView);
+  y = (int)*(short *)(g1Player + 0x46);
+  if ((int)DAT_8013d91d != (uint)(byte)countdown) {
+    DAT_8013d91d = countdown;
+    countdownTick_216 = ticks;
   }
-  puVar1 = (undefined4 *)(ticks + -(int)DAT_000018b4);
+  puVar1 = ticks + -(int)countdownTick_216;
   if (countdown == '\x04') {
     if (puVar1 < &DAT_00000064) {
       flare_intensity = &DAT_00001f40 + (int)puVar1 * -0x50;
@@ -4238,7 +5035,7 @@ LAB_800d7f18:
     Hud_Draw321Num__Fiiiiii(0x87,y,num,(int)flare_intensity);
     Hud_Draw321Num__Fiiiiii(0xc6,y,num,(int)flare_intensity);
   }
-  Draw_StopRenderingView__Fi(DAT_0000141c);
+  Draw_StopRenderingView__Fi(Hud_gStatsView);
   return;
 }
 
@@ -4326,6 +5123,31 @@ LAB_800d7f18:
 	// End offset: 0x800D82A0
 	// End Line: 3422
 
+	/* begin block 2 */
+		// Start line: 8115
+	/* end block 2 */
+	// End Line: 8116
+
+	/* begin block 3 */
+		// Start line: 8121
+	/* end block 3 */
+	// End Line: 8122
+
+	/* begin block 4 */
+		// Start line: 8121
+	/* end block 4 */
+	// End Line: 8122
+
+	/* begin block 5 */
+		// Start line: 8122
+	/* end block 5 */
+	// End Line: 8123
+
+	/* begin block 6 */
+		// Start line: 8122
+	/* end block 6 */
+	// End Line: 8123
+
 void BigBTCTime__Fi(int secs)
 
 {
@@ -4341,32 +5163,32 @@ void BigBTCTime__Fi(int secs)
   int iVar7;
   int y;
   
-  if (((DAT_000018dc == 0) && (DAT_000013dc == 0)) && (-1 < secs)) {
-    if (secs != DAT_000013d4) {
-      DAT_000013d8 = ticks;
-      DAT_000013d4 = secs;
+  if (((BTC_BonusTime == (uchar *)0x0) && (HudBustedOverlay == (void *)0x0)) && (-1 < secs)) {
+    if (secs != DAT_8013d920) {
+      DAT_8013d924 = ticks;
+      DAT_8013d920 = secs;
     }
-    y = (int)*(short *)(DAT_000018b8 + 0x3e);
-    x = (int)*(short *)(DAT_000018b8 + 0x3c) + 2;
-    iVar4 = (int)HudPmx_tShape_8011101c.width;
-    iVar7 = (int)HudPmx_tShape_80111008.width + 1;
+    y = (int)*(short *)(g1Player + 0x3e);
+    x = (int)*(short *)(g1Player + 0x3c) + 2;
+    iVar4 = (int)HudPmx_tShape_ARRAY_80111008[1].width;
+    iVar7 = (int)HudPmx_tShape_ARRAY_80111008[0].width + 1;
     if (secs < 0xb) {
-      if ((int)(ticks + -(int)DAT_000013d8) < 0x40) {
+      if ((int)(ticks + -(int)DAT_8013d924) < 0x40) {
         Hud_BlackThinBox__Fiiii(x,y,iVar7 * 2,0xe);
         Hud_FBuildF4__FiiiiiUlcc(0,x,y,iVar7 * 2,0xe,0,0,0);
-        DAT_00001360 = 0;
+        BTC_playedsoundalready = (void *)0x0;
         return;
       }
       color = (undefined *)0xc8;
-      if (DAT_00001360 == 0) {
+      if (BTC_playedsoundalready == (void *)0x0) {
         AudioCmn_PlayWrongWaySFX__Fv();
-        DAT_00001360 = 1;
+        BTC_playedsoundalready = &DAT_00000001;
       }
       puVar6 = (undefined *)0x64;
     }
     else {
       color = &DAT_0000c800;
-      DAT_00001360 = 0;
+      BTC_playedsoundalready = (void *)0x0;
       puVar6 = &DAT_00006400;
     }
     prim = DAT_1f800004;
@@ -4377,7 +5199,7 @@ void BigBTCTime__Fi(int secs)
     *puVar3 = *puVar3 & 0xff000000 | uVar5;
     iVar2 = secs / 10;
     Hud_BuildGT4__FP8POLY_GT4P13HudPmx_tShapeiiUl
-              (prim,&HudPmx_tShape_80111008 + secs % 10,x + iVar7 + -1,y,(ulong)color);
+              (prim,HudPmx_tShape_ARRAY_80111008 + secs % 10,x + iVar7 + -1,y,(ulong)color);
     *(undefined **)&prim->r3 = puVar6;
     *(undefined **)&prim->r2 = puVar6;
     prim = DAT_1f800004;
@@ -4392,7 +5214,7 @@ void BigBTCTime__Fi(int secs)
       DAT_1f800004 = DAT_1f800004 + 1;
       *puVar3 = *puVar3 & 0xff000000 | uVar5;
       Hud_BuildGT4__FP8POLY_GT4P13HudPmx_tShapeiiUl
-                (prim,&HudPmx_tShape_80111008 + iVar2,(x + iVar7) - iVar1,y,(ulong)color);
+                (prim,HudPmx_tShape_ARRAY_80111008 + iVar2,(x + iVar7) - iVar1,y,(ulong)color);
       *(undefined **)&prim->r3 = puVar6;
       *(undefined **)&prim->r2 = puVar6;
     }
@@ -4530,6 +5352,21 @@ void BigBTCTime__Fi(int secs)
 	// End offset: 0x800D8C18
 	// End Line: 3737
 
+	/* begin block 2 */
+		// Start line: 8291
+	/* end block 2 */
+	// End Line: 8292
+
+	/* begin block 3 */
+		// Start line: 8294
+	/* end block 3 */
+	// End Line: 8295
+
+	/* begin block 4 */
+		// Start line: 8294
+	/* end block 4 */
+	// End Line: 8295
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Hud_RenderHudView__Fv(void)
@@ -4541,11 +5378,12 @@ void Hud_RenderHudView__Fv(void)
   uint *puVar3;
   int *piVar4;
   int scalex;
-  int iVar5;
   int type;
   int type_00;
   ulong col1;
+  int iVar5;
   uint uVar6;
+  uchar *puVar7;
   int y;
   int y_00;
   int player;
@@ -4574,7 +5412,7 @@ void Hud_RenderHudView__Fv(void)
       piVar4 = (int *)((int)&PerpOverlayMessage + local_34);
       string = TextSys_Word__Fi(*piVar4 + 0x41);
       local_3c = textpixels(string);
-      y_00 = (int)*(short *)(iGp000018b8 + 0x4a) + local_40;
+      y_00 = (int)*(short *)(g1Player + 0x4a) + local_40;
       Font_TextColor__Fi(4);
       string = TextSys_Word__Fi(*piVar4 + 0x41);
       uVar6 = local_3c >> 1;
@@ -4594,8 +5432,8 @@ void Hud_RenderHudView__Fv(void)
       Flare_2DHalo__Fiiiii(iVar5 + 0x7d,y,scalex,scalex,type);
       Flare_2DHalo__Fiiiii(iVar5 + 0x73,y,scalex,scalex,type);
       type = y_00 + 5;
-      Hud_FBuildGT4__FP13HudPmx_tShapeiiUl(&HudPmx_tShape_8011115c,iVar5 + 0x7a,type,col1);
-      Hud_FBuildGT4__FP13HudPmx_tShapeiiUl(&HudPmx_tShape_8011115c,iVar5 + 0x70,type,col1);
+      Hud_FBuildGT4__FP13HudPmx_tShapeiiUl(HudPmx_tShape_ARRAY_8011115c,iVar5 + 0x7a,type,col1);
+      Hud_FBuildGT4__FP13HudPmx_tShapeiiUl(HudPmx_tShape_ARRAY_8011115c,iVar5 + 0x70,type,col1);
       uVar2 = simGlobal.gameTicks >> 4 & 1;
       col1 = 0x800000;
       if (uVar2 == 0) {
@@ -4607,8 +5445,8 @@ void Hud_RenderHudView__Fv(void)
       }
       Flare_2DHalo__Fiiiii(uVar6 + 0xc0,y,scalex,scalex,type_00);
       Flare_2DHalo__Fiiiii(uVar6 + 0xca,y,scalex,scalex,type_00);
-      Hud_FBuildGT4__FP13HudPmx_tShapeiiUl(&HudPmx_tShape_8011115c,uVar6 + 0xbd,type,col1);
-      Hud_FBuildGT4__FP13HudPmx_tShapeiiUl(&HudPmx_tShape_8011115c,uVar6 + 199,type,col1);
+      Hud_FBuildGT4__FP13HudPmx_tShapeiiUl(HudPmx_tShape_ARRAY_8011115c,uVar6 + 0xbd,type,col1);
+      Hud_FBuildGT4__FP13HudPmx_tShapeiiUl(HudPmx_tShape_ARRAY_8011115c,uVar6 + 199,type,col1);
       Hud_BlackThinBox__Fiiii(iVar5 + 0x6f,y_00,local_3c + 0x62,0x11);
       Hud_FBuildF4__FiiiiiUlcc(0,iVar5 + 0x6f,y_00,0x17,0x11,0,0,0);
       Hud_FBuildF4__FiiiiiUlcc(0,uVar6 + 0xba,y_00,0x15,0x11,0,0,0);
@@ -4616,22 +5454,22 @@ void Hud_RenderHudView__Fv(void)
       Hud_FBuildF4__FiiiiiUlcc(1,iVar5 + 0x86,y_00,local_3c + 0x36,0x11,(ulong)&DAT_00461414,0,0);
     }
     if (player == DashHUD_gInfo.splitscreen) {
-      if ((iGp000013e8 >> 6) - 1U < 0x1e) {
-        BigBTCTime__Fi(iGp000013e8 >> 6);
+      if ((BTC_Countdown >> 6) - 1U < 0x1e) {
+        BigBTCTime__Fi(BTC_Countdown >> 6);
       }
       else {
         y_00 = 0;
-        if (((0x23f < simGlobal.gameTicks) && (y_00 = 1, (byte)countdown < 4)) && (iGp000013f0 == 0)
-           ) {
+        if (((0x23f < simGlobal.gameTicks) && (y_00 = 1, (byte)countdown < 4)) &&
+           (Hud_BeTheCop == (void *)0x0)) {
           y_00 = 0;
         }
         Hud_BuildCdPlayer__Fii(y_00);
       }
     }
     if (*(int *)((int)DashHUD_gInfo.showhud + local_34) != 0) {
-      y_00 = iGp000018bc;
+      puVar7 = gSprite0;
       if (player != 0) {
-        y_00 = iGp000018c0;
+        puVar7 = gSprite1;
       }
       DashHUD_CheckWrongWay__Fi(player);
       DashHUD_HUDCalc__Fi(player);
@@ -4643,62 +5481,62 @@ void Hud_RenderHudView__Fv(void)
       uVar2 = *puVar1 & 0xff000000 | (uint)puVar3 & local_38;
       *puVar1 = uVar2;
       if (local_2c->carInfo[0].HudTach != 0) {
-        *(uint *)(y_00 + 0x14) = *(uint *)(y_00 + 0x14) & 0xff000000 | uVar2 & local_38;
-        *puVar1 = *puVar1 & 0xff000000 | y_00 + 0x14U & local_38;
+        *(uint *)(puVar7 + 0x14) = *(uint *)(puVar7 + 0x14) & 0xff000000 | uVar2 & local_38;
+        *puVar1 = *puVar1 & 0xff000000 | (uint)(puVar7 + 0x14) & local_38;
       }
       if (local_2c->carInfo[0].HudMap != 0) {
-        if (((local_2c->carInfo[0].HudOpponentID != 0) && (iGp000013f0 == 0)) &&
+        if (((local_2c->carInfo[0].HudOpponentID != 0) && (Hud_BeTheCop == (void *)0x0)) &&
            (GameSetup_gData.commMode != 1)) {
-          type = Hud_NextPlayer__Fi(player);
-          if (((-1 < type) && (type < 9)) && (iGp000013f0 == 0)) {
-            iVar5 = (int)HudPmx_tShape_801115f8.width;
-            scalex = (int)HudPmx_tShape_80110db0.width;
-            y = (int)HudPmx_tShape_80110e28.width;
+          y_00 = Hud_NextPlayer__Fi(player);
+          if (((-1 < y_00) && (y_00 < 9)) && (Hud_BeTheCop == (void *)0x0)) {
+            type = (int)HudPmx_tShape_ARRAY_801115f8[0].width;
+            iVar5 = (int)HudPmx_tShape_80110db0.width;
+            scalex = (int)HudPmx_tShape_ARRAY_80110e14[1].width;
             string = Hud_NextPlayerNameOrCarOrTime__Fi(player);
             sprintf(acStack128,(char *)&PTR_DAT_8013d904,string);
             Hud_GoTpage__Fi(1);
             uppercase__FPc(acStack128);
-            type = Hud_BuildString__FPciiiib(acStack128,0,0,0,0,&DAT_00000001);
+            y_00 = Hud_BuildString__FPciiiib(acStack128,0,0,0,0,&DAT_00000001);
             Hud_BuildString__FPciiiib
-                      (acStack128,(int)*(short *)(iGp000018b8 + 0x38) + ((iVar5 + 2) - type >> 1),
-                       (((int)*(short *)(iGp000018b8 + 0x3a) + iGp00001420 + local_40) -
+                      (acStack128,(int)*(short *)(g1Player + 0x38) + ((type + 2) - y_00 >> 1),
+                       (((int)*(short *)(g1Player + 0x3a) + HudMapOffsetY + local_40) -
                        (int)HudPmx_tShape_80110db0.height) + 1,0x808080,0,(void *)0x0);
             Hud_GoTpage__Fi(0);
             Hud_FBuildGT4__FP13HudPmx_tShapeiiUl
-                      (&HudPmx_tShape_80110db0,(int)*(short *)(iGp000018b8 + 0x38),
-                       ((int)*(short *)(iGp000018b8 + 0x3a) + iGp00001420 + local_40) -
+                      (&HudPmx_tShape_80110db0,(int)*(short *)(g1Player + 0x38),
+                       ((int)*(short *)(g1Player + 0x3a) + HudMapOffsetY + local_40) -
                        (int)HudPmx_tShape_80110db0.height,0x808080);
             Hud_FBuildGT4__FP13HudPmx_tShapeiiUl
-                      (&HudPmx_tShape_80110dc4,(int)*(short *)(iGp000018b8 + 0x38) + scalex + y,
-                       ((int)*(short *)(iGp000018b8 + 0x3a) + iGp00001420 + local_40) -
+                      (&HudPmx_tShape_80110dc4,(int)*(short *)(g1Player + 0x38) + iVar5 + scalex,
+                       ((int)*(short *)(g1Player + 0x3a) + HudMapOffsetY + local_40) -
                        (int)HudPmx_tShape_80110dc4.height,0x808080);
             Hud_FBuildF4__FiiiiiUlcc
-                      (0,(int)*(short *)(iGp000018b8 + 0x38) + 2,
-                       ((int)*(short *)(iGp000018b8 + 0x3a) + iGp00001420 + local_40) -
-                       (int)HudPmx_tShape_80110db0.height,scalex + y + 3,
+                      (0,(int)*(short *)(g1Player + 0x38) + 2,
+                       ((int)*(short *)(g1Player + 0x3a) + HudMapOffsetY + local_40) -
+                       (int)HudPmx_tShape_80110db0.height,iVar5 + scalex + 3,
                        (int)HudPmx_tShape_80110db0.height,0,0,0);
-            type = 2;
-            if ((&Hud_gWingmanInterface)[player] == '\0') {
-              type = 3;
+            y_00 = 2;
+            if (Hud_gWingmanInterface[player] == '\0') {
+              y_00 = 3;
             }
             Hud_FBuildF4__FiiiiiUlcc
-                      (0,(int)*(short *)(iGp000018b8 + 0x38),
-                       (int)*(short *)(iGp000018b8 + 0x3a) + iGp00001420 + local_40,3,type,0,0,0);
+                      (0,(int)*(short *)(g1Player + 0x38),
+                       (int)*(short *)(g1Player + 0x3a) + HudMapOffsetY + local_40,3,y_00,0,0,0);
             Hud_FBuildF4__FiiiiiUlcc
-                      (0,(int)*(short *)(iGp000018b8 + 0x38) + scalex + y +
+                      (0,(int)*(short *)(g1Player + 0x38) + iVar5 + scalex +
                          (int)HudPmx_tShape_80110dc4.width + -3,
-                       (int)*(short *)(iGp000018b8 + 0x3a) + iGp00001420 + local_40,3,3,0,0,0);
+                       (int)*(short *)(g1Player + 0x3a) + HudMapOffsetY + local_40,3,3,0,0,0);
           }
         }
         puVar1 = DAT_1f800000;
-        type = 0x3f;
-        puVar3 = (uint *)(y_00 + 0x4ec);
+        y_00 = 0x3f;
+        puVar3 = (uint *)(puVar7 + 0x4ec);
         do {
-          type = type + 1;
+          y_00 = y_00 + 1;
           *puVar3 = *puVar3 & 0xff000000 | *puVar1 & local_38;
           *puVar1 = *puVar1 & 0xff000000 | (uint)puVar3 & local_38;
           puVar3 = puVar3 + 5;
-        } while (type < 0x47);
+        } while (y_00 < 0x47);
       }
     }
     if (((player == 0) && (1 < Replay_ReplayMode)) && (Replay_ReplayInterface.statsScreen == 0)) {
@@ -4709,7 +5547,7 @@ void Hud_RenderHudView__Fv(void)
     *puVar3 = *puVar3 & 0xff000000 | *DAT_1f800000 & local_38;
     *puVar1 = *puVar1 & 0xff000000 | (uint)puVar3 & local_38;
     if (((*(int *)((int)DashHUD_gInfo.showhud + local_34) != 0) &&
-        ((&Hud_gWingmanInterface)[player] != '\0')) && (Replay_ReplayMode < 2)) {
+        (Hud_gWingmanInterface[player] != '\0')) && (Replay_ReplayMode < 2)) {
       Hud_BuildWingmanInterface__Fi(player);
     }
     puVar1 = DAT_1f800000;
@@ -4747,6 +5585,26 @@ void Hud_RenderHudView__Fv(void)
 	/* end block 1 */
 	// End offset: 0x800D8D40
 	// End Line: 3765
+
+	/* begin block 2 */
+		// Start line: 8988
+	/* end block 2 */
+	// End Line: 8989
+
+	/* begin block 3 */
+		// Start line: 8996
+	/* end block 3 */
+	// End Line: 8997
+
+	/* begin block 4 */
+		// Start line: 8996
+	/* end block 4 */
+	// End Line: 8997
+
+	/* begin block 5 */
+		// Start line: 8998
+	/* end block 5 */
+	// End Line: 8999
 
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
@@ -4795,6 +5653,21 @@ void Hud_RenderTacView__Fv(void)
 	// End offset: 0x800D8EC0
 	// End Line: 3802
 
+	/* begin block 2 */
+		// Start line: 9046
+	/* end block 2 */
+	// End Line: 9047
+
+	/* begin block 3 */
+		// Start line: 9052
+	/* end block 3 */
+	// End Line: 9053
+
+	/* begin block 4 */
+		// Start line: 9052
+	/* end block 4 */
+	// End Line: 9053
+
 void Hud_ParseTime__FiPc(int nTime,char *sLapTime)
 
 {
@@ -4815,14 +5688,14 @@ void Hud_ParseTime__FiPc(int nTime,char *sLapTime)
   iVar3 = (iVar2 / 100) * 0x10000 >> 0x10;
   if (iVar1 < 0x3c && nTime != 0) {
     sprintf(sLapTime,s__01d_c_02d_c_02d_80056904,iVar1,
-            (uint)(byte)(&HudminChar)[GameSetup_gData.userSetting.language],iVar3,
-            (uint)(byte)(&HudsecChar)[GameSetup_gData.userSetting.language],
+            (uint)(byte)HudminChar[GameSetup_gData.userSetting.language],iVar3,
+            (uint)(byte)HudsecChar[GameSetup_gData.userSetting.language],
             (iVar2 + iVar3 * -100) * 0x10000 >> 0x10);
   }
   else {
     sprintf(sLapTime,s_____c______c_____80056918,
-            (uint)(byte)(&HudminChar)[GameSetup_gData.userSetting.language],
-            (uint)(byte)(&HudsecChar)[GameSetup_gData.userSetting.language]);
+            (uint)(byte)HudminChar[GameSetup_gData.userSetting.language],
+            (uint)(byte)HudsecChar[GameSetup_gData.userSetting.language]);
   }
   return;
 }
@@ -4842,6 +5715,21 @@ void Hud_ParseTime__FiPc(int nTime,char *sLapTime)
 	/* end block 1 */
 	// End offset: 0x800D8ED0
 	// End Line: 3813
+
+	/* begin block 2 */
+		// Start line: 9127
+	/* end block 2 */
+	// End Line: 9128
+
+	/* begin block 3 */
+		// Start line: 9138
+	/* end block 3 */
+	// End Line: 9139
+
+	/* begin block 4 */
+		// Start line: 9138
+	/* end block 4 */
+	// End Line: 9139
 
 void Hud_RenderPauseBox__Fiiii(int x,int y,int w,int h)
 
@@ -5036,6 +5924,26 @@ void Hud_RenderPauseBox__Fiiii(int x,int y,int w,int h)
 	// End offset: 0x800D9498
 	// End Line: 3968
 
+	/* begin block 2 */
+		// Start line: 9226
+	/* end block 2 */
+	// End Line: 9227
+
+	/* begin block 3 */
+		// Start line: 9233
+	/* end block 3 */
+	// End Line: 9234
+
+	/* begin block 4 */
+		// Start line: 9233
+	/* end block 4 */
+	// End Line: 9234
+
+	/* begin block 5 */
+		// Start line: 9240
+	/* end block 5 */
+	// End Line: 9241
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Hud_Render__Fv(void)
@@ -5044,84 +5952,86 @@ void Hud_Render__Fv(void)
   short player;
   int *piVar1;
   uint mode;
-  int player_00;
+  uchar *puVar2;
   int type;
-  int iVar2;
-  int *piVar3;
-  char *pcVar4;
+  uchar *puVar3;
+  int player_00;
+  int iVar4;
+  int *piVar5;
+  char *pcVar6;
   
-  player = DAT_000013f8;
+  player = HudBustedOverlayPlayer;
   if (Replay_ReplayInterface.statsScreen != 0) {
     if (simGlobal.gameTicks < 0x240) {
       DashHUD_gInfo.showhud[0] = 0;
       DashHUD_gInfo.showhud[1] = 0;
     }
-    gCView.id = DAT_0000141c;
-    Draw_StartRenderingView__Fi(DAT_0000141c);
+    gCView.id = Hud_gStatsView;
+    Draw_StartRenderingView__Fi(Hud_gStatsView);
     Hud_DebugCrap__Fv();
     Hud_RenderStatsView__Fv();
-    Draw_StopRenderingView__Fi(DAT_0000141c);
+    Draw_StopRenderingView__Fi(Hud_gStatsView);
     return;
   }
-  if (((DAT_000013dc != 0) || (DAT_000018dc == 0)) || ((int)(ticks + -DAT_000018e0) < 0xfb))
-  goto LAB_800d91ac;
+  if (((HudBustedOverlay != (void *)0x0) || (BTC_BonusTime == (uchar *)0x0)) ||
+     ((int)(ticks + -(int)BTC_BonusTimeTick) < 0xfb)) goto LAB_800d91ac;
   if (DashHUD_gInfo.splitscreen == 0) {
 LAB_800d9168:
-    player_00 = 0x32;
+    puVar2 = (uchar *)0x32;
   }
   else {
-    if ((__Cars_gRaceCarList_9__->carFlags & 0x200U) == 0) {
-      player_00 = 0xfa;
+    if ((Cars_gRaceCarList9->carFlags & 0x200U) == 0) {
+      puVar2 = (uchar *)0xfa;
     }
     else {
-      player_00 = 0xfa;
-      if ((PTR_8010fa04->carFlags & 0x200U) != 0) goto LAB_800d9168;
+      puVar2 = (uchar *)0xfa;
+      if ((PTR_ARRAY_8010fa04[0]->carFlags & 0x200U) != 0) goto LAB_800d9168;
     }
   }
-  iVar2 = player_00;
-  if (DAT_000018dc < player_00) {
-    iVar2 = DAT_000018dc;
+  puVar3 = puVar2;
+  if ((int)BTC_BonusTime < (int)puVar2) {
+    puVar3 = BTC_BonusTime;
   }
-  DAT_000018dc = DAT_000018dc - player_00;
-  DAT_000013e8 = DAT_000013e8 + iVar2;
-  if (DAT_000018dc < 0) {
-    DAT_000018dc = 0;
+  BTC_BonusTime = BTC_BonusTime + -(int)puVar2;
+  BTC_Countdown = (int)(puVar3 + BTC_Countdown);
+  if ((int)BTC_BonusTime < 0) {
+    BTC_BonusTime = (uchar *)0x0;
   }
 LAB_800d91ac:
-  if ((DAT_000013f0 == 0) || (DAT_000018e4 != 0)) {
-    if ((DAT_000013dc != 0) && (Replay_ReplayMode < 2)) {
-      gCView.id = DAT_0000141c;
-      Draw_StartRenderingView__Fi(DAT_0000141c);
+  if ((Hud_BeTheCop == (void *)0x0) || (BTC_UserHasControl[0] != (uchar *)0x0)) {
+    if ((HudBustedOverlay != (void *)0x0) && (Replay_ReplayMode < 2)) {
+      gCView.id = Hud_gStatsView;
+      Draw_StartRenderingView__Fi(Hud_gStatsView);
       (&StatsTimer)[(int)player] = (&StatsTimer)[(int)player] + 1;
       Hud_BTCStats__Fsb(player,(void *)0x0);
-      Draw_StopRenderingView__Fi(DAT_0000141c);
+      Draw_StopRenderingView__Fi(Hud_gStatsView);
     }
     player_00 = 0;
-    pcVar4 = &Hud_gWingmanInterface;
+    pcVar6 = Hud_gWingmanInterface;
     while (player_00 < 2) {
       mode = Input_WingCommandMode__Fi(player_00);
-      if (((uint)(byte)*pcVar4 == mode) && (DAT_000013dc != 0)) {
+      if (((uint)(byte)*pcVar6 == mode) && (HudBustedOverlay != (void *)0x0)) {
 LAB_800d9424:
-        *pcVar4 = 0;
+        *pcVar6 = 0;
         Hud_InitMapFrame__Fii(player_00,0);
       }
       else {
-        if ((&Hud_gWingmanFlashTicks)[player_00] < (int)ticks) {
-          if ((uint)(byte)*pcVar4 != mode) {
+        if (Hud_gWingmanFlashTicks[player_00] < (int)ticks) {
+          if ((uint)(byte)*pcVar6 != mode) {
             if (1 < Replay_ReplayMode) goto LAB_800d9424;
-            if (DAT_000013dc == 0) {
+            if (HudBustedOverlay == (void *)0x0) {
               Hud_InitMapFrame__Fii(player_00,mode);
-              *pcVar4 = (byte)mode;
+              *pcVar6 = (byte)mode;
             }
           }
           if (1 < Replay_ReplayMode) goto LAB_800d9424;
         }
       }
-      pcVar4 = (char *)((byte *)pcVar4 + 1);
+      pcVar6 = (char *)((byte *)pcVar6 + 1);
       player_00 = player_00 + 1;
     }
-    DAT_000018fc = 0;
-    if (((simGlobal.gameTicks < 0x240) && (countdown != '\0')) && (DAT_000013f0 == 0)) {
+    Hud_gShowedCDPlayer = (void *)0x0;
+    if (((simGlobal.gameTicks < 0x240) && (countdown != '\0')) && (Hud_BeTheCop == (void *)0x0)) {
       Hud_Render321Go__Fv();
     }
     Hud_RenderHudView__Fv();
@@ -5131,10 +6041,10 @@ LAB_800d9424:
   else {
     player_00 = 0;
     if (-1 < DashHUD_gInfo.splitscreen) {
-      iVar2 = 0;
-      piVar3 = &Hud_gHudView;
+      iVar4 = 0;
+      piVar5 = &Hud_gHudView;
       do {
-        Draw_StartRenderingView__Fi(*piVar3);
+        Draw_StartRenderingView__Fi(*piVar5);
         Hud_GoTpage__Fi(1);
         if (((player_00 == 0) && (1 < Replay_ReplayMode)) &&
            (Replay_ReplayInterface.statsScreen == 0)) {
@@ -5147,14 +6057,14 @@ LAB_800d9424:
           }
           Hud_BuildCdPlayer__Fii(type);
         }
-        if (*(int *)((int)DashHUD_gInfo.showhud + iVar2) != 0) {
+        if (*(int *)((int)DashHUD_gInfo.showhud + iVar4) != 0) {
           Hud_DebugInfo__Fv();
           Hud_BuildNumbers0__Fi(player_00);
         }
         Hud_GoTpage__Fi(0);
-        piVar1 = (int *)((int)&Hud_gHudView + iVar2);
-        iVar2 = iVar2 + 4;
-        piVar3 = piVar3 + 1;
+        piVar1 = (int *)((int)&Hud_gHudView + iVar4);
+        iVar4 = iVar4 + 4;
+        piVar5 = piVar5 + 1;
         Draw_StopRenderingView__Fi(*piVar1);
         player_00 = player_00 + 1;
       } while (player_00 <= DashHUD_gInfo.splitscreen);
@@ -5176,6 +6086,21 @@ LAB_800d9424:
 	// End offset: 0x800D955C
 	// End Line: 3988
 
+	/* begin block 2 */
+		// Start line: 9503
+	/* end block 2 */
+	// End Line: 9504
+
+	/* begin block 3 */
+		// Start line: 9516
+	/* end block 3 */
+	// End Line: 9517
+
+	/* begin block 4 */
+		// Start line: 9516
+	/* end block 4 */
+	// End Line: 9517
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Hud_PositionMap__Fv(void)
@@ -5186,22 +6111,22 @@ void Hud_PositionMap__Fv(void)
   double __z;
   
   iVar2 = GameSetup_gData.track;
-  uVar1 = __mulsf3((uint)(&fMapScaleX)[GameSetup_gData.track],0x47800000);
-  DAT_00001428 = __fixsfsi(uVar1);
-  uVar1 = __mulsf3((uint)(&fMapScaleY)[iVar2],0x47800000);
-  DAT_0000142c = __fixsfsi(uVar1);
-  DAT_00001430 = (int)(&fMapOffX)[iVar2];
+  uVar1 = __mulsf3((uint)fMapScaleX[GameSetup_gData.track],0x47800000);
+  gMapScaleX = __fixsfsi(uVar1);
+  uVar1 = __mulsf3((uint)fMapScaleY[iVar2],0x47800000);
+  gMapScaleY = __fixsfsi(uVar1);
+  gMapOffX = (int)fMapOffX[iVar2];
   if (GameSetup_gData.mirrorTrack != 0) {
-    DAT_00001430 = (int)(&fMapOffX)[iVar2] + -2;
+    gMapOffX = (int)fMapOffX[iVar2] + -2;
   }
-  DAT_00001424 = (int)(&fMapRotate)[iVar2];
-  iVar2 = (int)(&fMapOffY)[iVar2];
-  DAT_00001434 = iVar2;
+  gMapRotate = (long)fMapRotate[iVar2];
+  iVar2 = (int)fMapOffY[iVar2];
+  gMapOffY = iVar2;
   ccos(__z);
   iVar2 = iVar2 << 4;
-  DAT_000013fc = iVar2;
+  mapMarkerMCos = iVar2;
   csin(__z);
-  DAT_00001400 = iVar2 << 4;
+  mapMarkerMSin = iVar2 << 4;
   return;
 }
 
@@ -5218,14 +6143,29 @@ void Hud_PositionMap__Fv(void)
 	// End offset: 0x800D9618
 	// End Line: 4005
 
+	/* begin block 2 */
+		// Start line: 9556
+	/* end block 2 */
+	// End Line: 9557
+
+	/* begin block 3 */
+		// Start line: 9561
+	/* end block 3 */
+	// End Line: 9562
+
+	/* begin block 4 */
+		// Start line: 9561
+	/* end block 4 */
+	// End Line: 9562
+
 void Hud_BTC_Update__FPcib(char *perpname,int timeleft,void *userHasControl)
 
 {
-  sprintf(&BTC_CurrentPerpName,perpname);
-  if ((DAT_000018dc == 0) && (DAT_000013dc == 0)) {
-    DAT_000013e8 = timeleft << 1;
+  sprintf(BTC_CurrentPerpName,perpname);
+  if ((BTC_BonusTime == (uchar *)0x0) && (HudBustedOverlay == (void *)0x0)) {
+    BTC_Countdown = timeleft << 1;
   }
-  DAT_000018e4 = userHasControl;
+  BTC_UserHasControl[0] = (uchar *)userHasControl;
   return;
 }
 
@@ -5279,6 +6219,21 @@ void Hud_BTC_Update__FPcib(char *perpname,int timeleft,void *userHasControl)
 	// End offset: 0x800D97C0
 	// End Line: 4047
 
+	/* begin block 2 */
+		// Start line: 9581
+	/* end block 2 */
+	// End Line: 9582
+
+	/* begin block 3 */
+		// Start line: 9586
+	/* end block 3 */
+	// End Line: 9587
+
+	/* begin block 4 */
+		// Start line: 9586
+	/* end block 4 */
+	// End Line: 9587
+
 void Hud_BustedOverlayOn__FiPcbs(int time,char *name,void *caught,short player)
 
 {
@@ -5291,18 +6246,18 @@ void Hud_BustedOverlayOn__FiPcbs(int time,char *name,void *caught,short player)
   (&StatsTimer)[iVar1] = 0;
   if (Replay_ReplayMode < 2) {
     psVar3 = &Hud_NextPerp + iVar1;
-    DAT_000013ec = DAT_000013e8;
-    sprintf((char *)(&BTCPerpInfo + (int)*psVar3 + iVar1 * 10),name);
+    FinalBTC_Countdown = BTC_Countdown;
+    sprintf((char *)(BTCPerpInfo + (int)*psVar3 + iVar1 * 10),name);
     if (caught == (void *)0x0) {
       iVar4 = 0;
       iVar1 = 0;
       do {
         psVar3 = &Hud_NextPerp + iVar4;
         iVar2 = (int)*psVar3;
-        if ((iVar2 == 0) || (*(int *)((int)&(&BTCPerpInfo)[iVar2 + -1].caught + iVar1) != 0)) {
-          *(undefined4 *)((int)&(&BTCPerpInfo)[iVar2].caught + iVar1) = 0;
-          *(undefined4 *)((int)&(&BTCPerpInfo)[(int)*psVar3].time + iVar1) = 0;
-          sprintf((&BTCPerpInfo)[(int)*psVar3].name + iVar1,&BTC_CurrentPerpName);
+        if ((iVar2 == 0) || (*(int *)((int)&BTCPerpInfo[iVar2 + -1].caught + iVar1) != 0)) {
+          *(undefined4 *)((int)&BTCPerpInfo[iVar2].caught + iVar1) = 0;
+          *(undefined4 *)((int)&BTCPerpInfo[(int)*psVar3].time + iVar1) = 0;
+          sprintf(BTCPerpInfo[(int)*psVar3].name + iVar1,BTC_CurrentPerpName);
           *psVar3 = *psVar3 + 1;
         }
         iVar4 = iVar4 + 1;
@@ -5310,12 +6265,12 @@ void Hud_BustedOverlayOn__FiPcbs(int time,char *name,void *caught,short player)
       } while (iVar4 < 2);
     }
     else {
-      (&BTCPerpInfo)[iVar1 * 10 + (int)*psVar3].caught = (void *)0x1;
-      (&BTCPerpInfo)[iVar1 * 10 + (int)*psVar3].time = time;
+      BTCPerpInfo[iVar1 * 10 + (int)*psVar3].caught = (void *)0x1;
+      BTCPerpInfo[iVar1 * 10 + (int)*psVar3].time = time;
       *psVar3 = *psVar3 + 1;
     }
-    DAT_000013dc = 1;
-    DAT_000013f8 = player;
+    HudBustedOverlay = &DAT_00000001;
+    HudBustedOverlayPlayer = player;
   }
   return;
 }
@@ -5333,12 +6288,37 @@ void Hud_BustedOverlayOn__FiPcbs(int time,char *name,void *caught,short player)
 	// End offset: 0x800D97E4
 	// End Line: 4053
 
+	/* begin block 2 */
+		// Start line: 9679
+	/* end block 2 */
+	// End Line: 9680
+
+	/* begin block 3 */
+		// Start line: 9684
+	/* end block 3 */
+	// End Line: 9685
+
+	/* begin block 4 */
+		// Start line: 9684
+	/* end block 4 */
+	// End Line: 9685
+
+	/* begin block 5 */
+		// Start line: 9685
+	/* end block 5 */
+	// End Line: 9686
+
+	/* begin block 6 */
+		// Start line: 9685
+	/* end block 6 */
+	// End Line: 9686
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Hud_BustedOverlayOff__Fv(void)
 
 {
-  DAT_000013dc = 0;
+  HudBustedOverlay = (void *)0x0;
   return;
 }
 
@@ -5378,6 +6358,31 @@ void Hud_BustedOverlayOff__Fv(void)
 	// End offset: 0x800D982C
 	// End Line: 4066
 
+	/* begin block 2 */
+		// Start line: 9690
+	/* end block 2 */
+	// End Line: 9691
+
+	/* begin block 3 */
+		// Start line: 9694
+	/* end block 3 */
+	// End Line: 9695
+
+	/* begin block 4 */
+		// Start line: 9694
+	/* end block 4 */
+	// End Line: 9695
+
+	/* begin block 5 */
+		// Start line: 9695
+	/* end block 5 */
+	// End Line: 9696
+
+	/* begin block 6 */
+		// Start line: 9695
+	/* end block 6 */
+	// End Line: 9696
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Hud_Reset__Fv(void)
@@ -5393,14 +6398,14 @@ void Hud_Reset__Fv(void)
       *psVar1 = 0;
       psVar1 = psVar1 + 1;
       iVar2 = iVar2 + 1;
-      BTC_CurrentPerpName = '\0';
+      BTC_CurrentPerpName[0] = '\0';
     } while (iVar2 < 2);
   }
-  DAT_000013dc = 0;
-  DAT_000018dc = 0;
-  DAT_000018e4 = 0;
-  DAT_000018ec = 0;
-  DAT_000018f0 = 0;
+  HudBustedOverlay = (void *)0x0;
+  BTC_BonusTime = (uchar *)0x0;
+  BTC_UserHasControl[0] = (uchar *)0x0;
+  PerpOverlayOn = (uchar *)0x0;
+  PTR_8013de3c = (uchar *)0x0;
   return;
 }
 
@@ -5440,6 +6445,31 @@ void Hud_Reset__Fv(void)
 	// End offset: 0x800D98F0
 	// End Line: 4087
 
+	/* begin block 2 */
+		// Start line: 9725
+	/* end block 2 */
+	// End Line: 9726
+
+	/* begin block 3 */
+		// Start line: 9730
+	/* end block 3 */
+	// End Line: 9731
+
+	/* begin block 4 */
+		// Start line: 9730
+	/* end block 4 */
+	// End Line: 9731
+
+	/* begin block 5 */
+		// Start line: 9731
+	/* end block 5 */
+	// End Line: 9732
+
+	/* begin block 6 */
+		// Start line: 9731
+	/* end block 6 */
+	// End Line: 9732
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Hud_BTC_QuitOut__Fv(void)
@@ -5449,15 +6479,15 @@ void Hud_BTC_QuitOut__Fv(void)
   int iVar2;
   int iVar3;
   
-  if (DAT_000013dc == 0) {
+  if (HudBustedOverlay == (void *)0x0) {
     iVar3 = 0;
     iVar2 = 0;
     do {
       psVar1 = &Hud_NextPerp + iVar3;
-      sprintf((&BTCPerpInfo)[(int)*psVar1].name + iVar2,&BTC_CurrentPerpName);
-      *(undefined4 *)((int)&(&BTCPerpInfo)[(int)*psVar1].caught + iVar2) = 0;
+      sprintf(BTCPerpInfo[(int)*psVar1].name + iVar2,BTC_CurrentPerpName);
+      *(undefined4 *)((int)&BTCPerpInfo[(int)*psVar1].caught + iVar2) = 0;
       iVar3 = iVar3 + 1;
-      *(undefined4 *)((int)&(&BTCPerpInfo)[(int)*psVar1].time + iVar2) = 0;
+      *(undefined4 *)((int)&BTCPerpInfo[(int)*psVar1].time + iVar2) = 0;
       *psVar1 = *psVar1 + 1;
       iVar2 = iVar2 + 0xa0;
     } while (iVar3 < 2);
@@ -5492,11 +6522,26 @@ void Hud_BTC_QuitOut__Fv(void)
 	// End offset: 0x800D990C
 	// End Line: 4092
 
+	/* begin block 2 */
+		// Start line: 9765
+	/* end block 2 */
+	// End Line: 9766
+
+	/* begin block 3 */
+		// Start line: 9770
+	/* end block 3 */
+	// End Line: 9771
+
+	/* begin block 4 */
+		// Start line: 9770
+	/* end block 4 */
+	// End Line: 9771
+
 void Hud_BTC_BonusTime__Fl(long extratime)
 
 {
-  DAT_000018dc = extratime;
-  DAT_000018e0 = ticks;
+  BTC_BonusTime = (uchar *)extratime;
+  BTC_BonusTimeTick = ticks;
   return;
 }
 
@@ -5512,6 +6557,36 @@ void Hud_BTC_BonusTime__Fl(long extratime)
 	/* end block 1 */
 	// End offset: 0x800D9924
 	// End Line: 4102
+
+	/* begin block 2 */
+		// Start line: 9785
+	/* end block 2 */
+	// End Line: 9786
+
+	/* begin block 3 */
+		// Start line: 9785
+	/* end block 3 */
+	// End Line: 9786
+
+	/* begin block 4 */
+		// Start line: 9789
+	/* end block 4 */
+	// End Line: 9790
+
+	/* begin block 5 */
+		// Start line: 9789
+	/* end block 5 */
+	// End Line: 9790
+
+	/* begin block 6 */
+		// Start line: 9790
+	/* end block 6 */
+	// End Line: 9791
+
+	/* begin block 7 */
+		// Start line: 9790
+	/* end block 7 */
+	// End Line: 9791
 
 void Hud_Perp_OverlayOn__Fii(int player,int level)
 
@@ -5534,12 +6609,38 @@ void Hud_Perp_OverlayOn__Fii(int player,int level)
 	// End offset: 0x800D9950
 	// End Line: 4108
 
+	/* begin block 2 */
+		// Start line: 9797
+	/* end block 2 */
+	// End Line: 9798
+
+	/* begin block 3 */
+		// Start line: 9801
+	/* end block 3 */
+	// End Line: 9802
+
+	/* begin block 4 */
+		// Start line: 9801
+	/* end block 4 */
+	// End Line: 9802
+
+	/* begin block 5 */
+		// Start line: 9802
+	/* end block 5 */
+	// End Line: 9803
+
+	/* begin block 6 */
+		// Start line: 9802
+	/* end block 6 */
+	// End Line: 9803
+
 void Hud_Perp_OverlayOff__Fi(int player)
 
 {
   (&PerpOverlayOn)[player] = (uchar *)0x0;
   return;
 }
+
 
 
 

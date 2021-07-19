@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "CARIO.H"
+
 
 // decompiled code
 // original method signature: 
@@ -14,31 +15,46 @@
 	// End offset: 0x800BBF54
 	// End Line: 224
 
+	/* begin block 2 */
+		// Start line: 416
+	/* end block 2 */
+	// End Line: 417
+
+	/* begin block 3 */
+		// Start line: 416
+	/* end block 3 */
+	// End Line: 417
+
+	/* begin block 4 */
+		// Start line: 421
+	/* end block 4 */
+	// End Line: 422
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void CarIO_StartUp__Fv(void)
 
 {
-  short *psVar1;
+  Draw_tPixMap *pDVar1;
   int iVar2;
   
-  if (DAT_000011d0 == (short *)0x0) {
-    DAT_000011d0 = reservememadr(s_carPixMap_8005676c,(int)&DAT_00002640,0);
+  if (CarIO_carPixMap == (Draw_tPixMap *)0x0) {
+    CarIO_carPixMap = (Draw_tPixMap *)reservememadr(s_carPixMap_8005676c,(int)&DAT_00002640,0);
   }
   iVar2 = 0x263;
-  psVar1 = DAT_000011d0 + 0x1318;
+  pDVar1 = CarIO_carPixMap + 0x263;
   do {
-    psVar1[7] = 0;
+    pDVar1->flag = 0;
     iVar2 = iVar2 + -1;
-    psVar1 = psVar1 + -8;
+    pDVar1 = pDVar1 + -1;
   } while (-1 < iVar2);
-  DAT_000011f0 = 0;
-  DAT_000011f4 = 0;
-  DAT_000011f8 = 0;
-  DAT_000011fc = 0;
-  DAT_00001200 = 0;
-  DAT_00001204 = 0;
-  DAT_00001208 = 0;
+  CarIO_carPixMapCount = 0;
+  CarIO_carVRamCount = 0;
+  CarIO_licenseSFX_Count = 0;
+  CarIO_Plate12 = (shapetbl *)0x0;
+  PTR_8013d74c = (shapetbl *)0x0;
+  CarIO_Plate22 = (shapetbl *)0x0;
+  PTR_8013d754 = (shapetbl *)0x0;
   return;
 }
 
@@ -55,15 +71,35 @@ void CarIO_StartUp__Fv(void)
 	// End offset: 0x800BBF94
 	// End Line: 239
 
+	/* begin block 2 */
+		// Start line: 473
+	/* end block 2 */
+	// End Line: 474
+
+	/* begin block 3 */
+		// Start line: 477
+	/* end block 3 */
+	// End Line: 478
+
+	/* begin block 4 */
+		// Start line: 477
+	/* end block 4 */
+	// End Line: 478
+
+	/* begin block 5 */
+		// Start line: 480
+	/* end block 5 */
+	// End Line: 481
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void CarIO_CleanUp__Fv(void)
 
 {
-  if (DAT_000011d0 != 0) {
-    purgememadr(DAT_000011d0);
+  if (CarIO_carPixMap != (Draw_tPixMap *)0x0) {
+    purgememadr((int)CarIO_carPixMap);
   }
-  DAT_000011d0 = 0;
+  CarIO_carPixMap = (Draw_tPixMap *)0x0;
   return;
 }
 
@@ -82,23 +118,38 @@ void CarIO_CleanUp__Fv(void)
 	// End offset: 0x800BBFC8
 	// End Line: 253
 
+	/* begin block 2 */
+		// Start line: 496
+	/* end block 2 */
+	// End Line: 497
+
+	/* begin block 3 */
+		// Start line: 502
+	/* end block 3 */
+	// End Line: 503
+
+	/* begin block 4 */
+		// Start line: 502
+	/* end block 4 */
+	// End Line: 503
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void CarIO_ReStart__Fv(void)
 
 {
-  int iVar1;
+  Draw_tPixMap *pDVar1;
   int iVar2;
   
   iVar2 = 0x263;
-  iVar1 = DAT_000011d0 + 0x2630;
+  pDVar1 = CarIO_carPixMap + 0x263;
   do {
-    *(undefined2 *)(iVar1 + 0xe) = 0;
+    pDVar1->flag = 0;
     iVar2 = iVar2 + -1;
-    iVar1 = iVar1 + -0x10;
+    pDVar1 = pDVar1 + -1;
   } while (-1 < iVar2);
-  DAT_000011f0 = 0;
-  DAT_000011f4 = 0;
+  CarIO_carPixMapCount = 0;
+  CarIO_carVRamCount = 0;
   CarIO_CleanUpLicense__Fi(0);
   CarIO_CleanUpLicense__Fi(1);
   return;
@@ -174,6 +225,31 @@ void CarIO_ReStart__Fv(void)
 	/* end block 1 */
 	// End offset: 0x800BC1AC
 	// End Line: 343
+
+	/* begin block 2 */
+		// Start line: 531
+	/* end block 2 */
+	// End Line: 532
+
+	/* begin block 3 */
+		// Start line: 536
+	/* end block 3 */
+	// End Line: 537
+
+	/* begin block 4 */
+		// Start line: 536
+	/* end block 4 */
+	// End Line: 537
+
+	/* begin block 5 */
+		// Start line: 537
+	/* end block 5 */
+	// End Line: 538
+
+	/* begin block 6 */
+		// Start line: 537
+	/* end block 6 */
+	// End Line: 538
 
 void CarIO_CopyFromShape__FPsT0iiii(short *source,short *dest,int w,int h,int x,int y)
 
@@ -327,6 +403,21 @@ void CarIO_CopyFromShape__FPsT0iiii(short *source,short *dest,int w,int h,int x,
 	// End offset: 0x800BC254
 	// End Line: 375
 
+	/* begin block 2 */
+		// Start line: 715
+	/* end block 2 */
+	// End Line: 716
+
+	/* begin block 3 */
+		// Start line: 720
+	/* end block 3 */
+	// End Line: 721
+
+	/* begin block 4 */
+		// Start line: 720
+	/* end block 4 */
+	// End Line: 721
+
 void CarIO_CopyToShape__FPsT0i(short *source,short *dest,int mirror)
 
 {
@@ -429,21 +520,36 @@ void CarIO_CopyToShape__FPsT0i(short *source,short *dest,int mirror)
 	// End offset: 0x800BC5C4
 	// End Line: 483
 
+	/* begin block 2 */
+		// Start line: 789
+	/* end block 2 */
+	// End Line: 790
+
+	/* begin block 3 */
+		// Start line: 794
+	/* end block 3 */
+	// End Line: 795
+
+	/* begin block 4 */
+		// Start line: 794
+	/* end block 4 */
+	// End Line: 795
+
 void CarIO_CreateLicense__FPcii(char *text,int carType,int player)
 
 {
   short *dest;
-  int *piVar1;
-  undefined4 uVar2;
-  size_t sVar3;
+  uint *puVar1;
+  size_t sVar2;
+  int iVar3;
   char cVar4;
-  undefined4 *puVar5;
+  uint *puVar5;
   shapetbl *psVar6;
-  undefined4 *puVar7;
+  uint *puVar7;
   short *source;
-  int iVar8;
-  undefined4 *puVar9;
-  int *piVar10;
+  uint uVar8;
+  uint *puVar9;
+  uint *puVar10;
   shapetbl *psVar11;
   shapetbl **ppsVar12;
   int iVar13;
@@ -453,49 +559,49 @@ void CarIO_CreateLicense__FPcii(char *text,int carType,int player)
   
   if (carType < 0x16) {
     psVar6 = (shapetbl *)reservememadr(s_plate1_8013d720,0x148,0);
-    ppsVar12 = &__CarIO_Plate1_2__ + player;
+    ppsVar12 = &CarIO_Plate12 + player;
     *ppsVar12 = psVar6;
     psVar6 = (shapetbl *)reservememadr(s_plate2_8013d728,0x148,0);
-    (&__CarIO_Plate2_2__)[player] = psVar6;
-    puVar9 = (undefined4 *)&psVar6[8].width;
-    puVar5 = (undefined4 *)&(*ppsVar12)[8].width;
+    (&CarIO_Plate22)[player] = psVar6;
+    puVar9 = &psVar6[5].mipmaps;
+    puVar5 = &(*ppsVar12)[5].mipmaps;
     dest = reservememadr(s_theplate_80056778,0x210,0x10);
-    piVar1 = (int *)locateshapez((int)R3DCar_LicenseShapeFile,(int *)&DAT_8013d730);
-    puVar7 = (undefined4 *)((int)piVar1 + (*piVar1 >> 8));
-    piVar10 = piVar1;
+    puVar1 = (uint *)locateshapez((int)R3DCar_LicenseShapeFile,(int *)&DAT_8013d730);
+    puVar7 = (uint *)((int)puVar1 + ((int)*puVar1 >> 8));
+    puVar10 = puVar1;
     mirror = 0;
     do {
-      iVar8 = *piVar10;
-      piVar10 = piVar10 + 1;
+      uVar8 = *puVar10;
+      puVar10 = puVar10 + 1;
       iVar13 = mirror + 1;
       psVar6 = *ppsVar12;
-      (&(&__CarIO_Plate2_2__)[player]->field_0x0)[mirror] = iVar8;
-      (&psVar6->field_0x0)[mirror] = iVar8;
+      (&(&CarIO_Plate22)[player]->type)[mirror] = uVar8;
+      (&psVar6->type)[mirror] = uVar8;
       mirror = iVar13;
     } while (iVar13 < 4);
     mirror = 0;
     do {
-      uVar2 = *puVar7;
+      uVar8 = *puVar7;
       puVar7 = puVar7 + 1;
       mirror = mirror + 1;
-      *puVar9 = uVar2;
-      *puVar5 = uVar2;
+      *puVar9 = uVar8;
+      *puVar5 = uVar8;
       puVar5 = puVar5 + 1;
       puVar9 = puVar9 + 1;
     } while (mirror < 0xc);
-    psVar11 = (&__CarIO_Plate2_2__)[player];
-    psVar6 = (&__CarIO_Plate1_2__)[player];
-    psVar11->field_0x0 = (uint)*(byte *)&psVar11->field_0x0 | 0x11800;
-    iVar8 = 0;
-    psVar6->field_0x0 = (uint)*(byte *)&psVar6->field_0x0 | 0x11800;
-    psVar6 = (&__CarIO_Plate1_2__)[player];
-    *(undefined2 *)&(&__CarIO_Plate2_2__)[player]->field_0x4 = 0x18;
-    *(undefined2 *)&psVar6->field_0x4 = 0x18;
-    CarIO_CopyFromShape__FPsT0iiii((short *)(piVar1 + 4),dest,0x30,0x16,0,0);
-    sVar3 = strlen(text);
-    mirror = sVar3 * -3 + 0x18;
-    while (iVar8 < (int)sVar3) {
-      cVar4 = text[iVar8];
+    psVar11 = (&CarIO_Plate22)[player];
+    psVar6 = (&CarIO_Plate12)[player];
+    psVar11->type = (uint)*(byte *)&psVar11->type | 0x11800;
+    iVar13 = 0;
+    psVar6->type = (uint)*(byte *)&psVar6->type | 0x11800;
+    psVar6 = (&CarIO_Plate12)[player];
+    *(undefined2 *)&(&CarIO_Plate22)[player]->next = 0x18;
+    *(undefined2 *)&psVar6->next = 0x18;
+    CarIO_CopyFromShape__FPsT0iiii((short *)(puVar1 + 4),dest,0x30,0x16,0,0);
+    sVar2 = strlen(text);
+    mirror = sVar2 * -3 + 0x18;
+    while (iVar13 < (int)sVar2) {
+      cVar4 = text[iVar13];
       if (cVar4 != ' ') {
         switch(cVar4) {
         case -0x40:
@@ -523,30 +629,30 @@ void CarIO_CreateLicense__FPcii(char *text,int carType,int player)
         local_2f = 0;
         local_30 = cVar4;
         strcat(&local_30,(char *)&PTR_DAT_8013d738);
-        iVar13 = locateshapez((int)R3DCar_LicenseShapeFile,(int *)&local_30);
-        CarIO_CopyFromShape__FPsT0iiii((short *)(iVar13 + 0x10),dest,7,0xc,mirror,5);
+        iVar3 = locateshapez((int)R3DCar_LicenseShapeFile,(int *)&local_30);
+        CarIO_CopyFromShape__FPsT0iiii((short *)(iVar3 + 0x10),dest,7,0xc,mirror,5);
       }
       mirror = mirror + 6;
-      iVar8 = iVar8 + 1;
+      iVar13 = iVar13 + 1;
     }
     if ((R3DCar_InMenu == 0) && (GameSetup_gData.mirrorTrack != 0)) {
-      CarIO_CopyToShape__FPsT0i(dest + 6,(short *)&(&__CarIO_Plate1_2__)[player]->field_0x10,1);
-      psVar6 = (&__CarIO_Plate2_2__)[player];
+      CarIO_CopyToShape__FPsT0i(dest + 6,(short *)&(&CarIO_Plate12)[player]->shapex,1);
+      psVar6 = (&CarIO_Plate22)[player];
       mirror = 1;
       source = dest;
     }
     else {
-      CarIO_CopyToShape__FPsT0i(dest,(short *)&(&__CarIO_Plate1_2__)[player]->field_0x10,0);
+      CarIO_CopyToShape__FPsT0i(dest,(short *)&(&CarIO_Plate12)[player]->shapex,0);
       source = dest + 6;
-      psVar6 = (&__CarIO_Plate2_2__)[player];
+      psVar6 = (&CarIO_Plate22)[player];
       mirror = 0;
     }
-    CarIO_CopyToShape__FPsT0i(source,(short *)&psVar6->field_0x10,mirror);
+    CarIO_CopyToShape__FPsT0i(source,(short *)&psVar6->shapex,mirror);
     purgememadr((int)dest);
   }
   else {
-    (&__CarIO_Plate2_2__)[player] = (shapetbl *)0x0;
-    (&__CarIO_Plate1_2__)[player] = (shapetbl *)0x0;
+    (&CarIO_Plate22)[player] = (shapetbl *)0x0;
+    (&CarIO_Plate12)[player] = (shapetbl *)0x0;
   }
   return;
 }
@@ -564,21 +670,36 @@ void CarIO_CreateLicense__FPcii(char *text,int carType,int player)
 	// End offset: 0x800BC650
 	// End Line: 491
 
+	/* begin block 2 */
+		// Start line: 1051
+	/* end block 2 */
+	// End Line: 1052
+
+	/* begin block 3 */
+		// Start line: 1054
+	/* end block 3 */
+	// End Line: 1055
+
+	/* begin block 4 */
+		// Start line: 1054
+	/* end block 4 */
+	// End Line: 1055
+
 void CarIO_CleanUpLicense__Fi(int player)
 
 {
   shapetbl *psVar1;
   
-  psVar1 = (&__CarIO_Plate1_2__)[player];
+  psVar1 = (&CarIO_Plate12)[player];
   if (psVar1 != (shapetbl *)0x0) {
     purgememadr((int)psVar1);
   }
-  (&__CarIO_Plate1_2__)[player] = (shapetbl *)0x0;
-  psVar1 = (&__CarIO_Plate2_2__)[player];
+  (&CarIO_Plate12)[player] = (shapetbl *)0x0;
+  psVar1 = (&CarIO_Plate22)[player];
   if (psVar1 != (shapetbl *)0x0) {
     purgememadr((int)psVar1);
   }
-  (&__CarIO_Plate2_2__)[player] = (shapetbl *)0x0;
+  (&CarIO_Plate22)[player] = (shapetbl *)0x0;
   return;
 }
 
@@ -612,6 +733,21 @@ void CarIO_CleanUpLicense__Fi(int player)
 	// End offset: 0x800BC6FC
 	// End Line: 512
 
+	/* begin block 2 */
+		// Start line: 1072
+	/* end block 2 */
+	// End Line: 1073
+
+	/* begin block 3 */
+		// Start line: 1079
+	/* end block 3 */
+	// End Line: 1080
+
+	/* begin block 4 */
+		// Start line: 1079
+	/* end block 4 */
+	// End Line: 1080
+
 void CarIO_LicenseCheck__FiPiT1P8Car_tObji
                (int reload,int *license_vx,int *license_vy,Car_tObj *carObj,int plate)
 
@@ -619,15 +755,15 @@ void CarIO_LicenseCheck__FiPiT1P8Car_tObji
   short sVar1;
   short sVar2;
   
-  if (((reload & 2U) != 0) && (iGp000011f8 < 0xc)) {
+  if (((reload & 2U) != 0) && (CarIO_licenseSFX_Count < 0xc)) {
     plate = (int)&(carObj->N).objID + plate;
-    sVar1 = (&CarIO_licenseSFX_Vram)[iGp000011f8 * 2];
-    sVar2 = (&SHORT_8011ebea)[iGp000011f8 * 2];
+    sVar1 = (&CarIO_licenseSFX_Vram)[CarIO_licenseSFX_Count * 2];
+    sVar2 = SHORT_ARRAY_8011ebea[CarIO_licenseSFX_Count * 2];
     *(char *)(plate + 0x8cc) = (((byte)sVar1 & 0x3f) - ((byte)*license_vx & 0x3f)) * '\x04';
     *(char *)(plate + 0x8ce) = (char)sVar2 - *(char *)license_vy;
     *license_vx = (int)sVar1;
     *license_vy = (int)sVar2;
-    iGp000011f8 = iGp000011f8 + 1;
+    CarIO_licenseSFX_Count = CarIO_licenseSFX_Count + 1;
     return;
   }
   plate = (int)&(carObj->N).objID + plate;
@@ -923,18 +1059,33 @@ void CarIO_LicenseCheck__FiPiT1P8Car_tObji
 	// End offset: 0x800BCE80
 	// End Line: 714
 
+	/* begin block 2 */
+		// Start line: 1116
+	/* end block 2 */
+	// End Line: 1117
+
+	/* begin block 3 */
+		// Start line: 1120
+	/* end block 3 */
+	// End Line: 1121
+
+	/* begin block 4 */
+		// Start line: 1120
+	/* end block 4 */
+	// End Line: 1121
+
 void CarIO_ReadInCarTextureData__FPcP8Car_tObjii
                (char *shpfile,Car_tObj *carObj,int reload,int player)
 
 {
   short sVar1;
-  ushort uVar2;
+  bool bVar2;
   bool bVar3;
-  bool bVar4;
+  int iVar4;
   int iVar5;
-  int cx;
   int iVar6;
   char *n;
+  int cx;
   uint cy;
   uint rx;
   int ry;
@@ -959,30 +1110,31 @@ void CarIO_ReadInCarTextureData__FPcP8Car_tObjii
   local_48 = (int)(carObj->render).palNum;
   if ((reload & 1U) == 0) {
     if (R3DCar_InMenu == 0) {
-      sVar1 = (&CarIO_carVRamSlots)[iGp000011f4 * 2];
+      sVar1 = (&CarIO_carVRamSlots)[CarIO_carVRamCount * 2];
       (carObj->render).palCopyNum[3] = sVar1;
       rx = SEXT24(sVar1);
-      ry = (int)(&SHORT_8011ea6a)[iGp000011f4 * 2];
-      (carObj->render).palCopyNum[4] = (&SHORT_8011ea6a)[iGp000011f4 * 2];
+      ry = (int)SHORT_ARRAY_8011ea6a[CarIO_carVRamCount * 2];
+      (carObj->render).palCopyNum[4] = SHORT_ARRAY_8011ea6a[CarIO_carVRamCount * 2];
       if (local_48 < 0x1c) {
         if (((carObj->render).palCopyNum[1] & 1U) == 0) {
-          iGp000011f4 = iGp000011f4 + 3;
+          CarIO_carVRamCount = CarIO_carVRamCount + 3;
         }
         else {
-          iGp000011f4 = iGp000011f4 + (int)(&CarIO_carVRamAdd)[iGp000011f4 / 3] * 3;
+          CarIO_carVRamCount =
+               CarIO_carVRamCount + (int)CarIO_carVRamAdd[CarIO_carVRamCount / 3] * 3;
         }
       }
       else {
-        iGp000011f4 = iGp000011f4 + 1;
+        CarIO_carVRamCount = CarIO_carVRamCount + 1;
       }
     }
     else {
-      sVar1 = (&CarIO_carVRamSlotsMenu)[iGp000011f4 * 2];
+      sVar1 = (&CarIO_carVRamSlotsMenu)[CarIO_carVRamCount * 2];
       (carObj->render).palCopyNum[3] = sVar1;
       rx = SEXT24(sVar1);
-      sVar1 = (&SHORT_8011eab2)[iGp000011f4 * 2];
+      sVar1 = SHORT_ARRAY_8011eab2[CarIO_carVRamCount * 2];
       (carObj->render).palCopyNum[4] = sVar1;
-      iGp000011f4 = iGp000011f4 + (int)(&CarIO_carVRamAdd)[iGp000011f4];
+      CarIO_carVRamCount = CarIO_carVRamCount + (int)CarIO_carVRamAdd[CarIO_carVRamCount];
       ry = (int)sVar1;
     }
   }
@@ -991,142 +1143,144 @@ void CarIO_ReadInCarTextureData__FPcP8Car_tObjii
     ry = (int)(carObj->render).palCopyNum[4];
   }
   if ((reload & 0x10U) == 0) {
-    local_44 = iGp000011f0;
-    carObj->audio[5].type = iGp000011f0;
+    local_44 = CarIO_carPixMapCount;
+    carObj->audio[5].type = CarIO_carPixMapCount;
   }
   else {
     local_44 = carObj->audio[5].type;
   }
   if ((reload & 8U) != 0) {
     if (((carObj->render).palCopyNum[1] & 1U) != 0) {
-      iVar5 = rx - 0x200;
+      iVar4 = rx - 0x200;
       if (R3DCar_InMenu == 0) {
-        iVar5 = rx - 0x280;
+        iVar4 = rx - 0x280;
       }
-      rx = rx + (int)(&CarIO_carVRamOffset)[iVar5 >> 6];
+      rx = rx + (int)CarIO_carVRamOffset[iVar4 >> 6];
     }
     (carObj->render).palCopyNum[5] = (short)((rx & 0x3f) << 2);
     (carObj->render).palCopyNum[6] = (ushort)ry & 0xff;
   }
-  iVar5 = 0;
+  iVar4 = 0;
   if (R3DCar_InMenu == 0) {
     local_40 = 0x18;
   }
   Texture_palCopy = (Texture_pal8bit *)(carObj->render).currentPitch;
   iVar6 = local_44 << 4;
   Texture_ResetPaletteSharing__Fv();
-  local_38 = &__CarIO_Plate1_2__ + player;
-  local_34 = &__CarIO_Plate2_2__ + player;
-  pCVar7 = &CarIO_textureName;
+  local_38 = &CarIO_Plate12 + player;
+  local_34 = &CarIO_Plate22 + player;
+  pCVar7 = CarIO_textureName;
   local_30 = carObj;
-  while (iVar5 < 0x33) {
-    bVar4 = true;
+  while (iVar4 < 0x33) {
+    bVar3 = true;
     n = (char *)locateshapez((int)shpfile,(int *)pCVar7->pal);
     local_3c = pCVar7->palShare;
     if ((n == (char *)0x0) && (local_3c == 0)) {
-      bVar4 = false;
+      bVar3 = false;
       n = (char *)locateshapez((int)shpfile,(int *)pCVar7->tex);
     }
-    if (iVar5 == 0x14) {
+    if (iVar4 == 0x14) {
       local_40 = 0;
     }
     if (n != (char *)0x0) {
-      bVar3 = false;
+      bVar2 = false;
       if (local_40 != 0) {
         *(undefined2 *)((int)&(local_30->render).currentRoll + 2) = (undefined2)Texture_palNum;
       }
       if (local_48 < 0x16) {
-        if (iVar5 == (int)(&CarIO_licensePlate)[local_48 * 6]) {
+        if (iVar4 == (int)(&CarIO_licensePlate)[local_48 * 6]) {
           local_68 = rx + (int)(&SHORT_8011eae2)[local_48 * 6];
           local_64 = ry + (int)(&SHORT_8011eae4)[local_48 * 6];
           CarIO_LicenseCheck__FiPiT1P8Car_tObji(reload,&local_68,&local_64,carObj,0);
           Texture_LoadPmx__FPcT0iiiiiP12Draw_tPixMap
                     ((char *)0x0,(char *)*local_38,local_40,local_68,local_64,-1,-1,
-                     (Draw_tPixMap *)(iGp000011d0 + iVar6));
-          bVar3 = true;
-          *(undefined2 *)(iVar6 + iGp000011d0 + 0xe) = 1;
+                     (Draw_tPixMap *)(&CarIO_carPixMap->u0 + iVar6));
+          bVar2 = true;
+          *(undefined2 *)((int)&CarIO_carPixMap->flag + iVar6) = 1;
         }
         else {
-          if (iVar5 == (int)(&SHORT_8011eae6)[local_48 * 6]) {
+          if (iVar4 == (int)(&SHORT_8011eae6)[local_48 * 6]) {
             local_60 = rx + (int)(&SHORT_8011eae8)[local_48 * 6];
-            local_5c = ry + (int)(&SHORT_8011eaea)[local_48 * 6];
+            local_5c = ry + (int)SHORT_ARRAY_8011eaea[local_48 * 6];
             CarIO_LicenseCheck__FiPiT1P8Car_tObji(reload,&local_60,&local_5c,carObj,1);
             Texture_LoadPmx__FPcT0iiiiiP12Draw_tPixMap
                       ((char *)0x0,(char *)*local_34,local_40,local_60,local_5c,-1,-1,
-                       (Draw_tPixMap *)(iGp000011d0 + iVar6));
-            bVar3 = true;
-            *(undefined2 *)(iVar6 + iGp000011d0 + 0xe) = 2;
+                       (Draw_tPixMap *)(&CarIO_carPixMap->u0 + iVar6));
+            bVar2 = true;
+            *(undefined2 *)((int)&CarIO_carPixMap->flag + iVar6) = 2;
           }
         }
       }
-      if (!bVar3) {
+      if (!bVar2) {
         Texture_LoadPmx__FPcT0iiiiiP12Draw_tPixMap
-                  ((char *)0x0,n,local_40,rx,ry,-1,-1,(Draw_tPixMap *)(iGp000011d0 + iVar6));
+                  ((char *)0x0,n,local_40,rx,ry,-1,-1,(Draw_tPixMap *)(&CarIO_carPixMap->u0 + iVar6)
+                  );
       }
-      if (iVar5 == 0x20) {
-        ChangeTPage__FPUsi((ushort *)(iGp000011d0 + iVar6 + 6),2);
+      if (iVar4 == 0x20) {
+        ChangeTPage__FPUsi((ushort *)((int)&CarIO_carPixMap->tpage + iVar6),2);
       }
-      *(ushort *)(iVar6 + iGp000011d0 + 0xe) = *(ushort *)(iVar6 + iGp000011d0 + 0xe) | 0x80;
+      *(ushort *)(&CarIO_carPixMap->u0 + iVar6 + 0xe) =
+           *(ushort *)(&CarIO_carPixMap->u0 + iVar6 + 0xe) | 0x80;
     }
-    if (bVar4) {
-      cx = local_44;
+    if (bVar3) {
+      iVar5 = local_44;
       if (local_3c != 0) {
         if (local_40 != 0) {
           *(undefined2 *)((int)&(local_30->render).currentRoll + 2) =
                *(undefined2 *)((int)&(carObj->render).currentRoll + (local_3c + -1) * 2 + 2);
         }
-        cx = local_3c + -1 + carObj->audio[5].type;
+        iVar5 = local_3c + -1 + carObj->audio[5].type;
       }
       n = (char *)locateshapez((int)shpfile,(int *)pCVar7->tex);
       if (n != (char *)0x0) {
-        bVar4 = false;
-        uVar2 = *(ushort *)(cx * 0x10 + iGp000011d0 + 2);
-        cx = ((uint)uVar2 & 0x3f) << 4;
-        cy = (uint)(uVar2 >> 6);
+        bVar3 = false;
+        cx = ((uint)CarIO_carPixMap[iVar5].clut & 0x3f) << 4;
+        cy = (uint)(CarIO_carPixMap[iVar5].clut >> 6);
         if (local_48 < 0x16) {
-          if (iVar5 == (int)(&CarIO_licensePlate)[local_48 * 6]) {
+          if (iVar4 == (int)(&CarIO_licensePlate)[local_48 * 6]) {
             local_58 = rx + (int)(&SHORT_8011eae2)[local_48 * 6];
             local_54 = ry + (int)(&SHORT_8011eae4)[local_48 * 6];
             CarIO_LicenseCheck__FiPiT1P8Car_tObji(reload,&local_58,&local_54,carObj,0);
             Texture_LoadPmx__FPcT0iiiiiP12Draw_tPixMap
                       ((char *)0x0,(char *)*local_38,0x20,local_58,local_54,cx,cy,
-                       (Draw_tPixMap *)(iGp000011d0 + iVar6));
-            bVar4 = true;
-            *(undefined2 *)(iVar6 + iGp000011d0 + 0xe) = 1;
+                       (Draw_tPixMap *)(&CarIO_carPixMap->u0 + iVar6));
+            bVar3 = true;
+            *(undefined2 *)((int)&CarIO_carPixMap->flag + iVar6) = 1;
           }
           else {
-            if (iVar5 == (int)(&SHORT_8011eae6)[local_48 * 6]) {
+            if (iVar4 == (int)(&SHORT_8011eae6)[local_48 * 6]) {
               local_50 = rx + (int)(&SHORT_8011eae8)[local_48 * 6];
-              local_4c = ry + (int)(&SHORT_8011eaea)[local_48 * 6];
+              local_4c = ry + (int)SHORT_ARRAY_8011eaea[local_48 * 6];
               CarIO_LicenseCheck__FiPiT1P8Car_tObji(reload,&local_50,&local_4c,carObj,1);
               Texture_LoadPmx__FPcT0iiiiiP12Draw_tPixMap
                         ((char *)0x0,(char *)*local_34,0x20,local_50,local_4c,cx,cy,
-                         (Draw_tPixMap *)(iGp000011d0 + iVar6));
-              bVar4 = true;
-              *(undefined2 *)(iVar6 + iGp000011d0 + 0xe) = 2;
+                         (Draw_tPixMap *)(&CarIO_carPixMap->u0 + iVar6));
+              bVar3 = true;
+              *(undefined2 *)((int)&CarIO_carPixMap->flag + iVar6) = 2;
             }
           }
         }
-        if (!bVar4) {
+        if (!bVar3) {
           Texture_LoadPmx__FPcT0iiiiiP12Draw_tPixMap
-                    ((char *)0x0,n,0x20,rx,ry,cx,cy,(Draw_tPixMap *)(iGp000011d0 + iVar6));
+                    ((char *)0x0,n,0x20,rx,ry,cx,cy,(Draw_tPixMap *)(&CarIO_carPixMap->u0 + iVar6));
         }
-        if (iVar5 == 0x20) {
-          ChangeTPage__FPUsi((ushort *)(iGp000011d0 + iVar6 + 6),2);
+        if (iVar4 == 0x20) {
+          ChangeTPage__FPUsi((ushort *)((int)&CarIO_carPixMap->tpage + iVar6),2);
         }
         if (local_3c == 0) {
-          *(ushort *)(iVar6 + iGp000011d0 + 0xe) = *(ushort *)(iVar6 + iGp000011d0 + 0xe) | 0x80;
+          *(ushort *)(&CarIO_carPixMap->u0 + iVar6 + 0xe) =
+               *(ushort *)(&CarIO_carPixMap->u0 + iVar6 + 0xe) | 0x80;
         }
       }
     }
     iVar6 = iVar6 + 0x10;
     pCVar7 = pCVar7 + 1;
-    iVar5 = iVar5 + 1;
+    iVar4 = iVar4 + 1;
     local_44 = local_44 + 1;
     local_30 = (Car_tObj *)((int)&(local_30->N).objID + 2);
   }
   if ((reload & 0x80U) != 0) {
-    iGp000011f0 = local_44;
+    CarIO_carPixMapCount = local_44;
   }
   return;
 }
@@ -1237,32 +1391,47 @@ void CarIO_ReadInCarTextureData__FPcP8Car_tObjii
 	// End offset: 0x800BD328
 	// End Line: 850
 
+	/* begin block 2 */
+		// Start line: 1603
+	/* end block 2 */
+	// End Line: 1604
+
+	/* begin block 3 */
+		// Start line: 1608
+	/* end block 3 */
+	// End Line: 1609
+
+	/* begin block 4 */
+		// Start line: 1608
+	/* end block 4 */
+	// End Line: 1609
+
 void CarIO_UpdateCarTextureData__FPcP8Car_tObji(char *shpfile,Car_tObj *carObj,int player)
 
 {
   short sVar1;
   short sVar2;
-  ushort uVar3;
+  bool bVar3;
   bool bVar4;
-  bool bVar5;
-  shapetbl **ppsVar6;
+  shapetbl **ppsVar5;
   Draw_tPixMap *pmx;
-  int iVar7;
+  int iVar6;
   int rx;
   int ry;
-  Car_tObj *pCVar8;
-  int iVar9;
+  Car_tObj *pCVar7;
+  int iVar8;
   char *n;
   int cx;
+  int cx_00;
   uint cy;
+  int iVar9;
   int iVar10;
-  int iVar11;
-  CarIO_textureInfo *pCVar12;
+  CarIO_textureInfo *pCVar11;
   int ctrl;
   int local_3c;
   
   local_3c = carObj->audio[5].type;
-  iVar7 = (int)(carObj->render).palNum;
+  iVar6 = (int)(carObj->render).palNum;
   rx = (int)(carObj->render).palCopyNum[3];
   ry = (int)(carObj->render).palCopyNum[4];
   ctrl = 8;
@@ -1270,117 +1439,118 @@ void CarIO_UpdateCarTextureData__FPcP8Car_tObji(char *shpfile,Car_tObj *carObj,i
     ctrl = 0x18;
   }
   Texture_palCopy = (Texture_pal8bit *)(carObj->render).currentPitch;
-  iVar11 = 0;
-  iVar10 = local_3c << 4;
+  iVar10 = 0;
+  iVar9 = local_3c << 4;
   Texture_ResetPaletteSharing__Fv();
-  pCVar12 = &CarIO_textureName;
-  pCVar8 = carObj;
+  pCVar11 = CarIO_textureName;
+  pCVar7 = carObj;
   do {
-    if (0x32 < iVar11) {
+    if (0x32 < iVar10) {
       return;
     }
-    bVar5 = true;
-    n = (char *)locateshapez((int)shpfile,(int *)pCVar12->pal);
-    iVar9 = pCVar12->palShare;
-    if ((n == (char *)0x0) && (iVar9 == 0)) {
-      bVar5 = false;
-      n = (char *)locateshapez((int)shpfile,(int *)pCVar12->tex);
+    bVar4 = true;
+    n = (char *)locateshapez((int)shpfile,(int *)pCVar11->pal);
+    iVar8 = pCVar11->palShare;
+    if ((n == (char *)0x0) && (iVar8 == 0)) {
+      bVar4 = false;
+      n = (char *)locateshapez((int)shpfile,(int *)pCVar11->tex);
     }
-    if (iVar11 == 0x14) {
+    if (iVar10 == 0x14) {
       ctrl = 0;
     }
     if (n == (char *)0x0) {
 LAB_800bd14c:
-      if (bVar5) {
+      if (bVar4) {
         cx = local_3c;
-        if (iVar9 != 0) {
+        if (iVar8 != 0) {
           if (ctrl != 0) {
-            *(undefined2 *)((int)&(pCVar8->render).currentRoll + 2) =
-                 *(undefined2 *)((int)&(carObj->render).currentRoll + (iVar9 + -1) * 2 + 2);
+            *(undefined2 *)((int)&(pCVar7->render).currentRoll + 2) =
+                 *(undefined2 *)((int)&(carObj->render).currentRoll + (iVar8 + -1) * 2 + 2);
           }
-          cx = iVar9 + -1 + carObj->audio[5].type;
+          cx = iVar8 + -1 + carObj->audio[5].type;
         }
-        n = (char *)locateshapez((int)shpfile,(int *)pCVar12->tex);
+        n = (char *)locateshapez((int)shpfile,(int *)pCVar11->tex);
         if (n != (char *)0x0) {
-          bVar5 = false;
-          uVar3 = *(ushort *)(cx * 0x10 + DAT_000011d0 + 2);
-          cx = ((uint)uVar3 & 0x3f) << 4;
-          cy = (uint)(uVar3 >> 6);
-          if (iVar7 < 0x16) {
-            if (iVar11 == (int)(&CarIO_licensePlate)[iVar7 * 6]) {
-              sVar1 = (&SHORT_8011eae2)[iVar7 * 6];
-              sVar2 = (&SHORT_8011eae4)[iVar7 * 6];
-              ppsVar6 = &__CarIO_Plate1_2__;
+          bVar4 = false;
+          cx_00 = ((uint)CarIO_carPixMap[cx].clut & 0x3f) << 4;
+          cy = (uint)(CarIO_carPixMap[cx].clut >> 6);
+          if (iVar6 < 0x16) {
+            if (iVar10 == (int)(&CarIO_licensePlate)[iVar6 * 6]) {
+              sVar1 = (&SHORT_8011eae2)[iVar6 * 6];
+              sVar2 = (&SHORT_8011eae4)[iVar6 * 6];
+              ppsVar5 = &CarIO_Plate12;
             }
             else {
-              if (iVar11 != (int)(&SHORT_8011eae6)[iVar7 * 6]) goto LAB_800bd280;
-              sVar1 = (&SHORT_8011eae8)[iVar7 * 6];
-              sVar2 = (&SHORT_8011eaea)[iVar7 * 6];
-              ppsVar6 = &__CarIO_Plate2_2__;
+              if (iVar10 != (int)(&SHORT_8011eae6)[iVar6 * 6]) goto LAB_800bd280;
+              sVar1 = (&SHORT_8011eae8)[iVar6 * 6];
+              sVar2 = SHORT_ARRAY_8011eaea[iVar6 * 6];
+              ppsVar5 = &CarIO_Plate22;
             }
-            bVar5 = true;
+            bVar4 = true;
             Texture_LoadPmx__FPcT0iiiiiP12Draw_tPixMap
-                      ((char *)0x0,(char *)ppsVar6[player],0x20,rx + (int)sVar1,ry + (int)sVar2,cx,
-                       cy,(Draw_tPixMap *)(DAT_000011d0 + iVar10));
+                      ((char *)0x0,(char *)ppsVar5[player],0x20,rx + (int)sVar1,ry + (int)sVar2,
+                       cx_00,cy,(Draw_tPixMap *)(&CarIO_carPixMap->u0 + iVar9));
           }
 LAB_800bd280:
-          if (!bVar5) {
+          if (!bVar4) {
             Texture_LoadPmx__FPcT0iiiiiP12Draw_tPixMap
-                      ((char *)0x0,n,0x20,rx,ry,cx,cy,(Draw_tPixMap *)(DAT_000011d0 + iVar10));
+                      ((char *)0x0,n,0x20,rx,ry,cx_00,cy,
+                       (Draw_tPixMap *)(&CarIO_carPixMap->u0 + iVar9));
           }
-          if (iVar11 == 0x20) {
-            ChangeTPage__FPUsi((ushort *)(DAT_000011d0 + iVar10 + 6),2);
+          if (iVar10 == 0x20) {
+            ChangeTPage__FPUsi((ushort *)((int)&CarIO_carPixMap->tpage + iVar9),2);
           }
-          if (iVar9 == 0) {
-            *(ushort *)(iVar10 + DAT_000011d0 + 0xe) =
-                 *(ushort *)(iVar10 + DAT_000011d0 + 0xe) | 0x80;
+          if (iVar8 == 0) {
+            *(ushort *)(&CarIO_carPixMap->u0 + iVar9 + 0xe) =
+                 *(ushort *)(&CarIO_carPixMap->u0 + iVar9 + 0xe) | 0x80;
           }
         }
       }
     }
     else {
-      pmx = (Draw_tPixMap *)(iVar10 + DAT_000011d0);
-      bVar4 = false;
+      pmx = (Draw_tPixMap *)(&CarIO_carPixMap->u0 + iVar9);
+      bVar3 = false;
       if ((pmx->flag & 0x80) != 0) {
         cx = ((uint)pmx->clut & 0x3f) << 4;
         cy = (uint)(pmx->clut >> 6);
         if (ctrl != 0) {
-          Texture_palNum = (int)*(short *)((int)&(pCVar8->render).currentRoll + 2);
+          Texture_palNum = (int)*(short *)((int)&(pCVar7->render).currentRoll + 2);
         }
-        if (iVar7 < 0x16) {
-          if (iVar11 == (int)(&CarIO_licensePlate)[iVar7 * 6]) {
-            sVar1 = (&SHORT_8011eae4)[iVar7 * 6];
-            sVar2 = (&SHORT_8011eae2)[iVar7 * 6];
-            ppsVar6 = &__CarIO_Plate1_2__;
+        if (iVar6 < 0x16) {
+          if (iVar10 == (int)(&CarIO_licensePlate)[iVar6 * 6]) {
+            sVar1 = (&SHORT_8011eae4)[iVar6 * 6];
+            sVar2 = (&SHORT_8011eae2)[iVar6 * 6];
+            ppsVar5 = &CarIO_Plate12;
           }
           else {
-            if (iVar11 != (int)(&SHORT_8011eae6)[iVar7 * 6]) goto LAB_800bd0d8;
-            sVar1 = (&SHORT_8011eaea)[iVar7 * 6];
-            sVar2 = (&SHORT_8011eae8)[iVar7 * 6];
-            ppsVar6 = &__CarIO_Plate2_2__;
+            if (iVar10 != (int)(&SHORT_8011eae6)[iVar6 * 6]) goto LAB_800bd0d8;
+            sVar1 = SHORT_ARRAY_8011eaea[iVar6 * 6];
+            sVar2 = (&SHORT_8011eae8)[iVar6 * 6];
+            ppsVar5 = &CarIO_Plate22;
           }
-          bVar4 = true;
+          bVar3 = true;
           Texture_LoadPmx__FPcT0iiiiiP12Draw_tPixMap
-                    ((char *)0x0,(char *)ppsVar6[player],ctrl,rx + (int)sVar2,ry + (int)sVar1,cx,cy,
+                    ((char *)0x0,(char *)ppsVar5[player],ctrl,rx + (int)sVar2,ry + (int)sVar1,cx,cy,
                      pmx);
         }
 LAB_800bd0d8:
-        if (!bVar4) {
+        if (!bVar3) {
           Texture_LoadPmx__FPcT0iiiiiP12Draw_tPixMap
-                    ((char *)0x0,n,ctrl,rx,ry,cx,cy,(Draw_tPixMap *)(DAT_000011d0 + iVar10));
+                    ((char *)0x0,n,ctrl,rx,ry,cx,cy,(Draw_tPixMap *)(&CarIO_carPixMap->u0 + iVar9));
         }
-        if (iVar11 == 0x20) {
-          ChangeTPage__FPUsi((ushort *)(DAT_000011d0 + iVar10 + 6),2);
+        if (iVar10 == 0x20) {
+          ChangeTPage__FPUsi((ushort *)((int)&CarIO_carPixMap->tpage + iVar9),2);
         }
-        *(ushort *)(iVar10 + DAT_000011d0 + 0xe) = *(ushort *)(iVar10 + DAT_000011d0 + 0xe) | 0x80;
+        *(ushort *)(&CarIO_carPixMap->u0 + iVar9 + 0xe) =
+             *(ushort *)(&CarIO_carPixMap->u0 + iVar9 + 0xe) | 0x80;
         goto LAB_800bd14c;
       }
     }
-    iVar10 = iVar10 + 0x10;
-    pCVar12 = pCVar12 + 1;
+    iVar9 = iVar9 + 0x10;
+    pCVar11 = pCVar11 + 1;
     local_3c = local_3c + 1;
-    iVar11 = iVar11 + 1;
-    pCVar8 = (Car_tObj *)((int)&(pCVar8->N).objID + 2);
+    iVar10 = iVar10 + 1;
+    pCVar7 = (Car_tObj *)((int)&(pCVar7->N).objID + 2);
   } while( true );
 }
 
@@ -1400,26 +1570,42 @@ LAB_800bd0d8:
 	// End offset: 0x800BD3AC
 	// End Line: 872
 
+	/* begin block 2 */
+		// Start line: 1915
+	/* end block 2 */
+	// End Line: 1916
+
+	/* begin block 3 */
+		// Start line: 1922
+	/* end block 3 */
+	// End Line: 1923
+
+	/* begin block 4 */
+		// Start line: 1922
+	/* end block 4 */
+	// End Line: 1923
+
 void CarIO_ReleaseCarCluts__FP8Car_tObj(Car_tObj *carObj)
 
 {
-  int iVar1;
+  Draw_tPixMap *pDVar1;
   int iVar2;
   int iVar3;
   
   iVar2 = 0;
   iVar3 = carObj->audio[5].type;
   do {
-    iVar1 = iVar3 * 0x10 + DAT_000011d0;
-    if ((*(ushort *)(iVar1 + 0xe) & 0x80) != 0) {
-      *(undefined2 *)(iVar1 + 0xe) = 0;
-      Texture_MenuReleaseClutId__Fs(*(short *)(iVar1 + 2));
+    pDVar1 = CarIO_carPixMap + iVar3;
+    if ((pDVar1->flag & 0x80) != 0) {
+      pDVar1->flag = 0;
+      Texture_MenuReleaseClutId__Fs(pDVar1->clut);
     }
     iVar2 = iVar2 + 1;
     iVar3 = iVar3 + 1;
   } while (iVar2 < 0x33);
   return;
 }
+
 
 
 

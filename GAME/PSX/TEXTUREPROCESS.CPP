@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "TEXTUREPROCESS.H"
+
 
 // decompiled code
 // original method signature: 
@@ -20,6 +21,21 @@
 	/* end block 1 */
 	// End offset: 0x800E08B0
 	// End Line: 63
+
+	/* begin block 2 */
+		// Start line: 94
+	/* end block 2 */
+	// End Line: 95
+
+	/* begin block 3 */
+		// Start line: 94
+	/* end block 3 */
+	// End Line: 95
+
+	/* begin block 4 */
+		// Start line: 97
+	/* end block 4 */
+	// End Line: 98
 
 int TextureProcess_TransColorCheck__FPci(char *data,int numentry)
 
@@ -123,6 +139,21 @@ int TextureProcess_TransColorCheck__FPci(char *data,int numentry)
 	/* end block 1 */
 	// End offset: 0x800E0A68
 	// End Line: 411
+
+	/* begin block 2 */
+		// Start line: 420
+	/* end block 2 */
+	// End Line: 421
+
+	/* begin block 3 */
+		// Start line: 714
+	/* end block 3 */
+	// End Line: 715
+
+	/* begin block 4 */
+		// Start line: 714
+	/* end block 4 */
+	// End Line: 715
 
 void TextureProcess_ColorClut__FiiPciii
                (int level,int maxlevel,char *data,int numentry,int cx,int cy)
@@ -246,6 +277,21 @@ LAB_800e0a14:
 	// End offset: 0x800E0B6C
 	// End Line: 463
 
+	/* begin block 2 */
+		// Start line: 872
+	/* end block 2 */
+	// End Line: 873
+
+	/* begin block 3 */
+		// Start line: 884
+	/* end block 3 */
+	// End Line: 885
+
+	/* begin block 4 */
+		// Start line: 884
+	/* end block 4 */
+	// End Line: 885
+
 /* WARNING: Could not reconcile some variable overlaps */
 
 int TextureProcess_DepthColorCluts__FPci(char *data,int numentry)
@@ -261,14 +307,14 @@ int TextureProcess_DepthColorCluts__FPci(char *data,int numentry)
   level = 0;
   while (bVar1) {
     Texture_GetClutId__FiPiT1((uint)(numentry < 0x11) ^ 1,&local_20,&local_1c);
-    (&gClutDepth)[DAT_0000162c * 0x10 + level] =
+    gClutDepth[TP_gZPaletteSystem * 0x10 + level] =
          (short)local_1c << 6 | (ushort)(local_20 >> 4) & 0x3f;
     TextureProcess_ColorClut__FiiPciii(level,0x10,data,numentry,local_20,local_1c);
     bVar1 = level + 1 < 0x10;
     level = level + 1;
   }
-  level = DAT_0000162c;
-  DAT_0000162c = DAT_0000162c + 1;
+  level = TP_gZPaletteSystem;
+  TP_gZPaletteSystem = TP_gZPaletteSystem + 1;
   return level;
 }
 
@@ -286,6 +332,26 @@ int TextureProcess_DepthColorCluts__FPci(char *data,int numentry)
 	/* end block 1 */
 	// End offset: 0x800E0BE4
 	// End Line: 662
+
+	/* begin block 2 */
+		// Start line: 1189
+	/* end block 2 */
+	// End Line: 1190
+
+	/* begin block 3 */
+		// Start line: 1366
+	/* end block 3 */
+	// End Line: 1367
+
+	/* begin block 4 */
+		// Start line: 1366
+	/* end block 4 */
+	// End Line: 1367
+
+	/* begin block 5 */
+		// Start line: 1369
+	/* end block 5 */
+	// End Line: 1370
 
 FogKey * Fog_CheckRange__FiP6FogKey(int currentslice,FogKey *fkey)
 
@@ -323,13 +389,28 @@ FogKey * Fog_CheckRange__FiP6FogKey(int currentslice,FogKey *fkey)
 	// End offset: 0x800E0C6C
 	// End Line: 696
 
+	/* begin block 2 */
+		// Start line: 1414
+	/* end block 2 */
+	// End Line: 1415
+
+	/* begin block 3 */
+		// Start line: 1418
+	/* end block 3 */
+	// End Line: 1419
+
+	/* begin block 4 */
+		// Start line: 1418
+	/* end block 4 */
+	// End Line: 1419
+
 FogKey * Fog_FindKey__FiP6FogKey(int currentslice,FogKey *fkey)
 
 {
   FogKey *pFVar1;
   
   if (fkey == (FogKey *)0x0) {
-    fkey = DAT_0000163c;
+    fkey = Fog_gHeadKey;
   }
   pFVar1 = Fog_CheckRange__FiP6FogKey(currentslice,fkey);
   if (pFVar1 == (FogKey *)0x0) {
@@ -371,6 +452,26 @@ FogKey * Fog_FindKey__FiP6FogKey(int currentslice,FogKey *fkey)
 	// End offset: 0x800E0CC4
 	// End Line: 727
 
+	/* begin block 2 */
+		// Start line: 1429
+	/* end block 2 */
+	// End Line: 1430
+
+	/* begin block 3 */
+		// Start line: 1502
+	/* end block 3 */
+	// End Line: 1503
+
+	/* begin block 4 */
+		// Start line: 1502
+	/* end block 4 */
+	// End Line: 1503
+
+	/* begin block 5 */
+		// Start line: 1504
+	/* end block 5 */
+	// End Line: 1505
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 FogKey * Fog_AllocKey__Fv(void)
@@ -381,7 +482,7 @@ FogKey * Fog_AllocKey__Fv(void)
   int iVar3;
   
   iVar3 = 0;
-  pFVar2 = &Fog_gBuf;
+  pFVar2 = Fog_gBuf;
   piVar1 = &openkeys;
   do {
     iVar3 = iVar3 + 1;
@@ -427,6 +528,21 @@ FogKey * Fog_AllocKey__Fv(void)
 	// End offset: 0x800E0D68
 	// End Line: 790
 
+	/* begin block 2 */
+		// Start line: 1529
+	/* end block 2 */
+	// End Line: 1530
+
+	/* begin block 3 */
+		// Start line: 1536
+	/* end block 3 */
+	// End Line: 1537
+
+	/* begin block 4 */
+		// Start line: 1536
+	/* end block 4 */
+	// End Line: 1537
+
 void Fog_AddKey__Fii(int slice,int distance)
 
 {
@@ -435,13 +551,13 @@ void Fog_AddKey__Fii(int slice,int distance)
   FogKey *pFVar3;
   
   pFVar1 = Fog_AllocKey__Fv();
-  pFVar2 = DAT_0000163c;
+  pFVar2 = Fog_gHeadKey;
   pFVar1->prev = (FogKey *)0x0;
   pFVar1->next = (FogKey *)0x0;
   pFVar1->slice = (short)slice;
   pFVar1->distance = (short)distance;
   if (pFVar2 == (FogKey *)0x0) {
-    DAT_0000163c = pFVar1;
+    Fog_gHeadKey = pFVar1;
     pFVar1->next = pFVar1;
     pFVar1->prev = pFVar1;
   }
@@ -458,7 +574,7 @@ void Fog_AddKey__Fii(int slice,int distance)
     pFVar1->next = pFVar3;
     pFVar3->prev = pFVar1;
   }
-  DAT_00001630 = DAT_00001630 + 1;
+  Fog_gNumKeys = Fog_gNumKeys + 1;
   return;
 }
 
@@ -513,6 +629,21 @@ void Fog_AddKey__Fii(int slice,int distance)
 	// End offset: 0x800E0EAC
 	// End Line: 884
 
+	/* begin block 2 */
+		// Start line: 1711
+	/* end block 2 */
+	// End Line: 1712
+
+	/* begin block 3 */
+		// Start line: 1761
+	/* end block 3 */
+	// End Line: 1762
+
+	/* begin block 4 */
+		// Start line: 1761
+	/* end block 4 */
+	// End Line: 1762
+
 void Fog_Update__Fi(int player)
 
 {
@@ -520,12 +651,12 @@ void Fog_Update__Fi(int player)
   int iVar2;
   int currentslice;
   
-  if (DAT_00001630 != 1) {
+  if (Fog_gNumKeys != 1) {
     BWorldSm_FindClosestQuadRez__FP8coorddefP12BWorldSm_Posi
-              ((coorddef *)&gCView.cview,(BWorldSm_Pos *)(DAT_00001640 + player * 0x84),1);
-    currentslice = (int)*(short *)(player * 0x84 + DAT_00001640);
-    pFVar1 = Fog_FindKey__FiP6FogKey(currentslice,(&__Fog_gCurrentKey_2__)[player]);
-    (&__Fog_gCurrentKey_2__)[player] = pFVar1;
+              ((coorddef *)&gCView.cview,fogslicePos + player,1);
+    currentslice = (int)fogslicePos[player].slice;
+    pFVar1 = Fog_FindKey__FiP6FogKey(currentslice,(&Fog_gCurrentKey2)[player]);
+    (&Fog_gCurrentKey2)[player] = pFVar1;
     TrackSpec_gSpec.fogspec.start = (int)pFVar1->distance;
     iVar2 = (int)pFVar1->next->slice;
     if (TrackSpec_gSpec.fogspec.start != (int)pFVar1->next->distance) {
@@ -563,10 +694,26 @@ void Fog_Update__Fi(int player)
 	// End offset: 0x800E0EC4
 	// End Line: 1016
 
+	/* begin block 2 */
+		// Start line: 1993
+	/* end block 2 */
+	// End Line: 1994
+
+	/* begin block 3 */
+		// Start line: 2124
+	/* end block 3 */
+	// End Line: 2125
+
+	/* begin block 4 */
+		// Start line: 2124
+	/* end block 4 */
+	// End Line: 2125
+
 char * Fog_MakeTrackPathName__FPc(char *ext)
 
 {
-  sprintf(&fogstrspc_36,s__sTr_02d_s_80056ab8,PTR_80116480,GameSetup_gData.track & 0xf,ext);
+  sprintf(&fogstrspc_36,s__sTr_02d_s_80056ab8,PTR_ARRAY_80116480[0],GameSetup_gData.track & 0xf,ext)
+  ;
   return &fogstrspc_36;
 }
 
@@ -603,6 +750,21 @@ char * Fog_MakeTrackPathName__FPc(char *ext)
 	// End offset: 0x800E1010
 	// End Line: 1079
 
+	/* begin block 2 */
+		// Start line: 2147
+	/* end block 2 */
+	// End Line: 2148
+
+	/* begin block 3 */
+		// Start line: 2151
+	/* end block 3 */
+	// End Line: 2152
+
+	/* begin block 4 */
+		// Start line: 2151
+	/* end block 4 */
+	// End Line: 2152
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 int Fog_ReadFogKeys__Fv(void)
@@ -621,18 +783,18 @@ int Fog_ReadFogKeys__Fv(void)
   if ((GameSetup_gData.Time == 0) || (GameSetup_gData.Weather == 0)) {
     if (GameSetup_gData.Time == 0) {
       if (GameSetup_gData.Weather == 0) {
-        ext = &PTR_DAT_8013db64;
+        ext = PTR_ARRAY_8013db64;
       }
       else {
-        ext = &PTR_DAT_8013db5c;
+        ext = PTR_ARRAY_8013db5c;
       }
     }
     else {
-      ext = &PTR_DAT_8013db54;
+      ext = PTR_ARRAY_8013db54;
     }
   }
   else {
-    ext = &PTR_DAT_8013db4c;
+    ext = PTR_ARRAY_8013db4c;
   }
   pcVar4 = Fog_MakeTrackPathName__FPc((char *)ext);
   puVar5 = (uint *)loadfileadr(pcVar4,0);
@@ -695,6 +857,21 @@ int Fog_ReadFogKeys__Fv(void)
 	// End offset: 0x800E10F8
 	// End Line: 1120
 
+	/* begin block 2 */
+		// Start line: 2266
+	/* end block 2 */
+	// End Line: 2267
+
+	/* begin block 3 */
+		// Start line: 2270
+	/* end block 3 */
+	// End Line: 2271
+
+	/* begin block 4 */
+		// Start line: 2270
+	/* end block 4 */
+	// End Line: 2271
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Fog_InitFogTriggers__Fv(void)
@@ -707,8 +884,8 @@ void Fog_InitFogTriggers__Fv(void)
   
   iVar2 = 0x1f;
   piVar1 = &INT_80123278;
-  DAT_00001630 = 0;
-  DAT_0000163c = 0;
+  Fog_gNumKeys = 0;
+  Fog_gHeadKey = (FogKey *)0x0;
   do {
     *piVar1 = 1;
     iVar2 = iVar2 + -1;
@@ -719,18 +896,18 @@ void Fog_InitFogTriggers__Fv(void)
     Fog_AddKey__Fii(0,TrackSpec_gSpec.fogspec.start);
   }
   iVar2 = 1;
-  DAT_00001634 = DAT_0000163c;
-  DAT_00001638 = DAT_0000163c;
+  Fog_gCurrentKey2 = Fog_gHeadKey;
+  PTR_8013db84 = Fog_gHeadKey;
   if (GameSetup_gData.commMode == 1) {
     iVar2 = 2;
   }
-  DAT_00001640 = reservememadr((char *)&PTR_DAT_8013db6c,iVar2 * 0x84,0);
+  fogslicePos = (BWorldSm_Pos *)reservememadr((char *)PTR_ARRAY_8013db6c,iVar2 * 0x84,0);
   iVar3 = 0;
   if (iVar2 != 0) {
     iVar4 = 0;
     do {
       iVar3 = iVar3 + 1;
-      BWorldSm_SetSlice__FiP12BWorldSm_Pos(0,(BWorldSm_Pos *)((int)DAT_00001640 + iVar4));
+      BWorldSm_SetSlice__FiP12BWorldSm_Pos(0,(BWorldSm_Pos *)((int)&fogslicePos->slice + iVar4));
       iVar4 = iVar4 + 0x84;
     } while (iVar3 < iVar2);
   }
@@ -750,12 +927,37 @@ void Fog_InitFogTriggers__Fv(void)
 	// End offset: 0x800E1110
 	// End Line: 1124
 
+	/* begin block 2 */
+		// Start line: 2373
+	/* end block 2 */
+	// End Line: 2374
+
+	/* begin block 3 */
+		// Start line: 2377
+	/* end block 3 */
+	// End Line: 2378
+
+	/* begin block 4 */
+		// Start line: 2377
+	/* end block 4 */
+	// End Line: 2378
+
+	/* begin block 5 */
+		// Start line: 2378
+	/* end block 5 */
+	// End Line: 2379
+
+	/* begin block 6 */
+		// Start line: 2378
+	/* end block 6 */
+	// End Line: 2379
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Fog_DeInitFogTriggers__Fv(void)
 
 {
-  purgememadr(DAT_00001640);
+  purgememadr((int)fogslicePos);
   return;
 }
 
@@ -772,13 +974,38 @@ void Fog_DeInitFogTriggers__Fv(void)
 	// End offset: 0x800E1134
 	// End Line: 1137
 
+	/* begin block 2 */
+		// Start line: 2391
+	/* end block 2 */
+	// End Line: 2392
+
+	/* begin block 3 */
+		// Start line: 2402
+	/* end block 3 */
+	// End Line: 2403
+
+	/* begin block 4 */
+		// Start line: 2402
+	/* end block 4 */
+	// End Line: 2403
+
+	/* begin block 5 */
+		// Start line: 2403
+	/* end block 5 */
+	// End Line: 2404
+
+	/* begin block 6 */
+		// Start line: 2403
+	/* end block 6 */
+	// End Line: 2404
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void TextureProcess_Init__Fv(void)
 
 {
-  DAT_00001628 = 0x10;
-  DAT_0000162c = 0;
+  gZDepth = 0x10;
+  TP_gZPaletteSystem = 0;
   return;
 }
 
@@ -841,6 +1068,21 @@ void TextureProcess_Init__Fv(void)
 	/* end block 1 */
 	// End offset: 0x800E12DC
 	// End Line: 1180
+
+	/* begin block 2 */
+		// Start line: 2425
+	/* end block 2 */
+	// End Line: 2426
+
+	/* begin block 3 */
+		// Start line: 2444
+	/* end block 3 */
+	// End Line: 2445
+
+	/* begin block 4 */
+		// Start line: 2444
+	/* end block 4 */
+	// End Line: 2445
 
 void CV_ProcessWorldColors_FINAL__FiP7CVECTORs(int constrast,CVECTOR *color,short brightness)
 
@@ -937,6 +1179,21 @@ void CV_ProcessWorldColors_FINAL__FiP7CVECTORs(int constrast,CVECTOR *color,shor
 	// End offset: 0x800E14E8
 	// End Line: 1258
 
+	/* begin block 2 */
+		// Start line: 2502
+	/* end block 2 */
+	// End Line: 2503
+
+	/* begin block 3 */
+		// Start line: 2506
+	/* end block 3 */
+	// End Line: 2507
+
+	/* begin block 4 */
+		// Start line: 2506
+	/* end block 4 */
+	// End Line: 2507
+
 /* WARNING: Could not reconcile some variable overlaps */
 
 void CV_ColorTracks__Fiii(int track,int weather,int night)
@@ -1031,6 +1288,21 @@ LAB_800e14ec:
 	// End offset: 0x800E1510
 	// End Line: 1540
 
+	/* begin block 2 */
+		// Start line: 2938
+	/* end block 2 */
+	// End Line: 2939
+
+	/* begin block 3 */
+		// Start line: 3220
+	/* end block 3 */
+	// End Line: 3221
+
+	/* begin block 4 */
+		// Start line: 3220
+	/* end block 4 */
+	// End Line: 3221
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void CV_InitColorVertices__Fv(void)
@@ -1039,6 +1311,7 @@ void CV_InitColorVertices__Fv(void)
   CV_ColorTracks__Fiii(GameSetup_gData.track & 0xf,GameSetup_gData.Weather,GameSetup_gData.Time);
   return;
 }
+
 
 
 
