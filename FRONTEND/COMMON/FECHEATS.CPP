@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "FECHEATS.H"
+
 
 // decompiled code
 // original method signature: 
@@ -100,17 +101,84 @@
 	// End offset: 0x800233FC
 	// End Line: 153
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 178
+	/* end block 2 */
+	// End Line: 179
+
+	/* begin block 3 */
+		// Start line: 178
+	/* end block 3 */
+	// End Line: 179
 
 void FECheat_HandleActivation__F10tCheatCode(tCheatCode cheat)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
+  int iVar1;
+  short sVar2;
+  int iVar3;
   
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  switch(cheat) {
+  case cheat_Roadster:
+  case cheat_Pony:
+  case cheat_Saloon:
+  case cheat_Sports:
+  case cheat_SuperCar:
+  case cheat_GTRCar:
+  case cheat_BonusCar:
+  case cheat_CopCar:
+    SetClassAvailable__11tCarManager13tCarClassTypeb(&carManager,cheat,&DAT_00000001);
+    break;
+  case cheat_AllCars:
+    iVar1 = 0;
+    iVar3 = 0;
+    do {
+      FECheat_HandleActivation__F10tCheatCode(iVar3 >> 0x10);
+      iVar1 = iVar1 + 1;
+      iVar3 = iVar1 * 0x10000;
+    } while (iVar1 * 0x10000 >> 0x10 < 7);
+    break;
+  case cheat_AllTracks:
+    SetClassAvailable__13tTrackManager15tTrackClassTypeb(&trackManager,tct_Beginner,&DAT_00000001);
+    SetClassAvailable__13tTrackManager15tTrackClassTypeb
+              (&trackManager,tct_Intermediate,&DAT_00000001);
+    SetClassAvailable__13tTrackManager15tTrackClassTypeb(&trackManager,tct_Expert,&DAT_00000001);
+    SetClassAvailable__13tTrackManager15tTrackClassTypeb(&trackManager,tct_GTR,&DAT_00000001);
+    SetClassAvailable__13tTrackManager15tTrackClassTypeb(&trackManager,tct_Bonus,&DAT_00000001);
+    break;
+  case cheat_MoreMoney:
+  case cheat_BonusMoney:
+    tournamentManager.fMoney = tournamentManager.fMoney + 50000;
+    break;
+  case cheat_AllCheats:
+    gFECheats = 0xffffffff;
+    iVar3 = 0;
+    iVar1 = 0;
+    do {
+      if (iVar1 >> 0x10 != cheat_AllCheats) {
+        FECheat_HandleActivation__F10tCheatCode(iVar1 >> 0x10);
+      }
+      iVar3 = iVar3 + 1;
+      iVar1 = iVar3 * 0x10000;
+    } while (iVar3 * 0x10000 >> 0x10 < 0x1f);
+    break;
+  case cheat_NFSTeamRecords:
+    Stattool_GetAllDefaultRecords__FP13tRecordBufferb(Stats_gTrackRecords,&DAT_00000001);
+    break;
+  case cheat_LotsaMoney:
+    tournamentManager.fMoney = tournamentManager.fMoney + 100000000;
+    break;
+  case cheat_AllNotRaced:
+  case cheat_AllGold:
+  case cheat_AllSilver:
+  case cheat_AllBronze:
+    sVar2 = 0;
+    while ((int)sVar2 < 0x40) {
+      tournamentManager.fBestPlacement[(int)sVar2] = (char)cheat + -0x1b;
+      sVar2 = sVar2 + 1;
+    }
+  }
+  return;
 }
 
 
@@ -130,17 +198,52 @@ void FECheat_HandleActivation__F10tCheatCode(tCheatCode cheat)
 	// End offset: 0x80023494
 	// End Line: 182
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 313
+	/* end block 2 */
+	// End Line: 314
+
+	/* begin block 3 */
+		// Start line: 320
+	/* end block 3 */
+	// End Line: 321
+
+	/* begin block 4 */
+		// Start line: 320
+	/* end block 4 */
+	// End Line: 321
 
 void FECheat_EncodeString__FPcT0(char *input,char *output)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
+  char *pcVar1;
+  byte *pbVar2;
+  byte *pbVar3;
+  uint uVar4;
+  int iVar5;
+  byte local_8 [8];
   
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  iVar5 = 0;
+  do {
+    pbVar2 = local_8 + iVar5;
+    pbVar3 = (byte *)(input + iVar5);
+    pcVar1 = output + iVar5;
+    iVar5 = iVar5 + 1;
+    *pbVar2 = *pbVar3;
+    *pcVar1 = '\0';
+  } while (iVar5 < 8);
+  iVar5 = 0;
+  do {
+    uVar4 = 0;
+    do {
+      pbVar3 = local_8 + uVar4;
+      output[iVar5] = output[iVar5] | (byte)(((uint)*pbVar3 & 1) << (uVar4 & 0x1f));
+      uVar4 = uVar4 + 1;
+      *pbVar3 = *pbVar3 >> 1;
+    } while ((int)uVar4 < 8);
+    iVar5 = iVar5 + 1;
+  } while (iVar5 < 8);
+  return;
 }
 
 
@@ -159,17 +262,69 @@ void FECheat_EncodeString__FPcT0(char *input,char *output)
 	// End offset: 0x800235D0
 	// End Line: 222
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 375
+	/* end block 2 */
+	// End Line: 376
+
+	/* begin block 3 */
+		// Start line: 382
+	/* end block 3 */
+	// End Line: 383
+
+	/* begin block 4 */
+		// Start line: 382
+	/* end block 4 */
+	// End Line: 383
 
 void FECheat_EncodeString2__FPcT0(char *input,char *output)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
+  uint uVar1;
+  uint uVar2;
+  byte bVar3;
+  byte *pbVar4;
+  byte *pbVar5;
+  int iVar6;
+  uint uVar7;
+  byte local_8 [8];
   
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  iVar6 = 0;
+  pbVar5 = (byte *)input;
+  do {
+    local_8[iVar6] = ~*pbVar5;
+    pbVar4 = (byte *)(output + iVar6);
+    iVar6 = iVar6 + 1;
+    *pbVar4 = ~*pbVar5;
+    pbVar5 = (byte *)(input + iVar6);
+  } while (iVar6 < 8);
+  uVar7 = 0;
+  do {
+    pbVar5 = (byte *)(output + uVar7);
+    *output = *output ^ (byte)(((int)(uint)(byte)*output >> (uVar7 & 0x1f) & 1U) << (uVar7 & 0x1f));
+    *pbVar5 = *pbVar5 ^ (byte)(((int)(uint)*pbVar5 >> (uVar7 & 0x1f) & 1U) << (uVar7 & 0x1f));
+    *output = *output | (byte)(((int)(uint)local_8[uVar7] >> (uVar7 & 0x1f) & 1U) << (uVar7 & 0x1f))
+    ;
+    uVar2 = uVar7 & 0x1f;
+    uVar1 = uVar7 & 0x1f;
+    uVar7 = uVar7 + 1;
+    *pbVar5 = *pbVar5 | (byte)(((int)(uint)local_8[0] >> uVar2 & 1U) << uVar1);
+  } while ((int)uVar7 < 8);
+  iVar6 = 1;
+  do {
+    pbVar4 = (byte *)(output + iVar6);
+    uVar7 = iVar6 - 1;
+    pbVar5 = local_8 + iVar6;
+    bVar3 = *pbVar4 & 0xfe;
+    *pbVar4 = bVar3;
+    bVar3 = bVar3 ^ (byte)(((int)(uint)bVar3 >> (uVar7 & 0x1f) & 1U) << (uVar7 & 0x1f));
+    *pbVar4 = bVar3;
+    bVar3 = bVar3 | (byte)((int)(uint)*pbVar5 >> (uVar7 & 0x1f)) & 1;
+    *pbVar4 = bVar3;
+    iVar6 = iVar6 + 1;
+    *pbVar4 = bVar3 | (byte)(((uint)*pbVar5 & 1) << (uVar7 & 0x1f));
+  } while (iVar6 < 8);
+  return;
 }
 
 
@@ -185,17 +340,27 @@ void FECheat_EncodeString2__FPcT0(char *input,char *output)
 	// End offset: 0x800235D8
 	// End Line: 233
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 470
+	/* end block 2 */
+	// End Line: 471
+
+	/* begin block 3 */
+		// Start line: 481
+	/* end block 3 */
+	// End Line: 482
+
+	/* begin block 4 */
+		// Start line: 481
+	/* end block 4 */
+	// End Line: 482
 
 void FECheat_ActivateBonus__F10tCheatCode(tCheatCode cheat)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
-  
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  FECheat_HandleActivation__F10tCheatCode(cheat);
+  gFEBonus = gFEBonus | 1 << (cheat & 0x1f);
+  return;
 }
 
 
@@ -260,17 +425,61 @@ void FECheat_ActivateBonus__F10tCheatCode(tCheatCode cheat)
 	// End offset: 0x80023700
 	// End Line: 272
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 493
+	/* end block 2 */
+	// End Line: 494
+
+	/* begin block 3 */
+		// Start line: 501
+	/* end block 3 */
+	// End Line: 502
+
+	/* begin block 4 */
+		// Start line: 501
+	/* end block 4 */
+	// End Line: 502
 
 void * FECheat_ActivateCheat__FPc(char *cheat)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
+  tFEApplication *ptVar1;
+  tFEApplication *ptVar2;
+  int iVar3;
+  char *pcVar4;
+  int iVar5;
+  int iVar6;
+  int iVar7;
+  uchar local_18 [8];
   
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  FECheat_EncodeString__FPcT0(cheat,(char *)local_18);
+  iVar7 = 0;
+  iVar6 = 0;
+  do {
+    iVar5 = 0;
+    iVar3 = iVar6;
+    if (9 < iVar7) {
+      return (void *)0x0;
+    }
+    do {
+      if (cheatList[0].name[iVar3] != local_18[iVar5]) break;
+      iVar5 = iVar5 + 1;
+      iVar3 = iVar5 + iVar6;
+    } while (iVar5 < 8);
+    iVar6 = iVar6 + 0xc;
+    if (iVar5 == 8) {
+      AudioCmn_PlayFESFX__Fi(0x1a);
+      ptVar1 = FEApp;
+      pcVar4 = TextSys_Word__Fi(0x27a);
+      ptVar2 = FEApp;
+      *(char **)&(ptVar1->MemCardDialog).tDialogMessageString.tDialogBase.fFullyOpen = pcVar4;
+      Display__11tDialogBase((tDialogBase *)ptVar2->waitingForOtherPlayer);
+      FECheat_HandleActivation__F10tCheatCode(cheatList[iVar7].cheat);
+      gFECheats = gFECheats | 1 << (cheatList[iVar7].cheat & 0x1f);
+      return &DAT_00000001;
+    }
+    iVar7 = iVar7 + 1;
+  } while( true );
 }
 
 
@@ -286,17 +495,35 @@ void * FECheat_ActivateCheat__FPc(char *cheat)
 	// End offset: 0x8002371C
 	// End Line: 279
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 570
+	/* end block 2 */
+	// End Line: 571
+
+	/* begin block 3 */
+		// Start line: 576
+	/* end block 3 */
+	// End Line: 577
+
+	/* begin block 4 */
+		// Start line: 576
+	/* end block 4 */
+	// End Line: 577
+
+	/* begin block 5 */
+		// Start line: 577
+	/* end block 5 */
+	// End Line: 578
+
+	/* begin block 6 */
+		// Start line: 577
+	/* end block 6 */
+	// End Line: 578
 
 void * FECheat_IsCheatEnabled__F10tCheatCode(tCheatCode cheat)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
-  
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  return (void *)(uint)(((gFECheats | gFEBonus) & 1 << (cheat & 0x1f)) != 0);
 }
 
 
@@ -312,17 +539,36 @@ void * FECheat_IsCheatEnabled__F10tCheatCode(tCheatCode cheat)
 	// End offset: 0x80023748
 	// End Line: 287
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 585
+	/* end block 2 */
+	// End Line: 586
+
+	/* begin block 3 */
+		// Start line: 592
+	/* end block 3 */
+	// End Line: 593
+
+	/* begin block 4 */
+		// Start line: 592
+	/* end block 4 */
+	// End Line: 593
+
+	/* begin block 5 */
+		// Start line: 593
+	/* end block 5 */
+	// End Line: 594
+
+	/* begin block 6 */
+		// Start line: 593
+	/* end block 6 */
+	// End Line: 594
 
 void FECheat_SaveBonus__FRUl(ulong *cheat)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
-  
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  *cheat = gFEBonus;
+  return;
 }
 
 
@@ -340,17 +586,36 @@ void FECheat_SaveBonus__FRUl(ulong *cheat)
 	// End offset: 0x800237B8
 	// End Line: 306
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 601
+	/* end block 2 */
+	// End Line: 602
+
+	/* begin block 3 */
+		// Start line: 608
+	/* end block 3 */
+	// End Line: 609
+
+	/* begin block 4 */
+		// Start line: 608
+	/* end block 4 */
+	// End Line: 609
 
 void FECheat_LoadBonus__FRUl(ulong *cheat)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
+  tCheatCode cheat_00;
   
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  cheat_00 = cheat_Roadster;
+  gFEBonus = *cheat;
+  gFECheats = 0;
+  do {
+    if ((gFEBonus & 1 << (cheat_00 & 0x1f)) != 0) {
+      FECheat_HandleActivation__F10tCheatCode(cheat_00);
+    }
+    cheat_00 = cheat_00 + cheat_Pony;
+  } while ((int)cheat_00 < 0x1f);
+  return;
 }
 
 
@@ -366,18 +631,32 @@ void FECheat_LoadBonus__FRUl(ulong *cheat)
 	// End offset: 0x800237D0
 	// End Line: 317
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 658
+	/* end block 2 */
+	// End Line: 659
+
+	/* begin block 3 */
+		// Start line: 665
+	/* end block 3 */
+	// End Line: 666
+
+	/* begin block 4 */
+		// Start line: 665
+	/* end block 4 */
+	// End Line: 666
+
+	/* begin block 5 */
+		// Start line: 669
+	/* end block 5 */
+	// End Line: 670
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void * FECheat_IsTheUserACryBabyCheater__Fv(void)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
-  
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  return (void *)(uint)(gFECheats != 0);
 }
 
 
@@ -398,18 +677,57 @@ void * FECheat_IsTheUserACryBabyCheater__Fv(void)
 	// End offset: 0x80023880
 	// End Line: 350
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 681
+	/* end block 2 */
+	// End Line: 682
+
+	/* begin block 3 */
+		// Start line: 689
+	/* end block 3 */
+	// End Line: 690
+
+	/* begin block 4 */
+		// Start line: 689
+	/* end block 4 */
+	// End Line: 690
 
 void * FECheat_ActivateBonusByCode__FPc(char *code)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
+  int iVar1;
+  int iVar2;
+  int iVar3;
+  int iVar4;
+  tCheat *ptVar5;
+  uchar local_18 [8];
   
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  FECheat_EncodeString2__FPcT0(code,(char *)local_18);
+  iVar4 = 0;
+  ptVar5 = &bonusList;
+  iVar3 = 0;
+  do {
+    iVar2 = 0;
+    iVar1 = iVar3;
+    do {
+      if (bonusList.name[iVar1] != local_18[iVar2]) break;
+      iVar2 = iVar2 + 1;
+      iVar1 = iVar2 + iVar3;
+    } while (iVar2 < 8);
+    iVar4 = iVar4 + 1;
+    if (iVar2 == 8) {
+      AudioCmn_PlayFESFX__Fi(0x1a);
+      FECheat_ActivateBonus__F10tCheatCode(ptVar5->cheat);
+      return &DAT_00000001;
+    }
+    ptVar5 = ptVar5 + 1;
+    iVar3 = iVar3 + 0xc;
+    if (2 < iVar4) {
+      return (void *)0x0;
+    }
+  } while( true );
 }
+
 
 
 

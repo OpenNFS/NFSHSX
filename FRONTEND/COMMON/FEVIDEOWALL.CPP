@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "FEVIDEOWALL.H"
+
 
 // decompiled code
 // original method signature: 
@@ -28,19 +29,52 @@
 	// End offset: 0x80036838
 	// End Line: 89
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 118
+	/* end block 2 */
+	// End Line: 119
+
+	/* begin block 3 */
+		// Start line: 118
+	/* end block 3 */
+	// End Line: 119
 
 void Initialize__10tVideoWallP9tTVConfigP18tTexture_ShapeInfossPss
                (tVideoWall *this,tTVConfig *tvs,tTexture_ShapeInfo *shapes,short firstTV,int numTVs,
                short *tvOrdering,int flip_axis)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
+  uchar *puVar1;
+  int iVar2;
+  int iVar3;
   
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  iVar3 = 0;
+  this->fTVs = tvs;
+  this->fFirstTVShape = firstTV;
+  this->fTVShapes = shapes;
+  this->fOffsetY = 0;
+  this->fOffsetX = 0;
+  this->fTransitionDirection = 0;
+  this->fAvailableTextID = -1;
+  this->fNumTVs = (short)numTVs;
+  puVar1 = ticks;
+  this->fAvailable = 1;
+  this->fAvailableBright = 0;
+  this->fValid = 1;
+  this->fIconShapes = (tTexture_ShapeInfo *)0x0;
+  this->tvOrder = tvOrdering;
+  *(uchar **)&this->fTVTicks = puVar1;
+  this->fFlipAxis = (short)flip_axis;
+  if (0 < this->fNumTVs) {
+    iVar2 = 0;
+    do {
+      iVar3 = iVar3 + 1;
+      this->fTVs[iVar2 >> 0x10].state = tv_StateOff;
+      iVar2 = iVar3 * 0x10000;
+    } while (iVar3 * 0x10000 >> 0x10 < (int)this->fNumTVs);
+  }
+  this->fUpdated = (void *)0x0;
+  return;
 }
 
 
@@ -58,17 +92,50 @@ void Initialize__10tVideoWallP9tTVConfigP18tTexture_ShapeInfossPss
 	// End offset: 0x8003696C
 	// End Line: 115
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 258
+	/* end block 2 */
+	// End Line: 259
+
+	/* begin block 3 */
+		// Start line: 265
+	/* end block 3 */
+	// End Line: 266
+
+	/* begin block 4 */
+		// Start line: 265
+	/* end block 4 */
+	// End Line: 266
 
 void UpdateImages__10tVideoWall(tVideoWall *this)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
+  int iVar1;
+  int iVar2;
   
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  iVar2 = 0;
+  if (0 < this->fNumTVs) {
+    iVar1 = 0;
+    do {
+      iVar1 = iVar1 >> 0x10;
+      InitTV__FR9tTVConfigP18tTexture_ShapeInfos
+                (this->fTVs + iVar1,this->fTVShapes,
+                 (short)(((uint)(ushort)this->fFirstTVShape + iVar2) * 0x10000 >> 0x10));
+      this->fTVs[iVar1].x = this->fTVs[iVar1].x + this->fOffsetX;
+      this->fTVs[iVar1].y = this->fTVs[iVar1].y + this->fOffsetY;
+      if (0 < this->fFlipAxis) {
+        this->fTVs[iVar1].flags = this->fTVs[iVar1].flags | 4;
+        this->fTVs[iVar1].flip_axis = this->fFlipAxis;
+      }
+      if ((this->fValid == 0) || (this->fAvailable == 0)) {
+        this->fTVs[iVar1].flags = this->fTVs[iVar1].flags | 0x28;
+      }
+      iVar2 = iVar2 + 1;
+      iVar1 = iVar2 * 0x10000;
+    } while (iVar2 * 0x10000 >> 0x10 < (int)this->fNumTVs);
+  }
+  *(undefined **)&this->fUpdated = &DAT_00000001;
+  return;
 }
 
 
@@ -84,17 +151,45 @@ void UpdateImages__10tVideoWall(tVideoWall *this)
 	// End offset: 0x8003698C
 	// End Line: 123
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 310
+	/* end block 2 */
+	// End Line: 311
+
+	/* begin block 3 */
+		// Start line: 317
+	/* end block 3 */
+	// End Line: 318
+
+	/* begin block 4 */
+		// Start line: 317
+	/* end block 4 */
+	// End Line: 318
+
+	/* begin block 5 */
+		// Start line: 318
+	/* end block 5 */
+	// End Line: 319
+
+	/* begin block 6 */
+		// Start line: 318
+	/* end block 6 */
+	// End Line: 319
+
+	/* begin block 7 */
+		// Start line: 322
+	/* end block 7 */
+	// End Line: 323
 
 void SetAvailableText__10tVideoWallsss(tVideoWall *this,short textID,short x,short y)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
-  
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  this->fAvailableTextID = textID;
+  this->fAvailableX = x;
+  this->fAvailableY = y;
+  this->fAvailableBright = 0;
+  this->fAvailable = 1;
+  return;
 }
 
 
@@ -110,19 +205,32 @@ void SetAvailableText__10tVideoWallsss(tVideoWall *this,short textID,short x,sho
 	// End offset: 0x800369A8
 	// End Line: 135
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 339
+	/* end block 2 */
+	// End Line: 340
+
+	/* begin block 3 */
+		// Start line: 347
+	/* end block 3 */
+	// End Line: 348
+
+	/* begin block 4 */
+		// Start line: 347
+	/* end block 4 */
+	// End Line: 348
 
 void SetAvailableIcon__10tVideoWallssssP18tTexture_ShapeInfo
                (tVideoWall *this,short icon,short numFrames,short x,int y,
                tTexture_ShapeInfo *iconImages)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
-  
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  this->fIcon = icon;
+  this->fIconFrames = numFrames;
+  this->fIconX = x;
+  this->fIconShapes = iconImages;
+  this->fIconY = (short)y;
+  return;
 }
 
 
@@ -138,17 +246,37 @@ void SetAvailableIcon__10tVideoWallssssP18tTexture_ShapeInfo
 	// End offset: 0x800369C8
 	// End Line: 148
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 367
+	/* end block 2 */
+	// End Line: 368
+
+	/* begin block 3 */
+		// Start line: 374
+	/* end block 3 */
+	// End Line: 375
+
+	/* begin block 4 */
+		// Start line: 374
+	/* end block 4 */
+	// End Line: 375
+
+	/* begin block 5 */
+		// Start line: 375
+	/* end block 5 */
+	// End Line: 376
+
+	/* begin block 6 */
+		// Start line: 375
+	/* end block 6 */
+	// End Line: 376
 
 void SetOffset__10tVideoWallss(tVideoWall *this,short x,short y)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
-  
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  this->fOffsetX = x;
+  this->fOffsetY = y;
+  return;
 }
 
 
@@ -164,17 +292,36 @@ void SetOffset__10tVideoWallss(tVideoWall *this,short x,short y)
 	// End offset: 0x800369D4
 	// End Line: 156
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 384
+	/* end block 2 */
+	// End Line: 385
+
+	/* begin block 3 */
+		// Start line: 390
+	/* end block 3 */
+	// End Line: 391
+
+	/* begin block 4 */
+		// Start line: 390
+	/* end block 4 */
+	// End Line: 391
+
+	/* begin block 5 */
+		// Start line: 391
+	/* end block 5 */
+	// End Line: 392
+
+	/* begin block 6 */
+		// Start line: 391
+	/* end block 6 */
+	// End Line: 392
 
 void SetAvailable__10tVideoWalls(tVideoWall *this,short avail)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
-  
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  this->fAvailable = avail;
+  return;
 }
 
 
@@ -190,17 +337,36 @@ void SetAvailable__10tVideoWalls(tVideoWall *this,short avail)
 	// End offset: 0x800369DC
 	// End Line: 164
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 399
+	/* end block 2 */
+	// End Line: 400
+
+	/* begin block 3 */
+		// Start line: 406
+	/* end block 3 */
+	// End Line: 407
+
+	/* begin block 4 */
+		// Start line: 406
+	/* end block 4 */
+	// End Line: 407
+
+	/* begin block 5 */
+		// Start line: 407
+	/* end block 5 */
+	// End Line: 408
+
+	/* begin block 6 */
+		// Start line: 407
+	/* end block 6 */
+	// End Line: 408
 
 void SetValid__10tVideoWalls(tVideoWall *this,short valid)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
-  
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  this->fValid = valid;
+  return;
 }
 
 
@@ -275,17 +441,69 @@ void SetValid__10tVideoWalls(tVideoWall *this,short valid)
 	// End offset: 0x80036B98
 	// End Line: 198
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 415
+	/* end block 2 */
+	// End Line: 416
+
+	/* begin block 3 */
+		// Start line: 422
+	/* end block 3 */
+	// End Line: 423
+
+	/* begin block 4 */
+		// Start line: 422
+	/* end block 4 */
+	// End Line: 423
 
 void UpdateTransition__10tVideoWall(tVideoWall *this)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
+  short sVar1;
+  int iVar2;
+  int iVar3;
   
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  sVar1 = (short)((uint)(ticks + -this->fTVTicks) >> 3);
+  if (this->fTransitionDirection < 1) {
+    iVar3 = 0;
+    if (0 < (int)sVar1) {
+      iVar2 = 0;
+      do {
+        if ((int)this->fNumTVs <= iVar2 >> 0x10) break;
+        if (this->fTVs[(int)this->tvOrder[iVar2 >> 0x10]].state == tv_StateOn) {
+          TurnOffTV__FR9tTVConfig(this->fTVs + (int)this->tvOrder[iVar2 >> 0x10]);
+        }
+        iVar3 = iVar3 + 1;
+        iVar2 = iVar3 * 0x10000;
+      } while (iVar3 * 0x10000 >> 0x10 < (int)sVar1);
+    }
+    if (this->fNumTVs <= sVar1) {
+      this->fTransitionDirection = 0;
+    }
+  }
+  else {
+    if (this->fValid == 0) {
+      *(uchar **)&this->fTVTicks = ticks;
+    }
+    else {
+      iVar3 = 0;
+      if (0 < (int)sVar1) {
+        iVar2 = 0;
+        do {
+          if ((int)this->fNumTVs <= iVar2 >> 0x10) {
+            return;
+          }
+          if (((this->fTVs[(int)this->tvOrder[iVar2 >> 0x10]].state == tv_StateOff) &&
+              (this->fValid != 0)) && (this->fAvailable != 0)) {
+            TurnOnTV__FR9tTVConfig(this->fTVs + (int)this->tvOrder[iVar2 >> 0x10]);
+          }
+          iVar3 = iVar3 + 1;
+          iVar2 = iVar3 * 0x10000;
+        } while (iVar3 * 0x10000 >> 0x10 < (int)sVar1);
+      }
+    }
+  }
+  return;
 }
 
 
@@ -361,17 +579,89 @@ void UpdateTransition__10tVideoWall(tVideoWall *this)
 	// End offset: 0x80036E40
 	// End Line: 255
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 484
+	/* end block 2 */
+	// End Line: 485
+
+	/* begin block 3 */
+		// Start line: 492
+	/* end block 3 */
+	// End Line: 493
+
+	/* begin block 4 */
+		// Start line: 492
+	/* end block 4 */
+	// End Line: 493
 
 void Draw__10tVideoWall(tVideoWall *this)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
+  short sVar1;
+  int iVar2;
+  char *sMenuText;
+  int col;
+  tDrawShapeExtended tStack40;
   
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  if ((this->fAvailable == 0) && (this->fValid != 0)) {
+    sVar1 = this->fAvailableBright + 4;
+  }
+  else {
+    sVar1 = this->fAvailableBright + -4;
+  }
+  this->fAvailableBright = sVar1;
+  if (this->fAvailableBright < 0x41) {
+    if (this->fAvailableBright < 0) {
+      this->fAvailableBright = 0;
+    }
+  }
+  else {
+    this->fAvailableBright = 0x40;
+  }
+  if (((this->fValid == 0) || (this->fAvailable == 0)) || (this->fAvailableBright != 0)) {
+    col = 0;
+    if (0 < this->fNumTVs) {
+      iVar2 = 0;
+      do {
+        DrawTVLines__FR9tTVConfig(this->fTVs + (iVar2 >> 0x10));
+        col = col + 1;
+        iVar2 = col * 0x10000;
+      } while (col * 0x10000 >> 0x10 < (int)this->fNumTVs);
+    }
+    if (0 < (int)this->fAvailableBright) {
+      col = CalcFadeVal__Fii((int)&DAT_0000bebe,0x80 - (int)this->fAvailableBright);
+      if ((this->fIconShapes != (tTexture_ShapeInfo *)0x0) && (0 < this->fIconFrames)) {
+        tStack40.tint[0] = &DAT_0000bebe;
+        tStack40.custom_shapes = this->fIconShapes;
+        iVar2 = (int)this->fIconFrames;
+        if (iVar2 == 0) {
+          trap(0x1c00);
+        }
+        if ((iVar2 == -1) && ((int)ticks >> 4 == -0x80000000)) {
+          trap(0x1800);
+        }
+        DrawShapeExtended__FiiiiiiP18tDrawShapeExtended
+                  ((int)this->fIcon + ((int)ticks >> 4) % iVar2,0x611,(int)this->fIconX,
+                   (int)this->fIconY,0x80 - (int)this->fAvailableBright,1,&tStack40);
+      }
+      if (-1 < this->fAvailableTextID) {
+        FETextRender_SetABR__Fib(1,&DAT_00000001);
+        sMenuText = TextSys_Word__Fi((int)this->fAvailableTextID);
+        FETextRender_FullTextRGB__FPcssics(sMenuText,this->fAvailableX,this->fAvailableY,col,3,2);
+        FETextRender_SetABR__Fib(0,(void *)0x0);
+      }
+    }
+  }
+  if ((((this->fUpdated != (void *)0x0) || (this->fValid == 0)) || (this->fAvailable == 0)) &&
+     (col = 0, 0 < this->fNumTVs)) {
+    iVar2 = 0;
+    do {
+      DrawTV__FR9tTVConfig(this->fTVs + (iVar2 >> 0x10));
+      col = col + 1;
+      iVar2 = col * 0x10000;
+    } while (col * 0x10000 >> 0x10 < (int)this->fNumTVs);
+  }
+  return;
 }
 
 
@@ -415,17 +705,42 @@ void Draw__10tVideoWall(tVideoWall *this)
 	// End offset: 0x80036E74
 	// End Line: 266
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 597
+	/* end block 2 */
+	// End Line: 598
+
+	/* begin block 3 */
+		// Start line: 604
+	/* end block 3 */
+	// End Line: 605
+
+	/* begin block 4 */
+		// Start line: 604
+	/* end block 4 */
+	// End Line: 605
+
+	/* begin block 5 */
+		// Start line: 605
+	/* end block 5 */
+	// End Line: 606
+
+	/* begin block 6 */
+		// Start line: 605
+	/* end block 6 */
+	// End Line: 606
 
 void TurnOff__10tVideoWall(tVideoWall *this)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
+  uchar *puVar1;
   
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  puVar1 = ticks;
+  if (this->fTransitionDirection != -1) {
+    this->fTransitionDirection = -1;
+    *(uchar **)&this->fTVTicks = puVar1;
+  }
+  return;
 }
 
 
@@ -443,17 +758,38 @@ void TurnOff__10tVideoWall(tVideoWall *this)
 	// End offset: 0x80036EE4
 	// End Line: 281
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 620
+	/* end block 2 */
+	// End Line: 621
+
+	/* begin block 3 */
+		// Start line: 628
+	/* end block 3 */
+	// End Line: 629
+
+	/* begin block 4 */
+		// Start line: 628
+	/* end block 4 */
+	// End Line: 629
 
 void TurnOffInstant__10tVideoWall(tVideoWall *this)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
+  int iVar1;
+  int iVar2;
   
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  TurnOff__10tVideoWall(this);
+  iVar2 = 0;
+  if (0 < this->fNumTVs) {
+    iVar1 = 0;
+    do {
+      TurnOffTV__FR9tTVConfig(this->fTVs + (iVar1 >> 0x10));
+      iVar2 = iVar2 + 1;
+      iVar1 = iVar2 * 0x10000;
+    } while (iVar2 * 0x10000 >> 0x10 < (int)this->fNumTVs);
+  }
+  return;
 }
 
 
@@ -497,18 +833,44 @@ void TurnOffInstant__10tVideoWall(tVideoWall *this)
 	// End offset: 0x80036F14
 	// End Line: 291
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 648
+	/* end block 2 */
+	// End Line: 649
+
+	/* begin block 3 */
+		// Start line: 654
+	/* end block 3 */
+	// End Line: 655
+
+	/* begin block 4 */
+		// Start line: 654
+	/* end block 4 */
+	// End Line: 655
+
+	/* begin block 5 */
+		// Start line: 655
+	/* end block 5 */
+	// End Line: 656
+
+	/* begin block 6 */
+		// Start line: 655
+	/* end block 6 */
+	// End Line: 656
 
 void TurnOn__10tVideoWall(tVideoWall *this)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
+  uchar *puVar1;
   
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  puVar1 = ticks;
+  if (this->fTransitionDirection != 1) {
+    this->fTransitionDirection = 1;
+    *(uchar **)&this->fTVTicks = puVar1;
+  }
+  return;
 }
+
 
 
 

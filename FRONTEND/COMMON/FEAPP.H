@@ -1,6 +1,7 @@
 #ifndef FEAPP_H
 #define FEAPP_H
 
+
 extern struct tFEApplication * __14tFEApplication(struct tFEApplication *this); // 0x80012FA0
 
 extern void _._14tFEApplication(struct tFEApplication *this, int __in_chrg); // 0x800131C4
@@ -30,5 +31,6 @@ extern enum tAppCommand MainLoop__14tFEApplicationP5tMenu(struct tFEApplication 
 extern enum tAppCommand RunPostGame__14tFEApplication(struct tFEApplication *this); // 0x80015430
 
 extern enum tAppCommand RunFrontEnd__14tFEApplication(struct tFEApplication *this); // 0x80015738
+
 
 #endif

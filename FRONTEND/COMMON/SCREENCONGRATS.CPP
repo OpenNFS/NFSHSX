@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "SCREENCONGRATS.H"
+
 
 // decompiled code
 // original method signature: 
@@ -12,17 +13,22 @@
 	// End offset: 0x80047E60
 	// End Line: 54
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 106
+	/* end block 2 */
+	// End Line: 107
+
+	/* begin block 3 */
+		// Start line: 106
+	/* end block 3 */
+	// End Line: 107
 
 void Cleanup__15tScreenCongrats(tScreenCongrats *this)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
-  
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  CleanupSpinningCarsMenu__Fv();
+  Cleanup__7tScreen((tScreen *)this);
+  return;
 }
 
 
@@ -93,19 +99,95 @@ void Cleanup__15tScreenCongrats(tScreenCongrats *this)
 	// End offset: 0x800480B8
 	// End Line: 117
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 121
+	/* end block 2 */
+	// End Line: 122
+
+	/* begin block 3 */
+		// Start line: 128
+	/* end block 3 */
+	// End Line: 129
+
+	/* begin block 4 */
+		// Start line: 128
+	/* end block 4 */
+	// End Line: 129
 
 void GetShapeInfo__15tScreenCongratsRsT1PPcT3
                (tScreenCongrats *this,short *numPermShapes,short *numSwapShapes,char **permFileName,
                char **swapFileName)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
+  byte bVar1;
+  tTournamentDefinition *ptVar2;
+  short sVar3;
+  int iVar4;
+  char *pcVar5;
+  int iVar6;
+  int place;
+  tTourneyInfo *tourn;
   
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  ptVar2 = tournamentManager.fDefinition;
+  place = tournamentManager.fTournament;
+  bVar1 = (tournamentManager.fDefinition)->fTiers[tournamentManager.fTier].fTournOffset;
+  this->fNumSpinShapes = 0;
+  this->smallSpinningThing = kSpinningNone;
+  tourn = ptVar2->fTournaments + (uint)bVar1 + place;
+  sVar3 = 0x16;
+  if (*(int *)((this->tScreen)._vf + 6) == 0) {
+    sVar3 = 0x2b;
+  }
+  *numPermShapes = sVar3;
+  if (*(int *)((this->tScreen)._vf + 6) == 0) {
+    pcVar5 = s_zcong_8001228c;
+  }
+  else {
+    pcVar5 = s_zelim_80012294;
+  }
+  sprintf(fPermFileNameBuf,&DAT_80012284,pcVar5,(uint)(byte)frontEnd.language);
+  *permFileName = fPermFileNameBuf;
+  if (this->congratsMessage + 0xfffffffd < 2) {
+    if (this->trophy == kTrophySilver) {
+      *numSwapShapes = 0x20;
+      this->fNumSpinShapes = 0x20;
+      GetTrophyName__18tTournamentManagerP12tTourneyInfo11tTrophySizePci
+                (&tournamentManager,tourn,ts_Small,congratsSwapFileName,-1);
+      *swapFileName = congratsSwapFileName;
+    }
+    else {
+      if (this->trophy == kTrophyBronze) {
+        *numSwapShapes = 10;
+        this->fNumSpinShapes = 10;
+        *swapFileName = s_congb_8001229c;
+      }
+      else {
+        *swapFileName = &DAT_800122a4;
+        *numSwapShapes = 0;
+      }
+    }
+  }
+  else {
+    place = 900;
+    iVar4 = (int)(((int)(short)tournamentManager.fNumRacers + (uint)(tourn->fKnockout != '\0')) *
+                 0x10000) >> 0x10;
+    iVar6 = 1;
+    if (0 < iVar4) {
+      do {
+        sVar3 = PlayerRanking__18tTournamentManagers(&tournamentManager,(short)iVar6);
+        if (sVar3 == 0) {
+          place = iVar6;
+        }
+        iVar6 = iVar6 + 1;
+      } while (iVar6 <= iVar4);
+    }
+    GetTrophyName__18tTournamentManagerP12tTourneyInfo11tTrophySizePci
+              (&tournamentManager,tourn,ts_Large,congratsSwapFileName,place);
+    *swapFileName = congratsSwapFileName;
+    *numSwapShapes = 0x20;
+    this->smallSpinningThing = 0x20;
+  }
+  return;
 }
 
 
@@ -121,17 +203,28 @@ void GetShapeInfo__15tScreenCongratsRsT1PPcT3
 	// End offset: 0x800480E4
 	// End Line: 122
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 254
+	/* end block 2 */
+	// End Line: 255
+
+	/* begin block 3 */
+		// Start line: 259
+	/* end block 3 */
+	// End Line: 260
+
+	/* begin block 4 */
+		// Start line: 259
+	/* end block 4 */
+	// End Line: 260
 
 void * GetCar__15tScreenCongratsR8tCarInfo(tScreenCongrats *this,tCarInfo *carInfo)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
-  
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  GetGarageCar__11tCarManagersR8tCarInfos(&carManager,(ushort)(byte)frontEnd.garageCar[0],carInfo,0)
+  ;
+  carInfo->fColor = carInfo->fColorOrder[(uint)carInfo->fColor];
+  return &DAT_00000001;
 }
 
 
@@ -579,17 +672,260 @@ void * GetCar__15tScreenCongratsR8tCarInfo(tScreenCongrats *this,tCarInfo *carIn
 	// End offset: 0x80048990
 	// End Line: 353
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 270
+	/* end block 2 */
+	// End Line: 271
+
+	/* begin block 3 */
+		// Start line: 274
+	/* end block 3 */
+	// End Line: 275
+
+	/* begin block 4 */
+		// Start line: 274
+	/* end block 4 */
+	// End Line: 275
 
 void DrawBackground__15tScreenCongrats(tScreenCongrats *this)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
+  bool bVar1;
+  uchar *puVar2;
+  int x;
+  int y;
+  uchar *puVar3;
+  tScreenCongratsMessage tVar4;
+  undefined **col1;
+  int colfore;
+  int amount;
+  float camerax;
+  float cameray;
+  int colback;
+  tDrawShapeExtended tStack96;
+  tDrawShapeExtended tStack72;
+  tDrawShapeExtended tStack48;
   
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  amount = 0;
+  if ((this->tScreen).fTransitionOff != (void *)0x0) {
+    amount = (int)(this->tScreen).fScreenFadeVal;
+  }
+  tStack96.custom_shapes = (this->tScreen).fSwapShapes.fShapes;
+  tStack72.custom_shapes = (this->tScreen).fSwapShapes.fShapes;
+  colfore = *(int *)((this->tScreen)._vf + 2);
+  PTR_80052940 = PTR_80052940 + 3;
+  (**(code **)(colfore + 0x5c))
+            ((int)&(this->tScreen).fPermShapes.fShapes + (int)*(short *)(colfore + 0x58));
+  tVar4 = this->congratsMessage;
+  if ((((tVar4 == 3) && (this->framenum == -1)) ||
+      ((*(int *)&(this->fCarInfo).fCarIndex == 0 && (tVar4 == 3)))) ||
+     ((tVar4 == 3 && ((-1 < R3DCar_aSyncLoading || ((int)(ticks + -(int)this->fGotCar) < 0x3c))))))
+  {
+    *(uchar **)&this->framenum = ticks;
+  }
+  else {
+    if (this->framenum == -1) {
+      *(uchar **)&this->framenum = ticks;
+    }
+    if (this->TotalCash != -1) {
+      if ((1000 < (int)(ticks + -this->framenum)) || (this->fCountedDown != (void *)0x0)) {
+        if (this->TotalCash != 0) {
+          AudioCmn_PlayFESFX__Fi(0x15);
+        }
+        colfore = this->TotalCash - (int)this->fStartCountdownNOW;
+        this->TotalCash = colfore;
+        if (colfore < 0) {
+          this->TotalCash = 0;
+          this->fEnterTick = 1;
+        }
+      }
+      colfore = CalcFadeVal__Fii(kRGBVals[(uint)DAT_800515ff],(int)(this->tScreen).fScreenFadeVal);
+      colback = CalcFadeVal__Fii((int)&DAT_00232323,(int)(this->tScreen).fScreenFadeVal);
+      FETextRender_MenuTextFade__Fis14tMenuTextState13tMenuTextType
+                ((int)(this->tScreen).fScreenFadeVal,0x317,textState_Hilighted,textType_TrackRecords
+                );
+      x = TextSys_WordX__Fi(0x318);
+      y = TextSys_WordY__Fi(0x318);
+      DrawMoney__Fiiilii(x,y,6,this->TotalCash,colfore,colback);
+      FETextRender_MenuTextFade__Fis14tMenuTextState13tMenuTextType
+                ((int)(this->tScreen).fScreenFadeVal,0x316,textState_Hilighted,textType_TrackRecords
+                );
+      x = TextSys_WordX__Fi(0x319);
+      y = TextSys_WordY__Fi(0x319);
+      DrawMoney__Fiiilii(x,y,9,this->fCarPlayer - this->TotalCash,colfore,colback);
+    }
+    if ((this->fCountSpeed != 0) && (0x80 < (int)(ticks + -this->framenum))) {
+      FeAudio_AsyncPlaySpeech__Fii(2,this->fCountSpeed);
+      this->fCountSpeed = 0;
+    }
+    bVar1 = false;
+    if (*(int *)((this->tScreen)._vf + 6) == 0) {
+      tStack96.tint[0] =
+           (undefined *)CalcFadeVal__Fii((int)&DAT_0000bebe,(int)(this->tScreen).fScreenFadeVal);
+      tStack72.tint[0] = CalcFadeVal__Fii(0x808080,amount);
+      if (this->starttick == 0) {
+        amount = (int)(ticks + -this->framenum + ((uint)(ticks + -this->framenum) >> 0x1f)) >> 1;
+        this->CashAwarded = amount;
+        puVar3 = ticks;
+        if (0x13 < amount) {
+          bVar1 = true;
+          amount = this->framenum;
+          this->CashAwarded = 0x14;
+          puVar2 = ticks;
+          if (amount < 0) {
+            amount = amount + 3;
+          }
+          if ((int)(puVar3 + -(amount >> 2)) % 0x5dc < 0x2d) {
+            this->starttick = 1;
+            *(uchar **)&this->InExtraSpin = puVar2;
+          }
+        }
+      }
+      else {
+        amount = (int)(ticks + -(int)this->InExtraSpin) / 6 + 0x15;
+        this->CashAwarded = amount;
+        bVar1 = true;
+        if (0x29 < amount) {
+          this->starttick = 0;
+          this->CashAwarded = 0x14;
+        }
+      }
+    }
+    else {
+      tStack96.tint[0] = (undefined *)CalcFadeVal__Fii((int)&DAT_00646464,amount);
+      tStack72.tint[0] = CalcFadeVal__Fii(0x808080,amount);
+      puVar3 = ticks + -this->framenum;
+      if ((int)puVar3 < 0) {
+        puVar3 = puVar3 + 3;
+      }
+      this->CashAwarded = (int)puVar3 >> 2;
+      if (0x14 < (int)puVar3 >> 2) {
+        this->CashAwarded = 0x14;
+      }
+    }
+    if (bVar1) {
+      amount = 0;
+      if (*(int *)((this->tScreen)._vf + 6) == 1) {
+        amount = 10;
+      }
+      ScaleShapeExtended__FiiiiiiP18tDrawShapeExtended
+                (this->CashAwarded,0x410,0,amount,0,0,&tStack96);
+    }
+    else {
+      amount = 0;
+      if (*(int *)((this->tScreen)._vf + 6) == 1) {
+        amount = 10;
+      }
+      DrawShapeExtended__FiiiiiiP18tDrawShapeExtended
+                (this->CashAwarded,0x410,0,amount,0,0,&tStack96);
+    }
+    if (1 < this->congratsMessage + 0xfffffffd) {
+      colfore = ((int)ticks / 6 + ((int)ticks >> 0x1f) >> 1) - ((int)ticks >> 0x1f);
+      amount = colfore;
+      if (colfore < 0) {
+        amount = colfore + 0x1f;
+      }
+      ScaleShapeExtended__FiiiiiiP18tDrawShapeExtended
+                (colfore + (amount >> 5) * -0x20,0x610,0x46,0xf,0,0,&tStack72);
+    }
+    if (2 < this->congratsMessage) {
+      if (this->trophy == kTrophySilver) {
+        amount = this->fNumSpinShapes;
+        if (amount == 0) {
+          trap(0x1c00);
+        }
+        if ((amount == -1) && ((int)ticks >> 3 == -0x80000000)) {
+          trap(0x1800);
+        }
+        ScaleShapeExtended__FiiiiiiP18tDrawShapeExtended
+                  (((int)ticks >> 3) % amount,0x610,0x29,0xbe,0,0,&tStack72);
+      }
+      else {
+        if (this->trophy == kTrophyBronze) {
+          tStack96.tint[0] = &DAT_00551e00;
+          amount = this->fNumSpinShapes;
+          if (amount == 0) {
+            trap(0x1c00);
+          }
+          if ((amount == -1) && ((int)ticks / 0x14 == -0x80000000)) {
+            trap(0x1800);
+          }
+          DrawShapeExtended__FiiiiiiP18tDrawShapeExtended
+                    (((int)ticks / 0x14) % amount,0x610,-0xc1,0x56,0,0,&tStack96);
+        }
+      }
+    }
+  }
+  if (*(int *)((this->tScreen)._vf + 6) == 0) {
+    tVar4 = this->congratsMessage;
+    if (tVar4 == kScreenCongrats_Eliminated) {
+      col1 = (undefined **)0x212121;
+      goto LAB_800487b4;
+    }
+    if ((int)tVar4 < 2) {
+      col1 = &PTR_00030022;
+      if (tVar4 != kScreenCongrats_Congrats) goto LAB_800487b4;
+    }
+    else {
+      if (tVar4 == 2) {
+        col1 = (undefined **)0x3044;
+        goto LAB_800487b4;
+      }
+      if (tVar4 != 3) goto LAB_800487b0;
+    }
+    col1 = (undefined **)0x3e44;
+  }
+  else {
+LAB_800487b0:
+    col1 = &PTR_00030022;
+  }
+LAB_800487b4:
+  amount = 0x15;
+  if (*(int *)((this->tScreen)._vf + 6) == 0) {
+    amount = 0x2a;
+  }
+  tStack48.tint[0] = CalcFadeVal__Fii((int)col1,(int)(this->tScreen).fScreenFadeVal);
+  if ((*(int *)((this->tScreen)._vf + 6) == 0) && (colfore = 1, this->congratsMessage != 3)) {
+    colback = 0;
+    do {
+      if (colfore != (colback - (colfore >> 0x1f)) * 3) {
+        DrawShapeExtended__FiiiiiiP18tDrawShapeExtended
+                  (amount,0x410,colfore << 1,0,(int)(this->tScreen).fScreenFadeVal,1,&tStack48);
+      }
+      colfore = colfore + 1;
+      colback = colfore / 3 + (colfore >> 0x1f);
+    } while (colfore < 0x1e);
+    colfore = 0x22;
+    colback = 0xb;
+    do {
+      if (colfore != (colback - (colfore >> 0x1f)) * 3) {
+        DrawShapeExtended__FiiiiiiP18tDrawShapeExtended
+                  (amount,0x410,colfore << 1,0,(int)(this->tScreen).fScreenFadeVal,1,&tStack48);
+      }
+      colfore = colfore + 1;
+      colback = colfore / 3 + (colfore >> 0x1f);
+    } while (colfore < 0x3f);
+  }
+  else {
+    colfore = 7;
+    colback = 2;
+    do {
+      if (colfore != (colback - (colfore >> 0x1f)) * 3) {
+        DrawShapeExtended__FiiiiiiP18tDrawShapeExtended
+                  (amount,0x410,colfore << 1,0,(int)(this->tScreen).fScreenFadeVal,1,&tStack48);
+      }
+      colfore = colfore + 1;
+      colback = colfore / 3 + (colfore >> 0x1f);
+    } while (colfore < 0x28);
+  }
+  if ((this->congratsMessage == 3) && (*(int *)&(this->fCarInfo).fCarIndex != 0)) {
+    showRoomFlag = (void *)0x0;
+    DrawCar__FR8tCarInfossffcbUl7tPlayer
+              ((tCarInfo *)&this->InExtraSpinTick,*(short *)&this->fSpeechToPlay,
+               *(short *)((int)&this->fSpeechToPlay + 2),camerax,cameray,*(int *)&this->fCarX,
+               (void *)this->fCarCX,0x80,kPlayerTwo);
+  }
+  return;
 }
 
 
@@ -605,17 +941,30 @@ void DrawBackground__15tScreenCongrats(tScreenCongrats *this)
 	// End offset: 0x800489B0
 	// End Line: 361
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 754
+	/* end block 2 */
+	// End Line: 755
+
+	/* begin block 3 */
+		// Start line: 762
+	/* end block 3 */
+	// End Line: 763
+
+	/* begin block 4 */
+		// Start line: 762
+	/* end block 4 */
+	// End Line: 763
+
+	/* begin block 5 */
+		// Start line: 764
+	/* end block 5 */
+	// End Line: 765
 
 void DrawForeground__15tScreenCongrats(tScreenCongrats *this)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
-  
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  return;
 }
 
 
@@ -631,17 +980,48 @@ void DrawForeground__15tScreenCongrats(tScreenCongrats *this)
 	// End offset: 0x80048A24
 	// End Line: 381
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 769
+	/* end block 2 */
+	// End Line: 770
+
+	/* begin block 3 */
+		// Start line: 772
+	/* end block 3 */
+	// End Line: 773
+
+	/* begin block 4 */
+		// Start line: 772
+	/* end block 4 */
+	// End Line: 773
+
+	/* begin block 5 */
+		// Start line: 783
+	/* end block 5 */
+	// End Line: 784
 
 void CalculatePrizes__15tScreenCongrats(tScreenCongrats *this)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
+  int iVar1;
   
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  this->congratsMessage = 4;
+  this->TotalCash = -1;
+  *(undefined2 *)&this->fSpeechToPlay = 0x116;
+  *(undefined4 *)((this->tScreen)._vf + 6) = 0;
+  *(undefined2 *)((int)&this->fSpeechToPlay + 2) = 0x3f;
+  this->fCarCX = -7.40000010;
+  iVar1 = *(int *)((this->tScreen)._vf + 6);
+  this->trophy = kTrophyGold;
+  this->fNumSmallSpinShapes = 0;
+  this->fCarPlayer = 0;
+  *(undefined4 *)&this->fCarX = 0x40800000;
+  if (iVar1 == 1) {
+    *(undefined2 *)&this->fSpeechToPlay = 0x120;
+    *(undefined2 *)((int)&this->fSpeechToPlay + 2) = 0x49;
+    this->fCarCX = -8.19999981;
+  }
+  return;
 }
 
 
@@ -671,17 +1051,61 @@ void CalculatePrizes__15tScreenCongrats(tScreenCongrats *this)
 	// End offset: 0x80048AD8
 	// End Line: 416
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 832
+	/* end block 2 */
+	// End Line: 833
+
+	/* begin block 3 */
+		// Start line: 837
+	/* end block 3 */
+	// End Line: 838
+
+	/* begin block 4 */
+		// Start line: 837
+	/* end block 4 */
+	// End Line: 838
 
 void Initialize__15tScreenCongrats(tScreenCongrats *this)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
+  uchar *puVar1;
+  int iVar2;
+  undefined4 uVar3;
+  void *pvVar4;
   
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  puVar1 = ticks;
+  this->fCountSpeed = 0;
+  this->framenum = -1;
+  this->CashAwarded = -1;
+  this->starttick = 0;
+  *(uchar **)&this->fGotCar = puVar1;
+  SetLicensePlate__Fv();
+  iVar2 = *(int *)((this->tScreen)._vf + 2);
+  (**(code **)(iVar2 + 0x54))
+            ((int)&(this->tScreen).fPermShapes.fShapes + (int)*(short *)(iVar2 + 0x50));
+  iVar2 = *(int *)((this->tScreen)._vf + 2);
+  uVar3 = (**(code **)(iVar2 + 100))
+                    ((int)&(this->tScreen).fPermShapes.fShapes + (int)*(short *)(iVar2 + 0x60),
+                     &this->InExtraSpinTick);
+  iVar2 = this->TotalCash;
+  *(undefined4 *)&(this->fCarInfo).fCarIndex = uVar3;
+  if (iVar2 < 1) {
+    this->fEnterTick = 1;
+    *(undefined **)&this->fCountedDown = &DAT_00000001;
+    pvVar4 = (void *)0x3e8;
+  }
+  else {
+    this->fEnterTick = 0;
+    this->fCountedDown = (void *)0x0;
+    if (iVar2 < 0) {
+      iVar2 = iVar2 + 0x3f;
+    }
+    pvVar4 = (void *)(iVar2 >> 6);
+  }
+  this->fStartCountdownNOW = pvVar4;
+  Initialize__7tScreen((tScreen *)this);
+  return;
 }
 
 
@@ -746,18 +1170,47 @@ void Initialize__15tScreenCongrats(tScreenCongrats *this)
 	// End offset: 0x80048B40
 	// End Line: 428
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 915
+	/* end block 2 */
+	// End Line: 916
+
+	/* begin block 3 */
+		// Start line: 923
+	/* end block 3 */
+	// End Line: 924
+
+	/* begin block 4 */
+		// Start line: 923
+	/* end block 4 */
+	// End Line: 924
+
+	/* begin block 5 */
+		// Start line: 924
+	/* end block 5 */
+	// End Line: 925
+
+	/* begin block 6 */
+		// Start line: 924
+	/* end block 6 */
+	// End Line: 925
 
 void ProcessInput__15tScreenCongrats7tPlayerR13tInputKeyTypeR12tMenuCommand
                (tScreenCongrats *this,tPlayer p,tInputKeyType *keyval,tMenuCommand *c)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
+  bool bVar1;
   
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  if (*keyval != kInput_KeyType_Circle) {
+    bVar1 = false;
+    if ((ginfo._16_2_ != 0) || ((int)(ticks + -this->framenum) < 0x96)) {
+      bVar1 = true;
+    }
+    if (bVar1) {
+      *keyval = kInput_KeyType_AlreadyProcessed;
+    }
+  }
+  return;
 }
 
 
@@ -776,17 +1229,52 @@ void ProcessInput__15tScreenCongrats7tPlayerR13tInputKeyTypeR12tMenuCommand
 	// End offset: 0x80048C34
 	// End Line: 453
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 936
+	/* end block 2 */
+	// End Line: 937
+
+	/* begin block 3 */
+		// Start line: 941
+	/* end block 3 */
+	// End Line: 942
+
+	/* begin block 4 */
+		// Start line: 941
+	/* end block 4 */
+	// End Line: 942
 
 void DrawCongratsMessage__23tScreenPinkSlipCongrats(tScreenPinkSlipCongrats *this)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
+  char *__format;
+  char *pcVar1;
+  char *pcVar2;
+  char *pcVar3;
+  RECT local_120;
+  char acStack280 [256];
   
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  local_120.x = 0x29;
+  local_120.y = 0x3c;
+  local_120.w = 0x1a4;
+  local_120.h = 200;
+  if ((uint)(byte)frontEnd.language - 2 < 2) {
+    __format = TextSys_Word__Fi(0x275);
+    pcVar1 = PlayerName__Fi((int)*(short *)&(this->tScreenCongrats).fCarCY);
+    pcVar2 = TextSys_Word__Fi((int)*(char *)&(this->tScreenCongrats).InExtraSpinTick + 0x121);
+    pcVar3 = PlayerName__Fi(1 - (int)*(short *)&(this->tScreenCongrats).fCarCY);
+  }
+  else {
+    __format = TextSys_Word__Fi(0x275);
+    pcVar1 = PlayerName__Fi((int)*(short *)&(this->tScreenCongrats).fCarCY);
+    pcVar2 = PlayerName__Fi(1 - (int)*(short *)&(this->tScreenCongrats).fCarCY);
+    pcVar3 = TextSys_Word__Fi((int)*(char *)&(this->tScreenCongrats).InExtraSpinTick + 0x121);
+  }
+  sprintf(acStack280,__format,pcVar1,pcVar2,pcVar3,
+          (int)*(short *)&(this->tScreenCongrats).fCarCY + 1);
+  FETextRender_WordWrapText__FPcR4RECT14tMenuTextState13tMenuTextType
+            (acStack280,&local_120,textState_Selected,textType_PostGame);
+  return;
 }
 
 
@@ -802,17 +1290,31 @@ void DrawCongratsMessage__23tScreenPinkSlipCongrats(tScreenPinkSlipCongrats *thi
 	// End offset: 0x80048C64
 	// End Line: 457
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 994
+	/* end block 2 */
+	// End Line: 995
+
+	/* begin block 3 */
+		// Start line: 998
+	/* end block 3 */
+	// End Line: 999
+
+	/* begin block 4 */
+		// Start line: 998
+	/* end block 4 */
+	// End Line: 999
 
 void * GetCar__23tScreenPinkSlipCongratsR8tCarInfo(tScreenPinkSlipCongrats *this,tCarInfo *carInfo)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
-  
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  GetPinkSlipsCar__11tCarManagersR8tCarInfos
+            (&carManager,
+             (ushort)*(byte *)((int)&frontEnd +
+                              (0x126 - (int)*(short *)&(this->tScreenCongrats).fCarCY)),carInfo,
+             (short)((1 - (uint)*(ushort *)&(this->tScreenCongrats).fCarCY) * 0x10000 >> 0x10));
+  carInfo->fColor = carInfo->fColorOrder[(uint)carInfo->fColor];
+  return &DAT_00000001;
 }
 
 
@@ -844,17 +1346,57 @@ void * GetCar__23tScreenPinkSlipCongratsR8tCarInfo(tScreenPinkSlipCongrats *this
 	// End offset: 0x80048DAC
 	// End Line: 486
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 1009
+	/* end block 2 */
+	// End Line: 1010
+
+	/* begin block 3 */
+		// Start line: 1013
+	/* end block 3 */
+	// End Line: 1014
+
+	/* begin block 4 */
+		// Start line: 1013
+	/* end block 4 */
+	// End Line: 1014
 
 void CalculatePrizes__23tScreenPinkSlipCongrats(tScreenPinkSlipCongrats *this)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
+  short sVar1;
+  short sVar2;
+  int player;
+  undefined auStack232 [193];
+  char local_27;
   
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  sVar1 = *(short *)&(this->tScreenCongrats).fCarCY;
+  (this->tScreenCongrats).congratsMessage = 3;
+  (this->tScreenCongrats).trophy = kTrophyBronze;
+  sVar2 = *(short *)&(this->tScreenCongrats).fCarCY;
+  (this->tScreenCongrats).fCarPlayer = 0;
+  (this->tScreenCongrats).TotalCash = -1;
+  *(undefined4 *)((this->tScreenCongrats).tScreen._vf + 6) = 0;
+  player = 1 - (int)sVar1;
+  (this->tScreenCongrats).fNumSmallSpinShapes = 1 - (int)sVar2;
+  CarIO_CleanUpLicense__Fi(player);
+  CarIO_CreateLicense__FPcii(frontEnd.licensePlate + (1 - player) * 8,0,player);
+  player = *(int *)((this->tScreenCongrats).tScreen._vf + 2);
+  (**(code **)(player + 100))
+            ((int)&(this->tScreenCongrats).tScreen.fPermShapes.fShapes +
+             (int)*(short *)(player + 0x60),auStack232);
+  if ((int)local_27 == -1) {
+    (this->tScreenCongrats).fCountSpeed = (int)*(short *)&(this->tScreenCongrats).fCarCY + 0x17;
+  }
+  else {
+    (this->tScreenCongrats).fCountSpeed =
+         (int)local_27 * 2 + (int)*(short *)&(this->tScreenCongrats).fCarCY + 0x13;
+  }
+  *(undefined2 *)&(this->tScreenCongrats).fSpeechToPlay = 0x116;
+  *(undefined2 *)((int)&(this->tScreenCongrats).fSpeechToPlay + 2) = 0x4b;
+  *(undefined4 *)&(this->tScreenCongrats).fCarX = 0x40800000;
+  (this->tScreenCongrats).fCarCX = -7.40000010;
+  return;
 }
 
 
@@ -870,17 +1412,33 @@ void CalculatePrizes__23tScreenPinkSlipCongrats(tScreenPinkSlipCongrats *this)
 	// End offset: 0x80048E2C
 	// End Line: 501
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 1078
+	/* end block 2 */
+	// End Line: 1079
+
+	/* begin block 3 */
+		// Start line: 1083
+	/* end block 3 */
+	// End Line: 1084
+
+	/* begin block 4 */
+		// Start line: 1083
+	/* end block 4 */
+	// End Line: 1084
 
 void Initialize__23tScreenPinkSlipCongrats(tScreenPinkSlipCongrats *this)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
-  
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  *(undefined2 *)&(this->tScreenCongrats).fCarCY = 0xffff;
+  if ((byte)frontEnd.pinkSlipsWins[0] < (byte)(((byte)frontEnd.pinkSlipsNumTracks >> 1) + 1)) {
+    *(undefined2 *)&(this->tScreenCongrats).fCarCY = 1;
+  }
+  else {
+    *(undefined2 *)&(this->tScreenCongrats).fCarCY = 0;
+  }
+  Initialize__15tScreenCongrats((tScreenCongrats *)this);
+  return;
 }
 
 
@@ -896,17 +1454,27 @@ void Initialize__23tScreenPinkSlipCongrats(tScreenPinkSlipCongrats *this)
 	// End offset: 0x80048E44
 	// End Line: 506
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 1111
+	/* end block 2 */
+	// End Line: 1112
+
+	/* begin block 3 */
+		// Start line: 1116
+	/* end block 3 */
+	// End Line: 1117
+
+	/* begin block 4 */
+		// Start line: 1116
+	/* end block 4 */
+	// End Line: 1117
 
 void Cleanup__23tScreenPinkSlipCongrats(tScreenPinkSlipCongrats *this)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
-  
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  CleanupSpinningCarsMenu__Fv();
+  Cleanup__7tScreen((tScreen *)this);
+  return;
 }
 
 
@@ -922,18 +1490,32 @@ void Cleanup__23tScreenPinkSlipCongrats(tScreenPinkSlipCongrats *this)
 	// End offset: 0x80048EA0
 	// End Line: 528
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 1133
+	/* end block 2 */
+	// End Line: 1134
+
+	/* begin block 3 */
+		// Start line: 1142
+	/* end block 3 */
+	// End Line: 1143
+
+	/* begin block 4 */
+		// Start line: 1142
+	/* end block 4 */
+	// End Line: 1143
 
 void ProcessInput__23tScreenTournamentTrophy7tPlayerR13tInputKeyTypeR12tMenuCommand
                (tScreenTournamentTrophy *this,tPlayer p,tInputKeyType *keyval,tMenuCommand *c)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
-  
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  if ((*keyval == kInput_KeyType_Cross) && ((this->tScreenCongrats).fEnterTick == 0)) {
+    *keyval = kInput_KeyType_AlreadyProcessed;
+    *(undefined **)&(this->tScreenCongrats).fCountedDown = &DAT_00000001;
+  }
+  ProcessInput__15tScreenCongrats7tPlayerR13tInputKeyTypeR12tMenuCommand
+            ((tScreenCongrats *)this,p,keyval,c);
+  return;
 }
 
 
@@ -965,17 +1547,44 @@ void ProcessInput__23tScreenTournamentTrophy7tPlayerR13tInputKeyTypeR12tMenuComm
 	// End offset: 0x80048F50
 	// End Line: 551
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 1164
+	/* end block 2 */
+	// End Line: 1165
+
+	/* begin block 3 */
+		// Start line: 1168
+	/* end block 3 */
+	// End Line: 1169
+
+	/* begin block 4 */
+		// Start line: 1168
+	/* end block 4 */
+	// End Line: 1169
 
 void * GetCar__23tScreenTournamentTrophyR8tCarInfo(tScreenTournamentTrophy *this,tCarInfo *carInfo)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
+  tCarInfo *ptVar1;
+  undefined auStack80 [40];
+  short local_28;
+  uchar local_24;
+  uchar local_23;
   
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  if (*(int *)((this->tScreenCongrats).tScreen._vf + 6) == 0) {
+    GetAwardInformation__18tTournamentManagerR17tAwardInformation
+              (&tournamentManager,(tAwardInformation *)auStack80);
+    ptVar1 = GetCarFromID__11tCarManagers(&carManager,local_28);
+    blockmove((undefined4 *)ptVar1,(undefined4 *)carInfo,0xcc);
+    carInfo->fUpgrades = local_23;
+    carInfo->fColor = local_24;
+  }
+  else {
+    GetGarageCar__11tCarManagersR8tCarInfos
+              (&carManager,(ushort)(byte)frontEnd.garageCar[0],carInfo,0);
+    carInfo->fColor = carInfo->fColorOrder[(uint)carInfo->fColor];
+  }
+  return &DAT_00000001;
 }
 
 
@@ -1105,17 +1714,121 @@ void * GetCar__23tScreenTournamentTrophyR8tCarInfo(tScreenTournamentTrophy *this
 	// End offset: 0x8004921C
 	// End Line: 648
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 1211
+	/* end block 2 */
+	// End Line: 1212
+
+	/* begin block 3 */
+		// Start line: 1216
+	/* end block 3 */
+	// End Line: 1217
+
+	/* begin block 4 */
+		// Start line: 1216
+	/* end block 4 */
+	// End Line: 1217
 
 void DrawCongratsMessage__23tScreenTournamentTrophy(tScreenTournamentTrophy *this)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
+  char *sMenuText;
+  char *__s;
+  tScreenCongratsMessage tVar1;
+  int iVar2;
+  tTourneyInfo *ptVar3;
+  int wordnum;
+  int wordnum_00;
+  RECT local_598;
+  tAwardInformation tStack1424;
+  char acStack1352 [504];
+  char acStack848 [504];
+  char acStack344 [256];
+  char acStack88 [64];
   
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  local_598.x = 0x29;
+  local_598.y = 0x3c;
+  local_598.w = 200;
+  local_598.h = 400;
+  if (*(int *)((this->tScreenCongrats).tScreen._vf + 6) != 0) {
+    wordnum = TextSys_WordY__Fi(800);
+    sMenuText = TextSys_Word__Fi(800);
+    FETextRender_FullTextRGB__FPcssics
+              (sMenuText,0x120,(short)((uint)((wordnum + -10) * 0x10000) >> 0x10),(int)&DAT_00414141
+               ,3,2);
+    return;
+  }
+  wordnum = 0;
+  wordnum_00 = 0;
+  ptVar3 = (tournamentManager.fDefinition)->fTournaments +
+           (uint)(tournamentManager.fDefinition)->fTiers[tournamentManager.fTier].fTournOffset +
+           tournamentManager.fTournament;
+  if (tournamentManager.fPrevBestPlacement < '\x04') goto LAB_80049084;
+  tVar1 = (this->tScreenCongrats).congratsMessage;
+  wordnum = (int)ptVar3->fTournamentID + 0x3b3;
+  if (tVar1 == kScreenCongrats_Eliminated) {
+    iVar2 = 1;
+  }
+  else {
+    if ((int)tVar1 < 2) {
+      if (tVar1 == kScreenCongrats_Congrats) {
+LAB_80049048:
+        iVar2 = 0;
+      }
+      else {
+        iVar2 = 2;
+      }
+    }
+    else {
+      if (tVar1 == 3) goto LAB_80049048;
+      iVar2 = 2;
+    }
+  }
+  sMenuText = TextSys_Word__Fi((int)ptVar3->fTournamentID + 0x3b3);
+  __s = TextSys_Word__Fi(iVar2 + 0x3e1);
+  sprintf(acStack1352,sMenuText,__s);
+LAB_80049084:
+  tVar1 = (this->tScreenCongrats).congratsMessage;
+  if (((tVar1 == kScreenCongrats_Congrats) && (tournamentManager.fPrevBestPlacement != '\x01')) ||
+     (tVar1 == 3)) {
+    if (wordnum == 0) {
+      wordnum = (int)ptVar3->fTournamentID + 0x3c6;
+      sMenuText = TextSys_Word__Fi(wordnum);
+      __s = acStack1352;
+    }
+    else {
+      wordnum_00 = (int)ptVar3->fTournamentID + 0x3c6;
+      sMenuText = TextSys_Word__Fi(wordnum_00);
+      __s = acStack848;
+    }
+    sprintf(__s,sMenuText);
+  }
+  if (wordnum != 0) {
+    FETextRender_WordWrapTextFade__FiPcR4RECT14tMenuTextState13tMenuTextType
+              ((int)(this->tScreenCongrats).tScreen.fScreenFadeVal,acStack1352,&local_598,
+               textState_Selected,textType_PostGame);
+    wordnum = FETextRender_WordWrapHeight__FsPc(local_598.w,acStack1352);
+    local_598.y = local_598.y + (short)wordnum;
+  }
+  if (wordnum_00 != 0) {
+    FETextRender_WordWrapTextFade__FiPcR4RECT14tMenuTextState13tMenuTextType
+              ((int)(this->tScreenCongrats).tScreen.fScreenFadeVal,acStack848,&local_598,
+               textState_Selected,textType_PostGame);
+  }
+  GetAwardInformation__18tTournamentManagerR17tAwardInformation(&tournamentManager,&tStack1424);
+  if (tStack1424.fAwardCarGarageFull != (void *)0x0) {
+    local_598.x = 0x104;
+    local_598.y = 200;
+    local_598.w = 0xf0;
+    FeTools_FormatMoney__FPcl(acStack88,tStack1424.fAwardCarBonusMoney);
+    sMenuText = TextSys_Word__Fi(0x40);
+    sprintf(acStack344,sMenuText,acStack88);
+    sMenuText = TextSys_Word__Fi(0x40);
+    FETextRender_WordWrapTextFade__FiPcR4RECT14tMenuTextState13tMenuTextType
+              ((int)(this->tScreenCongrats).tScreen.fScreenFadeVal,sMenuText,&local_598,
+               textState_Selected,textType_PostGame);
+  }
+  return;
 }
 
 
@@ -1178,17 +1891,103 @@ void DrawCongratsMessage__23tScreenTournamentTrophy(tScreenTournamentTrophy *thi
 	// End offset: 0x80049458
 	// End Line: 732
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 1417
+	/* end block 2 */
+	// End Line: 1418
+
+	/* begin block 3 */
+		// Start line: 1424
+	/* end block 3 */
+	// End Line: 1425
+
+	/* begin block 4 */
+		// Start line: 1424
+	/* end block 4 */
+	// End Line: 1425
 
 void CalculatePrizes__23tScreenTournamentTrophy(tScreenTournamentTrophy *this)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
+  tTourneyInfo *ptVar1;
+  long lVar2;
+  short sVar3;
+  int iVar4;
+  tScreenCongratsMessage tVar5;
+  int iVar6;
+  int iVar7;
+  int iVar8;
+  tAwardInformation tStack104;
   
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  *(undefined4 *)((this->tScreenCongrats).tScreen._vf + 6) = 1;
+  (this->tScreenCongrats).congratsMessage = 4;
+  (this->tScreenCongrats).trophy = kTrophyBronze;
+  GetAwardInformation__18tTournamentManagerR17tAwardInformation(&tournamentManager,&tStack104);
+  iVar8 = 900;
+  iVar6 = (uint)(tournamentManager.fDefinition)->fTiers[tournamentManager.fTier].fTournOffset +
+          tournamentManager.fTournament;
+  ptVar1 = (tournamentManager.fDefinition)->fTournaments;
+  iVar4 = (int)(((int)(short)tournamentManager.fNumRacers + (uint)(ptVar1[iVar6].fKnockout != '\0'))
+               * 0x10000) >> 0x10;
+  iVar7 = 1;
+  if (0 < iVar4) {
+    do {
+      sVar3 = PlayerRanking__18tTournamentManagers(&tournamentManager,(short)iVar7);
+      if (sVar3 == 0) {
+        iVar8 = iVar7;
+      }
+      iVar7 = iVar7 + 1;
+    } while (iVar7 <= iVar4);
+  }
+  if (iVar8 == 1) {
+    if (tStack104.fAwardCar == (void *)0x0) {
+      (this->tScreenCongrats).congratsMessage = kScreenCongrats_Congrats;
+      (this->tScreenCongrats).trophy = kTrophyGold;
+    }
+    else {
+      (this->tScreenCongrats).congratsMessage = 3;
+      (this->tScreenCongrats).trophy = kTrophySilver;
+    }
+    (this->tScreenCongrats).fCountSpeed = 0xf;
+    *(undefined4 *)((this->tScreenCongrats).tScreen._vf + 6) = 0;
+  }
+  else {
+    if (((iVar8 < 1) || (3 < iVar8)) || (ptVar1[iVar6].fKnockout != '\0')) {
+      *(undefined4 *)((this->tScreenCongrats).tScreen._vf + 6) = 1;
+      tVar5 = 3;
+    }
+    else {
+      (this->tScreenCongrats).fCountSpeed = iVar8 + 0xe;
+      tVar5 = 2;
+      *(undefined4 *)((this->tScreenCongrats).tScreen._vf + 6) = 0;
+      if (iVar8 == 2) {
+        tVar5 = kScreenCongrats_Eliminated;
+      }
+    }
+    (this->tScreenCongrats).congratsMessage = tVar5;
+    (this->tScreenCongrats).trophy = kTrophyGold;
+  }
+  (this->tScreenCongrats).fNumSmallSpinShapes = 0;
+  lVar2 = tournamentManager.fMoney;
+  (this->tScreenCongrats).fCarPlayer = tournamentManager.fMoney;
+  if (tStack104.fCompletedGarageFull != (void *)0x0) {
+    (this->tScreenCongrats).fCarPlayer = lVar2 - tStack104.fCompletedBonusMoney;
+  }
+  if (tStack104.fTournMoney == 0) {
+    tStack104.fTournMoney = -1;
+  }
+  (this->tScreenCongrats).TotalCash = tStack104.fTournMoney;
+  *(undefined2 *)&(this->tScreenCongrats).fSpeechToPlay = 0x116;
+  *(undefined2 *)((int)&(this->tScreenCongrats).fSpeechToPlay + 2) = 0x3f;
+  (this->tScreenCongrats).fCarCX = -7.40000010;
+  iVar8 = *(int *)((this->tScreenCongrats).tScreen._vf + 6);
+  *(undefined4 *)&(this->tScreenCongrats).fCarX = 0x40800000;
+  if (iVar8 == 1) {
+    *(undefined2 *)&(this->tScreenCongrats).fSpeechToPlay = 0x120;
+    *(undefined2 *)((int)&(this->tScreenCongrats).fSpeechToPlay + 2) = 0x49;
+    (this->tScreenCongrats).fCarCX = -8.19999981;
+  }
+  return;
 }
 
 
@@ -1204,17 +2003,30 @@ void CalculatePrizes__23tScreenTournamentTrophy(tScreenTournamentTrophy *this)
 	// End offset: 0x8004947C
 	// End Line: 747
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 1614
+	/* end block 2 */
+	// End Line: 1615
+
+	/* begin block 3 */
+		// Start line: 1629
+	/* end block 3 */
+	// End Line: 1630
+
+	/* begin block 4 */
+		// Start line: 1629
+	/* end block 4 */
+	// End Line: 1630
 
 void * GetCar__23tScreenBeTheCopCongratsR8tCarInfo(tScreenBeTheCopCongrats *this,tCarInfo *carInfo)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
+  tCarInfo *ptVar1;
   
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  ptVar1 = GetCarFromID__11tCarManagers(&carManager,(ushort)(byte)frontEnd.congratsCopCar);
+  blockmove((undefined4 *)ptVar1,(undefined4 *)carInfo,0xcc);
+  carInfo->fCountry = frontEnd.congratsCopCountry;
+  return &DAT_00000001;
 }
 
 
@@ -1230,17 +2042,31 @@ void * GetCar__23tScreenBeTheCopCongratsR8tCarInfo(tScreenBeTheCopCongrats *this
 	// End offset: 0x800494DC
 	// End Line: 757
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 1648
+	/* end block 2 */
+	// End Line: 1649
+
+	/* begin block 3 */
+		// Start line: 1652
+	/* end block 3 */
+	// End Line: 1653
+
+	/* begin block 4 */
+		// Start line: 1652
+	/* end block 4 */
+	// End Line: 1653
 
 void CalculatePrizes__23tScreenBeTheCopCongrats(tScreenBeTheCopCongrats *this)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
-  
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  CalculatePrizes__15tScreenCongrats((tScreenCongrats *)this);
+  (this->tScreenCongrats).congratsMessage = 3;
+  *(undefined2 *)&(this->tScreenCongrats).fSpeechToPlay = 0x116;
+  *(undefined2 *)((int)&(this->tScreenCongrats).fSpeechToPlay + 2) = 0x4b;
+  *(undefined4 *)&(this->tScreenCongrats).fCarX = 0x40800000;
+  (this->tScreenCongrats).fCarCX = -7.40000010;
+  return;
 }
 
 
@@ -1260,17 +2086,49 @@ void CalculatePrizes__23tScreenBeTheCopCongrats(tScreenBeTheCopCongrats *this)
 	// End offset: 0x80049594
 	// End Line: 783
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 1670
+	/* end block 2 */
+	// End Line: 1671
+
+	/* begin block 3 */
+		// Start line: 1675
+	/* end block 3 */
+	// End Line: 1676
+
+	/* begin block 4 */
+		// Start line: 1675
+	/* end block 4 */
+	// End Line: 1676
 
 void DrawCongratsMessage__23tScreenBeTheCopCongrats(tScreenBeTheCopCongrats *this)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
+  ushort uVar1;
+  char *__format;
+  char *pcVar2;
+  int wordnum;
+  RECT local_118;
+  char acStack272 [256];
   
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  wordnum = 0x4c;
+  local_118.x = 0x29;
+  local_118.y = 0x3c;
+  local_118.w = 200;
+  local_118.h = 200;
+  if (frontEnd.congratsCopCar == '\x1c') {
+    wordnum = 0x4d;
+  }
+  uVar1 = PAD_state(4);
+  if (uVar1 != 0) {
+    TextSys_Word__Fi((int)*(char *)&(this->tScreenCongrats).InExtraSpinTick + 0x121);
+  }
+  __format = TextSys_Word__Fi(wordnum);
+  pcVar2 = TextSys_Word__Fi((int)*(char *)&(this->tScreenCongrats).InExtraSpinTick + 0x121);
+  sprintf(acStack272,__format,pcVar2);
+  FETextRender_WordWrapText__FPcR4RECT14tMenuTextState13tMenuTextType
+            (acStack272,&local_118,textState_Selected,textType_PostGame);
+  return;
 }
 
 
@@ -1288,18 +2146,34 @@ void DrawCongratsMessage__23tScreenBeTheCopCongrats(tScreenBeTheCopCongrats *thi
 	// End offset: 0x800495E8
 	// End Line: 797
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 1732
+	/* end block 2 */
+	// End Line: 1733
+
+	/* begin block 3 */
+		// Start line: 1745
+	/* end block 3 */
+	// End Line: 1746
+
+	/* begin block 4 */
+		// Start line: 1745
+	/* end block 4 */
+	// End Line: 1746
 
 void * GetCar__25tScreenTournamentCongratsR8tCarInfo
                  (tScreenTournamentCongrats *this,tCarInfo *carInfo)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
+  tCarInfo *ptVar1;
+  undefined auStack80 [56];
+  short local_18;
   
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  GetAwardInformation__18tTournamentManagerR17tAwardInformation
+            (&tournamentManager,(tAwardInformation *)auStack80);
+  ptVar1 = GetCarFromID__11tCarManagers(&carManager,local_18);
+  blockmove((undefined4 *)ptVar1,(undefined4 *)carInfo,0xcc);
+  return &DAT_00000001;
 }
 
 
@@ -1331,17 +2205,41 @@ void * GetCar__25tScreenTournamentCongratsR8tCarInfo
 	// End offset: 0x80049694
 	// End Line: 818
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 1767
+	/* end block 2 */
+	// End Line: 1768
+
+	/* begin block 3 */
+		// Start line: 1771
+	/* end block 3 */
+	// End Line: 1772
+
+	/* begin block 4 */
+		// Start line: 1771
+	/* end block 4 */
+	// End Line: 1772
 
 void CalculatePrizes__25tScreenTournamentCongrats(tScreenTournamentCongrats *this)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
+  long lVar1;
+  tAwardInformation tStack88;
   
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  GetAwardInformation__18tTournamentManagerR17tAwardInformation(&tournamentManager,&tStack88);
+  CalculatePrizes__15tScreenCongrats((tScreenCongrats *)this);
+  (this->tScreenCongrats).congratsMessage = 3;
+  (this->tScreenCongrats).fCarPlayer = tournamentManager.fMoney;
+  lVar1 = -1;
+  if (tStack88.fCompletedGarageFull != (void *)0x0) {
+    lVar1 = tStack88.fCompletedBonusMoney;
+  }
+  (this->tScreenCongrats).TotalCash = lVar1;
+  *(undefined2 *)&(this->tScreenCongrats).fSpeechToPlay = 0x116;
+  *(undefined2 *)((int)&(this->tScreenCongrats).fSpeechToPlay + 2) = 0x4b;
+  *(undefined4 *)&(this->tScreenCongrats).fCarX = 0x40800000;
+  (this->tScreenCongrats).fCarCX = -7.40000010;
+  return;
 }
 
 
@@ -1377,18 +2275,51 @@ void CalculatePrizes__25tScreenTournamentCongrats(tScreenTournamentCongrats *thi
 	// End offset: 0x80049790
 	// End Line: 847
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 1805
+	/* end block 2 */
+	// End Line: 1806
+
+	/* begin block 3 */
+		// Start line: 1810
+	/* end block 3 */
+	// End Line: 1811
+
+	/* begin block 4 */
+		// Start line: 1810
+	/* end block 4 */
+	// End Line: 1811
 
 void DrawCongratsMessage__25tScreenTournamentCongrats(tScreenTournamentCongrats *this)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
+  char *str;
+  RECT local_198;
+  tAwardInformation tStack400;
+  char acStack328 [256];
+  char acStack72 [64];
   
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  local_198.x = 0x29;
+  local_198.y = 0x3c;
+  local_198.w = 200;
+  local_198.h = 400;
+  GetAwardInformation__18tTournamentManagerR17tAwardInformation(&tournamentManager,&tStack400);
+  str = TextSys_Word__Fi((int)tStack400.fCompletedText);
+  FETextRender_WordWrapText__FPcR4RECT14tMenuTextState13tMenuTextType
+            (str,&local_198,textState_Selected,textType_PostGame);
+  if (tStack400.fCompletedGarageFull != (void *)0x0) {
+    local_198.y = 0xb4;
+    local_198.w = 0x1ae;
+    FeTools_FormatMoney__FPcl(acStack72,tStack400.fCompletedBonusMoney);
+    str = TextSys_Word__Fi(0x40);
+    sprintf(acStack328,str,acStack72);
+    str = TextSys_Word__Fi(0x40);
+    FETextRender_WordWrapText__FPcR4RECT14tMenuTextState13tMenuTextType
+              (str,&local_198,textState_Selected,textType_PostGame);
+  }
+  return;
 }
+
 
 
 

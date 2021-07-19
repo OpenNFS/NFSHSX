@@ -1,6 +1,7 @@
 #ifndef FECARS_H
 #define FECARS_H
 
+
 extern void Initialize__11tCarManager(struct tCarManager *this); // 0x800161B0
 
 extern struct tCarInfo * GetCarFromID__11tCarManagers(struct tCarManager *this, short carID); // 0x8001624C
@@ -92,5 +93,6 @@ extern short TextValue__21tListIteratorCarColor7tPlayer(struct tListIteratorCarC
 extern void Increment__21tListIteratorCarColor7tPlayer(struct tListIteratorCarColor *this); // 0x800185B0
 
 extern void Decrement__21tListIteratorCarColor7tPlayer(struct tListIteratorCarColor *this); // 0x80018648
+
 
 #endif

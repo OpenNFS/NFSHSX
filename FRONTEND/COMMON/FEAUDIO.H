@@ -1,6 +1,7 @@
 #ifndef FEAUDIO_H
 #define FEAUDIO_H
 
+
 extern int FEAudio_StartLoadPatch__FP10SPEECHINFO(struct SPEECHINFO *info); // 0x80015780
 
 extern void Feaudio_StartPatch__FP10SPEECHINFO(struct SPEECHINFO *info); // 0x80015824
@@ -20,5 +21,6 @@ extern struct LUMPYHEAD * FeAudio_InitViv__FPc(char *fname); // 0x80015F24
 extern void FeAudio_InitCommentary__Fii(int language); // 0x800160D8
 
 extern void FeAudio_DeInitCommentary__Fv(); // 0x80016178
+
 
 #endif

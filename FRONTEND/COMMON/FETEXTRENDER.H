@@ -1,6 +1,7 @@
 #ifndef FETEXTRENDER_H
 #define FETEXTRENDER_H
 
+
 extern void FETextRender_SetFont__Fi(int size); // 0x80020CD8
 
 extern void FETextRender_FullTextRGB__FPcssics(char *sMenuText, short x, short y, int col, int size, int justify); // 0x80020D4C
@@ -34,5 +35,6 @@ extern int FETextRender_WordWrapHeight__FsPc(short width, char *str); // 0x80021
 extern void FETextRender_Title__Fs(short index); // 0x80021914
 
 extern void FETextRender_SetABR__Fib(int abr, void * trans); // 0x800219E8
+
 
 #endif

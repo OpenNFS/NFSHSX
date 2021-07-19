@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "FEFADES.H"
+
 
 // decompiled code
 // original method signature: 
@@ -16,17 +17,30 @@
 	// End offset: 0x8004B7F8
 	// End Line: 27
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 42
+	/* end block 2 */
+	// End Line: 43
+
+	/* begin block 3 */
+		// Start line: 42
+	/* end block 3 */
+	// End Line: 43
+
+	/* begin block 4 */
+		// Start line: 47
+	/* end block 4 */
+	// End Line: 48
 
 int CalcFadeVal__Fiii(int col1,int col2,int amount)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
+  int iVar1;
   
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  iVar1 = 0x80 - amount;
+  return ((int)(iVar1 * (col1 >> 0x10 & 0xffU) + amount * (col2 >> 0x10 & 0xffU)) >> 7) << 0x10 |
+         ((int)(iVar1 * (col1 >> 8 & 0xffU) + amount * (col2 >> 8 & 0xffU)) >> 7) << 8 |
+         (int)(iVar1 * (col1 & 0xffU) + amount * (col2 & 0xffU)) >> 7;
 }
 
 
@@ -42,17 +56,28 @@ int CalcFadeVal__Fiii(int col1,int col2,int amount)
 	// End offset: 0x8004B888
 	// End Line: 35
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 68
+	/* end block 2 */
+	// End Line: 69
+
+	/* begin block 3 */
+		// Start line: 72
+	/* end block 3 */
+	// End Line: 73
+
+	/* begin block 4 */
+		// Start line: 72
+	/* end block 4 */
+	// End Line: 73
 
 int CalcFadeVal__Fii(int col1,int amount)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
+  int iVar1;
   
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  iVar1 = CalcFadeVal__Fiii(col1,0,amount);
+  return iVar1;
 }
 
 
@@ -68,17 +93,29 @@ int CalcFadeVal__Fii(int col1,int amount)
 	// End offset: 0x8004B8AC
 	// End Line: 40
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 78
+	/* end block 2 */
+	// End Line: 79
+
+	/* begin block 3 */
+		// Start line: 82
+	/* end block 3 */
+	// End Line: 83
+
+	/* begin block 4 */
+		// Start line: 82
+	/* end block 4 */
+	// End Line: 83
 
 int CalcFadeVal__Fiiii(int col1,int col2,int amount,int fFade)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
+  int col1_00;
   
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  col1_00 = CalcFadeVal__Fiii(col1,col2,amount);
+  col1_00 = CalcFadeVal__Fiii(col1_00,0,fFade);
+  return col1_00;
 }
 
 
@@ -122,17 +159,30 @@ int CalcFadeVal__Fiiii(int col1,int col2,int amount,int fFade)
 	// End offset: 0x8004B8E0
 	// End Line: 45
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 88
+	/* end block 2 */
+	// End Line: 89
+
+	/* begin block 3 */
+		// Start line: 92
+	/* end block 3 */
+	// End Line: 93
+
+	/* begin block 4 */
+		// Start line: 92
+	/* end block 4 */
+	// End Line: 93
 
 int CalcTextFadeUnselToSel__F13tMenuTextTypess(tMenuTextType type,short fSelFade,short fFade)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
+  int iVar1;
   
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  iVar1 = CalcFadeVal__Fiiii(kRGBVals[(uint)(byte)(&CHAR_09h_800515bb)[type * 6]],
+                             kRGBVals[(uint)(byte)(&CHAR_09h_800515bc)[type * 6]],(int)fSelFade,
+                             (int)fFade);
+  return iVar1;
 }
 
 
@@ -176,17 +226,30 @@ int CalcTextFadeUnselToSel__F13tMenuTextTypess(tMenuTextType type,short fSelFade
 	// End offset: 0x8004B950
 	// End Line: 54
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 110
+	/* end block 2 */
+	// End Line: 111
+
+	/* begin block 3 */
+		// Start line: 114
+	/* end block 3 */
+	// End Line: 115
+
+	/* begin block 4 */
+		// Start line: 114
+	/* end block 4 */
+	// End Line: 115
 
 int CalcTextFadeSelToHi__F13tMenuTextTypess(tMenuTextType type,short fSelFade,short fFade)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
+  int col1;
   
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  col1 = CalcFadeVal__Fiii(kRGBVals[(uint)(byte)(&CHAR_09h_800515bc)[type * 6]],
+                           kRGBVals[(uint)(byte)s__800515bd[type * 6]],(int)fSelFade);
+  col1 = CalcFadeVal__Fiii(col1,0,(int)fFade);
+  return col1;
 }
 
 
@@ -249,20 +312,49 @@ int CalcTextFadeSelToHi__F13tMenuTextTypess(tMenuTextType type,short fSelFade,sh
 	// End offset: 0x8004B9D4
 	// End Line: 66
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 136
+	/* end block 2 */
+	// End Line: 137
+
+	/* begin block 3 */
+		// Start line: 142
+	/* end block 3 */
+	// End Line: 143
+
+	/* begin block 4 */
+		// Start line: 142
+	/* end block 4 */
+	// End Line: 143
 
 void CalcOnOffFade__F13tMenuTextTypesssRiT4
                (tMenuTextType type,short fOnOffFade,short fSelFade,short fFade,int *OnColor,
                int *OffColor)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
+  int col1;
+  int col2;
+  int col1_00;
+  int amount;
+  int col2_00;
+  int col1_01;
   
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  amount = (int)fOnOffFade;
+  col2 = type * 6;
+  col1_00 = kRGBVals[(uint)(byte)(&CHAR_09h_800515bc)[col2]];
+  col2_00 = kRGBVals[(uint)(byte)s__800515bd[col2]];
+  col1_01 = kRGBVals[(uint)(byte)(&CHAR_09h_800515bb)[col2]];
+  col2 = CalcFadeVal__Fiii(col1_00,col2_00,amount);
+  col2_00 = CalcFadeVal__Fiii(col2_00,col1_00,amount);
+  col1 = CalcFadeVal__Fiii(col1_01,col1_00,amount);
+  col1_00 = CalcFadeVal__Fiii(col1_00,col1_01,amount);
+  col2 = CalcFadeVal__Fiiii(col1,col2,(int)fSelFade,(int)fFade);
+  *OnColor = col2;
+  col2 = CalcFadeVal__Fiiii(col1_00,col2_00,(int)fSelFade,(int)fFade);
+  *OffColor = col2;
+  return;
 }
+
 
 
 

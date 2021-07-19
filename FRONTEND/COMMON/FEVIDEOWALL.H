@@ -1,6 +1,7 @@
 #ifndef FEVIDEOWALL_H
 #define FEVIDEOWALL_H
 
+
 extern void Initialize__10tVideoWallP9tTVConfigP18tTexture_ShapeInfossPss(struct tVideoWall *this, struct tTVConfig *tvs, struct tTexture_ShapeInfo *shapes, short firstTV, int numTVs, short *tvOrdering, int flip_axis); // 0x80036790
 
 extern void UpdateImages__10tVideoWall(struct tVideoWall *this); // 0x80036840
@@ -24,5 +25,6 @@ extern void TurnOff__10tVideoWall(struct tVideoWall *this); // 0x80036E58
 extern void TurnOffInstant__10tVideoWall(struct tVideoWall *this); // 0x80036E7C
 
 extern void TurnOn__10tVideoWall(struct tVideoWall *this); // 0x80036EF8
+
 
 #endif
