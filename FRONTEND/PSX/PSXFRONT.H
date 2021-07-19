@@ -1,6 +1,7 @@
 #ifndef PSXFRONT_H
 #define PSXFRONT_H
 
+
 extern void Quick_DD__Fiii(int a, int b, int c); // 0x8004D778
 
 extern void PSXFront_AllocateDrawMemory__Fv(); // 0x8004D7BC
@@ -50,5 +51,6 @@ extern void PSXDrawTransGouraudSquare__Fiiiiiiiii(int x, int y, int w, int h, in
 extern void PSXDrawTransSquare__Fiiiiis(int col, int x, int y, int w, int h, int opacity); // 0x8004EED0
 
 extern void FontUpsideDownBlit__FiiPviiP12charactertbli(int x, int y, void *src, int u, int v, struct charactertbl *ch); // 0x8004EFB4
+
 
 #endif
