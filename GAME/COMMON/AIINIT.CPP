@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "AIINIT.H"
+
 
 // decompiled code
 // original method signature: 
@@ -14,6 +15,16 @@
 	// End offset: 0x80066BF8
 	// End Line: 48
 
+	/* begin block 2 */
+		// Start line: 76
+	/* end block 2 */
+	// End Line: 77
+
+	/* begin block 3 */
+		// Start line: 76
+	/* end block 3 */
+	// End Line: 77
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void AIInit_StartUp1__Fv(void)
@@ -26,7 +37,7 @@ void AIInit_StartUp1__Fv(void)
   AI_TrafficStartUp__Fv();
   iVar2 = 1;
   inverseLaneWidthTable = 0;
-  piVar3 = &INT_8010e010;
+  piVar3 = INT_ARRAY_8010e010;
   do {
     iVar1 = fixeddiv(0x10000,iVar2 << 0xe);
     *piVar3 = iVar1;
@@ -79,6 +90,21 @@ void AIInit_StartUp1__Fv(void)
 	// End offset: 0x80066CE4
 	// End Line: 82
 
+	/* begin block 2 */
+		// Start line: 107
+	/* end block 2 */
+	// End Line: 108
+
+	/* begin block 3 */
+		// Start line: 113
+	/* end block 3 */
+	// End Line: 114
+
+	/* begin block 4 */
+		// Start line: 113
+	/* end block 4 */
+	// End Line: 114
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void AIInit_StartUp2__Fv(void)
@@ -93,7 +119,7 @@ void AIInit_StartUp2__Fv(void)
   iVar2 = 0;
   AIInit_LoadConfigs__Fv();
   if (0 < Cars_gNumCars) {
-    ppCVar3 = &__Cars_gList_9__;
+    ppCVar3 = &Cars_gList9;
     do {
       carObj = *ppCVar3;
       ppCVar3 = ppCVar3 + 1;
@@ -106,7 +132,7 @@ void AIInit_StartUp2__Fv(void)
   StartUp2__14AIDataRecord_t();
   AIPhysic_StartUp__Fv();
   AITune_StartUp2__Fv();
-  ppCVar3 = &__Cars_gList_9__;
+  ppCVar3 = &Cars_gList9;
   while (bVar1 = iVar2 < Cars_gNumCars, iVar2 = iVar2 + 1, bVar1) {
     carObj = *ppCVar3;
     ppCVar3 = ppCVar3 + 1;
@@ -129,12 +155,37 @@ void AIInit_StartUp2__Fv(void)
 	// End offset: 0x80066CFC
 	// End Line: 89
 
+	/* begin block 2 */
+		// Start line: 171
+	/* end block 2 */
+	// End Line: 172
+
+	/* begin block 3 */
+		// Start line: 177
+	/* end block 3 */
+	// End Line: 178
+
+	/* begin block 4 */
+		// Start line: 177
+	/* end block 4 */
+	// End Line: 178
+
+	/* begin block 5 */
+		// Start line: 178
+	/* end block 5 */
+	// End Line: 179
+
+	/* begin block 6 */
+		// Start line: 178
+	/* end block 6 */
+	// End Line: 179
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void AIInit_Reset1__Fv(void)
 
 {
-  DAT_00000038 = 0;
+  AIInit_forceHumanHandBrake = 0;
   return;
 }
 
@@ -160,6 +211,21 @@ void AIInit_Reset1__Fv(void)
 	// End offset: 0x80066D80
 	// End Line: 111
 
+	/* begin block 2 */
+		// Start line: 184
+	/* end block 2 */
+	// End Line: 185
+
+	/* begin block 3 */
+		// Start line: 189
+	/* end block 3 */
+	// End Line: 190
+
+	/* begin block 4 */
+		// Start line: 189
+	/* end block 4 */
+	// End Line: 190
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void AIInit_Reset2__Fv(void)
@@ -169,10 +235,10 @@ void AIInit_Reset2__Fv(void)
   int iVar2;
   Car_tObj **ppCVar3;
   
-  DAT_00000034 = (uint)(GameSetup_gData.raceType != 3);
+  AIInit_useSpreadForce = ZEXT14(GameSetup_gData.raceType != 3);
   iVar2 = 0;
   if (0 < Cars_gNumCars) {
-    ppCVar3 = &__Cars_gList_9__;
+    ppCVar3 = &Cars_gList9;
     do {
       pCVar1 = *ppCVar3;
       ppCVar3 = ppCVar3 + 1;
@@ -180,10 +246,10 @@ void AIInit_Reset2__Fv(void)
       iVar2 = iVar2 + 1;
     } while (iVar2 < Cars_gNumCars);
   }
-  leaderBoard.leadHumanRacer = __Cars_gHumanRaceCarList_9__;
-  leaderBoard.leadRacer = __Cars_gHumanRaceCarList_9__;
-  leaderBoard.lastAIRacer = __Cars_gAIRaceCarList_9__;
-  leaderBoard.leadAIRacer = __Cars_gAIRaceCarList_9__;
+  leaderBoard.leadHumanRacer = Cars_gHumanRaceCarList9;
+  leaderBoard.leadRacer = Cars_gHumanRaceCarList9;
+  leaderBoard.lastAIRacer = Cars_gAIRaceCarList9[0];
+  leaderBoard.leadAIRacer = Cars_gAIRaceCarList9[0];
   AIPhysic_Reset__Fv();
   AI_Info.blockingCars[0] = (_func_13 *)0x0;
   AI_Info.blockingCars[1] = (_func_13 *)0x0;
@@ -217,6 +283,21 @@ void AIInit_Reset2__Fv(void)
 	/* end block 1 */
 	// End offset: 0x80066E0C
 	// End Line: 131
+
+	/* begin block 2 */
+		// Start line: 268
+	/* end block 2 */
+	// End Line: 269
+
+	/* begin block 3 */
+		// Start line: 273
+	/* end block 3 */
+	// End Line: 274
+
+	/* begin block 4 */
+		// Start line: 273
+	/* end block 4 */
+	// End Line: 274
 
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
@@ -261,6 +342,31 @@ void AIInit_CleanUp1__Fv(void)
 	// End offset: 0x80066EF0
 	// End Line: 154
 
+	/* begin block 2 */
+		// Start line: 285
+	/* end block 2 */
+	// End Line: 286
+
+	/* begin block 3 */
+		// Start line: 289
+	/* end block 3 */
+	// End Line: 290
+
+	/* begin block 4 */
+		// Start line: 289
+	/* end block 4 */
+	// End Line: 290
+
+	/* begin block 5 */
+		// Start line: 290
+	/* end block 5 */
+	// End Line: 291
+
+	/* begin block 6 */
+		// Start line: 290
+	/* end block 6 */
+	// End Line: 291
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void AIInit_CleanUp2__Fv(void)
@@ -272,7 +378,7 @@ void AIInit_CleanUp2__Fv(void)
   
   iVar2 = 0;
   if (0 < Cars_gNumCars) {
-    ppCVar1 = &__Cars_gList_9__;
+    ppCVar1 = &Cars_gList9;
     do {
       iVar2 = iVar2 + 1;
       AIInit_DeInitAICar2__FP8Car_tObj(*ppCVar1);
@@ -311,6 +417,21 @@ void AIInit_CleanUp2__Fv(void)
 	// End offset: 0x80066F98
 	// End Line: 183
 
+	/* begin block 2 */
+		// Start line: 338
+	/* end block 2 */
+	// End Line: 339
+
+	/* begin block 3 */
+		// Start line: 355
+	/* end block 3 */
+	// End Line: 356
+
+	/* begin block 4 */
+		// Start line: 355
+	/* end block 4 */
+	// End Line: 356
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void AI_TrafficStartUp__Fv(void)
@@ -321,10 +442,10 @@ void AI_TrafficStartUp__Fv(void)
   
   if (GameSetup_gData.trafficDensity != 0) {
     triggerManagerTraffic = (AITrigger_TriggerManager *)__builtin_new(0x34c);
-    sprintf(acStack112,s__sTr_02d_trf_8005521c,PTR_801164b0,GameSetup_gData.track);
-    DAT_00000030 = (char *)loadfileadrz(acStack112,0);
-    rawTriggers = DAT_00000030;
-    if (DAT_00000030 == (char *)0x0) {
+    sprintf(acStack112,s__sTr_02d_trf_8005521c,PTR_ARRAY_801164b0[0],GameSetup_gData.track);
+    AITraffic_rawTriggers = (void *)loadfileadrz(acStack112,0);
+    rawTriggers = (char *)AITraffic_rawTriggers;
+    if ((char *)AITraffic_rawTriggers == (char *)0x0) {
       rawTriggers = (char *)0x0;
     }
     Init__24AITrigger_TriggerManagerPc(triggerManagerTraffic,rawTriggers);
@@ -345,6 +466,31 @@ void AI_TrafficStartUp__Fv(void)
 	// End offset: 0x80066FE8
 	// End Line: 206
 
+	/* begin block 2 */
+		// Start line: 400
+	/* end block 2 */
+	// End Line: 401
+
+	/* begin block 3 */
+		// Start line: 413
+	/* end block 3 */
+	// End Line: 414
+
+	/* begin block 4 */
+		// Start line: 413
+	/* end block 4 */
+	// End Line: 414
+
+	/* begin block 5 */
+		// Start line: 414
+	/* end block 5 */
+	// End Line: 415
+
+	/* begin block 6 */
+		// Start line: 414
+	/* end block 6 */
+	// End Line: 415
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void AI_TrafficCleanUp__Fv(void)
@@ -354,9 +500,9 @@ void AI_TrafficCleanUp__Fv(void)
     __builtin_delete(triggerManagerTraffic);
     triggerManagerTraffic = (AITrigger_TriggerManager *)0x0;
   }
-  if (DAT_00000030 != 0) {
-    purgememadr(DAT_00000030);
-    DAT_00000030 = 0;
+  if (AITraffic_rawTriggers != (void *)0x0) {
+    purgememadr((int)AITraffic_rawTriggers);
+    AITraffic_rawTriggers = (void *)0x0;
   }
   return;
 }
@@ -377,6 +523,21 @@ void AI_TrafficCleanUp__Fv(void)
 	// End offset: 0x80066FF8
 	// End Line: 226
 
+	/* begin block 2 */
+		// Start line: 454
+	/* end block 2 */
+	// End Line: 455
+
+	/* begin block 3 */
+		// Start line: 474
+	/* end block 3 */
+	// End Line: 475
+
+	/* begin block 4 */
+		// Start line: 474
+	/* end block 4 */
+	// End Line: 475
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void AIInit_LoadConfigs__Fv(void)
@@ -386,7 +547,7 @@ void AIInit_LoadConfigs__Fv(void)
   char acStack112 [104];
   
   sprintf(acStack112,s__strafcfg_dat_8005522c,PTR_80116470);
-  handle = Udff_Opena__FPcT0i((char *)0x0,&trafcfg,1);
+  handle = Udff_Opena__FPcT0i((char *)0x0,trafcfg,1);
   AIInit_LoadPhysicsConfig__FP10Udff_tInfo(handle);
   Udff_Close__FP10Udff_tInfo(handle);
   return;
@@ -407,6 +568,21 @@ void AIInit_LoadConfigs__Fv(void)
 	/* end block 1 */
 	// End offset: 0x8006715C
 	// End Line: 286
+
+	/* begin block 2 */
+		// Start line: 531
+	/* end block 2 */
+	// End Line: 532
+
+	/* begin block 3 */
+		// Start line: 543
+	/* end block 3 */
+	// End Line: 544
+
+	/* begin block 4 */
+		// Start line: 543
+	/* end block 4 */
+	// End Line: 544
 
 void AIInit_LoadPhysicsConfig__FP10Udff_tInfo(Udff_tInfo *handle)
 
@@ -470,6 +646,21 @@ void AIInit_LoadPhysicsConfig__FP10Udff_tInfo(Udff_tInfo *handle)
 	// End offset: 0x80067174
 	// End Line: 305
 
+	/* begin block 2 */
+		// Start line: 622
+	/* end block 2 */
+	// End Line: 623
+
+	/* begin block 3 */
+		// Start line: 641
+	/* end block 3 */
+	// End Line: 642
+
+	/* begin block 4 */
+		// Start line: 641
+	/* end block 4 */
+	// End Line: 642
+
 void AIInit_ClearAICar__FP8Car_tObj(Car_tObj *carObj)
 
 {
@@ -507,6 +698,31 @@ void AIInit_ClearAICar__FP8Car_tObj(Car_tObj *carObj)
 	/* end block 1 */
 	// End offset: 0x800672E8
 	// End Line: 379
+
+	/* begin block 2 */
+		// Start line: 685
+	/* end block 2 */
+	// End Line: 686
+
+	/* begin block 3 */
+		// Start line: 693
+	/* end block 3 */
+	// End Line: 694
+
+	/* begin block 4 */
+		// Start line: 693
+	/* end block 4 */
+	// End Line: 694
+
+	/* begin block 5 */
+		// Start line: 694
+	/* end block 5 */
+	// End Line: 695
+
+	/* begin block 6 */
+		// Start line: 694
+	/* end block 6 */
+	// End Line: 695
 
 void AIInit_RestartAICar__FP8Car_tObj(Car_tObj *carObj)
 
@@ -614,6 +830,21 @@ void AIInit_RestartAICar__FP8Car_tObj(Car_tObj *carObj)
 	// End offset: 0x80067484
 	// End Line: 448
 
+	/* begin block 2 */
+		// Start line: 879
+	/* end block 2 */
+	// End Line: 880
+
+	/* begin block 3 */
+		// Start line: 891
+	/* end block 3 */
+	// End Line: 892
+
+	/* begin block 4 */
+		// Start line: 891
+	/* end block 4 */
+	// End Line: 892
+
 void AIInit_InitAICar__FP8Car_tObjP10Udff_tInfo(Car_tObj *carObj,Udff_tInfo *handle)
 
 {
@@ -661,7 +892,7 @@ void AIInit_InitAICar__FP8Car_tObjP10Udff_tInfo(Car_tObj *carObj,Udff_tInfo *han
   iVar1 = Udff_GetInt__FP10Udff_tInfo(handle);
   carObj->aCar = iVar1;
   if ((carObj->carFlags & 8U) != 0) {
-    scale = (&AITune_accelerationScale)[carObj->carInfo->carType].scale;
+    scale = AITune_accelerationScale[carObj->carInfo->carType].scale;
   }
   this = (AIDataRecord_AccTable_t *)__builtin_new(0x5c);
   this = __23AIDataRecord_AccTable_tPci26AIDataRecord_WhichRecord_t
@@ -704,6 +935,21 @@ void AIInit_InitAICar__FP8Car_tObjP10Udff_tInfo(Car_tObj *carObj,Udff_tInfo *han
 	// End offset: 0x80067558
 	// End Line: 476
 
+	/* begin block 2 */
+		// Start line: 1026
+	/* end block 2 */
+	// End Line: 1027
+
+	/* begin block 3 */
+		// Start line: 1031
+	/* end block 3 */
+	// End Line: 1032
+
+	/* begin block 4 */
+		// Start line: 1031
+	/* end block 4 */
+	// End Line: 1032
+
 void AIInit_DeInitAICar__FP8Car_tObj(Car_tObj *carObj)
 
 {
@@ -737,6 +983,21 @@ void AIInit_DeInitAICar__FP8Car_tObj(Car_tObj *carObj)
 	// End offset: 0x800675A4
 	// End Line: 494
 
+	/* begin block 2 */
+		// Start line: 1054
+	/* end block 2 */
+	// End Line: 1055
+
+	/* begin block 3 */
+		// Start line: 1059
+	/* end block 3 */
+	// End Line: 1060
+
+	/* begin block 4 */
+		// Start line: 1059
+	/* end block 4 */
+	// End Line: 1060
+
 void AIInit_InitAICar2__FP8Car_tObj(Car_tObj *carObj)
 
 {
@@ -767,6 +1028,41 @@ void AIInit_InitAICar2__FP8Car_tObj(Car_tObj *carObj)
 	// End offset: 0x800675D0
 	// End Line: 500
 
+	/* begin block 2 */
+		// Start line: 1091
+	/* end block 2 */
+	// End Line: 1092
+
+	/* begin block 3 */
+		// Start line: 1095
+	/* end block 3 */
+	// End Line: 1096
+
+	/* begin block 4 */
+		// Start line: 1095
+	/* end block 4 */
+	// End Line: 1096
+
+	/* begin block 5 */
+		// Start line: 1096
+	/* end block 5 */
+	// End Line: 1097
+
+	/* begin block 6 */
+		// Start line: 1096
+	/* end block 6 */
+	// End Line: 1097
+
+	/* begin block 7 */
+		// Start line: 1097
+	/* end block 7 */
+	// End Line: 1098
+
+	/* begin block 8 */
+		// Start line: 1097
+	/* end block 8 */
+	// End Line: 1098
+
 void AIInit_DeInitAICar2__FP8Car_tObj(Car_tObj *carObj)
 
 {
@@ -787,6 +1083,21 @@ void AIInit_DeInitAICar2__FP8Car_tObj(Car_tObj *carObj)
 	/* end block 1 */
 	// End offset: 0x80067648
 	// End Line: 598
+
+	/* begin block 2 */
+		// Start line: 1116
+	/* end block 2 */
+	// End Line: 1117
+
+	/* begin block 3 */
+		// Start line: 1133
+	/* end block 3 */
+	// End Line: 1134
+
+	/* begin block 4 */
+		// Start line: 1133
+	/* end block 4 */
+	// End Line: 1134
 
 int AIInit_IsNonStandardCarFile__Fi(int index)
 
@@ -827,6 +1138,7 @@ int AIInit_IsNonStandardCarFile__Fi(int index)
   }
   return iVar4;
 }
+
 
 
 

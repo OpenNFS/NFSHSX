@@ -1,6 +1,7 @@
 #ifndef AIH_COP_H
 #define AIH_COP_H
 
+
 extern struct AIHigh_Cop * __10AIHigh_CopP8Car_tObji(struct AIHigh_Cop *this, struct Car_tObj *carObj, int copIndex); // 0x80063C00
 
 extern void SetTuningLevers__10AIHigh_Cop(struct AIHigh_Cop *this); // 0x80063C4C
@@ -18,5 +19,6 @@ extern void AssignToPlayer__10AIHigh_CopP13AIHigh_Player(struct AIHigh_Cop *this
 extern int GetCheckChasePosition__10AIHigh_CopP8coorddef(struct AIHigh_Cop *this, struct coorddef *pos); // 0x80065894
 
 extern union trigger_t * CheckForNewTriggers__10AIHigh_Cop(struct AIHigh_Cop *this); // 0x80065944
+
 
 #endif

@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "CAMERA.H"
+
 
 // decompiled code
 // original method signature: 
@@ -16,6 +17,16 @@
 	/* end block 1 */
 	// End offset: 0x8008060C
 	// End Line: 483
+
+	/* begin block 2 */
+		// Start line: 964
+	/* end block 2 */
+	// End Line: 965
+
+	/* begin block 3 */
+		// Start line: 964
+	/* end block 3 */
+	// End Line: 965
 
 void EulerToMat__FP10matrixtdefiii(matrixtdef *m,int ax,int ay,int az)
 
@@ -58,6 +69,21 @@ void EulerToMat__FP10matrixtdefiii(matrixtdef *m,int ax,int ay,int az)
 	// End offset: 0x80080704
 	// End Line: 614
 
+	/* begin block 2 */
+		// Start line: 1117
+	/* end block 2 */
+	// End Line: 1118
+
+	/* begin block 3 */
+		// Start line: 1233
+	/* end block 3 */
+	// End Line: 1234
+
+	/* begin block 4 */
+		// Start line: 1233
+	/* end block 4 */
+	// End Line: 1234
+
 void Camera_SetCamera__FP13DRender_tView(DRender_tView *cview)
 
 {
@@ -78,6 +104,26 @@ void Camera_SetCamera__FP13DRender_tView(DRender_tView *cview)
 	/* end block 1 */
 	// End offset: 0x8008073C
 	// End Line: 669
+
+	/* begin block 2 */
+		// Start line: 1316
+	/* end block 2 */
+	// End Line: 1317
+
+	/* begin block 3 */
+		// Start line: 1331
+	/* end block 3 */
+	// End Line: 1332
+
+	/* begin block 4 */
+		// Start line: 1331
+	/* end block 4 */
+	// End Line: 1332
+
+	/* begin block 5 */
+		// Start line: 1337
+	/* end block 5 */
+	// End Line: 1338
 
 void Camera_LookBack__FP10matrixtdefT0(matrixtdef *src,matrixtdef *tgt)
 
@@ -135,6 +181,21 @@ void Camera_LookBack__FP10matrixtdefT0(matrixtdef *src,matrixtdef *tgt)
 	// End offset: 0x800808EC
 	// End Line: 719
 
+	/* begin block 2 */
+		// Start line: 1371
+	/* end block 2 */
+	// End Line: 1372
+
+	/* begin block 3 */
+		// Start line: 1375
+	/* end block 3 */
+	// End Line: 1376
+
+	/* begin block 4 */
+		// Start line: 1375
+	/* end block 4 */
+	// End Line: 1376
+
 void Camera_TunnelLimit__FiPi(int player,int *armheight)
 
 {
@@ -147,27 +208,31 @@ void Camera_TunnelLimit__FiPi(int player,int *armheight)
   coorddef local_28;
   
   bVar1 = false;
-  pvVar2 = BWorldSm_TunnelFlagSm__FP12BWorldSm_Pos(&(&Camera_gInfo)[player].slicePos);
+  pvVar2 = BWorldSm_TunnelFlagSm__FP12BWorldSm_Pos
+                     ((BWorldSm_Pos *)(&Camera_gInfo.forceFocus + player * 0x44));
   if ((pvVar2 != (void *)0x0) ||
      (pvVar2 = BWorldSm_TunnelFlagSm__FP12BWorldSm_Pos
-                         (&((&Camera_gInfo)[player].anchor)->simRoadInfo), pvVar2 != (void *)0x0)) {
+                         (&(&Camera_gInfo.anchor)[player * 0x44]->simRoadInfo),
+     pvVar2 != (void *)0x0)) {
     bVar1 = true;
   }
   if (bVar1) {
-    pcVar3 = BWorldSm_UNormal__FP12BWorldSm_Pos(&(&Camera_gInfo)[player].slicePos);
+    iVar5 = player * 0x110;
+    pcVar3 = BWorldSm_UNormal__FP12BWorldSm_Pos
+                       ((BWorldSm_Pos *)(&Camera_gInfo.forceFocus + player * 0x44));
     local_38.x = pcVar3->x;
     local_38.y = pcVar3->y;
     local_38.z = pcVar3->z;
-    local_28.x = (&Camera_gInfo)[player].position.x;
-    local_28.y = (&Camera_gInfo)[player].position.y;
-    local_28.z = (&Camera_gInfo)[player].position.z;
+    local_28.x = ((coorddef *)((int)&Camera_gInfo.position + iVar5))->x;
+    local_28.y = *(int *)((int)&Camera_gInfo.position + iVar5 + 4);
+    local_28.z = *(int *)((int)&Camera_gInfo.position + iVar5 + 8);
     iVar4 = Newton_FindGroundElevationGeneral__FP8coorddefN20
-                      (&local_28,&local_38,(&Camera_gInfo)[player].slicePos.quadPts);
+                      (&local_28,&local_38,(coorddef *)(&Camera_gInfo.POInhibitor + player * 0x44));
     iVar5 = GameSetup_gData.track;
     if (0xf < GameSetup_gData.track) {
       iVar5 = GameSetup_gData.track + -7;
     }
-    iVar4 = ((&gTunnelCamHeight)[iVar5] - (((&Camera_gInfo)[player].anchor)->position).y) + iVar4;
+    iVar4 = (gTunnelCamHeight[iVar5] - ((&Camera_gInfo.anchor)[player * 0x44]->position).y) + iVar4;
     if (iVar4 < *armheight) {
       *armheight = iVar4;
     }
@@ -192,12 +257,28 @@ void Camera_TunnelLimit__FiPi(int player,int *armheight)
 	// End offset: 0x80080AB4
 	// End Line: 788
 
+	/* begin block 2 */
+		// Start line: 1468
+	/* end block 2 */
+	// End Line: 1469
+
+	/* begin block 3 */
+		// Start line: 1477
+	/* end block 3 */
+	// End Line: 1478
+
+	/* begin block 4 */
+		// Start line: 1477
+	/* end block 4 */
+	// End Line: 1478
+
 void Camera_UpdateCollisionCam__Fi(int player)
 
 {
   char cVar1;
-  uint uVar2;
-  BO_tNewtonObj *pBVar3;
+  int iVar2;
+  uint uVar3;
+  BO_tNewtonObj *pBVar4;
   int local_40;
   undefined *local_3c;
   int local_38;
@@ -213,30 +294,34 @@ void Camera_UpdateCollisionCam__Fi(int player)
   local_38 = DAT_800558ac;
   if (((simVar.quickPauseSim == 0) || (Replay_ReplayInterface.changeCamera != 0)) &&
      (InBetween == 0)) {
-    if (((&Camera_gInfo)[player].field_0x77 & 1) != 0) {
+    iVar2 = player * 0x110;
+    if (((&Camera_gInfo.tracking)[iVar2] & 1U) != 0) {
       local_38 = -DAT_800558ac;
     }
-    transform(&local_40,(int *)&((&Camera_gInfo)[player].anchor)->roadMatrix,&local_30);
+    transform(&local_40,(int *)&(&Camera_gInfo.anchor)[player * 0x44]->roadMatrix,&local_30);
     Camera_TunnelLimit__FiPi(player,&local_2c);
-    local_20 = (&Camera_gInfo)[player].relpos.x;
-    local_1c = (&Camera_gInfo)[player].relpos.y;
-    local_18 = (&Camera_gInfo)[player].relpos.z;
-    uVar2 = fixedmult(local_30 - local_20,0x51e);
-    (&Camera_gInfo)[player].relpos.x = local_20 + uVar2;
-    uVar2 = fixedmult(local_2c - local_1c,0x51e);
-    (&Camera_gInfo)[player].relpos.y = local_1c + uVar2;
-    uVar2 = fixedmult(local_28 - local_18,0x51e);
-    pBVar3 = (&Camera_gInfo)[player].anchor;
-    (&Camera_gInfo)[player].relpos.z = local_18 + uVar2;
-    (&Camera_gInfo)[player].position.x = (pBVar3->position).x + (&Camera_gInfo)[player].relpos.x;
-    (&Camera_gInfo)[player].position.y = (pBVar3->position).y + (&Camera_gInfo)[player].relpos.y;
-    cVar1 = (&Camera_gInfo)[player].tumbling;
-    (&Camera_gInfo)[player].position.z = (pBVar3->position).z + (&Camera_gInfo)[player].relpos.z;
+    local_20 = ((coorddef *)((int)&Camera_gInfo.relpos + iVar2))->x;
+    local_1c = *(int *)((int)&Camera_gInfo.relpos + iVar2 + 4);
+    local_18 = *(int *)((int)&Camera_gInfo.relpos + iVar2 + 8);
+    uVar3 = fixedmult(local_30 - local_20,0x51e);
+    ((coorddef *)((int)&Camera_gInfo.relpos + iVar2))->x = local_20 + uVar3;
+    uVar3 = fixedmult(local_2c - local_1c,0x51e);
+    *(int *)((int)&Camera_gInfo.relpos + iVar2 + 4) = local_1c + uVar3;
+    uVar3 = fixedmult(local_28 - local_18,0x51e);
+    pBVar4 = (&Camera_gInfo.anchor)[player * 0x44];
+    *(int *)((int)&Camera_gInfo.relpos + iVar2 + 8) = local_18 + uVar3;
+    ((coorddef *)((int)&Camera_gInfo.position + iVar2))->x =
+         (pBVar4->position).x + ((coorddef *)((int)&Camera_gInfo.relpos + iVar2))->x;
+    *(int *)((int)&Camera_gInfo.position + iVar2 + 4) =
+         (pBVar4->position).y + *(int *)((int)&Camera_gInfo.relpos + iVar2 + 4);
+    cVar1 = (&Camera_gInfo.jostling)[iVar2];
+    *(int *)((int)&Camera_gInfo.position + iVar2 + 8) =
+         (pBVar4->position).z + *(int *)((int)&Camera_gInfo.relpos + iVar2 + 8);
     if (cVar1 == '\0') {
-      (&Camera_gInfo)[player].intransition = '2';
+      (&Camera_gInfo.pitch)[iVar2] = '2';
     }
-    *(uint *)&(&Camera_gInfo)[player].field_0x74 =
-         *(uint *)&(&Camera_gInfo)[player].field_0x74 & 0xfffffffb | 0x7a;
+    *(uint *)(&Camera_gInfo.modechange + iVar2) =
+         *(uint *)(&Camera_gInfo.modechange + iVar2) & 0xfffffffb | 0x7a;
   }
   return;
 }
@@ -257,31 +342,49 @@ void Camera_UpdateCollisionCam__Fi(int player)
 	// End offset: 0x80080AC8
 	// End Line: 792
 
+	/* begin block 2 */
+		// Start line: 1623
+	/* end block 2 */
+	// End Line: 1624
+
+	/* begin block 3 */
+		// Start line: 1626
+	/* end block 3 */
+	// End Line: 1627
+
+	/* begin block 4 */
+		// Start line: 1626
+	/* end block 4 */
+	// End Line: 1627
+
 void Camera_UpdateSimpleCam__Fi(int player)
 
 {
   int iVar1;
   BO_tNewtonObj *pBVar2;
-  camera_info *pcVar3;
+  BO_tNewtonObj **ppBVar3;
+  int iVar4;
   int local_38;
-  int local_34;
-  int local_30;
+  undefined4 local_34;
+  undefined4 local_30;
   int local_28;
   int local_24;
   int local_20;
   
-  pcVar3 = &Camera_gInfo + player;
-  iVar1 = (int)(&Camera_gInfo)[player].mode;
-  local_38 = (&Camera_gFlags)[iVar1].arm.x;
-  local_34 = (&Camera_gFlags)[iVar1].arm.y;
-  local_30 = (&Camera_gFlags)[iVar1].arm.z;
-  transform(&local_38,(int *)&pcVar3->anchor->orientMat,&local_28);
+  iVar4 = player * 0x110;
+  ppBVar3 = &Camera_gInfo.anchor + player * 0x44;
+  iVar1 = (int)(&Camera_gInfo.mode)[player * 0x88] * 0x10;
+  local_38 = ((coorddef *)((int)&Camera_gFlags[0].arm + iVar1))->x;
+  local_34 = *(undefined4 *)((int)&Camera_gFlags[0].arm + iVar1 + 4);
+  local_30 = *(undefined4 *)((int)&Camera_gFlags[0].arm + iVar1 + 8);
+  transform(&local_38,(int *)&(*ppBVar3)->orientMat,&local_28);
   Camera_TunnelLimit__FiPi(player,&local_24);
-  pBVar2 = pcVar3->anchor;
-  (&Camera_gInfo)[player].position.x = (pcVar3->anchor->position).x + local_28;
-  (&Camera_gInfo)[player].position.y = (pBVar2->position).y + local_24;
-  (&Camera_gInfo)[player].position.z = (pBVar2->position).z + local_20;
-  Camera_LookBack__FP10matrixtdefT0(&pBVar2->orientMat,&(&Camera_gInfo)[player].rotation);
+  pBVar2 = *ppBVar3;
+  ((coorddef *)((int)&Camera_gInfo.position + iVar4))->x = ((*ppBVar3)->position).x + local_28;
+  *(int *)((int)&Camera_gInfo.position + iVar4 + 4) = (pBVar2->position).y + local_24;
+  *(int *)((int)&Camera_gInfo.position + iVar4 + 8) = (pBVar2->position).z + local_20;
+  Camera_LookBack__FP10matrixtdefT0
+            (&pBVar2->orientMat,(matrixtdef *)((int)&Camera_gInfo.rotation + iVar4));
   return;
 }
 
@@ -302,6 +405,21 @@ void Camera_UpdateSimpleCam__Fi(int player)
 	// End offset: 0x80080D64
 	// End Line: 836
 
+	/* begin block 2 */
+		// Start line: 1679
+	/* end block 2 */
+	// End Line: 1680
+
+	/* begin block 3 */
+		// Start line: 1683
+	/* end block 3 */
+	// End Line: 1684
+
+	/* begin block 4 */
+		// Start line: 1683
+	/* end block 4 */
+	// End Line: 1684
+
 void Camera_UpdateBumperCam__Fi(int player)
 
 {
@@ -311,52 +429,54 @@ void Camera_UpdateBumperCam__Fi(int player)
   BO_tNewtonObj *pBVar4;
   matrixtdef *pmVar5;
   int iVar6;
-  int iVar7;
-  camera_info *pcVar8;
+  BO_tNewtonObj **ppBVar7;
+  int iVar8;
   int local_38;
-  int local_34;
+  undefined4 local_34;
   int local_30;
   int local_28;
   int local_24;
   int local_20;
   
   bVar1 = false;
-  pcVar8 = &Camera_gInfo + player;
-  iVar2 = (int)(&Camera_gInfo)[player].mode;
-  local_38 = (&Camera_gFlags)[iVar2].arm.x;
-  local_34 = (&Camera_gFlags)[iVar2].arm.y;
-  local_30 = (&Camera_gFlags)[iVar2].arm.z;
-  if ((*(uint *)&(&Camera_gInfo)[player].field_0x74 >> 5 & 1) == 0) {
+  iVar8 = player * 0x110;
+  ppBVar7 = &Camera_gInfo.anchor + player * 0x44;
+  iVar2 = (int)(&Camera_gInfo.mode)[player * 0x88] * 0x10;
+  local_38 = ((coorddef *)((int)&Camera_gFlags[0].arm + iVar2))->x;
+  local_34 = *(undefined4 *)((int)&Camera_gFlags[0].arm + iVar2 + 4);
+  local_30 = *(int *)((int)&Camera_gFlags[0].arm + iVar2 + 8);
+  if ((*(uint *)(&Camera_gInfo.modechange + iVar8) >> 5 & 1) == 0) {
     bVar1 = (&Input_gLookBehind)[player] != 0;
   }
   if (bVar1) {
-    transform(&local_38,(int *)&pcVar8->anchor->orientMat,&local_28);
-    pBVar4 = pcVar8->anchor;
-    (&Camera_gInfo)[player].audioPos.x = (pcVar8->anchor->position).x + local_28;
-    (&Camera_gInfo)[player].audioPos.y = (pBVar4->position).y + local_24;
-    (&Camera_gInfo)[player].audioPos.z = (pBVar4->position).z + local_20;
+    transform(&local_38,(int *)&(*ppBVar7)->orientMat,&local_28);
+    pBVar4 = *ppBVar7;
+    ((coorddef *)((int)&Camera_gInfo.audioPos + iVar8))->x = ((*ppBVar7)->position).x + local_28;
+    *(int *)((int)&Camera_gInfo.audioPos + iVar8 + 4) = (pBVar4->position).y + local_24;
+    *(int *)((int)&Camera_gInfo.audioPos + iVar8 + 8) = (pBVar4->position).z + local_20;
     local_30 = -local_30;
   }
-  transform(&local_38,(int *)&pcVar8->anchor->orientMat,&local_28);
-  pBVar4 = pcVar8->anchor;
-  (&Camera_gInfo)[player].position.x = (pcVar8->anchor->position).x + local_28;
-  (&Camera_gInfo)[player].position.y = (pBVar4->position).y + local_24;
-  (&Camera_gInfo)[player].position.z = (pBVar4->position).z + local_20;
+  transform(&local_38,(int *)&(*ppBVar7)->orientMat,&local_28);
+  pBVar4 = *ppBVar7;
+  ((coorddef *)((int)&Camera_gInfo.position + iVar8))->x = ((*ppBVar7)->position).x + local_28;
+  *(int *)((int)&Camera_gInfo.position + iVar8 + 4) = (pBVar4->position).y + local_24;
+  *(int *)((int)&Camera_gInfo.position + iVar8 + 8) = (pBVar4->position).z + local_20;
   if (bVar1) {
-    Camera_LookBack__FP10matrixtdefT0(&pBVar4->orientMat,&(&Camera_gInfo)[player].rotation);
+    Camera_LookBack__FP10matrixtdefT0
+              (&pBVar4->orientMat,(matrixtdef *)((int)&Camera_gInfo.rotation + iVar8));
   }
   else {
-    pBVar4 = pcVar8->anchor;
-    pmVar5 = &(&Camera_gInfo)[player].rotation;
+    pBVar4 = *ppBVar7;
+    pmVar5 = (matrixtdef *)((int)&Camera_gInfo.rotation + iVar8);
     pmVar3 = &pBVar4->orientMat;
     do {
       iVar2 = pmVar3->m[1];
-      iVar6 = pmVar3->m[2];
-      iVar7 = pmVar3->m[3];
+      iVar8 = pmVar3->m[2];
+      iVar6 = pmVar3->m[3];
       pmVar5->m[0] = pmVar3->m[0];
       pmVar5->m[1] = iVar2;
-      pmVar5->m[2] = iVar6;
-      pmVar5->m[3] = iVar7;
+      pmVar5->m[2] = iVar8;
+      pmVar5->m[3] = iVar6;
       pmVar3 = (matrixtdef *)(pmVar3->m + 4);
       pmVar5 = (matrixtdef *)(pmVar5->m + 4);
     } while (pmVar3 != (matrixtdef *)((pBVar4->orientMat).m + 8));
@@ -406,6 +526,21 @@ void Camera_UpdateBumperCam__Fi(int player)
 	// End offset: 0x800813A8
 	// End Line: 947
 
+	/* begin block 2 */
+		// Start line: 1757
+	/* end block 2 */
+	// End Line: 1758
+
+	/* begin block 3 */
+		// Start line: 1766
+	/* end block 3 */
+	// End Line: 1767
+
+	/* begin block 4 */
+		// Start line: 1766
+	/* end block 4 */
+	// End Line: 1767
+
 void Camera_UpdateTailCam__Fii(int player,int behavior)
 
 {
@@ -419,7 +554,7 @@ void Camera_UpdateTailCam__Fii(int player,int behavior)
   int iVar8;
   BO_tNewtonObj *pBVar9;
   undefined *puVar10;
-  camera_info *pcVar11;
+  BO_tNewtonObj **ppBVar11;
   undefined *puVar12;
   undefined *puVar13;
   int local_50;
@@ -433,11 +568,11 @@ void Camera_UpdateTailCam__Fii(int player,int behavior)
   int local_28;
   
   puVar10 = &DAT_00001999;
-  iVar4 = (int)(&Camera_gInfo)[player].mode;
-  local_50 = (&Camera_gFlags)[iVar4].arm.x;
-  local_4c = (&Camera_gFlags)[iVar4].arm.y;
-  local_48 = (&Camera_gFlags)[iVar4].arm.z;
-  pBVar9 = (&Camera_gInfo)[player].anchor;
+  iVar4 = (int)(&Camera_gInfo.mode)[player * 0x88] * 0x10;
+  local_50 = ((coorddef *)((int)&Camera_gFlags[0].arm + iVar4))->x;
+  local_4c = *(int *)((int)&Camera_gFlags[0].arm + iVar4 + 4);
+  local_48 = *(int *)((int)&Camera_gFlags[0].arm + iVar4 + 8);
+  pBVar9 = (&Camera_gInfo.anchor)[player * 0x44];
   puVar13 = (undefined *)0xccc;
   if ((int)pBVar9[1].collision.lastOtherObj < 1) {
     iVar4 = 3;
@@ -492,10 +627,10 @@ void Camera_UpdateTailCam__Fii(int player,int behavior)
     }
   }
   if ((&Input_gLookBehind)[player] != 0) {
-    transform(&local_50,(int *)&((&Camera_gInfo)[player].anchor)->orientMat,
-              (int *)&(&Camera_gInfo)[player].relpos);
+    transform(&local_50,(int *)&(&Camera_gInfo.anchor)[player * 0x44]->orientMat,
+              (int *)((int)&Camera_gInfo.relpos + player * 0x110));
   }
-  iVar5 = (int)(((&Camera_gInfo)[player].anchor)->simRoadInfo).slice;
+  iVar5 = (int)((&Camera_gInfo.anchor)[player * 0x44]->simRoadInfo).slice;
   if (iVar4 < 0) {
     iVar5 = iVar5 + iVar4;
     if (iVar5 < 0) {
@@ -562,56 +697,62 @@ LAB_80081050:
 LAB_8008110c:
   local_4c = local_4c + iVar8;
   if ((&Input_gLookBehind)[player] == 0) {
-    transform(&local_50,(int *)&((&Camera_gInfo)[player].anchor)->orientMat,&local_40);
+    iVar4 = player * 0x110;
+    transform(&local_50,(int *)&(&Camera_gInfo.anchor)[player * 0x44]->orientMat,&local_40);
     Camera_TunnelLimit__FiPi(player,&local_3c);
-    local_30 = (&Camera_gInfo)[player].relpos.x;
-    local_2c = (&Camera_gInfo)[player].relpos.y;
-    local_28 = (&Camera_gInfo)[player].relpos.z;
-    if ((&Camera_gInfo)[player].intransition != '\0') {
-      (&Camera_gInfo)[player].intransition = (&Camera_gInfo)[player].intransition + -1;
+    local_30 = ((coorddef *)((int)&Camera_gInfo.relpos + iVar4))->x;
+    local_2c = *(int *)((int)&Camera_gInfo.relpos + iVar4 + 4);
+    local_28 = *(int *)((int)&Camera_gInfo.relpos + iVar4 + 8);
+    if ((&Camera_gInfo.pitch)[iVar4] != '\0') {
+      (&Camera_gInfo.pitch)[iVar4] = (&Camera_gInfo.pitch)[iVar4] + -1;
       puVar13 = &DAT_00001999;
       puVar12 = &DAT_00001999;
     }
     uVar7 = fixedmult(local_40 - local_30,(int)puVar12);
-    (&Camera_gInfo)[player].relpos.x = local_30 + uVar7;
+    ((coorddef *)((int)&Camera_gInfo.relpos + iVar4))->x = local_30 + uVar7;
     uVar7 = fixedmult(local_3c - local_2c,(int)puVar13);
-    (&Camera_gInfo)[player].relpos.y = local_2c + uVar7;
+    *(int *)((int)&Camera_gInfo.relpos + iVar4 + 4) = local_2c + uVar7;
     uVar7 = fixedmult(local_38 - local_28,(int)puVar12);
-    cVar1 = (&Camera_gInfo)[player].intransition;
-    (&Camera_gInfo)[player].relpos.z = local_28 + uVar7;
+    cVar1 = (&Camera_gInfo.pitch)[iVar4];
+    *(int *)((int)&Camera_gInfo.relpos + iVar4 + 8) = local_28 + uVar7;
     if ((cVar1 == '\0') &&
-       (uVar7 = Math_VectorLength__FP8coorddef(&(&Camera_gInfo)[player].relpos),
+       (uVar7 = Math_VectorLength__FP8coorddef((coorddef *)((int)&Camera_gInfo.relpos + iVar4)),
        (int)uVar7 < 0x4f0a3)) {
-      iVar4 = fixeddiv((uint)&DAT_0004f0a3,uVar7);
-      uVar7 = fixedmult(iVar4,(&Camera_gInfo)[player].relpos.x);
-      iVar5 = (&Camera_gInfo)[player].relpos.y;
-      (&Camera_gInfo)[player].relpos.x = uVar7;
-      uVar7 = fixedmult(iVar4,iVar5);
-      iVar5 = (&Camera_gInfo)[player].relpos.z;
-      (&Camera_gInfo)[player].relpos.y = uVar7;
-      uVar7 = fixedmult(iVar4,iVar5);
-      (&Camera_gInfo)[player].relpos.z = uVar7;
+      iVar5 = fixeddiv((uint)&DAT_0004f0a3,uVar7);
+      uVar7 = fixedmult(iVar5,((coorddef *)((int)&Camera_gInfo.relpos + iVar4))->x);
+      iVar8 = *(int *)((int)&Camera_gInfo.relpos + iVar4 + 4);
+      ((coorddef *)((int)&Camera_gInfo.relpos + iVar4))->x = uVar7;
+      uVar7 = fixedmult(iVar5,iVar8);
+      iVar8 = *(int *)((int)&Camera_gInfo.relpos + iVar4 + 8);
+      *(uint *)((int)&Camera_gInfo.relpos + iVar4 + 4) = uVar7;
+      uVar7 = fixedmult(iVar5,iVar8);
+      *(uint *)((int)&Camera_gInfo.relpos + iVar4 + 8) = uVar7;
     }
-    pBVar9 = (&Camera_gInfo)[player].anchor;
-    (&Camera_gInfo)[player].position.x =
-         (((&Camera_gInfo)[player].anchor)->position).x + (&Camera_gInfo)[player].relpos.x;
-    (&Camera_gInfo)[player].position.y = (pBVar9->position).y + (&Camera_gInfo)[player].relpos.y;
-    (&Camera_gInfo)[player].position.z = (pBVar9->position).z + (&Camera_gInfo)[player].relpos.z;
+    iVar4 = player * 0x110;
+    pBVar9 = (&Camera_gInfo.anchor)[player * 0x44];
+    ((coorddef *)((int)&Camera_gInfo.position + iVar4))->x =
+         ((&Camera_gInfo.anchor)[player * 0x44]->position).x +
+         ((coorddef *)((int)&Camera_gInfo.relpos + iVar4))->x;
+    *(int *)((int)&Camera_gInfo.position + iVar4 + 4) =
+         (pBVar9->position).y + *(int *)((int)&Camera_gInfo.relpos + iVar4 + 4);
+    *(int *)((int)&Camera_gInfo.position + iVar4 + 8) =
+         (pBVar9->position).z + *(int *)((int)&Camera_gInfo.relpos + iVar4 + 8);
   }
   else {
-    pcVar11 = &Camera_gInfo + player;
-    transform(&local_50,(int *)&pcVar11->anchor->orientMat,&local_40);
-    pBVar9 = pcVar11->anchor;
-    (&Camera_gInfo)[player].audioPos.x = (pcVar11->anchor->position).x + local_40;
-    (&Camera_gInfo)[player].audioPos.y = (pBVar9->position).y + local_3c;
-    (&Camera_gInfo)[player].audioPos.z = (pBVar9->position).z + local_38;
+    iVar4 = player * 0x110;
+    ppBVar11 = &Camera_gInfo.anchor + player * 0x44;
+    transform(&local_50,(int *)&(*ppBVar11)->orientMat,&local_40);
+    pBVar9 = *ppBVar11;
+    ((coorddef *)((int)&Camera_gInfo.audioPos + iVar4))->x = ((*ppBVar11)->position).x + local_40;
+    *(int *)((int)&Camera_gInfo.audioPos + iVar4 + 4) = (pBVar9->position).y + local_3c;
+    *(int *)((int)&Camera_gInfo.audioPos + iVar4 + 8) = (pBVar9->position).z + local_38;
     local_48 = -local_48;
-    transform(&local_50,(int *)&pcVar11->anchor->orientMat,&local_40);
+    transform(&local_50,(int *)&(*ppBVar11)->orientMat,&local_40);
     Camera_TunnelLimit__FiPi(player,&local_3c);
-    pBVar9 = pcVar11->anchor;
-    (&Camera_gInfo)[player].position.x = (pcVar11->anchor->position).x + local_40;
-    (&Camera_gInfo)[player].position.y = (pBVar9->position).y + local_3c;
-    (&Camera_gInfo)[player].position.z = (pBVar9->position).z + local_38;
+    pBVar9 = *ppBVar11;
+    ((coorddef *)((int)&Camera_gInfo.position + iVar4))->x = ((*ppBVar11)->position).x + local_40;
+    *(int *)((int)&Camera_gInfo.position + iVar4 + 4) = (pBVar9->position).y + local_3c;
+    *(int *)((int)&Camera_gInfo.position + iVar4 + 8) = (pBVar9->position).z + local_38;
   }
   return;
 }
@@ -658,6 +799,21 @@ LAB_8008110c:
 	// End offset: 0x80081A94
 	// End Line: 1066
 
+	/* begin block 2 */
+		// Start line: 2001
+	/* end block 2 */
+	// End Line: 2002
+
+	/* begin block 3 */
+		// Start line: 2004
+	/* end block 3 */
+	// End Line: 2005
+
+	/* begin block 4 */
+		// Start line: 2004
+	/* end block 4 */
+	// End Line: 2005
+
 void Camera_UpdateHeliCam__Fii(int player,int behavior)
 
 {
@@ -671,7 +827,7 @@ void Camera_UpdateHeliCam__Fii(int player,int behavior)
   uint uVar8;
   undefined *puVar9;
   undefined *puVar10;
-  camera_info *pcVar11;
+  BO_tNewtonObj **ppBVar11;
   BO_tNewtonObj *pBVar12;
   undefined *puVar13;
   int local_50;
@@ -685,11 +841,11 @@ void Camera_UpdateHeliCam__Fii(int player,int behavior)
   int local_28;
   
   puVar9 = &DAT_00001999;
-  iVar3 = (int)(&Camera_gInfo)[player].mode;
-  local_50 = (&Camera_gFlags)[iVar3].arm.x;
-  local_4c = (undefined *)(&Camera_gFlags)[iVar3].arm.y;
-  local_48 = (&Camera_gFlags)[iVar3].arm.z;
-  pBVar12 = (&Camera_gInfo)[player].anchor;
+  iVar3 = (int)(&Camera_gInfo.mode)[player * 0x88] * 0x10;
+  local_50 = ((coorddef *)((int)&Camera_gFlags[0].arm + iVar3))->x;
+  local_4c = *(undefined **)((int)&Camera_gFlags[0].arm + iVar3 + 4);
+  local_48 = *(int *)((int)&Camera_gFlags[0].arm + iVar3 + 8);
+  pBVar12 = (&Camera_gInfo.anchor)[player * 0x44];
   puVar13 = (undefined *)0xccc;
   if ((int)pBVar12[1].collision.lastOtherObj < 1) {
     iVar3 = 3;
@@ -747,8 +903,8 @@ void Camera_UpdateHeliCam__Fii(int player,int behavior)
     puVar10 = (undefined *)0x28f;
   }
   if ((&Input_gLookBehind)[player] != 0) {
-    transform(&local_50,(int *)&((&Camera_gInfo)[player].anchor)->orientMat,
-              (int *)&(&Camera_gInfo)[player].relpos);
+    transform(&local_50,(int *)&(&Camera_gInfo.anchor)[player * 0x44]->orientMat,
+              (int *)((int)&Camera_gInfo.relpos + player * 0x110));
   }
   iVar4 = pBVar12[1].shadowMat.m[5];
   iVar6 = pBVar12[1].shadowMat.m[7];
@@ -769,7 +925,7 @@ void Camera_UpdateHeliCam__Fii(int player,int behavior)
     iVar4 = 0x20000;
   }
   local_48 = local_48 - iVar4;
-  iVar4 = (int)(((&Camera_gInfo)[player].anchor)->simRoadInfo).slice;
+  iVar4 = (int)((&Camera_gInfo.anchor)[player * 0x44]->simRoadInfo).slice;
   if (iVar3 < 0) {
     iVar4 = iVar4 + iVar3;
     if (iVar4 < 0) {
@@ -805,13 +961,13 @@ LAB_80081724:
     bVar2 = 0x14000 < (int)puVar9;
     puVar7 = puVar9;
     if (bVar2) {
-      puVar7 = &DAT_00014000;
+      puVar7 = &LAB_00014000;
     }
     if ((int)puVar7 < 0x4000) {
       puVar7 = (undefined *)0x4000;
       goto LAB_800817f8;
     }
-    puVar7 = &DAT_00014000;
+    puVar7 = &LAB_00014000;
   }
   else {
     if (behavior < 2) {
@@ -840,56 +996,62 @@ LAB_80081724:
 LAB_800817f8:
   local_4c = puVar7 + (int)local_4c;
   if ((&Input_gLookBehind)[player] == 0) {
-    transform(&local_50,(int *)&((&Camera_gInfo)[player].anchor)->orientMat,&local_40);
+    iVar3 = player * 0x110;
+    transform(&local_50,(int *)&(&Camera_gInfo.anchor)[player * 0x44]->orientMat,&local_40);
     Camera_TunnelLimit__FiPi(player,&local_3c);
-    local_30 = (&Camera_gInfo)[player].relpos.x;
-    local_2c = (&Camera_gInfo)[player].relpos.y;
-    local_28 = (&Camera_gInfo)[player].relpos.z;
-    if ((&Camera_gInfo)[player].intransition != '\0') {
-      (&Camera_gInfo)[player].intransition = (&Camera_gInfo)[player].intransition + -1;
+    local_30 = ((coorddef *)((int)&Camera_gInfo.relpos + iVar3))->x;
+    local_2c = *(int *)((int)&Camera_gInfo.relpos + iVar3 + 4);
+    local_28 = *(int *)((int)&Camera_gInfo.relpos + iVar3 + 8);
+    if ((&Camera_gInfo.pitch)[iVar3] != '\0') {
+      (&Camera_gInfo.pitch)[iVar3] = (&Camera_gInfo.pitch)[iVar3] + -1;
       puVar13 = &DAT_00001999;
       puVar10 = &DAT_00001999;
     }
     uVar8 = fixedmult(local_40 - local_30,(int)puVar10);
-    (&Camera_gInfo)[player].relpos.x = local_30 + uVar8;
+    ((coorddef *)((int)&Camera_gInfo.relpos + iVar3))->x = local_30 + uVar8;
     uVar8 = fixedmult(local_3c - local_2c,(int)puVar13);
-    (&Camera_gInfo)[player].relpos.y = local_2c + uVar8;
+    *(int *)((int)&Camera_gInfo.relpos + iVar3 + 4) = local_2c + uVar8;
     uVar8 = fixedmult(local_38 - local_28,(int)puVar10);
-    cVar1 = (&Camera_gInfo)[player].intransition;
-    (&Camera_gInfo)[player].relpos.z = local_28 + uVar8;
+    cVar1 = (&Camera_gInfo.pitch)[iVar3];
+    *(int *)((int)&Camera_gInfo.relpos + iVar3 + 8) = local_28 + uVar8;
     if ((cVar1 == '\0') &&
-       (uVar8 = Math_VectorLength__FP8coorddef(&(&Camera_gInfo)[player].relpos),
+       (uVar8 = Math_VectorLength__FP8coorddef((coorddef *)((int)&Camera_gInfo.relpos + iVar3)),
        (int)uVar8 < 0x651eb)) {
-      iVar3 = fixeddiv((uint)&DAT_000651eb,uVar8);
-      uVar8 = fixedmult(iVar3,(&Camera_gInfo)[player].relpos.x);
-      iVar4 = (&Camera_gInfo)[player].relpos.y;
-      (&Camera_gInfo)[player].relpos.x = uVar8;
-      uVar8 = fixedmult(iVar3,iVar4);
-      iVar4 = (&Camera_gInfo)[player].relpos.z;
-      (&Camera_gInfo)[player].relpos.y = uVar8;
-      uVar8 = fixedmult(iVar3,iVar4);
-      (&Camera_gInfo)[player].relpos.z = uVar8;
+      iVar4 = fixeddiv((uint)&DAT_000651eb,uVar8);
+      uVar8 = fixedmult(iVar4,((coorddef *)((int)&Camera_gInfo.relpos + iVar3))->x);
+      iVar6 = *(int *)((int)&Camera_gInfo.relpos + iVar3 + 4);
+      ((coorddef *)((int)&Camera_gInfo.relpos + iVar3))->x = uVar8;
+      uVar8 = fixedmult(iVar4,iVar6);
+      iVar6 = *(int *)((int)&Camera_gInfo.relpos + iVar3 + 8);
+      *(uint *)((int)&Camera_gInfo.relpos + iVar3 + 4) = uVar8;
+      uVar8 = fixedmult(iVar4,iVar6);
+      *(uint *)((int)&Camera_gInfo.relpos + iVar3 + 8) = uVar8;
     }
-    pBVar12 = (&Camera_gInfo)[player].anchor;
-    (&Camera_gInfo)[player].position.x =
-         (((&Camera_gInfo)[player].anchor)->position).x + (&Camera_gInfo)[player].relpos.x;
-    (&Camera_gInfo)[player].position.y = (pBVar12->position).y + (&Camera_gInfo)[player].relpos.y;
-    (&Camera_gInfo)[player].position.z = (pBVar12->position).z + (&Camera_gInfo)[player].relpos.z;
+    iVar3 = player * 0x110;
+    pBVar12 = (&Camera_gInfo.anchor)[player * 0x44];
+    ((coorddef *)((int)&Camera_gInfo.position + iVar3))->x =
+         ((&Camera_gInfo.anchor)[player * 0x44]->position).x +
+         ((coorddef *)((int)&Camera_gInfo.relpos + iVar3))->x;
+    *(int *)((int)&Camera_gInfo.position + iVar3 + 4) =
+         (pBVar12->position).y + *(int *)((int)&Camera_gInfo.relpos + iVar3 + 4);
+    *(int *)((int)&Camera_gInfo.position + iVar3 + 8) =
+         (pBVar12->position).z + *(int *)((int)&Camera_gInfo.relpos + iVar3 + 8);
   }
   else {
-    pcVar11 = &Camera_gInfo + player;
-    transform(&local_50,(int *)&pcVar11->anchor->orientMat,&local_40);
-    pBVar12 = pcVar11->anchor;
-    (&Camera_gInfo)[player].audioPos.x = (pcVar11->anchor->position).x + local_40;
-    (&Camera_gInfo)[player].audioPos.y = (pBVar12->position).y + local_3c;
-    (&Camera_gInfo)[player].audioPos.z = (pBVar12->position).z + local_38;
+    iVar3 = player * 0x110;
+    ppBVar11 = &Camera_gInfo.anchor + player * 0x44;
+    transform(&local_50,(int *)&(*ppBVar11)->orientMat,&local_40);
+    pBVar12 = *ppBVar11;
+    ((coorddef *)((int)&Camera_gInfo.audioPos + iVar3))->x = ((*ppBVar11)->position).x + local_40;
+    *(int *)((int)&Camera_gInfo.audioPos + iVar3 + 4) = (pBVar12->position).y + local_3c;
+    *(int *)((int)&Camera_gInfo.audioPos + iVar3 + 8) = (pBVar12->position).z + local_38;
     local_48 = -local_48;
-    transform(&local_50,(int *)&pcVar11->anchor->orientMat,&local_40);
+    transform(&local_50,(int *)&(*ppBVar11)->orientMat,&local_40);
     Camera_TunnelLimit__FiPi(player,&local_3c);
-    pBVar12 = pcVar11->anchor;
-    (&Camera_gInfo)[player].position.x = (pcVar11->anchor->position).x + local_40;
-    (&Camera_gInfo)[player].position.y = (pBVar12->position).y + local_3c;
-    (&Camera_gInfo)[player].position.z = (pBVar12->position).z + local_38;
+    pBVar12 = *ppBVar11;
+    ((coorddef *)((int)&Camera_gInfo.position + iVar3))->x = ((*ppBVar11)->position).x + local_40;
+    *(int *)((int)&Camera_gInfo.position + iVar3 + 4) = (pBVar12->position).y + local_3c;
+    *(int *)((int)&Camera_gInfo.position + iVar3 + 8) = (pBVar12->position).z + local_38;
   }
   return;
 }
@@ -931,6 +1093,21 @@ LAB_800817f8:
 	// End offset: 0x80081D20
 	// End Line: 1110
 
+	/* begin block 2 */
+		// Start line: 2270
+	/* end block 2 */
+	// End Line: 2271
+
+	/* begin block 3 */
+		// Start line: 2273
+	/* end block 3 */
+	// End Line: 2274
+
+	/* begin block 4 */
+		// Start line: 2273
+	/* end block 4 */
+	// End Line: 2274
+
 void Camera_UpdateCircleCam__Fi(int player)
 
 {
@@ -939,7 +1116,7 @@ void Camera_UpdateCircleCam__Fi(int player)
   int iVar3;
   BO_tNewtonObj *pBVar4;
   uint uVar5;
-  camera_info *pcVar6;
+  BO_tNewtonObj **ppBVar6;
   uint local_48;
   int local_44;
   uint local_40;
@@ -950,22 +1127,24 @@ void Camera_UpdateCircleCam__Fi(int player)
   int local_18;
   int local_14;
   
-  local_28[0] = PTR_DAT_800558b0;
-  local_28[1] = PTR_DAT_800558b4;
+  local_28[0] = PTR_s_SimpleMem_800558b0;
+  local_28[1] = PTR_LAB_800558b4;
   local_28[2] = PTR_DAT_800558b8;
   if ((((simVar.quickPauseSim == 0) || (Replay_ReplayInterface.changeCamera != 0)) &&
       (InBetween == 0)) && (simVar.pauseSim == 0)) {
-    sVar1 = (&Camera_gInfo)[player].circleAngle + 1;
-    (&Camera_gInfo)[player].circleAngle = sVar1;
+    iVar2 = player * 0x110;
+    sVar1 = *(short *)(&Camera_gInfo.checkcollisions + iVar2) + 1;
+    *(short *)(&Camera_gInfo.checkcollisions + iVar2) = sVar1;
     intsincos((int)sVar1,&local_18,&local_14);
-    local_48 = fixedmult((int)&DAT_00048000,local_14);
+    local_48 = fixedmult((int)&LAB_00048000,local_14);
     local_40 = fixedmult(0x60000,local_18);
-    if (((int)(&Camera_gInfo)[player].circleAngle + 0x100U & 0x1ff) == 0) {
-      (&Camera_gInfo)[player].circleCounter = (&Camera_gInfo)[player].circleCounter + 1;
+    if (((int)*(short *)(&Camera_gInfo.checkcollisions + iVar2) + 0x100U & 0x1ff) == 0) {
+      *(short *)(&Camera_gInfo.checkwalls + iVar2) =
+           *(short *)(&Camera_gInfo.checkwalls + iVar2) + 1;
     }
-    uVar5 = (int)(&Camera_gInfo)[player].circleAngle - 0x80;
+    uVar5 = (int)*(short *)(&Camera_gInfo.checkcollisions + iVar2) - 0x80;
     if ((uVar5 & 0x1ff) < 0x80) {
-      iVar2 = (uint)(ushort)(&Camera_gInfo)[player].circleCounter << 0x10;
+      iVar2 = (uint)*(ushort *)(&Camera_gInfo.checkwalls + iVar2) << 0x10;
       iVar3 = iVar2 >> 0x10;
       local_44 = *(int *)((int)local_28 +
                          ((iVar3 + ((iVar3 / 3 + (iVar3 >> 0x1f)) - (iVar2 >> 0x1f)) * -3) * 0x10000
@@ -974,19 +1153,20 @@ void Camera_UpdateCircleCam__Fi(int player)
                  local_44;
     }
     else {
-      iVar2 = (uint)(ushort)(&Camera_gInfo)[player].circleCounter << 0x10;
+      iVar2 = (uint)*(ushort *)(&Camera_gInfo.checkwalls + iVar2) << 0x10;
       iVar3 = iVar2 >> 0x10;
       local_44 = *(int *)((int)local_28 +
                          ((iVar3 + ((iVar3 / 3 + (iVar3 >> 0x1f)) - (iVar2 >> 0x1f)) * -3) * 0x10000
                          >> 0xe));
     }
-    pcVar6 = &Camera_gInfo + player;
-    transform((int *)&local_48,(int *)&pcVar6->anchor->orientMat,&local_38);
+    iVar2 = player * 0x110;
+    ppBVar6 = &Camera_gInfo.anchor + player * 0x44;
+    transform((int *)&local_48,(int *)&(*ppBVar6)->orientMat,&local_38);
     Camera_TunnelLimit__FiPi(player,&local_34);
-    pBVar4 = pcVar6->anchor;
-    (&Camera_gInfo)[player].position.x = (pcVar6->anchor->position).x + local_38;
-    (&Camera_gInfo)[player].position.y = (pBVar4->position).y + local_34;
-    (&Camera_gInfo)[player].position.z = (pBVar4->position).z + local_30;
+    pBVar4 = *ppBVar6;
+    ((coorddef *)((int)&Camera_gInfo.position + iVar2))->x = ((*ppBVar6)->position).x + local_38;
+    *(int *)((int)&Camera_gInfo.position + iVar2 + 4) = (pBVar4->position).y + local_34;
+    *(int *)((int)&Camera_gInfo.position + iVar2 + 8) = (pBVar4->position).z + local_30;
   }
   return;
 }
@@ -1004,33 +1184,50 @@ void Camera_UpdateCircleCam__Fi(int player)
 	// End offset: 0x80081E2C
 	// End Line: 1133
 
+	/* begin block 2 */
+		// Start line: 2373
+	/* end block 2 */
+	// End Line: 2374
+
+	/* begin block 3 */
+		// Start line: 2379
+	/* end block 3 */
+	// End Line: 2380
+
+	/* begin block 4 */
+		// Start line: 2379
+	/* end block 4 */
+	// End Line: 2380
+
 void SetCameraZoom__Fii(int player,int targetDist)
 
 {
-  uint uVar1;
+  int iVar1;
+  uint uVar2;
   
-  if ((*(uint *)&(&Camera_gInfo)[player].field_0x74 >> 7 & 1) == 0) {
+  if ((*(uint *)(&Camera_gInfo.modechange + player * 0x110) >> 7 & 1) == 0) {
     if (0x3000 < targetDist) {
-      uVar1 = *(uint *)&(&Camera_gInfo)[player].field_0x74 >> 0x19 & 3;
-      if (uVar1 == 1) {
-        DAT_00000290 = targetDist * 0xbe >> 0x1f;
-        DAT_00000290 = ((targetDist * 0xbe) / 6 + DAT_00000290 >> 0xb) - DAT_00000290;
+      uVar2 = *(uint *)(&Camera_gInfo.modechange + player * 0x110) >> 0x19 & 3;
+      if (uVar2 == 1) {
+        iVar1 = targetDist * 0xbe >> 0x1f;
+        Camera_gGeomScreen = ((targetDist * 0xbe) / 6 + iVar1 >> 0xb) - iVar1;
       }
       else {
-        if (((uVar1 == 2) &&
-            (DAT_00000290 = targetDist * 0xbe >> 0x1f,
-            DAT_00000290 = ((targetDist * 0xbe) / 6 + DAT_00000290 >> 0xb) - DAT_00000290,
-            0x4b0 < DAT_00000290)) &&
-           (DAT_00000290 = (int)(&DAT_00001770 + -DAT_00000290) >> 2, DAT_00000290 < 0x2ee)) {
-          DAT_00000290 = 0x2ee;
+        if (((uVar2 == 2) &&
+            (iVar1 = targetDist * 0xbe >> 0x1f,
+            Camera_gGeomScreen = ((targetDist * 0xbe) / 6 + iVar1 >> 0xb) - iVar1,
+            0x4b0 < Camera_gGeomScreen)) &&
+           (Camera_gGeomScreen = (int)(&DAT_00001770 + -Camera_gGeomScreen) >> 2,
+           Camera_gGeomScreen < 0x2ee)) {
+          Camera_gGeomScreen = 0x2ee;
         }
       }
     }
   }
   else {
-    DAT_00000290 = 0xbe;
+    Camera_gGeomScreen = 0xbe;
   }
-  SetGeomScreen(DAT_00000290);
+  SetGeomScreen(Camera_gGeomScreen);
   return;
 }
 
@@ -1052,37 +1249,54 @@ void SetCameraZoom__Fii(int player,int targetDist)
 	// End offset: 0x80081F58
 	// End Line: 1155
 
+	/* begin block 2 */
+		// Start line: 2417
+	/* end block 2 */
+	// End Line: 2418
+
+	/* begin block 3 */
+		// Start line: 2421
+	/* end block 3 */
+	// End Line: 2422
+
+	/* begin block 4 */
+		// Start line: 2421
+	/* end block 4 */
+	// End Line: 2422
+
 void Camera_UpdateTVCam__Fi(int player)
 
 {
   int iVar1;
-  uint uVar2;
-  uchar *puVar3;
+  int iVar2;
+  uint uVar3;
+  uchar *puVar4;
   coorddef *b;
   
-  b = &(&Camera_gInfo)[player].position;
-  iVar1 = Math_Dist3D__FP8coorddefT0(&((&Camera_gInfo)[player].target)->position,b);
-  if (iVar1 < 1) {
-    iVar1 = Math_Dist3D__FP8coorddefT0(&((&Camera_gInfo)[player].target)->position,b);
-    iVar1 = -iVar1;
+  b = (coorddef *)((int)&Camera_gInfo.position + player * 0x110);
+  iVar2 = Math_Dist3D__FP8coorddefT0(&(&Camera_gInfo.target)[player * 0x44]->position,b);
+  if (iVar2 < 1) {
+    iVar2 = Math_Dist3D__FP8coorddefT0(&(&Camera_gInfo.target)[player * 0x44]->position,b);
+    iVar2 = -iVar2;
   }
   else {
-    iVar1 = Math_Dist3D__FP8coorddefT0(&((&Camera_gInfo)[player].target)->position,b);
+    iVar2 = Math_Dist3D__FP8coorddefT0(&(&Camera_gInfo.target)[player * 0x44]->position,b);
   }
-  puVar3 = (uchar *)(&Camera_gInfo)[player].position.x;
-  if ((&lastX_64)[player] != puVar3) {
-    (&lastX_64)[player] = puVar3;
-    (&lastY_65)[player] = (uchar *)(&Camera_gInfo)[player].position.y;
+  iVar1 = player * 0x110;
+  puVar4 = (uchar *)((coorddef *)((int)&Camera_gInfo.position + iVar1))->x;
+  if (lastX_64[player] != puVar4) {
+    lastX_64[player] = puVar4;
+    lastY_65[player] = *(uchar **)((int)&Camera_gInfo.position + iVar1 + 4);
   }
-  uVar2 = fixedmult((&Camera_gInfo)[player].TVHeight >> 2,(iVar1 >> 4) + -0x4000);
-  if ((&Camera_gInfo)[player].TVHeight < (int)uVar2) {
-    uVar2 = (&Camera_gInfo)[player].TVHeight;
+  uVar3 = fixedmult((&Camera_gInfo.TVHeight)[player * 0x44] >> 2,(iVar2 >> 4) + -0x4000);
+  if ((&Camera_gInfo.TVHeight)[player * 0x44] < (int)uVar3) {
+    uVar3 = (&Camera_gInfo.TVHeight)[player * 0x44];
   }
-  if ((int)uVar2 < 0) {
-    uVar2 = 0;
+  if ((int)uVar3 < 0) {
+    uVar3 = 0;
   }
-  *(uchar **)&(&Camera_gInfo)[player].position.y = (&lastY_65)[player] + uVar2;
-  SetCameraZoom__Fii(player,iVar1 >> 4);
+  *(uchar **)((int)&Camera_gInfo.position + iVar1 + 4) = lastY_65[player] + uVar3;
+  SetCameraZoom__Fii(player,iVar2 >> 4);
   return;
 }
 
@@ -1103,6 +1317,21 @@ void Camera_UpdateTVCam__Fi(int player)
 	// End offset: 0x8008223C
 	// End Line: 1279
 
+	/* begin block 2 */
+		// Start line: 2528
+	/* end block 2 */
+	// End Line: 2529
+
+	/* begin block 3 */
+		// Start line: 2577
+	/* end block 3 */
+	// End Line: 2578
+
+	/* begin block 4 */
+		// Start line: 2577
+	/* end block 4 */
+	// End Line: 2578
+
 void Camera_UpdateAnimCam__Fi(int player)
 
 {
@@ -1113,70 +1342,72 @@ void Camera_UpdateAnimCam__Fi(int player)
   matrixtdef *pmVar4;
   BO_tNewtonObj *pBVar5;
   int iVar6;
-  int iVar7;
-  camera_info *pcVar8;
+  BO_tNewtonObj **ppBVar7;
+  int iVar8;
   coorddef local_58;
   int local_48;
   int local_44;
   int local_40;
   matrixtdef local_38;
   
-  if ((&Camera_gInfo)[player].animHandle == -1) {
-    cVar1 = (&Camera_gInfo)[player].animNum;
-    (&Camera_gInfo)[player].animNum = cVar1 + -1;
-    iVar2 = Anim_Handle__Fi((uint)(byte)(&gAnimCams)[(int)cVar1 + GameSetup_gData.track * 4]);
-    (&Camera_gInfo)[player].animHandle = (char)iVar2;
+  iVar8 = player * 0x110;
+  if ((&Camera_gInfo.tumbling)[iVar8] == -1) {
+    cVar1 = (&Camera_gInfo.intransition)[iVar8];
+    (&Camera_gInfo.intransition)[iVar8] = cVar1 + -1;
+    iVar2 = Anim_Handle__Fi((uint)(byte)gAnimCams[(int)cVar1 + GameSetup_gData.track * 4]);
+    (&Camera_gInfo.tumbling)[iVar8] = (char)iVar2;
   }
-  this = Anim_GetAnim__Fi((int)(&Camera_gInfo)[player].animHandle);
+  this = Anim_GetAnim__Fi((int)(&Camera_gInfo.tumbling)[iVar8]);
   iVar2 = GetTimedAnimPosRot__10AnimScriptP8coorddefP10matrixtdef(this,&local_58,&local_38);
   if (iVar2 < 1) {
-    if ((&Camera_gInfo)[player].animNum < '\x01') {
+    if ((&Camera_gInfo.intransition)[iVar8] < '\x01') {
       if (Replay_ReplayMode != 2) {
         Camera_SetMode__Fii(player,GameSetup_gData.carInfo[player].Camera[0]);
         return;
       }
       if (numValidCams != 0) {
         Replay_ReplayFindClosestCamera__Fii
-                  (player,(int)(((&Camera_gInfo)[player].anchor)->simRoadInfo).slice);
+                  (player,(int)((&Camera_gInfo.anchor)[player * 0x44]->simRoadInfo).slice);
         return;
       }
       Camera_SetMode__Fii(player,0xb);
-      (&Camera_gInfo)[player].splineMode = '\x03';
+      (&Camera_gInfo.direction)[iVar8] = '\x03';
       return;
     }
-    Anim_FreeHandle__Fi((int)(&Camera_gInfo)[player].animHandle);
-    cVar1 = (&Camera_gInfo)[player].animNum;
-    (&Camera_gInfo)[player].animNum = cVar1 + -1;
-    iVar2 = Anim_Handle__Fi((uint)(byte)(&gAnimCams)[(int)cVar1 + GameSetup_gData.track * 4]);
-    (&Camera_gInfo)[player].animHandle = (char)iVar2;
+    Anim_FreeHandle__Fi((int)(&Camera_gInfo.tumbling)[iVar8]);
+    cVar1 = (&Camera_gInfo.intransition)[iVar8];
+    (&Camera_gInfo.intransition)[iVar8] = cVar1 + -1;
+    iVar2 = Anim_Handle__Fi((uint)(byte)gAnimCams[(int)cVar1 + GameSetup_gData.track * 4]);
+    (&Camera_gInfo.tumbling)[iVar8] = (char)iVar2;
     this = Anim_GetAnim__Fi((int)(char)iVar2);
     GetTimedAnimPosRot__10AnimScriptP8coorddefP10matrixtdef(this,&local_58,&local_38);
   }
-  pcVar8 = &Camera_gInfo + player;
-  pmVar3 = &(&Camera_gInfo)[player].rotation;
-  if (((int)(uint)(byte)(&gAnimMode)[GameSetup_gData.track] >>
-       ((int)(&Camera_gInfo)[player].animNum & 0x1fU) & 1U) == 0) {
-    transform((int *)&local_58,(int *)&pcVar8->anchor->orientMat,&local_48);
-    pBVar5 = pcVar8->anchor;
-    (&Camera_gInfo)[player].position.x = (pcVar8->anchor->position).x + local_48;
-    (&Camera_gInfo)[player].position.y = (pBVar5->position).y + local_44;
-    (&Camera_gInfo)[player].position.z = (pBVar5->position).z + local_40;
+  iVar8 = player * 0x110;
+  ppBVar7 = &Camera_gInfo.anchor + player * 0x44;
+  pmVar3 = (matrixtdef *)((int)&Camera_gInfo.rotation + iVar8);
+  if (((int)(uint)(byte)gAnimMode[GameSetup_gData.track] >>
+       ((int)(&Camera_gInfo.intransition)[iVar8] & 0x1fU) & 1U) == 0) {
+    transform((int *)&local_58,(int *)&(*ppBVar7)->orientMat,&local_48);
+    pBVar5 = *ppBVar7;
+    ((coorddef *)((int)&Camera_gInfo.position + iVar8))->x = ((*ppBVar7)->position).x + local_48;
+    *(int *)((int)&Camera_gInfo.position + iVar8 + 4) = (pBVar5->position).y + local_44;
+    *(int *)((int)&Camera_gInfo.position + iVar8 + 8) = (pBVar5->position).z + local_40;
     Math_fasttransmult__FP10matrixtdefN20
-              (&local_38,&pBVar5->orientMat,&(&Camera_gInfo)[player].rotation);
+              (&local_38,&pBVar5->orientMat,(matrixtdef *)((int)&Camera_gInfo.rotation + iVar8));
   }
   else {
-    (&Camera_gInfo)[player].position.x = local_58.x;
-    (&Camera_gInfo)[player].position.y = local_58.y;
-    (&Camera_gInfo)[player].position.z = local_58.z;
+    ((coorddef *)((int)&Camera_gInfo.position + iVar8))->x = local_58.x;
+    *(int *)((int)&Camera_gInfo.position + iVar8 + 4) = local_58.y;
+    *(int *)((int)&Camera_gInfo.position + iVar8 + 8) = local_58.z;
     pmVar4 = &local_38;
     do {
-      iVar2 = pmVar4->m[1];
-      iVar6 = pmVar4->m[2];
-      iVar7 = pmVar4->m[3];
+      iVar8 = pmVar4->m[1];
+      iVar2 = pmVar4->m[2];
+      iVar6 = pmVar4->m[3];
       pmVar3->m[0] = pmVar4->m[0];
-      pmVar3->m[1] = iVar2;
-      pmVar3->m[2] = iVar6;
-      pmVar3->m[3] = iVar7;
+      pmVar3->m[1] = iVar8;
+      pmVar3->m[2] = iVar2;
+      pmVar3->m[3] = iVar6;
       pmVar4 = (matrixtdef *)(pmVar4->m + 4);
       pmVar3 = (matrixtdef *)(pmVar3->m + 4);
     } while (pmVar4 != (matrixtdef *)(local_38.m + 8));
@@ -1202,38 +1433,55 @@ void Camera_UpdateAnimCam__Fi(int player)
 	// End offset: 0x800822DC
 	// End Line: 1335
 
+	/* begin block 2 */
+		// Start line: 2757
+	/* end block 2 */
+	// End Line: 2758
+
+	/* begin block 3 */
+		// Start line: 2760
+	/* end block 3 */
+	// End Line: 2761
+
+	/* begin block 4 */
+		// Start line: 2760
+	/* end block 4 */
+	// End Line: 2761
+
 void Camera_UpdateFinishCam__Fi(int player)
 
 {
   int iVar1;
   AnimScript *this;
   BO_tNewtonObj *pBVar2;
-  camera_info *pcVar3;
+  BO_tNewtonObj **ppBVar3;
+  int iVar4;
   coorddef cStack96;
   int local_50;
   int local_4c;
   int local_48;
   matrixtdef mStack64;
   
-  pcVar3 = &Camera_gInfo + player;
-  if ((&Camera_gInfo)[player].animHandle == -1) {
+  iVar4 = player * 0x110;
+  ppBVar3 = &Camera_gInfo.anchor + player * 0x44;
+  if ((&Camera_gInfo.tumbling)[iVar4] == -1) {
     iVar1 = Anim_Handle__Fi(1);
-    (&Camera_gInfo)[player].animHandle = (char)iVar1;
+    (&Camera_gInfo.tumbling)[iVar4] = (char)iVar1;
   }
-  this = Anim_GetAnim__Fi((int)(&Camera_gInfo)[player].animHandle);
+  this = Anim_GetAnim__Fi((int)(&Camera_gInfo.tumbling)[iVar4]);
   iVar1 = GetTimedAnimPosRot__10AnimScriptP8coorddefP10matrixtdef(this,&cStack96,&mStack64);
   if (iVar1 < 1) {
     Anim_GetLastAnimPosRot__FiiP8coorddefP10matrixtdef(1,6,&cStack96,&mStack64);
   }
-  transform((int *)&cStack96,(int *)&pcVar3->anchor->orientMat,&local_50);
-  pBVar2 = pcVar3->anchor;
-  (&Camera_gInfo)[player].position.x = (pcVar3->anchor->position).x + local_50;
-  (&Camera_gInfo)[player].position.y = (pBVar2->position).y + local_4c;
-  (&Camera_gInfo)[player].position.z = (pBVar2->position).z + local_48;
+  transform((int *)&cStack96,(int *)&(*ppBVar3)->orientMat,&local_50);
+  pBVar2 = *ppBVar3;
+  ((coorddef *)((int)&Camera_gInfo.position + iVar4))->x = ((*ppBVar3)->position).x + local_50;
+  *(int *)((int)&Camera_gInfo.position + iVar4 + 4) = (pBVar2->position).y + local_4c;
+  *(int *)((int)&Camera_gInfo.position + iVar4 + 8) = (pBVar2->position).z + local_48;
   Math_fasttransmult__FP10matrixtdefN20
-            (&mStack64,&pBVar2->orientMat,&(&Camera_gInfo)[player].rotation);
-  *(uint *)&(&Camera_gInfo)[player].field_0x74 =
-       *(uint *)&(&Camera_gInfo)[player].field_0x74 & 0xfffffff1 | 0x70;
+            (&mStack64,&pBVar2->orientMat,(matrixtdef *)((int)&Camera_gInfo.rotation + iVar4));
+  *(uint *)(&Camera_gInfo.modechange + iVar4) =
+       *(uint *)(&Camera_gInfo.modechange + iVar4) & 0xfffffff1 | 0x70;
   return;
 }
 
@@ -1253,6 +1501,21 @@ void Camera_UpdateFinishCam__Fi(int player)
 	// End offset: 0x8008237C
 	// End Line: 1351
 
+	/* begin block 2 */
+		// Start line: 2927
+	/* end block 2 */
+	// End Line: 2928
+
+	/* begin block 3 */
+		// Start line: 2931
+	/* end block 3 */
+	// End Line: 2932
+
+	/* begin block 4 */
+		// Start line: 2931
+	/* end block 4 */
+	// End Line: 2932
+
 void Camera_UpdateBlimpCam__Fi(int player)
 
 {
@@ -1260,31 +1523,33 @@ void Camera_UpdateBlimpCam__Fi(int player)
   uint uVar2;
   BO_tNewtonObj *pBVar3;
   int iVar4;
-  camera_info *pcVar5;
+  int iVar5;
+  BO_tNewtonObj **ppBVar6;
   int local_24;
   int local_20;
   int local_18;
   int local_14;
   int local_10;
   
-  pcVar5 = &Camera_gInfo + player;
-  iVar1 = (int)(&Camera_gInfo)[player].mode;
-  iVar4 = (&Camera_gFlags)[iVar1].arm.x;
-  local_24 = (&Camera_gFlags)[iVar1].arm.y;
-  local_20 = (&Camera_gFlags)[iVar1].arm.z;
+  iVar5 = player * 0x110;
+  ppBVar6 = &Camera_gInfo.anchor + player * 0x44;
+  iVar1 = (int)(&Camera_gInfo.mode)[player * 0x88] * 0x10;
+  iVar4 = ((coorddef *)((int)&Camera_gFlags[0].arm + iVar1))->x;
+  local_24 = *(int *)((int)&Camera_gFlags[0].arm + iVar1 + 4);
+  local_20 = *(int *)((int)&Camera_gFlags[0].arm + iVar1 + 8);
   Camera_TunnelLimit__FiPi(player,&local_24);
-  local_18 = (&Camera_gInfo)[player].position.x - (pcVar5->anchor->position).x;
-  local_14 = (&Camera_gInfo)[player].position.y - (pcVar5->anchor->position).y;
-  local_10 = (&Camera_gInfo)[player].position.z - (pcVar5->anchor->position).z;
+  local_18 = ((coorddef *)((int)&Camera_gInfo.position + iVar5))->x - ((*ppBVar6)->position).x;
+  local_14 = *(int *)((int)&Camera_gInfo.position + iVar5 + 4) - ((*ppBVar6)->position).y;
+  local_10 = *(int *)((int)&Camera_gInfo.position + iVar5 + 8) - ((*ppBVar6)->position).z;
   uVar2 = fixedmult(iVar4 - local_18,(int)&DAT_00001999);
   local_18 = local_18 + uVar2;
   uVar2 = fixedmult(local_24 - local_14,(int)&DAT_00001999);
   local_14 = local_14 + uVar2;
   uVar2 = fixedmult(local_20 - local_10,(int)&DAT_00001999);
-  pBVar3 = pcVar5->anchor;
-  (&Camera_gInfo)[player].position.x = (pcVar5->anchor->position).x + local_18;
-  (&Camera_gInfo)[player].position.y = (pBVar3->position).y + local_14;
-  (&Camera_gInfo)[player].position.z = (pBVar3->position).z + local_10 + uVar2;
+  pBVar3 = *ppBVar6;
+  ((coorddef *)((int)&Camera_gInfo.position + iVar5))->x = ((*ppBVar6)->position).x + local_18;
+  *(int *)((int)&Camera_gInfo.position + iVar5 + 4) = (pBVar3->position).y + local_14;
+  *(int *)((int)&Camera_gInfo.position + iVar5 + 8) = (pBVar3->position).z + local_10 + uVar2;
   return;
 }
 
@@ -1320,6 +1585,21 @@ void Camera_UpdateBlimpCam__Fi(int player)
 	// End offset: 0x8008269C
 	// End Line: 1437
 
+	/* begin block 2 */
+		// Start line: 3010
+	/* end block 2 */
+	// End Line: 3011
+
+	/* begin block 3 */
+		// Start line: 3038
+	/* end block 3 */
+	// End Line: 3039
+
+	/* begin block 4 */
+		// Start line: 3038
+	/* end block 4 */
+	// End Line: 3039
+
 void Camera_SetSplineCam__Fi(int player)
 
 {
@@ -1329,53 +1609,60 @@ void Camera_SetSplineCam__Fi(int player)
   uint uVar4;
   Trk_NewSlice *pTVar5;
   int iVar6;
-  short sVar7;
-  int iVar8;
-  BO_tNewtonObj *pBVar9;
-  camera_info *pcVar10;
+  int iVar7;
+  short sVar8;
+  int iVar9;
+  BO_tNewtonObj *pBVar10;
+  BO_tNewtonObj **ppBVar11;
   
-  pcVar10 = &Camera_gInfo + player;
-  pBVar9 = pcVar10->anchor;
-  iVar6 = ((0x10000 - (&camSpeedTable)[(uint)(byte)(&Camera_gInfo)[player].splineMode]) * 0xf >>
-          0x10) + 1;
-  iVar8 = 8;
+  iVar9 = player * 0x110;
+  ppBVar11 = &Camera_gInfo.anchor + player * 0x44;
+  pBVar10 = *ppBVar11;
+  iVar6 = ((0x10000 - camSpeedTable[(uint)(byte)(&Camera_gInfo.direction)[iVar9]]) * 0xf >> 0x10) +
+          1;
+  iVar7 = 8;
   if (iVar6 < 9) {
-    iVar8 = iVar6;
+    iVar7 = iVar6;
   }
   if ((&Replay_ReplayCamera)[player].defaultCamera == 0) {
-    uVar2 = fixedmult((&Camera_gInfo)[player].rotation.m[6],(pBVar9->roadMatrix).m[6]);
-    uVar3 = fixedmult((&Camera_gInfo)[player].rotation.m[7],(pcVar10->anchor->roadMatrix).m[7]);
-    uVar4 = fixedmult((&Camera_gInfo)[player].rotation.m[8],(pcVar10->anchor->roadMatrix).m[8]);
+    uVar2 = fixedmult(*(int *)((int)&Camera_gInfo.rotation + iVar9 + 0x18),
+                      (pBVar10->roadMatrix).m[6]);
+    uVar3 = fixedmult(*(int *)((int)&Camera_gInfo.rotation + iVar9 + 0x1c),
+                      ((*ppBVar11)->roadMatrix).m[7]);
+    uVar4 = fixedmult(*(int *)((int)&Camera_gInfo.rotation + iVar9 + 0x20),
+                      ((*ppBVar11)->roadMatrix).m[8]);
     if ((int)(uVar2 + uVar3 + uVar4) < 0) {
-      iVar8 = -iVar8;
+      iVar7 = -iVar7;
     }
-    if (pBVar9[1].shadowMat.m[7] < 0) {
-      iVar8 = -iVar8;
+    if (pBVar10[1].shadowMat.m[7] < 0) {
+      iVar7 = -iVar7;
     }
-    if (iVar8 < 0) {
-      sVar1 = (pBVar9->simRoadInfo).slice;
-      sVar7 = sVar1 + (short)iVar8;
-      if ((int)sVar1 + iVar8 < 0) {
-        sVar7 = (short)gNumSlices + sVar7;
+    if (iVar7 < 0) {
+      sVar1 = (pBVar10->simRoadInfo).slice;
+      sVar8 = sVar1 + (short)iVar7;
+      if ((int)sVar1 + iVar7 < 0) {
+        sVar8 = (short)gNumSlices + sVar8;
       }
-      (&Camera_gInfo)[player].slicePos.slice = sVar7;
+      *(short *)(&Camera_gInfo.forceFocus + player * 0x44) = sVar8;
     }
     else {
-      sVar1 = (pBVar9->simRoadInfo).slice;
-      sVar7 = sVar1 + (short)iVar8;
-      if (gNumSlices <= (int)sVar1 + iVar8) {
-        sVar7 = sVar7 - (short)gNumSlices;
+      sVar1 = (pBVar10->simRoadInfo).slice;
+      sVar8 = sVar1 + (short)iVar7;
+      if (gNumSlices <= (int)sVar1 + iVar7) {
+        sVar8 = sVar8 - (short)gNumSlices;
       }
-      (&Camera_gInfo)[player].slicePos.slice = sVar7;
+      *(short *)(&Camera_gInfo.forceFocus + player * 0x44) = sVar8;
     }
-    pTVar5 = BWorldSm_slices + (int)(&Camera_gInfo)[player].slicePos.slice;
-    iVar8 = pTVar5->center[1];
-    iVar6 = pTVar5->center[2];
-    (&Camera_gInfo)[player].position.x = pTVar5->center[0];
-    (&Camera_gInfo)[player].position.y = iVar8;
-    (&Camera_gInfo)[player].position.z = iVar6;
+    iVar7 = player * 0x110;
+    pTVar5 = BWorldSm_slices + (int)*(short *)(&Camera_gInfo.forceFocus + player * 0x44);
+    iVar6 = pTVar5->center[1];
+    iVar9 = pTVar5->center[2];
+    ((coorddef *)((int)&Camera_gInfo.position + iVar7))->x = pTVar5->center[0];
+    *(int *)((int)&Camera_gInfo.position + iVar7 + 4) = iVar6;
+    *(int *)((int)&Camera_gInfo.position + iVar7 + 8) = iVar9;
     BWorldSm_FindClosestQuadRez__FP8coorddefP12BWorldSm_Posi
-              (&(&Camera_gInfo)[player].position,&(&Camera_gInfo)[player].slicePos,1);
+              ((coorddef *)((int)&Camera_gInfo.position + iVar7),
+               (BWorldSm_Pos *)(&Camera_gInfo.forceFocus + player * 0x44),1);
   }
   return;
 }
@@ -1442,6 +1729,21 @@ void Camera_SetSplineCam__Fi(int player)
 	// End offset: 0x80082C14
 	// End Line: 1544
 
+	/* begin block 2 */
+		// Start line: 3136
+	/* end block 2 */
+	// End Line: 3137
+
+	/* begin block 3 */
+		// Start line: 3144
+	/* end block 3 */
+	// End Line: 3145
+
+	/* begin block 4 */
+		// Start line: 3144
+	/* end block 4 */
+	// End Line: 3145
+
 /* WARNING: Type propagation algorithm not settling */
 
 void Camera_UpdateSplineCam__Fi(int player)
@@ -1454,19 +1756,19 @@ void Camera_UpdateSplineCam__Fi(int player)
   uint uVar5;
   uint uVar6;
   Trk_NewSlice *pTVar7;
-  int iVar8;
-  short sVar9;
-  int iVar10;
-  Trk_NewSlice *pTVar11;
+  short sVar8;
+  int iVar9;
+  Trk_NewSlice *pTVar10;
+  int iVar11;
   coorddef *b;
-  camera_info *pcVar12;
+  BO_tNewtonObj **ppBVar12;
   BO_tNewtonObj *pBVar13;
   coorddef local_40;
   int local_30;
   int local_2c;
   int local_28;
   
-  pBVar13 = (&Camera_gInfo)[player].anchor;
+  pBVar13 = (&Camera_gInfo.anchor)[player * 0x44];
   bVar2 = false;
   if ((simVar.quickPauseSim != 0) && (Replay_ReplayInterface.changeCamera == 0)) {
     return;
@@ -1474,87 +1776,91 @@ void Camera_UpdateSplineCam__Fi(int player)
   if (InBetween != 0) {
     return;
   }
-  iVar10 = (int)(pBVar13->simRoadInfo).slice;
-  iVar8 = (int)(&Camera_gInfo)[player].slicePos.slice;
-  iVar3 = iVar10 - iVar8;
+  iVar9 = (int)(pBVar13->simRoadInfo).slice;
+  iVar3 = iVar9 - (int)*(short *)(&Camera_gInfo.forceFocus + player * 0x44);
   if (iVar3 < 1) {
-    iVar3 = iVar8 - iVar10;
+    iVar3 = (int)*(short *)(&Camera_gInfo.forceFocus + player * 0x44) - iVar9;
   }
   if ((int)(gNumSlices + ((uint)gNumSlices >> 0x1f)) >> 1 < iVar3) {
-    iVar10 = (int)(pBVar13->simRoadInfo).slice;
-    iVar3 = (int)(&Camera_gInfo)[player].slicePos.slice;
-    iVar8 = iVar10 - iVar3;
-    if (iVar8 < 1) {
-      iVar8 = gNumSlices - (iVar3 - iVar10);
+    iVar9 = (int)(pBVar13->simRoadInfo).slice;
+    iVar3 = iVar9 - (int)*(short *)(&Camera_gInfo.forceFocus + player * 0x44);
+    if (iVar3 < 1) {
+      iVar3 = gNumSlices - ((int)*(short *)(&Camera_gInfo.forceFocus + player * 0x44) - iVar9);
     }
     else {
-      iVar8 = gNumSlices - iVar8;
+      iVar3 = gNumSlices - iVar3;
     }
   }
   else {
-    iVar10 = (int)(pBVar13->simRoadInfo).slice;
-    iVar3 = (int)(&Camera_gInfo)[player].slicePos.slice;
-    iVar8 = iVar10 - iVar3;
-    if (iVar8 < 1) {
-      iVar8 = iVar3 - iVar10;
+    iVar9 = (int)(pBVar13->simRoadInfo).slice;
+    iVar3 = iVar9 - (int)*(short *)(&Camera_gInfo.forceFocus + player * 0x44);
+    if (iVar3 < 1) {
+      iVar3 = (int)*(short *)(&Camera_gInfo.forceFocus + player * 0x44) - iVar9;
     }
   }
-  iVar3 = (0x10000 - (&camSpeedTable)[(uint)(byte)(&Camera_gInfo)[player].splineMode]) * 0xf >> 0x10
-  ;
-  if ((iVar3 + 2 < iVar8) &&
-     ((&camSpeedTable)[(uint)(byte)(&Camera_gInfo)[player].splineMode] < 0x10000)) {
+  iVar9 = (0x10000 - camSpeedTable[(uint)(byte)(&Camera_gInfo.direction)[player * 0x110]]) * 0xf >>
+          0x10;
+  if ((iVar9 + 2 < iVar3) &&
+     (camSpeedTable[(uint)(byte)(&Camera_gInfo.direction)[player * 0x110]] < 0x10000)) {
     bVar2 = true;
   }
   if ((bVar2) && ((&Replay_ReplayCamera)[player].defaultCamera == 0)) {
-    iVar3 = iVar3 + 1;
-    iVar8 = 8;
-    if (iVar3 < 9) {
-      iVar8 = iVar3;
+    iVar9 = iVar9 + 1;
+    iVar3 = 8;
+    if (iVar9 < 9) {
+      iVar3 = iVar9;
     }
-    pcVar12 = &Camera_gInfo + player;
-    uVar4 = fixedmult((&Camera_gInfo)[player].rotation.m[6],(pcVar12->anchor->roadMatrix).m[6]);
-    uVar5 = fixedmult((&Camera_gInfo)[player].rotation.m[7],(pcVar12->anchor->roadMatrix).m[7]);
-    uVar6 = fixedmult((&Camera_gInfo)[player].rotation.m[8],(pcVar12->anchor->roadMatrix).m[8]);
+    iVar9 = player * 0x110;
+    ppBVar12 = &Camera_gInfo.anchor + player * 0x44;
+    uVar4 = fixedmult(*(int *)((int)&Camera_gInfo.rotation + iVar9 + 0x18),
+                      ((*ppBVar12)->roadMatrix).m[6]);
+    uVar5 = fixedmult(*(int *)((int)&Camera_gInfo.rotation + iVar9 + 0x1c),
+                      ((*ppBVar12)->roadMatrix).m[7]);
+    uVar6 = fixedmult(*(int *)((int)&Camera_gInfo.rotation + iVar9 + 0x20),
+                      ((*ppBVar12)->roadMatrix).m[8]);
     if ((int)(uVar4 + uVar5 + uVar6) < 0) {
-      iVar8 = -iVar8;
+      iVar3 = -iVar3;
     }
     if (pBVar13[1].shadowMat.m[7] < 0) {
-      iVar8 = -iVar8;
+      iVar3 = -iVar3;
     }
-    if (iVar8 < 0) {
+    if (iVar3 < 0) {
       sVar1 = (pBVar13->simRoadInfo).slice;
-      sVar9 = sVar1 + (short)iVar8;
-      if ((int)sVar1 + iVar8 < 0) {
-        sVar9 = (short)gNumSlices + sVar9;
+      sVar8 = sVar1 + (short)iVar3;
+      if ((int)sVar1 + iVar3 < 0) {
+        sVar8 = (short)gNumSlices + sVar8;
       }
-      (&Camera_gInfo)[player].slicePos.slice = sVar9;
+      *(short *)(&Camera_gInfo.forceFocus + player * 0x44) = sVar8;
     }
     else {
       sVar1 = (pBVar13->simRoadInfo).slice;
-      sVar9 = sVar1 + (short)iVar8;
-      if (gNumSlices <= (int)sVar1 + iVar8) {
-        sVar9 = sVar9 - (short)gNumSlices;
+      sVar8 = sVar1 + (short)iVar3;
+      if (gNumSlices <= (int)sVar1 + iVar3) {
+        sVar8 = sVar8 - (short)gNumSlices;
       }
-      (&Camera_gInfo)[player].slicePos.slice = sVar9;
+      *(short *)(&Camera_gInfo.forceFocus + player * 0x44) = sVar8;
     }
-    pTVar11 = BWorldSm_slices + (int)(&Camera_gInfo)[player].slicePos.slice;
-    iVar3 = pTVar11->center[1];
-    iVar8 = pTVar11->center[2];
-    (&Camera_gInfo)[player].position.x = pTVar11->center[0];
-    (&Camera_gInfo)[player].position.y = iVar3;
-    (&Camera_gInfo)[player].position.z = iVar8;
+    iVar3 = player * 0x110;
+    pTVar10 = BWorldSm_slices + (int)*(short *)(&Camera_gInfo.forceFocus + player * 0x44);
+    iVar9 = pTVar10->center[1];
+    iVar11 = pTVar10->center[2];
+    ((coorddef *)((int)&Camera_gInfo.position + iVar3))->x = pTVar10->center[0];
+    *(int *)((int)&Camera_gInfo.position + iVar3 + 4) = iVar9;
+    *(int *)((int)&Camera_gInfo.position + iVar3 + 8) = iVar11;
   }
   BWorldSm_FindClosestQuadRez__FP8coorddefP12BWorldSm_Posi
-            (&(&Camera_gInfo)[player].position,&(&Camera_gInfo)[player].slicePos,1);
-  pTVar7 = BWorldSm_slices + (int)(&Camera_gInfo)[player].slicePos.slice;
-  iVar3 = (int)(&Camera_gInfo)[player].slicePos.slice + 1;
-  pTVar11 = BWorldSm_slices;
+            ((coorddef *)((int)&Camera_gInfo.position + player * 0x110),
+             (BWorldSm_Pos *)(&Camera_gInfo.forceFocus + player * 0x44),1);
+  iVar9 = player * 0x110;
+  pTVar7 = BWorldSm_slices + (int)*(short *)(&Camera_gInfo.forceFocus + player * 0x44);
+  iVar3 = (int)*(short *)(&Camera_gInfo.forceFocus + player * 0x44) + 1;
+  pTVar10 = BWorldSm_slices;
   if (iVar3 < gNumSlices) {
-    pTVar11 = BWorldSm_slices + iVar3;
+    pTVar10 = BWorldSm_slices + iVar3;
   }
-  local_30 = pTVar11->center[0];
-  local_2c = pTVar11->center[1];
-  local_28 = pTVar11->center[2];
+  local_30 = pTVar10->center[0];
+  local_2c = pTVar10->center[1];
+  local_28 = pTVar10->center[2];
   local_40.x = local_30 - pTVar7->center[0];
   local_40.y = local_2c - pTVar7->center[1];
   local_40.z = local_28 - pTVar7->center[2];
@@ -1566,22 +1872,25 @@ void Camera_UpdateSplineCam__Fi(int player)
   if ((GameSetup_gData.sgge & 4U) != 0) {
     uVar6 = fixedmult(uVar6,(int)&DAT_0000cccc);
   }
-  uVar4 = fixedmult(uVar6,(&camSpeedTable)[(uint)(byte)(&Camera_gInfo)[player].splineMode]);
+  uVar4 = fixedmult(uVar6,camSpeedTable[(uint)(byte)(&Camera_gInfo.direction)[iVar9]]);
   uVar5 = fixedmult(uVar4,local_40.x);
   uVar6 = fixedmult(uVar4,local_40.y);
   uVar4 = fixedmult(uVar4,local_40.z);
-  b = &(&Camera_gInfo)[player].position;
-  pBVar13 = (&Camera_gInfo)[player].target;
-  (&Camera_gInfo)[player].position.x = (&Camera_gInfo)[player].position.x + ((int)uVar5 >> 6);
-  (&Camera_gInfo)[player].position.y = (&Camera_gInfo)[player].position.y + ((int)uVar6 >> 6);
-  (&Camera_gInfo)[player].position.z = (&Camera_gInfo)[player].position.z + ((int)uVar4 >> 6);
+  b = (coorddef *)((int)&Camera_gInfo.position + iVar9);
+  pBVar13 = (&Camera_gInfo.target)[player * 0x44];
+  ((coorddef *)((int)&Camera_gInfo.position + iVar9))->x =
+       ((coorddef *)((int)&Camera_gInfo.position + iVar9))->x + ((int)uVar5 >> 6);
+  *(int *)((int)&Camera_gInfo.position + iVar9 + 4) =
+       *(int *)((int)&Camera_gInfo.position + iVar9 + 4) + ((int)uVar6 >> 6);
+  *(int *)((int)&Camera_gInfo.position + iVar9 + 8) =
+       *(int *)((int)&Camera_gInfo.position + iVar9 + 8) + ((int)uVar4 >> 6);
   iVar3 = Math_Dist3D__FP8coorddefT0(&pBVar13->position,b);
   if (iVar3 < 1) {
-    iVar3 = Math_Dist3D__FP8coorddefT0(&((&Camera_gInfo)[player].target)->position,b);
+    iVar3 = Math_Dist3D__FP8coorddefT0(&(&Camera_gInfo.target)[player * 0x44]->position,b);
     iVar3 = -iVar3;
   }
   else {
-    iVar3 = Math_Dist3D__FP8coorddefT0(&((&Camera_gInfo)[player].target)->position,b);
+    iVar3 = Math_Dist3D__FP8coorddefT0(&(&Camera_gInfo.target)[player * 0x44]->position,b);
   }
   SetCameraZoom__Fii(player,iVar3 >> 4);
   return;
@@ -1602,6 +1911,21 @@ void Camera_UpdateSplineCam__Fi(int player)
 	/* end block 1 */
 	// End offset: 0x80082C8C
 	// End Line: 1575
+
+	/* begin block 2 */
+		// Start line: 3391
+	/* end block 2 */
+	// End Line: 3392
+
+	/* begin block 3 */
+		// Start line: 3400
+	/* end block 3 */
+	// End Line: 3401
+
+	/* begin block 4 */
+		// Start line: 3400
+	/* end block 4 */
+	// End Line: 3401
 
 int Camera_IslandProfile__FUs(ushort before)
 
@@ -1649,6 +1973,26 @@ int Camera_IslandProfile__FUs(ushort before)
 	// End offset: 0x80082FF8
 	// End Line: 1689
 
+	/* begin block 2 */
+		// Start line: 3447
+	/* end block 2 */
+	// End Line: 3448
+
+	/* begin block 3 */
+		// Start line: 3452
+	/* end block 3 */
+	// End Line: 3453
+
+	/* begin block 4 */
+		// Start line: 3452
+	/* end block 4 */
+	// End Line: 3453
+
+	/* begin block 5 */
+		// Start line: 3463
+	/* end block 5 */
+	// End Line: 3464
+
 void Camera_UpdatePulloverCam__Fi(int player)
 
 {
@@ -1663,7 +2007,7 @@ void Camera_UpdatePulloverCam__Fi(int player)
   uint uVar9;
   int iVar10;
   int iVar11;
-  camera_info *pcVar12;
+  BO_tNewtonObj **ppBVar12;
   int local_40;
   int local_3c;
   int local_38;
@@ -1673,29 +2017,29 @@ void Camera_UpdatePulloverCam__Fi(int player)
   if (((simVar.quickPauseSim == 0) || (Replay_ReplayInterface.changeCamera != 0)) &&
      (InBetween == 0)) {
     SetGeomScreen(0xbe);
-    pcVar12 = &Camera_gInfo + player;
-    if (simGlobal.gameTicks < (&Camera_gInfo)[player].POInhibitor) {
+    ppBVar12 = &Camera_gInfo.anchor + player * 0x44;
+    if (simGlobal.gameTicks < *(int *)(&Camera_gInfo.splineMode + player * 0x110)) {
       Camera_UpdateCopCam2__Fi(player);
     }
     else {
-      pTVar5 = BWorldSm_slices + (int)(pcVar12->anchor->simRoadInfo).slice;
+      pTVar5 = BWorldSm_slices + (int)((*ppBVar12)->simRoadInfo).slice;
       iVar10 = pTVar5->center[0];
       iVar11 = pTVar5->center[1];
       local_18 = pTVar5->center[2];
-      cVar1 = BWorldSm_slices[(int)(pcVar12->anchor->simRoadInfo).slice].forward[2];
-      iVar6 = (pcVar12->anchor->position).x;
-      cVar2 = BWorldSm_slices[(int)(pcVar12->anchor->simRoadInfo).slice].right[0];
+      cVar1 = BWorldSm_slices[(int)((*ppBVar12)->simRoadInfo).slice].forward[2];
+      iVar6 = ((*ppBVar12)->position).x;
+      cVar2 = BWorldSm_slices[(int)((*ppBVar12)->simRoadInfo).slice].right[0];
       local_40 = (int)cVar2 * 0x800;
-      cVar3 = BWorldSm_slices[(int)(pcVar12->anchor->simRoadInfo).slice].right[1];
+      cVar3 = BWorldSm_slices[(int)((*ppBVar12)->simRoadInfo).slice].right[1];
       local_3c = (int)cVar3 * 0x800;
-      cVar4 = BWorldSm_slices[(int)(pcVar12->anchor->simRoadInfo).slice].right[2];
+      cVar4 = BWorldSm_slices[(int)((*ppBVar12)->simRoadInfo).slice].right[2];
       local_38 = (int)cVar4 * 0x800;
-      uVar7 = fixedmult((pcVar12->anchor->position).z - local_18,
-                        (int)BWorldSm_slices[(int)(pcVar12->anchor->simRoadInfo).slice].forward[0]
-                        << 9);
+      uVar7 = fixedmult(((*ppBVar12)->position).z - local_18,
+                        (int)BWorldSm_slices[(int)((*ppBVar12)->simRoadInfo).slice].forward[0] << 9)
+      ;
       uVar8 = fixedmult(iVar6 - iVar10,(int)cVar1 << 9);
       uVar9 = Camera_IslandProfile__FUs
-                        (BWorldSm_slices[(int)(pcVar12->anchor->simRoadInfo).slice].pavedProfile);
+                        (BWorldSm_slices[(int)((*ppBVar12)->simRoadInfo).slice].pavedProfile);
       if ((int)(uVar7 - uVar8) < 0) {
         uVar9 = uVar9 ^ 1;
       }
@@ -1706,18 +2050,23 @@ void Camera_UpdatePulloverCam__Fi(int player)
       }
       local_1c = 0x60000;
       Camera_TunnelLimit__FiPi(player,&local_1c);
+      player = player * 0x110;
       local_1c = local_1c + iVar11 + local_3c;
       local_18 = local_18 + local_38;
-      uVar7 = fixedmult((iVar10 + local_40) - (&Camera_gInfo)[player].position.x,0x7ae);
-      iVar6 = (&Camera_gInfo)[player].position.y;
-      (&Camera_gInfo)[player].position.x = (&Camera_gInfo)[player].position.x + uVar7;
+      uVar7 = fixedmult((iVar10 + local_40) -
+                        ((coorddef *)((int)&Camera_gInfo.position + player))->x,0x7ae);
+      iVar6 = *(int *)((int)&Camera_gInfo.position + player + 4);
+      ((coorddef *)((int)&Camera_gInfo.position + player))->x =
+           ((coorddef *)((int)&Camera_gInfo.position + player))->x + uVar7;
       uVar7 = fixedmult(local_1c - iVar6,0x7ae);
-      iVar6 = (&Camera_gInfo)[player].position.z;
-      (&Camera_gInfo)[player].position.y = (&Camera_gInfo)[player].position.y + uVar7;
+      iVar6 = *(int *)((int)&Camera_gInfo.position + player + 8);
+      *(int *)((int)&Camera_gInfo.position + player + 4) =
+           *(int *)((int)&Camera_gInfo.position + player + 4) + uVar7;
       uVar7 = fixedmult(local_18 - iVar6,0x7ae);
-      uVar8 = *(uint *)&(&Camera_gInfo)[player].field_0x74;
-      (&Camera_gInfo)[player].position.z = (&Camera_gInfo)[player].position.z + uVar7;
-      *(uint *)&(&Camera_gInfo)[player].field_0x74 = uVar8 & 0xfffffff9 | 0x78;
+      uVar8 = *(uint *)(&Camera_gInfo.modechange + player);
+      *(int *)((int)&Camera_gInfo.position + player + 8) =
+           *(int *)((int)&Camera_gInfo.position + player + 8) + uVar7;
+      *(uint *)(&Camera_gInfo.modechange + player) = uVar8 & 0xfffffff9 | 0x78;
     }
   }
   return;
@@ -1738,6 +2087,21 @@ void Camera_UpdatePulloverCam__Fi(int player)
 	// End offset: 0x80083010
 	// End Line: 1709
 
+	/* begin block 2 */
+		// Start line: 3412
+	/* end block 2 */
+	// End Line: 3413
+
+	/* begin block 3 */
+		// Start line: 3732
+	/* end block 3 */
+	// End Line: 3733
+
+	/* begin block 4 */
+		// Start line: 3732
+	/* end block 4 */
+	// End Line: 3733
+
 void Camera_UpdateCopCam1__Fi(int player)
 
 {
@@ -1747,29 +2111,32 @@ void Camera_UpdateCopCam1__Fi(int player)
   int iVar4;
   int iVar5;
   BO_tNewtonObj *pBVar6;
-  camera_info *pcVar7;
+  int iVar7;
+  BO_tNewtonObj **ppBVar8;
   coorddef local_18;
   
-  pcVar7 = &Camera_gInfo + player;
-  iVar1 = (pcVar7->anchor->position).y;
-  iVar4 = (((&Camera_gInfo)[player].target)->position).y;
-  iVar2 = (pcVar7->anchor->position).z;
-  iVar5 = (((&Camera_gInfo)[player].target)->position).z;
-  (&gCop1Target)[player].x =
-       (pcVar7->anchor->position).x + (((&Camera_gInfo)[player].target)->position).x >> 1;
-  (&gCop1Target)[player].y = iVar1 + iVar4 >> 1;
-  (&gCop1Target)[player].z = iVar2 + iVar5 >> 1;
-  local_18.x = (pcVar7->anchor->position).x - (((&Camera_gInfo)[player].target)->position).x;
-  local_18.y = (pcVar7->anchor->position).y - (((&Camera_gInfo)[player].target)->position).y;
-  local_18.z = (pcVar7->anchor->position).z - (((&Camera_gInfo)[player].target)->position).z;
+  iVar7 = player * 0x110;
+  ppBVar8 = &Camera_gInfo.anchor + player * 0x44;
+  iVar1 = ((*ppBVar8)->position).y;
+  iVar4 = ((&Camera_gInfo.target)[player * 0x44]->position).y;
+  iVar2 = ((*ppBVar8)->position).z;
+  iVar5 = ((&Camera_gInfo.target)[player * 0x44]->position).z;
+  gCop1Target[player].x =
+       ((*ppBVar8)->position).x + ((&Camera_gInfo.target)[player * 0x44]->position).x >> 1;
+  gCop1Target[player].y = iVar1 + iVar4 >> 1;
+  gCop1Target[player].z = iVar2 + iVar5 >> 1;
+  local_18.x = ((*ppBVar8)->position).x - ((&Camera_gInfo.target)[player * 0x44]->position).x;
+  local_18.y = ((*ppBVar8)->position).y - ((&Camera_gInfo.target)[player * 0x44]->position).y;
+  local_18.z = ((*ppBVar8)->position).z - ((&Camera_gInfo.target)[player * 0x44]->position).z;
   Math_NormalizeVector__FP8coorddef(&local_18);
   local_18.x = fixedmult(0x40000,local_18.x);
   local_18.y = fixedmult(0x40000,local_18.y);
   uVar3 = fixedmult(0x40000,local_18.z);
-  pBVar6 = pcVar7->anchor;
-  (&Camera_gInfo)[player].position.x = (pcVar7->anchor->position).x + local_18.x + uVar3;
-  (&Camera_gInfo)[player].position.y = (pBVar6->position).y + 0x18000;
-  (&Camera_gInfo)[player].position.z = ((pBVar6->position).z - local_18.x) + uVar3;
+  pBVar6 = *ppBVar8;
+  ((coorddef *)((int)&Camera_gInfo.position + iVar7))->x =
+       ((*ppBVar8)->position).x + local_18.x + uVar3;
+  *(int *)((int)&Camera_gInfo.position + iVar7 + 4) = (pBVar6->position).y + 0x18000;
+  *(int *)((int)&Camera_gInfo.position + iVar7 + 8) = ((pBVar6->position).z - local_18.x) + uVar3;
   return;
 }
 
@@ -1788,34 +2155,52 @@ void Camera_UpdateCopCam1__Fi(int player)
 	// End offset: 0x80083248
 	// End Line: 1733
 
+	/* begin block 2 */
+		// Start line: 3781
+	/* end block 2 */
+	// End Line: 3782
+
+	/* begin block 3 */
+		// Start line: 3785
+	/* end block 3 */
+	// End Line: 3786
+
+	/* begin block 4 */
+		// Start line: 3785
+	/* end block 4 */
+	// End Line: 3786
+
 void Camera_UpdateCopCam2__Fi(int player)
 
 {
-  BO_tNewtonObj *pBVar1;
-  camera_info *pcVar2;
+  int iVar1;
+  BO_tNewtonObj *pBVar2;
+  BO_tNewtonObj **ppBVar3;
   coorddef local_18;
   
-  pcVar2 = &Camera_gInfo + player;
-  local_18.x = (((&Camera_gInfo)[player].target)->position).x - (pcVar2->anchor->position).x;
+  iVar1 = player * 0x110;
+  ppBVar3 = &Camera_gInfo.anchor + player * 0x44;
+  local_18.x = ((&Camera_gInfo.target)[player * 0x44]->position).x - ((*ppBVar3)->position).x;
   if (local_18.x < 0) {
     local_18.x = local_18.x + 3;
   }
   local_18.x = local_18.x >> 2;
-  local_18.y = (((&Camera_gInfo)[player].target)->position).y - (pcVar2->anchor->position).y;
+  local_18.y = ((&Camera_gInfo.target)[player * 0x44]->position).y - ((*ppBVar3)->position).y;
   if (local_18.y < 0) {
     local_18.y = local_18.y + 3;
   }
   local_18.y = local_18.y >> 2;
-  local_18.z = (((&Camera_gInfo)[player].target)->position).z - (pcVar2->anchor->position).z;
+  local_18.z = ((&Camera_gInfo.target)[player * 0x44]->position).z - ((*ppBVar3)->position).z;
   if (local_18.z < 0) {
     local_18.z = local_18.z + 3;
   }
   local_18.z = local_18.z >> 2;
   Math_NormalizeVector__FP8coorddef(&local_18);
-  pBVar1 = pcVar2->anchor;
-  (&Camera_gInfo)[player].position.x = (pcVar2->anchor->position).x + local_18.x * -2;
-  *(undefined **)&(&Camera_gInfo)[player].position.y = &DAT_00013333 + (pBVar1->position).y;
-  (&Camera_gInfo)[player].position.z = (pBVar1->position).z + local_18.z * -2;
+  pBVar2 = *ppBVar3;
+  ((coorddef *)((int)&Camera_gInfo.position + iVar1))->x =
+       ((*ppBVar3)->position).x + local_18.x * -2;
+  *(undefined **)((int)&Camera_gInfo.position + iVar1 + 4) = &DAT_00013333 + (pBVar2->position).y;
+  *(int *)((int)&Camera_gInfo.position + iVar1 + 8) = (pBVar2->position).z + local_18.z * -2;
   return;
 }
 
@@ -1832,32 +2217,48 @@ void Camera_UpdateCopCam2__Fi(int player)
 	// End offset: 0x80083374
 	// End Line: 1766
 
+	/* begin block 2 */
+		// Start line: 3817
+	/* end block 2 */
+	// End Line: 3818
+
+	/* begin block 3 */
+		// Start line: 3822
+	/* end block 3 */
+	// End Line: 3823
+
+	/* begin block 4 */
+		// Start line: 3822
+	/* end block 4 */
+	// End Line: 3823
+
 void Camera_UpdateBTCopCam__Fi(int player)
 
 {
   char cVar1;
-  forceFocus_t fVar2;
+  int iVar2;
   
-  fVar2 = (&Camera_gInfo)[player].forceFocus;
-  if (fVar2 == FOCUS_AI) {
-    cVar1 = (&Camera_gInfo)[player].focusOnAICar;
-    *(Car_tObj **)&(&Camera_gInfo)[player].anchor =
-         (&__Cars_gList_9__)[(int)(&Camera_gInfo)[player].focusOnAICar];
-    *(Car_tObj **)&(&Camera_gInfo)[player].target = (&__Cars_gList_9__)[(int)cVar1];
+  iVar2 = *(int *)(&Camera_gInfo.inCar + player * 0x110);
+  if (iVar2 == 1) {
+    cVar1 = *(char *)(&Camera_gInfo.circleAngle + player * 0x88);
+    *(Car_tObj **)(&Camera_gInfo.anchor + player * 0x44) =
+         (&Cars_gList9)[(int)*(char *)(&Camera_gInfo.circleAngle + player * 0x88)];
+    *(Car_tObj **)(&Camera_gInfo.target + player * 0x44) = (&Cars_gList9)[(int)cVar1];
     Camera_UpdateCircleCam__Fi(player);
   }
   else {
-    if ((1 < (int)fVar2) && (fVar2 == FOCUS_COPANDAI)) {
-      cVar1 = (&Camera_gInfo)[player].focusOnAICar;
-      *(Car_tObj **)&(&Camera_gInfo)[player].anchor = (&__Cars_gList_9__)[player];
-      *(Car_tObj **)&(&Camera_gInfo)[player].target = (&__Cars_gList_9__)[(int)cVar1];
+    if ((1 < iVar2) && (iVar2 == 2)) {
+      cVar1 = *(char *)(&Camera_gInfo.circleAngle + player * 0x88);
+      *(Car_tObj **)(&Camera_gInfo.anchor + player * 0x44) = (&Cars_gList9)[player];
+      *(Car_tObj **)(&Camera_gInfo.target + player * 0x44) = (&Cars_gList9)[(int)cVar1];
       Camera_UpdateCopCam2__Fi(player);
     }
   }
-  DAT_00000290 = 0xbe;
-  (&Camera_gInfo)[player].POInhibitor = simGlobal.gameTicks + 0x140;
-  *(uint *)&(&Camera_gInfo)[player].field_0x74 =
-       *(uint *)&(&Camera_gInfo)[player].field_0x74 & 0xffffffb9 | 0x38;
+  player = player * 0x110;
+  Camera_gGeomScreen = 0xbe;
+  *(int *)(&Camera_gInfo.splineMode + player) = simGlobal.gameTicks + 0x140;
+  *(uint *)(&Camera_gInfo.modechange + player) =
+       *(uint *)(&Camera_gInfo.modechange + player) & 0xffffffb9 | 0x38;
   return;
 }
 
@@ -1952,6 +2353,21 @@ void Camera_UpdateBTCopCam__Fi(int player)
 	// End offset: 0x80083828
 	// End Line: 1903
 
+	/* begin block 2 */
+		// Start line: 3900
+	/* end block 2 */
+	// End Line: 3901
+
+	/* begin block 3 */
+		// Start line: 3904
+	/* end block 3 */
+	// End Line: 3905
+
+	/* begin block 4 */
+		// Start line: 3904
+	/* end block 4 */
+	// End Line: 3905
+
 /* WARNING: Type propagation algorithm not settling */
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
@@ -1977,20 +2393,20 @@ void Camera_Update__Fv(void)
   player = 0;
   pcVar10 = &Camera_gInfo;
   iVar14 = 0;
-  ppCVar13 = &__Cars_gHumanRaceCarList_9__;
+  ppCVar13 = &Cars_gHumanRaceCarList9;
   piVar12 = Camera_gInfo.rotation.m + 6;
   do {
-    if ((int)(uint)(Camera_gInfo.field_0x74 >> 7) < player) {
+    if ((int)(uint)((byte)Camera_gInfo.modechange >> 7) < player) {
       return;
     }
     pBVar11 = pcVar10->anchor;
-    if ((*(uint *)&pcVar10->field_0x74 >> 6 & 1) == 0) {
+    if ((*(uint *)&pcVar10->modechange >> 6 & 1) == 0) {
 LAB_80083500:
       if (((pBVar11[1].simRoadInfo.quadPts[1].y & 1U) != 0) && (pBVar11[1].roadMatrix.m[3] == 2)) {
         Camera_UpdateFinishCam__Fi(player);
         goto LAB_80083584;
       }
-      if (0 < (int)pcVar10->forceFocus) {
+      if (0 < *(int *)&pcVar10->inCar) {
         Camera_UpdateBTCopCam__Fi(player);
         goto LAB_80083584;
       }
@@ -1998,23 +2414,23 @@ LAB_80083500:
         Camera_UpdatePulloverCam__Fi(player);
         goto LAB_80083584;
       }
-      if ((pcVar10->field_0x74 & 1) != 0) {
+      if ((pcVar10->modechange & 1U) != 0) {
         iVar9 = (int)pcVar10->mode;
-        uVar8 = *(uint *)&pcVar10->field_0x74;
-        uVar2 = ((&Camera_gFlags)[iVar9].field_0xc & 1) << 1;
-        *(uint *)&pcVar10->field_0x74 = uVar8 & 0xfffffffd | uVar2;
-        uVar3 = ((&Camera_gFlags)[iVar9].field_0xc & 2) << 1;
-        *(uint *)&pcVar10->field_0x74 = uVar8 & 0xfffffff9 | uVar2 | uVar3;
-        uVar4 = ((&Camera_gFlags)[iVar9].field_0xc & 4) << 1;
-        *(uint *)&pcVar10->field_0x74 = uVar8 & 0xfffffff1 | uVar2 | uVar3 | uVar4;
-        uVar5 = ((&Camera_gFlags)[iVar9].field_0xc & 8) << 1;
-        *(uint *)&pcVar10->field_0x74 = uVar8 & 0xffffffe1 | uVar2 | uVar3 | uVar4 | uVar5;
-        uVar6 = ((&Camera_gFlags)[iVar9].field_0xc & 0x10) << 1;
-        *(uint *)&pcVar10->field_0x74 = uVar8 & 0xffffffc1 | uVar2 | uVar3 | uVar4 | uVar5 | uVar6;
-        uVar7 = ((&Camera_gFlags)[iVar9].field_0xc & 0x20) << 1;
-        *(uint *)&pcVar10->field_0x74 =
+        uVar8 = *(uint *)&pcVar10->modechange;
+        uVar2 = ((&Camera_gFlags[0].pitch)[iVar9 * 4] & 1U) << 1;
+        *(uint *)&pcVar10->modechange = uVar8 & 0xfffffffd | uVar2;
+        uVar3 = ((&Camera_gFlags[0].pitch)[iVar9 * 4] & 2U) << 1;
+        *(uint *)&pcVar10->modechange = uVar8 & 0xfffffff9 | uVar2 | uVar3;
+        uVar4 = ((&Camera_gFlags[0].pitch)[iVar9 * 4] & 4U) << 1;
+        *(uint *)&pcVar10->modechange = uVar8 & 0xfffffff1 | uVar2 | uVar3 | uVar4;
+        uVar5 = ((&Camera_gFlags[0].pitch)[iVar9 * 4] & 8U) << 1;
+        *(uint *)&pcVar10->modechange = uVar8 & 0xffffffe1 | uVar2 | uVar3 | uVar4 | uVar5;
+        uVar6 = ((&Camera_gFlags[0].pitch)[iVar9 * 4] & 0x10U) << 1;
+        *(uint *)&pcVar10->modechange = uVar8 & 0xffffffc1 | uVar2 | uVar3 | uVar4 | uVar5 | uVar6;
+        uVar7 = ((&Camera_gFlags[0].pitch)[iVar9 * 4] & 0x20U) << 1;
+        *(uint *)&pcVar10->modechange =
              uVar8 & 0xffffff81 | uVar2 | uVar3 | uVar4 | uVar5 | uVar6 | uVar7;
-        *(uint *)&pcVar10->field_0x74 =
+        *(uint *)&pcVar10->modechange =
              uVar8 & 0xf7ffff80 | uVar2 | uVar3 | uVar4 | uVar5 | uVar6 | uVar7 |
              (uint)(pcVar10->mode < 2) << 0x1b;
         *(Car_tObj **)&pcVar10->anchor = *ppCVar13;
@@ -2076,24 +2492,24 @@ LAB_80083500:
       }
     }
     else {
-      if (pcVar10->tumbling == '\0') {
+      if (pcVar10->jostling == '\0') {
         if ((pBVar11->orientationToGround).y < 0x8000) {
           uVar2 = fixedmult(*piVar12,(pBVar11->roadMatrix).m[6]);
           uVar3 = fixedmult(piVar12[1],(pcVar10->anchor->roadMatrix).m[7]);
           uVar4 = fixedmult(piVar12[2],(pcVar10->anchor->roadMatrix).m[8]);
-          *(uint *)&pcVar10->field_0x74 =
-               *(uint *)&pcVar10->field_0x74 & 0xfeffffff |
+          *(uint *)&pcVar10->modechange =
+               *(uint *)&pcVar10->modechange & 0xfeffffff |
                (uint)((int)(uVar2 + uVar3 + uVar4) < 0) << 0x18;
-          pcVar10->tumbling = 'd';
+          pcVar10->jostling = 'd';
         }
         goto LAB_80083500;
       }
-      pcVar10->tumbling = pcVar10->tumbling + -1;
+      pcVar10->jostling = pcVar10->jostling + -1;
       Camera_UpdateCollisionCam__Fi(player);
 LAB_80083584:
-      *(uint *)&pcVar10->field_0x74 = *(uint *)&pcVar10->field_0x74 & 0xf7ffffff | 1;
+      *(uint *)&pcVar10->modechange = *(uint *)&pcVar10->modechange & 0xf7ffffff | 1;
     }
-    pcVar10 = pcVar10 + 1;
+    pcVar10 = (camera_info *)&(pcVar10->slicePos).simQuad;
     iVar14 = iVar14 + 0x10;
     ppCVar13 = ppCVar13 + 1;
     piVar12 = piVar12 + 0x44;
@@ -2128,6 +2544,21 @@ LAB_80083584:
 	// End offset: 0x80083BCC
 	// End Line: 1990
 
+	/* begin block 2 */
+		// Start line: 4219
+	/* end block 2 */
+	// End Line: 4220
+
+	/* begin block 3 */
+		// Start line: 4229
+	/* end block 3 */
+	// End Line: 4230
+
+	/* begin block 4 */
+		// Start line: 4229
+	/* end block 4 */
+	// End Line: 4230
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Camera_Init__Fv(void)
@@ -2138,7 +2569,7 @@ void Camera_Init__Fv(void)
   matrixtdef *pmVar3;
   BO_tNewtonObj **ppBVar4;
   matrixtdef *pmVar5;
-  BWorldSm_Pos *pBVar6;
+  BO_tNewtonObj **ppBVar6;
   camera_info *pcVar7;
   int iVar8;
   int iVar9;
@@ -2158,9 +2589,9 @@ void Camera_Init__Fv(void)
     if (!bVar1) {
       iVar9 = GameSetup_gData.localCar;
     }
-    *(Car_tObj **)&pcVar7->anchor = (&__Cars_gHumanRaceCarList_9__)[iVar9];
+    *(Car_tObj **)&pcVar7->anchor = (&Cars_gHumanRaceCarList9)[iVar9];
     pBVar2 = pcVar7->anchor;
-    *(Car_tObj **)&pcVar7->target = (&__Cars_gHumanRaceCarList_9__)[iVar9];
+    *(Car_tObj **)&pcVar7->target = (&Cars_gHumanRaceCarList9)[iVar9];
     iVar9 = (pBVar2->position).y;
     iVar10 = (pBVar2->position).z;
     (pcVar7->position).x = (pBVar2->position).x;
@@ -2202,51 +2633,51 @@ void Camera_Init__Fv(void)
     (pcVar7->wallRight).y = iVar9;
     (pcVar7->wallRight).z = iVar10;
     pcVar7->camNum = 0;
-    pcVar7->circleCounter = 0;
-    pcVar7->circleAngle = 0;
-    *(uint *)&pcVar7->field_0x74 =
-         *(uint *)&pcVar7->field_0x74 & 0xffffff20 | 0x20 | (uint)bVar1 << 7;
-    pcVar7->intransition = '\0';
-    pcVar7->tumbling = '\0';
+    *(undefined2 *)&pcVar7->checkwalls = 0;
+    *(undefined2 *)&pcVar7->checkcollisions = 0;
+    *(uint *)&pcVar7->modechange =
+         *(uint *)&pcVar7->modechange & 0xffffff20 | 0x20 | (uint)bVar1 << 7;
+    pcVar7->pitch = '\0';
+    pcVar7->jostling = '\0';
     pcVar7->mode = 0xe;
-    *(uint *)&pcVar7->field_0x74 = *(uint *)&pcVar7->field_0x74 & 0xf0ffffff;
-    pcVar7->animNum = (&gAnimCams)[GameSetup_gData.track * 4];
+    *(uint *)&pcVar7->modechange = *(uint *)&pcVar7->modechange & 0xf0ffffff;
+    pcVar7->intransition = gAnimCams[GameSetup_gData.track * 4];
     if (((GameSetup_gData.raceType == 1) || (GameSetup_gData.raceType == 5)) &&
-       (((__Cars_gHumanRaceCarList_9__->carFlags & 0x200U) != 0 ||
-        ((Cars_gNumHumanRaceCars == 2 && ((PTR_8010fa4c->carFlags & 0x200U) != 0)))))) {
-      pcVar7->animNum = '\x01';
+       (((Cars_gHumanRaceCarList9->carFlags & 0x200U) != 0 ||
+        ((Cars_gNumHumanRaceCars == 2 && ((PTR_ARRAY_8010fa4c[0]->carFlags & 0x200U) != 0)))))) {
+      pcVar7->intransition = '\x01';
     }
-    pBVar6 = &pcVar7->slicePos;
+    ppBVar6 = (BO_tNewtonObj **)&pcVar7->forceFocus;
     ppBVar4 = local_a0;
-    pcVar7->animHandle = -1;
-    pcVar7->splineMode = '\0';
-    pcVar7->forceFocus = FOCUS_NORMAL;
-    pcVar7->focusOnAICar = -1;
-    pcVar7->POInhibitor = 0x40;
+    pcVar7->tumbling = -1;
+    pcVar7->direction = '\0';
+    *(undefined4 *)&pcVar7->inCar = 0;
+    *(undefined *)&pcVar7->circleAngle = 0xff;
+    *(undefined4 *)&pcVar7->splineMode = 0x40;
     do {
       pBVar2 = ppBVar4[1];
       pBVar11 = ppBVar4[2];
       pBVar13 = ppBVar4[3];
-      *(BO_tNewtonObj **)pBVar6 = *ppBVar4;
-      *(BO_tNewtonObj **)&pBVar6->simRotFlag = pBVar2;
-      *(BO_tNewtonObj **)&pBVar6->quadPts[0].x = pBVar11;
-      *(BO_tNewtonObj **)&pBVar6->quadPts[0].y = pBVar13;
+      *ppBVar6 = *ppBVar4;
+      ppBVar6[1] = pBVar2;
+      ppBVar6[2] = pBVar11;
+      ppBVar6[3] = pBVar13;
       ppBVar4 = ppBVar4 + 4;
-      pBVar6 = (BWorldSm_Pos *)&pBVar6->quadPts[0].z;
+      ppBVar6 = ppBVar6 + 4;
     } while (ppBVar4 != apBStack32);
-    *(BO_tNewtonObj **)pBVar6 = *ppBVar4;
+    *ppBVar6 = *ppBVar4;
     iVar8 = iVar8 + 1;
-    pcVar7 = pcVar7 + 1;
+    pcVar7 = (camera_info *)&(pcVar7->slicePos).simQuad;
   } while (iVar8 <= (int)(uint)bVar1);
   Camera_ResetRelPos__Fi(3);
-  iVar8 = __Cars_gHumanRaceCarList_9__->carInfo->carType;
+  iVar8 = Cars_gHumanRaceCarList9->carInfo->carType;
   if (((iVar8 < 0x1c) && ((GameSetup_gData.sgge & 0x100U) != 0)) && (!bVar1)) {
     GameSetup_gData.carInfo[0].Camera[0] = 1;
-    camera_flags_8010f560.arm.x = (&gDriverCam)[iVar8].x;
-    camera_flags_8010f560.arm.y = (&gDriverCam)[iVar8].y;
-    camera_flags_8010f560.arm.z = (&gDriverCam)[iVar8].z;
+    Camera_gFlags[0].jostling = gDriverCam[iVar8].x;
+    Camera_gFlags[0].tracking = gDriverCam[iVar8].y;
+    Camera_gFlags[0].checkwalls = gDriverCam[iVar8].z;
   }
-  DAT_00000290 = 0xbe;
+  Camera_gGeomScreen = 0xbe;
   return;
 }
 
@@ -2266,6 +2697,31 @@ void Camera_Init__Fv(void)
 	// End offset: 0x80083C58
 	// End Line: 2010
 
+	/* begin block 2 */
+		// Start line: 4506
+	/* end block 2 */
+	// End Line: 4507
+
+	/* begin block 3 */
+		// Start line: 4518
+	/* end block 3 */
+	// End Line: 4519
+
+	/* begin block 4 */
+		// Start line: 4518
+	/* end block 4 */
+	// End Line: 4519
+
+	/* begin block 5 */
+		// Start line: 4519
+	/* end block 5 */
+	// End Line: 4520
+
+	/* begin block 6 */
+		// Start line: 4519
+	/* end block 6 */
+	// End Line: 4520
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Camera_Kill__Fv(void)
@@ -2279,12 +2735,12 @@ void Camera_Kill__Fv(void)
   bVar1 = GameSetup_gData.commMode == 1;
   pcVar2 = &Camera_gInfo;
   do {
-    if ((int)pcVar2->animHandle != -1) {
-      Anim_FreeHandle__Fi((int)pcVar2->animHandle);
+    if ((int)pcVar2->tumbling != -1) {
+      Anim_FreeHandle__Fi((int)pcVar2->tumbling);
     }
-    pcVar2->animHandle = -1;
+    pcVar2->tumbling = -1;
     iVar3 = iVar3 + 1;
-    pcVar2 = pcVar2 + 1;
+    pcVar2 = (camera_info *)&(pcVar2->slicePos).simQuad;
   } while (iVar3 <= (int)(uint)bVar1);
   return;
 }
@@ -2308,21 +2764,37 @@ void Camera_Kill__Fv(void)
 	// End offset: 0x80083C74
 	// End Line: 2014
 
+	/* begin block 2 */
+		// Start line: 4542
+	/* end block 2 */
+	// End Line: 4543
+
+	/* begin block 3 */
+		// Start line: 4546
+	/* end block 3 */
+	// End Line: 4547
+
+	/* begin block 4 */
+		// Start line: 4546
+	/* end block 4 */
+	// End Line: 4547
+
 void Camera_PitchAndRoll__Fi(int player)
 
 {
+  matrixtdef *m2;
   int iVar1;
   matrixtdef mStack144;
   matrixtdef mStack104;
   matrixtdef mStack64;
   
-  iVar1 = (&Camera_gInfo)[player].anchor[3].objAltitude;
-  fixedxformz((int *)&mStack144,(&Camera_gInfo)[player].anchor[3].collision.collided);
+  iVar1 = (&Camera_gInfo.anchor)[player * 0x44][3].objAltitude;
+  fixedxformz((int *)&mStack144,(&Camera_gInfo.anchor)[player * 0x44][3].collision.collided);
   fixedxformx((undefined4 *)&mStack104,
-              iVar1 << 1 | *(uint *)&(&Camera_gInfo)[player].field_0x74 >> 1 & 1);
+              iVar1 << 1 | *(uint *)(&Camera_gInfo.modechange + player * 0x110) >> 1 & 1);
   Math_fasttransmult__FP10matrixtdefN20(&mStack144,&mStack104,&mStack64);
-  Math_fasttransmult__FP10matrixtdefN20
-            (&mStack64,&(&Camera_gInfo)[player].rotation,&(&Camera_gInfo)[player].rotation);
+  m2 = (matrixtdef *)((int)&Camera_gInfo.rotation + player * 0x110);
+  Math_fasttransmult__FP10matrixtdefN20(&mStack64,m2,m2);
   return;
 }
 
@@ -2359,49 +2831,67 @@ void Camera_PitchAndRoll__Fi(int player)
 	// End offset: 0x80083E80
 	// End Line: 2060
 
+	/* begin block 2 */
+		// Start line: 4608
+	/* end block 2 */
+	// End Line: 4609
+
+	/* begin block 3 */
+		// Start line: 4612
+	/* end block 3 */
+	// End Line: 4613
+
+	/* begin block 4 */
+		// Start line: 4612
+	/* end block 4 */
+	// End Line: 4613
+
 int Camera_TooSteep__FiP12BWorldSm_Pos(int player,BWorldSm_Pos *slicePos)
 
 {
-  coorddef *pcVar1;
-  uint uVar2;
+  int iVar1;
+  coorddef *pcVar2;
   uint uVar3;
   uint uVar4;
-  int iVar5;
+  uint uVar5;
   int iVar6;
   int iVar7;
   int iVar8;
   int iVar9;
   int iVar10;
   int iVar11;
-  BO_tNewtonObj *pBVar12;
-  camera_info *pcVar13;
+  int iVar12;
+  BO_tNewtonObj *pBVar13;
+  BO_tNewtonObj **ppBVar14;
   
-  pcVar13 = &Camera_gInfo + player;
-  pBVar12 = pcVar13->anchor;
-  pcVar1 = BWorldSm_UNormal__FP12BWorldSm_Pos(slicePos);
-  iVar7 = pcVar1->x;
-  iVar8 = pcVar1->y;
-  iVar10 = pcVar1->z;
-  pcVar1 = BWorldSm_UNormal__FP12BWorldSm_Pos(&pBVar12->simRoadInfo);
-  iVar9 = pcVar1->y;
-  iVar11 = pcVar1->z;
-  uVar2 = fixedmult(iVar7,pcVar1->x);
-  uVar3 = fixedmult(iVar8,iVar9);
-  uVar4 = fixedmult(iVar10,iVar11);
-  iVar9 = 0;
-  if ((int)(uVar2 + uVar3 + uVar4) < 0xb4fd) {
-    iVar5 = (&Camera_gInfo)[player].position.y;
-    iVar9 = (pcVar13->anchor->position).y;
-    iVar6 = (&Camera_gInfo)[player].position.z;
-    iVar11 = (pcVar13->anchor->position).z;
-    uVar2 = fixedmult(iVar7,(pcVar13->anchor->position).x - (&Camera_gInfo)[player].position.x);
-    uVar3 = fixedmult(iVar8,iVar9 - iVar5);
-    uVar4 = fixedmult(iVar10,iVar11 - iVar6);
-    if (((int)(uVar2 + uVar3 + uVar4) < 1) || (iVar9 = 1, pcVar13->anchor->flightTime != 0)) {
-      iVar9 = 0;
+  iVar1 = player * 0x110;
+  ppBVar14 = &Camera_gInfo.anchor + player * 0x44;
+  pBVar13 = *ppBVar14;
+  pcVar2 = BWorldSm_UNormal__FP12BWorldSm_Pos(slicePos);
+  iVar8 = pcVar2->x;
+  iVar9 = pcVar2->y;
+  iVar11 = pcVar2->z;
+  pcVar2 = BWorldSm_UNormal__FP12BWorldSm_Pos(&pBVar13->simRoadInfo);
+  iVar10 = pcVar2->y;
+  iVar12 = pcVar2->z;
+  uVar3 = fixedmult(iVar8,pcVar2->x);
+  uVar4 = fixedmult(iVar9,iVar10);
+  uVar5 = fixedmult(iVar11,iVar12);
+  iVar10 = 0;
+  if ((int)(uVar3 + uVar4 + uVar5) < 0xb4fd) {
+    iVar6 = *(int *)((int)&Camera_gInfo.position + iVar1 + 4);
+    iVar10 = ((*ppBVar14)->position).y;
+    iVar7 = *(int *)((int)&Camera_gInfo.position + iVar1 + 8);
+    iVar12 = ((*ppBVar14)->position).z;
+    uVar3 = fixedmult(iVar8,((*ppBVar14)->position).x -
+                            ((coorddef *)((int)&Camera_gInfo.position + iVar1))->x);
+    uVar4 = fixedmult(iVar9,iVar10 - iVar6);
+    uVar5 = fixedmult(iVar11,iVar12 - iVar7);
+    if (((int)(uVar3 + uVar4 + uVar5) < 1) || (iVar10 = 1, (*ppBVar14)->flightTime != 0)) {
+      iVar10 = 0;
     }
   }
-  return iVar9;
+  return iVar10;
 }
 
 
@@ -2433,24 +2923,41 @@ int Camera_TooSteep__FiP12BWorldSm_Pos(int player,BWorldSm_Pos *slicePos)
 	// End offset: 0x800847EC
 	// End Line: 2204
 
+	/* begin block 2 */
+		// Start line: 4671
+	/* end block 2 */
+	// End Line: 4672
+
+	/* begin block 3 */
+		// Start line: 4685
+	/* end block 3 */
+	// End Line: 4686
+
+	/* begin block 4 */
+		// Start line: 4685
+	/* end block 4 */
+	// End Line: 4686
+
 void Camera_CheckWallCollisions__FiP8coorddef(int player,coorddef *pos)
 
 {
   Trk_NewSlice *pTVar1;
-  BO_tNewtonObj *pBVar2;
-  uint uVar3;
+  int iVar2;
+  BO_tNewtonObj *pBVar3;
   uint uVar4;
   uint uVar5;
   uint uVar6;
   uint uVar7;
-  BWorldSm_Pos *pBVar8;
-  BWorldSm_Pos *pBVar9;
-  camera_info *pcVar10;
-  undefined4 uVar11;
-  int iVar12;
-  int iVar13;
-  coorddef *pcVar14;
-  uint uVar15;
+  uint uVar8;
+  forceFocus_t *pfVar9;
+  BWorldSm_Pos *pBVar10;
+  BO_tNewtonObj **ppBVar11;
+  forceFocus_t fVar12;
+  forceFocus_t fVar13;
+  forceFocus_t fVar14;
+  coorddef *pcVar15;
+  int iVar16;
+  uint uVar17;
   BWorldSm_Pos local_118;
   coorddef local_90;
   int local_80;
@@ -2470,24 +2977,24 @@ void Camera_CheckWallCollisions__FiP8coorddef(int player,coorddef *pos)
   int local_20;
   int local_1c;
   
-  pBVar9 = &local_118;
-  pBVar8 = &(&Camera_gInfo)[player].slicePos;
+  pBVar10 = &local_118;
+  pfVar9 = &Camera_gInfo.forceFocus + player * 0x44;
   do {
-    uVar11 = *(undefined4 *)&pBVar8->simRotFlag;
-    iVar12 = pBVar8->quadPts[0].x;
-    iVar13 = pBVar8->quadPts[0].y;
-    *(int *)pBVar9 = *(int *)pBVar8;
-    *(undefined4 *)&pBVar9->simRotFlag = uVar11;
-    pBVar9->quadPts[0].x = iVar12;
-    pBVar9->quadPts[0].y = iVar13;
-    pBVar8 = (BWorldSm_Pos *)&pBVar8->quadPts[0].z;
-    pBVar9 = (BWorldSm_Pos *)&pBVar9->quadPts[0].z;
-  } while (pBVar8 != (BWorldSm_Pos *)&(&Camera_gInfo)[player].slicePos.simSlice);
-  *(int *)pBVar9 = *(int *)pBVar8;
-  iVar12 = 0;
-  pcVar14 = &feeler3;
+    fVar12 = pfVar9[1];
+    fVar13 = pfVar9[2];
+    fVar14 = pfVar9[3];
+    *(forceFocus_t *)pBVar10 = *pfVar9;
+    *(forceFocus_t *)&pBVar10->simRotFlag = fVar12;
+    pBVar10->quadPts[0].x = fVar13;
+    pBVar10->quadPts[0].y = fVar14;
+    pfVar9 = pfVar9 + 4;
+    pBVar10 = (BWorldSm_Pos *)&pBVar10->quadPts[0].z;
+  } while (pfVar9 != (forceFocus_t *)((int)&Camera_gInfo.slicePos + player * 0x110 + 0x74));
+  *(forceFocus_t *)pBVar10 = *pfVar9;
+  iVar16 = 0;
+  pcVar15 = &feeler3;
   do {
-    transform((int *)pcVar14,(int *)&((&Camera_gInfo)[player].anchor)->orientMat,&local_30);
+    transform((int *)pcVar15,(int *)&(&Camera_gInfo.anchor)[player * 0x44]->orientMat,&local_30);
     local_40.x = pos->x + local_30;
     local_40.y = pos->y + local_2c;
     local_40.z = pos->z + local_28;
@@ -2505,26 +3012,26 @@ void Camera_CheckWallCollisions__FiP8coorddef(int player,coorddef *pos)
       if (((local_118.simQuad)->surface & 0xf) == 0) break;
     }
     if (((local_118.offEdge != '\0') ||
-        (iVar13 = Camera_TooSteep__FiP12BWorldSm_Pos(player,&local_118), iVar13 != 0)) ||
+        (iVar2 = Camera_TooSteep__FiP12BWorldSm_Pos(player,&local_118), iVar2 != 0)) ||
        ((local_118.simQuad != (Trk_NewSimQuad *)0x0 &&
         ((((local_118.simQuad)->surface & 0x80) != 0 &&
-         (0x38000 < local_4c - (((&Camera_gInfo)[player].anchor)->position).y)))))) break;
-    iVar12 = iVar12 + 1;
-    pcVar14 = pcVar14 + 1;
-    if (2 < iVar12) break;
+         (0x38000 < local_4c - ((&Camera_gInfo.anchor)[player * 0x44]->position).y)))))) break;
+    iVar16 = iVar16 + 1;
+    pcVar15 = pcVar15 + 1;
+    if (2 < iVar16) break;
   } while( true );
-  if (iVar12 == 3) {
+  if (iVar16 == 3) {
     return;
   }
-  pcVar10 = &Camera_gInfo + player;
-  iVar12 = 0;
-  pBVar2 = pcVar10->anchor;
-  local_90.x = (pBVar2->position).x;
-  local_90.y = (pBVar2->position).y;
-  local_90.z = (pBVar2->position).z;
-  local_70 = (pcVar10->anchor->position).x - local_40.x >> 7;
-  local_68 = (pcVar10->anchor->position).z - local_40.z >> 7;
-  local_6c = (pcVar10->anchor->position).y - local_40.y >> 7;
+  ppBVar11 = &Camera_gInfo.anchor + player * 0x44;
+  iVar16 = 0;
+  pBVar3 = *ppBVar11;
+  local_90.x = (pBVar3->position).x;
+  local_90.y = (pBVar3->position).y;
+  local_90.z = (pBVar3->position).z;
+  local_70 = ((*ppBVar11)->position).x - local_40.x >> 7;
+  local_68 = ((*ppBVar11)->position).z - local_40.z >> 7;
+  local_6c = ((*ppBVar11)->position).y - local_40.y >> 7;
   do {
     local_90.x = local_90.x - local_70;
     local_90.y = local_90.y - local_6c;
@@ -2543,28 +3050,29 @@ void Camera_CheckWallCollisions__FiP8coorddef(int player,coorddef *pos)
       if (((local_118.simQuad)->surface & 0xf) == 0) break;
     }
     if (((local_118.offEdge != '\0') ||
-        (iVar13 = Camera_TooSteep__FiP12BWorldSm_Pos(player,&local_118), iVar13 != 0)) ||
+        (iVar2 = Camera_TooSteep__FiP12BWorldSm_Pos(player,&local_118), iVar2 != 0)) ||
        (((local_118.simQuad != (Trk_NewSimQuad *)0x0 &&
          ((((local_118.simQuad)->surface & 0x80) != 0 &&
-          (0x38000 < local_4c - (pcVar10->anchor->position).y)))) ||
-        (iVar12 = iVar12 + 1, 0x7f < iVar12)))) break;
+          (0x38000 < local_4c - ((*ppBVar11)->position).y)))) ||
+        (iVar16 = iVar16 + 1, 0x7f < iVar16)))) break;
   } while( true );
-  pcVar10 = &Camera_gInfo + player;
-  uVar15 = 1;
-  local_70 = (pcVar10->anchor->position).x - local_90.x >> 1;
-  local_6c = (pcVar10->anchor->position).y - local_90.y >> 1;
-  local_68 = (pcVar10->anchor->position).z - local_90.z >> 1;
+  iVar16 = player * 0x110;
+  ppBVar11 = &Camera_gInfo.anchor + player * 0x44;
+  uVar17 = 1;
+  local_70 = ((*ppBVar11)->position).x - local_90.x >> 1;
+  local_6c = ((*ppBVar11)->position).y - local_90.y >> 1;
+  local_68 = ((*ppBVar11)->position).z - local_90.z >> 1;
   do {
-    intsincos(uVar15,&local_20,&local_1c);
-    uVar3 = fixedmult(local_1c,local_70);
+    intsincos(uVar17,&local_20,&local_1c);
+    uVar4 = fixedmult(local_1c,local_70);
     local_60.x = fixedmult(local_20,local_68);
-    local_60.x = uVar3 - local_60.x;
+    local_60.x = uVar4 - local_60.x;
     local_60.y = local_6c;
-    uVar3 = fixedmult(local_20,local_70);
-    uVar4 = fixedmult(local_1c,local_68);
+    uVar4 = fixedmult(local_20,local_70);
+    uVar5 = fixedmult(local_1c,local_68);
     local_60.x = local_90.x + local_60.x;
     local_60.y = local_90.y + local_60.y;
-    local_60.z = local_90.z + uVar3 + uVar4;
+    local_60.z = local_90.z + uVar4 + uVar5;
     BWorldSm_FindClosestQuadMaxIterations__FP8coorddefP12BWorldSm_Posi(&local_60,&local_118,3);
     if (local_118.simQuad != (Trk_NewSimQuad *)0x0) {
       local_50 = local_118.quadPts[0].x;
@@ -2572,9 +3080,9 @@ void Camera_CheckWallCollisions__FiP8coorddef(int player,coorddef *pos)
       local_48 = local_118.quadPts[0].z;
       if (((local_118.simQuad)->surface & 0xf) != 0) goto LAB_80084400;
 LAB_80084464:
-      (&Camera_gInfo)[player].wallLeft.x = local_60.x;
-      (&Camera_gInfo)[player].wallLeft.y = local_60.y;
-      (&Camera_gInfo)[player].wallLeft.z = local_60.z;
+      ((coorddef *)((int)&Camera_gInfo.wallLeft + iVar16))->x = local_60.x;
+      *(int *)((int)&Camera_gInfo.wallLeft + iVar16 + 4) = local_60.y;
+      *(int *)((int)&Camera_gInfo.wallLeft + iVar16 + 8) = local_60.z;
       break;
     }
     pTVar1 = BWorldSm_slices + (int)local_118.slice;
@@ -2583,24 +3091,25 @@ LAB_80084464:
     local_48 = pTVar1->center[2];
 LAB_80084400:
     if (((local_118.offEdge != '\0') ||
-        (iVar12 = Camera_TooSteep__FiP12BWorldSm_Pos(player,&local_118), iVar12 != 0)) ||
+        (iVar2 = Camera_TooSteep__FiP12BWorldSm_Pos(player,&local_118), iVar2 != 0)) ||
        ((local_118.simQuad != (Trk_NewSimQuad *)0x0 &&
         ((((local_118.simQuad)->surface & 0x80) != 0 &&
-         (0x38000 < local_4c - (pcVar10->anchor->position).y)))))) goto LAB_80084464;
-    uVar15 = uVar15 + 4;
-  } while ((int)uVar15 < 0x400);
-  uVar15 = 0xffffffff;
+         (0x38000 < local_4c - ((*ppBVar11)->position).y)))))) goto LAB_80084464;
+    uVar17 = uVar17 + 4;
+  } while ((int)uVar17 < 0x400);
+  uVar17 = 0xffffffff;
+  iVar16 = player * 0x110;
   do {
-    intsincos(uVar15,&local_20,&local_1c);
-    uVar3 = fixedmult(local_1c,local_70);
+    intsincos(uVar17,&local_20,&local_1c);
+    uVar4 = fixedmult(local_1c,local_70);
     local_60.x = fixedmult(local_20,local_68);
-    local_60.x = uVar3 - local_60.x;
+    local_60.x = uVar4 - local_60.x;
     local_60.y = local_6c;
-    uVar3 = fixedmult(local_20,local_70);
-    uVar4 = fixedmult(local_1c,local_68);
+    uVar4 = fixedmult(local_20,local_70);
+    uVar5 = fixedmult(local_1c,local_68);
     local_60.x = local_90.x + local_60.x;
     local_60.y = local_90.y + local_60.y;
-    local_60.z = local_90.z + uVar3 + uVar4;
+    local_60.z = local_90.z + uVar4 + uVar5;
     BWorldSm_FindClosestQuadMaxIterations__FP8coorddefP12BWorldSm_Posi(&local_60,&local_118,3);
     if (local_118.simQuad != (Trk_NewSimQuad *)0x0) {
       local_50 = local_118.quadPts[0].x;
@@ -2608,9 +3117,9 @@ LAB_80084400:
       local_48 = local_118.quadPts[0].z;
       if (((local_118.simQuad)->surface & 0xf) != 0) goto LAB_800845d0;
 LAB_80084634:
-      (&Camera_gInfo)[player].wallRight.x = local_60.x;
-      (&Camera_gInfo)[player].wallRight.y = local_60.y;
-      (&Camera_gInfo)[player].wallRight.z = local_60.z;
+      ((coorddef *)((int)&Camera_gInfo.wallRight + iVar16))->x = local_60.x;
+      *(int *)((int)&Camera_gInfo.wallRight + iVar16 + 4) = local_60.y;
+      *(int *)((int)&Camera_gInfo.wallRight + iVar16 + 8) = local_60.z;
       break;
     }
     pTVar1 = BWorldSm_slices + (int)local_118.slice;
@@ -2619,16 +3128,20 @@ LAB_80084634:
     local_48 = pTVar1->center[2];
 LAB_800845d0:
     if (((local_118.offEdge != '\0') ||
-        (iVar12 = Camera_TooSteep__FiP12BWorldSm_Pos(player,&local_118), iVar12 != 0)) ||
+        (iVar2 = Camera_TooSteep__FiP12BWorldSm_Pos(player,&local_118), iVar2 != 0)) ||
        ((local_118.simQuad != (Trk_NewSimQuad *)0x0 &&
         ((((local_118.simQuad)->surface & 0x80) != 0 &&
-         (0x38000 < local_4c - (((&Camera_gInfo)[player].anchor)->position).y))))))
+         (0x38000 < local_4c - ((&Camera_gInfo.anchor)[player * 0x44]->position).y))))))
     goto LAB_80084634;
-    uVar15 = uVar15 - 4;
-  } while (-0x400 < (int)uVar15);
-  local_60.x = (&Camera_gInfo)[player].wallRight.x - (&Camera_gInfo)[player].wallLeft.x;
-  local_60.y = ((&Camera_gInfo)[player].wallRight.y - (&Camera_gInfo)[player].wallLeft.y) + 0x8000;
-  local_60.z = (&Camera_gInfo)[player].wallRight.z - (&Camera_gInfo)[player].wallLeft.z;
+    uVar17 = uVar17 - 4;
+  } while (-0x400 < (int)uVar17);
+  player = player * 0x110;
+  local_60.x = ((coorddef *)((int)&Camera_gInfo.wallRight + player))->x -
+               ((coorddef *)((int)&Camera_gInfo.wallLeft + player))->x;
+  local_60.y = (*(int *)((int)&Camera_gInfo.wallRight + player + 4) -
+               *(int *)((int)&Camera_gInfo.wallLeft + player + 4)) + 0x8000;
+  local_60.z = *(int *)((int)&Camera_gInfo.wallRight + player + 8) -
+               *(int *)((int)&Camera_gInfo.wallLeft + player + 8);
   Math_NormalizeVector__FP8coorddef(&local_60);
   local_90.x = local_90.x - local_40.x;
   local_78 = local_60.x;
@@ -2636,20 +3149,20 @@ LAB_800845d0:
   local_7c = local_60.y;
   local_90.z = local_90.z - local_40.z;
   local_90.y = local_90.y - local_40.y;
-  uVar15 = fixedmult(local_90.x,local_80);
-  uVar3 = fixedmult(local_90.y,local_7c);
-  uVar4 = fixedmult(local_90.z,local_78);
-  uVar5 = fixedmult(local_30,local_80);
-  uVar6 = fixedmult(local_2c,local_7c);
-  uVar7 = fixedmult(local_28,local_78);
-  iVar12 = uVar15 + uVar3 + uVar4 + uVar5 + uVar6 + uVar7 + 0x10000;
-  if (0 < iVar12) {
-    local_60.x = fixedmult(iVar12,local_80);
-    local_60.y = fixedmult(iVar12,local_7c);
-    uVar15 = fixedmult(iVar12,local_78);
+  uVar17 = fixedmult(local_90.x,local_80);
+  uVar4 = fixedmult(local_90.y,local_7c);
+  uVar5 = fixedmult(local_90.z,local_78);
+  uVar6 = fixedmult(local_30,local_80);
+  uVar7 = fixedmult(local_2c,local_7c);
+  uVar8 = fixedmult(local_28,local_78);
+  iVar16 = uVar17 + uVar4 + uVar5 + uVar6 + uVar7 + uVar8 + 0x10000;
+  if (0 < iVar16) {
+    local_60.x = fixedmult(iVar16,local_80);
+    local_60.y = fixedmult(iVar16,local_7c);
+    uVar17 = fixedmult(iVar16,local_78);
     pos->x = pos->x + local_60.x;
     pos->y = pos->y + local_60.y;
-    pos->z = pos->z + uVar15;
+    pos->z = pos->z + uVar17;
   }
   return;
 }
@@ -2671,6 +3184,21 @@ LAB_800845d0:
 	// End offset: 0x80084884
 	// End Line: 2232
 
+	/* begin block 2 */
+		// Start line: 5077
+	/* end block 2 */
+	// End Line: 5078
+
+	/* begin block 3 */
+		// Start line: 5080
+	/* end block 3 */
+	// End Line: 5081
+
+	/* begin block 4 */
+		// Start line: 5080
+	/* end block 4 */
+	// End Line: 5081
+
 void Camera_SetAboveGround__FiP8coorddef(int player,coorddef *pos)
 
 {
@@ -2678,12 +3206,13 @@ void Camera_SetAboveGround__FiP8coorddef(int player,coorddef *pos)
   int iVar2;
   coorddef local_20;
   
-  pcVar1 = BWorldSm_UNormal__FP12BWorldSm_Pos(&(&Camera_gInfo)[player].slicePos);
+  pcVar1 = BWorldSm_UNormal__FP12BWorldSm_Pos
+                     ((BWorldSm_Pos *)(&Camera_gInfo.forceFocus + player * 0x44));
   local_20.x = pcVar1->x;
   local_20.y = pcVar1->y;
   local_20.z = pcVar1->z;
   iVar2 = Newton_FindGroundElevationGeneral__FP8coorddefN20
-                    (pos,&local_20,(&Camera_gInfo)[player].slicePos.quadPts);
+                    (pos,&local_20,(coorddef *)(&Camera_gInfo.POInhibitor + player * 0x44));
   if (pos->y < iVar2 + 0x10000) {
     pos->y = iVar2 + 0x10000;
   }
@@ -2709,6 +3238,21 @@ void Camera_SetAboveGround__FiP8coorddef(int player,coorddef *pos)
 	// End offset: 0x80084B14
 	// End Line: 2278
 
+	/* begin block 2 */
+		// Start line: 5117
+	/* end block 2 */
+	// End Line: 5118
+
+	/* begin block 3 */
+		// Start line: 5125
+	/* end block 3 */
+	// End Line: 5126
+
+	/* begin block 4 */
+		// Start line: 5125
+	/* end block 4 */
+	// End Line: 5126
+
 void Camera_AcquireTarget__FiP8coorddefT1P10matrixtdefi
                (int player,coorddef *point,coorddef *pos,matrixtdef *rot,int hirez)
 
@@ -2730,14 +3274,14 @@ void Camera_AcquireTarget__FiP8coorddefT1P10matrixtdefi
   int local_20;
   
   iVar7 = DAT_800558c4;
-  puVar1 = PTR_DAT_800558c0;
+  puVar1 = PTR_s_SimpleMem_800558c0;
   v_00 = (coorddef *)(rot->m + 3);
   local_38 = DAT_800558bc;
-  local_34 = PTR_DAT_800558c0;
+  local_34 = PTR_s_SimpleMem_800558c0;
   local_30 = DAT_800558c4;
   v = (coorddef *)(rot->m + 6);
   if (point == (coorddef *)0x0) {
-    pBVar2 = (&Camera_gInfo)[player].target;
+    pBVar2 = (&Camera_gInfo.target)[player * 0x44];
     local_28 = (pBVar2->position).x;
     local_24 = (pBVar2->position).y;
     local_20 = (pBVar2->position).z;
@@ -2762,15 +3306,15 @@ void Camera_AcquireTarget__FiP8coorddefT1P10matrixtdefi
     local_20 = local_20 + 3;
   }
   rot->m[8] = local_20 >> 2;
-  if ((*(uint *)&(&Camera_gInfo)[player].field_0x74 >> 1 & 1) != 0) {
+  if ((*(uint *)(&Camera_gInfo.modechange + player * 0x110) >> 1 & 1) != 0) {
     puVar3 = (undefined *)(rot->m[7] + 0x5333);
-    if (2 < (uint)(ushort)(&Camera_gInfo)[player].mode - 2) {
+    if (2 < (uint)(ushort)(&Camera_gInfo.mode)[player * 0x88] - 2) {
       puVar3 = &DAT_00006666 + rot->m[7];
     }
     *(undefined **)(rot->m + 7) = puVar3;
   }
   if (Replay_ReplayMode == 2) {
-    local_38 = (&Camera_gInfo)[player].twist;
+    local_38 = (&Camera_gInfo.twist)[player * 0x44];
   }
   Math_NormalizeVector__FP8coorddef(v);
   uVar4 = fixedmult(local_38,v->x);
@@ -2837,6 +3381,21 @@ void Camera_AcquireTarget__FiP8coorddefT1P10matrixtdefi
 	// End offset: 0x80084FD8
 	// End Line: 2353
 
+	/* begin block 2 */
+		// Start line: 5232
+	/* end block 2 */
+	// End Line: 5233
+
+	/* begin block 3 */
+		// Start line: 5242
+	/* end block 3 */
+	// End Line: 5243
+
+	/* begin block 4 */
+		// Start line: 5242
+	/* end block 4 */
+	// End Line: 5243
+
 /* WARNING: Type propagation algorithm not settling */
 
 void Camera_OpponentLookBehind__FiP8coorddefi(int player,coorddef *pos,int reset)
@@ -2859,7 +3418,7 @@ void Camera_OpponentLookBehind__FiP8coorddefi(int player,coorddef *pos,int reset
   iVar11 = 0xb;
   if (reset != 0) {
     iVar11 = player * 0xc;
-    pCVar1 = (&__Cars_gHumanRaceCarList_9__)[player];
+    pCVar1 = (&Cars_gHumanRaceCarList9)[player];
     iVar7 = (pCVar1->N).orientMat.m[7];
     iVar8 = (pCVar1->N).orientMat.m[8];
     *(int *)(&lastOppVector_106 + iVar11) = (pCVar1->N).orientMat.m[6];
@@ -2867,14 +3426,14 @@ void Camera_OpponentLookBehind__FiP8coorddefi(int player,coorddef *pos,int reset
     *(int *)(&DAT_8013dfd8 + iVar11) = iVar8;
     return;
   }
-  ppCVar6 = &__Cars_gHumanRaceCarList_9__ + player;
+  ppCVar6 = &Cars_gHumanRaceCarList9 + player;
   pCVar1 = *ppCVar6;
   local_48.x = (pCVar1->N).orientMat.m[6];
   local_48.y = (pCVar1->N).orientMat.m[7];
   local_48.z = (pCVar1->N).orientMat.m[8];
   iVar7 = 0;
   if (0 < Cars_gNumCars) {
-    ppCVar10 = &__Cars_gList_9__;
+    ppCVar10 = &Cars_gList9;
     do {
       pCVar1 = *ppCVar10;
       if (pCVar1 != *ppCVar6) {
@@ -2925,7 +3484,7 @@ void Camera_OpponentLookBehind__FiP8coorddefi(int player,coorddef *pos,int reset
   local_48.x = pos->x - *piVar9;
   local_48.y = pos->y - *(int *)(&DAT_8013dfd4 + iVar11);
   local_48.z = pos->z - *(int *)(&DAT_8013dfd8 + iVar11);
-  switch((int)(((uint)(ushort)(&Camera_gInfo)[player].mode - 2) * 0x10000) >> 0x10) {
+  switch((int)(((uint)(ushort)(&Camera_gInfo.mode)[player * 0x88] - 2) * 0x10000) >> 0x10) {
   case 0:
   case 1:
   case 2:
@@ -2943,7 +3502,7 @@ void Camera_OpponentLookBehind__FiP8coorddefi(int player,coorddef *pos,int reset
   local_48.y = local_48.y + iVar11;
 switchD_80084f6c_caseD_6:
   Camera_AcquireTarget__FiP8coorddefT1P10matrixtdefi
-            (player,&local_48,pos,&(&Camera_gInfo)[player].rotation,1);
+            (player,&local_48,pos,(matrixtdef *)((int)&Camera_gInfo.rotation + player * 0x110),1);
   return;
 }
 
@@ -2998,6 +3557,21 @@ switchD_80084f6c_caseD_6:
 	// End offset: 0x80085294
 	// End Line: 2462
 
+	/* begin block 2 */
+		// Start line: 5383
+	/* end block 2 */
+	// End Line: 5384
+
+	/* begin block 3 */
+		// Start line: 5386
+	/* end block 3 */
+	// End Line: 5387
+
+	/* begin block 4 */
+		// Start line: 5386
+	/* end block 4 */
+	// End Line: 5387
+
 void Camera_GetViewInfo__FiP17DRender_tCalcViewi(int cviewP,DRender_tCalcView *cview,int viewID)
 
 {
@@ -3013,66 +3587,71 @@ void Camera_GetViewInfo__FiP17DRender_tCalcViewi(int cviewP,DRender_tCalcView *c
   int local_24;
   int local_20;
   
-  if ((*(uint *)&(&Camera_gInfo)[cviewP].field_0x74 >> 2 & 1) != 0) {
+  iVar8 = cviewP * 0x110;
+  if ((*(uint *)(&Camera_gInfo.modechange + iVar8) >> 2 & 1) != 0) {
     Camera_PitchAndRoll__Fi(cviewP);
   }
-  iVar6 = (&Camera_gInfo)[cviewP].position.y;
-  iVar7 = (&Camera_gInfo)[cviewP].position.z;
-  (cview->translation).x = (&Camera_gInfo)[cviewP].position.x;
+  iVar6 = *(int *)((int)&Camera_gInfo.position + iVar8 + 4);
+  iVar7 = *(int *)((int)&Camera_gInfo.position + iVar8 + 8);
+  (cview->translation).x = ((coorddef *)((int)&Camera_gInfo.position + iVar8))->x;
   (cview->translation).y = iVar6;
   (cview->translation).z = iVar7;
-  if ((*(uint *)&(&Camera_gInfo)[cviewP].field_0x74 >> 4 & 1) != 0) {
+  if ((*(uint *)(&Camera_gInfo.modechange + iVar8) >> 4 & 1) != 0) {
     Camera_CheckWallCollisions__FiP8coorddef(cviewP,(coorddef *)cview);
   }
   BWorldSm_FindClosestQuadRez__FP8coorddefP12BWorldSm_Posi
-            ((coorddef *)cview,&(&Camera_gInfo)[cviewP].slicePos,1);
-  if (((&Camera_gInfo)[cviewP].slicePos.offEdge == '\0') && (1 < (&Camera_gInfo)[cviewP].mode)) {
+            ((coorddef *)cview,(BWorldSm_Pos *)(&Camera_gInfo.forceFocus + cviewP * 0x44),1);
+  if ((*(char *)((int)&Camera_gInfo.slicePos + iVar8 + 0x4e) == '\0') &&
+     (1 < (&Camera_gInfo.mode)[cviewP * 0x88])) {
     Camera_SetAboveGround__FiP8coorddef(cviewP,(coorddef *)cview);
   }
-  if ((*(uint *)&(&Camera_gInfo)[cviewP].field_0x74 >> 3 & 1) != 0) {
+  iVar8 = cviewP * 0x110;
+  if ((*(uint *)(&Camera_gInfo.modechange + iVar8) >> 3 & 1) != 0) {
     Camera_AcquireTarget__FiP8coorddefT1P10matrixtdefi
-              (cviewP,(coorddef *)0x0,(coorddef *)cview,&(&Camera_gInfo)[cviewP].rotation,1);
+              (cviewP,(coorddef *)0x0,(coorddef *)cview,
+               (matrixtdef *)((int)&Camera_gInfo.rotation + iVar8),1);
   }
-  if ((&Camera_gInfo)[cviewP].mode == 0x10) {
+  if ((&Camera_gInfo.mode)[cviewP * 0x88] == 0x10) {
     Camera_AcquireTarget__FiP8coorddefT1P10matrixtdefi
-              (cviewP,&gCop1Target + cviewP,(coorddef *)cview,&(&Camera_gInfo)[cviewP].rotation,1);
+              (cviewP,gCop1Target + cviewP,(coorddef *)cview,
+               (matrixtdef *)((int)&Camera_gInfo.rotation + iVar8),1);
   }
-  if ((*(uint *)&(&Camera_gInfo)[cviewP].field_0x74 >> 5 & 1) == 0) {
+  if ((*(uint *)(&Camera_gInfo.modechange + iVar8) >> 5 & 1) == 0) {
     Camera_OpponentLookBehind__FiP8coorddefi
               (cviewP,(coorddef *)cview,(uint)((&Input_gLookBehind)[cviewP] == 0));
   }
   pmVar5 = &cview->mrotation;
-  pmVar1 = &(&Camera_gInfo)[cviewP].rotation;
+  pmVar1 = (matrixtdef *)((int)&Camera_gInfo.rotation + cviewP * 0x110);
   do {
-    iVar6 = pmVar1->m[1];
-    iVar7 = pmVar1->m[2];
-    iVar8 = pmVar1->m[3];
+    iVar8 = pmVar1->m[1];
+    iVar6 = pmVar1->m[2];
+    iVar7 = pmVar1->m[3];
     pmVar5->m[0] = pmVar1->m[0];
-    pmVar5->m[1] = iVar6;
-    pmVar5->m[2] = iVar7;
-    pmVar5->m[3] = iVar8;
+    pmVar5->m[1] = iVar8;
+    pmVar5->m[2] = iVar6;
+    pmVar5->m[3] = iVar7;
     pmVar1 = (matrixtdef *)(pmVar1->m + 4);
     pmVar5 = (matrixtdef *)(pmVar5->m + 4);
-  } while (pmVar1 != (matrixtdef *)((&Camera_gInfo)[cviewP].rotation.m + 8));
+  } while (pmVar1 != (matrixtdef *)((int)&Camera_gInfo.rotation + cviewP * 0x110 + 0x20));
   pmVar5->m[0] = pmVar1->m[0];
   if (GameSetup_gData.mirrorTrack != 0) {
-    iVar7 = (cview->mrotation).m[2];
+    iVar6 = (cview->mrotation).m[2];
     (cview->mrotation).m[0] = -(cview->mrotation).m[0];
-    iVar6 = (cview->mrotation).m[1];
-    (cview->mrotation).m[2] = -iVar7;
-    (cview->mrotation).m[1] = -iVar6;
+    iVar8 = (cview->mrotation).m[1];
+    (cview->mrotation).m[2] = -iVar6;
+    (cview->mrotation).m[1] = -iVar8;
   }
   pmVar5 = &cview->mrotationInv;
   transpose((undefined4 *)&cview->mrotation,(undefined4 *)pmVar5);
   pmVar1 = &cview->mrotationInvRaw;
   do {
-    iVar6 = pmVar5->m[1];
-    iVar7 = pmVar5->m[2];
-    iVar8 = pmVar5->m[3];
+    iVar8 = pmVar5->m[1];
+    iVar6 = pmVar5->m[2];
+    iVar7 = pmVar5->m[3];
     pmVar1->m[0] = pmVar5->m[0];
-    pmVar1->m[1] = iVar6;
-    pmVar1->m[2] = iVar7;
-    pmVar1->m[3] = iVar8;
+    pmVar1->m[1] = iVar8;
+    pmVar1->m[2] = iVar6;
+    pmVar1->m[3] = iVar7;
     pmVar5 = (matrixtdef *)(pmVar5->m + 4);
     pmVar1 = (matrixtdef *)(pmVar1->m + 4);
   } while (pmVar5 != (matrixtdef *)((cview->mrotationInv).m + 8));
@@ -3104,6 +3683,21 @@ void Camera_GetViewInfo__FiP17DRender_tCalcViewi(int cviewP,DRender_tCalcView *c
 	// End offset: 0x80085554
 	// End Line: 2543
 
+	/* begin block 2 */
+		// Start line: 5669
+	/* end block 2 */
+	// End Line: 5670
+
+	/* begin block 3 */
+		// Start line: 5674
+	/* end block 3 */
+	// End Line: 5675
+
+	/* begin block 4 */
+		// Start line: 5674
+	/* end block 4 */
+	// End Line: 5675
+
 void Camera_GetAudioViewInfo__FiP17DRender_tCalcViewPP8coorddef
                (int cviewP,DRender_tCalcView *cview,coorddef **cvel)
 
@@ -3113,73 +3707,77 @@ void Camera_GetAudioViewInfo__FiP17DRender_tCalcViewPP8coorddef
   int iVar3;
   int iVar4;
   int iVar5;
+  int iVar6;
   
   if ((&Input_gLookBehind)[cviewP] == 0) {
-    iVar3 = (&Camera_gInfo)[cviewP].position.y;
-    iVar4 = (&Camera_gInfo)[cviewP].position.z;
-    (cview->translation).x = (&Camera_gInfo)[cviewP].position.x;
-    (cview->translation).y = iVar3;
-    (cview->translation).z = iVar4;
+    iVar3 = cviewP * 0x110;
+    iVar4 = *(int *)((int)&Camera_gInfo.position + iVar3 + 4);
+    iVar5 = *(int *)((int)&Camera_gInfo.position + iVar3 + 8);
+    (cview->translation).x = ((coorddef *)((int)&Camera_gInfo.position + iVar3))->x;
+    (cview->translation).y = iVar4;
+    (cview->translation).z = iVar5;
     pmVar2 = &cview->mrotation;
-    pmVar1 = &(&Camera_gInfo)[cviewP].rotation;
+    pmVar1 = (matrixtdef *)((int)&Camera_gInfo.rotation + iVar3);
     do {
-      iVar3 = pmVar1->m[1];
-      iVar4 = pmVar1->m[2];
-      iVar5 = pmVar1->m[3];
+      iVar4 = pmVar1->m[1];
+      iVar5 = pmVar1->m[2];
+      iVar6 = pmVar1->m[3];
       pmVar2->m[0] = pmVar1->m[0];
-      pmVar2->m[1] = iVar3;
-      pmVar2->m[2] = iVar4;
-      pmVar2->m[3] = iVar5;
+      pmVar2->m[1] = iVar4;
+      pmVar2->m[2] = iVar5;
+      pmVar2->m[3] = iVar6;
       pmVar1 = (matrixtdef *)(pmVar1->m + 4);
       pmVar2 = (matrixtdef *)(pmVar2->m + 4);
-    } while (pmVar1 != (matrixtdef *)((&Camera_gInfo)[cviewP].rotation.m + 8));
+    } while (pmVar1 != (matrixtdef *)((int)&Camera_gInfo.rotation + iVar3 + 0x20));
     pmVar2->m[0] = pmVar1->m[0];
   }
   else {
-    pmVar1 = &(&Camera_gInfo)[cviewP].rotation;
-    if ((*(uint *)&(&Camera_gInfo)[cviewP].field_0x74 >> 5 & 1) == 0) {
-      if ((*(uint *)&(&Camera_gInfo)[cviewP].field_0x74 >> 3 & 1) == 0) {
-        iVar3 = (&Camera_gInfo)[cviewP].audioPos.y;
-        iVar4 = (&Camera_gInfo)[cviewP].audioPos.z;
-        (cview->translation).x = (&Camera_gInfo)[cviewP].audioPos.x;
-        (cview->translation).y = iVar3;
-        (cview->translation).z = iVar4;
-        Camera_LookBack__FP10matrixtdefT0(&(&Camera_gInfo)[cviewP].rotation,&cview->mrotation);
+    iVar3 = cviewP * 0x110;
+    pmVar1 = (matrixtdef *)((int)&Camera_gInfo.rotation + iVar3);
+    if ((*(uint *)(&Camera_gInfo.modechange + iVar3) >> 5 & 1) == 0) {
+      if ((*(uint *)(&Camera_gInfo.modechange + iVar3) >> 3 & 1) == 0) {
+        iVar4 = *(int *)((int)&Camera_gInfo.audioPos + iVar3 + 4);
+        iVar5 = *(int *)((int)&Camera_gInfo.audioPos + iVar3 + 8);
+        (cview->translation).x = ((coorddef *)((int)&Camera_gInfo.audioPos + iVar3))->x;
+        (cview->translation).y = iVar4;
+        (cview->translation).z = iVar5;
+        Camera_LookBack__FP10matrixtdefT0
+                  ((matrixtdef *)((int)&Camera_gInfo.rotation + iVar3),&cview->mrotation);
       }
       else {
-        iVar3 = (&Camera_gInfo)[cviewP].audioPos.y;
-        iVar4 = (&Camera_gInfo)[cviewP].audioPos.z;
-        (cview->translation).x = (&Camera_gInfo)[cviewP].audioPos.x;
-        (cview->translation).y = iVar3;
-        (cview->translation).z = iVar4;
+        iVar4 = *(int *)((int)&Camera_gInfo.audioPos + iVar3 + 4);
+        iVar5 = *(int *)((int)&Camera_gInfo.audioPos + iVar3 + 8);
+        (cview->translation).x = ((coorddef *)((int)&Camera_gInfo.audioPos + iVar3))->x;
+        (cview->translation).y = iVar4;
+        (cview->translation).z = iVar5;
         Camera_AcquireTarget__FiP8coorddefT1P10matrixtdefi
                   (cviewP,(coorddef *)0x0,(coorddef *)cview,&cview->mrotation,0);
       }
     }
     else {
-      iVar3 = (&Camera_gInfo)[cviewP].position.y;
-      iVar4 = (&Camera_gInfo)[cviewP].position.z;
-      (cview->translation).x = (&Camera_gInfo)[cviewP].position.x;
-      (cview->translation).y = iVar3;
-      (cview->translation).z = iVar4;
+      iVar4 = *(int *)((int)&Camera_gInfo.position + iVar3 + 4);
+      iVar5 = *(int *)((int)&Camera_gInfo.position + iVar3 + 8);
+      (cview->translation).x = ((coorddef *)((int)&Camera_gInfo.position + iVar3))->x;
+      (cview->translation).y = iVar4;
+      (cview->translation).z = iVar5;
       pmVar2 = &cview->mrotation;
       do {
-        iVar3 = pmVar1->m[1];
-        iVar4 = pmVar1->m[2];
-        iVar5 = pmVar1->m[3];
+        iVar4 = pmVar1->m[1];
+        iVar5 = pmVar1->m[2];
+        iVar6 = pmVar1->m[3];
         pmVar2->m[0] = pmVar1->m[0];
-        pmVar2->m[1] = iVar3;
-        pmVar2->m[2] = iVar4;
-        pmVar2->m[3] = iVar5;
+        pmVar2->m[1] = iVar4;
+        pmVar2->m[2] = iVar5;
+        pmVar2->m[3] = iVar6;
         pmVar1 = (matrixtdef *)(pmVar1->m + 4);
         pmVar2 = (matrixtdef *)(pmVar2->m + 4);
-      } while (pmVar1 != (matrixtdef *)((&Camera_gInfo)[cviewP].rotation.m + 8));
+      } while (pmVar1 != (matrixtdef *)((int)&Camera_gInfo.rotation + iVar3 + 0x20));
       pmVar2->m[0] = pmVar1->m[0];
     }
   }
-  switch((&Camera_gInfo)[cviewP].mode) {
+  switch((&Camera_gInfo.mode)[cviewP * 0x88]) {
   default:
-    *cvel = &((&Camera_gInfo)[cviewP].anchor)->linearVel;
+    *cvel = &(&Camera_gInfo.anchor)[cviewP * 0x44]->linearVel;
     break;
   case 0xc:
   case 0xe:
@@ -3201,14 +3799,34 @@ void Camera_GetAudioViewInfo__FiP17DRender_tCalcViewPP8coorddef
 	// End offset: 0x80085600
 	// End Line: 2563
 
+	/* begin block 2 */
+		// Start line: 5804
+	/* end block 2 */
+	// End Line: 5805
+
+	/* begin block 3 */
+		// Start line: 5809
+	/* end block 3 */
+	// End Line: 5810
+
+	/* begin block 4 */
+		// Start line: 5809
+	/* end block 4 */
+	// End Line: 5810
+
+	/* begin block 5 */
+		// Start line: 5818
+	/* end block 5 */
+	// End Line: 5819
+
 int Camera_GetMode__Fi(int cviewP)
 
 {
-  if (((((&__Cars_gHumanRaceCarList_9__)[cviewP]->carFlags & 1U) == 0) ||
-      (((&__Cars_gHumanRaceCarList_9__)[cviewP]->stats).finishType != 2)) &&
-     (((&__Cars_gHumanRaceCarList_9__)[cviewP]->pullOver == 0 ||
-      (((&__Cars_gHumanRaceCarList_9__)[cviewP]->stats).finishType == 3)))) {
-    return (int)(&Camera_gInfo)[cviewP].mode;
+  if (((((&Cars_gHumanRaceCarList9)[cviewP]->carFlags & 1U) == 0) ||
+      (((&Cars_gHumanRaceCarList9)[cviewP]->stats).finishType != 2)) &&
+     (((&Cars_gHumanRaceCarList9)[cviewP]->pullOver == 0 ||
+      (((&Cars_gHumanRaceCarList9)[cviewP]->stats).finishType == 3)))) {
+    return (int)(&Camera_gInfo.mode)[cviewP * 0x88];
   }
   return 0x14;
 }
@@ -3235,60 +3853,77 @@ int Camera_GetMode__Fi(int cviewP)
 	// End offset: 0x80085804
 	// End Line: 2618
 
+	/* begin block 2 */
+		// Start line: 5843
+	/* end block 2 */
+	// End Line: 5844
+
+	/* begin block 3 */
+		// Start line: 5847
+	/* end block 3 */
+	// End Line: 5848
+
+	/* begin block 4 */
+		// Start line: 5847
+	/* end block 4 */
+	// End Line: 5848
+
 void Camera_SetMode__Fii(int cviewP,int mode)
 
 {
   short sVar1;
-  uint uVar2;
+  int iVar2;
   uint uVar3;
   uint uVar4;
   uint uVar5;
   uint uVar6;
   uint uVar7;
   uint uVar8;
-  int iVar9;
+  uint uVar9;
+  int iVar10;
   
+  iVar2 = cviewP * 0x110;
   InBetween = 0;
-  if (((&Camera_gInfo)[cviewP].field_0x74 & 1) == 0) {
-    if ((uint)(ushort)(&Camera_gInfo)[cviewP].mode - 0xb < 2) {
-      DAT_00000290 = 0xbe;
+  if (((&Camera_gInfo.modechange)[iVar2] & 1U) == 0) {
+    if ((uint)(ushort)(&Camera_gInfo.mode)[cviewP * 0x88] - 0xb < 2) {
+      Camera_gGeomScreen = 0xbe;
       TrsProj_SetProjection__Fiiii(0,0,0x140,0xf0);
     }
-    if (5 < (uint)(ushort)(&Camera_gInfo)[cviewP].mode - 2) {
+    if (5 < (uint)(ushort)(&Camera_gInfo.mode)[cviewP * 0x88] - 2) {
       Camera_ResetRelPos__Fi(cviewP + 1);
     }
-    if (-1 < (int)(&Camera_gInfo)[cviewP].animHandle) {
-      Anim_FreeHandle__Fi((int)(&Camera_gInfo)[cviewP].animHandle);
-      (&Camera_gInfo)[cviewP].animHandle = -1;
+    if (-1 < (int)(&Camera_gInfo.tumbling)[iVar2]) {
+      Anim_FreeHandle__Fi((int)(&Camera_gInfo.tumbling)[iVar2]);
+      (&Camera_gInfo.tumbling)[iVar2] = -1;
     }
-    (&Camera_gInfo)[cviewP].mode = (short)mode;
+    (&Camera_gInfo.mode)[cviewP * 0x88] = (short)mode;
     if (0x13 < (short)mode) {
-      (&Camera_gInfo)[cviewP].mode = *(short *)GameSetup_gData.carInfo[cviewP].Camera;
+      (&Camera_gInfo.mode)[cviewP * 0x88] = *(short *)GameSetup_gData.carInfo[cviewP].Camera;
     }
-    if ((&Camera_gInfo)[cviewP].mode == 0xb) {
+    if ((&Camera_gInfo.mode)[cviewP * 0x88] == 0xb) {
       Camera_SetSplineCam__Fi(cviewP);
     }
-    (&Camera_gInfo)[cviewP].intransition = '2';
-    iVar9 = (int)(&Camera_gInfo)[cviewP].mode;
-    uVar2 = *(uint *)&(&Camera_gInfo)[cviewP].field_0x74;
-    uVar3 = ((&Camera_gFlags)[iVar9].field_0xc & 1) << 1;
-    *(uint *)&(&Camera_gInfo)[cviewP].field_0x74 = uVar2 & 0xfffffffd | uVar3;
-    uVar4 = ((&Camera_gFlags)[iVar9].field_0xc & 2) << 1;
-    *(uint *)&(&Camera_gInfo)[cviewP].field_0x74 = uVar2 & 0xfffffff9 | uVar3 | uVar4;
-    uVar5 = ((&Camera_gFlags)[iVar9].field_0xc & 4) << 1;
-    *(uint *)&(&Camera_gInfo)[cviewP].field_0x74 = uVar2 & 0xfffffff1 | uVar3 | uVar4 | uVar5;
-    uVar6 = ((&Camera_gFlags)[iVar9].field_0xc & 8) << 1;
-    *(uint *)&(&Camera_gInfo)[cviewP].field_0x74 =
-         uVar2 & 0xffffffe1 | uVar3 | uVar4 | uVar5 | uVar6;
-    uVar7 = ((&Camera_gFlags)[iVar9].field_0xc & 0x10) << 1;
-    *(uint *)&(&Camera_gInfo)[cviewP].field_0x74 =
-         uVar2 & 0xffffffc1 | uVar3 | uVar4 | uVar5 | uVar6 | uVar7;
-    uVar8 = ((&Camera_gFlags)[iVar9].field_0xc & 0x20) << 1;
-    sVar1 = (&Camera_gInfo)[cviewP].mode;
-    *(uint *)&(&Camera_gInfo)[cviewP].field_0x74 =
-         uVar2 & 0xffffff81 | uVar3 | uVar4 | uVar5 | uVar6 | uVar7 | uVar8;
-    *(uint *)&(&Camera_gInfo)[cviewP].field_0x74 =
-         uVar2 & 0xf7ffff81 | uVar3 | uVar4 | uVar5 | uVar6 | uVar7 | uVar8 |
+    (&Camera_gInfo.pitch)[iVar2] = '2';
+    iVar10 = (int)(&Camera_gInfo.mode)[cviewP * 0x88];
+    uVar3 = *(uint *)(&Camera_gInfo.modechange + iVar2);
+    uVar4 = ((&Camera_gFlags[0].pitch)[iVar10 * 4] & 1U) << 1;
+    *(uint *)(&Camera_gInfo.modechange + iVar2) = uVar3 & 0xfffffffd | uVar4;
+    uVar5 = ((&Camera_gFlags[0].pitch)[iVar10 * 4] & 2U) << 1;
+    *(uint *)(&Camera_gInfo.modechange + iVar2) = uVar3 & 0xfffffff9 | uVar4 | uVar5;
+    uVar6 = ((&Camera_gFlags[0].pitch)[iVar10 * 4] & 4U) << 1;
+    *(uint *)(&Camera_gInfo.modechange + iVar2) = uVar3 & 0xfffffff1 | uVar4 | uVar5 | uVar6;
+    uVar7 = ((&Camera_gFlags[0].pitch)[iVar10 * 4] & 8U) << 1;
+    *(uint *)(&Camera_gInfo.modechange + iVar2) = uVar3 & 0xffffffe1 | uVar4 | uVar5 | uVar6 | uVar7
+    ;
+    uVar8 = ((&Camera_gFlags[0].pitch)[iVar10 * 4] & 0x10U) << 1;
+    *(uint *)(&Camera_gInfo.modechange + iVar2) =
+         uVar3 & 0xffffffc1 | uVar4 | uVar5 | uVar6 | uVar7 | uVar8;
+    uVar9 = ((&Camera_gFlags[0].pitch)[iVar10 * 4] & 0x20U) << 1;
+    sVar1 = (&Camera_gInfo.mode)[cviewP * 0x88];
+    *(uint *)(&Camera_gInfo.modechange + iVar2) =
+         uVar3 & 0xffffff81 | uVar4 | uVar5 | uVar6 | uVar7 | uVar8 | uVar9;
+    *(uint *)(&Camera_gInfo.modechange + iVar2) =
+         uVar3 & 0xf7ffff81 | uVar4 | uVar5 | uVar6 | uVar7 | uVar8 | uVar9 |
          (uint)(sVar1 < 2) << 0x1b;
   }
   return;
@@ -3316,6 +3951,21 @@ void Camera_SetMode__Fii(int cviewP,int mode)
 	// End offset: 0x80085BBC
 	// End Line: 2686
 
+	/* begin block 2 */
+		// Start line: 5989
+	/* end block 2 */
+	// End Line: 5990
+
+	/* begin block 3 */
+		// Start line: 5992
+	/* end block 3 */
+	// End Line: 5993
+
+	/* begin block 4 */
+		// Start line: 5992
+	/* end block 4 */
+	// End Line: 5993
+
 void Camera_NextMode__Fi(int cviewP)
 
 {
@@ -3331,74 +3981,77 @@ void Camera_NextMode__Fi(int cviewP)
   uint uVar10;
   int iVar11;
   
-  if (((&Camera_gInfo)[cviewP].mode != 0xe) && (((&Camera_gInfo)[cviewP].field_0x74 & 1) == 0)) {
-    if ((uint)(ushort)(&Camera_gInfo)[cviewP].mode - 0xb < 2) {
-      DAT_00000290 = 0xbe;
+  iVar4 = cviewP * 0x110;
+  if (((&Camera_gInfo.mode)[cviewP * 0x88] != 0xe) &&
+     (((&Camera_gInfo.modechange)[iVar4] & 1U) == 0)) {
+    if ((uint)(ushort)(&Camera_gInfo.mode)[cviewP * 0x88] - 0xb < 2) {
+      Camera_gGeomScreen = 0xbe;
       TrsProj_SetProjection__Fiiii(0,0,0x140,0xf0);
     }
-    if (5 < (uint)(ushort)(&Camera_gInfo)[cviewP].mode - 2) {
+    if (5 < (uint)(ushort)(&Camera_gInfo.mode)[cviewP * 0x88] - 2) {
       Camera_ResetRelPos__Fi(cviewP + 1);
     }
-    if (-1 < (int)(&Camera_gInfo)[cviewP].animHandle) {
-      Anim_FreeHandle__Fi((int)(&Camera_gInfo)[cviewP].animHandle);
-      (&Camera_gInfo)[cviewP].animHandle = -1;
+    if (-1 < (int)(&Camera_gInfo.tumbling)[iVar4]) {
+      Anim_FreeHandle__Fi((int)(&Camera_gInfo.tumbling)[iVar4]);
+      (&Camera_gInfo.tumbling)[iVar4] = -1;
     }
-    if ((byte)(&Camera_gInfo)[cviewP].field_0x74 >> 7 == 0) {
+    if ((byte)(&Camera_gInfo.modechange)[iVar4] >> 7 == 0) {
       if (((GameSetup_gData.raceType == 1) || (GameSetup_gData.raceType == 5)) &&
-         (((__Cars_gHumanRaceCarList_9__->carFlags & 0x200U) != 0 ||
-          ((Cars_gNumHumanRaceCars == 2 && ((PTR_8010fa4c->carFlags & 0x200U) != 0)))))) {
-        uVar3 = (uint)(ushort)(&Camera_gInfo)[cviewP].camNum + 1;
-        (&Camera_gInfo)[cviewP].camNum = (short)uVar3;
-        (&Camera_gInfo)[cviewP].mode =
+         (((Cars_gHumanRaceCarList9->carFlags & 0x200U) != 0 ||
+          ((Cars_gNumHumanRaceCars == 2 && ((PTR_ARRAY_8010fa4c[0]->carFlags & 0x200U) != 0)))))) {
+        uVar3 = (uint)(ushort)(&Camera_gInfo.camNum)[cviewP * 0x88] + 1;
+        (&Camera_gInfo.camNum)[cviewP * 0x88] = (short)uVar3;
+        (&Camera_gInfo.mode)[cviewP * 0x88] =
              *(short *)(GameSetup_gData.carInfo[0].Camera + cviewP * 0x2d + (uVar3 & 3));
       }
       else {
-        uVar2 = (&Camera_gInfo)[cviewP].camNum + 1;
+        uVar2 = (&Camera_gInfo.camNum)[cviewP * 0x88] + 1;
         iVar4 = (uint)uVar2 << 0x10;
         iVar11 = iVar4 >> 0x10;
-        (&Camera_gInfo)[cviewP].camNum = uVar2;
-        (&Camera_gInfo)[cviewP].mode =
+        (&Camera_gInfo.camNum)[cviewP * 0x88] = uVar2;
+        (&Camera_gInfo.mode)[cviewP * 0x88] =
              *(short *)((int)GameSetup_gData.carInfo[cviewP].Camera +
                        ((iVar11 + ((iVar11 / 3 + (iVar11 >> 0x1f)) - (iVar4 >> 0x1f)) * -3) *
                         0x10000 >> 0xe));
       }
     }
     else {
-      uVar2 = (&Camera_gInfo)[cviewP].camNum + 1;
+      uVar2 = (&Camera_gInfo.camNum)[cviewP * 0x88] + 1;
       iVar4 = (uint)uVar2 << 0x10;
       iVar11 = iVar4 >> 0x10;
-      (&Camera_gInfo)[cviewP].camNum = uVar2;
-      (&Camera_gInfo)[cviewP].mode =
-           *(short *)((int)&gSplitCameras +
+      (&Camera_gInfo.camNum)[cviewP * 0x88] = uVar2;
+      (&Camera_gInfo.mode)[cviewP * 0x88] =
+           *(short *)((int)gSplitCameras +
                      ((iVar11 + ((iVar11 / 3 + (iVar11 >> 0x1f)) - (iVar4 >> 0x1f)) * -3) * 0x10000
                      >> 0xe));
     }
-    if (0x13 < (&Camera_gInfo)[cviewP].mode) {
-      (&Camera_gInfo)[cviewP].mode = *(short *)GameSetup_gData.carInfo[cviewP].Camera;
+    iVar4 = cviewP * 0x110;
+    if (0x13 < (&Camera_gInfo.mode)[cviewP * 0x88]) {
+      (&Camera_gInfo.mode)[cviewP * 0x88] = *(short *)GameSetup_gData.carInfo[cviewP].Camera;
     }
-    if ((&Camera_gInfo)[cviewP].mode == 0xb) {
+    if ((&Camera_gInfo.mode)[cviewP * 0x88] == 0xb) {
       Camera_SetSplineCam__Fi(cviewP);
     }
-    (&Camera_gInfo)[cviewP].intransition = '2';
-    iVar4 = (int)(&Camera_gInfo)[cviewP].mode;
-    uVar3 = *(uint *)&(&Camera_gInfo)[cviewP].field_0x74;
-    uVar5 = ((&Camera_gFlags)[iVar4].field_0xc & 1) << 1;
-    *(uint *)&(&Camera_gInfo)[cviewP].field_0x74 = uVar3 & 0xfffffffd | uVar5;
-    uVar6 = ((&Camera_gFlags)[iVar4].field_0xc & 2) << 1;
-    *(uint *)&(&Camera_gInfo)[cviewP].field_0x74 = uVar3 & 0xfffffff9 | uVar5 | uVar6;
-    uVar7 = ((&Camera_gFlags)[iVar4].field_0xc & 4) << 1;
-    *(uint *)&(&Camera_gInfo)[cviewP].field_0x74 = uVar3 & 0xfffffff1 | uVar5 | uVar6 | uVar7;
-    uVar8 = ((&Camera_gFlags)[iVar4].field_0xc & 8) << 1;
-    *(uint *)&(&Camera_gInfo)[cviewP].field_0x74 =
-         uVar3 & 0xffffffe1 | uVar5 | uVar6 | uVar7 | uVar8;
-    uVar9 = ((&Camera_gFlags)[iVar4].field_0xc & 0x10) << 1;
-    *(uint *)&(&Camera_gInfo)[cviewP].field_0x74 =
+    (&Camera_gInfo.pitch)[iVar4] = '2';
+    iVar11 = (int)(&Camera_gInfo.mode)[cviewP * 0x88];
+    uVar3 = *(uint *)(&Camera_gInfo.modechange + iVar4);
+    uVar5 = ((&Camera_gFlags[0].pitch)[iVar11 * 4] & 1U) << 1;
+    *(uint *)(&Camera_gInfo.modechange + iVar4) = uVar3 & 0xfffffffd | uVar5;
+    uVar6 = ((&Camera_gFlags[0].pitch)[iVar11 * 4] & 2U) << 1;
+    *(uint *)(&Camera_gInfo.modechange + iVar4) = uVar3 & 0xfffffff9 | uVar5 | uVar6;
+    uVar7 = ((&Camera_gFlags[0].pitch)[iVar11 * 4] & 4U) << 1;
+    *(uint *)(&Camera_gInfo.modechange + iVar4) = uVar3 & 0xfffffff1 | uVar5 | uVar6 | uVar7;
+    uVar8 = ((&Camera_gFlags[0].pitch)[iVar11 * 4] & 8U) << 1;
+    *(uint *)(&Camera_gInfo.modechange + iVar4) = uVar3 & 0xffffffe1 | uVar5 | uVar6 | uVar7 | uVar8
+    ;
+    uVar9 = ((&Camera_gFlags[0].pitch)[iVar11 * 4] & 0x10U) << 1;
+    *(uint *)(&Camera_gInfo.modechange + iVar4) =
          uVar3 & 0xffffffc1 | uVar5 | uVar6 | uVar7 | uVar8 | uVar9;
-    uVar10 = ((&Camera_gFlags)[iVar4].field_0xc & 0x20) << 1;
-    sVar1 = (&Camera_gInfo)[cviewP].mode;
-    *(uint *)&(&Camera_gInfo)[cviewP].field_0x74 =
+    uVar10 = ((&Camera_gFlags[0].pitch)[iVar11 * 4] & 0x20U) << 1;
+    sVar1 = (&Camera_gInfo.mode)[cviewP * 0x88];
+    *(uint *)(&Camera_gInfo.modechange + iVar4) =
          uVar3 & 0xffffff81 | uVar5 | uVar6 | uVar7 | uVar8 | uVar9 | uVar10;
-    *(uint *)&(&Camera_gInfo)[cviewP].field_0x74 =
+    *(uint *)(&Camera_gInfo.modechange + iVar4) =
          uVar3 & 0xf7ffff81 | uVar5 | uVar6 | uVar7 | uVar8 | uVar9 | uVar10 |
          (uint)(sVar1 < 2) << 0x1b;
   }
@@ -3418,6 +4071,21 @@ void Camera_NextMode__Fi(int cviewP)
 	// End offset: 0x80085CB8
 	// End Line: 2704
 
+	/* begin block 2 */
+		// Start line: 6153
+	/* end block 2 */
+	// End Line: 6154
+
+	/* begin block 3 */
+		// Start line: 6156
+	/* end block 3 */
+	// End Line: 6157
+
+	/* begin block 4 */
+		// Start line: 6156
+	/* end block 4 */
+	// End Line: 6157
+
 void Camera_ReplayUpdate__FiP15Camera_tCamSlot(int cviewP,Camera_tCamSlot *ptr)
 
 {
@@ -3425,25 +4093,27 @@ void Camera_ReplayUpdate__FiP15Camera_tCamSlot(int cviewP,Camera_tCamSlot *ptr)
   uint uVar2;
   int iVar3;
   int iVar4;
+  int iVar5;
   
-  if (((&Camera_gInfo)[cviewP].field_0x74 & 1) == 0) {
+  iVar5 = cviewP * 0x110;
+  if (((&Camera_gInfo.modechange)[iVar5] & 1U) == 0) {
     Camera_SetMode__Fii(cviewP,(uint)(byte)ptr->mode);
-    uVar2 = *(uint *)&(&Camera_gInfo)[cviewP].field_0x74;
+    uVar2 = *(uint *)(&Camera_gInfo.modechange + iVar5);
     uVar1 = *(uint *)ptr >> 5 & 8;
-    *(uint *)&(&Camera_gInfo)[cviewP].field_0x74 = uVar2 & 0xfffffff7 | uVar1;
-    *(uint *)&(&Camera_gInfo)[cviewP].field_0x74 =
+    *(uint *)(&Camera_gInfo.modechange + iVar5) = uVar2 & 0xfffffff7 | uVar1;
+    *(uint *)(&Camera_gInfo.modechange + iVar5) =
          uVar2 & 0xf9fffff7 | uVar1 | (*(uint *)ptr >> 9 & 3) << 0x19;
-    (&Camera_gInfo)[cviewP].splineMode = (byte)(*(uint *)ptr >> 0xb) & 7;
-    DAT_00000290 = (int)ptr->fov;
-    iVar3 = (ptr->pos).y;
-    iVar4 = (ptr->pos).z;
-    (&Camera_gInfo)[cviewP].position.x = (ptr->pos).x;
-    (&Camera_gInfo)[cviewP].position.y = iVar3;
-    (&Camera_gInfo)[cviewP].position.z = iVar4;
-    (&Camera_gInfo)[cviewP].TVHeight = ptr->height;
+    (&Camera_gInfo.direction)[iVar5] = (byte)(*(uint *)ptr >> 0xb) & 7;
+    Camera_gGeomScreen = (long)*(short *)&ptr->zoom;
+    iVar3 = (ptr->pos).x;
+    iVar4 = (ptr->pos).y;
+    ((coorddef *)((int)&Camera_gInfo.position + iVar5))->x = *(int *)&ptr->fov;
+    *(int *)((int)&Camera_gInfo.position + iVar5 + 4) = iVar3;
+    *(int *)((int)&Camera_gInfo.position + iVar5 + 8) = iVar4;
+    (&Camera_gInfo.TVHeight)[cviewP * 0x44] = (ptr->pos).z;
     EulerToMat__FP10matrixtdefiii
-              (&(&Camera_gInfo)[cviewP].rotation,(int)(ptr->euler).x,(int)(ptr->euler).y,
-               (int)(ptr->euler).z);
+              ((matrixtdef *)((int)&Camera_gInfo.rotation + iVar5),(int)*(short *)&ptr->splineOffset
+               ,(int)*(short *)((int)&ptr->splineOffset + 2),(int)(ptr->euler).x);
   }
   return;
 }
@@ -3461,6 +4131,21 @@ void Camera_ReplayUpdate__FiP15Camera_tCamSlot(int cviewP,Camera_tCamSlot *ptr)
 	// End offset: 0x80085D7C
 	// End Line: 2725
 
+	/* begin block 2 */
+		// Start line: 6214
+	/* end block 2 */
+	// End Line: 6215
+
+	/* begin block 3 */
+		// Start line: 6217
+	/* end block 3 */
+	// End Line: 6218
+
+	/* begin block 4 */
+		// Start line: 6217
+	/* end block 4 */
+	// End Line: 6218
+
 void Camera_ResetRelPos__Fi(int bitMask)
 
 {
@@ -3470,12 +4155,13 @@ void Camera_ResetRelPos__Fi(int bitMask)
     Camera_gInfo.relpos.z = ((Camera_gInfo.anchor)->orientMat).m[8] * -4;
   }
   if ((bitMask & 2U) != 0) {
-    camera_info_8010f3bc.relpos.x = ((camera_info_8010f3bc.anchor)->orientMat).m[6] * -4;
-    camera_info_8010f3bc.relpos.y = ((camera_info_8010f3bc.anchor)->orientMat).m[7] * -4;
-    camera_info_8010f3bc.relpos.z = ((camera_info_8010f3bc.anchor)->orientMat).m[8] * -4;
+    DAT_8010f3d0 = *(int *)(Camera_gInfo.slicePos.simQuad + 0x108) * -4;
+    DAT_8010f3d4 = *(int *)(Camera_gInfo.slicePos.simQuad + 0x10c) * -4;
+    DAT_8010f3d8 = *(int *)(Camera_gInfo.slicePos.simQuad + 0x110) * -4;
   }
   return;
 }
+
 
 
 

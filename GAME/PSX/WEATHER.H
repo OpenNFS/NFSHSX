@@ -1,6 +1,7 @@
 #ifndef WEATHER_H
 #define WEATHER_H
 
+
 extern int Weather_GetNumParticles__Fi(int player); // 0x800E1DC0
 
 extern void Weather_SetMatrix__FP10matrixtdef(struct matrixtdef *m); // 0x800E1DD0
@@ -50,5 +51,6 @@ extern void Weather_DoSplats__FiP18Weather_tSplatInfo(int num, struct Weather_tS
 extern void Weather_DoWeather__FP13DRender_tView(struct DRender_tView *Vi); // 0x800E3A1C
 
 extern void Weather_BuildWeather__FP13DRender_tView(struct DRender_tView *Vi); // 0x800E3D30
+
 
 #endif

@@ -1,6 +1,7 @@
 #ifndef TRACK_H
 #define TRACK_H
 
+
 extern void Track_SetTrackNumber__Fi(int tracknum); // 0x800B92F8
 
 extern char * Track_MakeTrackPathName__FPc(char *ext); // 0x800B9308
@@ -58,5 +59,6 @@ extern struct SaveSurface * __11SaveSurfacei(struct SaveSurface *this, int numEn
 extern void _._11SaveSurface(struct SaveSurface *this, int __in_chrg); // 0x800BAFB4
 
 extern void RestoreAll__11SaveSurface(struct SaveSurface *this); // 0x800BAFFC
+
 
 #endif

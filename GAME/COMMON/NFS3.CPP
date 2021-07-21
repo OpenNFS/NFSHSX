@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "NFS3.H"
+
 
 // decompiled code
 // original method signature: 
@@ -61,6 +62,16 @@
 	// End offset: 0x800A3E38
 	// End Line: 136
 
+	/* begin block 2 */
+		// Start line: 236
+	/* end block 2 */
+	// End Line: 237
+
+	/* begin block 3 */
+		// Start line: 236
+	/* end block 3 */
+	// End Line: 237
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Nfs2_SystemNLibStartUp__Fv(void)
@@ -92,6 +103,21 @@ void Nfs2_SystemNLibStartUp__Fv(void)
 	// End offset: 0x800A3E90
 	// End Line: 182
 
+	/* begin block 2 */
+		// Start line: 326
+	/* end block 2 */
+	// End Line: 327
+
+	/* begin block 3 */
+		// Start line: 343
+	/* end block 3 */
+	// End Line: 344
+
+	/* begin block 4 */
+		// Start line: 343
+	/* end block 4 */
+	// End Line: 344
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Nfs2_BefuddleCode__Fv(void)
@@ -101,9 +127,9 @@ void Nfs2_BefuddleCode__Fv(void)
   int iVar1;
   
   iVar1 = 0;
-  __src = &befuddleExtensions;
+  __src = befuddleExtensions;
   do {
-    strcpy(&befuddleTemp,__src);
+    strcpy(befuddleTemp,__src);
     iVar1 = iVar1 + 1;
     __src = __src + 4;
   } while (iVar1 < 0xe);
@@ -122,6 +148,21 @@ void Nfs2_BefuddleCode__Fv(void)
 	/* end block 1 */
 	// End offset: 0x800A3EA8
 	// End Line: 187
+
+	/* begin block 2 */
+		// Start line: 360
+	/* end block 2 */
+	// End Line: 361
+
+	/* begin block 3 */
+		// Start line: 365
+	/* end block 3 */
+	// End Line: 366
+
+	/* begin block 4 */
+		// Start line: 365
+	/* end block 4 */
+	// End Line: 366
 
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
@@ -164,6 +205,21 @@ void Nfs2_ResetGame__Fv(void)
 	/* end block 1 */
 	// End offset: 0x800A4194
 	// End Line: 349
+
+	/* begin block 2 */
+		// Start line: 480
+	/* end block 2 */
+	// End Line: 481
+
+	/* begin block 3 */
+		// Start line: 487
+	/* end block 3 */
+	// End Line: 488
+
+	/* begin block 4 */
+		// Start line: 487
+	/* end block 4 */
+	// End Line: 488
 
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
@@ -300,6 +356,21 @@ LAB_800a4054:
 	// End offset: 0x800A4328
 	// End Line: 459
 
+	/* begin block 2 */
+		// Start line: 807
+	/* end block 2 */
+	// End Line: 808
+
+	/* begin block 3 */
+		// Start line: 816
+	/* end block 3 */
+	// End Line: 817
+
+	/* begin block 4 */
+		// Start line: 816
+	/* end block 4 */
+	// End Line: 817
+
 void Nfs2_GameModuleStartUp__FPi(int *FrontEndDataStream)
 
 {
@@ -347,7 +418,7 @@ void Nfs2_GameModuleStartUp__FPi(int *FrontEndDataStream)
     iVar2 = 0xb000;
   }
   if (iVar2 < iVar1) {
-    AudioMus_SysStartUp__FiiPc(0x6000,(int)&DAT_00014000,&DAT_8013d29c);
+    AudioMus_SysStartUp__FiiPc(0x6000,(int)&LAB_00014000,&DAT_8013d29c);
   }
   AudioMus_BuildPlayList__FiPi
             (GameSetup_gData.userSetting.numplaylistsongs,GameSetup_gData.userSetting.playlist);
@@ -384,6 +455,21 @@ void Nfs2_GameModuleStartUp__FPi(int *FrontEndDataStream)
 	// End offset: 0x800A44A0
 	// End Line: 531
 
+	/* begin block 2 */
+		// Start line: 1034
+	/* end block 2 */
+	// End Line: 1035
+
+	/* begin block 3 */
+		// Start line: 1038
+	/* end block 3 */
+	// End Line: 1039
+
+	/* begin block 4 */
+		// Start line: 1038
+	/* end block 4 */
+	// End Line: 1039
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Nfs2_CleanUpGameModule__Fv(void)
@@ -404,7 +490,7 @@ void Nfs2_CleanUpGameModule__Fv(void)
   if (0 < GameSetup_gData.numCars) {
     iVar5 = 0;
     do {
-      ppCVar4 = &__Cars_gList_9__ + (iVar5 >> 0x10);
+      ppCVar4 = &Cars_gList9 + (iVar5 >> 0x10);
       ((*ppCVar4)->stats).carType = (*ppCVar4)->carInfo->carType;
       ((*ppCVar4)->stats).carClass = (*ppCVar4)->carInfo->carClass;
       ((*ppCVar4)->stats).carNameIndex = (*ppCVar4)->carInfo->carNameIndex;
@@ -460,6 +546,21 @@ void Nfs2_CleanUpGameModule__Fv(void)
 	// End offset: 0x800A453C
 	// End Line: 581
 
+	/* begin block 2 */
+		// Start line: 1221
+	/* end block 2 */
+	// End Line: 1222
+
+	/* begin block 3 */
+		// Start line: 1232
+	/* end block 3 */
+	// End Line: 1233
+
+	/* begin block 4 */
+		// Start line: 1232
+	/* end block 4 */
+	// End Line: 1233
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void LoadFrontendOverlay__Fv(void)
@@ -468,7 +569,7 @@ void LoadFrontendOverlay__Fv(void)
   uint uVar1;
   uint uVar2;
   
-  uVar1 = asyncloadfileat(s_front_bin_80056024,(uint)&bigBuf);
+  uVar1 = asyncloadfileat(s_front_bin_80056024,(uint)bigBuf);
   while (uVar2 = getasyncreadstatus(uVar1), uVar2 == 0) {
     systemtask(0);
   }
@@ -490,6 +591,21 @@ void LoadFrontendOverlay__Fv(void)
 	/* end block 1 */
 	// End offset: 0x800A45A8
 	// End Line: 597
+
+	/* begin block 2 */
+		// Start line: 1298
+	/* end block 2 */
+	// End Line: 1299
+
+	/* begin block 3 */
+		// Start line: 1307
+	/* end block 3 */
+	// End Line: 1308
+
+	/* begin block 4 */
+		// Start line: 1307
+	/* end block 4 */
+	// End Line: 1308
 
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
@@ -535,6 +651,21 @@ void LoadOverlay__Fv(void)
 	/* end block 1 */
 	// End offset: 0x800A4608
 	// End Line: 639
+
+	/* begin block 2 */
+		// Start line: 1351
+	/* end block 2 */
+	// End Line: 1352
+
+	/* begin block 3 */
+		// Start line: 1381
+	/* end block 3 */
+	// End Line: 1382
+
+	/* begin block 4 */
+		// Start line: 1381
+	/* end block 4 */
+	// End Line: 1382
 
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
@@ -595,6 +726,31 @@ void NFS4_LoadingIcon__Fv(void)
 	// End offset: 0x800A4728
 	// End Line: 695
 
+	/* begin block 2 */
+		// Start line: 1503
+	/* end block 2 */
+	// End Line: 1504
+
+	/* begin block 3 */
+		// Start line: 1520
+	/* end block 3 */
+	// End Line: 1521
+
+	/* begin block 4 */
+		// Start line: 1520
+	/* end block 4 */
+	// End Line: 1521
+
+	/* begin block 5 */
+		// Start line: 1521
+	/* end block 5 */
+	// End Line: 1522
+
+	/* begin block 6 */
+		// Start line: 1521
+	/* end block 6 */
+	// End Line: 1522
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void NFS3_CheckForFileOperations__Fv(void)
@@ -644,6 +800,21 @@ void NFS3_CheckForFileOperations__Fv(void)
 	// End offset: 0x800A4AE4
 	// End Line: 955
 
+	/* begin block 2 */
+		// Start line: 1545
+	/* end block 2 */
+	// End Line: 1546
+
+	/* begin block 3 */
+		// Start line: 1554
+	/* end block 3 */
+	// End Line: 1555
+
+	/* begin block 4 */
+		// Start line: 1554
+	/* end block 4 */
+	// End Line: 1555
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 int main(void)
@@ -683,7 +854,7 @@ int main(void)
   do {
     NFS3_CheckForFileOperations__Fv();
     stream = MinFront_ParseOptions__Fv();
-    if (iGp00000d28 != 0) {
+    if (gUseFrontend != 0) {
       stream = Front_BuildStream__FPi(stream);
     }
     ReleaseDescription__13tTrackManager(&trackManager);
@@ -706,9 +877,10 @@ int main(void)
             iVar1 = Stats_GetNumOpponents__Fv();
             if ((1 < iVar1) &&
                (((GameSetup_gData.raceType != 1 && (GameSetup_gData.raceType != 5)) ||
-                (((__Cars_gHumanRaceCarList_9__->carFlags & 0x200U) == 0 &&
-                 ((Cars_gNumHumanRaceCars != 2 || ((PTR_8010fa4c->carFlags & 0x200U) == 0)))))))) {
-              if ((__Cars_gHumanRaceCarList_9__->stats).finalPosition == 1) {
+                (((Cars_gHumanRaceCarList9->carFlags & 0x200U) == 0 &&
+                 ((Cars_gNumHumanRaceCars != 2 || ((PTR_ARRAY_8010fa4c[0]->carFlags & 0x200U) == 0))
+                 )))))) {
+              if ((Cars_gHumanRaceCarList9->stats).finalPosition == 1) {
                 pattern = &DAT_8013d2a4;
               }
               else {
@@ -747,6 +919,7 @@ int main(void)
     NFS3_CheckForFileOperations__Fv();
   } while( true );
 }
+
 
 
 

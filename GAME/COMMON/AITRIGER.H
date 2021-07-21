@@ -1,6 +1,7 @@
 #ifndef AITRIGER_H
 #define AITRIGER_H
 
+
 extern void Init__24AITrigger_TriggerManagerPc(struct AITrigger_TriggerManager *this, char *rawTriggers); // 0x8007286C
 
 extern int InsertTrigger__24AITrigger_TriggerManagerP9trigger_tb(struct AITrigger_TriggerManager *this, union trigger_t *trigger, void * fromFile); // 0x80072948
@@ -20,5 +21,6 @@ extern void DescribeTrigger__24AITrigger_TriggerManagerP9trigger_t(struct AITrig
 extern int AITrigger_Compare__FPCvT0(void *op1, void *op2); // 0x80072E18
 
 extern void Sort__24AITrigger_TriggerManager(struct AITrigger_TriggerManager *this); // 0x80072E30
+
 
 #endif

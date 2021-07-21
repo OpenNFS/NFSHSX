@@ -1,6 +1,7 @@
 #ifndef COPSPEAK_H
 #define COPSPEAK_H
 
+
 extern void CopSpeak_RadioStaticInit__Fv(); // 0x800993DC
 
 extern void CopSpeak_RadioStaticActive__Fi(int noise); // 0x80099418
@@ -54,5 +55,6 @@ extern int CopSpeak_SfxQueued__Fv(); // 0x8009AC60
 extern void CopSpeak_ShowQueue__Fv(); // 0x8009ACCC
 
 extern void CopSpeak_Debug__Fv(); // 0x8009AE9C
+
 
 #endif

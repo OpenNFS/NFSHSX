@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "AICOP.H"
+
 
 // decompiled code
 // original method signature: 
@@ -28,6 +29,16 @@
 	// End offset: 0x80066A38
 	// End Line: 124
 
+	/* begin block 2 */
+		// Start line: 214
+	/* end block 2 */
+	// End Line: 215
+
+	/* begin block 3 */
+		// Start line: 214
+	/* end block 3 */
+	// End Line: 215
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void AICop_StartUp__Fv(void)
@@ -38,17 +49,17 @@ void AICop_StartUp__Fv(void)
   
   if (GameSetup_gData.cops != 0) {
     triggerManagerCops = (AITrigger_TriggerManager *)__builtin_new(0x34c);
-    sprintf(acStack112,s__sTr_02d_cop_80055200,PTR_801164c0,GameSetup_gData.track);
-    DAT_00000024 = (char *)loadfileadrz(acStack112,0);
-    rawTriggers = DAT_00000024;
-    if (DAT_00000024 == (char *)0x0) {
+    sprintf(acStack112,s__sTr_02d_cop_80055200,PTR_ARRAY_801164c0[0],GameSetup_gData.track);
+    AICop_rawTriggers = (void *)loadfileadrz(acStack112,0);
+    rawTriggers = (char *)AICop_rawTriggers;
+    if ((char *)AICop_rawTriggers == (char *)0x0) {
       rawTriggers = (char *)0x0;
     }
     Init__24AITrigger_TriggerManagerPc(triggerManagerCops,rawTriggers);
   }
-  DAT_00000028 = 0;
-  DAT_0000002c = 0;
   AICop_spikeBelt.active_ = 0;
+  AICop_gRoadBlockState = kAICop_RoadBlockState_None;
+  AICop_numArrestedHumans = 0;
   return;
 }
 
@@ -79,17 +90,37 @@ void AICop_StartUp__Fv(void)
 	// End offset: 0x80066A8C
 	// End Line: 146
 
+	/* begin block 2 */
+		// Start line: 291
+	/* end block 2 */
+	// End Line: 292
+
+	/* begin block 3 */
+		// Start line: 295
+	/* end block 3 */
+	// End Line: 296
+
+	/* begin block 4 */
+		// Start line: 295
+	/* end block 4 */
+	// End Line: 296
+
+	/* begin block 5 */
+		// Start line: 297
+	/* end block 5 */
+	// End Line: 298
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void AICop_Restart__Fv(void)
 
 {
-  if ((DAT_00000024 != (char *)0x0) && (GameSetup_gData.cops != 0)) {
-    Init__24AITrigger_TriggerManagerPc(triggerManagerCops,DAT_00000024);
+  if ((AICop_rawTriggers != (void *)0x0) && (GameSetup_gData.cops != 0)) {
+    Init__24AITrigger_TriggerManagerPc(triggerManagerCops,(char *)AICop_rawTriggers);
   }
-  DAT_00000028 = 0;
-  DAT_0000002c = 0;
   AICop_spikeBelt.active_ = 0;
+  AICop_gRoadBlockState = kAICop_RoadBlockState_None;
+  AICop_numArrestedHumans = 0;
   return;
 }
 
@@ -106,6 +137,31 @@ void AICop_Restart__Fv(void)
 	// End offset: 0x80066AF8
 	// End Line: 168
 
+	/* begin block 2 */
+		// Start line: 326
+	/* end block 2 */
+	// End Line: 327
+
+	/* begin block 3 */
+		// Start line: 330
+	/* end block 3 */
+	// End Line: 331
+
+	/* begin block 4 */
+		// Start line: 330
+	/* end block 4 */
+	// End Line: 331
+
+	/* begin block 5 */
+		// Start line: 331
+	/* end block 5 */
+	// End Line: 332
+
+	/* begin block 6 */
+		// Start line: 331
+	/* end block 6 */
+	// End Line: 332
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void AICop_CleanUp__Fv(void)
@@ -115,9 +171,9 @@ void AICop_CleanUp__Fv(void)
     __builtin_delete(triggerManagerCops);
     triggerManagerCops = (AITrigger_TriggerManager *)0x0;
   }
-  if ((DAT_00000024 != 0) && (GameSetup_gData.cops != 0)) {
-    purgememadr(DAT_00000024);
-    DAT_00000024 = 0;
+  if ((AICop_rawTriggers != (void *)0x0) && (GameSetup_gData.cops != 0)) {
+    purgememadr((int)AICop_rawTriggers);
+    AICop_rawTriggers = (void *)0x0;
   }
   return;
 }
@@ -153,6 +209,21 @@ void AICop_CleanUp__Fv(void)
 	// End offset: 0x80066B94
 	// End Line: 186
 
+	/* begin block 2 */
+		// Start line: 355
+	/* end block 2 */
+	// End Line: 356
+
+	/* begin block 3 */
+		// Start line: 361
+	/* end block 3 */
+	// End Line: 362
+
+	/* begin block 4 */
+		// Start line: 361
+	/* end block 4 */
+	// End Line: 362
+
 int AICop_NoCopsInArea__Fii(int slice,int sliceDistance)
 
 {
@@ -161,7 +232,7 @@ int AICop_NoCopsInArea__Fii(int slice,int sliceDistance)
   int iVar3;
   
   iVar3 = 0;
-  ppCVar2 = &__Cars_gCopCarList_9__;
+  ppCVar2 = &Cars_gCopCarList9;
   do {
     if (Cars_gNumCopCars <= iVar3) {
       return 1;
@@ -179,6 +250,7 @@ int AICop_NoCopsInArea__Fii(int slice,int sliceDistance)
     iVar3 = iVar3 + 1;
   } while( true );
 }
+
 
 
 

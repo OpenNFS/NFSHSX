@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "OBJECT.H"
+
 
 // decompiled code
 // original method signature: 
@@ -11,6 +12,16 @@
 	/* end block 1 */
 	// End offset: 0x800A4AE4
 	// End Line: 70
+
+	/* begin block 2 */
+		// Start line: 138
+	/* end block 2 */
+	// End Line: 139
+
+	/* begin block 3 */
+		// Start line: 138
+	/* end block 3 */
+	// End Line: 139
 
 int CalcObjYawAngle__FP8CCOORD16(CCOORD16 *pts)
 
@@ -39,6 +50,21 @@ int CalcObjYawAngle__FP8CCOORD16(CCOORD16 *pts)
 	/* end block 1 */
 	// End offset: 0x800A4B1C
 	// End Line: 79
+
+	/* begin block 2 */
+		// Start line: 152
+	/* end block 2 */
+	// End Line: 153
+
+	/* begin block 3 */
+		// Start line: 156
+	/* end block 3 */
+	// End Line: 157
+
+	/* begin block 4 */
+		// Start line: 156
+	/* end block 4 */
+	// End Line: 157
 
 void CalcObjExtentPoints__FP8coorddefP8CCOORD16T0P5tQuat
                (coorddef *cp,CCOORD16 *pts,coorddef *resultPts,tQuat *quat)
@@ -88,6 +114,21 @@ void CalcObjExtentPoints__FP8coorddefP8CCOORD16T0P5tQuat
 	/* end block 1 */
 	// End offset: 0x800A4BE8
 	// End Line: 122
+
+	/* begin block 2 */
+		// Start line: 243
+	/* end block 2 */
+	// End Line: 244
+
+	/* begin block 3 */
+		// Start line: 266
+	/* end block 3 */
+	// End Line: 267
+
+	/* begin block 4 */
+		// Start line: 266
+	/* end block 4 */
+	// End Line: 267
 
 void BuildObjCollisionMatrix__FiiiP10matrixtdef
                (int weight,int objAngle,int impactAngle,matrixtdef *mat)
@@ -220,6 +261,26 @@ void BuildObjCollisionMatrix__FiiiP10matrixtdef
 	// End offset: 0x800A4CF4
 	// End Line: 177
 
+	/* begin block 2 */
+		// Start line: 321
+	/* end block 2 */
+	// End Line: 322
+
+	/* begin block 3 */
+		// Start line: 325
+	/* end block 3 */
+	// End Line: 326
+
+	/* begin block 4 */
+		// Start line: 325
+	/* end block 4 */
+	// End Line: 326
+
+	/* begin block 5 */
+		// Start line: 328
+	/* end block 5 */
+	// End Line: 329
+
 Trk_SimpleInst * FindObjInstanceFromSerialNum__FP5Groupi(Group *group,int index)
 
 {
@@ -231,9 +292,9 @@ Trk_SimpleInst * FindObjInstanceFromSerialNum__FP5Groupi(Group *group,int index)
       iVar1 = group->m_num_elements;
     }
     else {
-      iVar1 = DAT_00000d7c->m_num_elements;
+      iVar1 = Object_customObjInst->m_num_elements;
       index = index & 0xffffff7f;
-      group = DAT_00000d7c;
+      group = Object_customObjInst;
     }
     if (index < iVar1) {
       pTVar2 = (Trk_SimpleInst *)(group + 1);
@@ -361,6 +422,21 @@ Trk_SimpleInst * FindObjInstanceFromSerialNum__FP5Groupi(Group *group,int index)
 	// End offset: 0x800A4F04
 	// End Line: 243
 
+	/* begin block 2 */
+		// Start line: 403
+	/* end block 2 */
+	// End Line: 404
+
+	/* begin block 3 */
+		// Start line: 417
+	/* end block 3 */
+	// End Line: 418
+
+	/* begin block 4 */
+		// Start line: 417
+	/* end block 4 */
+	// End Line: 418
+
 void Object_InitCollisionCheckLoop__FP12BWorldSm_PosP18Object_tSimObjListPi
                (BWorldSm_Pos *slicePos,Object_tSimObjList *objList,int *numObj)
 
@@ -404,11 +480,11 @@ void Object_InitCollisionCheckLoop__FP12BWorldSm_PosP18Object_tSimObjListPi
     iVar2 = objList->numObjects + objList->numObjects2;
   }
   *numObj = iVar2;
-  if (((DAT_00000d80 != (int *)0x0) && (0 < *DAT_00000d80)) &&
+  if (((Object_customSimObjs != (Group *)0x0) && (0 < Object_customSimObjs->m_num_elements)) &&
      (iVar2 = Math_DistXZ__FP8coorddefT0
-                        ((coorddef *)(BWorldSm_slices + DAT_00000d88),
+                        ((coorddef *)(BWorldSm_slices + Object_customSliceNum),
                          (coorddef *)(BWorldSm_slices + (int)slicePos->slice)), iVar2 < 0xc00000)) {
-    *numObj = *numObj + *DAT_00000d80;
+    *numObj = *numObj + Object_customSimObjs->m_num_elements;
   }
   return;
 }
@@ -494,22 +570,52 @@ void Object_InitCollisionCheckLoop__FP12BWorldSm_PosP18Object_tSimObjListPi
 	// End offset: 0x800A4FE0
 	// End Line: 291
 
+	/* begin block 2 */
+		// Start line: 539
+	/* end block 2 */
+	// End Line: 540
+
+	/* begin block 3 */
+		// Start line: 552
+	/* end block 3 */
+	// End Line: 553
+
+	/* begin block 4 */
+		// Start line: 552
+	/* end block 4 */
+	// End Line: 553
+
+	/* begin block 5 */
+		// Start line: 553
+	/* end block 5 */
+	// End Line: 554
+
+	/* begin block 6 */
+		// Start line: 553
+	/* end block 6 */
+	// End Line: 554
+
+	/* begin block 7 */
+		// Start line: 556
+	/* end block 7 */
+	// End Line: 557
+
 Trk_SimObject *
 GetSimObj__FiP18Object_tSimObjListPi(int objIndex,Object_tSimObjList *objList,int *chunk)
 
 {
-  int iVar1;
+  Group *pGVar1;
   int iVar2;
   Trk_SimObject *pTVar3;
   int iVar4;
   
-  iVar1 = DAT_00000d80;
+  pGVar1 = Object_customSimObjs;
   iVar2 = objList->numObjects;
   iVar4 = objList->numObjects2;
   pTVar3 = (Trk_SimObject *)0x0;
   if (iVar2 + iVar4 <= objIndex) {
     *chunk = -1;
-    return (Trk_SimObject *)(iVar1 + 4 + ((objIndex - iVar2) - iVar4) * 0x14);
+    return (Trk_SimObject *)(pGVar1 + ((objIndex - iVar2) - iVar4) * 5 + 1);
   }
   *chunk = objList->chunk;
   if (objList->numObjects <= objIndex) {
@@ -571,6 +677,21 @@ GetSimObj__FiP18Object_tSimObjListPi(int objIndex,Object_tSimObjList *objList,in
 	// End offset: 0x800A50D8
 	// End Line: 331
 
+	/* begin block 2 */
+		// Start line: 637
+	/* end block 2 */
+	// End Line: 638
+
+	/* begin block 3 */
+		// Start line: 651
+	/* end block 3 */
+	// End Line: 652
+
+	/* begin block 4 */
+		// Start line: 651
+	/* end block 4 */
+	// End Line: 652
+
 int Object_GetRadiusCollisionData__FP18Object_tSimObjListiP8coorddefPi
               (Object_tSimObjList *objList,int objIndex,coorddef *pos,int *radius)
 
@@ -587,8 +708,7 @@ int Object_GetRadiusCollisionData__FP18Object_tSimObjListiP8coorddefPi
     *radius = 0;
   }
   else {
-    if (((pt->type & 0x80) != 0) &&
-       ((&__gSimObjAnims_450__)[(int)pt->serialNum] == (ObjectAnim *)0x0)) {
+    if (((pt->type & 0x80) != 0) && ((&gSimObjAnims450)[(int)pt->serialNum] == (ObjectAnim *)0x0)) {
       animInst = FindObjInstanceFromSerialNum__FP5Groupi
                            (Track_chunkList[local_18].objInstanceBuf,(uint)pt->instIndex);
       Anim_GetPos__FP15Trk_AnimateInstiiP8coorddefPiT4
@@ -667,6 +787,21 @@ int Object_GetRadiusCollisionData__FP18Object_tSimObjListiP8coorddefPi
 	// End offset: 0x800A5218
 	// End Line: 382
 
+	/* begin block 2 */
+		// Start line: 718
+	/* end block 2 */
+	// End Line: 719
+
+	/* begin block 3 */
+		// Start line: 724
+	/* end block 3 */
+	// End Line: 725
+
+	/* begin block 4 */
+		// Start line: 724
+	/* end block 4 */
+	// End Line: 725
+
 void Object_GetPointsCollisionData__FP18Object_tSimObjListiPiP8coorddef
                (Object_tSimObjList *objList,int objIndex,int *numPoints,coorddef *resultPoints)
 
@@ -736,6 +871,26 @@ void Object_GetPointsCollisionData__FP18Object_tSimObjListiPiP8coorddef
 	// End offset: 0x800A5250
 	// End Line: 405
 
+	/* begin block 2 */
+		// Start line: 842
+	/* end block 2 */
+	// End Line: 843
+
+	/* begin block 3 */
+		// Start line: 859
+	/* end block 3 */
+	// End Line: 860
+
+	/* begin block 4 */
+		// Start line: 859
+	/* end block 4 */
+	// End Line: 860
+
+	/* begin block 5 */
+		// Start line: 862
+	/* end block 5 */
+	// End Line: 863
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Object_InitStatus__Fv(void)
@@ -769,27 +924,40 @@ void Object_InitStatus__Fv(void)
 	// End offset: 0x800A52B0
 	// End Line: 416
 
+	/* begin block 2 */
+		// Start line: 875
+	/* end block 2 */
+	// End Line: 876
+
+	/* begin block 3 */
+		// Start line: 879
+	/* end block 3 */
+	// End Line: 880
+
+	/* begin block 4 */
+		// Start line: 879
+	/* end block 4 */
+	// End Line: 880
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Object_KillStatus__Fv(void)
 
 {
-  uint uVar1;
-  ObjectAnim *pOVar2;
-  ObjectAnim **ppOVar3;
-  int iVar4;
+  int *piVar1;
+  ObjectAnim **ppOVar2;
+  int iVar3;
   
-  iVar4 = 0;
-  ppOVar3 = &__gSimObjAnims_450__;
+  iVar3 = 0;
+  ppOVar2 = &gSimObjAnims450;
   do {
-    pOVar2 = *ppOVar3;
-    if (pOVar2 != (ObjectAnim *)0x0) {
-      uVar1 = pOVar2->_vf[0].value;
-      (**(code **)(uVar1 + 0xc))((int)&pOVar2->_vf[0].value + (int)*(short *)(uVar1 + 8),3);
+    piVar1 = (int *)*ppOVar2;
+    if (piVar1 != (int *)0x0) {
+      (**(code **)(*piVar1 + 0xc))((int)piVar1 + (int)*(short *)(*piVar1 + 8),3);
     }
-    iVar4 = iVar4 + 1;
-    ppOVar3 = ppOVar3 + 1;
-  } while (iVar4 < 0x1c2);
+    iVar3 = iVar3 + 1;
+    ppOVar2 = (ObjectAnim **)((int **)ppOVar2 + 1);
+  } while (iVar3 < 0x1c2);
   return;
 }
 
@@ -806,11 +974,36 @@ void Object_KillStatus__Fv(void)
 	// End offset: 0x800A52E8
 	// End Line: 431
 
+	/* begin block 2 */
+		// Start line: 911
+	/* end block 2 */
+	// End Line: 912
+
+	/* begin block 3 */
+		// Start line: 923
+	/* end block 3 */
+	// End Line: 924
+
+	/* begin block 4 */
+		// Start line: 923
+	/* end block 4 */
+	// End Line: 924
+
+	/* begin block 5 */
+		// Start line: 924
+	/* end block 5 */
+	// End Line: 925
+
+	/* begin block 6 */
+		// Start line: 924
+	/* end block 6 */
+	// End Line: 925
+
 ObjectAnim * Object_GetAnim__FP13Trk_SimObject(Trk_SimObject *simObj)
 
 {
   if (simObj != (Trk_SimObject *)0x0) {
-    return (&__gSimObjAnims_450__)[(int)simObj->serialNum];
+    return (&gSimObjAnims450)[(int)simObj->serialNum];
   }
   return (ObjectAnim *)0x0;
 }
@@ -973,6 +1166,26 @@ ObjectAnim * Object_GetAnim__FP13Trk_SimObject(Trk_SimObject *simObj)
 	// End offset: 0x800A555C
 	// End Line: 558
 
+	/* begin block 2 */
+		// Start line: 955
+	/* end block 2 */
+	// End Line: 956
+
+	/* begin block 3 */
+		// Start line: 955
+	/* end block 3 */
+	// End Line: 956
+
+	/* begin block 4 */
+		// Start line: 980
+	/* end block 4 */
+	// End Line: 981
+
+	/* begin block 5 */
+		// Start line: 980
+	/* end block 5 */
+	// End Line: 981
+
 int Object_CheckCollisionResults__FP18Object_tSimObjListiP13BO_tNewtonObj
               (Object_tSimObjList *objList,int objIndex,BO_tNewtonObj *N)
 
@@ -980,7 +1193,7 @@ int Object_CheckCollisionResults__FP18Object_tSimObjListiP13BO_tNewtonObj
   int iVar1;
   Trk_SimObject *simObj;
   Trk_CollideBoomInst *objCollideInstance;
-  ObjectFinishedMultiAnim *finishedAnim;
+  undefined4 *finishedAnim;
   ObjectMultiAnim *this;
   ObjectFinishedSignAnim *finishedAnim_00;
   ObjectSignAnim *this_00;
@@ -1001,7 +1214,7 @@ int Object_CheckCollisionResults__FP18Object_tSimObjListiP13BO_tNewtonObj
   simObj = GetSimObj__FiP18Object_tSimObjListPi(objIndex,objList,local_28);
   bVar3 = simObj->type & 0xf;
   if (bVar3 == 2) {
-    if ((&__gSimObjAnims_450__)[(int)simObj->serialNum] != (ObjectAnim *)0x0) {
+    if ((&gSimObjAnims450)[(int)simObj->serialNum] != (ObjectAnim *)0x0) {
       return 0;
     }
     if (-1 < iVar2 + iVar1 >> 0x10) {
@@ -1015,8 +1228,8 @@ int Object_CheckCollisionResults__FP18Object_tSimObjListiP13BO_tNewtonObj
       else {
         bVar3 = objCollideInstance->boomIndex;
       }
-      def = &gAnimDefs + (uint)bVar3;
-      if ((&gAnimDefs)[(uint)bVar3].animIndex == 0) {
+      def = gAnimDefs + (uint)bVar3;
+      if (gAnimDefs[(uint)bVar3].animIndex == 0) {
         objDef = Track_gObjDefs[(int)objCollideInstance->pad];
       }
       else {
@@ -1024,7 +1237,7 @@ int Object_CheckCollisionResults__FP18Object_tSimObjListiP13BO_tNewtonObj
       }
       if (def->type == 0) {
         finishedAnim_00 = (ObjectFinishedSignAnim *)__builtin_new(0x30);
-        (finishedAnim_00->ObjectAnim)._vf[0].value = 0x800560a0;
+        *(undefined4 *)finishedAnim_00 = 0x800560a0;
         this_00 = (ObjectSignAnim *)__builtin_new(0x30);
         iVar2 = fixedatan((N->linearVel).x >> 8,(N->linearVel).z >> 8);
         this_00 = 
@@ -1036,15 +1249,16 @@ int Object_CheckCollisionResults__FP18Object_tSimObjListiP13BO_tNewtonObj
         if (def->type != 1) {
           return -1;
         }
-        finishedAnim = (ObjectFinishedMultiAnim *)__builtin_new(4);
-        (finishedAnim->ObjectAnim)._vf[0].value = 0x800560d0;
+        finishedAnim = (undefined4 *)__builtin_new(4);
+        *finishedAnim = 0x800560d0;
         this = (ObjectMultiAnim *)__builtin_new(0x30);
         this_00 = (ObjectSignAnim *)
                                     
                   __15ObjectMultiAnimP8coorddefP7AnimDefP19Trk_CollideBoomInstP13Trk_ObjectDefP13Trk_SimObjectP23ObjectFinishedMultiAnim
-                            (this,&N->linearVel,def,objCollideInstance,objDef,simObj,finishedAnim);
+                            (this,&N->linearVel,def,objCollideInstance,objDef,simObj,
+                             (ObjectFinishedMultiAnim *)finishedAnim);
       }
-      *(ObjectSignAnim **)(&__gSimObjAnims_450__ + (int)simObj->serialNum) = this_00;
+      *(ObjectSignAnim **)(&gSimObjAnims450 + (int)simObj->serialNum) = this_00;
       return -1;
     }
   }
@@ -1089,22 +1303,37 @@ int Object_CheckCollisionResults__FP18Object_tSimObjListiP13BO_tNewtonObj
 	// End offset: 0x800A5588
 	// End Line: 582
 
+	/* begin block 2 */
+		// Start line: 1255
+	/* end block 2 */
+	// End Line: 1256
+
+	/* begin block 3 */
+		// Start line: 1279
+	/* end block 3 */
+	// End Line: 1280
+
+	/* begin block 4 */
+		// Start line: 1279
+	/* end block 4 */
+	// End Line: 1280
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Object_InitCustomObjects__Fv(void)
 
 {
-  undefined4 *puVar1;
+  Group *pGVar1;
   
-  DAT_00000d7c = (undefined4 *)reservememadr(s_Custom_Objects_80056054,0x400,0);
-  *DAT_00000d7c = 0;
-  DAT_00000d80 = (undefined4 *)reservememadr(s_Custom_SimObjects_80056064,0x400,0);
-  puVar1 = DAT_00000d80 + 1;
-  *DAT_00000d80 = 0;
-  blockfill((undefined *)puVar1,0x3fc,0);
-  DAT_00000d84 = (undefined4 *)reservememadr(s_Custom_SimObjects_80056064,0x400,0);
-  *DAT_00000d84 = 0;
-  DAT_00000d88 = 0;
+  Object_customObjInst = (Group *)reservememadr(s_Custom_Objects_80056054,0x400,0);
+  Object_customObjInst->m_num_elements = 0;
+  Object_customSimObjs = (Group *)reservememadr(s_Custom_SimObjects_80056064,0x400,0);
+  pGVar1 = Object_customSimObjs + 1;
+  Object_customSimObjs->m_num_elements = 0;
+  blockfill((undefined *)pGVar1,0x3fc,0);
+  Object_customSFXInst = (Group *)reservememadr(s_Custom_SimObjects_80056064,0x400,0);
+  Object_customSFXInst->m_num_elements = 0;
+  Object_customSliceNum = 0;
   return;
 }
 
@@ -1121,23 +1350,48 @@ void Object_InitCustomObjects__Fv(void)
 	// End offset: 0x800A5654
 	// End Line: 609
 
+	/* begin block 2 */
+		// Start line: 1322
+	/* end block 2 */
+	// End Line: 1323
+
+	/* begin block 3 */
+		// Start line: 1328
+	/* end block 3 */
+	// End Line: 1329
+
+	/* begin block 4 */
+		// Start line: 1328
+	/* end block 4 */
+	// End Line: 1329
+
+	/* begin block 5 */
+		// Start line: 1329
+	/* end block 5 */
+	// End Line: 1330
+
+	/* begin block 6 */
+		// Start line: 1329
+	/* end block 6 */
+	// End Line: 1330
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Object_DeInitCustomObjects__Fv(void)
 
 {
-  if (DAT_00000d7c != 0) {
-    purgememadr(DAT_00000d7c);
+  if (Object_customObjInst != (Group *)0x0) {
+    purgememadr((int)Object_customObjInst);
   }
-  if (DAT_00000d84 != 0) {
-    purgememadr(DAT_00000d84);
+  if (Object_customSFXInst != (Group *)0x0) {
+    purgememadr((int)Object_customSFXInst);
   }
-  if (DAT_00000d80 != 0) {
-    purgememadr(DAT_00000d80);
+  if (Object_customSimObjs != (Group *)0x0) {
+    purgememadr((int)Object_customSimObjs);
   }
-  DAT_00000d7c = 0;
-  DAT_00000d80 = 0;
-  DAT_00000d84 = 0;
+  Object_customObjInst = (Group *)0x0;
+  Object_customSimObjs = (Group *)0x0;
+  Object_customSFXInst = (Group *)0x0;
   return;
 }
 
@@ -1163,41 +1417,56 @@ void Object_DeInitCustomObjects__Fv(void)
 	// End offset: 0x800A572C
 	// End Line: 636
 
+	/* begin block 2 */
+		// Start line: 1357
+	/* end block 2 */
+	// End Line: 1358
+
+	/* begin block 3 */
+		// Start line: 1363
+	/* end block 3 */
+	// End Line: 1364
+
+	/* begin block 4 */
+		// Start line: 1363
+	/* end block 4 */
+	// End Line: 1364
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Object_ClearCustomObjects__Fv(void)
 
 {
-  undefined4 *puVar1;
-  undefined4 *puVar2;
-  int iVar3;
+  int iVar1;
+  Group *pGVar2;
+  Group *pGVar3;
   Car_tObj **ppCVar4;
   int iVar5;
   
-  iVar3 = Cars_gNumTrafficCars;
-  puVar2 = DAT_00000d84;
-  puVar1 = DAT_00000d80;
+  pGVar3 = Object_customSFXInst;
+  pGVar2 = Object_customSimObjs;
+  iVar1 = Cars_gNumTrafficCars;
   iVar5 = 0;
-  *DAT_00000d7c = 0;
-  *puVar1 = 0;
-  *puVar2 = 0;
-  if (0 < iVar3) {
-    ppCVar4 = &__Cars_gTrafficCarList_9__;
+  Object_customObjInst->m_num_elements = 0;
+  pGVar2->m_num_elements = 0;
+  pGVar3->m_num_elements = 0;
+  if (0 < iVar1) {
+    ppCVar4 = &Cars_gTrafficCarList9;
     do {
       iVar5 = iVar5 + 1;
       (*ppCVar4)->carFlags = (*ppCVar4)->carFlags & 0xfffffbff;
       ppCVar4 = ppCVar4 + 1;
-    } while (iVar5 < iVar3);
+    } while (iVar5 < iVar1);
   }
-  iVar3 = Cars_gNumCopCars;
+  iVar1 = Cars_gNumCopCars;
   iVar5 = 0;
   if (0 < Cars_gNumCopCars) {
-    ppCVar4 = &__Cars_gCopCarList_9__;
+    ppCVar4 = &Cars_gCopCarList9;
     do {
       iVar5 = iVar5 + 1;
       (*ppCVar4)->carFlags = (*ppCVar4)->carFlags & 0xfffffbff;
       ppCVar4 = ppCVar4 + 1;
-    } while (iVar5 < iVar3);
+    } while (iVar5 < iVar1);
   }
   if (Track_gSaveSurface != (SaveSurface *)0x0) {
     RestoreAll__11SaveSurface(Track_gSaveSurface);
@@ -1217,6 +1486,21 @@ void Object_ClearCustomObjects__Fv(void)
 	/* end block 1 */
 	// End offset: 0x800A57A0
 	// End Line: 658
+
+	/* begin block 2 */
+		// Start line: 1290
+	/* end block 2 */
+	// End Line: 1291
+
+	/* begin block 3 */
+		// Start line: 1432
+	/* end block 3 */
+	// End Line: 1433
+
+	/* begin block 4 */
+		// Start line: 1432
+	/* end block 4 */
+	// End Line: 1433
 
 void SetCautionSurface__FP8coorddefP12BWorldSm_Pos(coorddef *pt,BWorldSm_Pos *slicePos)
 
@@ -1279,20 +1563,35 @@ void SetCautionSurface__FP8coorddefP12BWorldSm_Pos(coorddef *pt,BWorldSm_Pos *sl
 	// End offset: 0x800A5924
 	// End Line: 719
 
+	/* begin block 2 */
+		// Start line: 1461
+	/* end block 2 */
+	// End Line: 1462
+
+	/* begin block 3 */
+		// Start line: 1472
+	/* end block 3 */
+	// End Line: 1473
+
+	/* begin block 4 */
+		// Start line: 1472
+	/* end block 4 */
+	// End Line: 1473
+
 int Object_AddCustomSimObject__FP9SceneElemii(SceneElem *objectData,int serialNum,int instIndex)
 
 {
   undefined uVar1;
   int iVar2;
-  int *piVar3;
+  Group *pGVar3;
   BWorldSm_Pos local_b8;
   coorddef local_30;
   
   if (objectData->type == 0) {
-    piVar3 = DAT_00000d80 + *DAT_00000d80 * 5 + 1;
-    *piVar3 = (objectData->cp).x;
-    piVar3[1] = (objectData->cp).y;
-    piVar3[2] = (objectData->cp).z;
+    pGVar3 = Object_customSimObjs + Object_customSimObjs->m_num_elements * 5 + 1;
+    pGVar3->m_num_elements = (objectData->cp).x;
+    pGVar3[1].m_num_elements = (objectData->cp).y;
+    pGVar3[2].m_num_elements = (objectData->cp).z;
     BWorldSm_SetSlice__FiP12BWorldSm_Pos(1,&local_b8);
     local_30.x = (objectData->cp).x;
     local_30.y = (objectData->cp).y;
@@ -1307,19 +1606,19 @@ int Object_AddCustomSimObject__FP9SceneElemii(SceneElem *objectData,int serialNu
     SetCautionSurface__FP8coorddefP12BWorldSm_Pos(&local_30,&local_b8);
     local_30.z = local_30.z + 0x80000;
     SetCautionSurface__FP8coorddefP12BWorldSm_Pos(&local_30,&local_b8);
-    DAT_00000d88 = (int)local_b8.slice;
+    Object_customSliceNum = (int)local_b8.slice;
     iVar2 = objectData->scalar2;
-    *(short *)((int)piVar3 + 0xe) = (short)serialNum + 400;
-    *(short *)(piVar3 + 3) = (short)(iVar2 >> 9);
-    *(char *)((int)piVar3 + 0x12) = (char)instIndex + -0x80;
+    *(short *)((int)&pGVar3[3].m_num_elements + 2) = (short)serialNum + 400;
+    *(short *)&pGVar3[3].m_num_elements = (short)(iVar2 >> 9);
+    *(char *)((int)&pGVar3[4].m_num_elements + 2) = (char)instIndex + -0x80;
     uVar1 = 2;
     if (8 < objectData->scalar1) {
       uVar1 = 1;
     }
-    *(undefined *)((int)piVar3 + 0x13) = uVar1;
-    *DAT_00000d80 = *DAT_00000d80 + 1;
+    *(undefined *)((int)&pGVar3[4].m_num_elements + 3) = uVar1;
+    Object_customSimObjs->m_num_elements = Object_customSimObjs->m_num_elements + 1;
   }
-  return *DAT_00000d80 + -1;
+  return Object_customSimObjs->m_num_elements + -1;
 }
 
 
@@ -1334,6 +1633,31 @@ int Object_AddCustomSimObject__FP9SceneElemii(SceneElem *objectData,int serialNu
 	/* end block 1 */
 	// End offset: 0x800A59A4
 	// End Line: 791
+
+	/* begin block 2 */
+		// Start line: 1660
+	/* end block 2 */
+	// End Line: 1661
+
+	/* begin block 3 */
+		// Start line: 1727
+	/* end block 3 */
+	// End Line: 1728
+
+	/* begin block 4 */
+		// Start line: 1727
+	/* end block 4 */
+	// End Line: 1728
+
+	/* begin block 5 */
+		// Start line: 1728
+	/* end block 5 */
+	// End Line: 1729
+
+	/* begin block 6 */
+		// Start line: 1728
+	/* end block 6 */
+	// End Line: 1729
 
 int Object_GetObjDefID__Fi(int index)
 
@@ -1388,6 +1712,31 @@ int Object_GetObjDefID__Fi(int index)
 	/* end block 1 */
 	// End offset: 0x800A59FC
 	// End Line: 801
+
+	/* begin block 2 */
+		// Start line: 1741
+	/* end block 2 */
+	// End Line: 1742
+
+	/* begin block 3 */
+		// Start line: 1745
+	/* end block 3 */
+	// End Line: 1746
+
+	/* begin block 4 */
+		// Start line: 1745
+	/* end block 4 */
+	// End Line: 1746
+
+	/* begin block 5 */
+		// Start line: 1746
+	/* end block 5 */
+	// End Line: 1747
+
+	/* begin block 6 */
+		// Start line: 1746
+	/* end block 6 */
+	// End Line: 1747
 
 int Object_FindDefWithThisID__Fi(int ID)
 
@@ -1562,114 +1911,130 @@ int Object_FindDefWithThisID__Fi(int ID)
 	// End offset: 0x800A5D40
 	// End Line: 1002
 
+	/* begin block 2 */
+		// Start line: 1765
+	/* end block 2 */
+	// End Line: 1766
+
+	/* begin block 3 */
+		// Start line: 1773
+	/* end block 3 */
+	// End Line: 1774
+
+	/* begin block 4 */
+		// Start line: 1773
+	/* end block 4 */
+	// End Line: 1774
+
 void Object_AddCustomObject__FP9SceneElemi(SceneElem *objectData,int setupSimDataFlag)
 
 {
   short sVar1;
   undefined2 uVar2;
-  Group *pGVar3;
-  undefined uVar4;
-  int *piVar5;
-  int iVar6;
-  Car_tObj **ppCVar7;
-  int *piVar8;
+  undefined uVar3;
+  Group *pGVar4;
+  int iVar5;
+  Car_tObj **ppCVar6;
+  Group *pGVar7;
   tQuat local_18;
   
-  piVar8 = DAT_00000d84;
-  iVar6 = objectData->type;
-  if (iVar6 == 1) {
-    iVar6 = 0;
+  pGVar7 = Object_customSFXInst;
+  iVar5 = objectData->type;
+  if (iVar5 == 1) {
+    iVar5 = 0;
     if (((objectData->subType == 0) && (Cars_gNumTrafficCars != 0)) && (0 < Cars_gNumTrafficCars)) {
-      ppCVar7 = &__Cars_gTrafficCarList_9__;
+      ppCVar6 = &Cars_gTrafficCarList9;
       do {
-        if ((((*ppCVar7)->carFlags & 0x400U) == 0) &&
-           ((int)((*ppCVar7)->render).palNum == objectData->scalar3)) break;
-        iVar6 = iVar6 + 1;
-        ppCVar7 = ppCVar7 + 1;
-      } while (iVar6 < Cars_gNumTrafficCars);
-      if (iVar6 < Cars_gNumTrafficCars) {
-        *(SceneElem **)
-         &(&__highLevelAIObjs_9__)[(&__Cars_gTrafficCarList_9__)[iVar6]->carIndex][1].carObj_ =
-             objectData;
+        if ((((*ppCVar6)->carFlags & 0x400U) == 0) &&
+           ((int)((*ppCVar6)->render).palNum == objectData->scalar3)) break;
+        iVar5 = iVar5 + 1;
+        ppCVar6 = ppCVar6 + 1;
+      } while (iVar5 < Cars_gNumTrafficCars);
+      if (iVar5 < Cars_gNumTrafficCars) {
+        *(SceneElem **)&(&highLevelAIObjs9)[(&Cars_gTrafficCarList9)[iVar5]->carIndex][1].stateType_
+             = objectData;
       }
     }
   }
   else {
-    if (iVar6 < 2) {
-      if (iVar6 == 0) {
-        iVar6 = *DAT_00000d7c + -1;
-        piVar8 = DAT_00000d7c + 1;
-        if (iVar6 != -1) {
+    if (iVar5 < 2) {
+      if (iVar5 == 0) {
+        iVar5 = Object_customObjInst->m_num_elements + -1;
+        pGVar7 = Object_customObjInst + 1;
+        if (iVar5 != -1) {
           do {
-            iVar6 = iVar6 + -1;
-            piVar8 = (int *)((int)piVar8 + (int)*(short *)(DAT_00000d7c + 1));
-          } while (iVar6 != -1);
+            iVar5 = iVar5 + -1;
+            pGVar7 = (Group *)((int)&pGVar7->m_num_elements +
+                              (int)*(short *)&Object_customObjInst[1].m_num_elements);
+          } while (iVar5 != -1);
         }
-        *(undefined2 *)piVar8 = 0x24;
-        uVar4 = 5;
+        *(undefined2 *)&pGVar7->m_num_elements = 0x24;
+        uVar3 = 5;
         if (8 < objectData->scalar1) {
-          uVar4 = 2;
+          uVar3 = 2;
         }
-        *(undefined *)((int)piVar8 + 2) = uVar4;
-        *(undefined *)(piVar8 + 1) = 3;
-        *(undefined *)((int)piVar8 + 5) = 0;
-        piVar8[2] = (objectData->cp).x;
-        piVar8[3] = (objectData->cp).y;
-        iVar6 = (objectData->cp).z;
-        *(undefined *)((int)piVar8 + 3) = 0;
-        pGVar3 = gPersistObjDef;
-        piVar8[4] = iVar6;
+        *(undefined *)((int)&pGVar7->m_num_elements + 2) = uVar3;
+        *(undefined *)&pGVar7[1].m_num_elements = 3;
+        *(undefined *)((int)&pGVar7[1].m_num_elements + 1) = 0;
+        pGVar7[2].m_num_elements = (objectData->cp).x;
+        pGVar7[3].m_num_elements = (objectData->cp).y;
+        iVar5 = (objectData->cp).z;
+        *(undefined *)((int)&pGVar7->m_num_elements + 3) = 0;
+        pGVar4 = gPersistObjDef;
+        pGVar7[4].m_num_elements = iVar5;
         sVar1 = *(short *)&objectData->subTypeIndex;
-        *(short *)((int)piVar8 + 6) = sVar1;
-        if (pGVar3->m_num_elements <= (int)sVar1) {
-          *(undefined2 *)((int)piVar8 + 6) = 0;
+        *(short *)((int)&pGVar7[1].m_num_elements + 2) = sVar1;
+        if (pGVar4->m_num_elements <= (int)sVar1) {
+          *(undefined2 *)((int)&pGVar7[1].m_num_elements + 2) = 0;
         }
         if ((objectData->committed != 0) && (objectData->visible != 0)) {
-          iVar6 = Object_GetObjDefID__Fi((int)*(short *)((int)piVar8 + 6));
-          if (iVar6 != objectData->scalar1) {
+          iVar5 = Object_GetObjDefID__Fi((int)*(short *)((int)&pGVar7[1].m_num_elements + 2));
+          if (iVar5 != objectData->scalar1) {
             Object_FindDefWithThisID__Fi(objectData->scalar1);
-            iVar6 = Object_FindDefWithThisID__Fi(objectData->scalar1);
-            if (iVar6 == -1) {
-              iVar6 = Object_GetObjDefID__Fi((int)*(short *)((int)piVar8 + 6));
-              objectData->scalar1 = iVar6;
+            iVar5 = Object_FindDefWithThisID__Fi(objectData->scalar1);
+            if (iVar5 == -1) {
+              iVar5 = Object_GetObjDefID__Fi((int)*(short *)((int)&pGVar7[1].m_num_elements + 2));
+              objectData->scalar1 = iVar5;
             }
             else {
-              *(undefined2 *)((int)piVar8 + 6) = (short)iVar6;
-              objectData->subTypeIndex = iVar6;
+              *(undefined2 *)((int)&pGVar7[1].m_num_elements + 2) = (short)iVar5;
+              objectData->subTypeIndex = iVar5;
               Object_FindDefWithThisID__Fi(objectData->scalar1);
             }
           }
         }
         Quatern_MatToQuat__FP10matrixtdefP5tQuat(&objectData->orient,&local_18);
-        *(short *)((int)piVar8 + 0x1a) = local_18.w;
-        *(short *)(piVar8 + 5) = local_18.x;
-        *(short *)((int)piVar8 + 0x16) = local_18.y;
-        *(undefined2 *)(piVar8 + 7) = 0x100;
-        *(undefined2 *)((int)piVar8 + 0x1e) = 0x100;
-        *(undefined2 *)(piVar8 + 8) = 0x100;
-        *(short *)(piVar8 + 6) = local_18.z;
+        *(short *)((int)&pGVar7[6].m_num_elements + 2) = local_18.w;
+        *(short *)&pGVar7[5].m_num_elements = local_18.x;
+        *(short *)((int)&pGVar7[5].m_num_elements + 2) = local_18.y;
+        *(undefined2 *)&pGVar7[7].m_num_elements = 0x100;
+        *(undefined2 *)((int)&pGVar7[7].m_num_elements + 2) = 0x100;
+        *(undefined2 *)&pGVar7[8].m_num_elements = 0x100;
+        *(short *)&pGVar7[6].m_num_elements = local_18.z;
         if (setupSimDataFlag == 0) {
-          *(undefined *)((int)piVar8 + 0x22) = 0;
-          *(undefined *)((int)piVar8 + 0x23) = 0;
+          *(undefined *)((int)&pGVar7[8].m_num_elements + 2) = 0;
+          *(undefined *)((int)&pGVar7[8].m_num_elements + 3) = 0;
         }
         else {
-          iVar6 = Object_AddCustomSimObject__FP9SceneElemii(objectData,*DAT_00000d7c,*DAT_00000d7c);
-          *(char *)((int)piVar8 + 0x22) = (char)iVar6;
-          *(undefined *)((int)piVar8 + 0x23) = *(undefined *)&objectData->scalar1;
+          iVar5 = Object_AddCustomSimObject__FP9SceneElemii
+                            (objectData,Object_customObjInst->m_num_elements,
+                             Object_customObjInst->m_num_elements);
+          *(undefined *)((int)&pGVar7[8].m_num_elements + 2) = (char)iVar5;
+          *(undefined *)((int)&pGVar7[8].m_num_elements + 3) = *(undefined *)&objectData->scalar1;
         }
-        *DAT_00000d7c = *DAT_00000d7c + 1;
+        Object_customObjInst->m_num_elements = Object_customObjInst->m_num_elements + 1;
       }
     }
     else {
-      if (iVar6 == 2) {
-        piVar5 = DAT_00000d84 + *DAT_00000d84 * 4 + 1;
-        *piVar5 = (objectData->cp).x;
-        piVar5[1] = (objectData->cp).y;
-        piVar5[2] = (objectData->cp).z;
+      if (iVar5 == 2) {
+        pGVar4 = Object_customSFXInst + Object_customSFXInst->m_num_elements * 4 + 1;
+        pGVar4->m_num_elements = (objectData->cp).x;
+        pGVar4[1].m_num_elements = (objectData->cp).y;
+        pGVar4[2].m_num_elements = (objectData->cp).z;
         uVar2 = *(undefined2 *)&objectData->subType;
-        *(undefined2 *)((int)piVar5 + 0xe) = 0;
-        *(undefined2 *)(piVar5 + 3) = uVar2;
-        *piVar8 = *piVar8 + 1;
+        *(undefined2 *)((int)&pGVar4[3].m_num_elements + 2) = 0;
+        *(undefined2 *)&pGVar4[3].m_num_elements = uVar2;
+        pGVar7->m_num_elements = pGVar7->m_num_elements + 1;
       }
     }
   }
@@ -1701,6 +2066,21 @@ void Object_AddCustomObject__FP9SceneElemi(SceneElem *objectData,int setupSimDat
 	/* end block 1 */
 	// End offset: 0x800A5E74
 	// End Line: 1047
+
+	/* begin block 2 */
+		// Start line: 2181
+	/* end block 2 */
+	// End Line: 2182
+
+	/* begin block 3 */
+		// Start line: 2190
+	/* end block 3 */
+	// End Line: 2191
+
+	/* begin block 4 */
+		// Start line: 2190
+	/* end block 4 */
+	// End Line: 2191
 
 void GetObjMaxDimensions__FPP13Trk_ObjectDefP14Trk_SimpleInstP8coorddef
                (Trk_ObjectDef **pObjDefs,Trk_SimpleInst *objInstance,coorddef *dimensions)
@@ -1781,42 +2161,63 @@ void GetObjMaxDimensions__FPP13Trk_ObjectDefP14Trk_SimpleInstP8coorddef
 	// End offset: 0x800A5FC8
 	// End Line: 1086
 
+	/* begin block 2 */
+		// Start line: 2276
+	/* end block 2 */
+	// End Line: 2277
+
+	/* begin block 3 */
+		// Start line: 2283
+	/* end block 3 */
+	// End Line: 2284
+
+	/* begin block 4 */
+		// Start line: 2283
+	/* end block 4 */
+	// End Line: 2284
+
+	/* begin block 5 */
+		// Start line: 2287
+	/* end block 5 */
+	// End Line: 2288
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Object_InitIMassObjectInfo__Fv(void)
 
 {
   Trk_ObjectDef **pObjDefs;
-  Trk_SimpleInst **ppTVar1;
-  short *psVar2;
+  Object_tIMassObjInfo *pOVar1;
   Trk_SimpleInst *objInstance;
-  int iVar3;
+  int iVar2;
   
-  DAT_00000d90 = 0;
-  DAT_00000d8c = (short *)0x0;
+  gNumIMassObjects = 0;
+  Object_IMassObjInst = (Object_tIMassObjInfo *)0x0;
   if ((gPersistObjInst != (Group *)0x0) && (gPersistObjDef != (Group *)0x0)) {
-    DAT_00000d8c = reservememadr(s_IMObj_info_80056078,gPersistObjInst->m_num_elements << 5,0);
-    iVar3 = 0;
-    if ((DAT_00000d8c != (short *)0x0) &&
+    Object_IMassObjInst =
+         (Object_tIMassObjInfo *)
+         reservememadr(s_IMObj_info_80056078,gPersistObjInst->m_num_elements << 5,0);
+    iVar2 = 0;
+    if ((Object_IMassObjInst != (Object_tIMassObjInfo *)0x0) &&
        (objInstance = (Trk_SimpleInst *)(gPersistObjInst + 1), 0 < gPersistObjInst->m_num_elements))
     {
       do {
         pObjDefs = Track_gObjDefs;
         if (objInstance->type == '\a') {
-          ppTVar1 = (Trk_SimpleInst **)(DAT_00000d8c + DAT_00000d90 * 0x10);
-          *ppTVar1 = objInstance;
+          pOVar1 = Object_IMassObjInst + gNumIMassObjects;
+          *(Trk_SimpleInst **)&pOVar1->animInst = objInstance;
           GetObjMaxDimensions__FPP13Trk_ObjectDefP14Trk_SimpleInstP8coorddef
-                    (pObjDefs,objInstance,(coorddef *)(ppTVar1 + 1));
-          psVar2 = DAT_00000d8c + DAT_00000d90 * 0x10;
-          DAT_00000d90 = DAT_00000d90 + 1;
-          *(undefined4 *)(psVar2 + 8) = 0;
-          *(undefined4 *)(psVar2 + 10) = 0;
-          *(undefined4 *)(psVar2 + 0xc) = 0;
-          *(undefined4 *)(psVar2 + 0xe) = 0;
+                    (pObjDefs,objInstance,&pOVar1->dimension);
+          pOVar1 = Object_IMassObjInst + gNumIMassObjects;
+          gNumIMassObjects = gNumIMassObjects + 1;
+          (pOVar1->lastPos).x = 0;
+          (pOVar1->lastPos).y = 0;
+          (pOVar1->lastPos).z = 0;
+          pOVar1->lastTick = 0;
         }
-        iVar3 = iVar3 + 1;
+        iVar2 = iVar2 + 1;
         objInstance = (Trk_SimpleInst *)((int)&objInstance->size + (int)objInstance->size);
-      } while (iVar3 < gPersistObjInst->m_num_elements);
+      } while (iVar2 < gPersistObjInst->m_num_elements);
     }
   }
   return;
@@ -1835,13 +2236,38 @@ void Object_InitIMassObjectInfo__Fv(void)
 	// End offset: 0x800A5FF4
 	// End Line: 1096
 
+	/* begin block 2 */
+		// Start line: 2363
+	/* end block 2 */
+	// End Line: 2364
+
+	/* begin block 3 */
+		// Start line: 2368
+	/* end block 3 */
+	// End Line: 2369
+
+	/* begin block 4 */
+		// Start line: 2368
+	/* end block 4 */
+	// End Line: 2369
+
+	/* begin block 5 */
+		// Start line: 2369
+	/* end block 5 */
+	// End Line: 2370
+
+	/* begin block 6 */
+		// Start line: 2369
+	/* end block 6 */
+	// End Line: 2370
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Object_DeInitIMassObjectInfo__Fv(void)
 
 {
-  if (DAT_00000d8c != 0) {
-    purgememadr(DAT_00000d8c);
+  if (Object_IMassObjInst != (Object_tIMassObjInfo *)0x0) {
+    purgememadr((int)Object_IMassObjInst);
   }
   return;
 }
@@ -1859,12 +2285,37 @@ void Object_DeInitIMassObjectInfo__Fv(void)
 	// End offset: 0x800A6004
 	// End Line: 1103
 
+	/* begin block 2 */
+		// Start line: 2379
+	/* end block 2 */
+	// End Line: 2380
+
+	/* begin block 3 */
+		// Start line: 2385
+	/* end block 3 */
+	// End Line: 2386
+
+	/* begin block 4 */
+		// Start line: 2385
+	/* end block 4 */
+	// End Line: 2386
+
+	/* begin block 5 */
+		// Start line: 2386
+	/* end block 5 */
+	// End Line: 2387
+
+	/* begin block 6 */
+		// Start line: 2386
+	/* end block 6 */
+	// End Line: 2387
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 int Object_GetNumIMassObjects__Fv(void)
 
 {
-  return DAT_00000d90;
+  return gNumIMassObjects;
 }
 
 
@@ -1880,17 +2331,37 @@ int Object_GetNumIMassObjects__Fv(void)
 	// End offset: 0x800A6010
 	// End Line: 1112
 
+	/* begin block 2 */
+		// Start line: 2393
+	/* end block 2 */
+	// End Line: 2394
+
+	/* begin block 3 */
+		// Start line: 2399
+	/* end block 3 */
+	// End Line: 2400
+
+	/* begin block 4 */
+		// Start line: 2399
+	/* end block 4 */
+	// End Line: 2400
+
+	/* begin block 5 */
+		// Start line: 2402
+	/* end block 5 */
+	// End Line: 2403
+
 void Object_GetIMassObjectDimensions__FiP8coorddef(int objIndex,coorddef *dimensions)
 
 {
-  int iVar1;
+  Object_tIMassObjInfo *pOVar1;
   int iVar2;
   int iVar3;
   
-  iVar1 = objIndex * 0x20 + DAT_00000d8c;
-  iVar2 = *(int *)(iVar1 + 8);
-  iVar3 = *(int *)(iVar1 + 0xc);
-  dimensions->x = *(int *)(iVar1 + 4);
+  pOVar1 = Object_IMassObjInst + objIndex;
+  iVar2 = (pOVar1->dimension).y;
+  iVar3 = (pOVar1->dimension).z;
+  dimensions->x = (pOVar1->dimension).x;
   dimensions->y = iVar2;
   dimensions->z = iVar3;
   return;
@@ -1919,61 +2390,80 @@ void Object_GetIMassObjectDimensions__FiP8coorddef(int objIndex,coorddef *dimens
 	// End offset: 0x800A61A8
 	// End Line: 1143
 
+	/* begin block 2 */
+		// Start line: 2411
+	/* end block 2 */
+	// End Line: 2412
+
+	/* begin block 3 */
+		// Start line: 2417
+	/* end block 3 */
+	// End Line: 2418
+
+	/* begin block 4 */
+		// Start line: 2417
+	/* end block 4 */
+	// End Line: 2418
+
+	/* begin block 5 */
+		// Start line: 2422
+	/* end block 5 */
+	// End Line: 2423
+
 void Object_GetIMassObjectMotion__FiP8coorddefP10matrixtdefT1
                (int objIndex,coorddef *cpoint,matrixtdef *orientMat,coorddef *velocity)
 
 {
   int ticks;
   int iVar1;
-  int iVar2;
+  Object_tIMassObjInfo *pOVar2;
   int iVar3;
-  int iVar4;
+  Object_tIMassObjInfo *pOVar4;
   
-  iVar4 = objIndex * 0x20;
-  ticks = DrawW_GetAnimationTime__FP15Trk_AnimateInst(*(Trk_AnimateInst **)(iVar4 + DAT_00000d8c));
+  ticks = DrawW_GetAnimationTime__FP15Trk_AnimateInst(Object_IMassObjInst[objIndex].animInst);
   Anim_GetRotPos__FP15Trk_AnimateInstiiP8coorddefP10matrixtdef
-            (*(Trk_AnimateInst **)(iVar4 + DAT_00000d8c),1,ticks,cpoint,orientMat);
-  iVar4 = iVar4 + DAT_00000d8c;
-  iVar2 = ticks - *(int *)(iVar4 + 0x1c);
-  if (iVar2 < 1) {
+            (Object_IMassObjInst[objIndex].animInst,1,ticks,cpoint,orientMat);
+  pOVar4 = Object_IMassObjInst + objIndex;
+  iVar3 = ticks - pOVar4->lastTick;
+  if (iVar3 < 1) {
     velocity->x = 0;
     velocity->y = 0;
     velocity->z = 0;
   }
   else {
-    iVar1 = cpoint->x - *(int *)(iVar4 + 0x10);
-    if (iVar2 == 0) {
+    iVar1 = cpoint->x - (pOVar4->lastPos).x;
+    if (iVar3 == 0) {
       trap(0x1c00);
     }
-    if ((iVar2 == -1) && (iVar1 == -0x80000000)) {
+    if ((iVar3 == -1) && (iVar1 == -0x80000000)) {
       trap(0x1800);
     }
-    velocity->x = iVar1 / iVar2 << 6;
-    iVar1 = cpoint->y - *(int *)(iVar4 + 0x14);
-    if (iVar2 == 0) {
+    velocity->x = iVar1 / iVar3 << 6;
+    iVar1 = cpoint->y - (pOVar4->lastPos).y;
+    if (iVar3 == 0) {
       trap(0x1c00);
     }
-    if ((iVar2 == -1) && (iVar1 == -0x80000000)) {
+    if ((iVar3 == -1) && (iVar1 == -0x80000000)) {
       trap(0x1800);
     }
-    velocity->y = iVar1 / iVar2 << 6;
-    iVar4 = cpoint->z - *(int *)(iVar4 + 0x18);
-    if (iVar2 == 0) {
+    velocity->y = iVar1 / iVar3 << 6;
+    iVar1 = cpoint->z - (pOVar4->lastPos).z;
+    if (iVar3 == 0) {
       trap(0x1c00);
     }
-    if ((iVar2 == -1) && (iVar4 == -0x80000000)) {
+    if ((iVar3 == -1) && (iVar1 == -0x80000000)) {
       trap(0x1800);
     }
-    velocity->z = iVar4 / iVar2 << 6;
+    velocity->z = iVar1 / iVar3 << 6;
   }
-  iVar2 = objIndex * 0x20 + DAT_00000d8c;
-  iVar4 = objIndex * 0x20 + DAT_00000d8c;
-  iVar1 = cpoint->y;
-  iVar3 = cpoint->z;
-  *(int *)(iVar2 + 0x10) = cpoint->x;
-  *(int *)(iVar2 + 0x14) = iVar1;
-  *(int *)(iVar2 + 0x18) = iVar3;
-  *(int *)(iVar4 + 0x1c) = ticks;
+  pOVar4 = Object_IMassObjInst;
+  pOVar2 = Object_IMassObjInst + objIndex;
+  iVar3 = cpoint->y;
+  iVar1 = cpoint->z;
+  (pOVar2->lastPos).x = cpoint->x;
+  (pOVar2->lastPos).y = iVar3;
+  (pOVar2->lastPos).z = iVar1;
+  pOVar4[objIndex].lastTick = ticks;
   return;
 }
 
@@ -1989,6 +2479,31 @@ void Object_GetIMassObjectMotion__FiP8coorddefP10matrixtdefT1
 	/* end block 1 */
 	// End offset: 0x800A61F8
 	// End Line: 1162
+
+	/* begin block 2 */
+		// Start line: 2501
+	/* end block 2 */
+	// End Line: 2502
+
+	/* begin block 3 */
+		// Start line: 2518
+	/* end block 3 */
+	// End Line: 2519
+
+	/* begin block 4 */
+		// Start line: 2518
+	/* end block 4 */
+	// End Line: 2519
+
+	/* begin block 5 */
+		// Start line: 2519
+	/* end block 5 */
+	// End Line: 2520
+
+	/* begin block 6 */
+		// Start line: 2519
+	/* end block 6 */
+	// End Line: 2520
 
 int Draw__23ObjectFinishedMultiAnimP13DRender_tViewP11Draw_DCachei
               (ObjectFinishedMultiAnim *this,DRender_tView *Vi,Draw_DCache *sd,int offset)
@@ -2026,6 +2541,21 @@ int Draw__23ObjectFinishedMultiAnimP13DRender_tViewP11Draw_DCachei
 	// End offset: 0x800A62CC
 	// End Line: 1183
 
+	/* begin block 3 */
+		// Start line: 2524
+	/* end block 3 */
+	// End Line: 2525
+
+	/* begin block 4 */
+		// Start line: 2528
+	/* end block 4 */
+	// End Line: 2529
+
+	/* begin block 5 */
+		// Start line: 2528
+	/* end block 5 */
+	// End Line: 2529
+
 ObjectMultiAnim *
 
 __15ObjectMultiAnimP8coorddefP7AnimDefP19Trk_CollideBoomInstP13Trk_ObjectDefP13Trk_SimObjectP23ObjectFinishedMultiAnim
@@ -2036,33 +2566,32 @@ __15ObjectMultiAnimP8coorddefP7AnimDefP19Trk_CollideBoomInstP13Trk_ObjectDefP13T
 {
   byte bVar1;
   int iVar2;
-  Trk_CollideBoomInst *pTVar3;
+  AnimDef *pAVar3;
   AnimScript *this_00;
   
-  (this->ObjectAnim)._vf[0].value = 0x800560b8;
-  (this->ObjectAnim)._vf[1].value = impactVel->x >> 6;
-  (this->ObjectAnim)._vf[2].value = impactVel->y >> 6;
+  *(undefined4 *)this = 0x800560b8;
+  (this->impactVel).x = impactVel->x >> 6;
+  (this->impactVel).y = impactVel->y >> 6;
   iVar2 = impactVel->z;
-  *(AnimDef **)&this->objCollideInstance = def;
-  *(Trk_CollideBoomInst **)&(this->impactVel).z = objCollideInstance;
-  *(Trk_ObjectDef **)&this->simObj = objDef;
-  *(Trk_SimObject **)&(this->impactVel).y = simObj;
-  (this->impactVel).x = iVar2 >> 6;
+  this->animParms = def;
+  this->objCollideInstance = objCollideInstance;
+  this->objDef = objDef;
+  this->simObj = simObj;
+  (this->impactVel).z = iVar2 >> 6;
   if (objCollideInstance->type == '\x06') {
     this_00 = (AnimScript *)__builtin_new(0x14);
-    pTVar3 = this->objCollideInstance;
+    pAVar3 = this->animParms;
     bVar1 = *(byte *)((int)&objCollideInstance->y + 1);
   }
   else {
     this_00 = (AnimScript *)__builtin_new(0x14);
-    pTVar3 = this->objCollideInstance;
+    pAVar3 = this->animParms;
     bVar1 = objCollideInstance->boomIndex;
   }
-  this_00 = __10AnimScriptP5Groupiii(this_00,gPersistObjInst,8,(uint)bVar1,*(int *)&pTVar3->zoffset)
-  ;
-  *(AnimScript **)&this->objectAngle = this_00;
-  SetAnimAttrib__10AnimScripti((AnimScript *)this->objectAngle,2);
-  *(ObjectFinishedMultiAnim **)&this->impactAngle = finishedAnim;
+  this_00 = __10AnimScriptP5Groupiii(this_00,gPersistObjInst,8,(uint)bVar1,pAVar3->numPieces);
+  this->script = this_00;
+  SetAnimAttrib__10AnimScripti(this->script,2);
+  this->finishedAnim = finishedAnim;
   return this;
 }
 
@@ -2153,21 +2682,37 @@ __15ObjectMultiAnimP8coorddefP7AnimDefP19Trk_CollideBoomInstP13Trk_ObjectDefP13T
 	// End offset: 0x800A66EC
 	// End Line: 1297
 
+	/* begin block 2 */
+		// Start line: 2582
+	/* end block 2 */
+	// End Line: 2583
+
+	/* begin block 3 */
+		// Start line: 2587
+	/* end block 3 */
+	// End Line: 2588
+
+	/* begin block 4 */
+		// Start line: 2587
+	/* end block 4 */
+	// End Line: 2588
+
 int Draw__15ObjectMultiAnimP13DRender_tViewP11Draw_DCachei
               (ObjectMultiAnim *this,DRender_tView *Vi,Draw_DCache *sd,int offset)
 
 {
   short sVar1;
   int iVar2;
-  uint uVar3;
-  int *piVar4;
-  ObjectAnim *pOVar5;
-  ObjectAnim *pOVar6;
-  int iVar7;
+  Trk_AnimateInst *pTVar3;
+  Trk_SimObject *pTVar4;
+  int *piVar5;
+  Trk_CollideBoomInst *pTVar6;
+  int *piVar7;
   Group *pGVar8;
   int iVar9;
-  int index;
   int iVar10;
+  int index;
+  int iVar11;
   matrixtdef mStack176;
   coorddef local_88;
   coorddef local_78;
@@ -2179,71 +2724,69 @@ int Draw__15ObjectMultiAnimP13DRender_tViewP11Draw_DCachei
   undefined4 local_2c;
   
   iVar2 = GetTimedAnimPosRot__10AnimScriptiP8coorddefP10matrixtdef
-                    ((AnimScript *)this->objectAngle,0,&local_88,&mStack176);
+                    (this->script,0,&local_88,&mStack176);
   if (iVar2 + 1U < 2) {
-    pOVar6 = (ObjectAnim *)this->impactAngle;
-    sVar1 = *(short *)((this->impactVel).y + 0xe);
-    this->impactAngle = 0;
-    pOVar5 = (&__gSimObjAnims_450__)[(int)sVar1];
-    if (pOVar5 != (ObjectAnim *)0x0) {
-      uVar3 = pOVar5->_vf[0].value;
-      (**(code **)(uVar3 + 0xc))((int)&pOVar5->_vf[0].value + (int)*(short *)(uVar3 + 8),3);
+    piVar7 = (int *)this->finishedAnim;
+    sVar1 = this->simObj->serialNum;
+    this->finishedAnim = (ObjectFinishedMultiAnim *)0x0;
+    piVar5 = (int *)(&gSimObjAnims450)[(int)sVar1];
+    if (piVar5 != (int *)0x0) {
+      (**(code **)(*piVar5 + 0xc))((int)piVar5 + (int)*(short *)(*piVar5 + 8),3);
     }
-    (&__gSimObjAnims_450__)[(int)sVar1] = pOVar6;
-    uVar3 = pOVar6->_vf[0].value;
-    iVar2 = (**(code **)(uVar3 + 0x14))
-                      ((int)&pOVar6->_vf[0].value + (int)*(short *)(uVar3 + 0x10),Vi,sd,offset);
+    *(int **)(&gSimObjAnims450 + (int)sVar1) = piVar7;
+    iVar2 = (**(code **)(*piVar7 + 0x14))
+                      ((int)piVar7 + (int)*(short *)(*piVar7 + 0x10),Vi,sd,offset);
   }
   else {
-    iVar2 = *(int *)((int *)this->objectAngle)[4];
-    local_60 = simGlobal.gameTicks - *(int *)this->objectAngle;
-    iVar10 = *(int *)&this->objCollideInstance->zoffset;
-    iVar2 = (int)*(short *)(iVar2 + 10) * (int)*(short *)(iVar2 + 8) >> 1;
+    pTVar3 = *this->script->inst;
+    local_60 = simGlobal.gameTicks - this->script->baseTicks;
+    iVar11 = this->animParms->numPieces;
+    iVar2 = (int)pTVar3->interval * (int)pTVar3->count >> 1;
     index = 0;
     if (iVar2 < local_60) {
       local_60 = iVar2;
     }
-    local_68 = (this->ObjectAnim)._vf[1].value * local_60;
-    local_64 = (this->ObjectAnim)._vf[2].value * local_60;
-    local_60 = (this->impactVel).x * local_60;
-    iVar2 = (this->impactVel).z;
-    if (*(char *)(iVar2 + 2) != '\x06') {
-      local_30 = *(undefined4 *)(iVar2 + 0x14);
-      local_2c = *(undefined4 *)(iVar2 + 0x18);
+    local_68 = (this->impactVel).x * local_60;
+    local_64 = (this->impactVel).y * local_60;
+    local_60 = (this->impactVel).z * local_60;
+    pTVar6 = this->objCollideInstance;
+    if (pTVar6->type != '\x06') {
+      local_30 = *(undefined4 *)&pTVar6->qx;
+      local_2c = *(undefined4 *)&pTVar6->qz;
       Quatern_QuatToMat__FP5tQuatP10matrixtdef((tQuat *)&local_30,&local_58);
-      iVar2 = (this->impactVel).z;
-      iVar7 = (int)*(short *)(iVar2 + 0x1c) << 8;
-      iVar9 = (int)*(short *)(iVar2 + 0x1e) << 8;
-      iVar2 = (int)*(short *)(iVar2 + 0x20) << 8;
-      local_58.m[0] = fixedmult(local_58.m[0],iVar7);
-      local_58.m[3] = fixedmult(local_58.m[3],iVar7);
-      local_58.m[6] = fixedmult(local_58.m[6],iVar7);
+      pTVar6 = this->objCollideInstance;
+      iVar2 = (int)pTVar6->sx << 8;
+      iVar9 = (int)pTVar6->sy << 8;
+      iVar10 = (int)pTVar6->sz << 8;
+      local_58.m[0] = fixedmult(local_58.m[0],iVar2);
+      local_58.m[3] = fixedmult(local_58.m[3],iVar2);
+      local_58.m[6] = fixedmult(local_58.m[6],iVar2);
       local_58.m[1] = fixedmult(local_58.m[1],iVar9);
       local_58.m[4] = fixedmult(local_58.m[4],iVar9);
       local_58.m[7] = fixedmult(local_58.m[7],iVar9);
-      local_58.m[2] = fixedmult(local_58.m[2],iVar2);
-      local_58.m[5] = fixedmult(local_58.m[5],iVar2);
-      local_58.m[8] = fixedmult(local_58.m[8],iVar2);
+      local_58.m[2] = fixedmult(local_58.m[2],iVar10);
+      local_58.m[5] = fixedmult(local_58.m[5],iVar10);
+      local_58.m[8] = fixedmult(local_58.m[8],iVar10);
     }
     pGVar8 = gPersistObjInst + 1;
-    if (0 < iVar10) {
+    if (0 < iVar11) {
 LAB_800a659c:
       GetTimedAnimPosRot__10AnimScriptiP8coorddefP10matrixtdef
-                ((AnimScript *)this->objectAngle,index,&local_88,&mStack176);
-      if (*(char *)((this->impactVel).z + 2) != '\x06') {
+                (this->script,index,&local_88,&mStack176);
+      if (this->objCollideInstance->type != '\x06') {
         Math_fasttransmult__FP10matrixtdefN20(&mStack176,&local_58,&mStack176);
       }
-      piVar4 = (int *)(this->impactVel).y;
-      local_78.y = piVar4[1] + local_88.y;
-      local_78.x = *piVar4 + local_88.x + local_68;
-      local_78.z = piVar4[2] + local_88.z + local_60;
+      pTVar4 = this->simObj;
+      local_78.y = pTVar4->point[1] + local_88.y;
+      local_78.x = pTVar4->point[0] + local_88.x + local_68;
+      local_78.z = pTVar4->point[2] + local_88.z + local_60;
       do {
         if (*(char *)((int)&pGVar8->m_num_elements + 2) == '\b') {
-          iVar2 = (this->impactVel).z;
-          if (((*(char *)(iVar2 + 2) != '\x05') ||
-              (*(char *)((int)&pGVar8[3].m_num_elements + 1) == *(char *)(iVar2 + 0x23))) &&
-             ((*(char *)(iVar2 + 2) != '\x06' ||
-              (*(char *)((int)&pGVar8[3].m_num_elements + 1) == *(char *)(iVar2 + 0xd)))))
+          pTVar6 = this->objCollideInstance;
+          if (((pTVar6->type != '\x05') ||
+              (*(uchar *)((int)&pGVar8[3].m_num_elements + 1) == pTVar6->boomIndex)) &&
+             ((pTVar6->type != '\x06' ||
+              (*(char *)((int)&pGVar8[3].m_num_elements + 1) == *(char *)((int)&pTVar6->y + 1)))))
           goto LAB_800a6694;
         }
         pGVar8 = (Group *)((int)&pGVar8->m_num_elements + (int)*(short *)&pGVar8->m_num_elements);
@@ -2259,7 +2802,7 @@ LAB_800a6694:
              &local_78,offset,-1);
   index = index + 1;
   pGVar8 = (Group *)((int)&pGVar8->m_num_elements + (int)*(short *)&pGVar8->m_num_elements);
-  if (iVar10 <= index) goto LAB_800a66e8;
+  if (iVar11 <= index) goto LAB_800a66e8;
   goto LAB_800a659c;
 }
 
@@ -2276,14 +2819,28 @@ LAB_800a6694:
 	// End offset: 0x800A671C
 	// End Line: 1303
 
+	/* begin block 2 */
+		// Start line: 2857
+	/* end block 2 */
+	// End Line: 2858
+
+	/* begin block 3 */
+		// Start line: 2863
+	/* end block 3 */
+	// End Line: 2864
+
+	/* begin block 4 */
+		// Start line: 2863
+	/* end block 4 */
+	// End Line: 2864
+
 int Draw__22ObjectFinishedSignAnimP13DRender_tViewP11Draw_DCachei
               (ObjectFinishedSignAnim *this,DRender_tView *Vi,Draw_DCache *sd,int offset)
 
 {
   DrawObjectTransform__FP13DRender_tViewP11Draw_DCacheP10matrixtdefP13Trk_ObjectDefP8coorddefis
-            (Vi,sd,(matrixtdef *)((this->ObjectAnim)._vf + 1),
-             (Trk_ObjectDef *)(this->finalMatrix).m[7],(coorddef *)((this->finalMatrix).m[8] + 8),
-             offset,-1);
+            (Vi,sd,&this->finalMatrix,this->objDef,(coorddef *)&this->objCollideInstance->x,offset,
+             -1);
   return 2;
 }
 
@@ -2333,6 +2890,21 @@ int Draw__22ObjectFinishedSignAnimP13DRender_tViewP11Draw_DCachei
 	// End offset: 0x800A6864
 	// End Line: 1326
 
+	/* begin block 3 */
+		// Start line: 2872
+	/* end block 3 */
+	// End Line: 2873
+
+	/* begin block 4 */
+		// Start line: 2876
+	/* end block 4 */
+	// End Line: 2877
+
+	/* begin block 5 */
+		// Start line: 2876
+	/* end block 5 */
+	// End Line: 2877
+
 ObjectSignAnim *
 
 __14ObjectSignAnimP8coorddefiP7AnimDefP19Trk_CollideBoomInstP13Trk_ObjectDefP13Trk_SimObjectT1P22ObjectFinishedSignAnim
@@ -2345,7 +2917,7 @@ __14ObjectSignAnimP8coorddefiP7AnimDefP19Trk_CollideBoomInstP13Trk_ObjectDefP13T
   AnimScript *this_00;
   uint uVar1;
   uint uVar2;
-  uint uVar3;
+  int iVar3;
   int iVar4;
   int num;
   matrixtdef *m2;
@@ -2354,78 +2926,78 @@ __14ObjectSignAnimP8coorddefiP7AnimDefP19Trk_CollideBoomInstP13Trk_ObjectDefP13T
   matrixtdef mStack120;
   matrixtdef mStack80;
   
-  (this->ObjectAnim)._vf[0].value = 0x80056088;
+  *(undefined4 *)this = 0x80056088;
   num = impactVel->x;
   numParts = impactVel->z;
-  uVar3 = impactVel->y;
+  iVar3 = impactVel->y;
   iVar4 = impactVel->z;
-  (this->ObjectAnim)._vf[1].value = impactVel->x;
-  (this->ObjectAnim)._vf[2].value = uVar3;
-  (this->impactVel).x = iVar4;
-  this->animParms = (AnimDef *)(impactAngle << 8);
-  *(AnimDef **)&this->objCollideInstance = def;
+  (this->impactVel).x = impactVel->x;
+  (this->impactVel).y = iVar3;
+  (this->impactVel).z = iVar4;
+  this->impactAngle = impactAngle << 8;
+  this->animParms = def;
   if (num < 0) {
     num = -num;
   }
   if (numParts < 0) {
     numParts = -numParts;
   }
-  *(Trk_CollideBoomInst **)&(this->impactVel).z = objCollideInstance;
-  *(Trk_ObjectDef **)&this->simObj = objDef;
-  *(Trk_SimObject **)&(this->impactVel).y = simObj;
-  iVar4 = CalcObjYawAngle__FP8CCOORD16((CCOORD16 *)(objDef + 1));
-  this->objDef = (Trk_ObjectDef *)(iVar4 << 8);
+  this->objCollideInstance = objCollideInstance;
+  this->objDef = objDef;
+  this->simObj = simObj;
+  iVar3 = CalcObjYawAngle__FP8CCOORD16((CCOORD16 *)(objDef + 1));
+  this->objectAngle = iVar3 << 8;
   if (num + numParts >> 0x10 < 10) {
     this_00 = (AnimScript *)__builtin_new(0x14);
-    num = this->objCollideInstance->y;
-    numParts = *(int *)&this->objCollideInstance->zoffset;
+    num = this->animParms->baseAnim;
+    numParts = this->animParms->numPieces;
   }
   else {
     this_00 = (AnimScript *)__builtin_new(0x14);
-    numParts = *(int *)&this->objCollideInstance->zoffset;
-    num = this->objCollideInstance->y + 1;
+    numParts = this->animParms->numPieces;
+    num = this->animParms->baseAnim + 1;
   }
   this_00 = __10AnimScriptii(this_00,num,numParts);
-  *(AnimScript **)&this->objectAngle = this_00;
-  SetAnimAttrib__10AnimScripti((AnimScript *)this->objectAngle,2);
-  *(ObjectFinishedSignAnim **)&this->impactAngle = finishedAnim;
+  this->script = this_00;
+  SetAnimAttrib__10AnimScripti(this->script,2);
+  this->finishedAnim = finishedAnim;
   num = roadNormal->y;
   numParts = roadNormal->z;
-  (finishedAnim->finalMatrix).m[1] = roadNormal->x;
-  (finishedAnim->finalMatrix).m[2] = num;
-  (finishedAnim->finalMatrix).m[3] = numParts;
-  (finishedAnim->finalMatrix).m[4] = 0;
-  (finishedAnim->finalMatrix).m[5] = 0;
-  (finishedAnim->finalMatrix).m[6] = 0x10000;
-  m2 = (matrixtdef *)((finishedAnim->ObjectAnim)._vf + 1);
-  uVar3 = fixedmult((finishedAnim->finalMatrix).m[2],0x10000);
-  uVar1 = fixedmult((finishedAnim->finalMatrix).m[3],(finishedAnim->finalMatrix).m[5]);
-  (finishedAnim->ObjectAnim)._vf[1].value = uVar3 - uVar1;
-  uVar3 = fixedmult((finishedAnim->finalMatrix).m[3],(finishedAnim->finalMatrix).m[4]);
-  uVar1 = fixedmult((finishedAnim->finalMatrix).m[1],(finishedAnim->finalMatrix).m[6]);
-  (finishedAnim->ObjectAnim)._vf[2].value = uVar3 - uVar1;
-  uVar3 = fixedmult((finishedAnim->finalMatrix).m[1],(finishedAnim->finalMatrix).m[5]);
-  uVar1 = fixedmult((finishedAnim->finalMatrix).m[2],(finishedAnim->finalMatrix).m[4]);
-  uVar2 = (finishedAnim->ObjectAnim)._vf[2].value;
-  (finishedAnim->finalMatrix).m[0] = uVar3 - uVar1;
-  uVar3 = fixedmult(uVar2,(finishedAnim->finalMatrix).m[3]);
-  uVar1 = fixedmult((finishedAnim->finalMatrix).m[0],(finishedAnim->finalMatrix).m[2]);
-  (finishedAnim->finalMatrix).m[4] = uVar3 - uVar1;
-  uVar3 = fixedmult((finishedAnim->finalMatrix).m[0],(finishedAnim->finalMatrix).m[1]);
-  uVar1 = fixedmult((finishedAnim->ObjectAnim)._vf[1].value,(finishedAnim->finalMatrix).m[3]);
-  (finishedAnim->finalMatrix).m[5] = uVar3 - uVar1;
-  uVar3 = fixedmult((finishedAnim->ObjectAnim)._vf[1].value,(finishedAnim->finalMatrix).m[2]);
-  uVar1 = fixedmult((finishedAnim->ObjectAnim)._vf[2].value,(finishedAnim->finalMatrix).m[1]);
-  (finishedAnim->finalMatrix).m[6] = uVar3 - uVar1;
+  (finishedAnim->finalMatrix).m[3] = roadNormal->x;
+  (finishedAnim->finalMatrix).m[4] = num;
+  (finishedAnim->finalMatrix).m[5] = numParts;
+  (finishedAnim->finalMatrix).m[6] = 0;
+  (finishedAnim->finalMatrix).m[7] = 0;
+  (finishedAnim->finalMatrix).m[8] = 0x10000;
+  m2 = &finishedAnim->finalMatrix;
+  uVar1 = fixedmult((finishedAnim->finalMatrix).m[4],0x10000);
+  uVar2 = fixedmult((finishedAnim->finalMatrix).m[5],(finishedAnim->finalMatrix).m[7]);
+  (finishedAnim->finalMatrix).m[0] = uVar1 - uVar2;
+  uVar1 = fixedmult((finishedAnim->finalMatrix).m[5],(finishedAnim->finalMatrix).m[6]);
+  uVar2 = fixedmult((finishedAnim->finalMatrix).m[3],(finishedAnim->finalMatrix).m[8]);
+  (finishedAnim->finalMatrix).m[1] = uVar1 - uVar2;
+  uVar1 = fixedmult((finishedAnim->finalMatrix).m[3],(finishedAnim->finalMatrix).m[7]);
+  uVar2 = fixedmult((finishedAnim->finalMatrix).m[4],(finishedAnim->finalMatrix).m[6]);
+  num = (finishedAnim->finalMatrix).m[1];
+  (finishedAnim->finalMatrix).m[2] = uVar1 - uVar2;
+  uVar1 = fixedmult(num,(finishedAnim->finalMatrix).m[5]);
+  uVar2 = fixedmult((finishedAnim->finalMatrix).m[2],(finishedAnim->finalMatrix).m[4]);
+  (finishedAnim->finalMatrix).m[6] = uVar1 - uVar2;
+  uVar1 = fixedmult((finishedAnim->finalMatrix).m[2],(finishedAnim->finalMatrix).m[3]);
+  uVar2 = fixedmult((finishedAnim->finalMatrix).m[0],(finishedAnim->finalMatrix).m[5]);
+  (finishedAnim->finalMatrix).m[7] = uVar1 - uVar2;
+  uVar1 = fixedmult((finishedAnim->finalMatrix).m[0],(finishedAnim->finalMatrix).m[4]);
+  uVar2 = fixedmult((finishedAnim->finalMatrix).m[1],(finishedAnim->finalMatrix).m[3]);
+  (finishedAnim->finalMatrix).m[8] = uVar1 - uVar2;
   reorthogonalize((int *)m2);
   fixedxformx((undefined4 *)&mStack80,0x4000);
-  fixedxformy((int *)&mStack160,-(int)this->objDef);
-  fixedxformy((int *)&mStack200,(uint)this->animParms);
+  fixedxformy((int *)&mStack160,-this->objectAngle);
+  fixedxformy((int *)&mStack200,this->impactAngle);
   Math_fasttransmult__FP10matrixtdefN20(&mStack160,&mStack80,&mStack120);
   Math_fasttransmult__FP10matrixtdefN20(&mStack120,&mStack200,&mStack120);
   Math_fasttransmult__FP10matrixtdefN20(&mStack120,m2,m2);
-  *(Trk_ObjectDef **)((finishedAnim->finalMatrix).m + 7) = objDef;
-  *(Trk_CollideBoomInst **)((finishedAnim->finalMatrix).m + 8) = objCollideInstance;
+  finishedAnim->objDef = objDef;
+  finishedAnim->objCollideInstance = objCollideInstance;
   return this;
 }
 
@@ -2474,16 +3046,31 @@ __14ObjectSignAnimP8coorddefiP7AnimDefP19Trk_CollideBoomInstP13Trk_ObjectDefP13T
 	// End offset: 0x800A6BF0
 	// End Line: 1402
 
+	/* begin block 2 */
+		// Start line: 3022
+	/* end block 2 */
+	// End Line: 3023
+
+	/* begin block 3 */
+		// Start line: 3028
+	/* end block 3 */
+	// End Line: 3029
+
+	/* begin block 4 */
+		// Start line: 3028
+	/* end block 4 */
+	// End Line: 3029
+
 int Draw__14ObjectSignAnimP13DRender_tViewP11Draw_DCachei
               (ObjectSignAnim *this,DRender_tView *Vi,Draw_DCache *sd,int offset)
 
 {
   short sVar1;
   int iVar2;
-  uint uVar3;
-  ObjectAnim *pOVar4;
-  ObjectAnim *pOVar5;
-  Trk_SimObject *objDef;
+  Trk_CollideBoomInst *pTVar3;
+  ObjectFinishedSignAnim *pOVar4;
+  ObjectFinishedSignAnim *pOVar5;
+  Trk_ObjectDef *objDef;
   matrixtdef mStack104;
   coorddef local_40;
   coorddef local_30;
@@ -2491,44 +3078,44 @@ int Draw__14ObjectSignAnimP13DRender_tViewP11Draw_DCachei
   int local_1c;
   
   iVar2 = GetTimedAnimPosRot__10AnimScriptiP8coorddefP10matrixtdef
-                    ((AnimScript *)this->objectAngle,0,&local_40,&mStack104);
+                    (this->script,0,&local_40,&mStack104);
   if (iVar2 + 1U < 2) {
-    pOVar5 = (ObjectAnim *)this->impactAngle;
-    sVar1 = *(short *)((this->impactVel).y + 0xe);
-    this->impactAngle = 0;
-    pOVar4 = (&__gSimObjAnims_450__)[(int)sVar1];
-    if (pOVar4 != (ObjectAnim *)0x0) {
-      uVar3 = pOVar4->_vf[0].value;
-      (**(code **)(uVar3 + 0xc))((int)&pOVar4->_vf[0].value + (int)*(short *)(uVar3 + 8),3);
+    pOVar5 = this->finishedAnim;
+    sVar1 = this->simObj->serialNum;
+    this->finishedAnim = (ObjectFinishedSignAnim *)0x0;
+    pOVar4 = (ObjectFinishedSignAnim *)(&gSimObjAnims450)[(int)sVar1];
+    if (pOVar4 != (ObjectFinishedSignAnim *)0x0) {
+      (**(code **)(*(int *)pOVar4 + 0xc))
+                ((pOVar4->ObjectAnim)._vf + (int)*(short *)(*(int *)pOVar4 + 8),3);
     }
-    (&__gSimObjAnims_450__)[(int)sVar1] = pOVar5;
-    uVar3 = pOVar5->_vf[0].value;
-    iVar2 = (**(code **)(uVar3 + 0x14))
-                      ((int)&pOVar5->_vf[0].value + (int)*(short *)(uVar3 + 0x10),Vi,sd,offset);
+    *(ObjectFinishedSignAnim **)(&gSimObjAnims450 + (int)sVar1) = pOVar5;
+    iVar2 = (**(code **)(*(int *)pOVar5 + 0x14))
+                      ((pOVar5->ObjectAnim)._vf + (int)*(short *)(*(int *)pOVar5 + 0x10),Vi,sd,
+                       offset);
   }
   else {
-    objDef = this->simObj;
-    GetTimedAnimPosRot__10AnimScriptiP8coorddefP10matrixtdef
-              ((AnimScript *)this->objectAngle,0,&local_40,&mStack104);
-    GetAnimFrameInfo__10AnimScriptPiT1((AnimScript *)this->objectAngle,&local_20,&local_1c);
+    objDef = this->objDef;
+    GetTimedAnimPosRot__10AnimScriptiP8coorddefP10matrixtdef(this->script,0,&local_40,&mStack104);
+    GetAnimFrameInfo__10AnimScriptPiT1(this->script,&local_20,&local_1c);
     if (local_1c == 0) {
       trap(0x1c00);
     }
     if ((local_1c == -1) && (local_20 << 0x10 == -0x80000000)) {
       trap(0x1800);
     }
-    iVar2 = (this->impactVel).z;
-    local_30.x = *(int *)(iVar2 + 8) + local_40.x;
-    local_30.y = *(int *)(iVar2 + 0xc) + local_40.y;
-    local_30.z = *(int *)(iVar2 + 0x10) + local_40.z;
+    pTVar3 = this->objCollideInstance;
+    local_30.x = pTVar3->x + local_40.x;
+    local_30.y = pTVar3->y + local_40.y;
+    local_30.z = pTVar3->z + local_40.z;
     BuildObjCollisionMatrix__FiiiP10matrixtdef
-              ((local_20 << 0x10) / local_1c,(int)this->objDef,(int)this->animParms,&mStack104);
+              ((local_20 << 0x10) / local_1c,this->objectAngle,this->impactAngle,&mStack104);
     DrawObjectTransform__FP13DRender_tViewP11Draw_DCacheP10matrixtdefP13Trk_ObjectDefP8coorddefis
-              (Vi,sd,&mStack104,(Trk_ObjectDef *)objDef,&local_30,offset,-1);
+              (Vi,sd,&mStack104,objDef,&local_30,offset,-1);
     iVar2 = 4;
   }
   return iVar2;
 }
+
 
 
 

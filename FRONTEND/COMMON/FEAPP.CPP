@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "FEAPP.H"
+
 
 // decompiled code
 // original method signature: 
@@ -174,17 +175,129 @@
 	// End offset: 0x80013194
 	// End Line: 96
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 6 */
+		// Start line: 178
+	/* end block 6 */
+	// End Line: 179
+
+	/* begin block 7 */
+		// Start line: 178
+	/* end block 7 */
+	// End Line: 179
+
+/* WARNING: Type propagation algorithm not settling */
 
 tFEApplication * __14tFEApplication(tFEApplication *this)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
+  tFEApplication *ptVar1;
+  int iVar2;
   
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  __7tScreen((tScreen *)&this->messagePopup);
+  *(undefined4 *)((this->messagePopup).tDialogBase.tScreen._vf + 2) = 0x800105b0;
+  *(undefined4 *)&(this->messagePopup).tDialogBase.height = 0;
+  (this->messagePopup).tDialogBase.width = 0;
+  (this->messagePopup).tDialogBase.OffsetY = 0;
+  *(undefined2 *)((int)&(this->messagePopup).tDialogBase.timeOutTicks + 2) = 0;
+  *(undefined2 *)&(this->messagePopup).tDialogBase.timeOutTicks = 0;
+  (this->messagePopup).tDialogBase.top = 0;
+  (this->messagePopup).tDialogBase.left = 0;
+  (this->messagePopup).tDialogBase.specificPlayer = 0;
+  *(undefined2 *)((this->messagePopup).tDialogBase.tScreen._vf + 8) = 0;
+  (this->messagePopup).tDialogBase.OffsetX = 0x120;
+  *(undefined2 *)((this->messagePopup).tDialogBase.tScreen._vf + 6) = 0xffff;
+  *(undefined2 *)&(this->messagePopup).tDialogBase.fFullyOpen = 0;
+  (this->messagePopup).tDialogBase.startTicks = 0;
+  *(undefined4 *)((this->messagePopup).tDialogBase.tScreen._vf + 2) = 0x800104f0;
+  (this->messagePopup).string = (char *)0x0;
+  *(undefined4 *)&(this->messagePopup).tDialogBase.MaxW = 0;
+  (this->messagePopup).tDialogBase.startTicks = 0;
+  *(undefined4 *)&(this->messagePopup).tDialogBase.fDefault = 0x80;
+  __7tScreen((tScreen *)&this->fYOffset);
+  *(undefined4 *)&(this->helpPopup).tDialogBase.tScreen.fScreenFadeVal = 0x800105b0;
+  *(undefined4 *)&(this->helpPopup).tDialogBase.tScreen.fScreenFadeVal = 0x80010550;
+  *(undefined4 *)&(this->helpPopup).tDialogBase.top = 0;
+  (this->helpPopup).tDialogBase.left = 0;
+  *(undefined2 *)((int)&(this->helpPopup).tDialogBase.timeOutTicks + 2) = 0;
+  *(undefined2 *)((int)&(this->helpPopup).tDialogBase.startTicks + 2) = 0;
+  *(undefined2 *)&(this->helpPopup).tDialogBase.startTicks = 0;
+  (this->helpPopup).tDialogBase.specificPlayer = 0;
+  *(undefined2 *)((this->helpPopup).tDialogBase.tScreen._vf + 8) = 0;
+  *(undefined2 *)((this->helpPopup).tDialogBase.tScreen._vf + 6) = 0;
+  *(undefined2 *)((this->helpPopup).tDialogBase.tScreen._vf + 4) = 0;
+  *(undefined2 *)&(this->helpPopup).tDialogBase.timeOutTicks = 0x120;
+  *(undefined2 *)((this->helpPopup).tDialogBase.tScreen._vf + 2) = 0xffff;
+  (this->helpPopup).tDialogBase.MaxW = 0;
+  (this->helpPopup).tDialogBase.currentlyOn = (void *)0x0;
+  (this->helpPopup).tDialogBase.fDefault = -1;
+  *(undefined **)&(this->helpPopup).tDialogBase.currentlyOn = &DAT_00000578;
+  __7tScreen((tScreen *)this->waitingForOtherPlayer);
+  (this->MemCardDialog).tDialogMessageString.tDialogBase.tScreen.fInternalScreenFadeVal =
+       -0x7ffefa50;
+  (this->MemCardDialog).tDialogMessageString.tDialogBase.tScreen.fInternalScreenFadeVal =
+       -0x7ffefb10;
+  (this->MemCardDialog).tDialogMessageString.tDialogBase.tScreen.fInternalScreenFadeVal =
+       -0x7ffeff68;
+  *(undefined4 *)&(this->MemCardDialog).tDialogMessageString.tDialogBase.specificPlayer = 0;
+  *(undefined2 *)((this->MemCardDialog).tDialogMessageString.tDialogBase.tScreen._vf + 8) = 0;
+  *(undefined2 *)((int)&(this->MemCardDialog).tDialogMessageString.tDialogBase.startTicks + 2) = 0;
+  *(undefined2 *)((int)&(this->MemCardDialog).tDialogMessageString.tDialogBase.currentlyOn + 2) = 0;
+  *(undefined2 *)&(this->MemCardDialog).tDialogMessageString.tDialogBase.currentlyOn = 0;
+  *(undefined2 *)((this->MemCardDialog).tDialogMessageString.tDialogBase.tScreen._vf + 6) = 0;
+  *(undefined2 *)((this->MemCardDialog).tDialogMessageString.tDialogBase.tScreen._vf + 4) = 0;
+  *(undefined2 *)((this->MemCardDialog).tDialogMessageString.tDialogBase.tScreen._vf + 2) = 0;
+  *(undefined2 *)(this->MemCardDialog).tDialogMessageString.tDialogBase.tScreen._vf = 0;
+  *(undefined2 *)&(this->MemCardDialog).tDialogMessageString.tDialogBase.startTicks = 0x120;
+  (this->MemCardDialog).tDialogMessageString.tDialogBase.tScreen.fScreenFadeVal = -1;
+  (this->MemCardDialog).tDialogMessageString.tDialogBase.OffsetX = 0;
+  *(undefined4 *)&(this->MemCardDialog).tDialogMessageString.tDialogBase.height = 0;
+  *(undefined4 *)&(this->MemCardDialog).tDialogMessageString.tDialogBase.fDefault = 0;
+  (this->MemCardDialog).tDialogMessageString.tDialogBase.timeOutTicks = 0;
+  *(undefined4 *)&(this->MemCardDialog).tDialogMessageString.tDialogBase.height = 0;
+  *(undefined4 *)&(this->MemCardDialog).tDialogMessageString.tDialogBase.MaxW = 0x80;
+  *(undefined4 *)&(this->MemCardDialog).tDialogMessageString.tDialogBase.height = 0x480;
+  __7tScreen((tScreen *)&(this->MemCardDialog).tDialogMessageString.tDialogBase.fFadeText);
+  iVar2 = 0;
+  *(undefined **)
+   &(this->NoInputMemCardDialog).tDialogMessageString.tDialogBase.tScreen.fTransitionOff = &table;
+  *(undefined4 *)((this->NoInputMemCardDialog).tDialogMessageString.tDialogBase.tScreen._vf + 6) = 0
+  ;
+  *(undefined2 *)((this->NoInputMemCardDialog).tDialogMessageString.tDialogBase.tScreen._vf + 4) = 0
+  ;
+  *(undefined2 *)
+   ((int)&(this->NoInputMemCardDialog).tDialogMessageString.tDialogBase.currentlyOn + 2) = 0;
+  (this->NoInputMemCardDialog).tDialogMessageString.tDialogBase.reservedheight = 0;
+  (this->NoInputMemCardDialog).tDialogMessageString.tDialogBase.height = 0;
+  *(undefined2 *)((this->NoInputMemCardDialog).tDialogMessageString.tDialogBase.tScreen._vf + 2) = 0
+  ;
+  *(undefined2 *)(this->NoInputMemCardDialog).tDialogMessageString.tDialogBase.tScreen._vf = 0;
+  (this->NoInputMemCardDialog).tDialogMessageString.tDialogBase.tScreen.fScreenFadeVal = 0;
+  *(undefined2 *)
+   ((int)&(this->NoInputMemCardDialog).tDialogMessageString.tDialogBase.tScreen.
+          fInternalScreenFadeVal + 2) = 0;
+  *(undefined2 *)&(this->NoInputMemCardDialog).tDialogMessageString.tDialogBase.currentlyOn = 0x120;
+  *(undefined2 *)
+   &(this->NoInputMemCardDialog).tDialogMessageString.tDialogBase.tScreen.fInternalScreenFadeVal =
+       0xffff;
+  *(undefined2 *)&(this->NoInputMemCardDialog).tDialogMessageString.tDialogBase.timeOutTicks = 0;
+  *(undefined4 *)&(this->NoInputMemCardDialog).tDialogMessageString.tDialogBase.top = 0;
+  *(undefined **)
+   &(this->NoInputMemCardDialog).tDialogMessageString.tDialogBase.tScreen.fTransitionOff = &table;
+  (this->NoInputMemCardDialog).tDialogMessageString.tDialogBase.fFullyOpen = (void *)0x0;
+  (this->NoInputMemCardDialog).tDialogMessageString.tDialogBase.startTicks = 0;
+  *(undefined4 *)&(this->NoInputMemCardDialog).tDialogMessageString.tDialogBase.top = 0;
+  *(undefined4 *)&(this->NoInputMemCardDialog).tDialogMessageString.tDialogBase.OffsetX = 0x80;
+  *(undefined **)
+   &(this->NoInputMemCardDialog).tDialogMessageString.tDialogBase.tScreen.fTransitionOff = &table;
+  ptVar1 = this;
+  do {
+    *(undefined4 *)&(ptVar1->NoInputMemCardDialog).tDialogMessageString.tDialogBase.fDefault = 0;
+    (ptVar1->NoInputMemCardDialog).tDialogMessageString.string = (char *)0x0;
+    ptVar1->gotName[0] = (void *)0xffffffff;
+    iVar2 = iVar2 + 1;
+    ptVar1 = (tFEApplication *)ptVar1->fCurrentMenu;
+  } while (iVar2 < 2);
+  return this;
 }
 
 
@@ -270,17 +383,32 @@ tFEApplication * __14tFEApplication(tFEApplication *this)
 	// End offset: 0x800131C4
 	// End Line: 102
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 6 */
+		// Start line: 197
+	/* end block 6 */
+	// End Line: 198
+
+	/* begin block 7 */
+		// Start line: 203
+	/* end block 7 */
+	// End Line: 204
+
+	/* begin block 8 */
+		// Start line: 203
+	/* end block 8 */
+	// End Line: 204
 
 void ___14tFEApplication(tFEApplication *this,int __in_chrg)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
-  
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  ___7tScreen((tScreen *)&(this->MemCardDialog).tDialogMessageString.tDialogBase.fFadeText,2);
+  ___7tScreen((tScreen *)this->waitingForOtherPlayer,2);
+  ___7tScreen((tScreen *)&this->fYOffset,2);
+  ___7tScreen((tScreen *)&this->messagePopup,2);
+  if ((__in_chrg & 1U) != 0) {
+    __builtin_delete(this);
+  }
+  return;
 }
 
 
@@ -296,17 +424,31 @@ void ___14tFEApplication(tFEApplication *this,int __in_chrg)
 	// End offset: 0x80013234
 	// End Line: 106
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 208
+	/* end block 2 */
+	// End Line: 209
+
+	/* begin block 3 */
+		// Start line: 211
+	/* end block 3 */
+	// End Line: 212
+
+	/* begin block 4 */
+		// Start line: 211
+	/* end block 4 */
+	// End Line: 212
 
 void PerformMenuInitialization__14tFEApplication(tFEApplication *this)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
-  
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  this->fCurrentMusic = 0;
+  AudioMus_Volume__Fi((int)((uint)(byte)frontEnd.musicVolume * 0x23) >> 6);
+  InitializeClass__11tDialogBase();
+  Clock_SystemStartUp__Fv();
+  Draw_gDoVSync = 1;
+  FETextRender_SetABR__Fib(0,(void *)0x0);
+  return;
 }
 
 
@@ -324,17 +466,44 @@ void PerformMenuInitialization__14tFEApplication(tFEApplication *this)
 	// End offset: 0x80013310
 	// End Line: 142
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 256
+	/* end block 2 */
+	// End Line: 257
+
+	/* begin block 3 */
+		// Start line: 260
+	/* end block 3 */
+	// End Line: 261
+
+	/* begin block 4 */
+		// Start line: 260
+	/* end block 4 */
+	// End Line: 261
 
 void PerformMenuDestruction__14tFEApplication(tFEApplication *this)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
+  int iVar1;
+  int iVar2;
+  int iVar3;
   
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  Clock_SystemCleanUp__Fv();
+  iVar3 = 0;
+  do {
+    iVar2 = (int)&this->fCurrentMusic + ((iVar3 << 0x10) >> 0xe);
+    iVar1 = *(int *)(iVar2 + 0xc);
+    if (iVar1 != 0) {
+      (**(code **)(*(int *)(iVar1 + 0x60) + 0x3c))
+                (iVar1 + (int)*(short *)(*(int *)(iVar1 + 0x60) + 0x38));
+    }
+    iVar3 = iVar3 + 1;
+    *(undefined4 *)(iVar2 + 0xc) = 0;
+  } while (iVar3 * 0x10000 >> 0x10 < 2);
+  AudioMus_StopSong__Fi(1000);
+  Draw_gDoVSync = 0;
+  FETextRender_SetABR__Fib(0,(void *)0x0);
+  return;
 }
 
 
@@ -439,17 +608,111 @@ void PerformMenuDestruction__14tFEApplication(tFEApplication *this)
 	// End offset: 0x80013718
 	// End Line: 220
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 304
+	/* end block 2 */
+	// End Line: 305
+
+	/* begin block 3 */
+		// Start line: 310
+	/* end block 3 */
+	// End Line: 311
+
+	/* begin block 4 */
+		// Start line: 310
+	/* end block 4 */
+	// End Line: 311
 
 void DrawHelpIcons__14tFEApplication(tFEApplication *this)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
+  bool bVar1;
+  char *sMenuText;
+  size_t sVar2;
+  int iVar3;
+  short x;
+  uchar *y;
+  uchar *puVar4;
+  int x_00;
+  undefined auStack80 [4];
+  undefined *local_4c;
+  char acStack57 [17];
+  char local_28;
+  undefined local_27;
   
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  x_00 = 0xe;
+  local_4c = &DAT_00786e14;
+  y = screenheight + -0x19;
+  if ((this->fCurrentMenu[0] == (_func_45 *)0x0) || (*(short *)(this->fCurrentMenu[0] + 100) == 0))
+  {
+    if (((gPadinfo.buf[0].nopad == '\0') && (gPadinfo.buf[0].ID != '#')) ||
+       (((char)gPadinfo.buf[3].data == '\0' && (gPadinfo.buf[3].data._1_1_ != '#')))) {
+      DrawShapeExtended__FiiiiiiP18tDrawShapeExtended
+                (0x35,0x18,0xe,(int)y,0,0,(tDrawShapeExtended *)auStack80);
+      x_00 = 0x1c;
+    }
+    if ((gPadinfo.buf[0].ID == '#') || (gPadinfo.buf[3].data._1_1_ == '#')) {
+      DrawShapeExtended__FiiiiiiP18tDrawShapeExtended
+                (0x36,0x18,x_00,(int)y,0,0,(tDrawShapeExtended *)auStack80);
+      x_00 = x_00 + 0xf;
+    }
+    sMenuText = TextSys_Word__Fi(0xfc);
+    FETextRender_FullTextRGB__FPcssics
+              (sMenuText,(short)x_00,(short)((uint)((int)y * 0x10000) >> 0x10),(int)&DAT_00786e14,0,
+               0);
+    sMenuText = TextSys_Word__Fi(0xfc);
+    iVar3 = textpixels(sMenuText);
+    sMenuText = TextSys_Word__Fi(0xfc);
+    sVar2 = strlen(sMenuText);
+    x_00 = x_00 + 5 + (iVar3 - sVar2);
+    bVar1 = false;
+    if ((*(int *)(this->fCurrentMenu[0] + 0x5c) != 0) ||
+       ((this->fCurrentMenu[1] != (_func_45 *)0x0 && (*(int *)(this->fCurrentMenu[1] + 0x5c) != 0)))
+       ) {
+      bVar1 = true;
+    }
+    if (bVar1) {
+      if (((gPadinfo.buf[0].nopad == '\0') && (gPadinfo.buf[0].ID != '#')) ||
+         (((char)gPadinfo.buf[3].data == '\0' && (gPadinfo.buf[3].data._1_1_ != '#')))) {
+        DrawShapeExtended__FiiiiiiP18tDrawShapeExtended
+                  (0x37,0x18,x_00,(int)y,0,0,(tDrawShapeExtended *)auStack80);
+        x_00 = x_00 + 0xe;
+      }
+      x = (short)x_00;
+      if ((gPadinfo.buf[0].ID == '#') || (gPadinfo.buf[3].data._1_1_ == '#')) {
+        DrawShapeExtended__FiiiiiiP18tDrawShapeExtended
+                  (0x38,0x18,x_00,(int)y,0,0,(tDrawShapeExtended *)auStack80);
+        x = x + 0xf;
+      }
+      sMenuText = TextSys_Word__Fi(0xfd);
+      FETextRender_FullTextRGB__FPcssics
+                (sMenuText,x,(short)((uint)((int)y * 0x10000) >> 0x10),(int)&DAT_00786e14,0,0);
+    }
+  }
+  else {
+    local_27 = 0;
+    sMenuText = TextSys_Word__Fi(0xfc);
+    sprintf(acStack57[1],sMenuText);
+    sVar2 = strlen(acStack57[1]);
+    while (sVar2 = sVar2 - 1, -1 < (int)sVar2) {
+      x = (short)y;
+      y = y + -8;
+      local_28 = acStack57[1][sVar2];
+      FETextRender_FullTextRGB__FPcssics(&local_28,0xe,x,(int)&DAT_00786e14,0,0);
+    }
+    if (((gPadinfo.buf[0].nopad == '\0') && (gPadinfo.buf[0].ID != '#')) ||
+       ((puVar4 = y + 8, (char)gPadinfo.buf[3].data == '\0' &&
+        (puVar4 = y + 8, gPadinfo.buf[3].data._1_1_ != '#')))) {
+      DrawShapeExtended__FiiiiiiP18tDrawShapeExtended
+                (0x35,0x18,0xe,(int)y,0,0,(tDrawShapeExtended *)auStack80);
+      puVar4 = y;
+    }
+    if ((gPadinfo.buf[0].ID == '#') || (gPadinfo.buf[3].data._1_1_ == '#')) {
+      DrawShapeExtended__FiiiiiiP18tDrawShapeExtended
+                (0x36,0x18,0xd,(int)(puVar4 + -9),0,0,(tDrawShapeExtended *)auStack80);
+    }
+  }
+  return;
 }
 
 
@@ -655,17 +918,204 @@ void DrawHelpIcons__14tFEApplication(tFEApplication *this)
 	// End offset: 0x80013D1C
 	// End Line: 381
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 468
+	/* end block 2 */
+	// End Line: 469
+
+	/* begin block 3 */
+		// Start line: 474
+	/* end block 3 */
+	// End Line: 475
+
+	/* begin block 4 */
+		// Start line: 474
+	/* end block 4 */
+	// End Line: 475
 
 void Redraw__14tFEApplication(tFEApplication *this)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
+  undefined uVar1;
+  bool bVar2;
+  uint *puVar3;
+  uint *puVar4;
+  tGlobalMenuDefs *ptVar5;
+  undefined4 uVar6;
+  int iVar7;
+  int iVar8;
+  DRAWENV *pDVar9;
+  tGlobalMenuDefs *ptVar10;
+  uint uVar11;
+  _func_45 *p_Var12;
+  _func_49 *p_Var13;
+  uint uVar14;
+  short sVar15;
+  char acStack88 [32];
+  ushort local_38;
+  short local_36;
+  undefined2 local_34;
+  short local_32;
+  tMenuCommand tStack48;
+  tInputKeyType local_28;
+  tInputKeyType local_24;
   
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  uVar1 = *(undefined *)&(this->helpPopup).numItems;
+  FeAudio_systemtask__Fi(0);
+  Draw_StartFrameRender__Fv();
+  Draw_StartRenderingView__Fi(Draw_gPlayer1View);
+  uVar6 = largestunused();
+  sprintf(acStack88,(char *)&PTR_DAT_80010044,uVar6);
+  FETextRender_FullText__FPcss13tMenuTextType14tMenuTextStates
+            (acStack88,0x100,0xd7,textType_FramedInfo,textState_Selected,0);
+  iVar7 = AudioMus_Buffered__Fv();
+  iVar8 = AudioMus_Threshold__Fv();
+  sprintf(acStack88,s__d__d_80010048,iVar7,iVar8);
+  FETextRender_FullText__FPcss13tMenuTextType14tMenuTextStates
+            (acStack88,0x10,0xd7,textType_FramedInfo,textState_Hilighted,0);
+  pDVar9 = Draw_GetDRAWENV__Fii(Draw_gPlayer1View,gFlip);
+  if (this->fCurrentMenu[1] == (_func_45 *)0x0) {
+    sVar15 = (short)screenheight;
+  }
+  else {
+    sVar15 = (short)((uint)(screenheight + ((uint)screenheight >> 0x1f)) >> 1);
+  }
+  DrawAllDialogs__11tDialogBase();
+  DrawHelpIcons__14tFEApplication(this);
+  ptVar5 = menuDefs;
+  if ((gPadinfo.buf[0].nopad == '\0') && ((char)gPadinfo.buf[3].data == '\0')) {
+    *(uint *)&(menuDefs->itemMainOnePlayerRace).fOffset =
+         *(uint *)&(menuDefs->itemMainOnePlayerRace).fOffset & 0xfffffffe;
+  }
+  else {
+    *(uint *)&(menuDefs->itemMainOnePlayerRace).fOffset =
+         *(uint *)&(menuDefs->itemMainOnePlayerRace).fOffset | 1;
+    local_28 = kInput_KeyType_Up;
+    if (*(short **)(this->fCurrentMenu[0] + *(int *)(this->fCurrentMenu[0] + 8) * 4 + 0x10) ==
+        &(ptVar5->itemMainOnePlayerRace).fOffset) {
+      ProcessInput__9tMenuNFS47tPlayerR13tInputKeyTypeR12tMenuCommand
+                ((tMenuNFS4 *)
+                 &(ptVar5->itemMainOptions).tMenuItemGoToMenuButton.tMenuItemInteractive.tMenuItem.
+                  fNewMenu,kPlayerOne,&local_28,&tStack48);
+    }
+  }
+  ptVar5 = menuDefs;
+  if (gPadinfo.buf[0].nopad == '\0') {
+    (menuDefs->itemMainOnePlayerRace).tMenuItemGoToMenuButton.tMenuItemInteractive.tMenuItem.fFlags
+         = (menuDefs->itemMainOnePlayerRace).tMenuItemGoToMenuButton.tMenuItemInteractive.tMenuItem.
+           fFlags & 0xfffffffe;
+  }
+  else {
+    (menuDefs->itemMainOnePlayerRace).tMenuItemGoToMenuButton.tMenuItemInteractive.tMenuItem.fFlags
+         = (menuDefs->itemMainOnePlayerRace).tMenuItemGoToMenuButton.tMenuItemInteractive.tMenuItem.
+           fFlags | 1;
+    ptVar10 = *(tGlobalMenuDefs **)
+               (this->fCurrentMenu[0] + *(int *)(this->fCurrentMenu[0] + 8) * 4 + 0x10);
+    local_24 = kInput_KeyType_Down;
+    if (ptVar10 == ptVar5) {
+      ProcessInput__9tMenuNFS47tPlayerR13tInputKeyTypeR12tMenuCommand
+                ((tMenuNFS4 *)
+                 &(ptVar10->itemMainOptions).tMenuItemGoToMenuButton.tMenuItemInteractive.tMenuItem.
+                  fNewMenu,kPlayerOne,&local_24,&tStack48);
+    }
+  }
+  puVar4 = DAT_1f800004;
+  puVar3 = DAT_1f800000;
+  uVar14 = 1;
+  local_38 = 0;
+  local_36 = (pDVar9->clip).y;
+  local_34 = 0x200;
+  local_32 = (short)screenheight;
+  *DAT_1f800004 = *DAT_1f800004 & 0xff000000 | *DAT_1f800000 & 0xffffff;
+  uVar11 = (uint)DAT_1f800004 & 0xffffff;
+  DAT_1f800004 = DAT_1f800004 + 3;
+  *puVar3 = *puVar3 & 0xff000000 | uVar11;
+  SetDrawArea((int)puVar4,&local_38);
+  do {
+    *(char *)&(this->helpPopup).numItems = (char)uVar14;
+    *(ushort *)(this->fLastKeyPressed + 1) = ((ushort)uVar14 & 0xff) * sVar15;
+    p_Var12 = this->fCurrentMenu[uVar14 & 0xff];
+    if (p_Var12 != (_func_45 *)0x0) {
+      (**(code **)(*(int *)(p_Var12 + 0x68) + 0x54))
+                (p_Var12 + (int)*(short *)(*(int *)(p_Var12 + 0x68) + 0x50));
+    }
+    p_Var13 = this->fParentMenu[(uint)*(byte *)&(this->helpPopup).numItems];
+    if (p_Var13 != (_func_49 *)0x0) {
+      (**(code **)(*(int *)(p_Var13 + 0x68) + 0x54))
+                (p_Var13 + (int)*(short *)(*(int *)(p_Var13 + 0x68) + 0x50));
+    }
+    if ((tScreen *)this->fCurrentScreen[(uint)*(byte *)&(this->helpPopup).numItems] !=
+        (tScreen *)0x0) {
+      UpdateTransition__7tScreen
+                ((tScreen *)this->fCurrentScreen[(uint)*(byte *)&(this->helpPopup).numItems]);
+    }
+    p_Var12 = this->fCurrentMenu[(uint)*(byte *)&(this->helpPopup).numItems];
+    if ((p_Var12 != (_func_45 *)0x0) &&
+       (iVar7 = (**(code **)(*(int *)(p_Var12 + 0x68) + 0x44))
+                          (p_Var12 + (int)*(short *)(*(int *)(p_Var12 + 0x68) + 0x40)), iVar7 != 0))
+    {
+      iVar7 = *(int *)(this->fCurrentMenu[(uint)*(byte *)&(this->helpPopup).numItems] + 0x68);
+      (**(code **)(iVar7 + 0x4c))
+                (this->fCurrentMenu[(uint)*(byte *)&(this->helpPopup).numItems] +
+                 (int)*(short *)(iVar7 + 0x48));
+    }
+    if ((tScreen *)this->fCurrentScreen[(uint)*(byte *)&(this->helpPopup).numItems] !=
+        (tScreen *)0x0) {
+      Draw__7tScreenb((tScreen *)this->fCurrentScreen[(uint)*(byte *)&(this->helpPopup).numItems],
+                      (void *)0x0);
+    }
+    uVar11 = (&this->fCurrentMusic + (uint)*(byte *)&(this->helpPopup).numItems)[1];
+    if (uVar11 != 0) {
+      bVar2 = false;
+      if ((&this->fCurrentMusic + (uint)*(byte *)&(this->helpPopup).numItems)[0x8c] == 0) {
+LAB_80013bfc:
+        iVar7 = *(int *)(this->fCurrentMenu[(uint)*(byte *)&(this->helpPopup).numItems] + 0x68);
+        (**(code **)(iVar7 + 0x4c))
+                  (this->fCurrentMenu[(uint)*(byte *)&(this->helpPopup).numItems] +
+                   (int)*(short *)(iVar7 + 0x48));
+      }
+      else {
+        iVar7 = (**(code **)(*(int *)(uVar11 + 0x68) + 0x3c))
+                          (uVar11 + (int)*(short *)(*(int *)(uVar11 + 0x68) + 0x38));
+        if (iVar7 == 0) {
+          iVar7 = *(int *)(this->fCurrentMenu[(uint)*(byte *)&(this->helpPopup).numItems] + 0x68);
+          iVar7 = (**(code **)(iVar7 + 0x44))
+                            (this->fCurrentMenu[(uint)*(byte *)&(this->helpPopup).numItems] +
+                             (int)*(short *)(iVar7 + 0x40));
+          bVar2 = iVar7 == 0;
+        }
+        if (bVar2) goto LAB_80013bfc;
+      }
+      p_Var13 = this->fParentMenu[(uint)*(byte *)&(this->helpPopup).numItems];
+      if (p_Var13 != (_func_49 *)0x0) {
+        (**(code **)(*(int *)(p_Var13 + 0x68) + 0x4c))
+                  (p_Var13 + (int)*(short *)(*(int *)(p_Var13 + 0x68) + 0x48));
+      }
+    }
+    if ((tScreen *)this->fCurrentScreen[(uint)*(byte *)&(this->helpPopup).numItems] !=
+        (tScreen *)0x0) {
+      Draw__7tScreenb((tScreen *)this->fCurrentScreen[(uint)*(byte *)&(this->helpPopup).numItems],
+                      &DAT_00000001);
+    }
+    puVar4 = DAT_1f800004;
+    puVar3 = DAT_1f800000;
+    local_38 = 0;
+    local_36 = (pDVar9->clip).y + *(short *)(this->fLastKeyPressed + 1);
+    local_34 = 0x200;
+    *DAT_1f800004 = *DAT_1f800004 & 0xff000000 | *DAT_1f800000 & 0xffffff;
+    uVar11 = (uint)DAT_1f800004 & 0xffffff;
+    DAT_1f800004 = DAT_1f800004 + 3;
+    *puVar3 = *puVar3 & 0xff000000 | uVar11;
+    local_32 = sVar15;
+    SetDrawArea((int)puVar4,&local_38);
+    uVar14 = uVar14 - 1;
+    if ((int)(uVar14 * 0x10000) < 0) {
+      *(undefined *)&(this->helpPopup).numItems = uVar1;
+      Draw_StopRenderingView__Fi(Draw_gPlayer1View);
+      Draw_StopFrameRender__Fv();
+      return;
+    }
+  } while( true );
 }
 
 
@@ -681,17 +1131,55 @@ void Redraw__14tFEApplication(tFEApplication *this)
 	// End offset: 0x80013E10
 	// End Line: 418
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 838
+	/* end block 2 */
+	// End Line: 839
+
+	/* begin block 3 */
+		// Start line: 847
+	/* end block 3 */
+	// End Line: 848
+
+	/* begin block 4 */
+		// Start line: 847
+	/* end block 4 */
+	// End Line: 848
+
+	/* begin block 5 */
+		// Start line: 849
+	/* end block 5 */
+	// End Line: 850
 
 void UpdateMusic__14tFEApplication(tFEApplication *this)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
+  uint uVar1;
   
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  AudioMus_Volume__Fi((int)((uint)(byte)frontEnd.musicVolume * 0x23) >> 6);
+  uVar1 = this->fCurrentMusic;
+  if ((uVar1 & 0x1000) == 0) {
+    if ((uVar1 & 0x2000) == 0) {
+      if ((uVar1 & 0x4000) == 0) {
+        if ((uVar1 & 0x8000) == 0) {
+          AudioMus_StopSong__Fi(1000);
+        }
+        else {
+          AudioMus_PlaySong__FPc(s_victory__8001006c);
+        }
+      }
+      else {
+        AudioMus_PlaySong__FPc(s_showcase__80010060);
+      }
+    }
+    else {
+      AudioMus_PlaySong__FPc(s_garage__80010058);
+    }
+  }
+  else {
+    AudioMus_PlaySong__FPc(s_zmenu__80010050);
+  }
+  return;
 }
 
 
@@ -767,17 +1255,51 @@ void UpdateMusic__14tFEApplication(tFEApplication *this)
 	// End offset: 0x80013F0C
 	// End Line: 449
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 880
+	/* end block 2 */
+	// End Line: 881
+
+	/* begin block 3 */
+		// Start line: 885
+	/* end block 3 */
+	// End Line: 886
+
+	/* begin block 4 */
+		// Start line: 885
+	/* end block 4 */
+	// End Line: 886
 
 void SetMenu__14tFEApplicationsP5tMenu(tFEApplication *this,short i,tMenu *menu)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
+  uint uVar1;
+  int iVar2;
+  int iVar3;
   
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  if (menu != (tMenu *)this->fCurrentMenu[(int)i]) {
+    if (((int)i == 0) && (uVar1 = menu->fFlags & 0xf000, uVar1 != this->fCurrentMusic)) {
+      this->fCurrentMusic = uVar1;
+      UpdateMusic__14tFEApplication(this);
+    }
+    iVar2 = (**(code **)(*(int *)(menu->_vf + 2) + 0x44))
+                      ((int)&menu->fFlags + (int)*(short *)(*(int *)(menu->_vf + 2) + 0x40));
+    iVar3 = (int)((uint)(ushort)i << 0x10) >> 0xe;
+    if (iVar2 == 1) {
+      *(tMenu **)((int)this->fTransitionToMenu + iVar3) = menu;
+    }
+    else {
+      iVar3 = (int)&this->fCurrentMusic + iVar3;
+      iVar2 = *(int *)(iVar3 + 4);
+      *(tMenu **)(iVar3 + 0x14) = menu;
+      if ((iVar2 != 0) && (menu != (tMenu *)0x0)) {
+        (**(code **)(*(int *)(iVar2 + 0x68) + 0x2c))
+                  (iVar2 + (int)*(short *)(*(int *)(iVar2 + 0x68) + 0x28));
+      }
+    }
+    SetScreen__14tFEApplicationsP7tScreen(this,i,menu->fScreen);
+  }
+  return;
 }
 
 
@@ -793,17 +1315,34 @@ void SetMenu__14tFEApplicationsP5tMenu(tFEApplication *this,short i,tMenu *menu)
 	// End offset: 0x80013F64
 	// End Line: 459
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 945
+	/* end block 2 */
+	// End Line: 946
+
+	/* begin block 3 */
+		// Start line: 950
+	/* end block 3 */
+	// End Line: 951
+
+	/* begin block 4 */
+		// Start line: 950
+	/* end block 4 */
+	// End Line: 951
 
 void SetScreen__14tFEApplicationsP7tScreen(tFEApplication *this,short i,tScreen *screen)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
+  tScreen *this_00;
+  int iVar1;
   
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  iVar1 = (int)&this->fCurrentMusic + ((int)((uint)(ushort)i << 0x10) >> 0xe);
+  this_00 = *(tScreen **)(iVar1 + 0xc);
+  if (((screen != this_00) && (*(tScreen **)(iVar1 + 0x1c) = screen, this_00 != (tScreen *)0x0)) &&
+     (screen != (tScreen *)0x0)) {
+    TransitionOff__7tScreen22tScreen_TransitionTypeP5tMenu(this_00,kScreen_TransitionTypeScreen);
+  }
+  return;
 }
 
 
@@ -835,17 +1374,27 @@ void SetScreen__14tFEApplicationsP7tScreen(tFEApplication *this,short i,tScreen 
 	// End offset: 0x80013F74
 	// End Line: 464
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 966
+	/* end block 2 */
+	// End Line: 967
+
+	/* begin block 3 */
+		// Start line: 971
+	/* end block 3 */
+	// End Line: 972
+
+	/* begin block 4 */
+		// Start line: 971
+	/* end block 4 */
+	// End Line: 972
 
 void DisplayHelp__14tFEApplications(tFEApplication *this,short variant)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
-  
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  (this->helpPopup).tDialogBase.fDefault = variant;
+  Display__11tDialogBase((tDialogBase *)&this->fYOffset);
+  return;
 }
 
 
@@ -863,18 +1412,37 @@ void DisplayHelp__14tFEApplications(tFEApplication *this,short variant)
 	// End offset: 0x80013FFC
 	// End Line: 480
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 979
+	/* end block 2 */
+	// End Line: 980
+
+	/* begin block 3 */
+		// Start line: 983
+	/* end block 3 */
+	// End Line: 984
+
+	/* begin block 4 */
+		// Start line: 983
+	/* end block 4 */
+	// End Line: 984
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void FreeHelpShapeCluts__Fv(void)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
+  int iVar1;
   
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  iVar1 = 0;
+  do {
+    if ((&gHelpShapes->shpptr + iVar1 * 8)[1] != (shapetbl *)0x0) {
+      Texture_MenuReleaseClutId__Fs(*(short *)(&gHelpShapes->shpptr + iVar1 * 8 + 1));
+      (&gHelpShapes->clutID)[iVar1 * 8] = 0;
+    }
+    iVar1 = iVar1 + 1;
+  } while (iVar1 < 0x3b);
+  return;
 }
 
 
@@ -893,17 +1461,87 @@ void FreeHelpShapeCluts__Fv(void)
 	// End offset: 0x8001428C
 	// End Line: 555
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 1013
+	/* end block 2 */
+	// End Line: 1014
+
+	/* begin block 3 */
+		// Start line: 1017
+	/* end block 3 */
+	// End Line: 1018
+
+	/* begin block 4 */
+		// Start line: 1017
+	/* end block 4 */
+	// End Line: 1018
+
+	/* begin block 5 */
+		// Start line: 1023
+	/* end block 5 */
+	// End Line: 1024
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
 void RunDemoVideo__14tFEApplication(tFEApplication *this)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
+  bool bVar1;
+  int iVar2;
   
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  if ((tMenu *)this->fCurrentMenu[0] ==
+      (tMenu *)&(menuDefs->itemMainOptions).tMenuItemGoToMenuButton.tMenuItemInteractive.tMenuItem.
+                fNewMenu) {
+    AudioMus_StopSong__Fi(0x78);
+    FeAudio_systemtask__Fi(0);
+    iVar2 = *(int *)(this->fCurrentMenu[0] + 0x68);
+    (**(code **)(iVar2 + 0x2c))(this->fCurrentMenu[0] + (int)*(short *)(iVar2 + 0x28));
+    TransitionOff__7tScreen22tScreen_TransitionTypeP5tMenu
+              ((tScreen *)this->fCurrentScreen[0],kScreen_TransitionTypeScreen);
+    while( true ) {
+      iVar2 = *(int *)(this->fCurrentMenu[0] + 0x68);
+      bVar1 = false;
+      iVar2 = (**(code **)(iVar2 + 0x3c))(this->fCurrentMenu[0] + (int)*(short *)(iVar2 + 0x38));
+      if ((iVar2 == 0) ||
+         (iVar2 = *(int *)(this->fCurrentScreen[0] + 0x60),
+         iVar2 = (**(code **)(iVar2 + 0x44))
+                           (this->fCurrentScreen[0] + (int)*(short *)(iVar2 + 0x40)), iVar2 == 0)) {
+        bVar1 = true;
+      }
+      if (!bVar1) break;
+      Redraw__14tFEApplication(this);
+      FeAudio_systemtask__Fi(0);
+    }
+    iVar2 = *(int *)(this->fCurrentScreen[0] + 0x60);
+    (**(code **)(iVar2 + 0x3c))(this->fCurrentScreen[0] + (int)*(short *)(iVar2 + 0x38));
+    Audio_FECleanUp__Fv();
+    Audio_DeInitDriver__Fv();
+    PSXFront_FreeDrawMemory__Fv();
+    FeTools_deinit__Fv();
+    FreeHelpShapeCluts__Fv();
+    gLargestUnused = largestunused();
+    play_movie__Fc(DAT_800514bc + '\x01');
+    gLargestUnused = largestunused();
+    PSXFront_AllocateDrawMemory__Fv();
+    FeTools_init__Fv();
+    DisplayLoadingText__7tScreen();
+    Audio_InitDriver__Fii((int)&DAT_0000d800,0x18000);
+    AudioCmn_LoadFESamples__Fv();
+    LoadAllHelpShapes__Fv();
+    UpdateMusic__14tFEApplication(this);
+    AudioMus_Volume__Fi((int)((uint)(byte)frontEnd.musicVolume * 0x23) >> 6);
+    gLargestUnused = largestunused();
+    iVar2 = *(int *)(this->fCurrentMenu[0] + 0x68);
+    (**(code **)(iVar2 + 0x14))(this->fCurrentMenu[0] + (int)*(short *)(iVar2 + 0x10));
+    iVar2 = *(int *)(this->fCurrentScreen[0] + 0x60);
+    (**(code **)(iVar2 + 0x34))(this->fCurrentScreen[0] + (int)*(short *)(iVar2 + 0x30));
+    iVar2 = *(int *)(this->fCurrentMenu[0] + 0x68);
+    (**(code **)(iVar2 + 0x34))(this->fCurrentMenu[0] + (int)*(short *)(iVar2 + 0x30));
+    TransitionOn__7tScreen22tScreen_TransitionTypeP5tMenu
+              ((tScreen *)this->fCurrentScreen[0],kScreen_TransitionTypeScreen);
+    _DAT_800514bc = (_DAT_800514bc + 1) % 3;
+  }
+  return;
 }
 
 
@@ -1435,17 +2073,524 @@ void RunDemoVideo__14tFEApplication(tFEApplication *this)
 	// End offset: 0x80015400
 	// End Line: 986
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 1175
+	/* end block 2 */
+	// End Line: 1176
+
+	/* begin block 3 */
+		// Start line: 1181
+	/* end block 3 */
+	// End Line: 1182
+
+	/* begin block 4 */
+		// Start line: 1181
+	/* end block 4 */
+	// End Line: 1182
 
 tAppCommand MainLoop__14tFEApplicationP5tMenu(tFEApplication *this,tMenu *newMenu)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
+  bool bVar1;
+  uchar *puVar2;
+  tFEApplication *ptVar3;
+  tFEApplication *ptVar4;
+  byte bVar5;
+  short sVar6;
+  int iVar7;
+  tInputKeyType tVar8;
+  tDialogBase *ptVar9;
+  int iVar10;
+  char *__format;
+  char *pcVar11;
+  uint uVar12;
+  _func_46 *p_Var13;
+  _func_45 *p_Var14;
+  _func_49 *p_Var15;
+  uint uVar16;
+  uint *puVar17;
+  tInputKeyType *ptVar18;
+  uint uVar19;
+  tPlayer player;
+  int *piVar20;
+  PinkSlipsErrorCode PVar21;
+  uchar *apuStack392 [2];
+  char acStack384 [80];
+  int iStack304;
+  tMenu *aptStack300 [3];
+  undefined auStack288 [8];
+  tCarInfo tStack280;
+  ushort local_48;
+  int local_40;
+  int local_3c;
+  uchar *local_38;
+  uchar *local_34;
+  tInputKeyType local_30;
+  undefined *local_2c;
   
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  local_48 = 0xffff;
+  local_40 = 0;
+  memset(apuStack392,0,8);
+  *(undefined *)((int)&(this->helpPopup).numItems + 1) = 0;
+  PerformMenuInitialization__14tFEApplication(this);
+  local_34 = ticks;
+  gFlip = 0;
+  *(undefined *)&(this->helpPopup).numItems = 0;
+  do {
+    this->backList[(uint)*(byte *)&(this->helpPopup).numItems + 0x1f] = (_func_50 *)0x0;
+    this->fCurrentMenu[(uint)*(byte *)&(this->helpPopup).numItems] = (_func_45 *)0x0;
+    this->fCurrentScreen[(uint)*(byte *)&(this->helpPopup).numItems] = (_func_46 *)0x0;
+    this->fTransitionToMenu[(uint)*(byte *)&(this->helpPopup).numItems] = (_func_47 *)0x0;
+    this->fTransitionToScreen[(uint)*(byte *)&(this->helpPopup).numItems] = (_func_48 *)0x0;
+    *(undefined4 *)(&(this->helpPopup).lefttext + (uint)*(byte *)&(this->helpPopup).numItems * 2) =
+         0;
+    this->backDepth[(uint)*(byte *)&(this->helpPopup).numItems + 1] = 0;
+    this->fParentMenu[(uint)*(byte *)&(this->helpPopup).numItems] = (_func_49 *)0x0;
+    bVar5 = *(char *)&(this->helpPopup).numItems + 1;
+    *(byte *)&(this->helpPopup).numItems = bVar5;
+  } while (bVar5 < 2);
+  SetMenu__14tFEApplicationsP5tMenu(this,0,newMenu);
+  do {
+    local_3c = 1;
+    local_2c = auStack288;
+    local_38 = ticks;
+    *(undefined *)&(this->helpPopup).numItems = 0;
+    while (*(byte *)&(this->helpPopup).numItems < 2) {
+      if ((&this->fCurrentMusic + (uint)*(byte *)&(this->helpPopup).numItems)[5] != 0) {
+        uVar12 = (&this->fCurrentMusic + (uint)*(byte *)&(this->helpPopup).numItems)[1];
+        uVar19 = 0;
+        if (uVar12 != 0) {
+          iVar7 = (**(code **)(*(int *)(uVar12 + 0x68) + 0x3c))
+                            (uVar12 + (int)*(short *)(*(int *)(uVar12 + 0x68) + 0x38));
+          if ((iVar7 != 0) &&
+             (p_Var13 = this->fCurrentScreen[(uint)*(byte *)&(this->helpPopup).numItems],
+             p_Var13 != (_func_46 *)0x0)) {
+            iVar7 = (**(code **)(*(int *)(p_Var13 + 0x60) + 0x44))
+                              (p_Var13 + (int)*(short *)(*(int *)(p_Var13 + 0x60) + 0x40));
+            uVar19 = (uint)(iVar7 != 0);
+          }
+          if (uVar19 == 0) goto LAB_80014680;
+          p_Var14 = this->fCurrentMenu[(uint)*(byte *)&(this->helpPopup).numItems];
+          uVar19 = 0;
+          if (p_Var14 != (_func_45 *)0x0) {
+            uVar19 = (**(code **)(*(int *)(p_Var14 + 0x68) + 0x44))
+                               (p_Var14 + (int)*(short *)(*(int *)(p_Var14 + 0x68) + 0x40));
+          }
+        }
+        iVar7 = *(int *)(this->fTransitionToMenu[(uint)*(byte *)&(this->helpPopup).numItems] + 0x68)
+        ;
+        iVar7 = (**(code **)(iVar7 + 0x44))
+                          (this->fTransitionToMenu[(uint)*(byte *)&(this->helpPopup).numItems] +
+                           (int)*(short *)(iVar7 + 0x40));
+        if (iVar7 == 0) {
+          this->fParentMenu[(uint)*(byte *)&(this->helpPopup).numItems] = (_func_49 *)0x0;
+        }
+        else {
+          (&this->fCurrentMusic + (uint)*(byte *)&(this->helpPopup).numItems)[9] =
+               (&this->fCurrentMusic + (uint)*(byte *)&(this->helpPopup).numItems)[1];
+        }
+        (&this->fCurrentMusic + (uint)*(byte *)&(this->helpPopup).numItems)[1] =
+             (&this->fCurrentMusic + (uint)*(byte *)&(this->helpPopup).numItems)[5];
+        iVar7 = *(int *)(this->fCurrentMenu[(uint)*(byte *)&(this->helpPopup).numItems] + 0x68);
+        (**(code **)(iVar7 + 0x14))
+                  (this->fCurrentMenu[(uint)*(byte *)&(this->helpPopup).numItems] +
+                   (int)*(short *)(iVar7 + 0x10));
+        this->fTransitionToMenu[(uint)*(byte *)&(this->helpPopup).numItems] = (_func_47 *)0x0;
+        if ((uVar19 == 0) || (this->fTransitionToScreen[0] != (_func_48 *)0x0)) {
+          iVar7 = *(int *)(this->fCurrentMenu[(uint)*(byte *)&(this->helpPopup).numItems] + 0x68);
+          (**(code **)(iVar7 + 0x34))
+                    (this->fCurrentMenu[(uint)*(byte *)&(this->helpPopup).numItems] +
+                     (int)*(short *)(iVar7 + 0x30));
+          if (local_40 != 0) {
+            local_40 = 0;
+            SetMenu__14tFEApplicationsP5tMenu
+                      (this,1,*(tMenu **)
+                               (this->fCurrentMenu[(uint)*(byte *)&(this->helpPopup).numItems] +
+                               0x58));
+          }
+        }
+        else {
+          local_3c = 0;
+          (&this->fCurrentMusic + (uint)*(byte *)&(this->helpPopup).numItems)[0x51] =
+               (&this->fCurrentMusic + (uint)*(byte *)&(this->helpPopup).numItems)[0x51] - 1;
+        }
+        local_34 = ticks;
+      }
+LAB_80014680:
+      bVar5 = *(byte *)&(this->helpPopup).numItems;
+      uVar19 = (uint)bVar5;
+      if (bVar5 == 1) {
+        p_Var14 = this->fCurrentMenu[uVar19];
+        if ((((p_Var14 != (_func_45 *)0x0) &&
+             (iVar7 = (**(code **)(*(int *)(p_Var14 + 0x68) + 0x3c))
+                                (p_Var14 + (int)*(short *)(*(int *)(p_Var14 + 0x68) + 0x38)),
+             iVar7 != 0)) && ((int)((uint)local_48 << 0x10) < 0)) &&
+           ((p_Var15 = this->fParentMenu[(uint)*(byte *)&(this->helpPopup).numItems],
+            p_Var15 == (_func_49 *)0x0 ||
+            (iVar7 = (**(code **)(*(int *)(p_Var15 + 0x68) + 0x3c))
+                               (p_Var15 + (int)*(short *)(*(int *)(p_Var15 + 0x68) + 0x38)),
+            iVar7 != 0)))) {
+          this->fCurrentMenu[(uint)*(byte *)&(this->helpPopup).numItems] = (_func_45 *)0x0;
+          p_Var13 = this->fCurrentScreen[(uint)*(byte *)&(this->helpPopup).numItems];
+          if (p_Var13 != (_func_46 *)0x0) {
+            (**(code **)(*(int *)(p_Var13 + 0x60) + 0x3c))
+                      (p_Var13 + (int)*(short *)(*(int *)(p_Var13 + 0x60) + 0x38));
+          }
+          this->fCurrentScreen[(uint)*(byte *)&(this->helpPopup).numItems] = (_func_46 *)0x0;
+        }
+        uVar19 = (uint)*(byte *)&(this->helpPopup).numItems;
+      }
+      if ((&this->fCurrentMusic + uVar19)[7] != 0) {
+        uVar19 = (&this->fCurrentMusic + uVar19)[3];
+        if (uVar19 != 0) {
+          iVar7 = (**(code **)(*(int *)(uVar19 + 0x60) + 0x44))
+                            (uVar19 + (int)*(short *)(*(int *)(uVar19 + 0x60) + 0x40));
+          if ((iVar7 == 0) ||
+             ((&this->fCurrentMusic + (uint)*(byte *)&(this->helpPopup).numItems)[5] != 0))
+          goto LAB_800148b0;
+          uVar19 = (&this->fCurrentMusic + (uint)*(byte *)&(this->helpPopup).numItems)[3];
+          if (uVar19 != 0) {
+            (**(code **)(*(int *)(uVar19 + 0x60) + 0x3c))
+                      (uVar19 + (int)*(short *)(*(int *)(uVar19 + 0x60) + 0x38));
+          }
+        }
+        (&this->fCurrentMusic + (uint)*(byte *)&(this->helpPopup).numItems)[3] =
+             (&this->fCurrentMusic + (uint)*(byte *)&(this->helpPopup).numItems)[7];
+        gLargestUnused = largestunused();
+        iVar7 = *(int *)(this->fCurrentScreen[(uint)*(byte *)&(this->helpPopup).numItems] + 0x60);
+        (**(code **)(iVar7 + 0x34))
+                  (this->fCurrentScreen[(uint)*(byte *)&(this->helpPopup).numItems] +
+                   (int)*(short *)(iVar7 + 0x30));
+        this->fTransitionToScreen[(uint)*(byte *)&(this->helpPopup).numItems] = (_func_48 *)0x0;
+        TransitionOn__7tScreen22tScreen_TransitionTypeP5tMenu
+                  ((tScreen *)this->fCurrentScreen[(uint)*(byte *)&(this->helpPopup).numItems],
+                   kScreen_TransitionTypeScreen);
+      }
+LAB_800148b0:
+      bVar1 = false;
+      if ((uint *)this->fCurrentMenu[(uint)*(byte *)&(this->helpPopup).numItems] != (uint *)0x0) {
+        uVar12 = (uint)*(byte *)&(this->helpPopup).numItems;
+        uVar19 = *(uint *)this->fCurrentMenu[(uint)*(byte *)&(this->helpPopup).numItems];
+        if (((uVar19 & 0x10) != 0) || ((frontEnd.gameMode == '\x01' && ((uVar19 & 8) == 0)))) {
+          bVar1 = true;
+        }
+        uVar19 = uVar12;
+        if (bVar1) {
+          uVar12 = 0;
+          uVar19 = 1;
+        }
+        puVar17 = (uint *)this->fCurrentMenu[(uint)*(byte *)&(this->helpPopup).numItems];
+        uVar16 = *puVar17;
+        if ((uVar16 & 0x20) != 0) {
+          uVar12 = (uint)*(byte *)((int)&(this->helpPopup).numItems + 1);
+          uVar19 = uVar12;
+        }
+        if ((uVar16 & 0x40) != 0) {
+          uVar19 = 0;
+          uVar12 = 0;
+        }
+        if ((uVar16 & 0x80) != 0) {
+          uVar19 = 1;
+          uVar12 = 1;
+        }
+        bVar1 = false;
+        if (((puVar17 != (uint *)0x0) &&
+            (iVar7 = (**(code **)(puVar17[0x1a] + 0x3c))
+                               ((int)puVar17 + (int)*(short *)(puVar17[0x1a] + 0x38)), iVar7 != 0))
+           && (p_Var13 = this->fCurrentScreen[(uint)*(byte *)&(this->helpPopup).numItems],
+              p_Var13 != (_func_46 *)0x0)) {
+          iVar7 = (**(code **)(*(int *)(p_Var13 + 0x60) + 0x44))
+                            (p_Var13 + (int)*(short *)(*(int *)(p_Var13 + 0x60) + 0x40));
+          bVar1 = iVar7 != 0;
+        }
+        if (bVar1) {
+          iVar7 = *(int *)(this->fCurrentMenu[(uint)*(byte *)&(this->helpPopup).numItems] + 0x68);
+          local_30 = (**(code **)(iVar7 + 0x24))
+                               (this->fCurrentMenu[(uint)*(byte *)&(this->helpPopup).numItems] +
+                                (int)*(short *)(iVar7 + 0x20));
+LAB_80014a20:
+          sVar6 = (short)uVar12;
+          player = SEXT24(sVar6);
+          if ((int)uVar19 < (int)player) goto LAB_800153a0;
+          (&iStack304)[player * 2] = 0;
+          tVar8 = FEInput_GetKeyFromPlayer__F7tPlayerl(player,local_30);
+          ptVar18 = (tInputKeyType *)(local_2c + player * 4);
+          *ptVar18 = tVar8;
+          if (tVar8 != kInput_KeyType_NoKey) {
+            *(undefined *)((int)&(this->helpPopup).numItems + 1) = (char)uVar12;
+          }
+          if (((uchar *)0xf < ticks + -(int)apuStack392[player]) ||
+             ((local_30 & *ptVar18) == kInput_KeyType_NoKey)) {
+            this->backDepth[player + kPlayerTwo] = *ptVar18;
+          }
+          iVar7 = (int)(uVar12 << 0x10) >> 0xe;
+          piVar20 = (int *)(local_2c + iVar7);
+          if (*piVar20 != 0) {
+            ptVar9 = GetTopMostDialog__11tDialogBase();
+            local_34 = local_38;
+            *(uchar **)((int)apuStack392 + iVar7) = local_38;
+            if ((*piVar20 == 4) && (*(int *)&(this->helpPopup).tDialogBase.top != 0)) {
+              *piVar20 = 1;
+              Hide__11tDialogBase((tDialogBase *)&this->fYOffset);
+            }
+            if (ptVar9 != (tDialogBase *)0x0) {
+              iVar7 = (int)sVar6;
+              if (*(int *)(local_2c + iVar7 * 4) != 4) {
+                iVar10 = *(int *)((ptVar9->tScreen)._vf + 2);
+                (**(code **)(iVar10 + 0x4c))
+                          ((int)&(ptVar9->tScreen).fPermShapes.fShapes +
+                           (int)*(short *)(iVar10 + 0x48),iVar7,local_2c + iVar7 * 4,
+                           &iStack304 + iVar7 * 2);
+              }
+            }
+            p_Var13 = this->fCurrentScreen[(uint)*(byte *)&(this->helpPopup).numItems];
+            if (p_Var13 != (_func_46 *)0x0) {
+              iVar7 = (int)sVar6;
+              (**(code **)(*(int *)(p_Var13 + 0x60) + 0x4c))
+                        (p_Var13 + (int)*(short *)(*(int *)(p_Var13 + 0x60) + 0x48),iVar7,
+                         local_2c + iVar7 * 4,&iStack304 + iVar7 * 2);
+            }
+            iVar7 = (int)sVar6;
+            if (*(int *)(local_2c + iVar7 * 4) != 1) {
+              iVar10 = *(int *)(this->fCurrentMenu[(uint)*(byte *)&(this->helpPopup).numItems] +
+                               0x68);
+              (**(code **)(iVar10 + 0x1c))
+                        (this->fCurrentMenu[(uint)*(byte *)&(this->helpPopup).numItems] +
+                         (int)*(short *)(iVar10 + 0x18),iVar7,local_2c + iVar7 * 4,
+                         &iStack304 + iVar7 * 2);
+            }
+          }
+          iVar7 = *(int *)((int)&iStack304 + ((int)(uVar12 << 0x10) >> 0xd));
+          if (iVar7 == 0) goto switchD_80014c34_caseD_8;
+          switch(iVar7) {
+          case 1:
+            AudioCmn_PlayFESFX__Fi(0);
+            uVar16 = (uint)*(byte *)&(this->helpPopup).numItems;
+            (&(this->messagePopup).Centerit)[uVar16 * 0x10 + (&this->fCurrentMusic + uVar16)[0x51]]
+                 = (void *)(&this->fCurrentMusic + uVar16)[1];
+            (&this->fCurrentMusic + (uint)*(byte *)&(this->helpPopup).numItems)[0x51] =
+                 (&this->fCurrentMusic + (uint)*(byte *)&(this->helpPopup).numItems)[0x51] + 1;
+            goto LAB_80014cb0;
+          case 2:
+            AudioCmn_PlayFESFX__Fi(0);
+            this->backList[(uint)*(byte *)&(this->helpPopup).numItems + 0x1f] = (_func_50 *)0x0;
+LAB_80014cb0:
+            SetMenu__14tFEApplicationsP5tMenu
+                      (this,(ushort)*(byte *)&(this->helpPopup).numItems,
+                       *(tMenu **)((int)aptStack300 + ((int)(uVar12 << 0x10) >> 0xd)));
+            uVar12 = uVar12 + 1;
+            goto LAB_80014a20;
+          case 3:
+            AudioCmn_PlayFESFX__Fi(0);
+            uVar16 = (uint)*(byte *)&(this->helpPopup).numItems;
+            (&(this->messagePopup).Centerit)[uVar16 * 0x10 + (&this->fCurrentMusic + uVar16)[0x51]]
+                 = (void *)(&this->fCurrentMusic + uVar16)[1];
+            local_40 = 1;
+            (&this->fCurrentMusic + (uint)*(byte *)&(this->helpPopup).numItems)[0x51] =
+                 (&this->fCurrentMusic + (uint)*(byte *)&(this->helpPopup).numItems)[0x51] + 1;
+            bVar5 = *(byte *)&(this->helpPopup).numItems;
+            local_48 = *(ushort *)(this->backList + (uint)bVar5 + 0x1f);
+            SetMenu__14tFEApplicationsP5tMenu
+                      (this,(ushort)bVar5,
+                       *(tMenu **)((int)aptStack300 + ((int)(uVar12 << 0x10) >> 0xd)));
+            this->backDepth[0] = 0;
+            break;
+          case 4:
+            bVar5 = *(byte *)&(this->helpPopup).numItems;
+            if (((bVar5 != 0) || ((int)this->backList[(uint)bVar5 + 0x1f] <= (int)(short)local_48))
+               && ((bVar5 != 1 ||
+                   ((int)this->backList[(uint)*(byte *)&(this->helpPopup).numItems + 0x1f] < 1)))) {
+              uVar16 = (uint)*(byte *)&(this->helpPopup).numItems;
+              if ((&this->fCurrentMusic + uVar16)[0x8c] != 0) {
+                (&this->fCurrentMusic + uVar16)[0x8c] = 0;
+                break;
+              }
+              *(undefined4 *)(&(this->helpPopup).lefttext + (1 - uVar16) * 2) = 0;
+              *(undefined4 *)
+               (&(this->helpPopup).lefttext + (uint)*(byte *)&(this->helpPopup).numItems * 2) = 0;
+            }
+            bVar5 = *(byte *)&(this->helpPopup).numItems;
+            uVar16 = (uint)bVar5;
+            if (bVar5 == 0) {
+              if ((this->backList[uVar16 + 0x1f] != (_func_50 *)(int)(short)local_48) ||
+                 (this->fCurrentMenu[1] == (_func_45 *)0x0)) {
+                uVar16 = (uint)*(byte *)&(this->helpPopup).numItems;
+                goto LAB_80014ef0;
+              }
+              p_Var15 = this->fParentMenu[0];
+              if (p_Var15 != (_func_49 *)0x0) {
+                (**(code **)(*(int *)(p_Var15 + 0x68) + 0x2c))
+                          (p_Var15 + (int)*(short *)(*(int *)(p_Var15 + 0x68) + 0x28));
+              }
+              p_Var15 = this->fParentMenu[1];
+              if (p_Var15 != (_func_49 *)0x0) {
+                (**(code **)(*(int *)(p_Var15 + 0x68) + 0x2c))
+                          (p_Var15 + (int)*(short *)(*(int *)(p_Var15 + 0x68) + 0x28));
+              }
+              iVar7 = *(int *)(this->fCurrentMenu[1] + 0x68);
+              local_48 = 0xffff;
+              (**(code **)(iVar7 + 0x2c))(this->fCurrentMenu[1] + (int)*(short *)(iVar7 + 0x28));
+              TransitionOff__7tScreen22tScreen_TransitionTypeP5tMenu
+                        ((tScreen *)this->fCurrentScreen[1],kScreen_TransitionTypeScreen);
+              this->backDepth[0] = 0;
+LAB_80014fdc:
+              bVar5 = *(byte *)&(this->helpPopup).numItems;
+              if ((int)this->backList[(uint)bVar5 + 0x1f] < 1) {
+                if (bVar5 != 1) break;
+                AudioCmn_PlayFESFX__Fi(1);
+                uVar12 = uVar12 + 1;
+                goto LAB_80014a20;
+              }
+            }
+            else {
+LAB_80014ef0:
+              if (uVar16 != 1) goto LAB_80014fdc;
+              if ((int)this->backList[0x20] < 1) {
+                if (this->fCurrentMenu[1] != (_func_45 *)0x0) {
+                  p_Var14 = this->fCurrentMenu[1];
+                  this->backList[0x1f] = (_func_50 *)((int)(short)local_48 + -1);
+                  iVar7 = *(int *)(p_Var14 + 0x68);
+                  (**(code **)(iVar7 + 0x2c))(p_Var14 + (int)*(short *)(iVar7 + 0x28));
+                  p_Var15 = this->fParentMenu[0];
+                  if (p_Var15 != (_func_49 *)0x0) {
+                    (**(code **)(*(int *)(p_Var15 + 0x68) + 0x2c))
+                              (p_Var15 + (int)*(short *)(*(int *)(p_Var15 + 0x68) + 0x28));
+                  }
+                  p_Var15 = this->fParentMenu[1];
+                  if (p_Var15 != (_func_49 *)0x0) {
+                    (**(code **)(*(int *)(p_Var15 + 0x68) + 0x2c))
+                              (p_Var15 + (int)*(short *)(*(int *)(p_Var15 + 0x68) + 0x28));
+                  }
+                  local_48 = 0xffff;
+                  TransitionOff__7tScreen22tScreen_TransitionTypeP5tMenu
+                            ((tScreen *)this->fCurrentScreen[1],kScreen_TransitionTypeScreen);
+                  SetMenu__14tFEApplicationsP5tMenu
+                            (this,0,(tMenu *)(&(this->messagePopup).Centerit)
+                                             [(int)this->backList[0x1f]]);
+                }
+                goto LAB_80014fdc;
+              }
+            }
+            AudioCmn_PlayFESFX__Fi(1);
+            (&this->fCurrentMusic + (uint)*(byte *)&(this->helpPopup).numItems)[0x51] =
+                 (&this->fCurrentMusic + (uint)*(byte *)&(this->helpPopup).numItems)[0x51] - 1;
+            bVar5 = *(byte *)&(this->helpPopup).numItems;
+            SetMenu__14tFEApplicationsP5tMenu
+                      (this,(ushort)bVar5,
+                       (tMenu *)(&(this->messagePopup).Centerit)
+                                [(int)(this->backList[(uint)bVar5 + 0x1f] + (uint)bVar5 * 0x10)]);
+            iVar7 = *(int *)(this->fCurrentMenu[(uint)*(byte *)&(this->helpPopup).numItems] + 0x68);
+            iVar7 = (**(code **)(iVar7 + 0x44))
+                              (this->fCurrentMenu[(uint)*(byte *)&(this->helpPopup).numItems] +
+                               (int)*(short *)(iVar7 + 0x40));
+            if (iVar7 != 0) {
+              (&this->fCurrentMusic + (uint)*(byte *)&(this->helpPopup).numItems)[0x51] =
+                   (&this->fCurrentMusic + (uint)*(byte *)&(this->helpPopup).numItems)[0x51] + 1;
+            }
+            break;
+          case 5:
+          case 7:
+LAB_80015278:
+            if (frontEnd.raceType == '\x06') {
+              bVar5 = *(byte *)&(this->helpPopup).numItems;
+              GetPinkSlipsCar__11tCarManagersR8tCarInfos
+                        (&carManager,(ushort)(byte)frontEnd.pinkSlipsCar[(uint)bVar5],&tStack280,
+                         (ushort)bVar5);
+              goto LAB_8001531c;
+            }
+LAB_8001528c:
+            if (frontEnd.carListType == '\0') {
+              GetStockCar__11tCarManagersR8tCarInfo
+                        (&carManager,
+                         (ushort)(byte)frontEnd.playerCar
+                                       [(uint)*(byte *)&(this->helpPopup).numItems],&tStack280);
+            }
+            else {
+              bVar5 = *(byte *)&(this->helpPopup).numItems;
+              GetGarageCar__11tCarManagersR8tCarInfos
+                        (&carManager,(ushort)(byte)frontEnd.garageCar[(uint)bVar5],&tStack280,
+                         (ushort)bVar5);
+            }
+LAB_8001531c:
+            puVar2 = ticks;
+            if (tStack280.fEnginePatch != 0) {
+              AudioCmn_PlayFESFX__Fi((uint)tStack280.fEnginePatch);
+              puVar2 = ticks;
+            }
+            while (ticks + -(int)puVar2 < (uchar *)0x100) {
+              FeAudio_systemtask__Fi(0);
+            }
+            GameSetup_gData.replayMode = 0;
+            PerformMenuDestruction__14tFEApplication(this);
+            return kApp_Command_StartRace;
+          case 6:
+            uVar16 = (uint)*(byte *)&(this->helpPopup).numItems;
+            if ((&this->fCurrentMusic + (1 - uVar16))[0x8c] == 0) {
+              *(undefined4 *)(&(this->helpPopup).lefttext + uVar16 * 2) = 1;
+              break;
+            }
+            (&this->fCurrentMusic + (1 - uVar16))[0x8c] = 0;
+            if (frontEnd.raceType != '\x06') goto LAB_8001528c;
+            AudioMus_StopSong__Fi(400);
+            Init_Memcard__FbT0((void *)0x0,&DAT_00000001);
+            PVar21 = PinkSlipsNoError;
+            iVar7 = 0;
+            bVar1 = true;
+            while ((ptVar3 = FEApp, bVar1 && (PVar21 == PinkSlipsNoError))) {
+              __format = TextSys_Word__Fi(iVar7 + 0x295);
+              ptVar4 = FEApp;
+              *(char **)&(ptVar3->NoInputMemCardDialog).tDialogMessageString.tDialogBase.MaxW =
+                   __format;
+              Display__11tDialogBase
+                        ((tDialogBase *)
+                         &(ptVar4->MemCardDialog).tDialogMessageString.tDialogBase.fFadeText);
+              while ((FEApp->NoInputMemCardDialog).tDialogMessageString.tDialogBase.startTicks != 1)
+              {
+                Redraw__14tFEApplication(FEApp);
+              }
+              PVar21 = SavePinkSlipsCarsWithErrorDialogs__Fsss
+                                 ((short)iVar7,0,(ushort)(byte)frontEnd.pinkSlipsCar[iVar7]);
+              if ((PVar21 != PinkSlipsNoError) && (iVar7 == 1)) {
+                __format = TextSys_Word__Fi(0x297);
+                pcVar11 = PlayerName__Fi(0);
+                sprintf(acStack384,__format,pcVar11,1);
+                *(char **)&(FEApp->NoInputMemCardDialog).tDialogMessageString.tDialogBase.MaxW =
+                     acStack384;
+                SavePinkSlipsCarsWithErrorDialogs__Fsss(0,1,-1);
+              }
+              iVar7 = iVar7 + 1;
+              Hide__11tDialogBase((tDialogBase *)
+                                  &(FEApp->MemCardDialog).tDialogMessageString.tDialogBase.fFadeText
+                                 );
+              bVar1 = iVar7 < 2;
+            }
+            DeInit_Memcard__Fv();
+            if (PVar21 == PinkSlipsNoError) goto LAB_80015278;
+            UpdateMusic__14tFEApplication(this);
+            AudioMus_Volume__Fi((int)((uint)(byte)frontEnd.musicVolume * 0x23) >> 6);
+            uVar12 = uVar12 + 1;
+            goto LAB_80014a20;
+          case 8:
+            GameSetup_gData.replayMode = 2;
+            PerformMenuDestruction__14tFEApplication(this);
+            return kApp_Command_StartReplay;
+          }
+switchD_80014c34_caseD_8:
+          uVar12 = uVar12 + 1;
+          goto LAB_80014a20;
+        }
+      }
+LAB_800153a0:
+      *(char *)&(this->helpPopup).numItems = *(char *)&(this->helpPopup).numItems + '\x01';
+    }
+    if (local_3c != 0) {
+      Redraw__14tFEApplication(this);
+    }
+    if (0xf00 < (int)(local_38 + -(int)local_34)) {
+      RunDemoVideo__14tFEApplication(this);
+      local_34 = ticks;
+    }
+  } while( true );
 }
 
 
@@ -1590,17 +2735,173 @@ tAppCommand MainLoop__14tFEApplicationP5tMenu(tFEApplication *this,tMenu *newMen
 	// End offset: 0x80015714
 	// End Line: 1123
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 2066
+	/* end block 2 */
+	// End Line: 2067
+
+	/* begin block 3 */
+		// Start line: 2073
+	/* end block 3 */
+	// End Line: 2074
+
+	/* begin block 4 */
+		// Start line: 2073
+	/* end block 4 */
+	// End Line: 2074
+
+/* WARNING: Type propagation algorithm not settling */
 
 tAppCommand RunPostGame__14tFEApplication(tFEApplication *this)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
+  tGlobalMenuDefs *ptVar1;
+  tScreenUserName *ptVar2;
+  ushort uVar3;
+  void *pvVar4;
+  undefined *puVar5;
+  tAppCommand tVar6;
+  tFEApplication *ptVar7;
+  int player;
+  int iVar8;
+  tMenuCommand tStack48;
+  short local_28 [4];
   
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  if ((frontEnd.raceType != '\x06') &&
+     ((frontEnd.raceType != '\0' || (frontEnd.carListType != '\0')))) {
+    StatChk_ClearNewRecords__Fv();
+    ptVar7 = this;
+    player = 0;
+    do {
+      iVar8 = player + 1;
+      Front_ResetPSXController__Fii(player,(uint)(byte)frontEnd.controlConfig[player]);
+      *(undefined4 *)&(ptVar7->NoInputMemCardDialog).tDialogMessageString.tDialogBase.fDefault = 0;
+      (ptVar7->NoInputMemCardDialog).tDialogMessageString.string = (char *)0x0;
+      ptVar7->gotName[0] = (void *)0xffffffff;
+      ptVar7 = (tFEApplication *)ptVar7->fCurrentMenu;
+      player = iVar8;
+    } while (iVar8 < 2);
+    pvVar4 = StatChk_IsRecordLapTime__FP10Car_tStatssPs
+                       (&Cars_gNewCarStatsList,(short)Cars_gNumRaceCars,local_28);
+    if (pvVar4 != (void *)0x0) {
+      if (frontEnd.gameMode == '\x01') {
+        pvVar4 = (void *)0x7;
+        if ((int)local_28[0] != 0) {
+          pvVar4 = (void *)0x8;
+        }
+        this->gotName[(int)local_28[0]] = pvVar4;
+      }
+      else {
+        this->gotName[(int)local_28[0]] = (void *)0x6;
+      }
+      (&(this->NoInputMemCardDialog).tDialogMessageString.string)[(int)local_28[0]] = &DAT_00000001;
+    }
+    uVar3 = StatChk_IsTopTime__FP10Car_tStatss(&Cars_gNewCarStatsList,(short)Cars_gNumRaceCars);
+    if (uVar3 != 0) {
+      if (frontEnd.gameMode == '\x01') {
+        if ((uVar3 & 3) != 0) {
+          (this->NoInputMemCardDialog).tDialogMessageString.string = &DAT_00000001;
+          if ((this->gotName[0] == (void *)0xffffffff) || (local_28[0] != 0)) {
+            puVar5 = &DAT_00000001;
+            if ((uVar3 & 2) == 0) {
+              puVar5 = &DAT_00000004;
+            }
+          }
+          else {
+            puVar5 = &DAT_0000000a;
+            if ((uVar3 & 2) == 0) {
+              puVar5 = (undefined *)0xd;
+            }
+          }
+          *(undefined **)this->gotName = puVar5;
+        }
+        if ((uVar3 & 0xc) != 0) {
+          pvVar4 = this->gotName[1];
+          *(undefined **)&(this->NoInputMemCardDialog).tDialogMessageString.Centerit = &DAT_00000001
+          ;
+          if ((pvVar4 == (void *)0xffffffff) || (local_28[0] != 1)) {
+            if ((uVar3 & 8) == 0) {
+              this->gotName[1] = (void *)0x5;
+            }
+            else {
+              this->gotName[1] = (void *)0x2;
+            }
+          }
+          else {
+            if ((uVar3 & 8) == 0) {
+              this->gotName[1] = (void *)0xe;
+            }
+            else {
+              this->gotName[1] = (void *)0xb;
+            }
+          }
+        }
+      }
+      else {
+        (this->NoInputMemCardDialog).tDialogMessageString.string = &DAT_00000001;
+        if (this->gotName[0] == (void *)0xffffffff) {
+          pvVar4 = (void *)0x3;
+          if ((uVar3 & 2) != 0) {
+            this->gotName[0] = (void *)0x0;
+            goto LAB_80015658;
+          }
+        }
+        else {
+          pvVar4 = (void *)0x9;
+          if ((uVar3 & 2) == 0) {
+            pvVar4 = (void *)0xc;
+          }
+        }
+        this->gotName[0] = pvVar4;
+      }
+    }
+LAB_80015658:
+    ptVar1 = menuDefs;
+    if ((this->NoInputMemCardDialog).tDialogMessageString.string != (char *)0x0) {
+      tStack48.nextMenu = (tMenu *)&(menuDefs->menuItemUserName).fData;
+      *(undefined4 *)
+       &(menuDefs->itemControllerDeadSpot1).tMenuItemLeftRightSlider.tMenuItemInteractive.tMenuItem.
+        fSelFade = 0x80114964;
+      ptVar2 = screenUserName;
+      *(undefined2 *)
+       ((ptVar1->itemControllerSteeringRange2).tMenuItemLeftRightSlider.tMenuItemInteractive.
+        tMenuItem._vf + 8) = 0;
+      *(undefined2 *)
+       &(ptVar1->itemControllerDeadSpot1).tMenuItemLeftRightSlider.tMenuItemInteractive.tMenuItem.
+        fButtonImage = 7;
+      *(undefined2 *)
+       &(ptVar1->itemControllerDeadSpot1).tMenuItemLeftRightSlider.tMenuItemInteractive.tMenuItem.
+        fNumFrames = 0;
+      *(undefined2 *)
+       ((int)&(ptVar1->itemControllerDeadSpot1).tMenuItemLeftRightSlider.tMenuItemInteractive.
+              tMenuItem.fButtonImage + 2) = 0;
+      *(tMenu **)((ptVar2->tScreen)._vf + 6) = tStack48.nextMenu;
+      goto LAB_8001570c;
+    }
+    if ((this->NoInputMemCardDialog).tDialogMessageString.Centerit != (void *)0x0) {
+      tStack48.nextMenu = (tMenu *)&(menuDefs->menuItemUserName1).tMenuItem.fNumFrames;
+      *(undefined2 *)
+       &(menuDefs->itemControllerJoyRange).tMenuItemLeftRightSlider.tMenuItemInteractive.tMenuItem.
+        fNewMenu = 1;
+      (ptVar1->iteratorControllerDeadSpot2).fIndex = frontEnd.playerNameList + 8;
+      ptVar2 = screenUserName;
+      *(undefined2 *)
+       &(ptVar1->itemControllerDeadSpot2).tMenuItemLeftRightSlider.tMenuItemInteractive.tMenuItem.
+        fFlags = 7;
+      *(undefined2 *)
+       &(ptVar1->itemControllerDeadSpot2).tMenuItemLeftRightSlider.tMenuItemInteractive.tMenuItem.
+        fTextDescription = 0;
+      *(undefined2 *)
+       ((int)&(ptVar1->itemControllerDeadSpot2).tMenuItemLeftRightSlider.tMenuItemInteractive.
+              tMenuItem.fFlags + 2) = 0;
+      *(tMenu **)((ptVar2->tScreen)._vf + 6) = tStack48.nextMenu;
+      goto LAB_8001570c;
+    }
+  }
+  MenuExtended_PostGameMenu__FR12tMenuCommand(&tStack48);
+LAB_8001570c:
+  tVar6 = MainLoop__14tFEApplicationP5tMenu(this,tStack48.nextMenu);
+  return tVar6;
 }
 
 
@@ -1616,18 +2917,37 @@ tAppCommand RunPostGame__14tFEApplication(tFEApplication *this)
 	// End offset: 0x80015738
 	// End Line: 1127
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 2343
+	/* end block 2 */
+	// End Line: 2344
+
+	/* begin block 3 */
+		// Start line: 2347
+	/* end block 3 */
+	// End Line: 2348
+
+	/* begin block 4 */
+		// Start line: 2347
+	/* end block 4 */
+	// End Line: 2348
+
+	/* begin block 5 */
+		// Start line: 2355
+	/* end block 5 */
+	// End Line: 2356
 
 tAppCommand RunFrontEnd__14tFEApplication(tFEApplication *this)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
+  tAppCommand tVar1;
   
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  tVar1 = MainLoop__14tFEApplicationP5tMenu
+                    (this,(tMenu *)&(menuDefs->itemMainOptions).tMenuItemGoToMenuButton.
+                                    tMenuItemInteractive.tMenuItem.fNewMenu);
+  return tVar1;
 }
+
 
 
 

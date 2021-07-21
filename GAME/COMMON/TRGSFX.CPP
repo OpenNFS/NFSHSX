@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "TRGSFX.H"
+
 
 // decompiled code
 // original method signature: 
@@ -11,6 +12,16 @@
 	/* end block 1 */
 	// End offset: 0x800BB0C0
 	// End Line: 54
+
+	/* begin block 2 */
+		// Start line: 90
+	/* end block 2 */
+	// End Line: 91
+
+	/* begin block 3 */
+		// Start line: 90
+	/* end block 3 */
+	// End Line: 91
 
 void TrgSfx_AddEnviroEffect__FiiP8coorddefT2(int obj,int type,coorddef *emitterpt,coorddef *vec)
 
@@ -34,6 +45,21 @@ void TrgSfx_AddEnviroEffect__FiiP8coorddefT2(int obj,int type,coorddef *emitterp
 	/* end block 1 */
 	// End offset: 0x800BB12C
 	// End Line: 73
+
+	/* begin block 2 */
+		// Start line: 121
+	/* end block 2 */
+	// End Line: 122
+
+	/* begin block 3 */
+		// Start line: 132
+	/* end block 3 */
+	// End Line: 133
+
+	/* begin block 4 */
+		// Start line: 132
+	/* end block 4 */
+	// End Line: 133
 
 void TrgSfx_AddCarSfx__FiP8coorddefiT1(int car,coorddef *skidpt,int type,coorddef *vec)
 
@@ -74,6 +100,21 @@ void TrgSfx_AddCarSfx__FiP8coorddefiT1(int car,coorddef *skidpt,int type,coordde
 	// End offset: 0x800BB1DC
 	// End Line: 89
 
+	/* begin block 2 */
+		// Start line: 157
+	/* end block 2 */
+	// End Line: 158
+
+	/* begin block 3 */
+		// Start line: 162
+	/* end block 3 */
+	// End Line: 163
+
+	/* begin block 4 */
+		// Start line: 162
+	/* end block 4 */
+	// End Line: 163
+
 void TrgSfx_AddCarWheelSfx__FiiP8coorddefiT2i
                (int car,int wheel,coorddef *skidpt,int type,coorddef *vec,int delay)
 
@@ -103,6 +144,26 @@ void TrgSfx_AddCarWheelSfx__FiiP8coorddefiT2i
 	// End offset: 0x800BB1EC
 	// End Line: 96
 
+	/* begin block 2 */
+		// Start line: 203
+	/* end block 2 */
+	// End Line: 204
+
+	/* begin block 3 */
+		// Start line: 208
+	/* end block 3 */
+	// End Line: 209
+
+	/* begin block 4 */
+		// Start line: 208
+	/* end block 4 */
+	// End Line: 209
+
+	/* begin block 5 */
+		// Start line: 210
+	/* end block 5 */
+	// End Line: 211
+
 void * TrgSfx_AddCarExtraCheck__Fii(int car,int wheel)
 
 {
@@ -131,6 +192,21 @@ void * TrgSfx_AddCarExtraCheck__Fii(int car,int wheel)
 	/* end block 1 */
 	// End offset: 0x800BB228
 	// End Line: 102
+
+	/* begin block 2 */
+		// Start line: 220
+	/* end block 2 */
+	// End Line: 221
+
+	/* begin block 3 */
+		// Start line: 224
+	/* end block 3 */
+	// End Line: 225
+
+	/* begin block 4 */
+		// Start line: 224
+	/* end block 4 */
+	// End Line: 225
 
 void TrgSfx_AddCarExtraSfx__FiiP8coorddefiT2iii
                (int car,int wheel,coorddef *skidpt,int type,coorddef *vec,int velY,int ground,
@@ -176,6 +252,21 @@ void TrgSfx_AddCarExtraSfx__FiiP8coorddefiT2iii
 	// End offset: 0x800BB360
 	// End Line: 134
 
+	/* begin block 2 */
+		// Start line: 289
+	/* end block 2 */
+	// End Line: 290
+
+	/* begin block 3 */
+		// Start line: 300
+	/* end block 3 */
+	// End Line: 301
+
+	/* begin block 4 */
+		// Start line: 300
+	/* end block 4 */
+	// End Line: 301
+
 void TrgSfx_AddCarSplash__FiiP8coorddefiT2ii
                (int car,int wheel,coorddef *skidpt,int type,coorddef *vec,int delay,int velXZ)
 
@@ -207,14 +298,34 @@ void TrgSfx_AddCarSplash__FiiP8coorddefiT2ii
 	// End offset: 0x800BB40C
 	// End Line: 164
 
+	/* begin block 2 */
+		// Start line: 345
+	/* end block 2 */
+	// End Line: 346
+
+	/* begin block 3 */
+		// Start line: 358
+	/* end block 3 */
+	// End Line: 359
+
+	/* begin block 4 */
+		// Start line: 358
+	/* end block 4 */
+	// End Line: 359
+
+	/* begin block 5 */
+		// Start line: 362
+	/* end block 5 */
+	// End Line: 363
+
 void TrgSfx_CrashCar__FP8coorddef(coorddef *location)
 
 {
   uint uVar1;
   Souffle_tISouffle *pSVar2;
   
-  if (4 < simGlobal.gameTicks - DAT_00000fa8) {
-    DAT_00000fa8 = simGlobal.gameTicks;
+  if (4 < simGlobal.gameTicks - gTAddCSmoke) {
+    gTAddCSmoke = simGlobal.gameTicks;
     uVar1 = random();
     if ((uVar1 & 0xf) != 0) {
       pSVar2 = Souffle_Add__FP8coorddefiT0iii(location,1,(coorddef *)0x0,0,0,0);
@@ -319,6 +430,21 @@ void TrgSfx_CrashCar__FP8coorddef(coorddef *location)
 	// End offset: 0x800BB8EC
 	// End Line: 272
 
+	/* begin block 2 */
+		// Start line: 412
+	/* end block 2 */
+	// End Line: 413
+
+	/* begin block 3 */
+		// Start line: 428
+	/* end block 3 */
+	// End Line: 429
+
+	/* begin block 4 */
+		// Start line: 428
+	/* end block 4 */
+	// End Line: 429
+
 void TrgSfx_AddSkidmark__FiiP8coorddefiiP8Car_tObji
                (int car,int wheel,coorddef *skidpt,int end,int intensity,Car_tObj *carObj,int type)
 
@@ -399,20 +525,20 @@ void TrgSfx_AddSkidmark__FiiP8coorddefiiP8Car_tObji
       if (bVar1) {
         if ((&gStatusSm)[uVar8 * 4 + wheel] == 2) {
           Skidmark_Stretch__FP16Skidmark_SegmentiP5tSkidP8coorddefP7CVECTORii
-                    ((&__gSaveSeg_8__4__)[uVar8 * 4 + wheel],(&gSaveChunk)[uVar8 * 4 + wheel],
+                    (gSaveSeg84[uVar8 * 4 + wheel],gSaveChunk[uVar8 * 4 + wheel],
                      &gPrevSkidSm + wheel + uVar8 * 4,skidpt,local_18,tireWidth,type);
         }
         else {
           (&gStatusSm)[uVar8 * 4 + wheel] = 2;
           Skidmark_AddStretch__FPP16Skidmark_SegmentPiP5tSkidP8coorddefP7CVECTORiii
-                    (&__gSaveSeg_8__4__ + wheel + uVar8 * 4,&gSaveChunk + wheel + uVar8 * 4,
+                    (gSaveSeg84 + wheel + uVar8 * 4,gSaveChunk + wheel + uVar8 * 4,
                      &gPrevSkidSm + wheel + uVar8 * 4,skidpt,local_18,tireWidth,type,slice);
         }
       }
       else {
         if ((&gStatusSm)[uVar8 * 4 + wheel] == 2) {
           Skidmark_EndStretch__FP16Skidmark_SegmentiP5tSkidP8coorddefP7CVECTORii
-                    ((&__gSaveSeg_8__4__)[uVar8 * 4 + wheel],(&gSaveChunk)[uVar8 * 4 + wheel],
+                    (gSaveSeg84[uVar8 * 4 + wheel],gSaveChunk[uVar8 * 4 + wheel],
                      &gPrevSkidSm + wheel + uVar8 * 4,skidpt,local_18,tireWidth,type);
         }
         else {
@@ -425,7 +551,7 @@ void TrgSfx_AddSkidmark__FiiP8coorddefiiP8Car_tObji
     else {
       if (iVar2 == 2) {
         Skidmark_Stretch__FP16Skidmark_SegmentiP5tSkidP8coorddefP7CVECTORii
-                  ((&__gSaveSeg_8__4__)[uVar8 * 4 + wheel],(&gSaveChunk)[uVar8 * 4 + wheel],
+                  (gSaveSeg84[uVar8 * 4 + wheel],gSaveChunk[uVar8 * 4 + wheel],
                    &gPrevSkidSm + wheel + uVar8 * 4,skidpt,local_18,tireWidth,type);
       }
       else {
@@ -455,6 +581,26 @@ void TrgSfx_AddSkidmark__FiiP8coorddefiiP8Car_tObji
 	// End offset: 0x800BB9D0
 	// End Line: 313
 
+	/* begin block 2 */
+		// Start line: 661
+	/* end block 2 */
+	// End Line: 662
+
+	/* begin block 3 */
+		// Start line: 670
+	/* end block 3 */
+	// End Line: 671
+
+	/* begin block 4 */
+		// Start line: 670
+	/* end block 4 */
+	// End Line: 671
+
+	/* begin block 5 */
+		// Start line: 675
+	/* end block 5 */
+	// End Line: 676
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void TrgSfx_InitTrgSfx__Fv(void)
@@ -474,7 +620,7 @@ void TrgSfx_InitTrgSfx__Fv(void)
   iVar8 = 0;
   piVar7 = &gTAddCarSfx;
   piVar6 = &gTEnviroEffect;
-  DAT_00000fa8 = simGlobal.gameTicks;
+  gTAddCSmoke = simGlobal.gameTicks;
   do {
     iVar4 = 0;
     iVar2 = iVar5 << 4;
@@ -498,9 +644,9 @@ void TrgSfx_InitTrgSfx__Fv(void)
     iVar5 = iVar5 + 1;
     piVar6 = piVar6 + 1;
   } while (iVar5 < 8);
-  DAT_00000fa4 = 8;
+  gTAddCarWheelDelay = 8;
   if (GameSetup_gData.commMode == 1) {
-    DAT_00000fa4 = 0xc;
+    gTAddCarWheelDelay = 0xc;
   }
   return;
 }
@@ -517,6 +663,21 @@ void TrgSfx_InitTrgSfx__Fv(void)
 	/* end block 1 */
 	// End offset: 0x800BB9D8
 	// End Line: 317
+
+	/* begin block 2 */
+		// Start line: 757
+	/* end block 2 */
+	// End Line: 758
+
+	/* begin block 3 */
+		// Start line: 761
+	/* end block 3 */
+	// End Line: 762
+
+	/* begin block 4 */
+		// Start line: 761
+	/* end block 4 */
+	// End Line: 762
 
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
@@ -541,6 +702,31 @@ void TrgSfx_RestartTrgSfx__Fv(void)
 	// End offset: 0x800BBA00
 	// End Line: 323
 
+	/* begin block 2 */
+		// Start line: 769
+	/* end block 2 */
+	// End Line: 770
+
+	/* begin block 3 */
+		// Start line: 773
+	/* end block 3 */
+	// End Line: 774
+
+	/* begin block 4 */
+		// Start line: 773
+	/* end block 4 */
+	// End Line: 774
+
+	/* begin block 5 */
+		// Start line: 774
+	/* end block 5 */
+	// End Line: 775
+
+	/* begin block 6 */
+		// Start line: 774
+	/* end block 6 */
+	// End Line: 775
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void TrgSfx_KillTrgSfx__Fv(void)
@@ -548,6 +734,7 @@ void TrgSfx_KillTrgSfx__Fv(void)
 {
   return;
 }
+
 
 
 

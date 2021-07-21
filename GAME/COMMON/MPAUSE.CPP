@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "MPAUSE.H"
+
 
 // decompiled code
 // original method signature: 
@@ -12,110 +13,112 @@
 	// End offset: 0x8009DED4
 	// End Line: 173
 
+	/* begin block 2 */
+		// Start line: 344
+	/* end block 2 */
+	// End Line: 345
+
+	/* begin block 3 */
+		// Start line: 344
+	/* end block 3 */
+	// End Line: 345
+
+/* WARNING: Type propagation algorithm not settling */
+
 tPauseMenuDefs * __14tPauseMenuDefs(tPauseMenuDefs *this)
 
 {
   tPMenu *newMenu;
+  tPMenu *newMenu_00;
   tPListIterator *this_00;
   tPListIteratorIndexed *this_01;
   tPMenuItem *firstItem;
-  tPMenu *newMenu_00;
+  tPMenu *newMenu_01;
   
   __28tPMenuItemNonInteractiveTextUi((tPMenuItemNonInteractiveText *)this,0);
   __23tPMenuItemCommandButtonUi17tPMenuCommandType
-            ((tPMenuItemCommandButton *)((this->itemGamePaused).tPMenuItem._vf + 1),1,
+            ((tPMenuItemCommandButton *)((this->itemGamePaused).tPMenuItem._vf + 4),1,
              kMPause_Continue);
   __23tPMenuItemCommandButtonUi17tPMenuCommandType
-            ((tPMenuItemCommandButton *)((this->itemGamePaused).tPMenuItem._vf + 5),2,
-             kMPause_Restart);
-  newMenu_00 = (tPMenu *)((this->itemForfeitRace).tPMenuItemInteractive.tPMenuItem._vf + 6);
+            ((tPMenuItemCommandButton *)
+             ((this->itemContinue).tPMenuItemInteractive.tPMenuItem._vf + 4),2,kMPause_Restart);
+  newMenu_01 = (tPMenu *)(this->itemAudioSettings).tPMenuItemInteractive.tPMenuItem._vf;
   __24tPMenuItemGoToMenuButtonUiP6tPMenuPFR13tPMenuCommand_v
-            ((tPMenuItemGoToMenuButton *)(this->itemContinue).tPMenuItemInteractive.tPMenuItem._vf,3
-             ,newMenu_00,
+            ((tPMenuItemGoToMenuButton *)(this->itemRestart).tPMenuItemInteractive.tPMenuItem._vf,3,
+             newMenu_01,
              (TDRFuncPtr___24tPMenuItemGoToMenuButtonUiP6tPMenuPFR13tPMenuCommand_v3OnButtonPress)
              0x0);
   __23tPMenuItemCommandButtonUi17tPMenuCommandType
-            ((tPMenuItemCommandButton *)
-             ((this->itemContinue).tPMenuItemInteractive.tPMenuItem._vf + 5),4,
+            ((tPMenuItemCommandButton *)(this->itemOptions).tPMenuItemInteractive.tPMenuItem._vf,4,
              kMPause_QuitToRaceSummary);
   __23tPMenuItemCommandButtonUi17tPMenuCommandType
-            ((tPMenuItemCommandButton *)
-             &(this->itemRestart).tPMenuItemInteractive.tPMenuItem.fTextDescription,5,
-             kMPause_ForfeitToRaceSummary);
-  __6tPMenuP10tPMenuIteme
-            ((tPMenu *)((this->itemRestart).tPMenuItemInteractive.tPMenuItem._vf + 3),
-             (tPMenuItem *)this);
-  firstItem = (tPMenuItem *)((this->itemQuitRace).tPMenuItemInteractive.tPMenuItem._vf + 3);
+            (&this->itemQuitRace,5,kMPause_ForfeitToRaceSummary);
+  __6tPMenuP10tPMenuIteme((tPMenu *)&(this->itemQuitRace).fCommand,(tPMenuItem *)this);
+  firstItem = (tPMenuItem *)((this->menuPause).fItemList + 0xd);
   __28tPMenuItemNonInteractiveTextUi((tPMenuItemNonInteractiveText *)firstItem,6);
-  newMenu = (tPMenu *)&(this->itemControllerSettings).fNewMenu;
+  newMenu = (tPMenu *)&(this->itemAudioSettingsFXVolume).fMaxVal;
   __24tPMenuItemGoToMenuButtonUiP6tPMenuPFR13tPMenuCommand_v
-            ((tPMenuItemGoToMenuButton *)
-             ((this->itemQuitRace).tPMenuItemInteractive.tPMenuItem._vf + 6),7,newMenu,
+            ((tPMenuItemGoToMenuButton *)&(this->menuPause).fNextMenu,7,newMenu,
              (TDRFuncPtr___24tPMenuItemGoToMenuButtonUiP6tPMenuPFR13tPMenuCommand_v3OnButtonPress)
              0x0);
+  newMenu_00 = (tPMenu *)((this->iteratorConfig).tPListIterator._vf + 4);
   __24tPMenuItemGoToMenuButtonUiP6tPMenuPFR13tPMenuCommand_v
-            ((tPMenuItemGoToMenuButton *)
-             ((this->itemForfeitRace).tPMenuItemInteractive.tPMenuItem._vf + 1),8,
-             (tPMenu *)&this->itemAudioSettingsAudioMode,
+            ((tPMenuItemGoToMenuButton *)&(this->itemOptionsTitle).tPMenuItem.fTextDescription,8,
+             newMenu_00,
              (TDRFuncPtr___24tPMenuItemGoToMenuButtonUiP6tPMenuPFR13tPMenuCommand_v3OnButtonPress)
              0x0);
-  __6tPMenuP10tPMenuIteme(newMenu_00,firstItem);
-  firstItem = (tPMenuItem *)&(this->menuPause).fNumItems;
+  __6tPMenuP10tPMenuIteme(newMenu_01,firstItem);
+  firstItem = (tPMenuItem *)((this->menuOptions).fItemList + 9);
   __28tPMenuItemNonInteractiveTextUi((tPMenuItemNonInteractiveText *)firstItem,10);
-  this_00 = (tPListIterator *)((this->menuPause)._vf + 2);
-  __14tPListIteratorPsPi(this_00,&InGameSelectListAudioMode,&GameSetup_gData.userSetting.audioMode);
+  this_00 = (tPListIterator *)((this->menuOptions).fItemList + 0xc);
+  __14tPListIteratorPsPi(this_00,InGameSelectListAudioMode,&GameSetup_gData.userSetting.audioMode);
   __25tPMenuItemLeftRightChoiceUiP14tPListIterator
-            ((tPMenuItemLeftRightChoice *)&this->itemOptionsTitle,0xb,this_00);
+            ((tPMenuItemLeftRightChoice *)((this->menuOptions).fItemList + 0xf),0xb,this_00);
   __25tPMenuItemLeftRightSliderUiPic
-            ((tPMenuItemLeftRightSlider *)((this->itemOptionsTitle).tPMenuItem._vf + 2),0xc,
-             &gMasterMusicLevel,'\x7f');
+            ((tPMenuItemLeftRightSlider *)((this->menuOptions)._vf + 4),0xc,&gMasterMusicLevel,
+             '\x7f');
   __25tPMenuItemLeftRightSliderUiPic
-            ((tPMenuItemLeftRightSlider *)&this->itemAudioSettings,0xd,&gMasterSFXLevel,'\x7f');
-  __25tPMenuItemLeftRightSliderUiPic
-            ((tPMenuItemLeftRightSlider *)
-             ((this->itemAudioSettings).tPMenuItemInteractive.tPMenuItem._vf + 3),0xe,
-             &gMasterFENarrationLevel,'\x7f');
-  __25tPMenuItemLeftRightSliderUiPic
-            ((tPMenuItemLeftRightSlider *)&(this->itemAudioSettings).fOnButtonPress,0xf,
-             &gMasterEngineLevel,'\x7f');
+            ((tPMenuItemLeftRightSlider *)&this->iteratorAudioMode,0xd,&gMasterSFXLevel,'\x7f');
   __25tPMenuItemLeftRightSliderUiPic
             ((tPMenuItemLeftRightSlider *)
-             ((this->itemControllerSettings).tPMenuItemInteractive.tPMenuItem._vf + 2),0x10,
-             &gMasterAmbientLevel,'\x7f');
+             &(this->itemAudioSettingsAudioMode).tPMenuItemInteractive.tPMenuItem.fTextDescription,
+             0xe,&gMasterFENarrationLevel,'\x7f');
+  __25tPMenuItemLeftRightSliderUiPic
+            ((tPMenuItemLeftRightSlider *)
+             &(this->itemAudioSettingsMusicVolume).tPMenuItemInteractive.tPMenuItem.fTextDescription
+             ,0xf,&gMasterEngineLevel,'\x7f');
+  __25tPMenuItemLeftRightSliderUiPic
+            (&this->itemAudioSettingsFXVolume,0x10,&gMasterAmbientLevel,'\x7f');
   __6tPMenuP10tPMenuIteme(newMenu,firstItem);
-  this_01 = (tPListIteratorIndexed *)&(this->menuOptions).fNumItems;
+  this_01 = (tPListIteratorIndexed *)(this->menuAudioSettings).fItemList;
   __21tPListIteratorIndexedPsPiPc
-            (this_01,&SelectListConfig,(int *)&GameSetup_gData.controllerData,
-             &Device_gPausePortIndex);
-  firstItem = (tPMenuItem *)((this->menuOptions)._vf + 3);
+            (this_01,SelectListConfig,(int *)&GameSetup_gData.controllerData,&Device_gPausePortIndex
+            );
+  firstItem = (tPMenuItem *)((this->menuAudioSettings).fItemList + 4);
   __28tPMenuItemNonInteractiveTextUi((tPMenuItemNonInteractiveText *)firstItem,0x14);
   __25tPMenuItemLeftRightChoiceUiP14tPListIterator
-            ((tPMenuItemLeftRightChoice *)
-             &(this->itemAudioSettingsTitle).tPMenuItem.fTextDescription,0x15,
+            ((tPMenuItemLeftRightChoice *)((this->menuAudioSettings).fItemList + 7),0x15,
              (tPListIterator *)this_01);
   __32tPMenuItemLeftRightSliderIndexedUiPicPc
-            ((tPMenuItemLeftRightSliderIndexed *)((this->itemAudioSettingsTitle).tPMenuItem._vf + 3)
-             ,0x1b,GameSetup_gData.controllerData.shockMode,'\x7f',&Device_gPausePortIndex);
+            ((tPMenuItemLeftRightSliderIndexed *)((this->menuAudioSettings).fItemList + 0xb),0x1b,
+             GameSetup_gData.controllerData.shockMode,'\x7f',&Device_gPausePortIndex);
   __32tPMenuItemLeftRightSliderIndexedUiPicPc
-            ((tPMenuItemLeftRightSliderIndexed *)(this->iteratorAudioMode)._vf,0x1c,
+            ((tPMenuItemLeftRightSliderIndexed *)&(this->menuAudioSettings).fNumItems,0x1c,
              GameSetup_gData.controllerData.shockImpact,'\x7f',&Device_gPausePortIndex);
-  __6tPMenuP10tPMenuIteme((tPMenu *)&this->itemAudioSettingsAudioMode,firstItem);
+  __6tPMenuP10tPMenuIteme(newMenu_00,firstItem);
+  firstItem = (tPMenuItem *)
+              ((this->itemControllerShockImpact).tPMenuItemLeftRightSlider.tPMenuItemInteractive.
+               tPMenuItem._vf + 4);
+  __28tPMenuItemNonInteractiveTextUi((tPMenuItemNonInteractiveText *)firstItem,4);
   __28tPMenuItemNonInteractiveTextUi
-            ((tPMenuItemNonInteractiveText *)&this->itemAudioSettingsFXVolume,4);
-  __28tPMenuItemNonInteractiveTextUi
-            ((tPMenuItemNonInteractiveText *)
-             ((this->itemAudioSettingsFXVolume).tPMenuItemInteractive.tPMenuItem._vf + 1),0x24);
+            ((tPMenuItemNonInteractiveText *)&(this->itemControllerShockImpact).fIndex,0x24);
   __23tPMenuItemCommandButtonUi17tPMenuCommandType
-            ((tPMenuItemCommandButton *)
-             ((this->itemAudioSettingsFXVolume).tPMenuItemInteractive.tPMenuItem._vf + 4),0x26,
+            ((tPMenuItemCommandButton *)(this->menuControllerConfig).fItemList,0x26,
              kMPause_BackupMenu);
   __23tPMenuItemCommandButtonUi17tPMenuCommandType
-            ((tPMenuItemCommandButton *)&(this->itemAudioSettingsFXVolume).fMaxVal,0x25,
+            ((tPMenuItemCommandButton *)((this->menuControllerConfig).fItemList + 4),0x25,
              kMPause_BackupMenu);
-  __6tPMenuP10tPMenuIteme
-            ((tPMenu *)
-             ((this->itemAudioSettingsSpeechVolume).tPMenuItemInteractive.tPMenuItem._vf + 1),
-             (tPMenuItem *)&this->itemAudioSettingsFXVolume);
+  __6tPMenuP10tPMenuIteme((tPMenu *)((this->menuControllerConfig).fItemList + 8),firstItem);
   return this;
 }
 
@@ -132,72 +135,81 @@ tPauseMenuDefs * __14tPauseMenuDefs(tPauseMenuDefs *this)
 	// End offset: 0x8009E234
 	// End Line: 269
 
+	/* begin block 2 */
+		// Start line: 532
+	/* end block 2 */
+	// End Line: 533
+
+	/* begin block 3 */
+		// Start line: 536
+	/* end block 3 */
+	// End Line: 537
+
+	/* begin block 4 */
+		// Start line: 536
+	/* end block 4 */
+	// End Line: 537
+
+/* WARNING: Type propagation algorithm not settling */
+
 void ___14tPauseMenuDefs(tPauseMenuDefs *this,int __in_chrg)
 
 {
-  ___6tPMenu((tPMenu *)
-             ((this->itemAudioSettingsSpeechVolume).tPMenuItemInteractive.tPMenuItem._vf + 1),2);
+  ___6tPMenu((tPMenu *)((this->menuControllerConfig).fItemList + 8),2);
   ___23tPMenuItemCommandButton
-            ((tPMenuItemCommandButton *)&(this->itemAudioSettingsFXVolume).fMaxVal,2);
-  ___23tPMenuItemCommandButton
-            ((tPMenuItemCommandButton *)
-             ((this->itemAudioSettingsFXVolume).tPMenuItemInteractive.tPMenuItem._vf + 4),2);
+            ((tPMenuItemCommandButton *)((this->menuControllerConfig).fItemList + 4),2);
+  ___23tPMenuItemCommandButton((tPMenuItemCommandButton *)(this->menuControllerConfig).fItemList,2);
+  ___28tPMenuItemNonInteractiveText
+            ((tPMenuItemNonInteractiveText *)&(this->itemControllerShockImpact).fIndex,2);
   ___28tPMenuItemNonInteractiveText
             ((tPMenuItemNonInteractiveText *)
-             ((this->itemAudioSettingsFXVolume).tPMenuItemInteractive.tPMenuItem._vf + 1),2);
-  ___28tPMenuItemNonInteractiveText
-            ((tPMenuItemNonInteractiveText *)&this->itemAudioSettingsFXVolume,2);
-  ___6tPMenu((tPMenu *)&this->itemAudioSettingsAudioMode,2);
+             ((this->itemControllerShockImpact).tPMenuItemLeftRightSlider.tPMenuItemInteractive.
+              tPMenuItem._vf + 4),2);
+  ___6tPMenu((tPMenu *)((this->iteratorConfig).tPListIterator._vf + 4),2);
   ___32tPMenuItemLeftRightSliderIndexed
-            ((tPMenuItemLeftRightSliderIndexed *)(this->iteratorAudioMode)._vf,2);
+            ((tPMenuItemLeftRightSliderIndexed *)&(this->menuAudioSettings).fNumItems,2);
   ___32tPMenuItemLeftRightSliderIndexed
-            ((tPMenuItemLeftRightSliderIndexed *)((this->itemAudioSettingsTitle).tPMenuItem._vf + 3)
-             ,2);
+            ((tPMenuItemLeftRightSliderIndexed *)((this->menuAudioSettings).fItemList + 0xb),2);
   ___25tPMenuItemLeftRightChoice
-            ((tPMenuItemLeftRightChoice *)
-             &(this->itemAudioSettingsTitle).tPMenuItem.fTextDescription,2);
-  ___28tPMenuItemNonInteractiveText((tPMenuItemNonInteractiveText *)((this->menuOptions)._vf + 3),2)
-  ;
-  ___21tPListIteratorIndexed((tPListIteratorIndexed *)&(this->menuOptions).fNumItems,2);
-  ___6tPMenu((tPMenu *)&(this->itemControllerSettings).fNewMenu,2);
-  ___25tPMenuItemLeftRightSlider
-            ((tPMenuItemLeftRightSlider *)
-             ((this->itemControllerSettings).tPMenuItemInteractive.tPMenuItem._vf + 2),2);
-  ___25tPMenuItemLeftRightSlider
-            ((tPMenuItemLeftRightSlider *)&(this->itemAudioSettings).fOnButtonPress,2);
-  ___25tPMenuItemLeftRightSlider
-            ((tPMenuItemLeftRightSlider *)
-             ((this->itemAudioSettings).tPMenuItemInteractive.tPMenuItem._vf + 3),2);
-  ___25tPMenuItemLeftRightSlider((tPMenuItemLeftRightSlider *)&this->itemAudioSettings,2);
-  ___25tPMenuItemLeftRightSlider
-            ((tPMenuItemLeftRightSlider *)((this->itemOptionsTitle).tPMenuItem._vf + 2),2);
-  ___25tPMenuItemLeftRightChoice((tPMenuItemLeftRightChoice *)&this->itemOptionsTitle,2);
-  ___14tPListIterator((tPListIterator *)((this->menuPause)._vf + 2),2);
-  ___28tPMenuItemNonInteractiveText((tPMenuItemNonInteractiveText *)&(this->menuPause).fNumItems,2);
-  ___6tPMenu((tPMenu *)((this->itemForfeitRace).tPMenuItemInteractive.tPMenuItem._vf + 6),2);
-  ___24tPMenuItemGoToMenuButton
-            ((tPMenuItemGoToMenuButton *)
-             ((this->itemForfeitRace).tPMenuItemInteractive.tPMenuItem._vf + 1),2);
-  ___24tPMenuItemGoToMenuButton
-            ((tPMenuItemGoToMenuButton *)
-             ((this->itemQuitRace).tPMenuItemInteractive.tPMenuItem._vf + 6),2);
+            ((tPMenuItemLeftRightChoice *)((this->menuAudioSettings).fItemList + 7),2);
   ___28tPMenuItemNonInteractiveText
-            ((tPMenuItemNonInteractiveText *)
-             ((this->itemQuitRace).tPMenuItemInteractive.tPMenuItem._vf + 3),2);
-  ___6tPMenu((tPMenu *)((this->itemRestart).tPMenuItemInteractive.tPMenuItem._vf + 3),2);
-  ___23tPMenuItemCommandButton
-            ((tPMenuItemCommandButton *)
-             &(this->itemRestart).tPMenuItemInteractive.tPMenuItem.fTextDescription,2);
-  ___23tPMenuItemCommandButton
-            ((tPMenuItemCommandButton *)
-             ((this->itemContinue).tPMenuItemInteractive.tPMenuItem._vf + 5),2);
-  ___24tPMenuItemGoToMenuButton
-            ((tPMenuItemGoToMenuButton *)(this->itemContinue).tPMenuItemInteractive.tPMenuItem._vf,2
+            ((tPMenuItemNonInteractiveText *)((this->menuAudioSettings).fItemList + 4),2);
+  ___21tPListIteratorIndexed((tPListIteratorIndexed *)(this->menuAudioSettings).fItemList,2);
+  ___6tPMenu((tPMenu *)&(this->itemAudioSettingsFXVolume).fMaxVal,2);
+  ___25tPMenuItemLeftRightSlider(&this->itemAudioSettingsFXVolume,2);
+  ___25tPMenuItemLeftRightSlider
+            ((tPMenuItemLeftRightSlider *)
+             &(this->itemAudioSettingsMusicVolume).tPMenuItemInteractive.tPMenuItem.fTextDescription
+             ,2);
+  ___25tPMenuItemLeftRightSlider
+            ((tPMenuItemLeftRightSlider *)
+             &(this->itemAudioSettingsAudioMode).tPMenuItemInteractive.tPMenuItem.fTextDescription,2
             );
+  ___25tPMenuItemLeftRightSlider((tPMenuItemLeftRightSlider *)&this->iteratorAudioMode,2);
+  ___25tPMenuItemLeftRightSlider((tPMenuItemLeftRightSlider *)((this->menuOptions)._vf + 4),2);
+  ___25tPMenuItemLeftRightChoice
+            ((tPMenuItemLeftRightChoice *)((this->menuOptions).fItemList + 0xf),2);
+  ___14tPListIterator((tPListIterator *)((this->menuOptions).fItemList + 0xc),2);
+  ___28tPMenuItemNonInteractiveText
+            ((tPMenuItemNonInteractiveText *)((this->menuOptions).fItemList + 9),2);
+  ___6tPMenu((tPMenu *)(this->itemAudioSettings).tPMenuItemInteractive.tPMenuItem._vf,2);
+  ___24tPMenuItemGoToMenuButton
+            ((tPMenuItemGoToMenuButton *)&(this->itemOptionsTitle).tPMenuItem.fTextDescription,2);
+  ___24tPMenuItemGoToMenuButton((tPMenuItemGoToMenuButton *)&(this->menuPause).fNextMenu,2);
+  ___28tPMenuItemNonInteractiveText
+            ((tPMenuItemNonInteractiveText *)((this->menuPause).fItemList + 0xd),2);
+  ___6tPMenu((tPMenu *)&(this->itemQuitRace).fCommand,2);
+  ___23tPMenuItemCommandButton(&this->itemQuitRace,2);
   ___23tPMenuItemCommandButton
-            ((tPMenuItemCommandButton *)((this->itemGamePaused).tPMenuItem._vf + 5),2);
+            ((tPMenuItemCommandButton *)(this->itemOptions).tPMenuItemInteractive.tPMenuItem._vf,2);
+  ___24tPMenuItemGoToMenuButton
+            ((tPMenuItemGoToMenuButton *)(this->itemRestart).tPMenuItemInteractive.tPMenuItem._vf,2)
+  ;
   ___23tPMenuItemCommandButton
-            ((tPMenuItemCommandButton *)((this->itemGamePaused).tPMenuItem._vf + 1),2);
+            ((tPMenuItemCommandButton *)
+             ((this->itemContinue).tPMenuItemInteractive.tPMenuItem._vf + 4),2);
+  ___23tPMenuItemCommandButton
+            ((tPMenuItemCommandButton *)((this->itemGamePaused).tPMenuItem._vf + 4),2);
   ___28tPMenuItemNonInteractiveText((tPMenuItemNonInteractiveText *)this,2);
   if ((__in_chrg & 1U) != 0) {
     __builtin_delete(this);
@@ -420,6 +432,26 @@ void ___14tPauseMenuDefs(tPauseMenuDefs *this,int __in_chrg)
 	// End offset: 0x8009E684
 	// End Line: 372
 
+	/* begin block 2 */
+		// Start line: 558
+	/* end block 2 */
+	// End Line: 559
+
+	/* begin block 3 */
+		// Start line: 580
+	/* end block 3 */
+	// End Line: 581
+
+	/* begin block 4 */
+		// Start line: 580
+	/* end block 4 */
+	// End Line: 581
+
+	/* begin block 5 */
+		// Start line: 593
+	/* end block 5 */
+	// End Line: 594
+
 void MPause_MusicLogic__Fc(char active)
 
 {
@@ -450,65 +482,66 @@ void MPause_MusicLogic__Fc(char active)
     }
   }
   if (active == '\0') {
-    if (cGp00000d08 != '\0') {
-      SNDstop(uGp00000d10);
+    if (DAT_8013d254 != '\0') {
+      SNDstop(DAT_8013d25c);
       AudioMus_AutoVolume__Fii(500,0);
     }
   }
   else {
-    if (cGp00000d08 == '\0') {
+    if (DAT_8013d254 == '\0') {
       volume = AudioCmn_MusicLevel__Fi(gMasterMusicLevel);
       AudioMus_AutoVolume__Fii(500,volume);
     }
     bVar1 = false;
-    if ((*piGp00001874 == 1) || (*piGp00001874 == 2)) {
+    if ((*(int *)gPauseCurrentMenu == 1) || (*(int *)gPauseCurrentMenu == 2)) {
       bVar1 = true;
     }
     if (bVar1) {
       volume = AudioCmn_MusicLevel__Fi(gMasterMusicLevel);
       AudioMus_Volume__Fi(volume);
     }
-    bVar1 = *piGp00001874 == 3;
+    bVar1 = *(int *)gPauseCurrentMenu == 3;
     if (bVar1) {
-      iGp00000d0c = gMasterSFXLevel;
+      DAT_8013d258 = gMasterSFXLevel;
     }
-    volume = *piGp00001874;
+    volume = *(int *)gPauseCurrentMenu;
     bVar2 = volume == 4;
     if (bVar2) {
-      iGp00000d0c = gMasterFENarrationLevel;
-      volume = *piGp00001874;
+      DAT_8013d258 = gMasterFENarrationLevel;
+      volume = *(int *)gPauseCurrentMenu;
     }
-    bGp00000d09 = bVar2 || bVar1;
+    DAT_8013d255 = bVar2 || bVar1;
     bVar3 = volume == 5;
     if (bVar3) {
-      iGp00000d0c = gMasterEngineLevel;
+      DAT_8013d258 = gMasterEngineLevel;
     }
-    bGp00000d09 = bVar3 || bGp00000d09;
-    bVar4 = *piGp00001874 == 6;
+    DAT_8013d255 = bVar3 || DAT_8013d255;
+    bVar4 = *(int *)gPauseCurrentMenu == 6;
     if (bVar4) {
-      iGp00000d0c = gMasterAmbientLevel;
+      DAT_8013d258 = gMasterAmbientLevel;
     }
-    bGp00000d09 = bVar4 || bGp00000d09;
+    DAT_8013d255 = bVar4 || DAT_8013d255;
     if (bVar4 || (bVar3 || (bVar2 || bVar1))) {
-      if (cGp00000d0a == '\0') {
-        cGp00000d0a = '\x01';
+      if (DAT_8013d256 == '\0') {
+        DAT_8013d256 = '\x01';
       }
       else {
-        uVar5 = SNDover(uGp00000d10);
+        uVar5 = SNDover(DAT_8013d25c);
       }
-      if ((uVar5 != 0) && (0xc0 < (int)(ticks + -(int)puGp00000d14))) {
-        puGp00000d14 = ticks;
-        uGp00000d10 = AudioCmn_PlaySound__Fiiiii(SndBnk_t_8010e8cc.bnkID,0x10,0,iGp00000d0c,0x40);
+      if ((uVar5 != 0) && (0xc0 < (int)(ticks + -(int)DAT_8013d260))) {
+        DAT_8013d260 = ticks;
+        DAT_8013d25c = AudioCmn_PlaySound__Fiiiii
+                                 (SndBnk_t_ARRAY_8010e8cc[0].bnkID,0x10,0,DAT_8013d258,0x40);
       }
     }
     else {
-      if (cGp00000d0a == '\x01') {
-        SNDstop(uGp00000d10);
-        cGp00000d0a = '\0';
+      if (DAT_8013d256 == '\x01') {
+        SNDstop(DAT_8013d25c);
+        DAT_8013d256 = '\0';
       }
     }
   }
-  cGp00000d08 = active;
+  DAT_8013d254 = active;
   return;
 }
 
@@ -602,46 +635,74 @@ void MPause_MusicLogic__Fc(char active)
 	// End offset: 0x8009E774
 	// End Line: 386
 
+	/* begin block 2 */
+		// Start line: 783
+	/* end block 2 */
+	// End Line: 784
+
+	/* begin block 3 */
+		// Start line: 788
+	/* end block 3 */
+	// End Line: 789
+
+	/* begin block 4 */
+		// Start line: 788
+	/* end block 4 */
+	// End Line: 789
+
+	/* begin block 5 */
+		// Start line: 789
+	/* end block 5 */
+	// End Line: 790
+
+	/* begin block 6 */
+		// Start line: 789
+	/* end block 6 */
+	// End Line: 790
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void MPause_ControllerLogic__Fv(void)
 
 {
-  int iVar1;
-  uint uVar2;
-  void *pvVar3;
-  int iVar4;
+  uint uVar1;
+  void *pvVar2;
+  tPauseMenuDefs *ptVar3;
   
-  uVar2 = PadGetState();
-  iVar1 = iGp00000d1c;
-  if (uVar2 == 2) {
-    pvVar3 = IsEnabled__10tPMenuItem((tPMenuItem *)(iGp00000d1c + 0x248));
-    iVar4 = iGp00000d1c;
-    if (pvVar3 != (void *)0x0) {
+  uVar1 = PadGetState();
+  ptVar3 = gPauseMenuDefs;
+  if (uVar1 == 2) {
+    pvVar2 = IsEnabled__10tPMenuItem
+                       ((tPMenuItem *)((gPauseMenuDefs->menuAudioSettings).fItemList + 0xb));
+    if (pvVar2 != (void *)0x0) {
       ChangedEnabling = &DAT_00000001;
-      *(uint *)(iVar1 + 0x248) = *(uint *)(iVar1 + 0x248) | 1;
+      (ptVar3->menuAudioSettings).fItemList[0xb] =
+           (_func_33 *)((uint)(ptVar3->menuAudioSettings).fItemList[0xb] | 1);
     }
-    pvVar3 = IsEnabled__10tPMenuItem((tPMenuItem *)(iGp00000d1c + 0x260));
-    if (pvVar3 == (void *)0x0) {
+    ptVar3 = gPauseMenuDefs;
+    pvVar2 = IsEnabled__10tPMenuItem((tPMenuItem *)&(gPauseMenuDefs->menuAudioSettings).fNumItems);
+    if (pvVar2 == (void *)0x0) {
       return;
     }
-    uVar2 = *(uint *)(iVar4 + 0x260) | 1;
+    uVar1 = (ptVar3->menuAudioSettings).fNumItems | 1;
   }
   else {
-    pvVar3 = IsDisabled__10tPMenuItem((tPMenuItem *)(iGp00000d1c + 0x248));
-    iVar4 = iGp00000d1c;
-    if (pvVar3 != (void *)0x0) {
+    pvVar2 = IsDisabled__10tPMenuItem
+                       ((tPMenuItem *)((gPauseMenuDefs->menuAudioSettings).fItemList + 0xb));
+    if (pvVar2 != (void *)0x0) {
       ChangedEnabling = &DAT_00000001;
-      *(uint *)(iVar1 + 0x248) = *(uint *)(iVar1 + 0x248) & 0xfffffffe;
+      (ptVar3->menuAudioSettings).fItemList[0xb] =
+           (_func_33 *)((uint)(ptVar3->menuAudioSettings).fItemList[0xb] & 0xfffffffe);
     }
-    pvVar3 = IsDisabled__10tPMenuItem((tPMenuItem *)(iGp00000d1c + 0x260));
-    if (pvVar3 == (void *)0x0) {
+    ptVar3 = gPauseMenuDefs;
+    pvVar2 = IsDisabled__10tPMenuItem((tPMenuItem *)&(gPauseMenuDefs->menuAudioSettings).fNumItems);
+    if (pvVar2 == (void *)0x0) {
       return;
     }
-    uVar2 = *(uint *)(iVar4 + 0x260) & 0xfffffffe;
+    uVar1 = (ptVar3->menuAudioSettings).fNumItems & 0xfffffffe;
   }
   ChangedEnabling = &DAT_00000001;
-  *(uint *)(iVar4 + 0x260) = uVar2;
+  (ptVar3->menuAudioSettings).fNumItems = uVar1;
   return;
 }
 
@@ -843,112 +904,135 @@ void MPause_ControllerLogic__Fv(void)
 	// End offset: 0x8009EA8C
 	// End Line: 487
 
+	/* begin block 2 */
+		// Start line: 812
+	/* end block 2 */
+	// End Line: 813
+
+	/* begin block 3 */
+		// Start line: 817
+	/* end block 3 */
+	// End Line: 818
+
+	/* begin block 4 */
+		// Start line: 817
+	/* end block 4 */
+	// End Line: 818
+
+	/* begin block 5 */
+		// Start line: 822
+	/* end block 5 */
+	// End Line: 823
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 int MPause_Logic__Fv(void)
 
 {
   short sVar1;
+  tPauseMenuDefs *ptVar2;
   void *debounce;
-  int num;
-  int iVar2;
-  uint uVar3;
+  int iVar3;
+  int iVar4;
+  uchar *puVar5;
+  undefined4 uVar6;
   uint local_20;
   tPMenu *local_1c;
   int local_18 [2];
   
   local_18[0] = 0;
-  debounce = Debounce__6tPMenu(ptGp00001874);
-  num = Input_Interface__FUli(5,1);
-  iVar2 = 2;
-  if (num == 0) {
-    num = Input_Interface__FUli(1,1);
-    iVar2 = 0x200;
-    if (num != 0) goto LAB_8009e830;
-    num = Input_Interface__FUli(2,1);
-    iVar2 = 0x400;
-    if (num != 0) goto LAB_8009e830;
-    num = Input_Interface__FUli(3,(int)debounce);
-    iVar2 = 0x800;
-    if (num != 0) goto LAB_8009e830;
-    num = Input_Interface__FUli(4,(int)debounce);
-    iVar2 = 0x1000;
-    if (num != 0) goto LAB_8009e830;
-    num = Input_Interface__FUli(6,1);
-    iVar2 = 0x2000;
-    if (num != 0) goto LAB_8009e830;
-    num = Input_Interface__FUli(0x18,1);
-    iVar2 = 0x10;
-    if (num != 0) goto LAB_8009e830;
+  debounce = Debounce__6tPMenu((tPMenu *)gPauseCurrentMenu);
+  iVar3 = Input_Interface__FUli(5,1);
+  iVar4 = 2;
+  if (iVar3 == 0) {
+    iVar3 = Input_Interface__FUli(1,1);
+    iVar4 = 0x200;
+    if (iVar3 != 0) goto LAB_8009e830;
+    iVar3 = Input_Interface__FUli(2,1);
+    iVar4 = 0x400;
+    if (iVar3 != 0) goto LAB_8009e830;
+    iVar3 = Input_Interface__FUli(3,(int)debounce);
+    iVar4 = 0x800;
+    if (iVar3 != 0) goto LAB_8009e830;
+    iVar3 = Input_Interface__FUli(4,(int)debounce);
+    iVar4 = 0x1000;
+    if (iVar3 != 0) goto LAB_8009e830;
+    iVar3 = Input_Interface__FUli(6,1);
+    iVar4 = 0x2000;
+    if (iVar3 != 0) goto LAB_8009e830;
+    iVar3 = Input_Interface__FUli(0x18,1);
+    iVar4 = 0x10;
+    if (iVar3 != 0) goto LAB_8009e830;
   }
   else {
 LAB_8009e830:
-    local_18[0] = iVar2;
+    local_18[0] = iVar4;
   }
   local_20 = 0;
-  if (sGp0000186c == 0) {
+  if ((short)kMovingHighlight == 0) {
     if (local_18[0] != 0) {
-      uGp00000d18 = 1;
-      uVar3 = ptGp00001874->_vf[0].value;
-      num = ptGp00001874->fCurrentItem;
-      (**(code **)(uVar3 + 0x1c))
-                ((int)&ptGp00001874->fCurrentItem + (int)*(short *)(uVar3 + 0x18),local_18,&local_20
-                );
-      sVar1 = *(short *)&ptGp00001874->fCurrentItem;
-      num = (int)(short)num;
-      if (num != (int)sVar1) {
-        num = ItemEnabledNum__6tPMenui(ptGp00001874,num);
-        iVar2 = num * 0xd + 0x6a;
-        num = ItemEnabledNum__6tPMenui(ptGp00001874,(int)sVar1);
-        num = num * 0xd + 0x6a;
-        sGp0000186c = (short)iVar2 - (short)num;
-        uGp0000186e = (undefined2)((num - iVar2) / 10);
+      gMPauseUpdate = &DAT_00000001;
+      uVar6 = *(undefined4 *)gPauseCurrentMenu;
+      (**(code **)(*(int *)(gPauseCurrentMenu + 0x50) + 0x1c))
+                (gPauseCurrentMenu + (int)*(short *)(*(int *)(gPauseCurrentMenu + 0x50) + 0x18),
+                 local_18,&local_20);
+      sVar1 = *(short *)gPauseCurrentMenu;
+      if ((int)(short)uVar6 != (int)sVar1) {
+        iVar3 = ItemEnabledNum__6tPMenui((tPMenu *)gPauseCurrentMenu,(int)(short)uVar6);
+        iVar4 = iVar3 * 0xd + 0x6a;
+        iVar3 = ItemEnabledNum__6tPMenui((tPMenu *)gPauseCurrentMenu,(int)sVar1);
+        iVar3 = iVar3 * 0xd + 0x6a;
+        kMovingHighlight._0_2_ = (short)iVar4 - (short)iVar3;
+        kMovingHighlight._2_2_ = (undefined2)((iVar3 - iVar4) / 10);
       }
       goto LAB_8009e950;
     }
     if (ChangedEnabling == (void *)0x0) {
-      if (iGp00000cf4 == 0) {
-        uGp00000d18 = 0;
+      if (gMPauseUpdateNextTime == (void *)0x0) {
+        gMPauseUpdate = (void *)0x0;
       }
       else {
-        uGp00000d18 = 1;
-        iGp00000cf4 = 0;
+        gMPauseUpdate = &DAT_00000001;
+        gMPauseUpdateNextTime = (void *)0x0;
       }
       goto LAB_8009e950;
     }
   }
-  uGp00000d18 = 1;
+  gMPauseUpdate = &DAT_00000001;
 LAB_8009e950:
+  ptVar2 = gPauseMenuDefs;
   if (local_20 != 0) {
     if ((local_20 & 0x100) != 0) {
-      *(undefined4 *)(iGp00000d1c + 0x2d0) =
-           *(undefined4 *)(ptGp00001874->fItemList[ptGp00001874->fCurrentItem] + 4);
-      *(undefined4 *)(iGp00000d1c + 0x304) = 0;
-      *(uint *)(iGp00000d1c + 0x300) = local_20 & 0xff;
-      local_1c = (tPMenu *)(iGp00000d1c + 0x304);
+      (gPauseMenuDefs->itemControllerShockImpact).tPMenuItemLeftRightSlider.fData =
+           *(int **)(*(int *)(gPauseCurrentMenu + *(int *)gPauseCurrentMenu * 4 + 8) + 4);
+      (ptVar2->menuControllerConfig).fItemList[8] = (_func_33 *)0x0;
+      (ptVar2->menuControllerConfig).fItemList[7] = (_func_33 *)(local_20 & 0xff);
+      local_1c = (tPMenu *)((ptVar2->menuControllerConfig).fItemList + 8);
       local_20 = 6;
     }
     if (local_20 == 6) {
-      (&__gBackList_6__)[iGp00001870] = ptGp00001874;
-      uVar3 = local_1c->_vf[0].value;
-      num = iGp00001870 + 1;
-      ptGp00001874 = local_1c;
+      *(uchar **)(gBackList6 + (int)gBackDepth) = gPauseCurrentMenu;
+      iVar3 = *(int *)local_1c->_vf;
+      puVar5 = gBackDepth + 1;
+      gPauseCurrentMenu = (uchar *)local_1c;
     }
     else {
       if (local_20 != 7) {
         return local_20;
       }
-      num = iGp00001870 + -1;
-      if (iGp00001870 < 1) {
+      puVar5 = gBackDepth + -1;
+      if ((int)gBackDepth < 1) {
         return 1;
       }
-      uVar3 = (&__gBackList_6__)[num]->_vf[0].value;
-      ptGp00001874 = (&__gBackList_6__)[num];
+      iVar3 = *(int *)gBackList6[(int)puVar5]->_vf;
+      gPauseCurrentMenu = (uchar *)gBackList6[(int)puVar5];
     }
-    iGp00001870 = num;
-    (**(code **)(uVar3 + 0x14))((int)&ptGp00001874->fCurrentItem + (int)*(short *)(uVar3 + 0x10));
+    gBackDepth = puVar5;
+    (**(code **)(iVar3 + 0x14))
+              ((int)&((tPMenu *)gPauseCurrentMenu)->fCurrentItem + (int)*(short *)(iVar3 + 0x10));
   }
-  MPause_MusicLogic__Fc(ptGp00001874 == (tPMenu *)(iGp00000d1c + 0x1c8));
+  MPause_MusicLogic__Fc
+            (gPauseCurrentMenu == (uchar *)&(gPauseMenuDefs->itemAudioSettingsFXVolume).fMaxVal);
   MPause_ControllerLogic__Fv();
   return 0;
 }
@@ -1052,46 +1136,65 @@ LAB_8009e950:
 	// End offset: 0x8009EC10
 	// End Line: 531
 
+	/* begin block 2 */
+		// Start line: 1026
+	/* end block 2 */
+	// End Line: 1027
+
+	/* begin block 3 */
+		// Start line: 1030
+	/* end block 3 */
+	// End Line: 1031
+
+	/* begin block 4 */
+		// Start line: 1030
+	/* end block 4 */
+	// End Line: 1031
+
+	/* begin block 5 */
+		// Start line: 1038
+	/* end block 5 */
+	// End Line: 1039
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void MPause_Render__Fv(void)
 
 {
-  uint uVar1;
-  int iVar2;
+  int iVar1;
   int y;
   
   ChangedEnabling = (void *)0x0;
-  if ((short)DAT_0000186c < 1) {
-    if ((-1 < (short)DAT_0000186c) ||
-       (DAT_0000186c = DAT_0000186c + DAT_0000186e, (int)((uint)DAT_0000186c << 0x10) < 1))
-    goto LAB_8009eb10;
+  if ((short)(ushort)kMovingHighlight < 1) {
+    if ((-1 < (short)(ushort)kMovingHighlight) ||
+       (kMovingHighlight._0_2_ = (ushort)kMovingHighlight + kMovingHighlight._2_2_,
+       (int)((uint)(ushort)kMovingHighlight << 0x10) < 1)) goto LAB_8009eb10;
   }
   else {
-    DAT_0000186c = DAT_0000186c + DAT_0000186e;
-    if (-1 < (int)((uint)DAT_0000186c << 0x10)) goto LAB_8009eb10;
+    kMovingHighlight._0_2_ = (ushort)kMovingHighlight + kMovingHighlight._2_2_;
+    if (-1 < (int)((uint)(ushort)kMovingHighlight << 0x10)) goto LAB_8009eb10;
   }
-  DAT_0000186c = 0;
+  kMovingHighlight._0_2_ = 0;
 LAB_8009eb10:
-  if (DAT_0000186c == 0) {
-    *(undefined **)&DAT_00001874->fHighlight = &DAT_00000001;
+  if ((ushort)kMovingHighlight == 0) {
+    *(undefined4 *)(gPauseCurrentMenu + 4) = 1;
   }
   else {
-    DAT_00001874->fHighlight = (void *)0x0;
+    *(undefined4 *)(gPauseCurrentMenu + 4) = 0;
   }
-  uVar1 = DAT_00001874->_vf[0].value;
-  (**(code **)(uVar1 + 0x24))((int)&DAT_00001874->fCurrentItem + (int)*(short *)(uVar1 + 0x20));
-  iVar2 = NumEnabledItems__6tPMenu(DAT_00001874);
-  if (DAT_0000186c == 0) {
-    y = ItemEnabledNum__6tPMenui(DAT_00001874,DAT_00001874->fCurrentItem);
+  (**(code **)(*(int *)(gPauseCurrentMenu + 0x50) + 0x24))
+            (gPauseCurrentMenu + (int)*(short *)(*(int *)(gPauseCurrentMenu + 0x50) + 0x20));
+  iVar1 = NumEnabledItems__6tPMenu((tPMenu *)gPauseCurrentMenu);
+  if ((ushort)kMovingHighlight == 0) {
+    y = ItemEnabledNum__6tPMenui((tPMenu *)gPauseCurrentMenu,*(int *)gPauseCurrentMenu);
     y = y * 0xd + 0x6a;
   }
   else {
-    y = ItemEnabledNum__6tPMenui(DAT_00001874,DAT_00001874->fCurrentItem);
-    y = y * 0xd + (int)(short)DAT_0000186c + 0x6a;
+    y = ItemEnabledNum__6tPMenui((tPMenu *)gPauseCurrentMenu,*(int *)gPauseCurrentMenu);
+    y = y * 0xd + (int)(short)(ushort)kMovingHighlight + 0x6a;
   }
   Hud_FBuildF4__FiiiiiUlcc(1,0x50,y,0xa0,0xd,0,0,0);
-  Hud_RenderPauseBox__Fiiii(0x50,100,0xa0,(iVar2 + 1) * 0xd + 0x14);
+  Hud_RenderPauseBox__Fiiii(0x50,100,0xa0,(iVar1 + 1) * 0xd + 0x14);
   return;
 }
 
@@ -1108,6 +1211,31 @@ LAB_8009eb10:
 	// End offset: 0x8009EC48
 	// End Line: 541
 
+	/* begin block 2 */
+		// Start line: 1131
+	/* end block 2 */
+	// End Line: 1132
+
+	/* begin block 3 */
+		// Start line: 1141
+	/* end block 3 */
+	// End Line: 1142
+
+	/* begin block 4 */
+		// Start line: 1141
+	/* end block 4 */
+	// End Line: 1142
+
+	/* begin block 5 */
+		// Start line: 1142
+	/* end block 5 */
+	// End Line: 1143
+
+	/* begin block 6 */
+		// Start line: 1142
+	/* end block 6 */
+	// End Line: 1143
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void MPause_InitMPause__Fv(void)
@@ -1117,7 +1245,7 @@ void MPause_InitMPause__Fv(void)
   
   TextSys_LoadInGame__Fi(GameSetup_gData.userSetting.language);
   this = (tPauseMenuDefs *)__builtin_new(0x358);
-  DAT_00000d1c = __14tPauseMenuDefs(this);
+  gPauseMenuDefs = __14tPauseMenuDefs(this);
   return;
 }
 
@@ -1398,80 +1526,122 @@ void MPause_InitMPause__Fv(void)
 	// End offset: 0x8009EEA0
 	// End Line: 594
 
+	/* begin block 2 */
+		// Start line: 1156
+	/* end block 2 */
+	// End Line: 1157
+
+	/* begin block 3 */
+		// Start line: 1160
+	/* end block 3 */
+	// End Line: 1161
+
+	/* begin block 4 */
+		// Start line: 1160
+	/* end block 4 */
+	// End Line: 1161
+
+	/* begin block 5 */
+		// Start line: 1161
+	/* end block 5 */
+	// End Line: 1162
+
+	/* begin block 6 */
+		// Start line: 1161
+	/* end block 6 */
+	// End Line: 1162
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void MPause_StartPauseMenu__Fv(void)
 
 {
-  void *pvVar1;
-  uint uVar2;
-  int iVar3;
+  _func_33 *p_Var1;
+  void *pvVar2;
+  uint uVar3;
+  tPauseMenuDefs *ptVar4;
   
-  DAT_00001874 = DAT_00000d1c + 0x60;
-  (**(code **)(*(int *)(DAT_00000d1c + 0xb0) + 0x14))
-            (DAT_00001874 + (int)*(short *)(*(int *)(DAT_00000d1c + 0xb0) + 0x10));
-  iVar3 = DAT_00000d1c;
-  DAT_00001870 = 0;
+  gPauseCurrentMenu = (uchar *)&(gPauseMenuDefs->itemQuitRace).fCommand;
+  p_Var1 = (gPauseMenuDefs->menuPause).fItemList[0xc];
+  (**(code **)(p_Var1 + 0x14))((int)gPauseCurrentMenu + (int)*(short *)(p_Var1 + 0x10));
+  ptVar4 = gPauseMenuDefs;
+  gBackDepth = (uchar *)0x0;
   if ((GameSetup_gData.raceType == 6) || (GameSetup_gData.raceType == 2)) {
-    pvVar1 = IsEnabled__10tPMenuItem((tPMenuItem *)(DAT_00000d1c + 0x1c));
-    if (pvVar1 != (void *)0x0) {
-      uVar2 = *(uint *)(iVar3 + 0x1c) | 1;
+    pvVar2 = IsEnabled__10tPMenuItem
+                       ((tPMenuItem *)
+                        ((gPauseMenuDefs->itemContinue).tPMenuItemInteractive.tPMenuItem._vf + 4));
+    if (pvVar2 != (void *)0x0) {
+      uVar3 = *(uint *)((ptVar4->itemContinue).tPMenuItemInteractive.tPMenuItem._vf + 4) | 1;
       goto LAB_8009ed20;
     }
   }
   else {
-    pvVar1 = IsDisabled__10tPMenuItem((tPMenuItem *)(DAT_00000d1c + 0x1c));
-    if (pvVar1 != (void *)0x0) {
-      uVar2 = *(uint *)(iVar3 + 0x1c) & 0xfffffffe;
+    pvVar2 = IsDisabled__10tPMenuItem
+                       ((tPMenuItem *)
+                        ((gPauseMenuDefs->itemContinue).tPMenuItemInteractive.tPMenuItem._vf + 4));
+    if (pvVar2 != (void *)0x0) {
+      uVar3 = *(uint *)((ptVar4->itemContinue).tPMenuItemInteractive.tPMenuItem._vf + 4) &
+              0xfffffffe;
 LAB_8009ed20:
       ChangedEnabling = &DAT_00000001;
-      *(uint *)(iVar3 + 0x1c) = uVar2;
+      *(uint *)((ptVar4->itemContinue).tPMenuItemInteractive.tPMenuItem._vf + 4) = uVar3;
     }
   }
-  iVar3 = DAT_00000d1c;
+  ptVar4 = gPauseMenuDefs;
   if (GameSetup_gData.raceType == 6) {
-    pvVar1 = IsDisabled__10tPMenuItem((tPMenuItem *)(DAT_00000d1c + 0x50));
-    if (pvVar1 != (void *)0x0) {
+    pvVar2 = IsDisabled__10tPMenuItem((tPMenuItem *)&gPauseMenuDefs->itemQuitRace);
+    if (pvVar2 != (void *)0x0) {
       ChangedEnabling = &DAT_00000001;
-      *(uint *)(iVar3 + 0x50) = *(uint *)(iVar3 + 0x50) & 0xfffffffe;
+      (ptVar4->itemQuitRace).tPMenuItemInteractive.tPMenuItem.fFlags =
+           (ptVar4->itemQuitRace).tPMenuItemInteractive.tPMenuItem.fFlags & 0xfffffffe;
     }
-    iVar3 = DAT_00000d1c;
-    pvVar1 = IsEnabled__10tPMenuItem((tPMenuItem *)(DAT_00000d1c + 0x40));
-    if (pvVar1 == (void *)0x0) goto LAB_8009ede0;
-    uVar2 = *(uint *)(iVar3 + 0x40) | 1;
+    ptVar4 = gPauseMenuDefs;
+    pvVar2 = IsEnabled__10tPMenuItem
+                       ((tPMenuItem *)
+                        (gPauseMenuDefs->itemOptions).tPMenuItemInteractive.tPMenuItem._vf);
+    if (pvVar2 == (void *)0x0) goto LAB_8009ede0;
+    uVar3 = *(uint *)(ptVar4->itemOptions).tPMenuItemInteractive.tPMenuItem._vf | 1;
   }
   else {
-    pvVar1 = IsEnabled__10tPMenuItem((tPMenuItem *)(DAT_00000d1c + 0x50));
-    if (pvVar1 != (void *)0x0) {
+    pvVar2 = IsEnabled__10tPMenuItem((tPMenuItem *)&gPauseMenuDefs->itemQuitRace);
+    if (pvVar2 != (void *)0x0) {
       ChangedEnabling = &DAT_00000001;
-      *(uint *)(iVar3 + 0x50) = *(uint *)(iVar3 + 0x50) | 1;
+      (ptVar4->itemQuitRace).tPMenuItemInteractive.tPMenuItem.fFlags =
+           (ptVar4->itemQuitRace).tPMenuItemInteractive.tPMenuItem.fFlags | 1;
     }
-    iVar3 = DAT_00000d1c;
-    pvVar1 = IsDisabled__10tPMenuItem((tPMenuItem *)(DAT_00000d1c + 0x40));
-    if (pvVar1 == (void *)0x0) goto LAB_8009ede0;
-    uVar2 = *(uint *)(iVar3 + 0x40) & 0xfffffffe;
+    ptVar4 = gPauseMenuDefs;
+    pvVar2 = IsDisabled__10tPMenuItem
+                       ((tPMenuItem *)
+                        (gPauseMenuDefs->itemOptions).tPMenuItemInteractive.tPMenuItem._vf);
+    if (pvVar2 == (void *)0x0) goto LAB_8009ede0;
+    uVar3 = *(uint *)(ptVar4->itemOptions).tPMenuItemInteractive.tPMenuItem._vf & 0xfffffffe;
   }
   ChangedEnabling = &DAT_00000001;
-  *(uint *)(iVar3 + 0x40) = uVar2;
+  *(uint *)(ptVar4->itemOptions).tPMenuItemInteractive.tPMenuItem._vf = uVar3;
 LAB_8009ede0:
-  iVar3 = DAT_00000d1c;
-  pvVar1 = IsDisabled__10tPMenuItem((tPMenuItem *)(DAT_00000d1c + 0x164));
-  if (pvVar1 != (void *)0x0) {
+  ptVar4 = gPauseMenuDefs;
+  pvVar2 = IsDisabled__10tPMenuItem((tPMenuItem *)((gPauseMenuDefs->menuOptions)._vf + 4));
+  if (pvVar2 != (void *)0x0) {
     ChangedEnabling = &DAT_00000001;
-    *(uint *)(iVar3 + 0x164) = *(uint *)(iVar3 + 0x164) & 0xfffffffe;
+    *(uint *)((ptVar4->menuOptions)._vf + 4) = *(uint *)((ptVar4->menuOptions)._vf + 4) & 0xfffffffe
+    ;
   }
-  iVar3 = DAT_00000d1c;
+  ptVar4 = gPauseMenuDefs;
   if (Replay_ReplayMode < 2) {
-    *(uint *)(DAT_00000d1c + 0x4c) = *(uint *)(DAT_00000d1c + 0x4c) | 0x100;
-    *(uint *)(iVar3 + 0x28) = *(uint *)(iVar3 + 0x28) | 0x100;
-    uVar2 = *(uint *)(iVar3 + 0x5c) | 0x100;
+    (gPauseMenuDefs->itemOptions).fOnButtonPress =
+         (_func_37 *)((uint)(gPauseMenuDefs->itemOptions).fOnButtonPress | 0x100);
+    (ptVar4->itemRestart).tPMenuItemInteractive.tPMenuItem.fTextDescription =
+         (ptVar4->itemRestart).tPMenuItemInteractive.tPMenuItem.fTextDescription | 0x100;
+    uVar3 = *(uint *)((ptVar4->itemQuitRace).tPMenuItemInteractive.tPMenuItem._vf + 4) | 0x100;
   }
   else {
-    *(uint *)(DAT_00000d1c + 0x4c) = *(uint *)(DAT_00000d1c + 0x4c) & 0xfffffeff;
-    *(uint *)(iVar3 + 0x28) = *(uint *)(iVar3 + 0x28) & 0xfffffeff;
-    uVar2 = *(uint *)(iVar3 + 0x5c) & 0xfffffeff;
+    (gPauseMenuDefs->itemOptions).fOnButtonPress =
+         (_func_37 *)((uint)(gPauseMenuDefs->itemOptions).fOnButtonPress & 0xfffffeff);
+    (ptVar4->itemRestart).tPMenuItemInteractive.tPMenuItem.fTextDescription =
+         (ptVar4->itemRestart).tPMenuItemInteractive.tPMenuItem.fTextDescription & 0xfffffeff;
+    uVar3 = *(uint *)((ptVar4->itemQuitRace).tPMenuItemInteractive.tPMenuItem._vf + 4) & 0xfffffeff;
   }
-  *(uint *)(iVar3 + 0x5c) = uVar2;
+  *(uint *)((ptVar4->itemQuitRace).tPMenuItemInteractive.tPMenuItem._vf + 4) = uVar3;
   return;
 }
 
@@ -1487,6 +1657,21 @@ LAB_8009ede0:
 	/* end block 1 */
 	// End offset: 0x8009EEB0
 	// End Line: 599
+
+	/* begin block 2 */
+		// Start line: 1261
+	/* end block 2 */
+	// End Line: 1262
+
+	/* begin block 3 */
+		// Start line: 1266
+	/* end block 3 */
+	// End Line: 1267
+
+	/* begin block 4 */
+		// Start line: 1266
+	/* end block 4 */
+	// End Line: 1267
 
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
@@ -1512,18 +1697,34 @@ void MPause_EndPauseMenu__Fv(void)
 	// End offset: 0x8009EF14
 	// End Line: 611
 
+	/* begin block 2 */
+		// Start line: 1277
+	/* end block 2 */
+	// End Line: 1278
+
+	/* begin block 3 */
+		// Start line: 1282
+	/* end block 3 */
+	// End Line: 1283
+
+	/* begin block 4 */
+		// Start line: 1282
+	/* end block 4 */
+	// End Line: 1283
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void MPause_KillMPause__Fv(void)
 
 {
   DrawSync(0);
-  if (DAT_00000d1c != (tPauseMenuDefs *)0x0) {
-    ___14tPauseMenuDefs(DAT_00000d1c,3);
+  if (gPauseMenuDefs != (tPauseMenuDefs *)0x0) {
+    ___14tPauseMenuDefs(gPauseMenuDefs,3);
   }
   TextSys_UnloadWords__Fv();
   return;
 }
+
 
 
 

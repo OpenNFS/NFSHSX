@@ -1,6 +1,7 @@
 #ifndef FRONT_H
 #define FRONT_H
 
+
 extern struct tAllScreens * __11tAllScreens(struct tAllScreens *this); // 0x8002BAF4
 
 extern void _._11tAllScreens(struct tAllScreens *this, int __in_chrg); // 0x8002BF0C
@@ -86,5 +87,6 @@ extern void * PlayerNameExist__Fi(int player); // 0x8002B9D0
 extern char * PlayerName__Fi(int player); // 0x8002B9FC
 
 extern char * PlayerNameMixedCase__Fi(int player); // 0x8002BA88
+
 
 #endif

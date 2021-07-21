@@ -1,6 +1,7 @@
 #ifndef MOVIE_H
 #define MOVIE_H
 
+
 extern void Movie_Init__Fc(char movie); // 0x8004C608
 
 extern void Movie_DeInit__Fv(); // 0x8004C7D8
@@ -23,7 +24,7 @@ extern int play_movie__Fc(char movie); // 0x8004CEF4
 
 extern void strSetDefDecEnv__FP6DECENV(struct DECENV *dec); // 0x8004CF14
 
-extern void strInit__FP6CdlLOCiPFe_vT2(struct CdlLOC *loc, int frame_size, void (*callback)(), void (*endcallback)()); // 0x8004CFA0
+extern void strInit__FP6CdlLOCiPFe_vT2(struct CdlLOC *loc, int frame_size, TDRFuncPtr_strInit__FP6CdlLOCiPFe_vT22callback callback, TDRFuncPtr_strInit__FP6CdlLOCiPFe_vT23endcallback endcallback); // 0x8004CFA0
 
 extern void strCallback__Fv(); // 0x8004D038
 
@@ -34,5 +35,13 @@ extern unsigned long * strNext__FP6DECENV(struct DECENV *dec); // 0x8004D3D4
 extern void strSync__FP6DECENVi(struct DECENV *dec); // 0x8004D5DC
 
 extern void strKickCD__FP6CdlLOC(struct CdlLOC *loc); // 0x8004D68C
+
+
+typedef void (*TDRFuncPtr_strInit__FP6CdlLOCiPFe_vT22callback)();
+
+typedef void (*TDRFuncPtr_strInit__FP6CdlLOCiPFe_vT23endcallback)();
+
+
+
 
 #endif

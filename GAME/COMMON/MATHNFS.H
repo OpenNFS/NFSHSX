@@ -1,6 +1,7 @@
 #ifndef MATHNFS_H
 #define MATHNFS_H
 
+
 extern int Math_DistXZ__FP8coorddefT0(struct coorddef *a, struct coorddef *b); // 0x8009D3E4
 
 extern int Math_Dist3D__FP8coorddefT0(struct coorddef *a, struct coorddef *b); // 0x8009D438
@@ -20,5 +21,6 @@ extern void Math_NormalizeShortVector__FP8coorddef(struct coorddef *v); // 0x800
 extern void Math_QDNormalizeVector__FP8coorddef(struct coorddef *v); // 0x8009DC80
 
 extern void Math_fasttransmult__FP10matrixtdefN20(struct matrixtdef *m1, struct matrixtdef *m2, struct matrixtdef *mr); // 0x8009DD8C
+
 
 #endif

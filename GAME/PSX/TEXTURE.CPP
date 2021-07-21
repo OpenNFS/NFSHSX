@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "TEXTURE.H"
+
 
 // decompiled code
 // original method signature: 
@@ -12,17 +13,27 @@
 	// End offset: 0x800DF5B4
 	// End Line: 65
 
+	/* begin block 2 */
+		// Start line: 128
+	/* end block 2 */
+	// End Line: 129
+
+	/* begin block 3 */
+		// Start line: 128
+	/* end block 3 */
+	// End Line: 129
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Texture_InitPaletteSharing__Fv(void)
 
 {
-  DAT_000015c8 = 0;
-  DAT_000015cc = 0;
-  DAT_000015d0 = reservememadr(s_pshare_4_80056a20,0x800,0x10);
-  DAT_000015d4 = reservememadr(s_pshare_8_80056a2c,0x100,0x10);
-  DAT_000015d8 = reservememadr(s_pal_4bit_80056a38,0x800,0x10);
-  DAT_000015dc = reservememadr(s_pal_8bit_80056a44,0x100,0x10);
+  Texture_gNum4bitPal = 0;
+  Texture_gNum8bitPal = 0;
+  Texture_gP4bitPmx = (Draw_tPixMap **)reservememadr(s_pshare_4_80056a20,0x800,0x10);
+  Texture_gP8bitPmx = (Draw_tPixMap **)reservememadr(s_pshare_8_80056a2c,0x100,0x10);
+  Texture_gPalette4bit = (char **)reservememadr(s_pal_4bit_80056a38,0x800,0x10);
+  Texture_gPalette8bit = (char **)reservememadr(s_pal_8bit_80056a44,0x100,0x10);
   return;
 }
 
@@ -39,15 +50,40 @@ void Texture_InitPaletteSharing__Fv(void)
 	// End offset: 0x800DF630
 	// End Line: 75
 
+	/* begin block 2 */
+		// Start line: 150
+	/* end block 2 */
+	// End Line: 151
+
+	/* begin block 3 */
+		// Start line: 154
+	/* end block 3 */
+	// End Line: 155
+
+	/* begin block 4 */
+		// Start line: 154
+	/* end block 4 */
+	// End Line: 155
+
+	/* begin block 5 */
+		// Start line: 155
+	/* end block 5 */
+	// End Line: 156
+
+	/* begin block 6 */
+		// Start line: 155
+	/* end block 6 */
+	// End Line: 156
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Texture_DeInitPaletteSharing__Fv(void)
 
 {
-  purgememadr(DAT_000015d0);
-  purgememadr(DAT_000015d4);
-  purgememadr(DAT_000015d8);
-  purgememadr(DAT_000015dc);
+  purgememadr((int)Texture_gP4bitPmx);
+  purgememadr((int)Texture_gP8bitPmx);
+  purgememadr((int)Texture_gPalette4bit);
+  purgememadr((int)Texture_gPalette8bit);
   return;
 }
 
@@ -64,13 +100,38 @@ void Texture_DeInitPaletteSharing__Fv(void)
 	// End offset: 0x800DF678
 	// End Line: 86
 
+	/* begin block 2 */
+		// Start line: 169
+	/* end block 2 */
+	// End Line: 170
+
+	/* begin block 3 */
+		// Start line: 175
+	/* end block 3 */
+	// End Line: 176
+
+	/* begin block 4 */
+		// Start line: 175
+	/* end block 4 */
+	// End Line: 176
+
+	/* begin block 5 */
+		// Start line: 176
+	/* end block 5 */
+	// End Line: 177
+
+	/* begin block 6 */
+		// Start line: 176
+	/* end block 6 */
+	// End Line: 177
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Texture_ResetPaletteSharing__Fv(void)
 
 {
-  DAT_000015c8 = 0;
-  DAT_000015cc = 0;
+  Texture_gNum4bitPal = 0;
+  Texture_gNum8bitPal = 0;
   return;
 }
 
@@ -148,76 +209,97 @@ void Texture_ResetPaletteSharing__Fv(void)
 	// End offset: 0x800DF7B4
 	// End Line: 140
 
+	/* begin block 2 */
+		// Start line: 183
+	/* end block 2 */
+	// End Line: 184
+
+	/* begin block 3 */
+		// Start line: 187
+	/* end block 3 */
+	// End Line: 188
+
+	/* begin block 4 */
+		// Start line: 187
+	/* end block 4 */
+	// End Line: 188
+
+	/* begin block 5 */
+		// Start line: 189
+	/* end block 5 */
+	// End Line: 190
+
 int Texture_CheckForSharedPalette__FiPcP12Draw_tPixMapi
               (int test,char *data,Draw_tPixMap *pmx,int bpp)
 
 {
   int iVar1;
-  undefined4 *puVar2;
-  int iVar3;
+  Draw_tPixMap **ppDVar2;
+  Draw_tPixMap *pDVar3;
   int iVar4;
-  int *piVar5;
+  int iVar5;
   int *piVar6;
-  int iVar7;
-  int **ppiVar8;
+  int *piVar7;
+  int iVar8;
   int **ppiVar9;
-  undefined4 uVar10;
+  int **ppiVar10;
   undefined4 uVar11;
   undefined4 uVar12;
+  undefined4 uVar13;
   
   if (test == 0) {
     return 0;
   }
-  iVar7 = 0;
-  ppiVar9 = DAT_000015d8;
-  ppiVar8 = DAT_000015dc;
+  iVar8 = 0;
+  ppiVar10 = (int **)Texture_gPalette4bit;
+  ppiVar9 = (int **)Texture_gPalette8bit;
   if (bpp == 0) {
-    while (iVar7 < DAT_000015c8) {
-      piVar5 = *ppiVar9;
-      iVar4 = 0;
-      piVar6 = (int *)data;
+    while (iVar8 < Texture_gNum4bitPal) {
+      piVar6 = *ppiVar10;
+      iVar5 = 0;
+      piVar7 = (int *)data;
       do {
-        iVar3 = *piVar5;
-        piVar5 = piVar5 + 1;
-        iVar1 = *piVar6;
+        iVar4 = *piVar6;
         piVar6 = piVar6 + 1;
-        if (iVar1 != iVar3) break;
-        iVar4 = iVar4 + 1;
-      } while (iVar4 < 8);
-      iVar1 = DAT_000015d0;
-      if (iVar4 == 8) goto LAB_800df6a0;
-      iVar7 = iVar7 + 1;
-      ppiVar9 = ppiVar9 + 1;
+        iVar1 = *piVar7;
+        piVar7 = piVar7 + 1;
+        if (iVar1 != iVar4) break;
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < 8);
+      ppDVar2 = Texture_gP4bitPmx;
+      if (iVar5 == 8) goto LAB_800df6a0;
+      iVar8 = iVar8 + 1;
+      ppiVar10 = ppiVar10 + 1;
     }
   }
   else {
-    while (iVar7 < DAT_000015cc) {
-      piVar5 = *ppiVar8;
-      iVar4 = 0;
-      piVar6 = (int *)data;
+    while (iVar8 < Texture_gNum8bitPal) {
+      piVar6 = *ppiVar9;
+      iVar5 = 0;
+      piVar7 = (int *)data;
       do {
-        iVar3 = *piVar5;
-        piVar5 = piVar5 + 1;
-        iVar1 = *piVar6;
+        iVar4 = *piVar6;
         piVar6 = piVar6 + 1;
-        if (iVar1 != iVar3) break;
-        iVar4 = iVar4 + 1;
-      } while (iVar4 < 0x80);
-      iVar1 = DAT_000015d4;
-      if (iVar4 == 0x80) {
+        iVar1 = *piVar7;
+        piVar7 = piVar7 + 1;
+        if (iVar1 != iVar4) break;
+        iVar5 = iVar5 + 1;
+      } while (iVar5 < 0x80);
+      ppDVar2 = Texture_gP8bitPmx;
+      if (iVar5 == 0x80) {
 LAB_800df6a0:
-        puVar2 = *(undefined4 **)(iVar7 * 4 + iVar1);
-        uVar10 = puVar2[1];
-        uVar11 = puVar2[2];
-        uVar12 = puVar2[3];
-        *(undefined4 *)pmx = *puVar2;
-        *(undefined4 *)&pmx->u1 = uVar10;
-        *(undefined4 *)&pmx->u2 = uVar11;
-        *(undefined4 *)&pmx->u3 = uVar12;
+        pDVar3 = ppDVar2[iVar8];
+        uVar11 = *(undefined4 *)&pDVar3->u1;
+        uVar12 = *(undefined4 *)&pDVar3->u2;
+        uVar13 = *(undefined4 *)&pDVar3->u3;
+        *(undefined4 *)pmx = *(undefined4 *)pDVar3;
+        *(undefined4 *)&pmx->u1 = uVar11;
+        *(undefined4 *)&pmx->u2 = uVar12;
+        *(undefined4 *)&pmx->u3 = uVar13;
         return 1;
       }
-      iVar7 = iVar7 + 1;
-      ppiVar8 = ppiVar8 + 1;
+      iVar8 = iVar8 + 1;
+      ppiVar9 = ppiVar9 + 1;
     }
   }
   return 0;
@@ -236,25 +318,40 @@ LAB_800df6a0:
 	// End offset: 0x800DF82C
 	// End Line: 157
 
+	/* begin block 2 */
+		// Start line: 331
+	/* end block 2 */
+	// End Line: 332
+
+	/* begin block 3 */
+		// Start line: 335
+	/* end block 3 */
+	// End Line: 336
+
+	/* begin block 4 */
+		// Start line: 335
+	/* end block 4 */
+	// End Line: 336
+
 void Texture_AddSharedPalette__FPcP12Draw_tPixMapi
                (char *ptr_to_data,Draw_tPixMap *ptr_to_pmx,int bpp)
 
 {
-  int iVar1;
+  char **ppcVar1;
   Draw_tPixMap **ppDVar2;
   
   if (bpp == 0) {
-    ppDVar2 = (Draw_tPixMap **)(DAT_000015c8 * 4 + DAT_000015d0);
-    *(char **)(DAT_000015c8 * 4 + DAT_000015d8) = ptr_to_data;
+    ppDVar2 = Texture_gP4bitPmx + Texture_gNum4bitPal;
+    Texture_gPalette4bit[Texture_gNum4bitPal] = ptr_to_data;
     *ppDVar2 = ptr_to_pmx;
-    DAT_000015c8 = DAT_000015c8 + 1;
+    Texture_gNum4bitPal = Texture_gNum4bitPal + 1;
     return;
   }
   if (bpp == 1) {
-    iVar1 = DAT_000015cc * 4;
-    ppDVar2 = (Draw_tPixMap **)(iVar1 + DAT_000015d4);
-    DAT_000015cc = DAT_000015cc + 1;
-    *(char **)(iVar1 + DAT_000015dc) = ptr_to_data;
+    ppcVar1 = Texture_gPalette8bit + Texture_gNum8bitPal;
+    ppDVar2 = Texture_gP8bitPmx + Texture_gNum8bitPal;
+    Texture_gNum8bitPal = Texture_gNum8bitPal + 1;
+    *ppcVar1 = ptr_to_data;
     *ppDVar2 = ptr_to_pmx;
   }
   return;
@@ -276,62 +373,89 @@ void Texture_AddSharedPalette__FPcP12Draw_tPixMapi
 	// End offset: 0x800DF930
 	// End Line: 216
 
+	/* begin block 2 */
+		// Start line: 393
+	/* end block 2 */
+	// End Line: 394
+
+	/* begin block 3 */
+		// Start line: 419
+	/* end block 3 */
+	// End Line: 420
+
+	/* begin block 4 */
+		// Start line: 419
+	/* end block 4 */
+	// End Line: 420
+
+	/* begin block 5 */
+		// Start line: 425
+	/* end block 5 */
+	// End Line: 426
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Texture_InitClut__Fv(void)
 
 {
-  int iVar1;
-  int iVar2;
+  short *psVar1;
+  short *psVar2;
   int iVar3;
-  ushort uVar4;
+  int iVar4;
   int iVar5;
-  int iVar6;
+  ushort uVar6;
+  int iVar7;
   
-  iVar6 = DAT_000015e0;
-  iVar5 = 0;
-  DAT_000015e4 = 0;
+  psVar1 = gFreePal4;
+  iVar7 = 0;
+  gNbFreePal4 = 0;
+  do {
+    iVar5 = 0;
+    iVar3 = 0;
+    do {
+      iVar5 = iVar5 + 1;
+      iVar4 = gNbFreePal4 + 1;
+      psVar1[gNbFreePal4] = (ushort)iVar3 | (ushort)(iVar7 >> 4) & 0x3f;
+      psVar2 = gFreePal4;
+      iVar3 = iVar5 * 0x40;
+      gNbFreePal4 = iVar4;
+    } while (iVar5 < 0x78);
+    iVar7 = iVar7 + 0x10;
+    gNbFreePal4 = iVar4;
+  } while (iVar7 < 0x100);
+  iVar7 = 0;
+  gNbFreePal4 = iVar4;
   do {
     iVar3 = 0;
-    iVar2 = 0;
+    uVar6 = 0x2000;
     do {
       iVar3 = iVar3 + 1;
-      iVar1 = DAT_000015e4 * 2;
-      DAT_000015e4 = DAT_000015e4 + 1;
-      *(ushort *)(iVar1 + iVar6) = (ushort)iVar2 | (ushort)(iVar5 >> 4) & 0x3f;
-      iVar1 = DAT_000015e0;
-      iVar2 = iVar3 * 0x40;
-    } while (iVar3 < 0x78);
-    iVar5 = iVar5 + 0x10;
-  } while (iVar5 < 0x100);
-  iVar6 = 0;
+      iVar5 = gNbFreePal4 + 1;
+      psVar2[gNbFreePal4] = uVar6 | (ushort)(iVar7 >> 4) & 0x3f;
+      psVar1 = gFreePal8;
+      uVar6 = uVar6 + 0x40;
+      gNbFreePal4 = iVar5;
+    } while (iVar3 < 0x20);
+    iVar7 = iVar7 + 0x10;
+    gNbFreePal4 = iVar5;
+  } while (iVar7 < 0x80);
+  iVar7 = 0;
+  gNbFreePal8 = 0;
+  gNbFreePal4 = iVar5;
   do {
-    iVar5 = 0;
-    uVar4 = 0x2000;
+    iVar3 = 0;
+    uVar6 = 0x1e00;
     do {
-      iVar5 = iVar5 + 1;
-      iVar2 = DAT_000015e4 * 2;
-      DAT_000015e4 = DAT_000015e4 + 1;
-      *(ushort *)(iVar2 + iVar1) = uVar4 | (ushort)(iVar6 >> 4) & 0x3f;
-      iVar2 = DAT_000015e8;
-      uVar4 = uVar4 + 0x40;
-    } while (iVar5 < 0x20);
-    iVar6 = iVar6 + 0x10;
-  } while (iVar6 < 0x80);
-  iVar6 = 0;
-  DAT_000015ec = 0;
-  do {
-    iVar5 = 0;
-    uVar4 = 0x1e00;
-    do {
-      iVar5 = iVar5 + 1;
-      iVar3 = DAT_000015ec * 2;
-      DAT_000015ec = DAT_000015ec + 1;
-      *(ushort *)(iVar3 + iVar2) = uVar4 | (ushort)(iVar6 >> 4) & 0x3f;
-      uVar4 = uVar4 + 0x40;
-    } while (iVar5 < 8);
-    iVar6 = iVar6 + 0x100;
-  } while (iVar6 < 0x100);
+      iVar3 = iVar3 + 1;
+      iVar5 = gNbFreePal8 + 1;
+      psVar1[gNbFreePal8] = uVar6 | (ushort)(iVar7 >> 4) & 0x3f;
+      uVar6 = uVar6 + 0x40;
+      gNbFreePal8 = iVar5;
+    } while (iVar3 < 8);
+    iVar7 = iVar7 + 0x100;
+    gNbFreePal8 = iVar5;
+  } while (iVar7 < 0x100);
+  gNbFreePal8 = iVar5;
   return;
 }
 
@@ -350,6 +474,26 @@ void Texture_InitClut__Fv(void)
 	// End offset: 0x800DF984
 	// End Line: 254
 
+	/* begin block 2 */
+		// Start line: 501
+	/* end block 2 */
+	// End Line: 502
+
+	/* begin block 3 */
+		// Start line: 507
+	/* end block 3 */
+	// End Line: 508
+
+	/* begin block 4 */
+		// Start line: 507
+	/* end block 4 */
+	// End Line: 508
+
+	/* begin block 5 */
+		// Start line: 511
+	/* end block 5 */
+	// End Line: 512
+
 void Texture_GetClutId__FiPiT1(int bpp,int *xclut,int *yclut)
 
 {
@@ -357,26 +501,26 @@ void Texture_GetClutId__FiPiT1(int bpp,int *xclut,int *yclut)
   int iVar2;
   int iVar3;
   uint uVar4;
-  int iVar5;
+  short *psVar5;
   
   uVar4 = 0;
   if (bpp == 0) {
-    iVar3 = DAT_000015e4 + -1;
-    iVar5 = DAT_000015e0;
+    iVar3 = gNbFreePal4 + -1;
+    psVar5 = gFreePal4;
     iVar1 = iVar3;
-    iVar2 = DAT_000015ec;
-    if (DAT_000015e4 == 0) goto code_r0x800df988;
+    iVar2 = gNbFreePal8;
+    if (gNbFreePal4 == 0) goto code_r0x800df988;
   }
   else {
-    iVar3 = DAT_000015ec + -1;
-    iVar5 = DAT_000015e8;
-    iVar1 = DAT_000015e4;
+    iVar3 = gNbFreePal8 + -1;
+    psVar5 = gFreePal8;
+    iVar1 = gNbFreePal4;
     iVar2 = iVar3;
-    if (DAT_000015ec == 0) goto code_r0x800df988;
+    if (gNbFreePal8 == 0) goto code_r0x800df988;
   }
-  DAT_000015ec = iVar2;
-  DAT_000015e4 = iVar1;
-  uVar4 = (uint)*(ushort *)(iVar3 * 2 + iVar5);
+  gNbFreePal8 = iVar2;
+  gNbFreePal4 = iVar1;
+  uVar4 = (uint)(ushort)psVar5[iVar3];
 code_r0x800df988:
   *xclut = (uVar4 & 0x3f) << 4;
   *yclut = (int)(uVar4 << 0x10) >> 0x16;
@@ -398,16 +542,31 @@ code_r0x800df988:
 	// End offset: 0x800DF9FC
 	// End Line: 321
 
+	/* begin block 2 */
+		// Start line: 581
+	/* end block 2 */
+	// End Line: 582
+
+	/* begin block 3 */
+		// Start line: 650
+	/* end block 3 */
+	// End Line: 651
+
+	/* begin block 4 */
+		// Start line: 650
+	/* end block 4 */
+	// End Line: 651
+
 void Texture_MenuReleaseClutId__Fs(short id)
 
 {
   if ((int)((uint)(ushort)id << 0x10) >> 0x16 < 0x1e8) {
-    *(short *)(DAT_000015ec * 2 + DAT_000015e8) = id;
-    DAT_000015ec = DAT_000015ec + 1;
+    gFreePal8[gNbFreePal8] = id;
+    gNbFreePal8 = gNbFreePal8 + 1;
     return;
   }
-  *(short *)(DAT_000015e4 * 2 + DAT_000015e0) = id;
-  DAT_000015e4 = DAT_000015e4 + 1;
+  gFreePal4[gNbFreePal4] = id;
+  gNbFreePal4 = gNbFreePal4 + 1;
   return;
 }
 
@@ -424,6 +583,31 @@ void Texture_MenuReleaseClutId__Fs(short id)
 	// End offset: 0x800DFA34
 	// End Line: 335
 
+	/* begin block 2 */
+		// Start line: 689
+	/* end block 2 */
+	// End Line: 690
+
+	/* begin block 3 */
+		// Start line: 696
+	/* end block 3 */
+	// End Line: 697
+
+	/* begin block 4 */
+		// Start line: 696
+	/* end block 4 */
+	// End Line: 697
+
+	/* begin block 5 */
+		// Start line: 697
+	/* end block 5 */
+	// End Line: 698
+
+	/* begin block 6 */
+		// Start line: 697
+	/* end block 6 */
+	// End Line: 698
+
 void Texture_ColorCarPalette__FPcT0i(char *from,char *to,int numentry)
 
 {
@@ -432,7 +616,7 @@ void Texture_ColorCarPalette__FPcT0i(char *from,char *to,int numentry)
   undefined2 *puVar3;
   
   iVar2 = numentry + -1;
-  puVar3 = (undefined2 *)(from + DAT_000015bc * 0x20);
+  puVar3 = (undefined2 *)(from + Texture_CarColor * 0x20);
   if (numentry != 0) {
     do {
       uVar1 = *puVar3;
@@ -462,29 +646,49 @@ void Texture_ColorCarPalette__FPcT0i(char *from,char *to,int numentry)
 	// End offset: 0x800DFA84
 	// End Line: 353
 
+	/* begin block 2 */
+		// Start line: 719
+	/* end block 2 */
+	// End Line: 720
+
+	/* begin block 3 */
+		// Start line: 724
+	/* end block 3 */
+	// End Line: 725
+
+	/* begin block 4 */
+		// Start line: 724
+	/* end block 4 */
+	// End Line: 725
+
+	/* begin block 5 */
+		// Start line: 729
+	/* end block 5 */
+	// End Line: 730
+
 void Texture_CopyPalette__FPciii(char *data,int width,int x,int y)
 
 {
-  undefined2 uVar1;
-  int *piVar2;
+  short sVar1;
+  Texture_pal8bit *pTVar2;
   int iVar3;
-  int *piVar4;
+  short *psVar4;
   
   iVar3 = 0;
-  piVar2 = (int *)(DAT_000015c4 * 0x208 + DAT_000015c0);
-  piVar4 = piVar2 + 2;
-  *piVar2 = x;
-  piVar2[1] = y;
+  pTVar2 = Texture_palCopy + Texture_palNum;
+  psVar4 = pTVar2->pal;
+  pTVar2->x = x;
+  pTVar2->y = y;
   if (0 < width) {
     do {
-      uVar1 = *(undefined2 *)data;
-      data = (char *)((undefined2 *)data + 1);
+      sVar1 = *(short *)data;
+      data = (char *)((short *)data + 1);
       iVar3 = iVar3 + 1;
-      *(undefined2 *)piVar4 = uVar1;
-      piVar4 = (int *)((int)piVar4 + 2);
+      *psVar4 = sVar1;
+      psVar4 = psVar4 + 1;
     } while (iVar3 < width);
   }
-  DAT_000015c4 = DAT_000015c4 + 1;
+  Texture_palNum = Texture_palNum + 1;
   return;
 }
 
@@ -504,6 +708,21 @@ void Texture_CopyPalette__FPciii(char *data,int width,int x,int y)
 	/* end block 1 */
 	// End offset: 0x800DFB2C
 	// End Line: 378
+
+	/* begin block 2 */
+		// Start line: 763
+	/* end block 2 */
+	// End Line: 764
+
+	/* begin block 3 */
+		// Start line: 767
+	/* end block 3 */
+	// End Line: 768
+
+	/* begin block 4 */
+		// Start line: 767
+	/* end block 4 */
+	// End Line: 768
 
 void Texture_ProcessPaletteCopy__FP15Texture_pal8bitii
                (Texture_pal8bit *palCopy,int palStart,int palNum)
@@ -546,6 +765,21 @@ void Texture_ProcessPaletteCopy__FP15Texture_pal8bitii
 	// End offset: 0x800DFB74
 	// End Line: 397
 
+	/* begin block 2 */
+		// Start line: 837
+	/* end block 2 */
+	// End Line: 838
+
+	/* begin block 3 */
+		// Start line: 852
+	/* end block 3 */
+	// End Line: 853
+
+	/* begin block 4 */
+		// Start line: 852
+	/* end block 4 */
+	// End Line: 853
+
 void Texture_LoadImage__FP4RECTPUl(RECT *imgrect,ulong *p)
 
 {
@@ -571,6 +805,21 @@ void Texture_LoadImage__FP4RECTPUl(RECT *imgrect,ulong *p)
 	// End offset: 0x800DFD0C
 	// End Line: 458
 
+	/* begin block 2 */
+		// Start line: 868
+	/* end block 2 */
+	// End Line: 869
+
+	/* begin block 3 */
+		// Start line: 878
+	/* end block 3 */
+	// End Line: 879
+
+	/* begin block 4 */
+		// Start line: 878
+	/* end block 4 */
+	// End Line: 879
+
 void Texture_Vramf__FP8shapetbliiii(shapetbl *shp,int x,int y,int clutx,int cluty)
 
 {
@@ -581,15 +830,15 @@ void Texture_Vramf__FP8shapetbliiii(shapetbl *shp,int x,int y,int clutx,int clut
   
   if (shp != (shapetbl *)0x0) {
     do {
-      bVar3 = *(byte *)&shp->field_0x0 & 0xf7;
+      bVar3 = *(byte *)&shp->type & 0xf7;
       if (bVar3 == 0x23) {
         if (-1 < clutx) {
           *(uint *)&shp->centerx =
                *(uint *)&shp->centerx & 0xf000f000 | clutx & 0xfffU | (cluty & 0xfffU) << 0x10;
-          *(byte *)&shp->field_0x0 = *(byte *)&shp->field_0x0 | 8;
+          *(byte *)&shp->type = *(byte *)&shp->type | 8;
           local_40[0].x = (short)clutx;
           local_40[0].y = (short)cluty;
-          local_40[0].w = *(short *)&shp->field_0x4;
+          local_40[0].w = *(short *)&shp->next;
           local_40[0].h = 1;
           goto LAB_800dfcd8;
         }
@@ -598,26 +847,26 @@ void Texture_Vramf__FP8shapetbliiii(shapetbl *shp,int x,int y,int clutx,int clut
         if (((0x22 < bVar3) && (bVar3 < 0x44)) && (0x3f < bVar3)) {
           *(uint *)&shp->centerx =
                *(uint *)&shp->centerx & 0xf000f000 | x & 0xfffU | (y & 0xfffU) << 0x10;
-          *(byte *)&shp->field_0x0 = *(byte *)&shp->field_0x0 | 8;
+          *(byte *)&shp->type = *(byte *)&shp->type | 8;
           local_40[0].x = (short)x;
           local_40[0].y = (short)y;
           iVar1 = shapedepth((byte *)shp);
-          iVar1 = (int)*(short *)&shp->field_0x4 * iVar1;
+          iVar1 = (int)*(short *)&shp->next * iVar1;
           iVar2 = iVar1 + 0xf;
           if (iVar2 < 0) {
             iVar2 = iVar1 + 0x1e;
           }
           local_40[0].w = (short)(iVar2 >> 4);
-          local_40[0].h = *(short *)((int)&shp->field_0x4 + 2);
+          local_40[0].h = *(short *)((int)&shp->next + 2);
 LAB_800dfcd8:
-          Texture_LoadImage__FP4RECTPUl(local_40,&shp->field_0x10);
+          Texture_LoadImage__FP4RECTPUl(local_40,(ulong *)&shp->shapex);
         }
       }
-      if ((shp->field_0x0 & 0xffffff00) == 0) {
+      if ((shp->type & 0xffffff00) == 0) {
         shp = (shapetbl *)0x0;
       }
       else {
-        shp = (shapetbl *)((int)&shp->field_0x0 + ((int)shp->field_0x0 >> 8));
+        shp = (shapetbl *)((int)&shp->type + ((int)shp->type >> 8));
       }
     } while (shp != (shapetbl *)0x0);
   }
@@ -657,6 +906,21 @@ LAB_800dfcd8:
 	// End offset: 0x800DFE70
 	// End Line: 508
 
+	/* begin block 2 */
+		// Start line: 1014
+	/* end block 2 */
+	// End Line: 1015
+
+	/* begin block 3 */
+		// Start line: 1025
+	/* end block 3 */
+	// End Line: 1026
+
+	/* begin block 4 */
+		// Start line: 1025
+	/* end block 4 */
+	// End Line: 1026
+
 void Texture_Vramcf__FP8shapetbliiii(shapetbl *shp,int x,int y,int clutx,int cluty)
 
 {
@@ -664,7 +928,7 @@ void Texture_Vramcf__FP8shapetbliiii(shapetbl *shp,int x,int y,int clutx,int clu
   short sVar2;
   int iVar3;
   uint uVar4;
-  anon__struct_38_bitfield_3 *paVar5;
+  int *piVar5;
   uint uVar6;
   short local_30;
   short local_2e;
@@ -672,9 +936,9 @@ void Texture_Vramcf__FP8shapetbliiii(shapetbl *shp,int x,int y,int clutx,int clu
   undefined2 local_2a;
   
   iVar3 = shapedepth((byte *)shp);
-  uVar6 = (int)*(short *)&shp->field_0x4 * iVar3 + 0xfU & 0xfffffff0;
+  uVar6 = (int)*(short *)&shp->next * iVar3 + 0xfU & 0xfffffff0;
   uVar4 = (int)uVar6 >> 3;
-  if (((uVar4 & 2) == 0) || (uVar1 = *(ushort *)((int)&shp->field_0x4 + 2), (uVar1 & 1) != 0)) {
+  if (((uVar4 & 2) == 0) || (uVar1 = *(ushort *)((int)&shp->next + 2), (uVar1 & 1) != 0)) {
     Texture_Vramf__FP8shapetbliiii(shp,x,y,clutx,cluty);
   }
   else {
@@ -682,18 +946,17 @@ void Texture_Vramcf__FP8shapetbliiii(shapetbl *shp,int x,int y,int clutx,int clu
     local_2e = sVar2 + -2;
     local_2c = 1;
     local_2a = 2;
-    paVar5 = (anon__struct_38_bitfield_3 *)
-             ((int)&shp->field_0x10 + ((int)(short)uVar1 + -1) * uVar4);
+    piVar5 = (int *)((int)&shp->shapex + ((int)(short)uVar1 + -1) * uVar4);
     local_30 = (short)x;
-    LoadImage(&local_30,(int)paVar5 + -2);
+    LoadImage(&local_30,(int)piVar5 + -2);
     local_30 = (short)x + 1;
     local_2e = sVar2 + -1;
     local_2c = (short)((int)uVar6 >> 4) + -1;
     local_2a = 1;
-    LoadImage(&local_30,(int)paVar5 + 2);
-    *(short *)((int)&shp->field_0x4 + 2) = *(short *)((int)&shp->field_0x4 + 2) + -1;
+    LoadImage(&local_30,(int)piVar5 + 2);
+    *(short *)((int)&shp->next + 2) = *(short *)((int)&shp->next + 2) + -1;
     Texture_Vramf__FP8shapetbliiii(shp,x,y,clutx,cluty);
-    *(ushort *)((int)&shp->field_0x4 + 2) = uVar1;
+    *(ushort *)((int)&shp->next + 2) = uVar1;
   }
   return;
 }
@@ -734,6 +997,31 @@ void Texture_Vramcf__FP8shapetbliiii(shapetbl *shp,int x,int y,int clutx,int clu
 	// End offset: 0x800DFF08
 	// End Line: 533
 
+	/* begin block 2 */
+		// Start line: 1129
+	/* end block 2 */
+	// End Line: 1130
+
+	/* begin block 3 */
+		// Start line: 1136
+	/* end block 3 */
+	// End Line: 1137
+
+	/* begin block 4 */
+		// Start line: 1136
+	/* end block 4 */
+	// End Line: 1137
+
+	/* begin block 5 */
+		// Start line: 1137
+	/* end block 5 */
+	// End Line: 1138
+
+	/* begin block 6 */
+		// Start line: 1137
+	/* end block 6 */
+	// End Line: 1138
+
 int Texture_GetTranslucencyMode__FP8shapetbl(shapetbl *shp)
 
 {
@@ -743,15 +1031,15 @@ int Texture_GetTranslucencyMode__FP8shapetbl(shapetbl *shp)
     if (shp == (shapetbl *)0x0) {
       return 0;
     }
-    if (*(char *)&shp->field_0x0 == 'k') break;
-    if ((shp->field_0x0 & 0xffffff00) == 0) {
+    if (*(char *)&shp->type == 'k') break;
+    if ((shp->type & 0xffffff00) == 0) {
       shp = (shapetbl *)0x0;
     }
     else {
-      shp = (shapetbl *)((int)&shp->field_0x0 + ((int)shp->field_0x0 >> 8));
+      shp = (shapetbl *)((int)&shp->type + ((int)shp->type >> 8));
     }
   }
-  uVar1 = (uint)(*(ushort *)&shp->field_0x4 >> 5) & 3;
+  uVar1 = (uint)(*(ushort *)&shp->next >> 5) & 3;
   if (uVar1 == 3) {
     return 2;
   }
@@ -818,6 +1106,21 @@ int Texture_GetTranslucencyMode__FP8shapetbl(shapetbl *shp)
 	// End offset: 0x800E0328
 	// End Line: 668
 
+	/* begin block 2 */
+		// Start line: 1178
+	/* end block 2 */
+	// End Line: 1179
+
+	/* begin block 3 */
+		// Start line: 1184
+	/* end block 3 */
+	// End Line: 1185
+
+	/* begin block 4 */
+		// Start line: 1184
+	/* end block 4 */
+	// End Line: 1185
+
 void Texture_LoadPmx__FPcT0iiiiiP12Draw_tPixMap
                (char *f,char *n,int ctrl,int rx,int ry,int cx,int cy,Draw_tPixMap *pmx)
 
@@ -846,10 +1149,10 @@ void Texture_LoadPmx__FPcT0iiiiiP12Draw_tPixMap
   }
   if ((shapetbl *)n != (shapetbl *)0x0) {
     iVar7 = *(int *)&((shapetbl *)n)->centerx;
-    bVar1 = *(byte *)&((shapetbl *)n)->field_0x0;
+    bVar1 = *(byte *)&((shapetbl *)n)->type;
     bpp = (uint)bVar1 & 3;
-    uVar2 = *(undefined2 *)&((shapetbl *)n)->field_0x4;
-    uVar3 = *(undefined2 *)((int)&((shapetbl *)n)->field_0x4 + 2);
+    uVar2 = *(undefined2 *)&((shapetbl *)n)->next;
+    uVar3 = *(undefined2 *)((int)&((shapetbl *)n)->next + 2);
     if (((ctrl & 8U) != 0) && ((bVar1 & 3) != 0)) {
       bpp = 0;
     }
@@ -857,15 +1160,15 @@ void Texture_LoadPmx__FPcT0iiiiiP12Draw_tPixMap
     if (rx == -1) {
       x = 0;
       y = 0xa0;
-      *(undefined2 *)&((shapetbl *)n)->field_0x4 = 1;
-      *(undefined2 *)((int)&((shapetbl *)n)->field_0x4 + 2) = 1;
+      *(undefined2 *)&((shapetbl *)n)->next = 1;
+      *(undefined2 *)((int)&((shapetbl *)n)->next + 2) = 1;
     }
     else {
       x = ((int)(uVar9 << 0x14) >> 0x14) + rx;
       y = ((int)(uVar9 << 4) >> 0x14) + ry;
     }
-    local_48 = (char)*(undefined2 *)&((shapetbl *)n)->field_0x4;
-    cVar12 = (char)*(undefined2 *)((int)&((shapetbl *)n)->field_0x4 + 2);
+    local_48 = (char)*(undefined2 *)&((shapetbl *)n)->next;
+    cVar12 = (char)*(undefined2 *)((int)&((shapetbl *)n)->next + 2);
     if ((ctrl & 1U) == 0) {
       local_48 = local_48 + -1;
       cVar12 = cVar12 + -1;
@@ -874,7 +1177,7 @@ void Texture_LoadPmx__FPcT0iiiiiP12Draw_tPixMap
       Texture_Vramcf__FP8shapetbliiii((shapetbl *)n,x,y,0,0);
     }
     else {
-      iVar11 = (int)&((shapetbl *)n)->field_0x0 + ((int)((shapetbl *)n)->field_0x0 >> 8);
+      iVar11 = (int)&((shapetbl *)n)->type + ((int)((shapetbl *)n)->type >> 8);
       sVar4 = *(short *)(iVar11 + 4);
       if (bpp == 0) {
         uVar6 = 0x10;
@@ -909,7 +1212,7 @@ void Texture_LoadPmx__FPcT0iiiiiP12Draw_tPixMap
           pmx->flag = (ushort)(clutx << 1);
         }
         if (((ctrl & 8U) != 0) && ((bVar1 & 3) != 0)) {
-          if (DAT_000015c0 != 0) {
+          if (Texture_palCopy != (Texture_pal8bit *)0x0) {
             Texture_CopyPalette__FPciii((char *)(iVar11 + 0x10),(int)sVar4,cx,cy);
           }
           if ((ctrl & 0x10U) != 0) {
@@ -973,8 +1276,8 @@ void Texture_LoadPmx__FPcT0iiiiiP12Draw_tPixMap
       pmx->v3 = uVar5;
     }
     bpp = *(uint *)&((shapetbl *)n)->centerx;
-    *(undefined2 *)&((shapetbl *)n)->field_0x4 = uVar2;
-    *(undefined2 *)((int)&((shapetbl *)n)->field_0x4 + 2) = uVar3;
+    *(undefined2 *)&((shapetbl *)n)->next = uVar2;
+    *(undefined2 *)((int)&((shapetbl *)n)->next + 2) = uVar3;
     *(uint *)&((shapetbl *)n)->centerx =
          bpp & 0xf000f000 | (iVar7 << 0x14) >> 0x14 & 0xfffU |
          ((iVar7 << 4) >> 0x14 & 0xfffU) << 0x10;
@@ -994,6 +1297,26 @@ void Texture_LoadPmx__FPcT0iiiiiP12Draw_tPixMap
 	/* end block 1 */
 	// End offset: 0x800E04B0
 	// End Line: 708
+
+	/* begin block 2 */
+		// Start line: 1476
+	/* end block 2 */
+	// End Line: 1477
+
+	/* begin block 3 */
+		// Start line: 1481
+	/* end block 3 */
+	// End Line: 1482
+
+	/* begin block 4 */
+		// Start line: 1481
+	/* end block 4 */
+	// End Line: 1482
+
+	/* begin block 5 */
+		// Start line: 1483
+	/* end block 5 */
+	// End Line: 1484
 
 void Texture_CloneUVPmx__FP12Draw_tPixMapiT0(Draw_tPixMap *pmx,int mode,Draw_tPixMap *rpmx)
 
@@ -1056,13 +1379,28 @@ void Texture_CloneUVPmx__FP12Draw_tPixMapiT0(Draw_tPixMap *pmx,int mode,Draw_tPi
 	// End offset: 0x800E04B8
 	// End Line: 727
 
+	/* begin block 2 */
+		// Start line: 1442
+	/* end block 2 */
+	// End Line: 1443
+
+	/* begin block 3 */
+		// Start line: 1580
+	/* end block 3 */
+	// End Line: 1581
+
+	/* begin block 4 */
+		// Start line: 1580
+	/* end block 4 */
+	// End Line: 1581
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Texture_InitTrackTexture__Fv(void)
 
 {
-  pcGp000015e0 = Platform_GetDCTBuffer__FiPc((int)&DAT_000013f0,s_4_bit_Cluts_80056a50);
-  pcGp000015e8 = Platform_GetDCTBuffer__FiPc(0x10,s_8_bit_Cluts_80056a5c);
+  gFreePal4 = (short *)Platform_GetDCTBuffer__FiPc((int)&DAT_000013f0,s_4_bit_Cluts_80056a50);
+  gFreePal8 = (short *)Platform_GetDCTBuffer__FiPc(0x10,s_8_bit_Cluts_80056a5c);
   Texture_InitPaletteSharing__Fv();
   TextureProcess_Init__Fv();
   Texture_InitClut__Fv();
@@ -1102,51 +1440,69 @@ void Texture_InitTrackTexture__Fv(void)
 	// End offset: 0x800E0600
 	// End Line: 777
 
+	/* begin block 2 */
+		// Start line: 1614
+	/* end block 2 */
+	// End Line: 1615
+
+	/* begin block 3 */
+		// Start line: 1619
+	/* end block 3 */
+	// End Line: 1620
+
+	/* begin block 4 */
+		// Start line: 1619
+	/* end block 4 */
+	// End Line: 1620
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Texture_InitMenuClut__Fv(void)
 
 {
-  int iVar1;
-  int iVar2;
-  ushort uVar3;
-  int iVar4;
+  short *psVar1;
+  short *psVar2;
+  int iVar3;
+  ushort uVar4;
   int iVar5;
+  int iVar6;
   
-  psGp000015e0 = reservememadr(s_4_bits_cluts_80056a68,0x300,0);
-  psGp000015e8 = reservememadr(s_8_bits_cluts_80056a78,(int)&DAT_00001180,0);
-  iVar5 = 0;
-  iGp000015e4 = 0;
+  gFreePal4 = reservememadr(s_4_bits_cluts_80056a68,0x300,0);
+  gFreePal8 = reservememadr(s_8_bits_cluts_80056a78,(int)&DAT_00001180,0);
+  psVar1 = gFreePal4;
+  iVar6 = 0;
+  gNbFreePal4 = 0;
   do {
-    iVar4 = 0;
-    uVar3 = 0x7a00;
+    iVar5 = 0;
+    uVar4 = 0x7a00;
     do {
-      iVar4 = iVar4 + 1;
-      iVar1 = iGp000015e4 + 1;
-      psGp000015e0[iGp000015e4] = uVar3 | (ushort)(iVar5 + 0x200 >> 4) & 0x3f;
-      uVar3 = uVar3 + 0x40;
-      iGp000015e4 = iVar1;
-    } while (iVar4 < 0x18);
-    iVar5 = iVar5 + 0x10;
-    iGp000015e4 = iVar1;
-  } while (iVar5 < 0x100);
-  iVar5 = 0;
-  iGp000015ec = 0;
+      iVar5 = iVar5 + 1;
+      iVar3 = gNbFreePal4 + 1;
+      psVar1[gNbFreePal4] = uVar4 | (ushort)(iVar6 + 0x200 >> 4) & 0x3f;
+      psVar2 = gFreePal8;
+      uVar4 = uVar4 + 0x40;
+      gNbFreePal4 = iVar3;
+    } while (iVar5 < 0x18);
+    iVar6 = iVar6 + 0x10;
+    gNbFreePal4 = iVar3;
+  } while (iVar6 < 0x100);
+  iVar6 = 0;
+  gNbFreePal8 = 0;
+  gNbFreePal4 = iVar3;
   do {
-    iVar4 = 0;
-    uVar3 = 0x5700;
+    iVar5 = 0;
+    uVar4 = 0x5700;
     do {
-      iVar4 = iVar4 + 1;
-      iVar2 = iGp000015ec + 1;
-      psGp000015e8[iGp000015ec] = uVar3 | (ushort)(iVar5 + 0x200 >> 4) & 0x3f;
-      uVar3 = uVar3 + 0x40;
-      iGp000015ec = iVar2;
-    } while (iVar4 < 0x8c);
-    iVar5 = iVar5 + 0x100;
-    iGp000015ec = iVar2;
-  } while (iVar5 < 0x100);
-  iGp000015e4 = iVar1;
-  iGp000015ec = iVar2;
+      iVar5 = iVar5 + 1;
+      iVar3 = gNbFreePal8 + 1;
+      psVar2[gNbFreePal8] = uVar4 | (ushort)(iVar6 + 0x200 >> 4) & 0x3f;
+      uVar4 = uVar4 + 0x40;
+      gNbFreePal8 = iVar3;
+    } while (iVar5 < 0x8c);
+    iVar6 = iVar6 + 0x100;
+    gNbFreePal8 = iVar3;
+  } while (iVar6 < 0x100);
+  gNbFreePal8 = iVar3;
   return;
 }
 
@@ -1164,6 +1520,26 @@ void Texture_InitMenuClut__Fv(void)
 	/* end block 1 */
 	// End offset: 0x800E0630
 	// End Line: 796
+
+	/* begin block 2 */
+		// Start line: 1719
+	/* end block 2 */
+	// End Line: 1720
+
+	/* begin block 3 */
+		// Start line: 1735
+	/* end block 3 */
+	// End Line: 1736
+
+	/* begin block 4 */
+		// Start line: 1735
+	/* end block 4 */
+	// End Line: 1736
+
+	/* begin block 5 */
+		// Start line: 1738
+	/* end block 5 */
+	// End Line: 1739
 
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
@@ -1198,6 +1574,21 @@ void Texture_InitMenuTexture__Fv(void)
 	// End offset: 0x800E0684
 	// End Line: 808
 
+	/* begin block 2 */
+		// Start line: 1745
+	/* end block 2 */
+	// End Line: 1746
+
+	/* begin block 3 */
+		// Start line: 1749
+	/* end block 3 */
+	// End Line: 1750
+
+	/* begin block 4 */
+		// Start line: 1749
+	/* end block 4 */
+	// End Line: 1750
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Texture_CleanupMenuTexture__Fv(void)
@@ -1207,7 +1598,7 @@ void Texture_CleanupMenuTexture__Fv(void)
   int iVar2;
   
   iVar2 = 0;
-  ppDVar1 = &__gMenuPixmap_8__;
+  ppDVar1 = &gMenuPixmap8;
   do {
     if (*ppDVar1 != (Draw_tPixMap *)0x0) {
       Texture_MenuReleaseClutId__Fs((*ppDVar1)->clut);
@@ -1287,6 +1678,21 @@ void Texture_CleanupMenuTexture__Fv(void)
 	// End offset: 0x800E0828
 	// End Line: 844
 
+	/* begin block 2 */
+		// Start line: 1775
+	/* end block 2 */
+	// End Line: 1776
+
+	/* begin block 3 */
+		// Start line: 1779
+	/* end block 3 */
+	// End Line: 1780
+
+	/* begin block 4 */
+		// Start line: 1779
+	/* end block 4 */
+	// End Line: 1780
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Texture_LoadMenuTexture__Fv(void)
@@ -1295,28 +1701,28 @@ void Texture_LoadMenuTexture__Fv(void)
   char *f;
   char acStack288 [256];
   
-  if (__gMenuPixmap_8__ == (Draw_tPixMap *)0x0) {
+  if (gMenuPixmap8 == (Draw_tPixMap *)0x0) {
     sprintf(acStack288,s__sshow_psh_80056a88,PTR_801164cc);
     f = (char *)loadfileadr(acStack288,0);
     Texture_ResetPaletteSharing__Fv();
     Texture_LoadPmx__FPcT0iiiiiP12Draw_tPixMap
-              (f,(char *)&PTR_DAT_8013dad8,0,0x380,0x180,-1,-1,&gMenuPixmapAlloc);
-    __gMenuPixmap_8__ = &gMenuPixmapAlloc;
+              (f,(char *)PTR_ARRAY_8013dad8,0,0x380,0x180,-1,-1,&gMenuPixmapAlloc);
+    gMenuPixmap8 = &gMenuPixmapAlloc;
     Texture_LoadPmx__FPcT0iiiiiP12Draw_tPixMap
-              (f,(char *)&PTR_DAT_8013dae0,0,0x380,0x180,-1,-1,&Draw_tPixMap_80121000);
-    PTR_80120fd4 = &Draw_tPixMap_80121000;
+              (f,(char *)PTR_ARRAY_8013dae0,0,0x380,0x180,-1,-1,&Draw_tPixMap_80121000);
+    PTR_ARRAY_80120fd4[0] = &Draw_tPixMap_80121000;
     Texture_LoadPmx__FPcT0iiiiiP12Draw_tPixMap
-              (f,(char *)&PTR_DAT_8013dae8,0,0x380,0x180,-1,-1,&Draw_tPixMap_80121010);
+              (f,(char *)PTR_ARRAY_8013dae8,0,0x380,0x180,-1,-1,&Draw_tPixMap_80121010);
     PTR_80120fdc = &Draw_tPixMap_80121010;
     Texture_LoadPmx__FPcT0iiiiiP12Draw_tPixMap
-              (f,(char *)&PTR_DAT_8013daf0,0,0x380,0x180,-1,-1,&Draw_tPixMap_80121020);
+              (f,(char *)PTR_ARRAY_8013daf0,0,0x380,0x180,-1,-1,&Draw_tPixMap_80121020);
     PTR_80120fe0 = &Draw_tPixMap_80121020;
     Texture_LoadPmx__FPcT0iiiiiP12Draw_tPixMap
-              (f,(char *)&PTR_DAT_8013daf8,0,0x380,0x180,-1,-1,&Draw_tPixMap_80121030);
+              (f,(char *)PTR_ARRAY_8013daf8,0,0x380,0x180,-1,-1,&Draw_tPixMap_80121030);
     PTR_80120fe4 = &Draw_tPixMap_80121030;
     Texture_LoadPmx__FPcT0iiiiiP12Draw_tPixMap
-              (f,(char *)&PTR_DAT_8013db00,0,0x380,0x180,-1,-1,&Draw_tPixMap_80121040);
-    PTR_80120fe8 = &Draw_tPixMap_80121040;
+              (f,(char *)PTR_ARRAY_8013db00,0,0x380,0x180,-1,-1,Draw_tPixMap_ARRAY_80121040);
+    PTR_80120fe8 = Draw_tPixMap_ARRAY_80121040;
     purgememadr((int)f);
   }
   return;
@@ -1334,6 +1740,26 @@ void Texture_LoadMenuTexture__Fv(void)
 	/* end block 1 */
 	// End offset: 0x800E084C
 	// End Line: 848
+
+	/* begin block 2 */
+		// Start line: 1861
+	/* end block 2 */
+	// End Line: 1862
+
+	/* begin block 3 */
+		// Start line: 1864
+	/* end block 3 */
+	// End Line: 1865
+
+	/* begin block 4 */
+		// Start line: 1864
+	/* end block 4 */
+	// End Line: 1865
+
+	/* begin block 5 */
+		// Start line: 1868
+	/* end block 5 */
+	// End Line: 1869
 
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
@@ -1356,15 +1782,36 @@ void Texture_KillTrackTexture__Fv(void)
 	// End offset: 0x800E0854
 	// End Line: 856
 
+	/* begin block 2 */
+		// Start line: 1876
+	/* end block 2 */
+	// End Line: 1877
+
+	/* begin block 3 */
+		// Start line: 1880
+	/* end block 3 */
+	// End Line: 1881
+
+	/* begin block 4 */
+		// Start line: 1880
+	/* end block 4 */
+	// End Line: 1881
+
+	/* begin block 5 */
+		// Start line: 1882
+	/* end block 5 */
+	// End Line: 1883
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Texture_KillMenuTexture__Fv(void)
 
 {
-  purgememadr(DAT_000015e0);
-  purgememadr(DAT_000015e8);
+  purgememadr((int)gFreePal4);
+  purgememadr((int)gFreePal8);
   return;
 }
+
 
 
 

@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "FETRACKS.H"
+
 
 // decompiled code
 // original method signature: 
@@ -14,17 +15,38 @@
 	// End offset: 0x80021A48
 	// End Line: 40
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 58
+	/* end block 2 */
+	// End Line: 59
+
+	/* begin block 3 */
+		// Start line: 58
+	/* end block 3 */
+	// End Line: 59
+
+	/* begin block 4 */
+		// Start line: 64
+	/* end block 4 */
+	// End Line: 65
 
 void Initialize__13tTrackManager(tTrackManager *this)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
+  int iVar1;
+  int iVar2;
   
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  iVar2 = 0;
+  this->fNumTracks = 0;
+  this->fTracks = (tTrackInformation *)0x0;
+  do {
+    iVar1 = iVar2 << 0x10;
+    iVar2 = iVar2 + 1;
+    iVar1 = (int)&this->fNumTracks + (iVar1 >> 0xe);
+    *(undefined4 *)(iVar1 + 8) = 0;
+    *(undefined4 *)(iVar1 + 0x48) = 0;
+  } while (iVar2 * 0x10000 >> 0x10 < 0x10);
+  return;
 }
 
 
@@ -42,17 +64,40 @@ void Initialize__13tTrackManager(tTrackManager *this)
 	// End offset: 0x80021A74
 	// End Line: 60
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 92
+	/* end block 2 */
+	// End Line: 93
+
+	/* begin block 3 */
+		// Start line: 99
+	/* end block 3 */
+	// End Line: 100
+
+	/* begin block 4 */
+		// Start line: 99
+	/* end block 4 */
+	// End Line: 100
+
+	/* begin block 5 */
+		// Start line: 103
+	/* end block 5 */
+	// End Line: 104
 
 void LoadTracks__13tTrackManagerR14tSaveTrackInfo(tTrackManager *this,tSaveTrackInfo *load)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
+  uchar *puVar1;
+  uint uVar2;
   
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  uVar2 = 0;
+  do {
+    puVar1 = load->fTrackActivated + uVar2;
+    uVar2 = uVar2 + 1;
+    this->fAvailableTracks[0] = (void *)(uint)(*puVar1 != '\0');
+    this = (tTrackManager *)&this->fTracks;
+  } while (uVar2 < 0x10);
+  return;
 }
 
 
@@ -70,17 +115,40 @@ void LoadTracks__13tTrackManagerR14tSaveTrackInfo(tTrackManager *this,tSaveTrack
 	// End offset: 0x80021A9C
 	// End Line: 78
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 132
+	/* end block 2 */
+	// End Line: 133
+
+	/* begin block 3 */
+		// Start line: 138
+	/* end block 3 */
+	// End Line: 139
+
+	/* begin block 4 */
+		// Start line: 138
+	/* end block 4 */
+	// End Line: 139
+
+	/* begin block 5 */
+		// Start line: 142
+	/* end block 5 */
+	// End Line: 143
 
 void SaveTracks__13tTrackManagerR14tSaveTrackInfo(tTrackManager *this,tSaveTrackInfo *save)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
+  uchar *puVar1;
+  uint uVar2;
   
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  uVar2 = 0;
+  do {
+    puVar1 = save->fTrackActivated + uVar2;
+    uVar2 = uVar2 + 1;
+    *puVar1 = *(uchar *)this->fAvailableTracks;
+    this = (tTrackManager *)&this->fTracks;
+  } while (uVar2 < 0x10);
+  return;
 }
 
 
@@ -96,18 +164,28 @@ void SaveTracks__13tTrackManagerR14tSaveTrackInfo(tTrackManager *this,tSaveTrack
 	// End offset: 0x80021AA4
 	// End Line: 85
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 170
+	/* end block 2 */
+	// End Line: 171
+
+	/* begin block 3 */
+		// Start line: 177
+	/* end block 3 */
+	// End Line: 178
+
+	/* begin block 4 */
+		// Start line: 177
+	/* end block 4 */
+	// End Line: 178
 
 void GetTrack__13tTrackManagersR17tTrackInformation
                (tTrackManager *this,short trackNumber,tTrackInformation *trackInfo)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
-  
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  blockmove((undefined4 *)(this->fTracks + (int)trackNumber),(undefined4 *)trackInfo,0x30);
+  trackInfo->fAvailable = *(uchar *)(this->fAvailableTracks + (int)trackInfo->fTrackID);
+  return;
 }
 
 
@@ -128,17 +206,58 @@ void GetTrack__13tTrackManagersR17tTrackInformation
 	// End offset: 0x80021C30
 	// End Line: 140
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 190
+	/* end block 2 */
+	// End Line: 191
+
+	/* begin block 3 */
+		// Start line: 198
+	/* end block 3 */
+	// End Line: 199
+
+	/* begin block 4 */
+		// Start line: 198
+	/* end block 4 */
+	// End Line: 199
 
 void LoadDescription__13tTrackManager(tTrackManager *this)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
+  ulong *puVar1;
+  ulong uVar2;
+  tTrackInformation *ptVar3;
+  char *pcVar4;
+  int iVar5;
+  uint uVar6;
+  char acStack96 [80];
   
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  sprintf(acStack96,&DAT_80010fc8,PTR_801164fc,s_fetrk_trk_80010fd0);
+  ReleaseDescription__13tTrackManager(this);
+  puVar1 = (ulong *)loadfileadr(acStack96,0x10);
+  uVar2 = *puVar1;
+  this->fNumTracks = uVar2;
+  ptVar3 = (tTrackInformation *)reservememadr(s_Track_List_80010fdc,uVar2 * 0x30,0);
+  this->fTracks = ptVar3;
+  blockmove(puVar1 + 1,(undefined4 *)ptVar3,this->fNumTracks * 0x30);
+  uVar6 = 0;
+  if (this->fNumTracks != 0) {
+    iVar5 = 0;
+    do {
+      pcVar4 = &this->fTracks->fTrackID + iVar5;
+      if (pcVar4[3] != '\0') {
+        *(undefined **)(this->fAvailableTracks + (int)*pcVar4) = &DAT_00000001;
+      }
+      pcVar4 = &this->fTracks->fTrackID + iVar5;
+      if (pcVar4[4] == '\0') {
+        *(undefined **)(this->fViewableTracks + (int)*pcVar4) = &DAT_00000001;
+      }
+      uVar6 = uVar6 + 1;
+      iVar5 = iVar5 + 0x30;
+    } while (uVar6 < this->fNumTracks);
+  }
+  purgememadr((int)puVar1);
+  return;
 }
 
 
@@ -154,17 +273,30 @@ void LoadDescription__13tTrackManager(tTrackManager *this)
 	// End offset: 0x80021C74
 	// End Line: 150
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 322
+	/* end block 2 */
+	// End Line: 323
+
+	/* begin block 3 */
+		// Start line: 328
+	/* end block 3 */
+	// End Line: 329
+
+	/* begin block 4 */
+		// Start line: 328
+	/* end block 4 */
+	// End Line: 329
 
 void ReleaseDescription__13tTrackManager(tTrackManager *this)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
-  
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  if (this->fTracks != (tTrackInformation *)0x0) {
+    purgememadr((int)this->fTracks);
+  }
+  this->fTracks = (tTrackInformation *)0x0;
+  this->fNumTracks = 0;
+  return;
 }
 
 
@@ -180,17 +312,36 @@ void ReleaseDescription__13tTrackManager(tTrackManager *this)
 	// End offset: 0x80021C8C
 	// End Line: 159
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 345
+	/* end block 2 */
+	// End Line: 346
+
+	/* begin block 3 */
+		// Start line: 352
+	/* end block 3 */
+	// End Line: 353
+
+	/* begin block 4 */
+		// Start line: 352
+	/* end block 4 */
+	// End Line: 353
+
+	/* begin block 5 */
+		// Start line: 353
+	/* end block 5 */
+	// End Line: 354
+
+	/* begin block 6 */
+		// Start line: 353
+	/* end block 6 */
+	// End Line: 354
 
 void SetTrackAvailable__13tTrackManagersb(tTrackManager *this,short track,void *avail)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
-  
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  *(void **)((int)this->fAvailableTracks + ((int)((uint)(ushort)track << 0x10) >> 0xe)) = avail;
+  return;
 }
 
 
@@ -208,18 +359,47 @@ void SetTrackAvailable__13tTrackManagersb(tTrackManager *this,short track,void *
 	// End offset: 0x80021CF8
 	// End Line: 181
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 338
+	/* end block 2 */
+	// End Line: 339
+
+	/* begin block 3 */
+		// Start line: 375
+	/* end block 3 */
+	// End Line: 376
+
+	/* begin block 4 */
+		// Start line: 375
+	/* end block 4 */
+	// End Line: 376
+
+	/* begin block 5 */
+		// Start line: 378
+	/* end block 5 */
+	// End Line: 379
 
 void SetClassAvailable__13tTrackManager15tTrackClassTypeb
                (tTrackManager *this,tTrackClassType trackClass,void *avail)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
+  char *pcVar1;
+  uint uVar2;
+  int iVar3;
   
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  uVar2 = 0;
+  if (this->fNumTracks != 0) {
+    iVar3 = 0;
+    do {
+      pcVar1 = &this->fTracks->fTrackID + iVar3;
+      if ((uint)(byte)pcVar1[2] == trackClass) {
+        this->fAvailableTracks[(int)*pcVar1] = avail;
+      }
+      uVar2 = uVar2 + 1;
+      iVar3 = iVar3 + 0x30;
+    } while (uVar2 < this->fNumTracks);
+  }
+  return;
 }
 
 
@@ -237,17 +417,44 @@ void SetClassAvailable__13tTrackManager15tTrackClassTypeb
 	// End offset: 0x80021D4C
 	// End Line: 210
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 391
+	/* end block 2 */
+	// End Line: 392
+
+	/* begin block 3 */
+		// Start line: 414
+	/* end block 3 */
+	// End Line: 415
+
+	/* begin block 4 */
+		// Start line: 414
+	/* end block 4 */
+	// End Line: 415
+
+	/* begin block 5 */
+		// Start line: 417
+	/* end block 5 */
+	// End Line: 418
 
 tTrackInformation * GetTrackByID__13tTrackManagers(tTrackManager *this,short track)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
+  tTrackInformation *ptVar1;
+  uint uVar2;
   
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  uVar2 = 0;
+  if (this->fNumTracks != 0) {
+    ptVar1 = this->fTracks;
+    do {
+      uVar2 = uVar2 + 1;
+      if ((int)ptVar1->fTrackID == (int)track) {
+        return ptVar1;
+      }
+      ptVar1 = ptVar1 + 1;
+    } while (uVar2 < this->fNumTracks);
+  }
+  return this->fTracks;
 }
 
 
@@ -263,19 +470,30 @@ tTrackInformation * GetTrackByID__13tTrackManagers(tTrackManager *this,short tra
 	// End offset: 0x80021D54
 	// End Line: 234
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 460
+	/* end block 2 */
+	// End Line: 461
+
+	/* begin block 3 */
+		// Start line: 484
+	/* end block 3 */
+	// End Line: 485
+
+	/* begin block 4 */
+		// Start line: 484
+	/* end block 4 */
+	// End Line: 485
 
 tListIteratorTrack *
 __18tListIteratorTrackPcT1P13tTrackManager
           (tListIteratorTrack *this,char *valPtr,char *index,tTrackManager *trackManager)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
-  
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  __20tListIteratorIndexedPsPcT2((tListIteratorIndexed *)this,(short *)0x0,valPtr,index);
+  *(undefined4 *)((this->tListIteratorIndexed).tListIterator._vf + 2) = 0x80010fe8;
+  this->fTrackManager = trackManager;
+  return this;
 }
 
 
@@ -291,17 +509,27 @@ __18tListIteratorTrackPcT1P13tTrackManager
 	// End offset: 0x80021DAC
 	// End Line: 240
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 494
+	/* end block 2 */
+	// End Line: 495
+
+	/* begin block 3 */
+		// Start line: 498
+	/* end block 3 */
+	// End Line: 499
+
+	/* begin block 4 */
+		// Start line: 498
+	/* end block 4 */
+	// End Line: 499
 
 void ___18tListIteratorTrack(tListIteratorTrack *this,int __in_chrg)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
-  
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  *(undefined4 *)((this->tListIteratorIndexed).tListIterator._vf + 2) = 0x80010fe8;
+  ___20tListIteratorIndexed((tListIteratorIndexed *)this,__in_chrg);
+  return;
 }
 
 
@@ -319,17 +547,37 @@ void ___18tListIteratorTrack(tListIteratorTrack *this,int __in_chrg)
 	// End offset: 0x80021DD4
 	// End Line: 245
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 502
+	/* end block 2 */
+	// End Line: 503
+
+	/* begin block 3 */
+		// Start line: 506
+	/* end block 3 */
+	// End Line: 507
+
+	/* begin block 4 */
+		// Start line: 506
+	/* end block 4 */
+	// End Line: 507
+
+	/* begin block 5 */
+		// Start line: 507
+	/* end block 5 */
+	// End Line: 508
+
+	/* begin block 6 */
+		// Start line: 507
+	/* end block 6 */
+	// End Line: 508
 
 short TextValue__18tListIteratorTrack7tPlayer(tListIteratorTrack *this,tPlayer atIndex)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
-  
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  return (short)this->fTrackManager->fTracks
+                [(uint)(byte)(this->tListIteratorIndexed).tListIterator.fValue
+                             [(uint)(byte)*(this->tListIteratorIndexed).fIndex]].fTrackID + 0xd5;
 }
 
 
@@ -345,17 +593,43 @@ short TextValue__18tListIteratorTrack7tPlayer(tListIteratorTrack *this,tPlayer a
 	// End offset: 0x80021EB0
 	// End Line: 256
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 514
+	/* end block 2 */
+	// End Line: 515
+
+	/* begin block 3 */
+		// Start line: 518
+	/* end block 3 */
+	// End Line: 519
+
+	/* begin block 4 */
+		// Start line: 518
+	/* end block 4 */
+	// End Line: 519
 
 void Increment__18tListIteratorTrack7tPlayer(tListIteratorTrack *this,tPlayer atIndex)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
+  undefined *puVar1;
+  char *pcVar2;
+  byte *pbVar3;
   
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  do {
+    pcVar2 = (this->tListIteratorIndexed).tListIterator.fValue +
+             (uint)(byte)*(this->tListIteratorIndexed).fIndex;
+    *pcVar2 = *pcVar2 + '\x01';
+    pbVar3 = (byte *)((this->tListIteratorIndexed).tListIterator.fValue +
+                     (uint)(byte)*(this->tListIteratorIndexed).fIndex);
+    if (this->fTrackManager->fNumTracks <= (uint)*pbVar3) {
+      *pbVar3 = 0;
+    }
+    puVar1 = (undefined *)
+             ValidTrack__18tListIteratorTrackc
+                       (this,(this->tListIteratorIndexed).tListIterator.fValue
+                             [(uint)(byte)*(this->tListIteratorIndexed).fIndex]);
+  } while (puVar1 != &DAT_00000001);
+  return;
 }
 
 
@@ -371,17 +645,42 @@ void Increment__18tListIteratorTrack7tPlayer(tListIteratorTrack *this,tPlayer at
 	// End offset: 0x80021F40
 	// End Line: 266
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 534
+	/* end block 2 */
+	// End Line: 535
+
+	/* begin block 3 */
+		// Start line: 538
+	/* end block 3 */
+	// End Line: 539
+
+	/* begin block 4 */
+		// Start line: 538
+	/* end block 4 */
+	// End Line: 539
 
 void Decrement__18tListIteratorTrack7tPlayer(tListIteratorTrack *this,tPlayer atIndex)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
+  char cVar1;
+  undefined *puVar2;
+  char *pcVar3;
   
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  do {
+    pcVar3 = (this->tListIteratorIndexed).tListIterator.fValue +
+             (uint)(byte)*(this->tListIteratorIndexed).fIndex;
+    cVar1 = *pcVar3;
+    if (cVar1 == '\0') {
+      cVar1 = *(char *)&this->fTrackManager->fNumTracks;
+    }
+    *pcVar3 = cVar1 + -1;
+    puVar2 = (undefined *)
+             ValidTrack__18tListIteratorTrackc
+                       (this,(this->tListIteratorIndexed).tListIterator.fValue
+                             [(uint)(byte)*(this->tListIteratorIndexed).fIndex]);
+  } while (puVar2 != &DAT_00000001);
+  return;
 }
 
 
@@ -400,18 +699,58 @@ void Decrement__18tListIteratorTrack7tPlayer(tListIteratorTrack *this,tPlayer at
 	// End offset: 0x80021FEC
 	// End Line: 289
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 554
+	/* end block 2 */
+	// End Line: 555
+
+	/* begin block 3 */
+		// Start line: 558
+	/* end block 3 */
+	// End Line: 559
+
+	/* begin block 4 */
+		// Start line: 558
+	/* end block 4 */
+	// End Line: 559
+
+	/* begin block 5 */
+		// Start line: 559
+	/* end block 5 */
+	// End Line: 560
+
+	/* begin block 6 */
+		// Start line: 559
+	/* end block 6 */
+	// End Line: 560
 
 void * ValidTrack__18tListIteratorTrackc(tListIteratorTrack *this,char track)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
+  tTrackInformation *ptVar1;
+  ulong *puVar2;
+  void *pvVar3;
   
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  ptVar1 = this->fTrackManager->fTracks + (uint)(byte)track;
+  puVar2 = &this->fTrackManager->fNumTracks + (int)ptVar1->fTrackID;
+  pvVar3 = (void *)puVar2[2];
+  if (frontEnd.raceType == '\0') {
+    pvVar3 = (void *)(uint)(((uint)pvVar3 | puVar2[0x12]) != 0);
+  }
+  else {
+    if (frontEnd.raceType == '\x01') {
+      pvVar3 = (void *)(uint)(((uint)pvVar3 | puVar2[0x12]) != 0);
+      if (ptVar1->fIsEgg != '\0') {
+        pvVar3 = (void *)0x0;
+      }
+      if (2 < ptVar1->fTrackDifficulty) {
+        pvVar3 = (void *)0x0;
+      }
+    }
+  }
+  return pvVar3;
 }
+
 
 
 

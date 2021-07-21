@@ -1,6 +1,7 @@
 #ifndef BWORLD_H
 #define BWORLD_H
 
+
 extern int xzsquaredist32__FP8coorddefT0(struct coorddef *c1, struct coorddef *c2); // 0x8007D5C4
 
 extern void UpdateContext__FP13DRender_tViewi(struct DRender_tView *Vi, int contextHandle); // 0x8007D608
@@ -42,5 +43,6 @@ extern void BWorld_StartLoop__Fv(); // 0x8007E5C0
 extern void BWorld_Init__Fv(); // 0x8007E5C8
 
 extern void BWorld_DeInit__Fv(); // 0x8007E8B4
+
 
 #endif

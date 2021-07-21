@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "UDFF.H"
+
 
 // decompiled code
 // original method signature: 
@@ -13,6 +14,16 @@
 	/* end block 1 */
 	// End offset: 0x800BBAB8
 	// End Line: 77
+
+	/* begin block 2 */
+		// Start line: 42
+	/* end block 2 */
+	// End Line: 43
+
+	/* begin block 3 */
+		// Start line: 42
+	/* end block 3 */
+	// End Line: 43
 
 Udff_tInfo * Udff_Opena__FPcT0i(char *name,char *mem,int abortFlag)
 
@@ -63,6 +74,21 @@ Udff_tInfo * Udff_Opena__FPcT0i(char *name,char *mem,int abortFlag)
 	// End offset: 0x800BBB14
 	// End Line: 100
 
+	/* begin block 2 */
+		// Start line: 163
+	/* end block 2 */
+	// End Line: 164
+
+	/* begin block 3 */
+		// Start line: 171
+	/* end block 3 */
+	// End Line: 172
+
+	/* begin block 4 */
+		// Start line: 171
+	/* end block 4 */
+	// End Line: 172
+
 void Udff_Close__FP10Udff_tInfo(Udff_tInfo *handle)
 
 {
@@ -90,6 +116,26 @@ void Udff_Close__FP10Udff_tInfo(Udff_tInfo *handle)
 	// End offset: 0x800BBB24
 	// End Line: 121
 
+	/* begin block 2 */
+		// Start line: 208
+	/* end block 2 */
+	// End Line: 209
+
+	/* begin block 3 */
+		// Start line: 213
+	/* end block 3 */
+	// End Line: 214
+
+	/* begin block 4 */
+		// Start line: 213
+	/* end block 4 */
+	// End Line: 214
+
+	/* begin block 5 */
+		// Start line: 228
+	/* end block 5 */
+	// End Line: 229
+
 int Udff_GetInt__FP10Udff_tInfo(Udff_tInfo *handle)
 
 {
@@ -113,6 +159,21 @@ int Udff_GetInt__FP10Udff_tInfo(Udff_tInfo *handle)
 	// End offset: 0x800BBB3C
 	// End Line: 204
 
+	/* begin block 2 */
+		// Start line: 400
+	/* end block 2 */
+	// End Line: 401
+
+	/* begin block 3 */
+		// Start line: 335
+	/* end block 3 */
+	// End Line: 336
+
+	/* begin block 4 */
+		// Start line: 335
+	/* end block 4 */
+	// End Line: 336
+
 void Udff_GetBuffer__FP10Udff_tInfoPci(Udff_tInfo *handle,char *mem,int size)
 
 {
@@ -120,6 +181,7 @@ void Udff_GetBuffer__FP10Udff_tInfoPci(Udff_tInfo *handle,char *mem,int size)
   handle->memPtr = handle->memPtr + size;
   return;
 }
+
 
 
 

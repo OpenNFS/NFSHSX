@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "UNPACK.H"
+
 
 // decompiled code
 // original method signature: 
@@ -13,6 +14,16 @@
 	/* end block 1 */
 	// End offset: 0x800E3F0C
 	// End Line: 101
+
+	/* begin block 2 */
+		// Start line: 118
+	/* end block 2 */
+	// End Line: 119
+
+	/* begin block 3 */
+		// Start line: 118
+	/* end block 3 */
+	// End Line: 119
 
 long unpackz(void *src,void *dst)
 
@@ -62,6 +73,21 @@ long unpackz(void *src,void *dst)
 	// End offset: 0x800E3F1C
 	// End Line: 105
 
+	/* begin block 2 */
+		// Start line: 206
+	/* end block 2 */
+	// End Line: 207
+
+	/* begin block 3 */
+		// Start line: 209
+	/* end block 3 */
+	// End Line: 210
+
+	/* begin block 4 */
+		// Start line: 209
+	/* end block 4 */
+	// End Line: 210
+
 long unpack(void *src,void *dst)
 
 {
@@ -85,6 +111,21 @@ long unpack(void *src,void *dst)
 	/* end block 1 */
 	// End offset: 0x800E3FF4
 	// End Line: 193
+
+	/* begin block 2 */
+		// Start line: 282
+	/* end block 2 */
+	// End Line: 283
+
+	/* begin block 3 */
+		// Start line: 331
+	/* end block 3 */
+	// End Line: 332
+
+	/* begin block 4 */
+		// Start line: 331
+	/* end block 4 */
+	// End Line: 332
 
 long unpacksizez(void *src)
 
@@ -143,6 +184,21 @@ long unpacksizez(void *src)
 	// End offset: 0x800E4004
 	// End Line: 197
 
+	/* begin block 2 */
+		// Start line: 391
+	/* end block 2 */
+	// End Line: 392
+
+	/* begin block 3 */
+		// Start line: 394
+	/* end block 3 */
+	// End Line: 395
+
+	/* begin block 4 */
+		// Start line: 394
+	/* end block 4 */
+	// End Line: 395
+
 long unpacksize(void *src)
 
 {
@@ -151,6 +207,19 @@ long unpacksize(void *src)
   lVar1 = unpacksizez(src);
   return lVar1;
 }
+
+
+
+// decompiled code
+// original method signature: 
+// void __main() /* __main method signature is not contained in the debug symbol data. This is likely either a library function or the game was compiled without debug symbols. Please refer to the TDR documentation for additional guidance. */
+ // line 210, offset 0x800e4024
+void __main(void)
+
+{
+  return;
+}
+
 
 
 

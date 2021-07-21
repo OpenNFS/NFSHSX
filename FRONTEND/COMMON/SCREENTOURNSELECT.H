@@ -1,6 +1,7 @@
 #ifndef SCREENTOURNSELECT_H
 #define SCREENTOURNSELECT_H
 
+
 extern struct tScreenTournSelect * __18tScreenTournSelect(struct tScreenTournSelect *this); // 0x8003F778
 
 extern void _._18tScreenTournSelect(struct tScreenTournSelect *this, int __in_chrg); // 0x8003F7AC
@@ -18,5 +19,6 @@ extern void DrawVideoWall__18tScreenTournSelect(struct tScreenTournSelect *this)
 extern void DrawBackground__18tScreenTournSelect(struct tScreenTournSelect *this); // 0x8003FE5C
 
 extern void DrawForeground__18tScreenTournSelect(struct tScreenTournSelect *this); // 0x800404D8
+
 
 #endif

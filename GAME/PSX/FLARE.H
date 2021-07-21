@@ -1,6 +1,7 @@
 #ifndef FLARE_H
 #define FLARE_H
 
+
 extern void Flare_Tri__FPlN20i(long *cp, long *p1, long *p2, int otz); // 0x800CBCB0
 
 extern void Flare_SetMatrix__FP10matrixtdef(struct matrixtdef *m); // 0x800CBD4C
@@ -54,5 +55,6 @@ extern void Flare_LensFlare__FP7DVECTORP15Draw_FlareCache(struct DVECTOR *screen
 extern void Flare_Sun__FP7SVECTORP15Draw_FlareCache(struct SVECTOR *worldPos, struct Draw_FlareCache *sd); // 0x800CF1D0
 
 extern void Flare_Moon__FP7SVECTORP15Draw_FlareCache(struct SVECTOR *worldPos, struct Draw_FlareCache *sd); // 0x800CF4BC
+
 
 #endif

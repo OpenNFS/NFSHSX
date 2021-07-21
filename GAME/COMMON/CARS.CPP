@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "CARS.H"
+
 
 // decompiled code
 // original method signature: 
@@ -13,6 +14,26 @@
 	/* end block 1 */
 	// End offset: 0x80085EB4
 	// End Line: 415
+
+	/* begin block 2 */
+		// Start line: 735
+	/* end block 2 */
+	// End Line: 736
+
+	/* begin block 3 */
+		// Start line: 739
+	/* end block 3 */
+	// End Line: 740
+
+	/* begin block 4 */
+		// Start line: 744
+	/* end block 4 */
+	// End Line: 745
+
+	/* begin block 5 */
+		// Start line: 744
+	/* end block 5 */
+	// End Line: 745
 
 void Cars_DoGravityEffectsOnAcc__FP8Car_tObji(Car_tObj *carObj,int arcade)
 
@@ -81,6 +102,31 @@ void Cars_DoGravityEffectsOnAcc__FP8Car_tObji(Car_tObj *carObj,int arcade)
 	// End offset: 0x80085EC4
 	// End Line: 424
 
+	/* begin block 2 */
+		// Start line: 836
+	/* end block 2 */
+	// End Line: 837
+
+	/* begin block 3 */
+		// Start line: 840
+	/* end block 3 */
+	// End Line: 841
+
+	/* begin block 4 */
+		// Start line: 840
+	/* end block 4 */
+	// End Line: 841
+
+	/* begin block 5 */
+		// Start line: 841
+	/* end block 5 */
+	// End Line: 842
+
+	/* begin block 6 */
+		// Start line: 841
+	/* end block 6 */
+	// End Line: 842
+
 void Cars_GetDashData__FP8Car_tObjPiN21(Car_tObj *carObj,int *rpm,int *gear,int *speed)
 
 {
@@ -104,6 +150,26 @@ void Cars_GetDashData__FP8Car_tObjPiN21(Car_tObj *carObj,int *rpm,int *gear,int 
 	/* end block 1 */
 	// End offset: 0x80085F48
 	// End Line: 438
+
+	/* begin block 2 */
+		// Start line: 851
+	/* end block 2 */
+	// End Line: 852
+
+	/* begin block 3 */
+		// Start line: 856
+	/* end block 3 */
+	// End Line: 857
+
+	/* begin block 4 */
+		// Start line: 856
+	/* end block 4 */
+	// End Line: 857
+
+	/* begin block 5 */
+		// Start line: 861
+	/* end block 5 */
+	// End Line: 862
 
 void Cars_QDUpdateVelGlue__FP8Car_tObj(Car_tObj *carObj)
 
@@ -145,6 +211,31 @@ void Cars_QDUpdateVelGlue__FP8Car_tObj(Car_tObj *carObj)
 	// End offset: 0x80085F64
 	// End Line: 475
 
+	/* begin block 2 */
+		// Start line: 910
+	/* end block 2 */
+	// End Line: 911
+
+	/* begin block 3 */
+		// Start line: 946
+	/* end block 3 */
+	// End Line: 947
+
+	/* begin block 4 */
+		// Start line: 946
+	/* end block 4 */
+	// End Line: 947
+
+	/* begin block 5 */
+		// Start line: 947
+	/* end block 5 */
+	// End Line: 948
+
+	/* begin block 6 */
+		// Start line: 947
+	/* end block 6 */
+	// End Line: 948
+
 void Cars_InitDashData__FP8Car_tObjPiT1(Car_tObj *carObj,int *redline,int *topspeed)
 
 {
@@ -165,6 +256,26 @@ void Cars_InitDashData__FP8Car_tObjPiT1(Car_tObj *carObj,int *redline,int *topsp
 	/* end block 1 */
 	// End offset: 0x80085F8C
 	// End Line: 482
+
+	/* begin block 2 */
+		// Start line: 954
+	/* end block 2 */
+	// End Line: 955
+
+	/* begin block 3 */
+		// Start line: 958
+	/* end block 3 */
+	// End Line: 959
+
+	/* begin block 4 */
+		// Start line: 958
+	/* end block 4 */
+	// End Line: 959
+
+	/* begin block 5 */
+		// Start line: 960
+	/* end block 5 */
+	// End Line: 961
 
 void Cars_SetAudioCalls__FP8Car_tObjiiiiii
                (Car_tObj *carObj,int type,int chan,int s1,int s2,int force,int pan)
@@ -193,19 +304,44 @@ void Cars_SetAudioCalls__FP8Car_tObjiiiiii
 	// End offset: 0x80086054
 	// End Line: 494
 
+	/* begin block 2 */
+		// Start line: 997
+	/* end block 2 */
+	// End Line: 998
+
+	/* begin block 3 */
+		// Start line: 1002
+	/* end block 3 */
+	// End Line: 1003
+
+	/* begin block 4 */
+		// Start line: 1002
+	/* end block 4 */
+	// End Line: 1003
+
+	/* begin block 5 */
+		// Start line: 1003
+	/* end block 5 */
+	// End Line: 1004
+
+	/* begin block 6 */
+		// Start line: 1003
+	/* end block 6 */
+	// End Line: 1004
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Cars_ResetCarCounters__Fv(void)
 
 {
-  DAT_000002a8 = 0;
-  DAT_000002ac = 0;
-  DAT_000002b0 = 0;
-  DAT_000002b4 = 0;
-  DAT_000002b8 = 0;
-  DAT_000002bc = 0;
-  DAT_000002c0 = 0;
-  DAT_000002c4 = 0;
+  Cars_gNumCars = 0;
+  Cars_gNumRaceCars = 0;
+  Cars_gNumAICars = 0;
+  Cars_gNumHumanRaceCars = 0;
+  Cars_gNumAIRaceCars = 0;
+  Cars_gNumTrafficCars = 0;
+  Cars_gNumCopCars = 0;
+  Cars_gNumLifeBasisCars = 0;
   return;
 }
 
@@ -224,6 +360,26 @@ void Cars_ResetCarCounters__Fv(void)
 	/* end block 1 */
 	// End offset: 0x800860BC
 	// End Line: 525
+
+	/* begin block 2 */
+		// Start line: 1024
+	/* end block 2 */
+	// End Line: 1025
+
+	/* begin block 3 */
+		// Start line: 1028
+	/* end block 3 */
+	// End Line: 1029
+
+	/* begin block 4 */
+		// Start line: 1028
+	/* end block 4 */
+	// End Line: 1029
+
+	/* begin block 5 */
+		// Start line: 1041
+	/* end block 5 */
+	// End Line: 1042
 
 void Cars_InitStats__FP8Car_tObj(Car_tObj *carObj)
 
@@ -288,6 +444,21 @@ void Cars_InitStats__FP8Car_tObj(Car_tObj *carObj)
 	// End offset: 0x800865E0
 	// End Line: 652
 
+	/* begin block 2 */
+		// Start line: 1106
+	/* end block 2 */
+	// End Line: 1107
+
+	/* begin block 3 */
+		// Start line: 1110
+	/* end block 3 */
+	// End Line: 1111
+
+	/* begin block 4 */
+		// Start line: 1110
+	/* end block 4 */
+	// End Line: 1111
+
 void Cars_InitializeCarTablesFlagsAndCounters__FP8Car_tObj(Car_tObj *carObj)
 
 {
@@ -300,14 +471,14 @@ void Cars_InitializeCarTablesFlagsAndCounters__FP8Car_tObj(Car_tObj *carObj)
   uint uVar6;
   
   uVar6 = carObj->carInfo->carClass;
-  (&__Cars_gList_9__)[iGp000002a8] = carObj;
-  (&__Cars_gSortedList_9__)[iGp000002a8] = carObj;
-  (&__Cars_gTotalSortedList_9__)[iGp000002a8] = carObj;
-  carObj->carIndex = iGp000002a8;
-  iGp000002a8 = iGp000002a8 + 1;
+  (&Cars_gList9)[Cars_gNumCars] = carObj;
+  (&Cars_gSortedList9)[Cars_gNumCars] = carObj;
+  (&Cars_gTotalSortedList9)[Cars_gNumCars] = carObj;
+  carObj->carIndex = Cars_gNumCars;
+  Cars_gNumCars = Cars_gNumCars + 1;
   carObj->carFlags = 0;
   carObj->humanIndex = -1;
-  strcpy(carObj->carName,&GameSetup_gCarNames + carObj->carInfo->carType * 5);
+  strcpy(carObj->carName,GameSetup_gCarNames + carObj->carInfo->carType * 5);
   iVar4 = carObj->carInfo->carType;
   if (iVar4 < 0x1d) {
     __src = TextSys_Word__Fi(iVar4 + 0x4e);
@@ -317,33 +488,33 @@ void Cars_InitializeCarTablesFlagsAndCounters__FP8Car_tObj(Car_tObj *carObj)
     sprintf(carObj->carNameLocalized,&DAT_8013c7e0);
   }
   if ((uVar6 & 1) == 0) goto LAB_80086300;
-  pvVar1 = PlayerNameExist__Fi(iGp000002b4);
+  pvVar1 = PlayerNameExist__Fi(Cars_gNumHumanRaceCars);
   if (pvVar1 == (void *)0x0) {
     if (frontEnd.gameMode != '\x01') {
       __src = TextSys_Word__Fi(0x2e);
       goto LAB_80086234;
     }
     __src = TextSys_Word__Fi(0x2f);
-    sprintf(carObj->carInfo->driver,__src,iGp000002b4 + 1);
+    sprintf(carObj->carInfo->driver,__src,Cars_gNumHumanRaceCars + 1);
   }
   else {
-    __src = PlayerNameMixedCase__Fi(iGp000002b4);
+    __src = PlayerNameMixedCase__Fi(Cars_gNumHumanRaceCars);
 LAB_80086234:
     sprintf(carObj->carInfo->driver,__src);
   }
-  strcpy(carObj->carInfo->license,frontEnd.licensePlate + iGp000002b4 * 8);
-  ppCVar2 = &__Cars_gHumanRaceCarList_9__ + iGp000002b4;
-  carObj->humanIndex = iGp000002b4;
-  iGp000002b4 = iGp000002b4 + 1;
+  strcpy(carObj->carInfo->license,frontEnd.licensePlate + Cars_gNumHumanRaceCars * 8);
+  ppCVar2 = &Cars_gHumanRaceCarList9 + Cars_gNumHumanRaceCars;
+  carObj->humanIndex = Cars_gNumHumanRaceCars;
+  Cars_gNumHumanRaceCars = Cars_gNumHumanRaceCars + 1;
   *ppCVar2 = carObj;
   carObj->carFlags = carObj->carFlags | 4;
-  ppCVar2 = &__Cars_gRaceCarList_9__ + iGp000002ac;
-  iGp000002ac = iGp000002ac + 1;
+  ppCVar2 = &Cars_gRaceCarList9 + Cars_gNumRaceCars;
+  Cars_gNumRaceCars = Cars_gNumRaceCars + 1;
   *ppCVar2 = carObj;
   carObj->carFlags = carObj->carFlags | 1;
-  (&__Cars_gLifeBasisCarList_9__)[iGp000002c4] = carObj;
+  (&Cars_gLifeBasisCarList9)[Cars_gNumLifeBasisCars] = carObj;
   uVar3 = carObj->carFlags;
-  iGp000002c4 = iGp000002c4 + 1;
+  Cars_gNumLifeBasisCars = Cars_gNumLifeBasisCars + 1;
   carObj->carFlags = uVar3 | 0x100;
   if ((uVar6 & 0x40) != 0) {
     carObj->carFlags = uVar3 | 0x300;
@@ -351,54 +522,54 @@ LAB_80086234:
 LAB_80086300:
   if ((uVar6 & 2) != 0) {
     iVar4 = GameSetup_gData.carInfo[carObj->carIndex].Personality;
-    strcpy(carObj->carInfo->driver,&GameSetup_gPersonalityNames + iVar4 * 8);
+    strcpy(carObj->carInfo->driver,GameSetup_gPersonalityNames + iVar4 * 8);
     if (((GameSetup_gData.raceType == 1) || (GameSetup_gData.raceType == 5)) &&
-       (((__Cars_gHumanRaceCarList_9__->carFlags & 0x200U) != 0 ||
-        ((iGp000002b4 == 2 && ((PTR_8010fa4c->carFlags & 0x200U) != 0)))))) {
+       (((Cars_gHumanRaceCarList9->carFlags & 0x200U) != 0 ||
+        ((Cars_gNumHumanRaceCars == 2 && ((PTR_ARRAY_8010fa4c[0]->carFlags & 0x200U) != 0)))))) {
       __src = TextSys_Word__Fi(0x32);
       pGVar5 = carObj->carInfo;
     }
     else {
       pGVar5 = carObj->carInfo;
-      __src = &GameSetup_gPersonalityNames + iVar4 * 8;
+      __src = GameSetup_gPersonalityNames + iVar4 * 8;
     }
     strcpy(pGVar5->license,__src);
     s_lower__FPc(carObj->carInfo->license);
-    (&__Cars_gAICarList_9__)[iGp000002b0] = carObj;
-    iGp000002b0 = iGp000002b0 + 1;
+    Cars_gAICarList9[Cars_gNumAICars] = carObj;
+    Cars_gNumAICars = Cars_gNumAICars + 1;
     carObj->carFlags = carObj->carFlags | 2;
-    (&__Cars_gAIRaceCarList_9__)[iGp000002b8] = carObj;
-    iGp000002b8 = iGp000002b8 + 1;
+    Cars_gAIRaceCarList9[Cars_gNumAIRaceCars] = carObj;
+    Cars_gNumAIRaceCars = Cars_gNumAIRaceCars + 1;
     carObj->carFlags = carObj->carFlags | 8;
-    (&__Cars_gRaceCarList_9__)[iGp000002ac] = carObj;
+    (&Cars_gRaceCarList9)[Cars_gNumRaceCars] = carObj;
     carObj->carFlags = carObj->carFlags | 1;
-    iGp000002ac = iGp000002ac + 1;
+    Cars_gNumRaceCars = Cars_gNumRaceCars + 1;
     if ((GameSetup_gData.cops != 0) &&
        (((GameSetup_gData.raceType != 1 && (GameSetup_gData.raceType != 5)) ||
-        (((__Cars_gHumanRaceCarList_9__->carFlags & 0x200U) == 0 &&
-         ((iGp000002b4 != 2 || ((PTR_8010fa4c->carFlags & 0x200U) == 0)))))))) {
-      (&__Cars_gLifeBasisCarList_9__)[iGp000002c4] = carObj;
-      iGp000002c4 = iGp000002c4 + 1;
+        (((Cars_gHumanRaceCarList9->carFlags & 0x200U) == 0 &&
+         ((Cars_gNumHumanRaceCars != 2 || ((PTR_ARRAY_8010fa4c[0]->carFlags & 0x200U) == 0)))))))) {
+      (&Cars_gLifeBasisCarList9)[Cars_gNumLifeBasisCars] = carObj;
+      Cars_gNumLifeBasisCars = Cars_gNumLifeBasisCars + 1;
       carObj->carFlags = carObj->carFlags | 0x100;
     }
   }
   if ((uVar6 & 4) != 0) {
-    ppCVar2 = &__Cars_gAICarList_9__ + iGp000002b0;
-    iGp000002b0 = iGp000002b0 + 1;
+    ppCVar2 = Cars_gAICarList9 + Cars_gNumAICars;
+    Cars_gNumAICars = Cars_gNumAICars + 1;
     *ppCVar2 = carObj;
     carObj->carFlags = carObj->carFlags | 2;
-    (&__Cars_gTrafficCarList_9__)[iGp000002bc] = carObj;
-    iGp000002bc = iGp000002bc + 1;
+    (&Cars_gTrafficCarList9)[Cars_gNumTrafficCars] = carObj;
+    Cars_gNumTrafficCars = Cars_gNumTrafficCars + 1;
     carObj->carFlags = carObj->carFlags | 0x10;
   }
   if ((uVar6 & 0x18) != 0) {
-    ppCVar2 = &__Cars_gAICarList_9__ + iGp000002b0;
-    iGp000002b0 = iGp000002b0 + 1;
+    ppCVar2 = Cars_gAICarList9 + Cars_gNumAICars;
+    Cars_gNumAICars = Cars_gNumAICars + 1;
     *ppCVar2 = carObj;
     carObj->carFlags = carObj->carFlags | 2;
-    (&__Cars_gCopCarList_9__)[iGp000002c0] = carObj;
+    (&Cars_gCopCarList9)[Cars_gNumCopCars] = carObj;
     uVar3 = carObj->carFlags;
-    iGp000002c0 = iGp000002c0 + 1;
+    Cars_gNumCopCars = Cars_gNumCopCars + 1;
     carObj->carFlags = uVar3 | 0x20;
     if ((uVar6 & 0x10) != 0) {
       carObj->carFlags = uVar3 | 0x60;
@@ -419,6 +590,21 @@ LAB_80086300:
 	/* end block 1 */
 	// End offset: 0x800865FC
 	// End Line: 679
+
+	/* begin block 2 */
+		// Start line: 1474
+	/* end block 2 */
+	// End Line: 1475
+
+	/* begin block 3 */
+		// Start line: 1501
+	/* end block 3 */
+	// End Line: 1502
+
+	/* begin block 4 */
+		// Start line: 1501
+	/* end block 4 */
+	// End Line: 1502
 
 void Cars_ResetVariablesAfterACollision__FP8Car_tObj(Car_tObj *carObj)
 
@@ -482,6 +668,21 @@ void Cars_ResetVariablesAfterACollision__FP8Car_tObj(Car_tObj *carObj)
 	/* end block 1 */
 	// End offset: 0x80086AA4
 	// End Line: 827
+
+	/* begin block 2 */
+		// Start line: 1560
+	/* end block 2 */
+	// End Line: 1561
+
+	/* begin block 3 */
+		// Start line: 1571
+	/* end block 3 */
+	// End Line: 1572
+
+	/* begin block 4 */
+		// Start line: 1571
+	/* end block 4 */
+	// End Line: 1572
 
 void Cars_ResetCollidedCars__FP8Car_tObjii(Car_tObj *carObj,int forceReset,int forceParkAtSide)
 
@@ -551,15 +752,15 @@ LAB_800867d0:
   if (forceReset == 2) {
     slice = (int)(carObj->N).simRoadInfo.slice;
   }
-  iVar1 = iGp000002c8 + 5;
-  if (0 < iGp000002c8) {
+  iVar1 = accidentSlice + 5;
+  if (0 < accidentSlice) {
     if (gNumSlices <= iVar1) {
-      iVar1 = iGp000002c8 - (gNumSlices + -5);
+      iVar1 = accidentSlice - (gNumSlices + -5);
     }
     if (slice < iVar1) {
-      iVar1 = iGp000002c8 + -5;
+      iVar1 = accidentSlice + -5;
       if (iVar1 < 0) {
-        iVar1 = iGp000002c8 + gNumSlices + -5;
+        iVar1 = accidentSlice + gNumSlices + -5;
       }
       if (iVar1 < slice) {
         slice = slice + direction * 5;
@@ -637,6 +838,21 @@ LAB_80086a94:
 	/* end block 1 */
 	// End offset: 0x80086B28
 	// End Line: 846
+
+	/* begin block 2 */
+		// Start line: 1670
+	/* end block 2 */
+	// End Line: 1671
+
+	/* begin block 3 */
+		// Start line: 1863
+	/* end block 3 */
+	// End Line: 1864
+
+	/* begin block 4 */
+		// Start line: 1863
+	/* end block 4 */
+	// End Line: 1864
 
 void Cars_SetCarUpForHiRezSim__FP8Car_tObj(Car_tObj *carObj)
 
@@ -844,12 +1060,26 @@ void Cars_SetCarUpForHiRezSim__FP8Car_tObj(Car_tObj *carObj)
 	// End offset: 0x80087470
 	// End Line: 1137
 
+	/* begin block 2 */
+		// Start line: 1890
+	/* end block 2 */
+	// End Line: 1891
+
+	/* begin block 3 */
+		// Start line: 1901
+	/* end block 3 */
+	// End Line: 1902
+
+	/* begin block 4 */
+		// Start line: 1901
+	/* end block 4 */
+	// End Line: 1902
+
 void Cars_DoExtraCarCollisionProcessing__FP8Car_tObj(Car_tObj *carObj)
 
 {
   bool bVar1;
   int car;
-  uint local_68;
   uint uVar2;
   int type;
   int iVar3;
@@ -857,6 +1087,7 @@ void Cars_DoExtraCarCollisionProcessing__FP8Car_tObj(Car_tObj *carObj)
   int iVar5;
   int iVar6;
   ushort uVar7;
+  uint local_68;
   undefined *puVar8;
   coorddef local_58;
   coorddef local_48;
@@ -879,10 +1110,10 @@ LAB_80086bf0:
       if ((carObj->N).speedXZ < 0x1b9999) {
         Cars_ResetCollidedCars__FP8Car_tObjii(carObj,2,0);
         (carObj->stats).fatalCrashes = 0xa0;
-        local_68 = (uint)(carObj == PTR_8010fa4c);
-        (&Camera_gInfo)[local_68].relpos.x = (carObj->N).orientMat.m[6] * -2;
-        (&Camera_gInfo)[local_68].relpos.y = (carObj->N).orientMat.m[7] * -2;
-        (&Camera_gInfo)[local_68].relpos.z = (carObj->N).orientMat.m[8] * -2;
+        car = (uint)(carObj == PTR_ARRAY_8010fa4c[0]) * 0x110;
+        ((coorddef *)((int)&Camera_gInfo.relpos + car))->x = (carObj->N).orientMat.m[6] * -2;
+        *(int *)((int)&Camera_gInfo.relpos + car + 4) = (carObj->N).orientMat.m[7] * -2;
+        *(int *)((int)&Camera_gInfo.relpos + car + 8) = (carObj->N).orientMat.m[8] * -2;
       }
       goto LAB_80086cd0;
     }
@@ -921,7 +1152,7 @@ LAB_80086cd0:
     if (carObj->audio[5].force < 0) {
       local_68 = 3;
     }
-    if (((&Cars_kSkidMarkSurface)[carObj->wheel[local_68].roadSurfaceType & 0xf] == 1) &&
+    if ((Cars_kSkidMarkSurface[carObj->wheel[local_68].roadSurfaceType & 0xf] == 1) &&
        (uVar2 = random(), (uVar2 & 3) == 0)) {
       car = (carObj->N).wheelBackX;
       if (car < 0) {
@@ -1042,9 +1273,9 @@ LAB_80086cd0:
       if ((carObj->N).objAltitude < 0x9999) {
         TrgSfx_AddCarSfx__FiP8coorddefiT1
                   ((carObj->N).objID,&local_58,
-                   (&Cars_kSFXWallSurfaceInterface)[(uint)*(byte *)&(carObj->N).collision.sfxType],
+                   Cars_kSFXWallSurfaceInterface[(uint)*(byte *)&(carObj->N).collision.sfxType],
                    &(carObj->N).linearVel);
-        if ((&Cars_kSFXWallSurfaceInterface)[(uint)*(byte *)&(carObj->N).collision.sfxType] == 4) {
+        if (Cars_kSFXWallSurfaceInterface[(uint)*(byte *)&(carObj->N).collision.sfxType] == 4) {
           Cars_SetAudioCalls__FP8Car_tObjiiiiii(carObj,1,-1,1,0xf,0,0);
         }
       }
@@ -1057,14 +1288,13 @@ LAB_800871e0:
     }
   }
   if (0xa0000 < (carObj->N).collision.impulse) {
-    car = *(int *)((int)&Cars_kAudioCollisoinTypeInterface + ((int)puVar8 >> 0xe));
+    car = *(int *)((int)Cars_kAudioCollisoinTypeInterface + ((int)puVar8 >> 0xe));
     if (puVar8 == (undefined *)0x40000) {
-      local_68 = (&Cars_kAudioWallSurfaceInterface)[(uint)*(byte *)&(carObj->N).collision.sfxType];
+      local_68 = Cars_kAudioWallSurfaceInterface[(uint)*(byte *)&(carObj->N).collision.sfxType];
     }
     else {
       if ((int)puVar8 < 0x30001) {
-        local_68 = (&Cars_kAudioRoadSurfaceInterface)[(uint)*(byte *)&(carObj->N).collision.sfxType]
-        ;
+        local_68 = Cars_kAudioRoadSurfaceInterface[(uint)*(byte *)&(carObj->N).collision.sfxType];
         if (puVar8 == (undefined *)0x30000) {
           if ((carObj->N).orientationToGround.y < 0xe666) {
             car = 1;
@@ -1240,6 +1470,21 @@ LAB_80087310:
 	// End offset: 0x800878A0
 	// End Line: 1247
 
+	/* begin block 2 */
+		// Start line: 2511
+	/* end block 2 */
+	// End Line: 2512
+
+	/* begin block 3 */
+		// Start line: 2532
+	/* end block 3 */
+	// End Line: 2533
+
+	/* begin block 4 */
+		// Start line: 2532
+	/* end block 4 */
+	// End Line: 2533
+
 void Cars_AddCarSfx__FP8Car_tObjiP8coorddefiii
                (Car_tObj *carObj,int wheel,coorddef *skidpt,int roadSurface,int surfaceType,
                int drawSkid)
@@ -1256,10 +1501,10 @@ void Cars_AddCarSfx__FP8Car_tObjiP8coorddefiii
   int iVar6;
   int type;
   
-  iVar6 = (&Cars_kSmokingSurface)[roadSurface & 0xfU];
+  iVar6 = Cars_kSmokingSurface[roadSurface & 0xfU];
   uVar5 = 1 << (wheel & 0x1fU);
   car = (carObj->N).objID;
-  type = (&Cars_kConvertFromRoadToSfxType)[roadSurface & 0xfU];
+  type = Cars_kConvertFromRoadToSfxType[roadSurface & 0xfU];
   if (surfaceType == 3) {
     iVar6 = 0;
   }
@@ -1705,6 +1950,26 @@ LAB_80087888:
 	// End offset: 0x80089730
 	// End Line: 1547
 
+	/* begin block 2 */
+		// Start line: 2741
+	/* end block 2 */
+	// End Line: 2742
+
+	/* begin block 3 */
+		// Start line: 2752
+	/* end block 3 */
+	// End Line: 2753
+
+	/* begin block 4 */
+		// Start line: 2752
+	/* end block 4 */
+	// End Line: 2753
+
+	/* begin block 5 */
+		// Start line: 2770
+	/* end block 5 */
+	// End Line: 2771
+
 void Car_TireSkiddingStuff__FP8Car_tObj(Car_tObj *carObj)
 
 {
@@ -1713,13 +1978,13 @@ void Car_TireSkiddingStuff__FP8Car_tObj(Car_tObj *carObj)
   bool bVar3;
   undefined *puVar4;
   int iVar5;
-  undefined *force;
+  undefined **force;
   void *pvVar6;
-  undefined *puVar7;
+  undefined **ppuVar7;
   int iVar8;
   int surfaceType;
   uint roadSurface;
-  undefined *puVar9;
+  undefined **ppuVar9;
   int local_88;
   int local_84;
   int local_80;
@@ -1734,15 +1999,15 @@ void Car_TireSkiddingStuff__FP8Car_tObj(Car_tObj *carObj)
   int local_44;
   int local_40;
   int local_38;
-  undefined *local_34;
-  undefined *local_30;
+  undefined **local_34;
+  undefined **local_30;
   
   bVar3 = false;
   sVar1 = *(short *)((int)&(carObj->N).speedXZ + 2);
   bVar2 = false;
   if (GameSetup_gData.Weather != 0) {
-    puVar9 = (undefined *)BWorldSm_TunnelFlagSm__FP12BWorldSm_Pos(&(carObj->N).simRoadInfo);
-    bVar2 = puVar9 != &DAT_00000001;
+    puVar4 = (undefined *)BWorldSm_TunnelFlagSm__FP12BWorldSm_Pos(&(carObj->N).simRoadInfo);
+    bVar2 = puVar4 != &DAT_00000001;
   }
   surfaceType = (carObj->N).driveSurfaceType;
   if (((carObj->N).distToPlayer < 0x3c0000) && ((carObj->N).objAltitude < 0x6666)) {
@@ -1752,23 +2017,23 @@ void Car_TireSkiddingStuff__FP8Car_tObj(Car_tObj *carObj)
     local_88 = (carObj->N).position.x;
     local_80 = (carObj->N).position.z;
     local_84 = (carObj->N).groundElevation;
-    puVar9 = (undefined *)carObj->frontSkid;
-    if ((int)puVar9 < 1) {
-      local_34 = (undefined *)0x0;
-      puVar9 = local_34;
+    ppuVar9 = (undefined **)carObj->frontSkid;
+    if ((int)ppuVar9 < 1) {
+      local_34 = (undefined **)0x0;
+      ppuVar9 = local_34;
     }
     else {
-      local_34 = &LAB_000a0000;
-      if ((int)puVar9 < 0xa0001) {
-        local_34 = puVar9;
+      local_34 = &PTR_000a0000;
+      if ((int)ppuVar9 < 0xa0001) {
+        local_34 = ppuVar9;
       }
       iVar8 = (carObj->linearVel_ch).z;
       iVar5 = iVar8;
       if (iVar8 < 0) {
         iVar5 = -iVar8;
       }
-      *(undefined **)&carObj->frontSkid = local_34;
-      puVar9 = local_34;
+      *(undefined ***)&carObj->frontSkid = local_34;
+      ppuVar9 = local_34;
       if (0x140000 < iVar5) {
         if (iVar8 < 0) {
           iVar8 = iVar8 + 7;
@@ -1777,26 +2042,26 @@ void Car_TireSkiddingStuff__FP8Car_tObj(Car_tObj *carObj)
         if (iVar8 < 0) {
           iVar8 = -iVar8;
         }
-        puVar9 = local_34 + -iVar8;
+        ppuVar9 = (undefined **)((int)local_34 - iVar8);
       }
     }
-    force = (undefined *)carObj->rearSkid;
+    force = (undefined **)carObj->rearSkid;
     if ((int)force < 1) goto LAB_80087a54;
-    local_30 = &LAB_000a0000;
+    local_30 = &PTR_000a0000;
     if ((int)force < 0xa0001) {
       local_30 = force;
     }
-    *(undefined **)&carObj->rearSkid = local_30;
+    *(undefined ***)&carObj->rearSkid = local_30;
   }
   else {
-    puVar9 = (undefined *)0x0;
-    local_34 = (undefined *)0x0;
+    ppuVar9 = (undefined **)0x0;
+    local_34 = (undefined **)0x0;
 LAB_80087a54:
-    local_30 = (undefined *)0x0;
+    local_30 = (undefined **)0x0;
   }
-  puVar7 = local_30;
+  ppuVar7 = local_30;
   force = local_34;
-  local_38 = (&Cars_kAudioRoadSurfaceInterface)[surfaceType];
+  local_38 = Cars_kAudioRoadSurfaceInterface[surfaceType];
   if (GameSetup_gData.Weather < 1) {
     if (local_38 == 0) {
       surfaceType = carObj->carInfo->TireType;
@@ -1818,12 +2083,12 @@ LAB_80087a54:
     }
   }
   roadSurface = carObj->wheel[0].roadSurfaceType;
-  surfaceType = (&Cars_kSkidMarkSurface)[roadSurface & 0xf];
+  surfaceType = Cars_kSkidMarkSurface[roadSurface & 0xf];
   if (carObj->wheel[0].wheelInAir != 0) {
     surfaceType = 0;
   }
-  if ((((force == (undefined *)0x0) || (bVar2)) && ((surfaceType < 2 || (sVar1 == 0)))) || (!bVar3))
-  {
+  if ((((force == (undefined **)0x0) || (bVar2)) && ((surfaceType < 2 || (sVar1 == 0)))) || (!bVar3)
+     ) {
     if ((carObj->oldSkidState & 1U) != 0) {
       carObj->oldSkidState = carObj->oldSkidState - 1;
       TrgSfx_AddSkidmark__FiiP8coorddefiiP8Car_tObji
@@ -1888,7 +2153,7 @@ LAB_80087a54:
     local_78.x = (local_88 - local_68) + local_58;
     local_78.z = (local_80 - local_60) + local_50;
     local_78.y = (local_84 - local_64) + local_54;
-    if ((1 < surfaceType) && (DAT_00000298 < (int)puVar9)) {
+    if ((1 < surfaceType) && (frontLimit < (int)ppuVar9)) {
       surfaceType = 3;
     }
     if (surfaceType == 0) {
@@ -1959,7 +2224,7 @@ LAB_80087a54:
     TrgSfx_AddCarSplash__FiiP8coorddefiT2ii
               ((carObj->N).objID,0,&local_78,10,&(carObj->N).linearVel,0,(carObj->N).speedXZ);
     if ((int)force < 1) {
-      force = (undefined *)0x1;
+      force = (undefined **)0x1;
     }
   }
   if ((((roadSurface & 0x20) != 0) && (gLeafPixmap != (Draw_tPixMap *)0x0)) &&
@@ -2029,12 +2294,12 @@ LAB_80087a54:
                local_78.y,(carObj->render).bodyRoll);
   }
   roadSurface = carObj->wheel[1].roadSurfaceType;
-  surfaceType = (&Cars_kSkidMarkSurface)[roadSurface & 0xf];
+  surfaceType = Cars_kSkidMarkSurface[roadSurface & 0xf];
   if (carObj->wheel[1].wheelInAir != 0) {
     surfaceType = 0;
   }
-  if ((((force == (undefined *)0x0) || (bVar2)) && ((surfaceType < 2 || (sVar1 == 0)))) || (!bVar3))
-  {
+  if ((((force == (undefined **)0x0) || (bVar2)) && ((surfaceType < 2 || (sVar1 == 0)))) || (!bVar3)
+     ) {
     if ((carObj->oldSkidState & 2U) != 0) {
       carObj->oldSkidState = carObj->oldSkidState - 2;
       TrgSfx_AddSkidmark__FiiP8coorddefiiP8Car_tObji
@@ -2099,7 +2364,7 @@ LAB_80087a54:
     local_78.x = local_88 + local_68 + local_58;
     local_78.z = local_80 + local_60 + local_50;
     local_78.y = local_84 + local_64 + local_54;
-    if ((1 < surfaceType) && (DAT_00000298 < (int)puVar9)) {
+    if ((1 < surfaceType) && (frontLimit < (int)ppuVar9)) {
       surfaceType = 3;
     }
     if (surfaceType == 0) {
@@ -2170,7 +2435,7 @@ LAB_80087a54:
     TrgSfx_AddCarSplash__FiiP8coorddefiT2ii
               ((carObj->N).objID,1,&local_78,10,&(carObj->N).linearVel,0,(carObj->N).speedXZ);
     if ((int)force < 1) {
-      force = (undefined *)0x1;
+      force = (undefined **)0x1;
     }
   }
   if ((((roadSurface & 0x20) != 0) && (gLeafPixmap != (Draw_tPixMap *)0x0)) &&
@@ -2240,12 +2505,12 @@ LAB_80087a54:
                local_78.y,(carObj->render).bodyRoll);
   }
   roadSurface = carObj->wheel[2].roadSurfaceType;
-  surfaceType = (&Cars_kSkidMarkSurface)[roadSurface & 0xf];
+  surfaceType = Cars_kSkidMarkSurface[roadSurface & 0xf];
   if (carObj->wheel[2].wheelInAir != 0) {
     surfaceType = 0;
   }
-  if ((((puVar7 == (undefined *)0x0) || (bVar2)) && ((surfaceType < 2 || (sVar1 == 0)))) || (!bVar3)
-     ) {
+  if ((((ppuVar7 == (undefined **)0x0) || (bVar2)) && ((surfaceType < 2 || (sVar1 == 0)))) ||
+     (!bVar3)) {
     if ((carObj->oldSkidState & 4U) != 0) {
       TrgSfx_AddSkidmark__FiiP8coorddefiiP8Car_tObji
                 ((carObj->N).objID,2,carObj->oldSkidPoint + 2,1,carObj->rearSkid,carObj,0);
@@ -2310,7 +2575,7 @@ LAB_80087a54:
     local_78.x = (local_88 - local_68) - local_58;
     local_78.z = (local_80 - local_60) - local_50;
     local_78.y = (local_84 - local_64) - local_54;
-    if ((1 < surfaceType) && (DAT_0000029c < (int)puVar7)) {
+    if ((1 < surfaceType) && (rearLimit < (int)ppuVar7)) {
       surfaceType = 3;
     }
     if (surfaceType == 0) {
@@ -2380,8 +2645,8 @@ LAB_80087a54:
     local_78.y = (local_84 - local_64) - local_54;
     TrgSfx_AddCarSplash__FiiP8coorddefiT2ii
               ((carObj->N).objID,2,&local_78,10,&(carObj->N).linearVel,0,(carObj->N).speedXZ);
-    if ((int)puVar7 < 1) {
-      puVar7 = (undefined *)0x1;
+    if ((int)ppuVar7 < 1) {
+      ppuVar7 = (undefined **)0x1;
     }
   }
   if ((((roadSurface & 0x20) != 0) && (gLeafPixmap != (Draw_tPixMap *)0x0)) &&
@@ -2451,12 +2716,12 @@ LAB_80087a54:
                local_78.y,(carObj->render).bodyRoll);
   }
   roadSurface = carObj->wheel[3].roadSurfaceType;
-  surfaceType = (&Cars_kSkidMarkSurface)[roadSurface & 0xf];
+  surfaceType = Cars_kSkidMarkSurface[roadSurface & 0xf];
   if (carObj->wheel[3].wheelInAir != 0) {
     surfaceType = 0;
   }
-  if ((((puVar7 == (undefined *)0x0) || (bVar2)) && ((surfaceType < 2 || (sVar1 == 0)))) || (!bVar3)
-     ) {
+  if ((((ppuVar7 == (undefined **)0x0) || (bVar2)) && ((surfaceType < 2 || (sVar1 == 0)))) ||
+     (!bVar3)) {
     if ((carObj->oldSkidState & 8U) != 0) {
       TrgSfx_AddSkidmark__FiiP8coorddefiiP8Car_tObji
                 ((carObj->N).objID,3,carObj->oldSkidPoint + 3,1,carObj->rearSkid,carObj,0);
@@ -2521,7 +2786,7 @@ LAB_80087a54:
     local_78.x = (local_88 + local_68) - local_58;
     local_78.z = (local_80 + local_60) - local_50;
     local_78.y = (local_84 + local_64) - local_54;
-    if ((1 < surfaceType) && (DAT_0000029c < (int)puVar7)) {
+    if ((1 < surfaceType) && (rearLimit < (int)ppuVar7)) {
       surfaceType = 3;
     }
     if (surfaceType == 0) {
@@ -2591,8 +2856,8 @@ LAB_80087a54:
     local_78.y = (local_84 + local_64) - local_54;
     TrgSfx_AddCarSplash__FiiP8coorddefiT2ii
               ((carObj->N).objID,3,&local_78,10,&(carObj->N).linearVel,0,(carObj->N).speedXZ);
-    if ((int)puVar7 < 1) {
-      puVar7 = (undefined *)0x1;
+    if ((int)ppuVar7 < 1) {
+      ppuVar7 = (undefined **)0x1;
     }
   }
   if ((((roadSurface & 0x20) != 0) && (gLeafPixmap != (Draw_tPixMap *)0x0)) &&
@@ -2661,22 +2926,22 @@ LAB_80087a54:
               ((carObj->N).objID,3,&local_78,0xd,&(carObj->N).linearVel,(carObj->N).speedXZ,
                local_78.y,(carObj->render).bodyRoll);
   }
-  if (force == (undefined *)0x0) {
+  if (force == (undefined **)0x0) {
     if ((carObj->oldAudioSkidState & 1U) == 0) goto LAB_80089674;
     Cars_SetAudioCalls__FP8Car_tObjiiiiii(carObj,3,0x12,2,local_38,0,0);
     roadSurface = carObj->oldAudioSkidState - 1;
   }
   else {
     if ((int)local_34 < 0) {
-      local_34 = (undefined *)0x0;
+      local_34 = (undefined **)0x0;
     }
-    if ((local_34 == (undefined *)0x0) && ((carObj->carFlags & 4U) == 0)) goto LAB_80089674;
+    if ((local_34 == (undefined **)0x0) && ((carObj->carFlags & 4U) == 0)) goto LAB_80089674;
     Cars_SetAudioCalls__FP8Car_tObjiiiiii(carObj,2,0x12,2,local_38,(int)force,0);
     roadSurface = carObj->oldAudioSkidState | 1;
   }
   carObj->oldAudioSkidState = roadSurface;
 LAB_80089674:
-  if (puVar7 == (undefined *)0x0) {
+  if (ppuVar7 == (undefined **)0x0) {
     if ((carObj->oldAudioSkidState & 2U) == 0) {
       return;
     }
@@ -2685,13 +2950,13 @@ LAB_80089674:
   }
   else {
     if ((int)local_30 < 0) {
-      local_30 = (undefined *)0x0;
+      local_30 = (undefined **)0x0;
     }
-    if ((local_30 == (undefined *)0x0) && ((carObj->carFlags & 4U) == 0)) {
+    if ((local_30 == (undefined **)0x0) && ((carObj->carFlags & 4U) == 0)) {
       return;
     }
     Cars_SetAudioCalls__FP8Car_tObjiiiiii
-              (carObj,4,0x14,2,local_38,(int)(puVar7 + ((uint)puVar7 >> 0x1f)) >> 1,0);
+              (carObj,4,0x14,2,local_38,(int)((int)ppuVar7 + ((uint)ppuVar7 >> 0x1f)) >> 1,0);
     roadSurface = carObj->oldAudioSkidState | 2;
   }
   carObj->oldAudioSkidState = roadSurface;
@@ -2726,6 +2991,26 @@ LAB_80089674:
 	/* end block 1 */
 	// End offset: 0x800897C4
 	// End Line: 1565
+
+	/* begin block 2 */
+		// Start line: 3392
+	/* end block 2 */
+	// End Line: 3393
+
+	/* begin block 3 */
+		// Start line: 3398
+	/* end block 3 */
+	// End Line: 3399
+
+	/* begin block 4 */
+		// Start line: 3398
+	/* end block 4 */
+	// End Line: 3399
+
+	/* begin block 5 */
+		// Start line: 3400
+	/* end block 5 */
+	// End Line: 3401
 
 void Cars_FindTotalSlice__FP8Car_tObj(Car_tObj *carObj)
 
@@ -2779,6 +3064,21 @@ void Cars_FindTotalSlice__FP8Car_tObj(Car_tObj *carObj)
 	// End offset: 0x800898CC
 	// End Line: 1622
 
+	/* begin block 2 */
+		// Start line: 3434
+	/* end block 2 */
+	// End Line: 3435
+
+	/* begin block 3 */
+		// Start line: 3445
+	/* end block 3 */
+	// End Line: 3446
+
+	/* begin block 4 */
+		// Start line: 3445
+	/* end block 4 */
+	// End Line: 3446
+
 void Car_DoSkiddingStuff__FP8Car_tObj(Car_tObj *carObj)
 
 {
@@ -2787,8 +3087,8 @@ void Car_DoSkiddingStuff__FP8Car_tObj(Car_tObj *carObj)
   if ((carObj->N).orientationToGround.y < 0x3334) {
     if (((carObj->N).objAltitude < 0x3333) && (0x20000 < (carObj->N).speedXZ)) {
       Cars_SetAudioCalls__FP8Car_tObjiiiiii
-                (carObj,4,0x14,1,(&Cars_kAudioRoadSurfaceInterface)[(carObj->N).driveSurfaceType],
-                 (int)&LAB_000a0000,0);
+                (carObj,4,0x14,1,Cars_kAudioRoadSurfaceInterface[(carObj->N).driveSurfaceType],
+                 (int)&PTR_000a0000,0);
       uVar1 = carObj->oldAudioSkidState | 4;
     }
     else {
@@ -2835,6 +3135,21 @@ void Car_DoSkiddingStuff__FP8Car_tObj(Car_tObj *carObj)
 	/* end block 1 */
 	// End offset: 0x80089B30
 	// End Line: 1732
+
+	/* begin block 2 */
+		// Start line: 3575
+	/* end block 2 */
+	// End Line: 3576
+
+	/* begin block 3 */
+		// Start line: 3607
+	/* end block 3 */
+	// End Line: 3608
+
+	/* begin block 4 */
+		// Start line: 3607
+	/* end block 4 */
+	// End Line: 3608
 
 void Car_DoPostCollisionStuff__FP8Car_tObj(Car_tObj *carObj)
 
@@ -2964,6 +3279,21 @@ void Car_DoPostCollisionStuff__FP8Car_tObj(Car_tObj *carObj)
 	// End offset: 0x80089D64
 	// End Line: 1786
 
+	/* begin block 2 */
+		// Start line: 3802
+	/* end block 2 */
+	// End Line: 3803
+
+	/* begin block 3 */
+		// Start line: 3805
+	/* end block 3 */
+	// End Line: 3806
+
+	/* begin block 4 */
+		// Start line: 3805
+	/* end block 4 */
+	// End Line: 3806
+
 void Cars_CalculateStartingGridOffset__FP8Car_tObjPiP8coorddef
                (Car_tObj *carObj,int *slice,coorddef *offset)
 
@@ -2981,7 +3311,7 @@ void Cars_CalculateStartingGridOffset__FP8Car_tObjPiP8coorddef
     iVar2 = 1;
   }
   uVar6 = GameSetup_gData.carInfo[carObj->carIndex].StartingPos;
-  if (DAT_000002ac < 3) {
+  if (Cars_gNumRaceCars < 3) {
     if (-1 < iVar2) {
       if (gNumSlices <= iVar2) {
         iVar2 = iVar2 - gNumSlices;
@@ -3081,6 +3411,21 @@ LAB_80089c40:
 	/* end block 1 */
 	// End offset: 0x8008A160
 	// End Line: 2008
+
+	/* begin block 2 */
+		// Start line: 3914
+	/* end block 2 */
+	// End Line: 3915
+
+	/* begin block 3 */
+		// Start line: 3922
+	/* end block 3 */
+	// End Line: 3923
+
+	/* begin block 4 */
+		// Start line: 3922
+	/* end block 4 */
+	// End Line: 3923
 
 void Cars_IniCarObjects__FP8Car_tObji(Car_tObj *carObj,int index)
 
@@ -3283,6 +3628,26 @@ void Cars_IniCarObjects__FP8Car_tObji(Car_tObj *carObj,int index)
 	// End offset: 0x8008A460
 	// End Line: 2226
 
+	/* begin block 2 */
+		// Start line: 4491
+	/* end block 2 */
+	// End Line: 4492
+
+	/* begin block 3 */
+		// Start line: 4515
+	/* end block 3 */
+	// End Line: 4516
+
+	/* begin block 4 */
+		// Start line: 4515
+	/* end block 4 */
+	// End Line: 4516
+
+	/* begin block 5 */
+		// Start line: 4557
+	/* end block 5 */
+	// End Line: 4558
+
 void Cars_InitCar__FP8Car_tObji(Car_tObj *carObj,int index)
 
 {
@@ -3313,7 +3678,7 @@ void Cars_InitCar__FP8Car_tObji(Car_tObj *carObj,int index)
     handle_00 = Udff_Opena__FPcT0i((char *)0x0,mem_00,1);
     iVar1 = carObj->carInfo->carType;
     if (iVar1 < 0x1d) {
-      sprintf((char *)abStack56,s_p_s_dat_8013c7ec,&GameSetup_gCarNames + iVar1 * 5);
+      sprintf((char *)abStack56,s_p_s_dat_8013c7ec,GameSetup_gCarNames + iVar1 * 5);
     }
     else {
       sprintf((char *)abStack56,s_ptram_dat_800559a0);
@@ -3376,6 +3741,21 @@ void Cars_InitCar__FP8Car_tObji(Car_tObj *carObj,int index)
 	// End offset: 0x8008A4B4
 	// End Line: 2241
 
+	/* begin block 2 */
+		// Start line: 4995
+	/* end block 2 */
+	// End Line: 4996
+
+	/* begin block 3 */
+		// Start line: 5002
+	/* end block 3 */
+	// End Line: 5003
+
+	/* begin block 4 */
+		// Start line: 5002
+	/* end block 4 */
+	// End Line: 5003
+
 void Cars_DeInitCar__FP8Car_tObj(Car_tObj *carObj)
 
 {
@@ -3417,54 +3797,75 @@ void Cars_DeInitCar__FP8Car_tObj(Car_tObj *carObj)
 	// End offset: 0x8008A59C
 	// End Line: 2274
 
+	/* begin block 2 */
+		// Start line: 5024
+	/* end block 2 */
+	// End Line: 5025
+
+	/* begin block 3 */
+		// Start line: 5030
+	/* end block 3 */
+	// End Line: 5031
+
+	/* begin block 4 */
+		// Start line: 5030
+	/* end block 4 */
+	// End Line: 5031
+
+	/* begin block 5 */
+		// Start line: 5033
+	/* end block 5 */
+	// End Line: 5034
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Cars_Restart__Fv(void)
 
 {
   Car_tObj *carObj;
-  int iVar1;
-  Object_tIMassObjInfo *pOVar2;
+  Object_tIMassObjInfo *pOVar1;
+  Car_tObj **ppCVar2;
   Car_tObj **ppCVar3;
   Car_tObj **ppCVar4;
-  Car_tObj **ppCVar5;
+  int iVar5;
   int index;
   
-  index = 0;
-  if (0 < iGp000002a8) {
-    ppCVar5 = &__Cars_gTotalSortedList_9__;
-    ppCVar3 = &__Cars_gList_9__;
-    ppCVar4 = &__Cars_gSortedList_9__;
+  index = Cars_gNumCars;
+  iVar5 = 0;
+  if (0 < Cars_gNumCars) {
+    ppCVar4 = &Cars_gTotalSortedList9;
+    ppCVar2 = &Cars_gList9;
+    ppCVar3 = &Cars_gSortedList9;
     do {
-      index = index + 1;
-      *ppCVar4 = *ppCVar3;
-      carObj = *ppCVar3;
+      iVar5 = iVar5 + 1;
+      *ppCVar3 = *ppCVar2;
+      carObj = *ppCVar2;
+      ppCVar2 = ppCVar2 + 1;
       ppCVar3 = ppCVar3 + 1;
+      *ppCVar4 = carObj;
       ppCVar4 = ppCVar4 + 1;
-      *ppCVar5 = carObj;
-      ppCVar5 = ppCVar5 + 1;
-    } while (index < iGp000002a8);
+    } while (iVar5 < index);
   }
-  ppCVar3 = &__Cars_gList_9__;
+  ppCVar2 = &Cars_gList9;
   index = 0;
-  while (index < iGp000002a8) {
-    carObj = *ppCVar3;
-    ppCVar3 = ppCVar3 + 1;
+  while (index < Cars_gNumCars) {
+    carObj = *ppCVar2;
+    ppCVar2 = ppCVar2 + 1;
     Cars_IniCarObjects__FP8Car_tObji(carObj,index);
     index = index + 1;
   }
   index = 0;
   while( true ) {
-    iVar1 = Object_GetNumIMassObjects__Fv();
-    if (iVar1 <= index) break;
-    pOVar2 = Object_IMassObjInst + index;
-    (pOVar2->lastPos).x = 0;
-    (pOVar2->lastPos).y = 0;
-    (pOVar2->lastPos).z = 0;
-    pOVar2->lastTick = 0;
+    iVar5 = Object_GetNumIMassObjects__Fv();
+    if (iVar5 <= index) break;
+    pOVar1 = Object_IMassObjInst + index;
+    (pOVar1->lastPos).x = 0;
+    (pOVar1->lastPos).y = 0;
+    (pOVar1->lastPos).z = 0;
+    pOVar1->lastTick = 0;
     index = index + 1;
   }
-  uGp000002c8 = 0;
+  accidentSlice = 0;
   return;
 }
 
@@ -3482,6 +3883,26 @@ void Cars_Restart__Fv(void)
 	/* end block 1 */
 	// End offset: 0x8008A5D0
 	// End Line: 2358
+
+	/* begin block 2 */
+		// Start line: 5176
+	/* end block 2 */
+	// End Line: 5177
+
+	/* begin block 3 */
+		// Start line: 5254
+	/* end block 3 */
+	// End Line: 5255
+
+	/* begin block 4 */
+		// Start line: 5254
+	/* end block 4 */
+	// End Line: 5255
+
+	/* begin block 5 */
+		// Start line: 5256
+	/* end block 5 */
+	// End Line: 5257
 
 void Cars_Initialize__FPci(char *mem,int size)
 
@@ -3675,6 +4096,21 @@ void Cars_Initialize__FPci(char *mem,int size)
 	// End offset: 0x8008AA20
 	// End Line: 2500
 
+	/* begin block 2 */
+		// Start line: 5272
+	/* end block 2 */
+	// End Line: 5273
+
+	/* begin block 3 */
+		// Start line: 5278
+	/* end block 3 */
+	// End Line: 5279
+
+	/* begin block 4 */
+		// Start line: 5278
+	/* end block 4 */
+	// End Line: 5279
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Cars_StartUp__Fv(void)
@@ -3704,7 +4140,7 @@ void Cars_StartUp__Fv(void)
     } while (index < GameSetup_gData.numCars);
   }
   index = 0;
-  newtonObj = &InfiniteMassNewton;
+  newtonObj = InfiniteMassNewton;
   while (iVar2 = Object_GetNumIMassObjects__Fv(), index < iVar2) {
     Object_GetIMassObjectDimensions__FiP8coorddef(index,&local_28);
     index = index + 1;
@@ -3713,7 +4149,7 @@ void Cars_StartUp__Fv(void)
                local_28.z + 0x10000);
     newtonObj = newtonObj + 1;
   }
-  ppCVar1 = &__Cars_gList_9__;
+  ppCVar1 = &Cars_gList9;
   index = 0;
   while (index < GameSetup_gData.numCars) {
     carObj = *ppCVar1;
@@ -3730,7 +4166,7 @@ void Cars_StartUp__Fv(void)
   }
   R3DCar_LicenseShapeFile = (char *)0x0;
   index = 0;
-  ppCVar1 = &__Cars_gList_9__;
+  ppCVar1 = &Cars_gList9;
   while (index < GameSetup_gData.numCars) {
     carObj = *ppCVar1;
     ppCVar1 = ppCVar1 + 1;
@@ -3741,7 +4177,7 @@ void Cars_StartUp__Fv(void)
                carObj->funcControl,carObj,0x15);
   }
   index = 0;
-  ppCVar1 = &__Cars_gList_9__;
+  ppCVar1 = &Cars_gList9;
   while (index < GameSetup_gData.numCars) {
     carObj = *ppCVar1;
     ppCVar1 = ppCVar1 + 1;
@@ -3752,7 +4188,7 @@ void Cars_StartUp__Fv(void)
                carObj->funcHandlingPhysics,carObj,0x1e);
   }
   index = 0;
-  ppCVar1 = &__Cars_gList_9__;
+  ppCVar1 = &Cars_gList9;
   while (index < GameSetup_gData.numCars) {
     carObj = *ppCVar1;
     ppCVar1 = ppCVar1 + 1;
@@ -3763,7 +4199,7 @@ void Cars_StartUp__Fv(void)
                carObj->funcGravityPhysics,carObj,0x1e);
   }
   index = 0;
-  ppCVar1 = &__Cars_gList_9__;
+  ppCVar1 = &Cars_gList9;
   while (index < GameSetup_gData.numCars) {
     carObj = *ppCVar1;
     ppCVar1 = ppCVar1 + 1;
@@ -3774,7 +4210,7 @@ void Cars_StartUp__Fv(void)
                carObj->funcTestMeForCollisions,carObj,0x28);
   }
   index = 0;
-  ppCVar1 = &__Cars_gList_9__;
+  ppCVar1 = &Cars_gList9;
   while (index < GameSetup_gData.numCars) {
     carObj = *ppCVar1;
     ppCVar1 = ppCVar1 + 1;
@@ -3786,7 +4222,7 @@ void Cars_StartUp__Fv(void)
   }
   index = 0;
   Force_StartUp__Fv();
-  ppCVar1 = &__Cars_gList_9__;
+  ppCVar1 = &Cars_gList9;
   while (index < GameSetup_gData.numCars) {
     carObj = *ppCVar1;
     if ((carObj->carFlags & 1U) != 0) {
@@ -3799,7 +4235,7 @@ void Cars_StartUp__Fv(void)
     index = index + 1;
   }
   index = 0;
-  ppCVar1 = &__Cars_gList_9__;
+  ppCVar1 = &Cars_gList9;
   while (index < GameSetup_gData.numCars) {
     carObj = *ppCVar1;
     ppCVar1 = ppCVar1 + 1;
@@ -3810,7 +4246,7 @@ void Cars_StartUp__Fv(void)
                carObj->funcQDPhysicsUpdateVel,carObj,0x1e);
   }
   index = 0;
-  ppCVar1 = &__Cars_gList_9__;
+  ppCVar1 = &Cars_gList9;
   while (index < GameSetup_gData.numCars) {
     carObj = *ppCVar1;
     schedule = simGlobal.schedule32Hz2;
@@ -3841,6 +4277,26 @@ void Cars_StartUp__Fv(void)
 	// End offset: 0x8008ABB0
 	// End Line: 2583
 
+	/* begin block 2 */
+		// Start line: 5582
+	/* end block 2 */
+	// End Line: 5583
+
+	/* begin block 3 */
+		// Start line: 5597
+	/* end block 3 */
+	// End Line: 5598
+
+	/* begin block 4 */
+		// Start line: 5597
+	/* end block 4 */
+	// End Line: 5598
+
+	/* begin block 5 */
+		// Start line: 5603
+	/* end block 5 */
+	// End Line: 5604
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Cars_CleanUp__Fv(void)
@@ -3853,8 +4309,8 @@ void Cars_CleanUp__Fv(void)
   int iVar3;
   
   iVar3 = 0;
-  if (0 < DAT_000002a8) {
-    ppCVar2 = &__Cars_gList_9__;
+  if (0 < Cars_gNumCars) {
+    ppCVar2 = &Cars_gList9;
     do {
       Sched_DeleteFunction__FP15Sched_tSchedulePFPv_vPv
                 (simGlobal.schedule32Hz,
@@ -3910,7 +4366,7 @@ void Cars_CleanUp__Fv(void)
       var1 = *ppCVar2;
       ppCVar2 = ppCVar2 + 1;
       purgememadr((int)var1);
-    } while (iVar3 < DAT_000002a8);
+    } while (iVar3 < Cars_gNumCars);
   }
   return;
 }
@@ -3929,6 +4385,26 @@ void Cars_CleanUp__Fv(void)
 	/* end block 1 */
 	// End offset: 0x8008AC78
 	// End Line: 2619
+
+	/* begin block 2 */
+		// Start line: 5753
+	/* end block 2 */
+	// End Line: 5754
+
+	/* begin block 3 */
+		// Start line: 5761
+	/* end block 3 */
+	// End Line: 5762
+
+	/* begin block 4 */
+		// Start line: 5761
+	/* end block 4 */
+	// End Line: 5762
+
+	/* begin block 5 */
+		// Start line: 5764
+	/* end block 5 */
+	// End Line: 5765
 
 void Cars_FindCurrentLap__FP8Car_tObj(Car_tObj *carObj)
 
@@ -3977,6 +4453,26 @@ void Cars_FindCurrentLap__FP8Car_tObj(Car_tObj *carObj)
 	/* end block 1 */
 	// End offset: 0x8008AEB4
 	// End Line: 2640
+
+	/* begin block 2 */
+		// Start line: 5823
+	/* end block 2 */
+	// End Line: 5824
+
+	/* begin block 3 */
+		// Start line: 5829
+	/* end block 3 */
+	// End Line: 5830
+
+	/* begin block 4 */
+		// Start line: 5829
+	/* end block 4 */
+	// End Line: 5830
+
+	/* begin block 5 */
+		// Start line: 5834
+	/* end block 5 */
+	// End Line: 5835
 
 int Cars_CalculateRoadSpan__FP8Car_tObj(Car_tObj *carObj)
 
@@ -4101,6 +4597,21 @@ int Cars_CalculateRoadSpan__FP8Car_tObj(Car_tObj *carObj)
 	// End offset: 0x8008AEC8
 	// End Line: 2683
 
+	/* begin block 2 */
+		// Start line: 5944
+	/* end block 2 */
+	// End Line: 5945
+
+	/* begin block 3 */
+		// Start line: 5948
+	/* end block 3 */
+	// End Line: 5949
+
+	/* begin block 4 */
+		// Start line: 5948
+	/* end block 4 */
+	// End Line: 5949
+
 int Cars_CalculateRoadPosition__FP8Car_tObj(Car_tObj *carObj)
 
 {
@@ -4124,6 +4635,26 @@ int Cars_CalculateRoadPosition__FP8Car_tObj(Car_tObj *carObj)
 	/* end block 1 */
 	// End offset: 0x8008AF70
 	// End Line: 2693
+
+	/* begin block 2 */
+		// Start line: 5954
+	/* end block 2 */
+	// End Line: 5955
+
+	/* begin block 3 */
+		// Start line: 5958
+	/* end block 3 */
+	// End Line: 5959
+
+	/* begin block 4 */
+		// Start line: 5958
+	/* end block 4 */
+	// End Line: 5959
+
+	/* begin block 5 */
+		// Start line: 5961
+	/* end block 5 */
+	// End Line: 5962
 
 int Cars_CalcVelDownRoad__FP8Car_tObj(Car_tObj *carObj)
 
@@ -4200,6 +4731,26 @@ int Cars_CalcVelDownRoad__FP8Car_tObj(Car_tObj *carObj)
 	// End offset: 0x8008AFF4
 	// End Line: 2705
 
+	/* begin block 2 */
+		// Start line: 5978
+	/* end block 2 */
+	// End Line: 5979
+
+	/* begin block 3 */
+		// Start line: 5982
+	/* end block 3 */
+	// End Line: 5983
+
+	/* begin block 4 */
+		// Start line: 5982
+	/* end block 4 */
+	// End Line: 5983
+
+	/* begin block 5 */
+		// Start line: 5984
+	/* end block 5 */
+	// End Line: 5985
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Cars_Randomize__Fv(void)
@@ -4208,8 +4759,8 @@ void Cars_Randomize__Fv(void)
   int iVar1;
   int iVar2;
   
-  if (DAT_000002b0 != 0) {
-    iVar2 = (int)((__Cars_gHumanRaceCarList_9__->speechInfo).playerCarIndex & 0x300U) >> 8;
+  if (Cars_gNumAICars != 0) {
+    iVar2 = (int)((Cars_gHumanRaceCarList9->speechInfo).playerCarIndex & 0x300U) >> 8;
     iVar1 = 0;
     if (iVar2 != 0) {
       do {
@@ -4290,6 +4841,21 @@ void Cars_Randomize__Fv(void)
 	// End offset: 0x8008B184
 	// End Line: 2762
 
+	/* begin block 2 */
+		// Start line: 6002
+	/* end block 2 */
+	// End Line: 6003
+
+	/* begin block 3 */
+		// Start line: 6010
+	/* end block 3 */
+	// End Line: 6011
+
+	/* begin block 4 */
+		// Start line: 6010
+	/* end block 4 */
+	// End Line: 6011
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Cars_ManageBureaucracy__Fv(void)
@@ -4305,8 +4871,8 @@ void Cars_ManageBureaucracy__Fv(void)
   int iVar7;
   
   iVar7 = 0;
-  ppCVar6 = &__Cars_gList_9__;
-  while (iVar7 < DAT_000002a8) {
+  ppCVar6 = &Cars_gList9;
+  while (iVar7 < Cars_gNumCars) {
     carObj = *ppCVar6;
     if ((carObj->N).active != '\0') {
       iVar1 = Cars_CalculateRoadSpan__FP8Car_tObj(carObj);
@@ -4384,6 +4950,21 @@ void Cars_ManageBureaucracy__Fv(void)
 	// End offset: 0x8008B27C
 	// End Line: 2805
 
+	/* begin block 2 */
+		// Start line: 6140
+	/* end block 2 */
+	// End Line: 6141
+
+	/* begin block 3 */
+		// Start line: 6145
+	/* end block 3 */
+	// End Line: 6146
+
+	/* begin block 4 */
+		// Start line: 6145
+	/* end block 4 */
+	// End Line: 6146
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Cars_CheckForAccidentScenes__Fv(void)
@@ -4392,16 +4973,16 @@ void Cars_CheckForAccidentScenes__Fv(void)
   if (((GameSetup_gData.commMode != 1) && (GameSetup_gData.raceType != 1)) &&
      (GameSetup_gData.raceType != 5)) {
     if (SceneLoaded == 0) {
-      if ((__Cars_gHumanRaceCarList_9__->stats).lap == GameSetup_gData.SceneStartLap) {
-        DAT_000002c8 = Scene_BuildCustomSceneList__Fv();
+      if ((Cars_gHumanRaceCarList9->stats).lap == GameSetup_gData.SceneStartLap) {
+        accidentSlice = Scene_BuildCustomSceneList__Fv();
         SceneLoaded = 1;
       }
     }
     else {
-      if ((__Cars_gHumanRaceCarList_9__->stats).lap == GameSetup_gData.SceneEndLap) {
+      if ((Cars_gHumanRaceCarList9->stats).lap == GameSetup_gData.SceneEndLap) {
         Object_ClearCustomObjects__Fv();
         SceneLoaded = 0;
-        DAT_000002c8 = 0;
+        accidentSlice = 0;
       }
     }
   }
@@ -4425,6 +5006,26 @@ void Cars_CheckForAccidentScenes__Fv(void)
 	// End offset: 0x8008B3F4
 	// End Line: 2863
 
+	/* begin block 2 */
+		// Start line: 6216
+	/* end block 2 */
+	// End Line: 6217
+
+	/* begin block 3 */
+		// Start line: 6227
+	/* end block 3 */
+	// End Line: 6228
+
+	/* begin block 4 */
+		// Start line: 6227
+	/* end block 4 */
+	// End Line: 6228
+
+	/* begin block 5 */
+		// Start line: 6237
+	/* end block 5 */
+	// End Line: 6238
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Cars_SortCars__Fv(void)
@@ -4440,49 +5041,49 @@ void Cars_SortCars__Fv(void)
   int iVar8;
   int iVar9;
   
-  iVar9 = DAT_000002a8 + -1;
+  iVar9 = Cars_gNumCars + -1;
   do {
     iVar6 = 0;
     iVar7 = iVar6;
     if (0 < iVar9) {
-      iVar8 = DAT_000002a8 + -1;
+      iVar8 = Cars_gNumCars + -1;
       iVar1 = 0;
       iVar7 = iVar6;
       do {
         iVar6 = iVar6 + 1;
-        pCVar4 = *(Car_tObj **)((int)&__Cars_gSortedList_9__ + iVar1);
-        pCVar2 = (&__Cars_gSortedList_9__)[iVar6];
+        pCVar4 = *(Car_tObj **)((int)&Cars_gSortedList9 + iVar1);
+        pCVar2 = (&Cars_gSortedList9)[iVar6];
         if ((pCVar2->N).simRoadInfo.slice < (pCVar4->N).simRoadInfo.slice) {
           iVar7 = 1;
-          *(Car_tObj **)((int)&__Cars_gSortedList_9__ + iVar1) = pCVar2;
-          (&__Cars_gSortedList_9__)[iVar6] = pCVar4;
+          *(Car_tObj **)((int)&Cars_gSortedList9 + iVar1) = pCVar2;
+          (&Cars_gSortedList9)[iVar6] = pCVar4;
         }
         iVar1 = iVar6 * 4;
       } while (iVar6 < iVar8);
     }
-    iVar6 = DAT_000002a8;
+    iVar6 = Cars_gNumCars;
     iVar1 = 0;
   } while (iVar7 != 0);
-  if (0 < DAT_000002a8) {
-    ppCVar3 = &__Cars_gSortedList_9__;
+  if (0 < Cars_gNumCars) {
+    ppCVar3 = &Cars_gSortedList9;
     do {
       (*ppCVar3)->sortIndex = iVar1;
       iVar1 = iVar1 + 1;
       ppCVar3 = ppCVar3 + 1;
     } while (iVar1 < iVar6);
   }
-  iVar9 = DAT_000002a8 + -1;
+  iVar9 = Cars_gNumCars + -1;
   do {
     iVar6 = 0;
     iVar7 = iVar6;
     if (0 < iVar9) {
-      iVar8 = DAT_000002a8 + -1;
+      iVar8 = Cars_gNumCars + -1;
       iVar1 = 0;
       iVar7 = iVar6;
       do {
-        ppCVar5 = (Car_tObj **)((int)&__Cars_gTotalSortedList_9__ + iVar1);
+        ppCVar5 = (Car_tObj **)((int)&Cars_gTotalSortedList9 + iVar1);
         iVar6 = iVar6 + 1;
-        ppCVar3 = &__Cars_gTotalSortedList_9__ + iVar6;
+        ppCVar3 = &Cars_gTotalSortedList9 + iVar6;
         if (((*ppCVar3)->N).totalSlice < ((*ppCVar5)->N).totalSlice) {
           (*ppCVar5)->swapCar = *ppCVar3;
           (*ppCVar3)->swapCar = *ppCVar5;
@@ -4501,6 +5102,7 @@ void Cars_SortCars__Fv(void)
   } while (iVar7 != 0);
   return;
 }
+
 
 
 

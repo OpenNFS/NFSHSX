@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "SIMQUEUE.H"
+
 
 // decompiled code
 // original method signature: 
@@ -12,13 +13,23 @@
 	// End offset: 0x800B72EC
 	// End Line: 94
 
+	/* begin block 2 */
+		// Start line: 186
+	/* end block 2 */
+	// End Line: 187
+
+	/* begin block 3 */
+		// Start line: 186
+	/* end block 3 */
+	// End Line: 187
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void SimQueue_StartUp__Fv(void)
 
 {
-  DAT_00000eec = 1;
-  DAT_00000ef0 = 1;
+  gSimQueue_BlockSelf = 1;
+  gSimQueue_BlockOther = 1;
   SimQueue_SetLag__Fv();
   return;
 }
@@ -38,6 +49,26 @@ void SimQueue_StartUp__Fv(void)
 	/* end block 1 */
 	// End offset: 0x800B7398
 	// End Line: 146
+
+	/* begin block 2 */
+		// Start line: 220
+	/* end block 2 */
+	// End Line: 221
+
+	/* begin block 3 */
+		// Start line: 234
+	/* end block 3 */
+	// End Line: 235
+
+	/* begin block 4 */
+		// Start line: 234
+	/* end block 4 */
+	// End Line: 235
+
+	/* begin block 5 */
+		// Start line: 246
+	/* end block 5 */
+	// End Line: 247
 
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
@@ -72,9 +103,9 @@ void SimQueue_Reset__Fv(void)
     psVar4 = (sim_queue *)(psVar4->Buffer + 1);
     iVar3 = iVar3 + 1;
   } while (iVar3 < 2);
-  DAT_00000ee8 = 3;
-  DAT_00000eec = 0;
-  DAT_00000ef0 = 0;
+  gSimQueue_Ticker = 3;
+  gSimQueue_BlockSelf = 0;
+  gSimQueue_BlockOther = 0;
   inputQueue.HeadTime = 0;
   return;
 }
@@ -92,13 +123,33 @@ void SimQueue_Reset__Fv(void)
 	// End offset: 0x800B73B8
 	// End Line: 174
 
+	/* begin block 2 */
+		// Start line: 335
+	/* end block 2 */
+	// End Line: 336
+
+	/* begin block 3 */
+		// Start line: 349
+	/* end block 3 */
+	// End Line: 350
+
+	/* begin block 4 */
+		// Start line: 349
+	/* end block 4 */
+	// End Line: 350
+
+	/* begin block 5 */
+		// Start line: 353
+	/* end block 5 */
+	// End Line: 354
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void SimQueue_CleanUp__Fv(void)
 
 {
-  DAT_00000eec = 1;
-  DAT_00000ef0 = 1;
+  gSimQueue_BlockSelf = 1;
+  gSimQueue_BlockOther = 1;
   return;
 }
 
@@ -116,6 +167,21 @@ void SimQueue_CleanUp__Fv(void)
 	/* end block 1 */
 	// End offset: 0x800B74C4
 	// End Line: 250
+
+	/* begin block 2 */
+		// Start line: 386
+	/* end block 2 */
+	// End Line: 387
+
+	/* begin block 3 */
+		// Start line: 413
+	/* end block 3 */
+	// End Line: 414
+
+	/* begin block 4 */
+		// Start line: 413
+	/* end block 4 */
+	// End Line: 414
 
 int SimQueue_Put__FiP14Input_tResults(int pIndex,Input_tResults *val)
 
@@ -147,7 +213,7 @@ int SimQueue_Put__FiP14Input_tResults(int pIndex,Input_tResults *val)
       return 1;
     }
   }
-  DAT_00000ee8 = DAT_00000ee8 + 1;
+  gSimQueue_Ticker = gSimQueue_Ticker + 1;
   return 1;
 }
 
@@ -166,6 +232,26 @@ int SimQueue_Put__FiP14Input_tResults(int pIndex,Input_tResults *val)
 	/* end block 1 */
 	// End offset: 0x800B7588
 	// End Line: 291
+
+	/* begin block 2 */
+		// Start line: 535
+	/* end block 2 */
+	// End Line: 536
+
+	/* begin block 3 */
+		// Start line: 557
+	/* end block 3 */
+	// End Line: 558
+
+	/* begin block 4 */
+		// Start line: 557
+	/* end block 4 */
+	// End Line: 558
+
+	/* begin block 5 */
+		// Start line: 565
+	/* end block 5 */
+	// End Line: 566
 
 void SimQueue_SetCurrentInput__Fi(int time)
 
@@ -211,6 +297,31 @@ void SimQueue_SetCurrentInput__Fi(int time)
 	// End offset: 0x800B75A4
 	// End Line: 297
 
+	/* begin block 2 */
+		// Start line: 600
+	/* end block 2 */
+	// End Line: 601
+
+	/* begin block 3 */
+		// Start line: 605
+	/* end block 3 */
+	// End Line: 606
+
+	/* begin block 4 */
+		// Start line: 605
+	/* end block 4 */
+	// End Line: 606
+
+	/* begin block 5 */
+		// Start line: 606
+	/* end block 5 */
+	// End Line: 607
+
+	/* begin block 6 */
+		// Start line: 606
+	/* end block 6 */
+	// End Line: 607
+
 void SimQueue_GetCurrentInput__FiP14Input_tResults(int pIndex,Input_tResults *out)
 
 {
@@ -231,13 +342,38 @@ void SimQueue_GetCurrentInput__FiP14Input_tResults(int pIndex,Input_tResults *ou
 	// End offset: 0x800B75F0
 	// End Line: 344
 
+	/* begin block 2 */
+		// Start line: 637
+	/* end block 2 */
+	// End Line: 638
+
+	/* begin block 3 */
+		// Start line: 667
+	/* end block 3 */
+	// End Line: 668
+
+	/* begin block 4 */
+		// Start line: 667
+	/* end block 4 */
+	// End Line: 668
+
+	/* begin block 5 */
+		// Start line: 668
+	/* end block 5 */
+	// End Line: 669
+
+	/* begin block 6 */
+		// Start line: 668
+	/* end block 6 */
+	// End Line: 669
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void SimQueue_SetLag__Fv(void)
 
 {
   if ((GameSetup_gData.commMode == 0) || (GameSetup_gData.commMode == 1)) {
-    DAT_00001884 = 4;
+    maxTicksPerFrame = &DAT_00000004;
   }
   return;
 }
@@ -255,6 +391,26 @@ void SimQueue_SetLag__Fv(void)
 	// End offset: 0x800B7644
 	// End Line: 408
 
+	/* begin block 2 */
+		// Start line: 740
+	/* end block 2 */
+	// End Line: 741
+
+	/* begin block 3 */
+		// Start line: 779
+	/* end block 3 */
+	// End Line: 780
+
+	/* begin block 4 */
+		// Start line: 779
+	/* end block 4 */
+	// End Line: 780
+
+	/* begin block 5 */
+		// Start line: 781
+	/* end block 5 */
+	// End Line: 782
+
 int SimQueue_IsBlocking__Fi(int pIndex)
 
 {
@@ -264,8 +420,9 @@ int SimQueue_IsBlocking__Fi(int pIndex)
   if ((GameSetup_gData.commMode != 0) && (GameSetup_gData.commMode != 1)) {
     return 0;
   }
-  return (uint)(inputQueue.TailTime[0] < inputQueue.HeadTime + DAT_00001884) ^ 1;
+  return (uint)(inputQueue.TailTime[0] < (int)(maxTicksPerFrame + inputQueue.HeadTime)) ^ 1;
 }
+
 
 
 

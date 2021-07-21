@@ -1,6 +1,7 @@
 #ifndef CARS_H
 #define CARS_H
 
+
 extern void Cars_DoGravityEffectsOnAcc__FP8Car_tObji(struct Car_tObj *carObj, int arcade); // 0x80085D84
 
 extern void Cars_GetDashData__FP8Car_tObjPiN21(struct Car_tObj *carObj, int *rpm, int *gear, int *speed); // 0x80085EC4
@@ -66,5 +67,6 @@ extern void Cars_ManageBureaucracy__Fv(); // 0x8008AFFC
 extern void Cars_CheckForAccidentScenes__Fv(); // 0x8008B1C4
 
 extern void Cars_SortCars__Fv(); // 0x8008B28C
+
 
 #endif

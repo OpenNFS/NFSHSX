@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "TRACKSPEC.H"
+
 
 // decompiled code
 // original method signature: 
@@ -13,6 +14,16 @@
 	// 		int j; // $v1
 	/* end block 1 */
 	// End offset: 0x800E169C
+	// End Line: 89
+
+	/* begin block 2 */
+		// Start line: 88
+	/* end block 2 */
+	// End Line: 89
+
+	/* begin block 3 */
+		// Start line: 88
+	/* end block 3 */
 	// End Line: 89
 
 void TrackSpec_SetDefault__FP10CTrackSpec(CTrackSpec *spec)
@@ -149,6 +160,31 @@ void TrackSpec_SetDefault__FP10CTrackSpec(CTrackSpec *spec)
 	// End offset: 0x800E177C
 	// End Line: 121
 
+	/* begin block 2 */
+		// Start line: 358
+	/* end block 2 */
+	// End Line: 359
+
+	/* begin block 3 */
+		// Start line: 364
+	/* end block 3 */
+	// End Line: 365
+
+	/* begin block 4 */
+		// Start line: 364
+	/* end block 4 */
+	// End Line: 365
+
+	/* begin block 5 */
+		// Start line: 365
+	/* end block 5 */
+	// End Line: 366
+
+	/* begin block 6 */
+		// Start line: 365
+	/* end block 6 */
+	// End Line: 366
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void TrackSpec_SetUp__Fv(void)
@@ -183,6 +219,26 @@ void TrackSpec_SetUp__Fv(void)
 	/* end block 1 */
 	// End offset: 0x800E17C8
 	// End Line: 140
+
+	/* begin block 2 */
+		// Start line: 375
+	/* end block 2 */
+	// End Line: 376
+
+	/* begin block 3 */
+		// Start line: 381
+	/* end block 3 */
+	// End Line: 382
+
+	/* begin block 4 */
+		// Start line: 381
+	/* end block 4 */
+	// End Line: 382
+
+	/* begin block 5 */
+		// Start line: 385
+	/* end block 5 */
+	// End Line: 386
 
 void read__FPPcPvi(char **handle,void *buf,int bytes)
 
@@ -239,6 +295,21 @@ void read__FPPcPvi(char **handle,void *buf,int bytes)
 	// End offset: 0x800E18B0
 	// End Line: 185
 
+	/* begin block 2 */
+		// Start line: 412
+	/* end block 2 */
+	// End Line: 413
+
+	/* begin block 3 */
+		// Start line: 418
+	/* end block 3 */
+	// End Line: 419
+
+	/* begin block 4 */
+		// Start line: 418
+	/* end block 4 */
+	// End Line: 419
+
 void TrackSpec_Read__Fi(int spec_num)
 
 {
@@ -248,15 +319,15 @@ void TrackSpec_Read__Fi(int spec_num)
   int local_24;
   char *local_20 [2];
   
-  sprintf(acStack104,s__sTr_02d_bin_80056ac4,PTR_80116480,GameSetup_gData.track);
+  sprintf(acStack104,s__sTr_02d_bin_80056ac4,PTR_ARRAY_80116480[0],GameSetup_gData.track);
   pcVar1 = (char *)loadfileadr(acStack104,0);
   if (pcVar1 != (char *)0x0) {
-    DAT_00001644 = spec_num;
-    DAT_00001648 = spec_num;
+    TrackSpec_gPrevSpec = spec_num;
+    TrackSpec_gCurrentSpec = spec_num;
     local_20[0] = pcVar1;
     read__FPPcPvi(local_20,auStack40,8);
     if (spec_num < local_24) {
-      DAT_0000164c = local_24 + 1;
+      TrackSpec_gMaxSpec = local_24 + 1;
       local_20[0] = local_20[0] + spec_num * 0x108;
       read__FPPcPvi(local_20,&TrackSpec_gSpec,0x108);
       TrackSpec_SetUp__Fv();
@@ -284,6 +355,21 @@ void TrackSpec_Read__Fi(int spec_num)
 	// End offset: 0x800E18CC
 	// End Line: 206
 
+	/* begin block 2 */
+		// Start line: 548
+	/* end block 2 */
+	// End Line: 549
+
+	/* begin block 3 */
+		// Start line: 553
+	/* end block 3 */
+	// End Line: 554
+
+	/* begin block 4 */
+		// Start line: 553
+	/* end block 4 */
+	// End Line: 554
+
 void TrackSpec_Load__Fii(int weather,int night)
 
 {
@@ -296,6 +382,7 @@ void TrackSpec_Load__Fii(int weather,int night)
   TrackSpec_Read__Fi(local_18[weather * 2 + night]);
   return;
 }
+
 
 
 

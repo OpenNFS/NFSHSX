@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "AIPHYSIC.H"
+
 
 // decompiled code
 // original method signature: 
@@ -11,6 +12,21 @@
 	/* end block 1 */
 	// End offset: 0x800692E8
 	// End Line: 127
+
+	/* begin block 2 */
+		// Start line: 240
+	/* end block 2 */
+	// End Line: 241
+
+	/* begin block 3 */
+		// Start line: 240
+	/* end block 3 */
+	// End Line: 241
+
+	/* begin block 4 */
+		// Start line: 244
+	/* end block 4 */
+	// End Line: 245
 
 void AIPhysic_StopCar__FP8Car_tObjii(Car_tObj *carObj,int velScale,int rotScale)
 
@@ -73,6 +89,26 @@ void AIPhysic_StopCar__FP8Car_tObjii(Car_tObj *carObj,int velScale,int rotScale)
 	// End offset: 0x800693C4
 	// End Line: 156
 
+	/* begin block 2 */
+		// Start line: 268
+	/* end block 2 */
+	// End Line: 269
+
+	/* begin block 3 */
+		// Start line: 279
+	/* end block 3 */
+	// End Line: 280
+
+	/* begin block 4 */
+		// Start line: 279
+	/* end block 4 */
+	// End Line: 280
+
+	/* begin block 5 */
+		// Start line: 281
+	/* end block 5 */
+	// End Line: 282
+
 /* WARNING: Removing unreachable block (ram,0x8006937c) */
 
 void AIPhysic_RevEngine__FP8Car_tObj(Car_tObj *carObj)
@@ -87,7 +123,7 @@ void AIPhysic_RevEngine__FP8Car_tObj(Car_tObj *carObj)
     iVar3 = iVar3 + 0xffff;
   }
   uVar1 = carObj->carIndex;
-  iVar2 = (uVar1 + ((int)(uVar1 + (uVar1 >> 0x1f)) >> 1) * -2 + 1) * DAT_00000050 * 0x8c;
+  iVar2 = (uVar1 + ((int)(uVar1 + (uVar1 >> 0x1f)) >> 1) * -2 + 1) * AIPhysic_elapsedTime * 0x8c;
   uVar1 = iVar3 >> 0x10;
   if ((carObj->flywheelRpm & 1U) != 0) {
     iVar2 = -(iVar2 >> 1);
@@ -138,6 +174,21 @@ void AIPhysic_RevEngine__FP8Car_tObj(Car_tObj *carObj)
 	// End offset: 0x80069518
 	// End Line: 204
 
+	/* begin block 2 */
+		// Start line: 334
+	/* end block 2 */
+	// End Line: 335
+
+	/* begin block 3 */
+		// Start line: 347
+	/* end block 3 */
+	// End Line: 348
+
+	/* begin block 4 */
+		// Start line: 347
+	/* end block 4 */
+	// End Line: 348
+
 void AIPhysic_HandleShifting__FP8Car_tObj(Car_tObj *carObj)
 
 {
@@ -182,7 +233,7 @@ void AIPhysic_HandleShifting__FP8Car_tObj(Car_tObj *carObj)
     (carObj->control).gear = (char)gear;
   }
   else {
-    carObj->carInLane = carObj->carInLane - DAT_00000050;
+    carObj->carInLane = carObj->carInLane - AIPhysic_elapsedTime;
   }
   iVar2 = carObj->flywheelRpm;
   iVar1 = iVar3 - iVar2;
@@ -222,6 +273,21 @@ void AIPhysic_HandleShifting__FP8Car_tObj(Car_tObj *carObj)
 	/* end block 1 */
 	// End offset: 0x80069614
 	// End Line: 255
+
+	/* begin block 2 */
+		// Start line: 437
+	/* end block 2 */
+	// End Line: 438
+
+	/* begin block 3 */
+		// Start line: 448
+	/* end block 3 */
+	// End Line: 449
+
+	/* begin block 4 */
+		// Start line: 448
+	/* end block 4 */
+	// End Line: 449
 
 Gear_t AIPhysic_CalculateGear__FP8Car_tObj(Car_tObj *carObj)
 
@@ -300,6 +366,26 @@ Gear_t AIPhysic_CalculateGear__FP8Car_tObj(Car_tObj *carObj)
 	// End offset: 0x8006964C
 	// End Line: 272
 
+	/* begin block 2 */
+		// Start line: 545
+	/* end block 2 */
+	// End Line: 546
+
+	/* begin block 3 */
+		// Start line: 553
+	/* end block 3 */
+	// End Line: 554
+
+	/* begin block 4 */
+		// Start line: 553
+	/* end block 4 */
+	// End Line: 554
+
+	/* begin block 5 */
+		// Start line: 555
+	/* end block 5 */
+	// End Line: 556
+
 int AIPhysic_GearInvSpeedRange__FP8Car_tObj6Gear_t(Car_tObj *carObj,Gear_t gear)
 
 {
@@ -341,6 +427,26 @@ int AIPhysic_GearInvSpeedRange__FP8Car_tObj6Gear_t(Car_tObj *carObj,Gear_t gear)
 	// End offset: 0x80069674
 	// End Line: 293
 
+	/* begin block 2 */
+		// Start line: 586
+	/* end block 2 */
+	// End Line: 587
+
+	/* begin block 3 */
+		// Start line: 595
+	/* end block 3 */
+	// End Line: 596
+
+	/* begin block 4 */
+		// Start line: 595
+	/* end block 4 */
+	// End Line: 596
+
+	/* begin block 5 */
+		// Start line: 597
+	/* end block 5 */
+	// End Line: 598
+
 int AIPhysic_GearTopSpeed__FP8Car_tObj6Gear_t(Car_tObj *carObj,Gear_t gear)
 
 {
@@ -379,6 +485,26 @@ int AIPhysic_GearTopSpeed__FP8Car_tObj6Gear_t(Car_tObj *carObj,Gear_t gear)
 	/* end block 1 */
 	// End offset: 0x800696A8
 	// End Line: 317
+
+	/* begin block 2 */
+		// Start line: 627
+	/* end block 2 */
+	// End Line: 628
+
+	/* begin block 3 */
+		// Start line: 635
+	/* end block 3 */
+	// End Line: 636
+
+	/* begin block 4 */
+		// Start line: 635
+	/* end block 4 */
+	// End Line: 636
+
+	/* begin block 5 */
+		// Start line: 637
+	/* end block 5 */
+	// End Line: 638
 
 int AIPhysic_GearBottomSpeed__FP8Car_tObj6Gear_t(Car_tObj *carObj,Gear_t gear)
 
@@ -424,6 +550,21 @@ int AIPhysic_GearBottomSpeed__FP8Car_tObj6Gear_t(Car_tObj *carObj,Gear_t gear)
 	// End offset: 0x80069974
 	// End Line: 398
 
+	/* begin block 2 */
+		// Start line: 679
+	/* end block 2 */
+	// End Line: 680
+
+	/* begin block 3 */
+		// Start line: 689
+	/* end block 3 */
+	// End Line: 690
+
+	/* begin block 4 */
+		// Start line: 689
+	/* end block 4 */
+	// End Line: 690
+
 int AIPhysic_CalcAcceleration__FP8Car_tObji(Car_tObj *carObj,int speed)
 
 {
@@ -439,7 +580,7 @@ int AIPhysic_CalcAcceleration__FP8Car_tObji(Car_tObj *carObj,int speed)
   if (carObj->carInLane < 1) {
     acc = carObj->carInfo->carType;
     if (acc < 0x16) {
-      acc = (&Cars_topSpeedCap)[acc];
+      acc = Cars_topSpeedCap[acc];
       uVar1 = fixedmult(acc,carObj->wipeOutEndTick);
       uVar2 = fixedmult(uVar1,carObj->aDesired);
       if ((int)uVar2 < speed) {
@@ -499,13 +640,13 @@ int AIPhysic_CalcAcceleration__FP8Car_tObji(Car_tObj *carObj,int speed)
       acc = (acc >> 8) * (iVar3 >> 8);
     }
     if ((((GameSetup_gData.raceType == 1) || (GameSetup_gData.raceType == 5)) &&
-        (((__Cars_gHumanRaceCarList_9__->carFlags & 0x200U) != 0 ||
-         ((Cars_gNumHumanRaceCars == 2 && ((PTR_8010fa4c->carFlags & 0x200U) != 0)))))) &&
+        (((Cars_gHumanRaceCarList9->carFlags & 0x200U) != 0 ||
+         ((Cars_gNumHumanRaceCars == 2 && ((PTR_ARRAY_8010fa4c[0]->carFlags & 0x200U) != 0)))))) &&
        ((carObj->carFlags & 8U) != 0)) {
       if (acc < 0) {
         acc = acc + 0xff;
       }
-      iVar3 = (&AITune_BTCPerpAccMults)[GameSetup_gData.skill];
+      iVar3 = AITune_BTCPerpAccMults[GameSetup_gData.skill];
       if (iVar3 < 0) {
         iVar3 = iVar3 + 0xff;
       }
@@ -534,6 +675,21 @@ int AIPhysic_CalcAcceleration__FP8Car_tObji(Car_tObj *carObj,int speed)
 	/* end block 1 */
 	// End offset: 0x800699D4
 	// End Line: 416
+
+	/* begin block 2 */
+		// Start line: 844
+	/* end block 2 */
+	// End Line: 845
+
+	/* begin block 3 */
+		// Start line: 851
+	/* end block 3 */
+	// End Line: 852
+
+	/* begin block 4 */
+		// Start line: 851
+	/* end block 4 */
+	// End Line: 852
 
 int AIPhysic_ModifyAccelerationAccordingToScript__FP8Car_tObji(Car_tObj *carObj,int acc)
 
@@ -582,6 +738,21 @@ int AIPhysic_ModifyAccelerationAccordingToScript__FP8Car_tObji(Car_tObj *carObj,
 	// End offset: 0x80069A2C
 	// End Line: 432
 
+	/* begin block 2 */
+		// Start line: 890
+	/* end block 2 */
+	// End Line: 891
+
+	/* begin block 3 */
+		// Start line: 900
+	/* end block 3 */
+	// End Line: 901
+
+	/* begin block 4 */
+		// Start line: 900
+	/* end block 4 */
+	// End Line: 901
+
 int AIPhysic_CalcDeceleration__FP8Car_tObj(Car_tObj *carObj)
 
 {
@@ -617,6 +788,31 @@ int AIPhysic_CalcDeceleration__FP8Car_tObj(Car_tObj *carObj)
 	// End offset: 0x80069A74
 	// End Line: 450
 
+	/* begin block 2 */
+		// Start line: 921
+	/* end block 2 */
+	// End Line: 922
+
+	/* begin block 3 */
+		// Start line: 930
+	/* end block 3 */
+	// End Line: 931
+
+	/* begin block 4 */
+		// Start line: 930
+	/* end block 4 */
+	// End Line: 931
+
+	/* begin block 5 */
+		// Start line: 931
+	/* end block 5 */
+	// End Line: 932
+
+	/* begin block 6 */
+		// Start line: 931
+	/* end block 6 */
+	// End Line: 932
+
 void AIPhysic_CheckDesiredDirection__FP8Car_tObj(Car_tObj *carObj)
 
 {
@@ -641,6 +837,31 @@ void AIPhysic_CheckDesiredDirection__FP8Car_tObj(Car_tObj *carObj)
 	/* end block 1 */
 	// End offset: 0x80069AE8
 	// End Line: 480
+
+	/* begin block 2 */
+		// Start line: 957
+	/* end block 2 */
+	// End Line: 958
+
+	/* begin block 3 */
+		// Start line: 966
+	/* end block 3 */
+	// End Line: 967
+
+	/* begin block 4 */
+		// Start line: 966
+	/* end block 4 */
+	// End Line: 967
+
+	/* begin block 5 */
+		// Start line: 967
+	/* end block 5 */
+	// End Line: 968
+
+	/* begin block 6 */
+		// Start line: 967
+	/* end block 6 */
+	// End Line: 968
 
 void AIPhysic_HandleSignalling__FP8Car_tObj(Car_tObj *carObj)
 
@@ -683,6 +904,21 @@ void AIPhysic_HandleSignalling__FP8Car_tObj(Car_tObj *carObj)
 	// End offset: 0x80069B7C
 	// End Line: 507
 
+	/* begin block 2 */
+		// Start line: 1027
+	/* end block 2 */
+	// End Line: 1028
+
+	/* begin block 3 */
+		// Start line: 1039
+	/* end block 3 */
+	// End Line: 1040
+
+	/* begin block 4 */
+		// Start line: 1039
+	/* end block 4 */
+	// End Line: 1040
+
 void AIPhysic_HandleWipeoutTimer__FP8Car_tObj(Car_tObj *carObj)
 
 {
@@ -710,6 +946,21 @@ void AIPhysic_HandleWipeoutTimer__FP8Car_tObj(Car_tObj *carObj)
 	/* end block 1 */
 	// End offset: 0x80069E00
 	// End Line: 672
+
+	/* begin block 2 */
+		// Start line: 1088
+	/* end block 2 */
+	// End Line: 1089
+
+	/* begin block 3 */
+		// Start line: 1111
+	/* end block 3 */
+	// End Line: 1112
+
+	/* begin block 4 */
+		// Start line: 1111
+	/* end block 4 */
+	// End Line: 1112
 
 void AIPhysic_Main__FP8Car_tObj(Car_tObj *carObj)
 
@@ -816,6 +1067,21 @@ LAB_80069dc0:
 	// End offset: 0x80069EDC
 	// End Line: 721
 
+	/* begin block 2 */
+		// Start line: 1435
+	/* end block 2 */
+	// End Line: 1436
+
+	/* begin block 3 */
+		// Start line: 1438
+	/* end block 3 */
+	// End Line: 1439
+
+	/* begin block 4 */
+		// Start line: 1438
+	/* end block 4 */
+	// End Line: 1439
+
 void AIPhysic_CheckForBadPosition__FP8Car_tObj(Car_tObj *carObj)
 
 {
@@ -854,6 +1120,26 @@ void AIPhysic_CheckForBadPosition__FP8Car_tObj(Car_tObj *carObj)
 	/* end block 1 */
 	// End offset: 0x80069F28
 	// End Line: 739
+
+	/* begin block 2 */
+		// Start line: 1529
+	/* end block 2 */
+	// End Line: 1530
+
+	/* begin block 3 */
+		// Start line: 1541
+	/* end block 3 */
+	// End Line: 1542
+
+	/* begin block 4 */
+		// Start line: 1541
+	/* end block 4 */
+	// End Line: 1542
+
+	/* begin block 5 */
+		// Start line: 1544
+	/* end block 5 */
+	// End Line: 1545
 
 int AIPhysics_UseCoolPhysics__FP8Car_tObj(Car_tObj *carObj)
 
@@ -900,6 +1186,21 @@ int AIPhysics_UseCoolPhysics__FP8Car_tObj(Car_tObj *carObj)
 	/* end block 1 */
 	// End offset: 0x8006A284
 	// End Line: 816
+
+	/* begin block 2 */
+		// Start line: 1572
+	/* end block 2 */
+	// End Line: 1573
+
+	/* begin block 3 */
+		// Start line: 1591
+	/* end block 3 */
+	// End Line: 1592
+
+	/* begin block 4 */
+		// Start line: 1591
+	/* end block 4 */
+	// End Line: 1592
 
 void AIPhysic_SimplePhysics__FP8Car_tObj(Car_tObj *carObj)
 
@@ -1015,6 +1316,21 @@ void AIPhysic_SimplePhysics__FP8Car_tObj(Car_tObj *carObj)
 	// End offset: 0x8006A5E0
 	// End Line: 890
 
+	/* begin block 2 */
+		// Start line: 1741
+	/* end block 2 */
+	// End Line: 1742
+
+	/* begin block 3 */
+		// Start line: 1751
+	/* end block 3 */
+	// End Line: 1752
+
+	/* begin block 4 */
+		// Start line: 1751
+	/* end block 4 */
+	// End Line: 1752
+
 void AIPhysic_SimplePhysics_LongVel__FP8Car_tObj(Car_tObj *carObj)
 
 {
@@ -1042,7 +1358,7 @@ void AIPhysic_SimplePhysics_LongVel__FP8Car_tObj(Car_tObj *carObj)
     iVar5 = (carObj->script).lastActionTime;
     if ((iVar5 < (carObj->script).lastReactionIndex[5]) ||
        ((carObj->script).lastReactionIndex[2] != -1)) {
-      iVar3 = (uint)(byte)(carObj->control).brakeLevel + iGp00000050 * 4;
+      iVar3 = (uint)(byte)(carObj->control).brakeLevel + AIPhysic_elapsedTime * 4;
       (carObj->linearAcc_ch).z = iVar4;
       if (iVar3 < 0xff) {
         (carObj->control).brakeLevel = (char)iVar3;
@@ -1056,9 +1372,9 @@ void AIPhysic_SimplePhysics_LongVel__FP8Car_tObj(Car_tObj *carObj)
       if (iVar4 < 0) {
         iVar4 = iVar4 + 0xff;
       }
-      iVar3 = iGp00000048;
-      if (iGp00000048 < 0) {
-        iVar3 = iGp00000048 + 0xff;
+      iVar3 = AIPhysic_iTime;
+      if (AIPhysic_iTime < 0) {
+        iVar3 = AIPhysic_iTime + 0xff;
       }
       iVar6 = (carObj->script).lastReactionIndex[3];
       iVar5 = (carObj->script).lastReactionIndex[2];
@@ -1077,14 +1393,15 @@ void AIPhysic_SimplePhysics_LongVel__FP8Car_tObj(Car_tObj *carObj)
     if (iVar3 < 0) {
       iVar4 = iVar3 + 0xff;
     }
-    iVar6 = iGp00000048;
-    if (iGp00000048 < 0) {
-      iVar6 = iGp00000048 + 0xff;
+    iVar6 = AIPhysic_iTime;
+    if (AIPhysic_iTime < 0) {
+      iVar6 = AIPhysic_iTime + 0xff;
     }
     bVar1 = (carObj->control).brakeLevel;
+    bVar2 = AIPhysic_elapsedTime < (int)(uint)bVar1;
     (carObj->script).lastActionTime = iVar5 - (iVar4 >> 8) * (iVar6 >> 8);
-    if (iGp00000050 < (int)(uint)bVar1) {
-      (carObj->control).brakeLevel = bVar1 - (char)iGp00000050;
+    if (bVar2) {
+      (carObj->control).brakeLevel = bVar1 - (char)AIPhysic_elapsedTime;
     }
     else {
       (carObj->control).brakeLevel = '\0';
@@ -1101,7 +1418,7 @@ void AIPhysic_SimplePhysics_LongVel__FP8Car_tObj(Car_tObj *carObj)
     iVar6 = (carObj->script).lastActionTime;
     if (((carObj->script).lastReactionIndex[5] < iVar6) ||
        (iVar5 != (carObj->script).lastReactionIndex[2])) {
-      iVar3 = (uint)(byte)(carObj->control).brakeLevel + iGp00000050 * 4;
+      iVar3 = (uint)(byte)(carObj->control).brakeLevel + AIPhysic_elapsedTime * 4;
       (carObj->linearAcc_ch).z = iVar4;
       if (iVar3 < 0xff) {
         (carObj->control).brakeLevel = (char)iVar3;
@@ -1115,9 +1432,9 @@ void AIPhysic_SimplePhysics_LongVel__FP8Car_tObj(Car_tObj *carObj)
       if (iVar4 < 0) {
         iVar4 = iVar4 + 0xff;
       }
-      iVar3 = iGp00000048;
-      if (iGp00000048 < 0) {
-        iVar3 = iGp00000048 + 0xff;
+      iVar3 = AIPhysic_iTime;
+      if (AIPhysic_iTime < 0) {
+        iVar3 = AIPhysic_iTime + 0xff;
       }
       iVar6 = (carObj->script).lastReactionIndex[3];
       iVar5 = (carObj->script).lastReactionIndex[2];
@@ -1136,14 +1453,15 @@ void AIPhysic_SimplePhysics_LongVel__FP8Car_tObj(Car_tObj *carObj)
     if (iVar3 < 0) {
       iVar4 = iVar3 + 0xff;
     }
-    iVar5 = iGp00000048;
-    if (iGp00000048 < 0) {
-      iVar5 = iGp00000048 + 0xff;
+    iVar5 = AIPhysic_iTime;
+    if (AIPhysic_iTime < 0) {
+      iVar5 = AIPhysic_iTime + 0xff;
     }
     bVar1 = (carObj->control).brakeLevel;
+    bVar2 = AIPhysic_elapsedTime < (int)(uint)bVar1;
     (carObj->script).lastActionTime = iVar6 + (iVar4 >> 8) * (iVar5 >> 8);
-    if (iGp00000050 < (int)(uint)bVar1) {
-      (carObj->control).brakeLevel = bVar1 - (char)iGp00000050;
+    if (bVar2) {
+      (carObj->control).brakeLevel = bVar1 - (char)AIPhysic_elapsedTime;
     }
     else {
       (carObj->control).brakeLevel = '\0';
@@ -1195,6 +1513,21 @@ LAB_8006a5dc:
 	/* end block 1 */
 	// End offset: 0x8006A704
 	// End Line: 933
+
+	/* begin block 2 */
+		// Start line: 1900
+	/* end block 2 */
+	// End Line: 1901
+
+	/* begin block 3 */
+		// Start line: 1913
+	/* end block 3 */
+	// End Line: 1914
+
+	/* begin block 4 */
+		// Start line: 1913
+	/* end block 4 */
+	// End Line: 1914
 
 void AIPhysic_SimplePhysics_LatVel__FP8Car_tObj(Car_tObj *carObj)
 
@@ -1256,6 +1589,21 @@ void AIPhysic_SimplePhysics_LatVel__FP8Car_tObj(Car_tObj *carObj)
 	// End offset: 0x8006A7B4
 	// End Line: 987
 
+	/* begin block 2 */
+		// Start line: 2001
+	/* end block 2 */
+	// End Line: 2002
+
+	/* begin block 3 */
+		// Start line: 2028
+	/* end block 3 */
+	// End Line: 2029
+
+	/* begin block 4 */
+		// Start line: 2028
+	/* end block 4 */
+	// End Line: 2029
+
 void AIPhysic_CoolPhysics__FP8Car_tObj(Car_tObj *carObj)
 
 {
@@ -1296,6 +1644,21 @@ void AIPhysic_CoolPhysics__FP8Car_tObj(Car_tObj *carObj)
 	// End offset: 0x8006A8AC
 	// End Line: 1018
 
+	/* begin block 2 */
+		// Start line: 2092
+	/* end block 2 */
+	// End Line: 2093
+
+	/* begin block 3 */
+		// Start line: 2102
+	/* end block 3 */
+	// End Line: 2103
+
+	/* begin block 4 */
+		// Start line: 2102
+	/* end block 4 */
+	// End Line: 2103
+
 void AIPhysic_HandleDirection__FP8Car_tObj(Car_tObj *carObj)
 
 {
@@ -1306,7 +1669,7 @@ void AIPhysic_HandleDirection__FP8Car_tObj(Car_tObj *carObj)
     iVar1 = (carObj->angularAcc_ch).y;
     iVar2 = (carObj->speechInfo).playerCarIndex;
     if (((iVar2 < iVar1 + -0xa0000) && (0 < (carObj->desiredVector).x)) ||
-       (((int)(&LAB_000a0000 + iVar1) < iVar2 && ((carObj->desiredVector).x < 0)))) {
+       (((int)&PTR_000a0000 + iVar1 < iVar2 && ((carObj->desiredVector).x < 0)))) {
       carObj->barrierThinkHarder = simGlobal.gameTicks + -0x18;
     }
     if ((int)carObj->brakeInfo < simGlobal.gameTicks - carObj->barrierThinkHarder) {
@@ -1341,6 +1704,21 @@ void AIPhysic_HandleDirection__FP8Car_tObj(Car_tObj *carObj)
 	/* end block 1 */
 	// End offset: 0x8006AB00
 	// End Line: 1068
+
+	/* begin block 2 */
+		// Start line: 2153
+	/* end block 2 */
+	// End Line: 2154
+
+	/* begin block 3 */
+		// Start line: 2162
+	/* end block 3 */
+	// End Line: 2163
+
+	/* begin block 4 */
+		// Start line: 2162
+	/* end block 4 */
+	// End Line: 2163
 
 void AIPhysic_Preperation__FP8Car_tObj(Car_tObj *carObj)
 
@@ -1440,6 +1818,21 @@ LAB_8006ab00:
 	// End offset: 0x8006AC24
 	// End Line: 1088
 
+	/* begin block 2 */
+		// Start line: 2260
+	/* end block 2 */
+	// End Line: 2261
+
+	/* begin block 3 */
+		// Start line: 2268
+	/* end block 3 */
+	// End Line: 2269
+
+	/* begin block 4 */
+		// Start line: 2268
+	/* end block 4 */
+	// End Line: 2269
+
 int AIPhysic_CalculateRoadPosition__FP8coorddefi(coorddef *pos,int slice)
 
 {
@@ -1528,6 +1921,21 @@ int AIPhysic_CalculateRoadPosition__FP8coorddefi(coorddef *pos,int slice)
 	/* end block 1 */
 	// End offset: 0x8006B204
 	// End Line: 1271
+
+	/* begin block 2 */
+		// Start line: 2308
+	/* end block 2 */
+	// End Line: 2309
+
+	/* begin block 3 */
+		// Start line: 2318
+	/* end block 3 */
+	// End Line: 2319
+
+	/* begin block 4 */
+		// Start line: 2318
+	/* end block 4 */
+	// End Line: 2319
 
 void AIPhysic_GetDesiredVector__FP8Car_tObj(Car_tObj *carObj)
 
@@ -1694,6 +2102,26 @@ LAB_8006af18:
 	// End offset: 0x8006B224
 	// End Line: 1279
 
+	/* begin block 2 */
+		// Start line: 2691
+	/* end block 2 */
+	// End Line: 2692
+
+	/* begin block 3 */
+		// Start line: 2694
+	/* end block 3 */
+	// End Line: 2695
+
+	/* begin block 4 */
+		// Start line: 2694
+	/* end block 4 */
+	// End Line: 2695
+
+	/* begin block 5 */
+		// Start line: 2697
+	/* end block 5 */
+	// End Line: 2698
+
 void AIPhysic_TargetedGetDesiredVector__FP8Car_tObj(Car_tObj *carObj)
 
 {
@@ -1726,6 +2154,21 @@ void AIPhysic_TargetedGetDesiredVector__FP8Car_tObj(Car_tObj *carObj)
 	/* end block 1 */
 	// End offset: 0x8006B3F0
 	// End Line: 1334
+
+	/* begin block 2 */
+		// Start line: 2723
+	/* end block 2 */
+	// End Line: 2724
+
+	/* begin block 3 */
+		// Start line: 2731
+	/* end block 3 */
+	// End Line: 2732
+
+	/* begin block 4 */
+		// Start line: 2731
+	/* end block 4 */
+	// End Line: 2732
 
 int AIPhysic_CheckIfOutOfControl__FP8Car_tObj(Car_tObj *carObj)
 
@@ -1815,6 +2258,21 @@ int AIPhysic_CheckIfOutOfControl__FP8Car_tObj(Car_tObj *carObj)
 	/* end block 1 */
 	// End offset: 0x8006BA28
 	// End Line: 1508
+
+	/* begin block 2 */
+		// Start line: 2837
+	/* end block 2 */
+	// End Line: 2838
+
+	/* begin block 3 */
+		// Start line: 2855
+	/* end block 3 */
+	// End Line: 2856
+
+	/* begin block 4 */
+		// Start line: 2855
+	/* end block 4 */
+	// End Line: 2856
 
 void AIPhysic_OutOfControlPhysics__FP8Car_tObj(Car_tObj *carObj)
 
@@ -1977,8 +2435,8 @@ LAB_8006b814:
           iVar13 = AIPhysic_CalcAcceleration__FP8Car_tObji(carObj,(carObj->linearVel_ch).z);
           uVar7 = iVar13 * carObj->speedFactor;
           bVar1 = (carObj->control).brakeLevel;
-          if (DAT_00000050 < (int)(uint)bVar1) {
-            (carObj->control).brakeLevel = bVar1 - (char)DAT_00000050;
+          if (AIPhysic_elapsedTime < (int)(uint)bVar1) {
+            (carObj->control).brakeLevel = bVar1 - (char)AIPhysic_elapsedTime;
           }
           else {
             (carObj->control).brakeLevel = '\0';
@@ -1998,7 +2456,7 @@ LAB_8006b814:
   uVar7 = 0;
   if (0 < iVar13) {
     uVar6 = AIPhysic_CalcDeceleration__FP8Car_tObj(carObj);
-    iVar13 = (uint)(byte)(carObj->control).brakeLevel + DAT_00000050 * 4;
+    iVar13 = (uint)(byte)(carObj->control).brakeLevel + AIPhysic_elapsedTime * 4;
     if (iVar13 < 0xff) {
       (carObj->control).brakeLevel = (char)iVar13;
     }
@@ -2088,6 +2546,21 @@ LAB_8006b908:
 	/* end block 1 */
 	// End offset: 0x8006BAB8
 	// End Line: 1585
+
+	/* begin block 2 */
+		// Start line: 3275
+	/* end block 2 */
+	// End Line: 3276
+
+	/* begin block 3 */
+		// Start line: 3328
+	/* end block 3 */
+	// End Line: 3329
+
+	/* begin block 4 */
+		// Start line: 3328
+	/* end block 4 */
+	// End Line: 3329
 
 int AIPhysic_GetRearEndDamageFactor__FP8Car_tObj(Car_tObj *carObj)
 
@@ -2193,6 +2666,21 @@ int AIPhysic_GetRearEndDamageFactor__FP8Car_tObj(Car_tObj *carObj)
 	// End offset: 0x8006C328
 	// End Line: 1864
 
+	/* begin block 2 */
+		// Start line: 3383
+	/* end block 2 */
+	// End Line: 3384
+
+	/* begin block 3 */
+		// Start line: 3403
+	/* end block 3 */
+	// End Line: 3404
+
+	/* begin block 4 */
+		// Start line: 3403
+	/* end block 4 */
+	// End Line: 3404
+
 /* WARNING: Type propagation algorithm not settling */
 
 void AIPhysic_InControlPhysics__FP8Car_tObj(Car_tObj *carObj)
@@ -2204,14 +2692,15 @@ void AIPhysic_InControlPhysics__FP8Car_tObj(Car_tObj *carObj)
   uint uVar4;
   int iVar5;
   BO_tNewtonObj *pBVar6;
-  int iVar7;
+  undefined *puVar7;
   int iVar8;
   int iVar9;
-  speechModeType sVar10;
-  int iVar11;
-  undefined *puVar12;
+  int iVar10;
+  speechModeType sVar11;
+  int iVar12;
+  undefined **ppuVar13;
   int speed;
-  int iVar13;
+  int iVar14;
   coorddef local_60;
   int local_50;
   int local_4c;
@@ -2232,7 +2721,7 @@ void AIPhysic_InControlPhysics__FP8Car_tObj(Car_tObj *carObj)
   local_48 = -local_60.x;
   local_50 = local_60.z;
   local_4c = local_60.y;
-  puVar12 = (undefined *)0x0;
+  ppuVar13 = (undefined **)0x0;
   uVar2 = fixedmult((carObj->N).linearVel.x,local_60.z);
   uVar3 = fixedmult((carObj->N).linearVel.y,local_4c);
   uVar4 = fixedmult((carObj->N).linearVel.z,local_48);
@@ -2250,7 +2739,7 @@ void AIPhysic_InControlPhysics__FP8Car_tObj(Car_tObj *carObj)
       carObj->targetLatPos = simGlobal.gameTicks + 0x180;
     }
   }
-  iVar11 = simGlobal.gameTicks - (carObj->N).collision.lastTime;
+  iVar12 = simGlobal.gameTicks - (carObj->N).collision.lastTime;
   iVar5 = AIScript_DoReAction__FP10AIScript_t20AIScript_tAIReaction
                     (&carObj->script,AISCRIPT_AIREACTION_WIPE_OUT);
   if ((iVar5 != -1) || (simGlobal.gameTicks < carObj->targetLatPos)) {
@@ -2263,145 +2752,145 @@ void AIPhysic_InControlPhysics__FP8Car_tObj(Car_tObj *carObj)
     if (iVar5 < 0) {
       iVar5 = -iVar5;
     }
-    puVar12 = (undefined *)(iVar5 + 0x1ca);
-    if (0x3333 < (int)puVar12) {
-      puVar12 = &DAT_00003333;
+    puVar7 = (undefined *)(iVar5 + 0x1ca);
+    if (0x3333 < (int)puVar7) {
+      puVar7 = &DAT_00003333;
     }
     if ((carObj->N).angularVel.y < 1) {
-      (carObj->N).angularVel.y = -(int)puVar12;
+      (carObj->N).angularVel.y = -(int)puVar7;
     }
     else {
-      *(undefined **)&(carObj->N).angularVel.y = puVar12;
+      *(undefined **)&(carObj->N).angularVel.y = puVar7;
     }
-    puVar12 = &LAB_000a0000;
+    ppuVar13 = &PTR_000a0000;
   }
   iVar5 = GameSetup_gData.skill;
-  if (iVar11 < 0x10) {
+  if (iVar12 < 0x10) {
     (carObj->targetPos).z = (carObj->targetPos).z + -0x14;
   }
-  if (((iVar11 < (int)(uint)(byte)(&DAT_8013c590)[iVar5]) &&
+  if (((iVar12 < (int)(uint)(byte)(&DAT_8013c590)[iVar5]) &&
       (pBVar6 = (carObj->N).collision.lastOtherObj, pBVar6 != (BO_tNewtonObj *)0x0)) &&
      ((pBVar6[1].simRoadInfo.quadPts[1].y & 0x200U) != 0)) {
     speed = 0;
     local_30 = 1;
-    uVar2 = fixedmult(uVar2,(int)(&PTR_DAT_8010dc54)[iVar5]);
+    uVar2 = fixedmult(uVar2,(int)PTR_ARRAY_8010dc54[iVar5]);
   }
-  iVar11 = carObj->driveDirectionTimer;
-  if (iVar11 < 0) {
-    iVar11 = iVar11 + 0xff;
+  iVar12 = carObj->driveDirectionTimer;
+  if (iVar12 < 0) {
+    iVar12 = iVar12 + 0xff;
   }
   if ((int)uVar2 < 0) {
     uVar2 = uVar2 + 0xff;
   }
-  iVar13 = (iVar11 >> 8) * ((int)uVar2 >> 8);
-  iVar11 = AIPhysicConfig.ICModel.dlvel_to_clacc;
+  iVar14 = (iVar12 >> 8) * ((int)uVar2 >> 8);
+  iVar12 = AIPhysicConfig.ICModel.dlvel_to_clacc;
   if (AIPhysicConfig.ICModel.dlvel_to_clacc < 0) {
-    iVar11 = AIPhysicConfig.ICModel.dlvel_to_clacc + 0xff;
+    iVar12 = AIPhysicConfig.ICModel.dlvel_to_clacc + 0xff;
   }
-  iVar11 = (iVar11 >> 8) * ((int)uVar2 >> 8);
-  iVar7 = carObj->aDesired;
-  if (0x10000 < iVar7) {
-    if (iVar7 < 0) {
-      iVar7 = iVar7 + 0xff;
+  iVar12 = (iVar12 >> 8) * ((int)uVar2 >> 8);
+  iVar8 = carObj->aDesired;
+  if (0x10000 < iVar8) {
+    if (iVar8 < 0) {
+      iVar8 = iVar8 + 0xff;
     }
-    if (iVar13 < 0) {
-      iVar13 = iVar13 + 0xff;
+    if (iVar14 < 0) {
+      iVar14 = iVar14 + 0xff;
     }
-    iVar13 = (iVar7 >> 8) * (iVar13 >> 8);
-    if (iVar11 < 0) {
-      iVar11 = iVar11 + 0xff;
+    iVar14 = (iVar8 >> 8) * (iVar14 >> 8);
+    if (iVar12 < 0) {
+      iVar12 = iVar12 + 0xff;
     }
-    iVar11 = (iVar7 >> 8) * (iVar11 >> 8);
+    iVar12 = (iVar8 >> 8) * (iVar12 >> 8);
   }
-  iVar7 = *(int *)(carObj->accTable + 0x6c);
+  iVar8 = *(int *)(carObj->accTable + 0x6c);
   local_34 = (carObj->script).lastReactionIndex[5];
   if (simGlobal.gameTicks < carObj->preferredLateralPositionPower) {
-    iVar9 = 1;
-    iVar8 = carObj->preferredLateralPositionPower - simGlobal.gameTicks;
+    iVar10 = 1;
+    iVar9 = carObj->preferredLateralPositionPower - simGlobal.gameTicks;
     if ((simGlobal.gameTicks / 0x28 & 1U) != 0) {
-      iVar9 = -1;
+      iVar10 = -1;
     }
-    if (0x96 - iVar8 < 0x32) {
-      iVar9 = (iVar9 * 0x1e * (0x96 - iVar8)) / 0x32;
+    if (0x96 - iVar9 < 0x32) {
+      iVar10 = (iVar10 * 0x1e * (0x96 - iVar9)) / 0x32;
     }
     else {
-      iVar9 = iVar9 * (iVar8 / 7 + 10);
+      iVar10 = iVar10 * (iVar9 / 7 + 10);
     }
-    iVar7 = iVar7 + iVar9;
-    if (0x32 < iVar8) {
-      puVar12 = (undefined *)((iVar8 * 0x140000) / 0x32);
+    iVar8 = iVar8 + iVar10;
+    if (0x32 < iVar9) {
+      ppuVar13 = (undefined **)((iVar9 * 0x140000) / 0x32);
     }
   }
   else {
-    iVar9 = iVar7;
-    if (iVar7 < 0) {
-      iVar9 = -iVar7;
+    iVar10 = iVar8;
+    if (iVar8 < 0) {
+      iVar10 = -iVar8;
     }
-    if (((carObj->personality->fishtailAngle < iVar9) && (0 < iVar7 * (carObj->angularAcc).y)) &&
-       (iVar8 = AIPhysic_GetRearEndDamageFactor__FP8Car_tObj(carObj),
-       (0x10000 - iVar8) * 0x14 + (carObj->personality->fishtailAngle + -0x14) * 0x10000 <
-       iVar9 << 0x10)) {
+    if (((carObj->personality->fishtailAngle < iVar10) && (0 < iVar8 * (carObj->angularAcc).y)) &&
+       (iVar9 = AIPhysic_GetRearEndDamageFactor__FP8Car_tObj(carObj),
+       (0x10000 - iVar9) * 0x14 + (carObj->personality->fishtailAngle + -0x14) * 0x10000 <
+       iVar10 << 0x10)) {
       carObj->preferredLateralPositionPower = simGlobal.gameTicks + 0x96;
     }
   }
   uVar2 = fixedmult(0x80,AIPhysicConfig.ICModel.dangle_to_dav);
-  iVar9 = AIPhysicConfig.ICModel.max_dav;
-  if ((int)(-iVar7 * uVar2) < AIPhysicConfig.ICModel.max_dav) {
-    iVar9 = -iVar7 * uVar2;
+  iVar10 = AIPhysicConfig.ICModel.max_dav;
+  if ((int)(-iVar8 * uVar2) < AIPhysicConfig.ICModel.max_dav) {
+    iVar10 = -iVar8 * uVar2;
   }
-  iVar7 = -AIPhysicConfig.ICModel.max_dav;
-  if (-AIPhysicConfig.ICModel.max_dav < iVar9) {
-    iVar7 = iVar9;
+  iVar8 = -AIPhysicConfig.ICModel.max_dav;
+  if (-AIPhysicConfig.ICModel.max_dav < iVar10) {
+    iVar8 = iVar10;
   }
-  sVar10 = (carObj->speechInfo).speechMode;
-  iVar9 = (carObj->script).lastActionTime;
-  if ((-AIPhysicConfig.ICModel.vel_limit_range < iVar9) &&
-     (iVar9 < AIPhysicConfig.ICModel.vel_limit_range)) {
-    if ((int)sVar10 < 0) {
-      sVar10 = sVar10 + 0xff;
+  sVar11 = (carObj->speechInfo).speechMode;
+  iVar10 = (carObj->script).lastActionTime;
+  if ((-AIPhysicConfig.ICModel.vel_limit_range < iVar10) &&
+     (iVar10 < AIPhysicConfig.ICModel.vel_limit_range)) {
+    if ((int)sVar11 < 0) {
+      sVar11 = sVar11 + 0xff;
     }
-    iVar9 = AIPhysicConfig.ICModel.ang_vel_limit_factor;
+    iVar10 = AIPhysicConfig.ICModel.ang_vel_limit_factor;
     if (AIPhysicConfig.ICModel.ang_vel_limit_factor < 0) {
-      iVar9 = AIPhysicConfig.ICModel.ang_vel_limit_factor + 0xff;
+      iVar10 = AIPhysicConfig.ICModel.ang_vel_limit_factor + 0xff;
     }
-    iVar9 = ((int)sVar10 >> 8) * (iVar9 >> 8);
-    if (iVar9 < 0) {
-      iVar9 = -iVar9;
+    iVar10 = ((int)sVar11 >> 8) * (iVar10 >> 8);
+    if (iVar10 < 0) {
+      iVar10 = -iVar10;
     }
-    iVar8 = iVar9;
-    if (iVar7 < iVar9) {
-      iVar8 = iVar7;
+    iVar9 = iVar10;
+    if (iVar8 < iVar10) {
+      iVar9 = iVar8;
     }
-    iVar7 = -iVar9;
-    if (-iVar9 < iVar8) {
-      iVar7 = iVar8;
+    iVar8 = -iVar10;
+    if (-iVar10 < iVar9) {
+      iVar8 = iVar9;
     }
   }
-  uVar2 = fixedmult((carObj->angularVel_ch).y - iVar7,AIPhysicConfig.ICModel.dav_to_aa);
-  iVar7 = speed;
+  uVar2 = fixedmult((carObj->angularVel_ch).y - iVar8,AIPhysicConfig.ICModel.dav_to_aa);
+  iVar8 = speed;
   if ((int)-uVar2 < speed) {
-    iVar7 = -uVar2;
+    iVar8 = -uVar2;
   }
-  iVar9 = -speed;
-  if (-speed < iVar7) {
-    iVar9 = iVar7;
+  iVar10 = -speed;
+  if (-speed < iVar8) {
+    iVar10 = iVar8;
   }
-  uVar2 = fixedmult(local_40,iVar11);
-  speed = iVar13;
-  if ((int)(-local_38 * uVar2) < iVar13) {
+  uVar2 = fixedmult(local_40,iVar12);
+  speed = iVar14;
+  if ((int)(-local_38 * uVar2) < iVar14) {
     speed = -local_38 * uVar2;
   }
-  iVar11 = -iVar13;
-  if (-iVar13 < speed) {
-    iVar11 = speed;
+  iVar12 = -iVar14;
+  if (-iVar14 < speed) {
+    iVar12 = speed;
   }
   speed = (carObj->script).lastActionTime;
   if (((speed * local_38 < local_34 * local_38) && (carObj->pullOver == 0)) &&
      ((carObj->script).lastReactionIndex[2] == (carObj->script).lastReactionIndex[3])) {
-    iVar13 = AIPhysic_CalcAcceleration__FP8Car_tObji(carObj,speed);
+    iVar14 = AIPhysic_CalcAcceleration__FP8Car_tObji(carObj,speed);
     bVar1 = (carObj->control).brakeLevel;
-    if (DAT_00000050 < (int)(uint)bVar1) {
-      (carObj->control).brakeLevel = bVar1 - (char)DAT_00000050;
+    if (AIPhysic_elapsedTime < (int)(uint)bVar1) {
+      (carObj->control).brakeLevel = bVar1 - (char)AIPhysic_elapsedTime;
     }
     else {
       (carObj->control).brakeLevel = '\0';
@@ -2412,9 +2901,9 @@ void AIPhysic_InControlPhysics__FP8Car_tObj(Car_tObj *carObj)
   }
   else {
     speed = AIPhysic_CalcDeceleration__FP8Car_tObj(carObj);
-    iVar13 = (uint)(byte)(carObj->control).brakeLevel + DAT_00000050 * 4;
-    if (iVar13 < 0xff) {
-      (carObj->control).brakeLevel = (char)iVar13;
+    iVar14 = (uint)(byte)(carObj->control).brakeLevel + AIPhysic_elapsedTime * 4;
+    if (iVar14 < 0xff) {
+      (carObj->control).brakeLevel = (char)iVar14;
     }
     else {
       (carObj->control).brakeLevel = -1;
@@ -2422,36 +2911,36 @@ void AIPhysic_InControlPhysics__FP8Car_tObj(Car_tObj *carObj)
     if (3 < (byte)(carObj->control).brakeLevel) {
       (carObj->control).desiredBrakeLevel = '\x01';
     }
-    iVar13 = -speed;
+    iVar14 = -speed;
     if ((carObj->linearVel_ch).z < 0) {
-      iVar13 = speed;
+      iVar14 = speed;
     }
   }
   if (local_30 != 0) {
-    iVar13 = -(int)(&PTR_LAB_8010dc64)[iVar5];
+    iVar14 = -(int)PTR_ARRAY_8010dc64[iVar5];
   }
-  if (puVar12 == (undefined *)0x0) {
+  if (ppuVar13 == (undefined **)0x0) {
     if (local_40 < 0) {
       local_40 = -local_40;
     }
-    puVar12 = (undefined *)(local_40 - AIPhysicConfig.skid_value);
+    ppuVar13 = (undefined **)(local_40 - AIPhysicConfig.skid_value);
   }
-  if ((int)puVar12 < 1) {
+  if ((int)ppuVar13 < 1) {
     carObj->rearSkid = 0;
     carObj->frontSkid = 0;
   }
   else {
-    *(undefined **)&carObj->rearSkid = puVar12;
-    *(undefined **)&carObj->frontSkid = puVar12;
+    *(undefined ***)&carObj->rearSkid = ppuVar13;
+    *(undefined ***)&carObj->frontSkid = ppuVar13;
   }
-  (carObj->linearAcc_ch).x = iVar11;
+  (carObj->linearAcc_ch).x = iVar12;
   (carObj->linearAcc_ch).y = 0;
-  (carObj->linearAcc_ch).z = iVar13;
+  (carObj->linearAcc_ch).z = iVar14;
   (carObj->linearAcc_rh).x = 0;
   (carObj->linearAcc_rh).y = 0;
   (carObj->linearAcc_rh).z = 0;
   (carObj->angularAcc).x = 0;
-  (carObj->angularAcc).y = iVar9;
+  (carObj->angularAcc).y = iVar10;
   (carObj->angularAcc).z = 0;
   return;
 }
@@ -2473,6 +2962,21 @@ void AIPhysic_InControlPhysics__FP8Car_tObj(Car_tObj *carObj)
 	/* end block 1 */
 	// End offset: 0x8006C73C
 	// End Line: 1965
+
+	/* begin block 2 */
+		// Start line: 4105
+	/* end block 2 */
+	// End Line: 4106
+
+	/* begin block 3 */
+		// Start line: 4156
+	/* end block 3 */
+	// End Line: 4157
+
+	/* begin block 4 */
+		// Start line: 4156
+	/* end block 4 */
+	// End Line: 4157
 
 void AIPhysic_FinishUp__FP8Car_tObj(Car_tObj *carObj)
 
@@ -2554,49 +3058,51 @@ void AIPhysic_FinishUp__FP8Car_tObj(Car_tObj *carObj)
   (carObj->angularAcc).y = uVar4 + uVar5 + uVar6;
   (carObj->angularAcc).z = uVar7 + uVar8 + uVar9;
   iVar10 = 0;
-  uVar1 = fixedmult((carObj->linearAcc).x,iGp00000048);
+  uVar1 = fixedmult((carObj->linearAcc).x,AIPhysic_iTime);
+  iVar12 = AIPhysic_iTime;
   iVar11 = (carObj->linearAcc).y;
   (carObj->N).linearVel.x = (carObj->N).linearVel.x + uVar1;
-  uVar1 = fixedmult(iVar11,iGp00000048);
+  uVar1 = fixedmult(iVar11,iVar12);
+  iVar12 = AIPhysic_iTime;
   iVar11 = (carObj->linearAcc).z;
   (carObj->N).linearVel.y = (carObj->N).linearVel.y + uVar1;
-  uVar1 = fixedmult(iVar11,iGp00000048);
-  iVar11 = carObj->aCarWRTRoad;
+  uVar1 = fixedmult(iVar11,iVar12);
+  iVar12 = carObj->aCarWRTRoad;
   (carObj->N).linearVel.z = (carObj->N).linearVel.z + uVar1;
-  while ((iVar11 != 0 && (iVar10 < iGp00000050))) {
+  while ((iVar12 != 0 && (iVar10 < AIPhysic_elapsedTime))) {
     iVar10 = iVar10 + 1;
     uVar1 = fixedmult((carObj->N).linearVel.x,carObj->aCarWRTRoad);
-    iVar11 = (carObj->N).linearVel.y;
-    iVar12 = carObj->aCarWRTRoad;
-    (carObj->N).linearVel.x = uVar1;
-    uVar1 = fixedmult(iVar11,iVar12);
-    iVar11 = (carObj->N).linearVel.z;
-    iVar12 = carObj->aCarWRTRoad;
-    (carObj->N).linearVel.y = uVar1;
-    uVar1 = fixedmult(iVar11,iVar12);
+    iVar12 = (carObj->N).linearVel.y;
     iVar11 = carObj->aCarWRTRoad;
+    (carObj->N).linearVel.x = uVar1;
+    uVar1 = fixedmult(iVar12,iVar11);
+    iVar12 = (carObj->N).linearVel.z;
+    iVar11 = carObj->aCarWRTRoad;
+    (carObj->N).linearVel.y = uVar1;
+    uVar1 = fixedmult(iVar12,iVar11);
+    iVar12 = carObj->aCarWRTRoad;
     (carObj->N).linearVel.z = uVar1;
   }
   iVar10 = (carObj->angularAcc).x;
   if (iVar10 < 0) {
     iVar10 = iVar10 + 0xff;
   }
-  iVar11 = iGp00000048;
-  if (iGp00000048 < 0) {
-    iVar11 = iGp00000048 + 0xff;
+  iVar12 = AIPhysic_iTime;
+  if (AIPhysic_iTime < 0) {
+    iVar12 = AIPhysic_iTime + 0xff;
   }
-  iVar11 = iVar11 >> 8;
-  iVar12 = (carObj->angularAcc).y;
-  (carObj->N).angularVel.x = (carObj->N).angularVel.x + (iVar10 >> 8) * iVar11;
-  if (iVar12 < 0) {
-    iVar12 = iVar12 + 0xff;
+  iVar12 = iVar12 >> 8;
+  iVar11 = (carObj->angularAcc).y;
+  (carObj->N).angularVel.x = (carObj->N).angularVel.x + (iVar10 >> 8) * iVar12;
+  if (iVar11 < 0) {
+    iVar11 = iVar11 + 0xff;
   }
   iVar10 = (carObj->angularAcc).z;
-  (carObj->N).angularVel.y = (carObj->N).angularVel.y + (iVar12 >> 8) * iVar11;
+  (carObj->N).angularVel.y = (carObj->N).angularVel.y + (iVar11 >> 8) * iVar12;
   if (iVar10 < 0) {
     iVar10 = iVar10 + 0xff;
   }
-  (carObj->N).angularVel.z = (carObj->N).angularVel.z + (iVar10 >> 8) * iVar11;
+  (carObj->N).angularVel.z = (carObj->N).angularVel.z + (iVar10 >> 8) * iVar12;
   return;
 }
 
@@ -2615,6 +3121,21 @@ void AIPhysic_FinishUp__FP8Car_tObj(Car_tObj *carObj)
 	// End offset: 0x8006C860
 	// End Line: 2048
 
+	/* begin block 2 */
+		// Start line: 4282
+	/* end block 2 */
+	// End Line: 4283
+
+	/* begin block 3 */
+		// Start line: 4307
+	/* end block 3 */
+	// End Line: 4308
+
+	/* begin block 4 */
+		// Start line: 4307
+	/* end block 4 */
+	// End Line: 4308
+
 void AIPhysic_CalculateRampedDesiredLatPos__FP8Car_tObj9eRampType
                (Car_tObj *carObj,eRampType rampType)
 
@@ -2623,42 +3144,45 @@ void AIPhysic_CalculateRampedDesiredLatPos__FP8Car_tObj9eRampType
   int iVar2;
   int iVar3;
   int iVar4;
+  int iVar5;
   
   if (rampType == kRampType_NoInterpolate) {
     (carObj->angularAcc_ch).y = (carObj->script).lastReactionIndex[4];
   }
   else {
     AIWorld_CalculateDeltaRoadYaw__FP8Car_tObj(carObj);
-    iVar4 = (carObj->speechInfo).playerCarIndex;
-    if (((carObj->script).lastReactionIndex[4] < iVar4) &&
-       (iVar4 < (carObj->angularAcc_ch).y + -0x10000)) {
-      (carObj->angularAcc_ch).y = iVar4;
+    iVar2 = AIPhysic_elapsedTime;
+    iVar5 = (carObj->speechInfo).playerCarIndex;
+    iVar3 = AIPhysic_elapsedTime * 0x3333;
+    if (((carObj->script).lastReactionIndex[4] < iVar5) &&
+       (iVar5 < (carObj->angularAcc_ch).y + -0x10000)) {
+      (carObj->angularAcc_ch).y = iVar5;
     }
     else {
-      iVar4 = (carObj->speechInfo).playerCarIndex;
-      if (((carObj->angularAcc_ch).y + 0x10000 < iVar4) &&
-         (iVar4 < (carObj->script).lastReactionIndex[4])) {
-        (carObj->angularAcc_ch).y = iVar4;
+      iVar5 = (carObj->speechInfo).playerCarIndex;
+      if (((carObj->angularAcc_ch).y + 0x10000 < iVar5) &&
+         (iVar5 < (carObj->script).lastReactionIndex[4])) {
+        (carObj->angularAcc_ch).y = iVar5;
       }
     }
-    iVar2 = (carObj->angularAcc_ch).y;
-    iVar3 = (carObj->script).lastReactionIndex[4];
-    iVar4 = iVar2 + iGp00000050 * 0x3333;
-    if (iVar2 < iVar3) {
-      (carObj->angularAcc_ch).y = iVar4;
-      bVar1 = iVar3 < iVar4;
-    }
-    else {
-      iVar4 = iVar2 + iGp00000050 * -0x3333;
-      if (iVar2 <= iVar3) {
-        return;
-      }
-      iVar3 = (carObj->script).lastReactionIndex[4];
-      (carObj->angularAcc_ch).y = iVar4;
+    iVar5 = (carObj->angularAcc_ch).y;
+    iVar4 = (carObj->script).lastReactionIndex[4];
+    iVar3 = iVar5 + iVar3;
+    if (iVar5 < iVar4) {
+      (carObj->angularAcc_ch).y = iVar3;
       bVar1 = iVar4 < iVar3;
     }
-    if (bVar1) {
+    else {
+      iVar3 = iVar5 + iVar2 * -0x3333;
+      if (iVar5 <= iVar4) {
+        return;
+      }
+      iVar4 = (carObj->script).lastReactionIndex[4];
       (carObj->angularAcc_ch).y = iVar3;
+      bVar1 = iVar3 < iVar4;
+    }
+    if (bVar1) {
+      (carObj->angularAcc_ch).y = iVar4;
     }
   }
   return;
@@ -2679,6 +3203,26 @@ void AIPhysic_CalculateRampedDesiredLatPos__FP8Car_tObj9eRampType
 	// End offset: 0x8006C918
 	// End Line: 2108
 
+	/* begin block 2 */
+		// Start line: 4495
+	/* end block 2 */
+	// End Line: 4496
+
+	/* begin block 3 */
+		// Start line: 4503
+	/* end block 3 */
+	// End Line: 4504
+
+	/* begin block 4 */
+		// Start line: 4503
+	/* end block 4 */
+	// End Line: 4504
+
+	/* begin block 5 */
+		// Start line: 4510
+	/* end block 5 */
+	// End Line: 4511
+
 int AIPhysic_HitWallCheck__FP8Car_tObj(Car_tObj *carObj)
 
 {
@@ -2694,7 +3238,7 @@ int AIPhysic_HitWallCheck__FP8Car_tObj(Car_tObj *carObj)
     return 0;
   }
   if (carObj->speedFactor == -1) {
-    carObj->driveDirection = carObj->driveDirection + DAT_00000050;
+    carObj->driveDirection = carObj->driveDirection + AIPhysic_elapsedTime;
   }
   else {
     carObj->driveDirection = 0;
@@ -2717,6 +3261,21 @@ int AIPhysic_HitWallCheck__FP8Car_tObj(Car_tObj *carObj)
 	/* end block 1 */
 	// End offset: 0x8006C964
 	// End Line: 2124
+
+	/* begin block 2 */
+		// Start line: 4593
+	/* end block 2 */
+	// End Line: 4594
+
+	/* begin block 3 */
+		// Start line: 4603
+	/* end block 3 */
+	// End Line: 4604
+
+	/* begin block 4 */
+		// Start line: 4603
+	/* end block 4 */
+	// End Line: 4604
 
 void AIPhysic_ProcessBarrierCollision__FP8Car_tObj(Car_tObj *carObj)
 
@@ -2778,6 +3337,21 @@ void AIPhysic_ProcessBarrierCollision__FP8Car_tObj(Car_tObj *carObj)
 	// End offset: 0x8006C9E0
 	// End Line: 2147
 
+	/* begin block 2 */
+		// Start line: 4626
+	/* end block 2 */
+	// End Line: 4627
+
+	/* begin block 3 */
+		// Start line: 4637
+	/* end block 3 */
+	// End Line: 4638
+
+	/* begin block 4 */
+		// Start line: 4637
+	/* end block 4 */
+	// End Line: 4638
+
 void AIPhysic_ProcessCollision__FP8Car_tObj(Car_tObj *carObj)
 
 {
@@ -2812,6 +3386,21 @@ void AIPhysic_ProcessCollision__FP8Car_tObj(Car_tObj *carObj)
 	/* end block 1 */
 	// End offset: 0x8006CAA0
 	// End Line: 2187
+
+	/* begin block 2 */
+		// Start line: 4678
+	/* end block 2 */
+	// End Line: 4679
+
+	/* begin block 3 */
+		// Start line: 4695
+	/* end block 3 */
+	// End Line: 4696
+
+	/* begin block 4 */
+		// Start line: 4695
+	/* end block 4 */
+	// End Line: 4696
 
 void AIPhysic_ChangeDirection__FP8Car_tObji(Car_tObj *carObj,int time)
 
@@ -2893,27 +3482,47 @@ LAB_8006ca90:
 	// End offset: 0x8006CC2C
 	// End Line: 2221
 
+	/* begin block 2 */
+		// Start line: 4753
+	/* end block 2 */
+	// End Line: 4754
+
+	/* begin block 3 */
+		// Start line: 4753
+	/* end block 3 */
+	// End Line: 4754
+
+	/* begin block 4 */
+		// Start line: 4764
+	/* end block 4 */
+	// End Line: 4765
+
+	/* begin block 5 */
+		// Start line: 4764
+	/* end block 5 */
+	// End Line: 4765
+
 void AIPhysic_CheckForGripReduction__FP8Car_tObj(Car_tObj *carObj)
 
 {
-  undefined *puVar1;
+  int iVar1;
   int iVar2;
   int iVar3;
   int iVar4;
   
   if (carObj->max_aa < 0x10000) {
     iVar2 = (carObj->N).collision.lastTime;
-    iVar4 = carObj->max_aa + DAT_00000050 * carObj->personality->gripLossRecoveryPerTick;
+    iVar4 = carObj->max_aa + AIPhysic_elapsedTime * carObj->personality->gripLossRecoveryPerTick;
     carObj->max_aa = iVar4;
     if ((0x3f < simGlobal.gameTicks - iVar2) ||
        (iVar2 = 0x10000, (carObj->N).collision.lastOtherObj != (BO_tNewtonObj *)0x0)) {
       iVar3 = carObj->personality->gripLossMinFactor;
       iVar2 = -iVar3;
-      puVar1 = (undefined *)(iVar2 + 0x10000);
-      if ((int)puVar1 < 0) {
-        puVar1 = &DAT_00010003 + iVar2;
+      iVar1 = iVar2 + 0x10000;
+      if (iVar1 < 0) {
+        iVar1 = iVar2 + 0x10003;
       }
-      if (iVar4 <= iVar3 + ((int)puVar1 >> 2)) {
+      if (iVar4 <= iVar3 + (iVar1 >> 2)) {
         return;
       }
       carObj->max_aa = 0x10000;
@@ -2939,7 +3548,7 @@ void AIPhysic_CheckForGripReduction__FP8Car_tObj(Car_tObj *carObj)
       return;
     }
     randtemp = fastRandom * randSeed;
-    iVar2 = DAT_00000050 * carObj->personality->gripLossProbPerSecond;
+    iVar2 = AIPhysic_elapsedTime * carObj->personality->gripLossProbPerSecond;
     fastRandom = randtemp & 0xffff;
     if (iVar2 < 0) {
       iVar2 = iVar2 + 0x1f;
@@ -2966,6 +3575,31 @@ void AIPhysic_CheckForGripReduction__FP8Car_tObj(Car_tObj *carObj)
 	// End offset: 0x8006CC3C
 	// End Line: 2234
 
+	/* begin block 2 */
+		// Start line: 4831
+	/* end block 2 */
+	// End Line: 4832
+
+	/* begin block 3 */
+		// Start line: 4844
+	/* end block 3 */
+	// End Line: 4845
+
+	/* begin block 4 */
+		// Start line: 4844
+	/* end block 4 */
+	// End Line: 4845
+
+	/* begin block 5 */
+		// Start line: 4845
+	/* end block 5 */
+	// End Line: 4846
+
+	/* begin block 6 */
+		// Start line: 4845
+	/* end block 6 */
+	// End Line: 4846
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void AIPhysic_StartUp__Fv(void)
@@ -2986,6 +3620,31 @@ void AIPhysic_StartUp__Fv(void)
 	/* end block 1 */
 	// End offset: 0x8006CC44
 	// End Line: 2238
+
+	/* begin block 2 */
+		// Start line: 4849
+	/* end block 2 */
+	// End Line: 4850
+
+	/* begin block 3 */
+		// Start line: 4852
+	/* end block 3 */
+	// End Line: 4853
+
+	/* begin block 4 */
+		// Start line: 4852
+	/* end block 4 */
+	// End Line: 4853
+
+	/* begin block 5 */
+		// Start line: 4853
+	/* end block 5 */
+	// End Line: 4854
+
+	/* begin block 6 */
+		// Start line: 4853
+	/* end block 6 */
+	// End Line: 4854
 
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
@@ -3008,6 +3667,31 @@ void AIPhysic_CleanUp__Fv(void)
 	// End offset: 0x8006CC4C
 	// End Line: 2241
 
+	/* begin block 2 */
+		// Start line: 4856
+	/* end block 2 */
+	// End Line: 4857
+
+	/* begin block 3 */
+		// Start line: 4858
+	/* end block 3 */
+	// End Line: 4859
+
+	/* begin block 4 */
+		// Start line: 4858
+	/* end block 4 */
+	// End Line: 4859
+
+	/* begin block 5 */
+		// Start line: 4859
+	/* end block 5 */
+	// End Line: 4860
+
+	/* begin block 6 */
+		// Start line: 4859
+	/* end block 6 */
+	// End Line: 4860
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void AIPhysic_Reset__Fv(void)
@@ -3028,6 +3712,26 @@ void AIPhysic_Reset__Fv(void)
 	/* end block 1 */
 	// End offset: 0x8006CC54
 	// End Line: 2246
+
+	/* begin block 2 */
+		// Start line: 4862
+	/* end block 2 */
+	// End Line: 4863
+
+	/* begin block 3 */
+		// Start line: 4864
+	/* end block 3 */
+	// End Line: 4865
+
+	/* begin block 4 */
+		// Start line: 4864
+	/* end block 4 */
+	// End Line: 4865
+
+	/* begin block 5 */
+		// Start line: 4866
+	/* end block 5 */
+	// End Line: 4867
 
 void AIPhysic_ResetCar__FP8Car_tObj(Car_tObj *carObj)
 
@@ -3122,6 +3826,21 @@ void AIPhysic_ResetCar__FP8Car_tObj(Car_tObj *carObj)
 	// End offset: 0x8006CDB4
 	// End Line: 2297
 
+	/* begin block 2 */
+		// Start line: 4874
+	/* end block 2 */
+	// End Line: 4875
+
+	/* begin block 3 */
+		// Start line: 4878
+	/* end block 3 */
+	// End Line: 4879
+
+	/* begin block 4 */
+		// Start line: 4878
+	/* end block 4 */
+	// End Line: 4879
+
 /* WARNING: Removing unreachable block (ram,0x8006ccc4) */
 
 void AIPhysic_InitCar__FP8Car_tObj(Car_tObj *carObj)
@@ -3198,6 +3917,21 @@ void AIPhysic_InitCar__FP8Car_tObj(Car_tObj *carObj)
 	// End offset: 0x8006CE14
 	// End Line: 2306
 
+	/* begin block 2 */
+		// Start line: 4976
+	/* end block 2 */
+	// End Line: 4977
+
+	/* begin block 3 */
+		// Start line: 4981
+	/* end block 3 */
+	// End Line: 4982
+
+	/* begin block 4 */
+		// Start line: 4981
+	/* end block 4 */
+	// End Line: 4982
+
 void AIPhysic_DeInitCar__FP8Car_tObj(Car_tObj *carObj)
 
 {
@@ -3207,6 +3941,7 @@ void AIPhysic_DeInitCar__FP8Car_tObj(Car_tObj *carObj)
   }
   return;
 }
+
 
 
 

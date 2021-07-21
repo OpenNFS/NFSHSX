@@ -1,6 +1,7 @@
 #ifndef AUDIOCLC_H
 #define AUDIOCLC_H
 
+
 extern void AudioClc_SndError__Fi(int shandle); // 0x80074730
 
 extern void AudioClc_SetHorn__FP8Car_tObji(struct Car_tObj *car, int state); // 0x80074738
@@ -36,5 +37,6 @@ extern void AudioClc_GetClosestCars__Fiii(int playerIndex, int closestIndex, int
 extern void AudioClc_SoundSpeech__Fv(); // 0x80076130
 
 extern void AudioClc_SoundCars__Fv(); // 0x80076160
+
 
 #endif

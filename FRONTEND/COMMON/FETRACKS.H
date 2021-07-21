@@ -1,6 +1,7 @@
 #ifndef FETRACKS_H
 #define FETRACKS_H
 
+
 extern void Initialize__13tTrackManager(struct tTrackManager *this); // 0x80021A10
 
 extern void LoadTracks__13tTrackManagerR14tSaveTrackInfo(struct tTrackManager *this, struct tSaveTrackInfo *load); // 0x80021A50
@@ -30,5 +31,6 @@ extern void Increment__18tListIteratorTrack7tPlayer(struct tListIteratorTrack *t
 extern void Decrement__18tListIteratorTrack7tPlayer(struct tListIteratorTrack *this, enum tPlayer atIndex); // 0x80021EC0
 
 extern void * ValidTrack__18tListIteratorTrackc(struct tListIteratorTrack *this, char track); // 0x80021F50
+
 
 #endif

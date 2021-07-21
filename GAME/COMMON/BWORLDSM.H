@@ -1,6 +1,7 @@
 #ifndef BWORLDSM_H
 #define BWORLDSM_H
 
+
 extern int BWorldSm_Init__FP5Group(struct Group *simGroup); // 0x8007E910
 
 extern void BWorldSm_Restart__Fv(); // 0x8007E948
@@ -56,5 +57,6 @@ extern struct coorddef * BWorldSm_UNormal__FP12BWorldSm_Pos(struct BWorldSm_Pos 
 extern struct coorddef * BWorldSm_UForward__FP12BWorldSm_Pos(struct BWorldSm_Pos *slicePos); // 0x80080548
 
 extern int BWorldSm_FindClosestTriangleRez__FP8coorddefP12BWorldSm_Posi(struct coorddef *pt, struct BWorldSm_Pos *slicePos, int hiRezFlag); // 0x80080570
+
 
 #endif

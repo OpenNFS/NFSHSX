@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "INPUT.H"
+
 
 // decompiled code
 // original method signature: 
@@ -38,6 +39,16 @@
 	// End offset: 0x8009C3F4
 	// End Line: 78
 
+	/* begin block 2 */
+		// Start line: 110
+	/* end block 2 */
+	// End Line: 111
+
+	/* begin block 3 */
+		// Start line: 110
+	/* end block 3 */
+	// End Line: 111
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 int * Input_StartUp__Fv(void)
@@ -60,7 +71,7 @@ int * Input_StartUp__Fv(void)
   } while (-1 < iVar5);
   iVar5 = 0;
   iVar6 = 0;
-  piVar1 = &Input_gMode;
+  piVar1 = Input_gMode;
   puVar2 = &Input_gDBFlags;
   while (iVar4 = 0, iVar5 < 2) {
     *puVar2 = 0;
@@ -101,17 +112,42 @@ int * Input_StartUp__Fv(void)
 	// End offset: 0x8009C470
 	// End Line: 94
 
+	/* begin block 2 */
+		// Start line: 164
+	/* end block 2 */
+	// End Line: 165
+
+	/* begin block 3 */
+		// Start line: 171
+	/* end block 3 */
+	// End Line: 172
+
+	/* begin block 4 */
+		// Start line: 171
+	/* end block 4 */
+	// End Line: 172
+
+	/* begin block 5 */
+		// Start line: 172
+	/* end block 5 */
+	// End Line: 173
+
+	/* begin block 6 */
+		// Start line: 172
+	/* end block 6 */
+	// End Line: 173
+
 int Input_WingCommandMode__Fi(int player)
 
 {
   int *piVar1;
   
-  piVar1 = &INT_80113cc8;
+  piVar1 = INT_ARRAY_80113cc8;
   if (player != 0) {
     piVar1 = &INT_80113df8;
   }
-  if ((((*piVar1 != 0) || (piVar1[1] != 0)) || (piVar1[2] != 0)) &&
-     ((&Input_gMode)[player & 1] == 1)) {
+  if ((((*piVar1 != 0) || (piVar1[1] != 0)) || (piVar1[2] != 0)) && (Input_gMode[player & 1] == 1))
+  {
     return 1;
   }
   return 0;
@@ -328,6 +364,21 @@ int Input_WingCommandMode__Fi(int player)
 	// End offset: 0x8009D19C
 	// End Line: 429
 
+	/* begin block 2 */
+		// Start line: 200
+	/* end block 2 */
+	// End Line: 201
+
+	/* begin block 3 */
+		// Start line: 211
+	/* end block 3 */
+	// End Line: 212
+
+	/* begin block 4 */
+		// Start line: 211
+	/* end block 4 */
+	// End Line: 212
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Input_Update__Fv(void)
@@ -393,7 +444,7 @@ void Input_Update__Fv(void)
         if (local_a8[uVar9] != '\0') {
           uVar10 = *piVar17;
           if (uVar10 != 0) {
-            iVar20 = (*(&Device_gDeviceList)[uVar10 & 0xff].devicefunc)((int)uVar10 >> 8);
+            iVar20 = (*Device_gDeviceList[uVar10 & 0xff].devicefunc)((int)uVar10 >> 8);
             if (0x40 < iVar20) {
               local_44 = local_44 | 1 << (uVar9 & 0x1f);
             }
@@ -402,9 +453,11 @@ void Input_Update__Fv(void)
         uVar9 = uVar9 + 1;
         piVar17 = (int *)((uint *)piVar17 + 1);
       } while ((int)uVar9 < 0x20);
-      (&Input_gInterfaceResults)[uGp00000cd4 + 2 & 0x1f] = local_44;
-      (&Input_gInterfaceResults)[uGp00000cd4 + 3 & 0x1f] = local_44;
-      uGp00000cd4 = uGp00000cd4 + 2;
+      uVar10 = Input_gTime + 2;
+      uVar9 = Input_gTime + 3;
+      Input_gTime = uVar10;
+      Input_gInterfaceResults[uVar10 & 0x1f] = local_44;
+      Input_gInterfaceResults[uVar9 & 0x1f] = local_44;
       return;
     }
     iVar15 = 0;
@@ -412,29 +465,28 @@ void Input_Update__Fv(void)
       puVar16 = (uint *)piVar17;
       uVar9 = *puVar16;
       if ((uVar9 != 0) &&
-         (iVar6 = (*(&Device_gDeviceList)[uVar9 & 0xff].devicefunc)((int)uVar9 >> 8), 0x40 < iVar6))
-      {
+         (iVar6 = (*Device_gDeviceList[uVar9 & 0xff].devicefunc)((int)uVar9 >> 8), 0x40 < iVar6)) {
         iVar19 = iVar15 + 1;
       }
       iVar15 = iVar15 + 1;
       piVar17 = (int *)(puVar16 + 1);
     } while (iVar15 < 2);
-    *(int *)((int)&Input_gMode + local_38) = iVar19;
+    *(int *)((int)Input_gMode + local_38) = iVar19;
     if (iVar19 == 0) {
       uVar9 = 0;
-      iVar19 = (*(&Device_gDeviceList)[*piVar17 & 0xff].devicefunc)(*piVar17 >> 8);
-      iVar15 = (*(&Device_gDeviceList)[puVar16[2] & 0xff].devicefunc)((int)puVar16[2] >> 8);
+      iVar19 = (*Device_gDeviceList[*piVar17 & 0xff].devicefunc)(*piVar17 >> 8);
+      iVar15 = (*Device_gDeviceList[puVar16[2] & 0xff].devicefunc)((int)puVar16[2] >> 8);
       local_48->steering = (char)((int)((iVar15 - iVar19) + ((uint)(iVar15 - iVar19) >> 0x1f)) >> 1)
       ;
-      iVar19 = (*(&Device_gDeviceList)[puVar16[3] & 0xff].devicefunc)((int)puVar16[3] >> 8);
+      iVar19 = (*Device_gDeviceList[puVar16[3] & 0xff].devicefunc)((int)puVar16[3] >> 8);
       pbVar18[-2] = (byte)iVar19;
       piVar17 = (int *)(puVar16 + 5);
-      iVar19 = (*(&Device_gDeviceList)[puVar16[4] & 0xff].devicefunc)((int)puVar16[4] >> 8);
+      iVar19 = (*Device_gDeviceList[puVar16[4] & 0xff].devicefunc)((int)puVar16[4] >> 8);
       pbVar18[-1] = (byte)iVar19;
       do {
         uVar10 = *piVar17;
         if ((uVar10 == 0) ||
-           (iVar19 = (*(&Device_gDeviceList)[uVar10 & 0xff].devicefunc)((int)uVar10 >> 8),
+           (iVar19 = (*Device_gDeviceList[uVar10 & 0xff].devicefunc)((int)uVar10 >> 8),
            iVar19 < 0x41)) {
           *pbVar18 = *pbVar18 & ~(byte)(1 << (uVar9 & 0x1f));
         }
@@ -460,7 +512,7 @@ void Input_Update__Fv(void)
       while (puVar4 = local_3c, (int)uVar9 < 0x11) {
         uVar10 = *piVar17;
         if (uVar10 != 0) {
-          iVar7 = (*(&Device_gDeviceList)[uVar10 & 0xff].devicefunc)((int)uVar10 >> 8);
+          iVar7 = (*Device_gDeviceList[uVar10 & 0xff].devicefunc)((int)uVar10 >> 8);
           if (iVar7 < 0x41) {
             *puVar3 = *puVar3 & ~(1 << (uVar9 & 0x1f));
             *(undefined4 *)((int)&Input_gPressTime + iVar15) = 0;
@@ -493,7 +545,7 @@ void Input_Update__Fv(void)
       do {
         uVar10 = *piVar17;
         if (uVar10 != 0) {
-          iVar19 = (*(&Device_gDeviceList)[uVar10 & 0xff].devicefunc)((int)uVar10 >> 8);
+          iVar19 = (*Device_gDeviceList[uVar10 & 0xff].devicefunc)((int)uVar10 >> 8);
           if (iVar19 < 0x41) {
             piVar13 = (int *)((int)&Input_gPressTime + uVar9 * 4 + local_34);
             uVar10 = 1 << (uVar9 & 0x1f);
@@ -526,7 +578,7 @@ void Input_Update__Fv(void)
         do {
           uVar10 = *piVar17;
           if (uVar10 != 0) {
-            iVar15 = (*(&Device_gDeviceList)[uVar10 & 0xff].devicefunc)((int)uVar10 >> 8);
+            iVar15 = (*Device_gDeviceList[uVar10 & 0xff].devicefunc)((int)uVar10 >> 8);
             uVar10 = 1 << (uVar9 & 0x1f);
             if (iVar15 < 0x41) {
               uVar8 = *puVar3 & ~uVar10;
@@ -582,18 +634,18 @@ void Input_Update__Fv(void)
         iVar6 = iVar6 + 1;
         iVar15 = iVar15 + 4;
       } while (iVar6 < 0x20);
-      iVar15 = (*(&Device_gDeviceList)[*piVar17 & 0xff].devicefunc)(*piVar17 >> 8);
-      iVar6 = (*(&Device_gDeviceList)[puVar16[2] & 0xff].devicefunc)((int)puVar16[2] >> 8);
+      iVar15 = (*Device_gDeviceList[*piVar17 & 0xff].devicefunc)(*piVar17 >> 8);
+      iVar6 = (*Device_gDeviceList[puVar16[2] & 0xff].devicefunc)((int)puVar16[2] >> 8);
       if ((local_70[0] != '\0') && (local_70[1] != '\0')) {
         local_48->steering = (char)((int)((iVar6 - iVar15) + ((uint)(iVar6 - iVar15) >> 0x1f)) >> 1)
         ;
       }
       if (local_70[2] != '\0') {
-        iVar15 = (*(&Device_gDeviceList)[puVar16[3] & 0xff].devicefunc)((int)puVar16[3] >> 8);
+        iVar15 = (*Device_gDeviceList[puVar16[3] & 0xff].devicefunc)((int)puVar16[3] >> 8);
         pbVar18[-2] = (byte)iVar15;
       }
       if (local_70[3] != '\0') {
-        iVar15 = (*(&Device_gDeviceList)[puVar16[4] & 0xff].devicefunc)((int)puVar16[4] >> 8);
+        iVar15 = (*Device_gDeviceList[puVar16[4] & 0xff].devicefunc)((int)puVar16[4] >> 8);
         pbVar18[-1] = (byte)iVar15;
       }
       puVar16 = puVar16 + 5;
@@ -602,7 +654,7 @@ void Input_Update__Fv(void)
         if (local_6c[uVar9] != '\0') {
           uVar10 = *puVar16;
           if ((uVar10 == 0) ||
-             (iVar15 = (*(&Device_gDeviceList)[uVar10 & 0xff].devicefunc)((int)uVar10 >> 8),
+             (iVar15 = (*Device_gDeviceList[uVar10 & 0xff].devicefunc)((int)uVar10 >> 8),
              iVar15 < 0x41)) {
             *pbVar18 = *pbVar18 & ~(byte)(1 << (uVar9 & 0x1f));
           }
@@ -631,7 +683,7 @@ void Input_Update__Fv(void)
         if (uVar10 != 0) {
           if ((local_6c[uVar9 + 2] == '\0') ||
              (local_30 = iVar15,
-             iVar11 = (*(&Device_gDeviceList)[uVar10 & 0xff].devicefunc)((int)uVar10 >> 8),
+             iVar11 = (*Device_gDeviceList[uVar10 & 0xff].devicefunc)((int)uVar10 >> 8),
              iVar15 = local_30, iVar11 < 0x41)) {
             *puVar3 = *puVar3 & ~(1 << (uVar9 & 0x1f));
             *(undefined4 *)((int)&Input_gPressTime + iVar7) = 0;
@@ -666,7 +718,7 @@ void Input_Update__Fv(void)
         uVar10 = *puVar16;
         if (uVar10 != 0) {
           if (local_59[uVar9] != '\0') {
-            iVar15 = (*(&Device_gDeviceList)[uVar10 & 0xff].devicefunc)((int)uVar10 >> 8);
+            iVar15 = (*Device_gDeviceList[uVar10 & 0xff].devicefunc)((int)uVar10 >> 8);
             uVar10 = 1 << (uVar9 & 0x1f);
             if (0x40 < iVar15) {
               if (((*puVar4 & uVar10) == 0) && (local_40[uVar9] != '\0')) {
@@ -700,7 +752,7 @@ LAB_8009cf48:
       do {
         uVar10 = *puVar16;
         if (uVar10 != 0) {
-          iVar15 = (*(&Device_gDeviceList)[uVar10 & 0xff].devicefunc)((int)uVar10 >> 8);
+          iVar15 = (*Device_gDeviceList[uVar10 & 0xff].devicefunc)((int)uVar10 >> 8);
           if (iVar15 < 0x41) {
             *puVar3 = *puVar3 & ~(1 << (uVar9 & 0x1f));
           }
@@ -773,6 +825,31 @@ LAB_8009d090:
 	// End offset: 0x8009D284
 	// End Line: 450
 
+	/* begin block 2 */
+		// Start line: 922
+	/* end block 2 */
+	// End Line: 923
+
+	/* begin block 3 */
+		// Start line: 928
+	/* end block 3 */
+	// End Line: 929
+
+	/* begin block 4 */
+		// Start line: 928
+	/* end block 4 */
+	// End Line: 929
+
+	/* begin block 5 */
+		// Start line: 929
+	/* end block 5 */
+	// End Line: 930
+
+	/* begin block 6 */
+		// Start line: 929
+	/* end block 6 */
+	// End Line: 930
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Input_Store__Fv(void)
@@ -815,6 +892,21 @@ void Input_Store__Fv(void)
 	// End offset: 0x8009D294
 	// End Line: 457
 
+	/* begin block 2 */
+		// Start line: 963
+	/* end block 2 */
+	// End Line: 964
+
+	/* begin block 3 */
+		// Start line: 969
+	/* end block 3 */
+	// End Line: 970
+
+	/* begin block 4 */
+		// Start line: 969
+	/* end block 4 */
+	// End Line: 970
+
 void Input_Fetch__Fi(int humanIndex)
 
 {
@@ -835,16 +927,41 @@ void Input_Fetch__Fi(int humanIndex)
 	// End offset: 0x8009D310
 	// End Line: 480
 
+	/* begin block 2 */
+		// Start line: 981
+	/* end block 2 */
+	// End Line: 982
+
+	/* begin block 3 */
+		// Start line: 990
+	/* end block 3 */
+	// End Line: 991
+
+	/* begin block 4 */
+		// Start line: 990
+	/* end block 4 */
+	// End Line: 991
+
+	/* begin block 5 */
+		// Start line: 991
+	/* end block 5 */
+	// End Line: 992
+
+	/* begin block 6 */
+		// Start line: 991
+	/* end block 6 */
+	// End Line: 992
+
 char Input_Gear__Fci(char currentGear,int numGears)
 
 {
-  if (DAT_00000ce3 >> 3 == 1) {
+  if (Input_gSim.flags >> 3 == 1) {
     if ((int)(uint)(byte)currentGear < numGears + -1) {
       currentGear = currentGear + '\x01';
     }
   }
   else {
-    if (DAT_00000ce3 >> 3 != 2) {
+    if (Input_gSim.flags >> 3 != 2) {
       return currentGear;
     }
     if (currentGear != '\0') {
@@ -867,6 +984,31 @@ char Input_Gear__Fci(char currentGear,int numGears)
 	// End offset: 0x8009D3B4
 	// End Line: 500
 
+	/* begin block 2 */
+		// Start line: 1025
+	/* end block 2 */
+	// End Line: 1026
+
+	/* begin block 3 */
+		// Start line: 1034
+	/* end block 3 */
+	// End Line: 1035
+
+	/* begin block 4 */
+		// Start line: 1034
+	/* end block 4 */
+	// End Line: 1035
+
+	/* begin block 5 */
+		// Start line: 1035
+	/* end block 5 */
+	// End Line: 1036
+
+	/* begin block 6 */
+		// Start line: 1035
+	/* end block 6 */
+	// End Line: 1036
+
 int Input_Interface__FUli(ulong key,int debounce)
 
 {
@@ -874,14 +1016,14 @@ int Input_Interface__FUli(ulong key,int debounce)
   
   if (debounce == 0) {
     iVar1 = 1;
-    if (((&Input_gInterfaceResults)[simGlobal.time32Hz & 0x1f] & 1 << (key & 0x1f)) == 0) {
+    if ((Input_gInterfaceResults[simGlobal.time32Hz & 0x1f] & 1 << (key & 0x1f)) == 0) {
       iVar1 = 0;
     }
   }
   else {
     iVar1 = 0;
-    if (((&Input_gInterfaceResults)[simGlobal.time32Hz & 0x1f] & 1 << (key & 0x1f) &
-        ~(&Input_gInterfaceResults)[simGlobal.time32Hz - 1U & 0x1f]) != 0) {
+    if ((Input_gInterfaceResults[simGlobal.time32Hz & 0x1f] & 1 << (key & 0x1f) &
+        ~Input_gInterfaceResults[simGlobal.time32Hz - 1U & 0x1f]) != 0) {
       return 1;
     }
   }
@@ -901,13 +1043,39 @@ int Input_Interface__FUli(ulong key,int debounce)
 	// End offset: 0x8009D3BC
 	// End Line: 545
 
+	/* begin block 2 */
+		// Start line: 1076
+	/* end block 2 */
+	// End Line: 1077
+
+	/* begin block 3 */
+		// Start line: 1112
+	/* end block 3 */
+	// End Line: 1113
+
+	/* begin block 4 */
+		// Start line: 1112
+	/* end block 4 */
+	// End Line: 1113
+
+	/* begin block 5 */
+		// Start line: 1113
+	/* end block 5 */
+	// End Line: 1114
+
+	/* begin block 6 */
+		// Start line: 1113
+	/* end block 6 */
+	// End Line: 1114
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 int Input_MainExitKey__Fv(void)
 
 {
-  return (&Input_gInterfaceResults)[simGlobal.time32Hz & 0x1f] & 1;
+  return Input_gInterfaceResults[simGlobal.time32Hz & 0x1f] & 1;
 }
+
 
 
 

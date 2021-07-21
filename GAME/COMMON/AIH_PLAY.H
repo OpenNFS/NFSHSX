@@ -1,6 +1,7 @@
 #ifndef AIH_PLAY_H
 #define AIH_PLAY_H
 
+
 extern int CheckIfABlockadeCanBeSetup__13AIHigh_Player(struct AIHigh_Player *this); // 0x80061400
 
 extern void SetupBlockade__13AIHigh_Player(struct AIHigh_Player *this); // 0x80061784
@@ -18,5 +19,6 @@ extern void HandleCops__13AIHigh_Player(struct AIHigh_Player *this); // 0x80062A
 extern void CleanupBlockaders__13AIHigh_Playeri(struct AIHigh_Player *this, int forceClearAll); // 0x80062C64
 
 extern void HandlePullOver__13AIHigh_Player(struct AIHigh_Player *this); // 0x80062D7C
+
 
 #endif

@@ -1,6 +1,7 @@
 #ifndef AISPEEDS_H
 #define AISPEEDS_H
 
+
 extern void AISpeeds_StartUp__Fv(); // 0x8006D5B4
 
 extern void AISpeeds_ReadTuningInfo__Fv(); // 0x8006D5EC
@@ -58,5 +59,6 @@ extern int AISpeeds_GetUpgradeTopSpeedMult__Fi(int carIndex); // 0x8006F340
 extern int AISpeeds_CalcHumanTopSpeed__FP8Car_tObj(struct Car_tObj *carObj); // 0x8006F3FC
 
 extern int AISpeeds_CalcHumanCurveSpeed__FP8Car_tObj(struct Car_tObj *carObj); // 0x8006F41C
+
 
 #endif

@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "FEINPUT.H"
+
 
 // decompiled code
 // original method signature: 
@@ -12,17 +13,25 @@
 	// End offset: 0x800238E8
 	// End Line: 38
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 56
+	/* end block 2 */
+	// End Line: 57
+
+	/* begin block 3 */
+		// Start line: 56
+	/* end block 3 */
+	// End Line: 57
 
 void FEInput_VerifyControllerValues__Fi(int controller)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
-  
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  if ((((PAD_COMMON *)((int)gPadinfo.buf + controller * 0x20))->nopad == '\0') &&
+     ((int)frontEnd.controlType[controller] !=
+      (uint)*(byte *)((int)gPadinfo.buf + controller * 0x20 + 1))) {
+    Front_ResetPSXController__Fii(controller,0);
+  }
+  return;
 }
 
 
@@ -40,17 +49,129 @@ void FEInput_VerifyControllerValues__Fi(int controller)
 	// End offset: 0x80023B54
 	// End Line: 143
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 83
+	/* end block 2 */
+	// End Line: 84
+
+	/* begin block 3 */
+		// Start line: 89
+	/* end block 3 */
+	// End Line: 90
+
+	/* begin block 4 */
+		// Start line: 89
+	/* end block 4 */
+	// End Line: 90
+
+/* WARNING: Type propagation algorithm not settling */
 
 int FEInput_GetNoDebounceKey__Fii(int key,int controller)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
+  char cVar1;
+  bool bVar2;
+  ushort uVar3;
+  uint uVar4;
+  int iVar5;
   
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  PAD_update();
+  iVar5 = controller * 0x20;
+  if (((PAD_COMMON *)((int)gPadinfo.buf + iVar5))->nopad != '\0') {
+    return 0;
+  }
+  FEInput_VerifyControllerValues__Fi(controller);
+  cVar1 = *(char *)((int)gPadinfo.buf + iVar5 + 1);
+  if ((cVar1 == 's') || (cVar1 == 'S')) {
+    if (key == 0x400000) {
+      bVar2 = *(byte *)((int)gPadinfo.buf + iVar5 + 5) < 0xc1;
+      goto LAB_80023b08;
+    }
+    if (key < 0x400001) {
+      if (key == 0x100000) {
+        bVar2 = *(byte *)((int)gPadinfo.buf + iVar5 + 5) < 0x40;
+LAB_80023ae0:
+        if (!bVar2) {
+          return 0;
+        }
+        return 1;
+      }
+      if (key < 0x100001) {
+        if (key == -0x80000000) {
+          bVar2 = *(byte *)((int)gPadinfo.buf + iVar5 + 6) < 0x40;
+          goto LAB_80023ae0;
+        }
+      }
+      else {
+        if (key == 0x200000) {
+          bVar2 = *(byte *)((int)gPadinfo.buf + iVar5 + 4) < 0xc1;
+          goto LAB_80023b08;
+        }
+      }
+    }
+    else {
+      if (key == 0x10000000) {
+        bVar2 = *(byte *)((int)gPadinfo.buf + iVar5 + 7) < 0x40;
+        goto LAB_80023ae0;
+      }
+      if (key < 0x10000001) {
+        if (key == 0x800000) {
+          bVar2 = *(byte *)((int)gPadinfo.buf + iVar5 + 4) < 0x40;
+          goto LAB_80023ae0;
+        }
+      }
+      else {
+        if (key == 0x20000000) {
+          bVar2 = *(byte *)((int)gPadinfo.buf + iVar5 + 6) < 0xc1;
+LAB_80023b08:
+          if (!bVar2) {
+            return 1;
+          }
+          return 0;
+        }
+        if (key == 0x40000000) {
+          bVar2 = *(byte *)((int)gPadinfo.buf + iVar5 + 7) < 0xc1;
+          goto LAB_80023b08;
+        }
+      }
+    }
+    uVar4 = ~(uint)*(ushort *)((int)gPadinfo.buf + controller * 0x20 + 2);
+  }
+  else {
+    if (cVar1 != '#') {
+      uVar3 = PAD_state(controller << 2);
+      if (((uint)uVar3 & key) != 0) {
+        return 1;
+      }
+      return 0;
+    }
+    if (key == 0x8000) {
+      bVar2 = *(byte *)((int)gPadinfo.buf + iVar5 + 6) < 0x41;
+      goto LAB_80023b08;
+    }
+    if (key < 0x8001) {
+      if (key == 0x4000) {
+        bVar2 = *(byte *)((int)gPadinfo.buf + iVar5 + 5) < 0x41;
+        goto LAB_80023b08;
+      }
+    }
+    else {
+      if (key == 0x200000) {
+        bVar2 = *(byte *)((int)gPadinfo.buf + iVar5 + 4) < 0xa1;
+        goto LAB_80023b08;
+      }
+      if (key == 0x800000) {
+        bVar2 = *(byte *)((int)gPadinfo.buf + iVar5 + 4) < 0x62;
+        goto LAB_80023ae0;
+      }
+    }
+    uVar3 = PAD_state(controller << 2);
+    uVar4 = (uint)uVar3;
+  }
+  if ((uVar4 & key) != 0) {
+    return 1;
+  }
+  return 0;
 }
 
 
@@ -110,17 +231,53 @@ int FEInput_GetNoDebounceKey__Fii(int key,int controller)
 	// End offset: 0x80023C74
 	// End Line: 180
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 289
+	/* end block 2 */
+	// End Line: 290
+
+	/* begin block 3 */
+		// Start line: 293
+	/* end block 3 */
+	// End Line: 294
+
+	/* begin block 4 */
+		// Start line: 293
+	/* end block 4 */
+	// End Line: 294
 
 int FEInput_GetDebounceKey__Fii(int key,int controller)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
+  int iVar1;
+  uint uVar2;
   
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  iVar1 = FEInput_GetNoDebounceKey__Fii(key,controller);
+  if (iVar1 == 0) {
+    iVar1 = 0;
+    debounce[controller] = debounce[controller] & ~key;
+  }
+  else {
+    uVar2 = debounce[controller];
+    if ((uVar2 & key) == 0) {
+      iVar1 = 1;
+      debounce[controller] = uVar2 | key;
+      nextTick = 0;
+    }
+    else {
+      if ((((key == 0x10) || (key == 0x80)) || (key == 0x20)) || (iVar1 = 0, key == 0x40)) {
+        if (nextTick == 0) {
+          nextTick = (long)(ticks + FeTools_gScrollTicksOut + 10);
+        }
+        iVar1 = 0;
+        if (nextTick <= (int)ticks) {
+          iVar1 = 1;
+          nextTick = (long)(ticks + FeTools_gScrollTicksOut);
+        }
+      }
+    }
+  }
+  return iVar1;
 }
 
 
@@ -138,18 +295,68 @@ int FEInput_GetDebounceKey__Fii(int key,int controller)
 	// End offset: 0x80023DAC
 	// End Line: 320
 
-/* WARNING: Control flow encountered bad instruction data */
+	/* begin block 2 */
+		// Start line: 398
+	/* end block 2 */
+	// End Line: 399
+
+	/* begin block 3 */
+		// Start line: 433
+	/* end block 3 */
+	// End Line: 434
+
+	/* begin block 4 */
+		// Start line: 433
+	/* end block 4 */
+	// End Line: 434
 
 tInputKeyType FEInput_GetKeyFromPlayer__F7tPlayerl(tPlayer player,long debounce)
 
 {
-  undefined4 in_v1;
-  undefined4 in_t5;
+  bool bVar1;
+  int iVar2;
+  tInputKeyType tVar3;
+  ushort uVar4;
   
-  special2(in_v1,in_t5,5,0x13);
-                    /* WARNING: Bad instruction - Truncating control flow here */
-  halt_baddata();
+  uVar4 = 0;
+  while( true ) {
+    bVar1 = false;
+    iVar2 = FEInput_GetDebounceKey__Fii((&getKeyMappings)[(uint)uVar4].PSXKey,player);
+    if ((iVar2 != 0) ||
+       (((debounce & (&getKeyMappings)[(uint)uVar4].FEKey) == kInput_KeyType_NoKey &&
+        (iVar2 = FEInput_GetNoDebounceKey__Fii((&getKeyMappings)[(uint)uVar4].PSXKey,player),
+        iVar2 != 0)))) {
+      bVar1 = true;
+    }
+    if (bVar1) break;
+    uVar4 = uVar4 + 1;
+    if (0xf < uVar4) {
+      iVar2 = FEInput_GetDebounceKey__Fii(0x4000,player);
+      tVar3 = kInput_KeyType_Cross;
+      if (iVar2 == 0) {
+        iVar2 = FEInput_GetDebounceKey__Fii(0x1000,player);
+        tVar3 = kInput_KeyType_Triangle;
+        if (iVar2 == 0) {
+          iVar2 = FEInput_GetDebounceKey__Fii(0x2000,player);
+          tVar3 = kInput_KeyType_Circle;
+          if (iVar2 == 0) {
+            iVar2 = FEInput_GetDebounceKey__Fii(0x8000,player);
+            if (iVar2 == 0) {
+              iVar2 = FEInput_GetDebounceKey__Fii(8,player);
+              tVar3 = (uint)(iVar2 != 0) << 0xd;
+            }
+            else {
+              tVar3 = kInput_KeyType_Square;
+            }
+          }
+        }
+      }
+      return tVar3;
+    }
+  }
+  return (&getKeyMappings)[(uint)uVar4].FEKey;
 }
+
 
 
 

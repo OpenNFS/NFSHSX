@@ -1,6 +1,7 @@
 #ifndef HRZSKU_H
 #define HRZSKU_H
 
+
 extern void Horizon_InterpolateLineSCoords__FP7DVECTORN20Piii(struct DVECTOR *sc, struct DVECTOR *s0, struct DVECTOR *s1, int *percentage, int n, int bPercentageArray); // 0x800CF574
 
 extern void Sky_InitStars__Fv(); // 0x800CF6B4
@@ -44,5 +45,6 @@ extern void Hrz_BuildSky__Fv(); // 0x800D0A38
 extern void Sky_RenderStars__FP13Draw_SkyCachei(struct Draw_SkyCache *sd, int otz); // 0x800D1160
 
 extern void Hrz_BuildHorizon__FP13DRender_tView(struct DRender_tView *Vi); // 0x800D131C
+
 
 #endif

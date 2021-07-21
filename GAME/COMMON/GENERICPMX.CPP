@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "GENERICPMX.H"
+
 
 // decompiled code
 // original method signature: 
@@ -404,6 +405,16 @@
 	// End offset: 0x8009BD64
 	// End Line: 201
 
+	/* begin block 2 */
+		// Start line: 108
+	/* end block 2 */
+	// End Line: 109
+
+	/* begin block 3 */
+		// Start line: 108
+	/* end block 3 */
+	// End Line: 109
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void GenericPMX_LoadTexture__Fv(void)
@@ -437,7 +448,7 @@ void GenericPMX_LoadTexture__Fv(void)
   __format = (char *)loadfileadr(acStack304,0);
   Texture_ResetPaletteSharing__Fv();
   iVar4 = 0;
-  ppDVar2 = &__gDLPixmap_10__;
+  ppDVar2 = gDLPixmap10;
   iVar6 = 0;
   while (iVar4 < 10) {
     sprintf(acStack304,s_LIN_d_8013d10c,iVar4);
@@ -450,26 +461,26 @@ void GenericPMX_LoadTexture__Fv(void)
   }
   Texture_LoadPmx__FPcT0iiiiiP12Draw_tPixMap
             (__format,&DAT_8013d114,0x40,0,0xa0,-1,-1,&gPixmaps + iVar6);
-  DAT_00000c94 = &gPixmaps + iVar6;
+  gSpikeBeltPixmap = &gPixmaps + iVar6;
   Texture_LoadPmx__FPcT0iiiiiP12Draw_tPixMap
             (__format,&DAT_8013d11c,0x40,0,0xa0,-1,-1,&gPixmaps + iVar6 + 1);
-  DAT_00000c90 = &gPixmaps + iVar6 + 1;
+  gDPixmap = &gPixmaps + iVar6 + 1;
   Texture_LoadPmx__FPcT0iiiiiP12Draw_tPixMap
             (__format,&DAT_8013d124,0x40,0,0xa0,-1,-1,&gPixmaps + iVar6 + 2);
-  DAT_00000c98 = &gPixmaps + iVar6 + 2;
+  gShadowPixmap2[0] = &gPixmaps + iVar6 + 2;
   Texture_LoadPmx__FPcT0iiiiiP12Draw_tPixMap
             (__format,&DAT_8013d12c,0x40,0,0xa0,-1,-1,&gPixmaps + iVar6 + 3);
-  DAT_00000ca0 = &gPixmaps + iVar6 + 3;
+  gSkidMarkPixmap2 = &gPixmaps + iVar6 + 3;
   Texture_LoadPmx__FPcT0iiiiiP12Draw_tPixMap
             (__format,&DAT_8013d134,0x40,0,0xa0,-1,-1,&gPixmaps + iVar6 + 4);
-  DAT_00000ca4 = &gPixmaps + iVar6 + 4;
-  ChangeTPage__FPUsi(&DAT_00000ca0->tpage,2);
-  ChangeTPage__FPUsi(&DAT_00000ca4->tpage,2);
+  PTR_8013d1f0 = &gPixmaps + iVar6 + 4;
+  ChangeTPage__FPUsi(&gSkidMarkPixmap2->tpage,2);
+  ChangeTPage__FPUsi(&PTR_8013d1f0->tpage,2);
   iVar4 = iVar6 + 5;
   if (GameSetup_gData.Weather != 0) {
     Texture_LoadPmx__FPcT0iiiiiP12Draw_tPixMap
               (__format,&DAT_8013d13c,0x40,0,0xa0,-1,-1,&gPixmaps + iVar4);
-    __gWeatherPixmap_3__ = &gPixmaps + iVar4;
+    gWeatherPixmap3 = &gPixmaps + iVar4;
     Texture_LoadPmx__FPcT0iiiiiP12Draw_tPixMap
               (__format,&DAT_8013d144,0x40,0,0xa0,-1,-1,&gPixmaps + iVar6 + 6);
     iVar4 = iVar6 + 8;
@@ -477,40 +488,40 @@ void GenericPMX_LoadTexture__Fv(void)
     Texture_LoadPmx__FPcT0iiiiiP12Draw_tPixMap
               (__format,&DAT_8013d14c,0x40,0,0xa0,-1,-1,&gPixmaps + iVar6 + 7);
     PTR_80112b84 = &gPixmaps + iVar6 + 7;
-    ChangeTPage__FPUsi(&__gWeatherPixmap_3__->tpage,1);
+    ChangeTPage__FPUsi(&gWeatherPixmap3->tpage,1);
     ChangeTPage__FPUsi(&PTR_80112b80->tpage,1);
     ChangeTPage__FPUsi(&PTR_80112b84->tpage,1);
   }
   Texture_LoadPmx__FPcT0iiiiiP12Draw_tPixMap
             (__format,&DAT_8013d154,0x40,0,0xa0,-1,-1,&gPixmaps + iVar4);
-  DAT_00000ca8 = &gPixmaps + iVar4;
+  gSMokePixmap2 = &gPixmaps + iVar4;
   Texture_LoadPmx__FPcT0iiiiiP12Draw_tPixMap
             (__format,&DAT_8013d15c,0x40,0,0xa0,-1,-1,&gPixmaps + iVar4 + 1);
-  DAT_00000cac = &gPixmaps + iVar4 + 1;
+  PTR_8013d1f8 = &gPixmaps + iVar4 + 1;
   Texture_LoadPmx__FPcT0iiiiiP12Draw_tPixMap
             (__format,&DAT_8013d164,0,-1,-1,-1,-1,&gPixmaps + iVar4 + 2);
-  DAT_00000cb0 = &gPixmaps + iVar4 + 2;
+  gSMokePalette = &gPixmaps + iVar4 + 2;
   Texture_LoadPmx__FPcT0iiiiiP12Draw_tPixMap
             (__format,&DAT_8013d16c,0,-1,-1,-1,-1,&gPixmaps + iVar4 + 3);
-  DAT_00000cb4 = &gPixmaps + iVar4 + 3;
+  gDirtPalette = &gPixmaps + iVar4 + 3;
   Texture_LoadPmx__FPcT0iiiiiP12Draw_tPixMap
             (__format,&DAT_8013d174,0x40,0,0xa0,-1,-1,&gPixmaps + iVar4 + 4);
-  DAT_00000cb8 = &gPixmaps + iVar4 + 4;
+  gGravelPixmap2 = &gPixmaps + iVar4 + 4;
   Texture_LoadPmx__FPcT0iiiiiP12Draw_tPixMap
             (__format,&DAT_8013d17c,0x40,0,0xa0,-1,-1,&gPixmaps + iVar4 + 5);
-  DAT_00000cbc = &gPixmaps + iVar4 + 5;
+  PTR_8013d208 = &gPixmaps + iVar4 + 5;
   Texture_LoadPmx__FPcT0iiiiiP12Draw_tPixMap
             (__format,&DAT_8013d184,0,-1,-1,-1,-1,&gPixmaps + iVar4 + 6);
-  DAT_00000cc0 = &gPixmaps + iVar4 + 6;
+  gGravelPalette = &gPixmaps + iVar4 + 6;
   Texture_LoadPmx__FPcT0iiiiiP12Draw_tPixMap
             (__format,&DAT_8013d18c,0,-1,-1,-1,-1,&gPixmaps + iVar4 + 7);
-  DAT_00000cc4 = &gPixmaps + iVar4 + 7;
+  gGrassPalette = &gPixmaps + iVar4 + 7;
   Texture_LoadPmx__FPcT0iiiiiP12Draw_tPixMap
             (__format,&DAT_8013d194,0,-1,-1,-1,-1,&gPixmaps + iVar4 + 8);
   iVar5 = 0;
-  ppDVar2 = &__gSparkHPixmap_6__;
+  ppDVar2 = gSparkHPixmap6;
   iVar6 = iVar4 + 9;
-  DAT_00000cc8 = &gPixmaps + iVar4 + 8;
+  gSnowPalette = &gPixmaps + iVar4 + 8;
   while (iVar5 < 6) {
     sprintf(acStack304,s_SHX_d_8013d19c,iVar5);
     Texture_LoadPmx__FPcT0iiiiiP12Draw_tPixMap
@@ -527,53 +538,53 @@ void GenericPMX_LoadTexture__Fv(void)
       pmx = &gPixmaps + iVar6;
       Texture_LoadPmx__FPcT0iiiiiP12Draw_tPixMap((char *)0x0,n,0x40,0,0xa0,-1,-1,pmx);
       iVar6 = iVar6 + 1;
-      DAT_00000ccc = pmx;
+      gLeafPixmap = pmx;
       goto LAB_8009baf0;
     }
   }
-  DAT_00000ccc = (Draw_tPixMap *)0x0;
+  gLeafPixmap = (Draw_tPixMap *)0x0;
 LAB_8009baf0:
   pmx = &gPixmaps + iVar6;
   Texture_LoadPmx__FPcT0iiiiiP12Draw_tPixMap(__format,&DAT_8013d1ac,0x40,0,0xa0,-1,-1,pmx);
   iVar4 = iVar6 + 1;
   if (GameSetup_gData.Weather == 0) {
     iVar5 = iVar4;
-    DAT_00000cd0 = pmx;
+    gDamagePixmap = pmx;
     if ((TrackSpec_gSpec.skyspec.flags & 8U) != 0) {
       iVar5 = iVar6 + 2;
-      DAT_00000cd0 = pmx;
+      gDamagePixmap = pmx;
       Texture_LoadPmx__FPcT0iiiiiP12Draw_tPixMap
                 (__format,&DAT_8013d1bc,0x40,0,0xa0,-1,-1,&gPixmaps + iVar4);
-      __gFlarePixmap_3__ = &gPixmaps + iVar4;
+      gFlarePixmap3 = &gPixmaps + iVar4;
     }
     if ((TrackSpec_gSpec.skyspec.flags & 4U) != 0) {
       Texture_LoadPmx__FPcT0iiiiiP12Draw_tPixMap
                 (__format,&DAT_8013d1c4,0x40,0,0xa0,-1,-1,&gPixmaps + iVar5);
-      __gFlarePixmap_3__ = &gPixmaps + iVar5;
+      gFlarePixmap3 = &gPixmaps + iVar5;
       Texture_LoadPmx__FPcT0iiiiiP12Draw_tPixMap
                 (__format,&DAT_8013d1cc,0x40,0,0xa0,-1,-1,&gPixmaps + iVar5 + 1);
       PTR_80112b8c = &gPixmaps + iVar5 + 1;
       Texture_LoadPmx__FPcT0iiiiiP12Draw_tPixMap
                 (__format,&DAT_8013d1d4,0x40,0,0xa0,-1,-1,&gPixmaps + iVar5 + 2);
       PTR_80112b90 = &gPixmaps + iVar5 + 2;
-      ChangeTPage__FPUsi(&__gFlarePixmap_3__->tpage,1);
+      ChangeTPage__FPUsi(&gFlarePixmap3->tpage,1);
       ChangeTPage__FPUsi(&PTR_80112b8c->tpage,1);
       ChangeTPage__FPUsi(&PTR_80112b90->tpage,1);
     }
   }
   else {
     iVar6 = 0;
-    ppDVar2 = &__gLightningPixmap_16__;
+    ppDVar2 = gLightningPixmap16;
     iVar5 = 0x20;
     bVar1 = true;
-    DAT_00000cd0 = pmx;
+    gDamagePixmap = pmx;
     while (bVar1) {
       sprintf(acStack304,s_LNG_d_8013d1b4,iVar6);
       iVar7 = iVar4 + 1;
       pmx = &gPixmaps + iVar4;
       Texture_LoadPmx__FPcT0iiiiiP12Draw_tPixMap(__format,acStack304,0x40,0,0xa0,-1,-1,pmx);
       iVar4 = iVar4 + 2;
-      ppDVar3 = (Draw_tPixMap **)((int)&__gLightningPixmap_16__ + iVar5);
+      ppDVar3 = (Draw_tPixMap **)((int)gLightningPixmap16 + iVar5);
       iVar5 = iVar5 + 4;
       *ppDVar2 = pmx;
       *ppDVar3 = &gPixmaps + iVar7;
@@ -588,6 +599,7 @@ LAB_8009baf0:
   purgememadr((int)__format);
   return;
 }
+
 
 
 

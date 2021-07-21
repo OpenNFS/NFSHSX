@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "RPAUSE.H"
+
 
 // decompiled code
 // original method signature: 
@@ -14,6 +15,16 @@
 	/* end block 1 */
 	// End offset: 0x800DCEC4
 	// End Line: 26
+
+	/* begin block 2 */
+		// Start line: 50
+	/* end block 2 */
+	// End Line: 51
+
+	/* begin block 3 */
+		// Start line: 50
+	/* end block 3 */
+	// End Line: 51
 
 /* WARNING: Could not reconcile some variable overlaps */
 /* WARNING: Unknown calling convention yet parameter storage is locked */
@@ -49,6 +60,21 @@ void RPause_CopyBackToFrontBuffer__Fv(void)
 	// End offset: 0x800DCF84
 	// End Line: 47
 
+	/* begin block 2 */
+		// Start line: 113
+	/* end block 2 */
+	// End Line: 114
+
+	/* begin block 3 */
+		// Start line: 117
+	/* end block 3 */
+	// End Line: 118
+
+	/* begin block 4 */
+		// Start line: 117
+	/* end block 4 */
+	// End Line: 118
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void RPause_StartPauseMenu__Fv(void)
@@ -71,6 +97,21 @@ void RPause_StartPauseMenu__Fv(void)
 	// End offset: 0x800DCFA4
 	// End Line: 53
 
+	/* begin block 2 */
+		// Start line: 125
+	/* end block 2 */
+	// End Line: 126
+
+	/* begin block 3 */
+		// Start line: 129
+	/* end block 3 */
+	// End Line: 130
+
+	/* begin block 4 */
+		// Start line: 129
+	/* end block 4 */
+	// End Line: 130
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void RPause_StopPauseMenu__Fv(void)
@@ -80,12 +121,13 @@ void RPause_StopPauseMenu__Fv(void)
   DrawSync(0);
   VSync(0);
   RPause_CopyBackToFrontBuffer__Fv();
-  DrawOTag((&Draw_gView)[Render_gPauseMenuView].ot[gFlip] +
-           (&Draw_gView)[Render_gPauseMenuView].otsize * 4 + -4);
+  DrawOTag(Draw_gView[Render_gPauseMenuView].ot[gFlip] +
+           Draw_gView[Render_gPauseMenuView].otsize * 4 + -4);
   systemtask(0);
   gFlip = 1 - gFlip;
   return;
 }
+
 
 
 

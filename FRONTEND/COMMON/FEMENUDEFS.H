@@ -1,6 +1,7 @@
 #ifndef FEMENUDEFS_H
 #define FEMENUDEFS_H
 
+
 extern void MenuExtended_SetOnePlayer__FR12tMenuCommand(struct tMenuCommand *command); // 0x8002C0E0
 
 extern void MenuExtended_SetTwoPlayer__FR12tMenuCommand(struct tMenuCommand *command); // 0x8002C12C
@@ -118,5 +119,6 @@ extern void MenuExtended_PinkSlipsContinue__FR12tMenuCommand(struct tMenuCommand
 extern struct tGlobalMenuDefs * __15tGlobalMenuDefs(struct tGlobalMenuDefs *this); // 0x8002E3B8
 
 extern void _._15tGlobalMenuDefs(struct tGlobalMenuDefs *this, int __in_chrg); // 0x800315D4
+
 
 #endif

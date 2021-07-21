@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "GROUP.H"
+
 
 // decompiled code
 // original method signature: 
@@ -13,6 +14,21 @@
 	/* end block 1 */
 	// End offset: 0x8009C148
 	// End Line: 59
+
+	/* begin block 2 */
+		// Start line: 88
+	/* end block 2 */
+	// End Line: 89
+
+	/* begin block 3 */
+		// Start line: 88
+	/* end block 3 */
+	// End Line: 89
+
+	/* begin block 4 */
+		// Start line: 91
+	/* end block 4 */
+	// End Line: 92
 
 SerializedGroup * LocateNextGroupType__15SerializedGroupi(SerializedGroup *this,int type)
 
@@ -60,6 +76,31 @@ SerializedGroup * LocateNextGroupType__15SerializedGroupi(SerializedGroup *this,
 	/* end block 1 */
 	// End offset: 0x8009C1B8
 	// End Line: 100
+
+	/* begin block 2 */
+		// Start line: 121
+	/* end block 2 */
+	// End Line: 122
+
+	/* begin block 3 */
+		// Start line: 126
+	/* end block 3 */
+	// End Line: 127
+
+	/* begin block 4 */
+		// Start line: 126
+	/* end block 4 */
+	// End Line: 127
+
+	/* begin block 5 */
+		// Start line: 127
+	/* end block 5 */
+	// End Line: 128
+
+	/* begin block 6 */
+		// Start line: 127
+	/* end block 6 */
+	// End Line: 128
 
 SerializedGroup * LocateGroupType__15SerializedGroupii(SerializedGroup *this,int type,int index)
 
@@ -128,6 +169,31 @@ SerializedGroup * LocateGroupType__15SerializedGroupii(SerializedGroup *this,int
 	// End offset: 0x8009C1FC
 	// End Line: 117
 
+	/* begin block 2 */
+		// Start line: 202
+	/* end block 2 */
+	// End Line: 203
+
+	/* begin block 3 */
+		// Start line: 206
+	/* end block 3 */
+	// End Line: 207
+
+	/* begin block 4 */
+		// Start line: 206
+	/* end block 4 */
+	// End Line: 207
+
+	/* begin block 5 */
+		// Start line: 207
+	/* end block 5 */
+	// End Line: 208
+
+	/* begin block 6 */
+		// Start line: 207
+	/* end block 6 */
+	// End Line: 208
+
 SerializedGroup * LocateGroupNum__15SerializedGroupi(SerializedGroup *this,int index)
 
 {
@@ -160,6 +226,21 @@ SerializedGroup * LocateGroupNum__15SerializedGroupi(SerializedGroup *this,int i
 	/* end block 1 */
 	// End offset: 0x8009C260
 	// End Line: 135
+
+	/* begin block 2 */
+		// Start line: 237
+	/* end block 2 */
+	// End Line: 238
+
+	/* begin block 3 */
+		// Start line: 241
+	/* end block 3 */
+	// End Line: 242
+
+	/* begin block 4 */
+		// Start line: 241
+	/* end block 4 */
+	// End Line: 242
 
 Group * LocateCreateGroupType__15SerializedGroupiP9SimpleMemi
                   (SerializedGroup *this,int type,SimpleMem *mem,int index)
@@ -243,6 +324,21 @@ Group * LocateCreateGroupType__15SerializedGroupiP9SimpleMemi
 	// End offset: 0x8009C27C
 	// End Line: 169
 
+	/* begin block 2 */
+		// Start line: 315
+	/* end block 2 */
+	// End Line: 316
+
+	/* begin block 3 */
+		// Start line: 318
+	/* end block 3 */
+	// End Line: 319
+
+	/* begin block 4 */
+		// Start line: 318
+	/* end block 4 */
+	// End Line: 319
+
 Group * CreateLiteGroup__15SerializedGroupP15SerializedGroupP9SimpleMem
                   (SerializedGroup *this,SerializedGroup *source,SimpleMem *mem)
 
@@ -305,6 +401,21 @@ Group * CreateLiteGroup__15SerializedGroupP15SerializedGroupP9SimpleMem
 	// End offset: 0x8009C2E4
 	// End Line: 187
 
+	/* begin block 2 */
+		// Start line: 362
+	/* end block 2 */
+	// End Line: 363
+
+	/* begin block 3 */
+		// Start line: 367
+	/* end block 3 */
+	// End Line: 368
+
+	/* begin block 4 */
+		// Start line: 367
+	/* end block 4 */
+	// End Line: 368
+
 Group * CreateLiteGroupDataSize__15SerializedGroupP15SerializedGroupP9SimpleMemi
                   (SerializedGroup *this,SerializedGroup *source,SimpleMem *mem,int dataSize)
 
@@ -316,6 +427,7 @@ Group * CreateLiteGroupDataSize__15SerializedGroupP15SerializedGroupP9SimpleMemi
   blockmove((undefined4 *)(source + 1),pGVar1 + 1,dataSize + 4);
   return pGVar1;
 }
+
 
 
 

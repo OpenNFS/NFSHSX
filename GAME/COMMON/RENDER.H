@@ -1,6 +1,7 @@
 #ifndef RENDER_H
 #define RENDER_H
 
+
 extern void Render_CreatePlayerViews__Fv(); // 0x800B30AC
 
 extern void Render_CreatePauseMenuViews__Fv(); // 0x800B3198
@@ -46,5 +47,6 @@ extern void StampImage__Fii(int xo, int depth); // 0x800B38A8
 extern void Render_InitBlurMode__Fv(); // 0x800B3A04
 
 extern void Render_InsertDepthOfField__Fv(); // 0x800B3A6C
+
 
 #endif

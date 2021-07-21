@@ -1,6 +1,7 @@
 #ifndef STATTOOL_H
 #define STATTOOL_H
 
+
 extern void Stattool_nCreateIndex__FiPiPs(int nNumber, int *nInput, short *nIndex); // 0x8004A868
 
 extern void Stattool_ParseTime__FiPc(int nTime, char *sLapTime); // 0x8004A99C
@@ -22,5 +23,6 @@ extern int Stattool_ReturnRecordLapTime__Fs(short nTrack); // 0x8004AE60
 extern short Stattool_CheckForHumanCar__FP10Car_tStats(struct Car_tStats *dummyCars); // 0x8004AEC4
 
 extern char * Stattool_GetAINameFromPersonality__F14tPersonalities(enum tPersonalities personality); // 0x8004AF4C
+
 
 #endif

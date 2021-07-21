@@ -1,6 +1,7 @@
 #ifndef ANIM_H
 #define ANIM_H
 
+
 extern void Anim_Restart__Fv(); // 0x80073A94
 
 extern int Anim_InitSystem__FPc(char *trackName); // 0x80073B1C
@@ -36,5 +37,6 @@ extern int GetTimedAnimPosRot__10AnimScriptP8coorddefP10matrixtdef(struct AnimSc
 extern int GetTimedAnimPosRot__10AnimScriptiP8coorddefP10matrixtdef(struct AnimScript *this, int index, struct coorddef *pt, struct matrixtdef *mat); // 0x80074624
 
 extern int GetStatus__10AnimScript(struct AnimScript *this); // 0x8007471C
+
 
 #endif

@@ -1,6 +1,7 @@
 #ifndef AI_H
 #define AI_H
 
+
 extern void AI_StartUp__Fv(); // 0x8005797C
 
 extern void AI_CleanUp__Fv(); // 0x80057984
@@ -80,5 +81,6 @@ extern void AI_PushFinishedCarsToSide__FP8Car_tObj(struct Car_tObj *carObj); // 
 extern void AI_MaybeChangeLaneSlack__FP8Car_tObj(struct Car_tObj *carObj); // 0x8005A8C0
 
 extern void AI_ChooseNewLaneSlack__FP8Car_tObj(struct Car_tObj *carObj); // 0x8005A9DC
+
 
 #endif

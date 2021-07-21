@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "REPLAY.H"
+
 
 // decompiled code
 // original method signature: 
@@ -17,6 +18,21 @@
 	/* end block 1 */
 	// End offset: 0x800B3CFC
 	// End Line: 118
+
+	/* begin block 2 */
+		// Start line: 144
+	/* end block 2 */
+	// End Line: 145
+
+	/* begin block 3 */
+		// Start line: 144
+	/* end block 3 */
+	// End Line: 145
+
+	/* begin block 4 */
+		// Start line: 146
+	/* end block 4 */
+	// End Line: 147
 
 char * Replay_Compress__FPc(char *uncompressed_data)
 
@@ -89,6 +105,26 @@ char * Replay_Compress__FPc(char *uncompressed_data)
 	// End offset: 0x800B3D94
 	// End Line: 162
 
+	/* begin block 2 */
+		// Start line: 255
+	/* end block 2 */
+	// End Line: 256
+
+	/* begin block 3 */
+		// Start line: 261
+	/* end block 3 */
+	// End Line: 262
+
+	/* begin block 4 */
+		// Start line: 261
+	/* end block 4 */
+	// End Line: 262
+
+	/* begin block 5 */
+		// Start line: 269
+	/* end block 5 */
+	// End Line: 270
+
 char * Replay_Decompress__FPc(char *compressed_data)
 
 {
@@ -157,6 +193,21 @@ char * Replay_Decompress__FPc(char *compressed_data)
 	// End offset: 0x800B3F34
 	// End Line: 195
 
+	/* begin block 2 */
+		// Start line: 342
+	/* end block 2 */
+	// End Line: 343
+
+	/* begin block 3 */
+		// Start line: 350
+	/* end block 3 */
+	// End Line: 351
+
+	/* begin block 4 */
+		// Start line: 350
+	/* end block 4 */
+	// End Line: 351
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Replay_InitReplay__Fv(void)
@@ -176,9 +227,9 @@ void Replay_InitReplay__Fv(void)
   int local_d8 [48];
   int aiStack24 [4];
   
-  DAT_00000ea8 = GameSetup_gData.replayMode;
+  Replay_ReplayMode = GameSetup_gData.replayMode;
   Replay_LoadCameraFile__Fv();
-  if (DAT_00000ea8 == 2) {
+  if (Replay_ReplayMode == 2) {
     pGVar1 = &GameSetup_gData.userSetting;
     piVar7 = local_d8;
     do {
@@ -240,8 +291,8 @@ void Replay_InitReplay__Fv(void)
     ((GameSetup_tUserSetting *)&pGVar4->musicLevel)->language = *piVar7;
     pGVar4->sfxLevel = iVar9;
     pGVar4->engineLevel = iVar10;
-    DAT_00000eb0 = 0;
-    DAT_00000ea0 = Replay_ReplayBuffer.size;
+    Replay_ReplayGetPtr = 0;
+    Replay_Size = Replay_ReplayBuffer.size;
   }
   else {
     pGVar2 = &GameSetup_gData;
@@ -282,6 +333,26 @@ void Replay_InitReplay__Fv(void)
 	// End offset: 0x800B4070
 	// End Line: 264
 
+	/* begin block 2 */
+		// Start line: 413
+	/* end block 2 */
+	// End Line: 414
+
+	/* begin block 3 */
+		// Start line: 421
+	/* end block 3 */
+	// End Line: 422
+
+	/* begin block 4 */
+		// Start line: 421
+	/* end block 4 */
+	// End Line: 422
+
+	/* begin block 5 */
+		// Start line: 425
+	/* end block 5 */
+	// End Line: 426
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Replay_ResetReplay__Fv(void)
@@ -293,7 +364,7 @@ void Replay_ResetReplay__Fv(void)
   tReplayCameraModes *ptVar3;
   Car_tObj **ppCVar4;
   
-  if (DAT_00000ea8 < 2) {
+  if ((uint)Replay_ReplayMode < 2) {
     iVar2 = 0x5fff;
     player = -0x7fee2e95;
     do {
@@ -301,24 +372,24 @@ void Replay_ResetReplay__Fv(void)
       iVar2 = iVar2 + -1;
       player = player + -1;
     } while (-1 < iVar2);
-    DAT_00000eac = 0;
-    DAT_00000eb0 = 0;
+    Replay_ReplayStorePtr = 0;
+    Replay_ReplayGetPtr = 0;
   }
   else {
-    if (1 < (int)DAT_00000ea8) {
+    if (1 < Replay_ReplayMode) {
       player = 0;
       ptVar3 = &Replay_ReplayCamera;
-      ppCVar4 = &__Cars_gHumanRaceCarList_9__;
+      ppCVar4 = &Cars_gHumanRaceCarList9;
       Replay_ReplayInterface.pause = 0;
       Replay_ReplayInterface.speed = 2;
-      DAT_00000eb0 = 0;
+      Replay_ReplayGetPtr = 0;
       Replay_ReplayInterface.end = 0;
       Replay_ReplayInterface.camera = 0;
       Replay_ReplayInterface.selection = 4;
       Replay_ReplayInterface.depressed = 0;
       Replay_ReplayInterface.changeCamera = 0;
       do {
-        if (DAT_00000ea4 == 0) {
+        if (numValidCams == 0) {
           iVar2 = 4;
         }
         else {
@@ -360,13 +431,28 @@ void Replay_ResetReplay__Fv(void)
 	// End offset: 0x800B409C
 	// End Line: 271
 
+	/* begin block 2 */
+		// Start line: 576
+	/* end block 2 */
+	// End Line: 577
+
+	/* begin block 3 */
+		// Start line: 582
+	/* end block 3 */
+	// End Line: 583
+
+	/* begin block 4 */
+		// Start line: 582
+	/* end block 4 */
+	// End Line: 583
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Replay_StoringReplay__Fv(void)
 
 {
   Replay_SaveReplay__Fv();
-  uGp00000ea4 = 0;
+  numValidCams = 0;
   return;
 }
 
@@ -385,6 +471,26 @@ void Replay_StoringReplay__Fv(void)
 	// End offset: 0x800B4478
 	// End Line: 308
 
+	/* begin block 2 */
+		// Start line: 600
+	/* end block 2 */
+	// End Line: 601
+
+	/* begin block 3 */
+		// Start line: 608
+	/* end block 3 */
+	// End Line: 609
+
+	/* begin block 4 */
+		// Start line: 608
+	/* end block 4 */
+	// End Line: 609
+
+	/* begin block 5 */
+		// Start line: 611
+	/* end block 5 */
+	// End Line: 612
+
 void Replay_StoringControllerData__FG15tControllerData(tControllerData controllerdata)
 
 {
@@ -397,7 +503,7 @@ void Replay_StoringControllerData__FG15tControllerData(tControllerData controlle
   undefined local_res0 [16];
   byte local_30 [40];
   
-  if (iGp00000eac + 0x80 < 0x6000) {
+  if (Replay_ReplayStorePtr + 0x80 < 0x6000) {
     puVar1 = (undefined4 *)Replay_Compress__FPc((char *)register0x00000074);
     __src_00 = (undefined4 *)local_30;
     if (((uint)puVar1 & 3) == 0) {
@@ -430,8 +536,8 @@ void Replay_StoringControllerData__FG15tControllerData(tControllerData controlle
     }
     __src = (undefined4 *)local_30;
     *(char *)__src_00 = *(char *)puVar1;
-    memcpy(Replay_ReplayBuffer.buffer + iGp00000eac,__src,(uint)local_30[0]);
-    iGp00000eac = iGp00000eac + (uint)local_30[0];
+    memcpy(Replay_ReplayBuffer.buffer + Replay_ReplayStorePtr,__src,(uint)local_30[0]);
+    Replay_ReplayStorePtr = Replay_ReplayStorePtr + (uint)local_30[0];
     puVar1 = (undefined4 *)Replay_Compress__FPc(controllerdata.steering + 0x10);
     if (((uint)puVar1 & 3) == 0) {
       __src_00 = puVar1 + 8;
@@ -463,8 +569,8 @@ void Replay_StoringControllerData__FG15tControllerData(tControllerData controlle
     }
     __src_00 = (undefined4 *)local_30;
     *(char *)__src = *(char *)puVar1;
-    memcpy(Replay_ReplayBuffer.buffer + iGp00000eac,__src_00,(uint)local_30[0]);
-    iGp00000eac = iGp00000eac + (uint)local_30[0];
+    memcpy(Replay_ReplayBuffer.buffer + Replay_ReplayStorePtr,__src_00,(uint)local_30[0]);
+    Replay_ReplayStorePtr = Replay_ReplayStorePtr + (uint)local_30[0];
     puVar1 = (undefined4 *)Replay_Compress__FPc((char *)(controllerdata.gas + 0x10));
     if (((uint)puVar1 & 3) == 0) {
       __src = puVar1 + 8;
@@ -496,8 +602,8 @@ void Replay_StoringControllerData__FG15tControllerData(tControllerData controlle
     }
     __src = (undefined4 *)local_30;
     *(char *)__src_00 = *(char *)puVar1;
-    memcpy(Replay_ReplayBuffer.buffer + iGp00000eac,__src,(uint)local_30[0]);
-    iGp00000eac = iGp00000eac + (uint)local_30[0];
+    memcpy(Replay_ReplayBuffer.buffer + Replay_ReplayStorePtr,__src,(uint)local_30[0]);
+    Replay_ReplayStorePtr = Replay_ReplayStorePtr + (uint)local_30[0];
     puVar1 = (undefined4 *)Replay_Compress__FPc((char *)(controllerdata.brake + 0x10));
     __src_00 = puVar1 + 8;
     if (((uint)puVar1 & 3) == 0) {
@@ -527,12 +633,12 @@ void Replay_StoringControllerData__FG15tControllerData(tControllerData controlle
       } while (puVar1 != __src_00);
     }
     *(char *)__src = *(char *)puVar1;
-    memcpy(Replay_ReplayBuffer.buffer + iGp00000eac,local_30,(uint)local_30[0]);
-    iGp00000eac = iGp00000eac + (uint)local_30[0];
+    memcpy(Replay_ReplayBuffer.buffer + Replay_ReplayStorePtr,local_30,(uint)local_30[0]);
+    Replay_ReplayStorePtr = Replay_ReplayStorePtr + (uint)local_30[0];
   }
   else {
-    uGp00000ea8 = 1;
-    iGp00000ea0 = simGlobal.gameTicks;
+    Replay_ReplayMode = 1;
+    Replay_Size = simGlobal.gameTicks;
   }
   return;
 }
@@ -552,6 +658,21 @@ void Replay_StoringControllerData__FG15tControllerData(tControllerData controlle
 	/* end block 1 */
 	// End offset: 0x800B4804
 	// End Line: 335
+
+	/* begin block 2 */
+		// Start line: 671
+	/* end block 2 */
+	// End Line: 672
+
+	/* begin block 3 */
+		// Start line: 678
+	/* end block 3 */
+	// End Line: 679
+
+	/* begin block 4 */
+		// Start line: 678
+	/* end block 4 */
+	// End Line: 679
 
 tControllerData * Replay_RetreivingControllerData__Fv(tControllerData *__return_storage_ptr__)
 
@@ -587,8 +708,8 @@ tControllerData * Replay_RetreivingControllerData__Fv(tControllerData *__return_
   undefined4 local_64;
   byte local_40 [40];
   
-  memcpy(local_40,Replay_ReplayBuffer.buffer + iGp00000eb0,
-         (uint)(byte)Replay_ReplayBuffer.buffer[iGp00000eb0]);
+  memcpy(local_40,Replay_ReplayBuffer.buffer + Replay_ReplayGetPtr,
+         (uint)(byte)Replay_ReplayBuffer.buffer[Replay_ReplayGetPtr]);
   puVar1 = (undefined4 *)Replay_Decompress__FPc((char *)local_40);
   local_c0 = *puVar1;
   local_bc = puVar1[1];
@@ -598,9 +719,9 @@ tControllerData * Replay_RetreivingControllerData__Fv(tControllerData *__return_
   local_ac = puVar1[5];
   local_a8 = puVar1[6];
   local_a4 = puVar1[7];
-  iGp00000eb0 = iGp00000eb0 + (uint)local_40[0];
-  memcpy(local_40,Replay_ReplayBuffer.buffer + iGp00000eb0,
-         (uint)(byte)Replay_ReplayBuffer.buffer[iGp00000eb0]);
+  Replay_ReplayGetPtr = Replay_ReplayGetPtr + (uint)local_40[0];
+  memcpy(local_40,Replay_ReplayBuffer.buffer + Replay_ReplayGetPtr,
+         (uint)(byte)Replay_ReplayBuffer.buffer[Replay_ReplayGetPtr]);
   puVar1 = (undefined4 *)Replay_Decompress__FPc((char *)local_40);
   local_a0 = *puVar1;
   local_9c = puVar1[1];
@@ -610,9 +731,9 @@ tControllerData * Replay_RetreivingControllerData__Fv(tControllerData *__return_
   local_8c = puVar1[5];
   local_88 = puVar1[6];
   local_84 = puVar1[7];
-  iGp00000eb0 = iGp00000eb0 + (uint)local_40[0];
-  memcpy(local_40,Replay_ReplayBuffer.buffer + iGp00000eb0,
-         (uint)(byte)Replay_ReplayBuffer.buffer[iGp00000eb0]);
+  Replay_ReplayGetPtr = Replay_ReplayGetPtr + (uint)local_40[0];
+  memcpy(local_40,Replay_ReplayBuffer.buffer + Replay_ReplayGetPtr,
+         (uint)(byte)Replay_ReplayBuffer.buffer[Replay_ReplayGetPtr]);
   puVar1 = (undefined4 *)Replay_Decompress__FPc((char *)local_40);
   local_80 = *puVar1;
   local_7c = puVar1[1];
@@ -622,10 +743,11 @@ tControllerData * Replay_RetreivingControllerData__Fv(tControllerData *__return_
   local_6c = puVar1[5];
   local_68 = puVar1[6];
   local_64 = puVar1[7];
-  iGp00000eb0 = iGp00000eb0 + (uint)local_40[0];
-  memcpy(local_40,Replay_ReplayBuffer.buffer + iGp00000eb0,
-         (uint)(byte)Replay_ReplayBuffer.buffer[iGp00000eb0]);
+  Replay_ReplayGetPtr = Replay_ReplayGetPtr + (uint)local_40[0];
+  memcpy(local_40,Replay_ReplayBuffer.buffer + Replay_ReplayGetPtr,
+         (uint)(byte)Replay_ReplayBuffer.buffer[Replay_ReplayGetPtr]);
   Replay_Decompress__FPc((char *)local_40);
+  Replay_ReplayGetPtr = Replay_ReplayGetPtr + (uint)local_40[0];
   puVar1 = &local_c0;
   ptVar2 = __return_storage_ptr__;
   if (((uint)__return_storage_ptr__ & 3) == 0) {
@@ -654,7 +776,6 @@ tControllerData * Replay_RetreivingControllerData__Fv(tControllerData *__return_
       ptVar2 = (tControllerData *)(ptVar2->steering + 0x10);
     } while (puVar1 != (undefined4 *)local_40);
   }
-  iGp00000eb0 = iGp00000eb0 + (uint)local_40[0];
   return __return_storage_ptr__;
 }
 
@@ -670,6 +791,21 @@ tControllerData * Replay_RetreivingControllerData__Fv(tControllerData *__return_
 	/* end block 1 */
 	// End offset: 0x800B4B28
 	// End Line: 365
+
+	/* begin block 2 */
+		// Start line: 767
+	/* end block 2 */
+	// End Line: 768
+
+	/* begin block 3 */
+		// Start line: 774
+	/* end block 3 */
+	// End Line: 775
+
+	/* begin block 4 */
+		// Start line: 774
+	/* end block 4 */
+	// End Line: 775
 
 /* WARNING: Removing unreachable block (ram,0x800b4a90) */
 /* WARNING: Removing unreachable block (ram,0x800b4a94) */
@@ -698,25 +834,25 @@ void Replay_SaveInput__Fi(int car)
   if (iVar1 < 0) {
     iVar1 = iVar1 + 3;
   }
-  (&controlData)[car].steering[*piVar2] = (char)(iVar1 >> 2) + '@';
-  (&controlData)[car].gas[*piVar2] = Input_gSim.gas >> 3;
-  (&controlData)[car].brake[*piVar2] = Input_gSim.brake >> 3;
-  (&controlData)[car].states[*piVar2] = Input_gSim.flags;
-  ppCVar3 = &__Cars_gHumanRaceCarList_9__ + car;
+  controlData[car].steering[*piVar2] = (char)(iVar1 >> 2) + '@';
+  controlData[car].gas[*piVar2] = Input_gSim.gas >> 3;
+  controlData[car].brake[*piVar2] = Input_gSim.brake >> 3;
+  controlData[car].states[*piVar2] = Input_gSim.flags;
+  ppCVar3 = &Cars_gHumanRaceCarList9 + car;
   if ((*ppCVar3)->carInfo->RampSteering != 0) {
-    (&controlData)[car].steering[*piVar2] = (&controlData)[car].steering[*piVar2] | 0x80;
+    controlData[car].steering[*piVar2] = controlData[car].steering[*piVar2] | 0x80;
   }
   if ((*ppCVar3)->carInfo->RampGas != 0) {
-    (&controlData)[car].gas[*piVar2] = (&controlData)[car].gas[*piVar2] | 0x80;
+    controlData[car].gas[*piVar2] = controlData[car].gas[*piVar2] | 0x80;
   }
   if ((*ppCVar3)->carInfo->RampBrake != 0) {
-    (&controlData)[car].brake[*piVar2] = (&controlData)[car].brake[*piVar2] | 0x80;
+    controlData[car].brake[*piVar2] = controlData[car].brake[*piVar2] | 0x80;
   }
   iVar1 = *piVar2;
   *piVar2 = iVar1 + 1;
   if (iVar1 + 1 == 0x20) {
     puVar5 = (undefined4 *)&stack0xffffff88;
-    ptVar4 = (tControllerData *)((&controlData)[car].steering + 0x10);
+    ptVar4 = (tControllerData *)(controlData[car].steering + 0x10);
     *piVar2 = 0;
     do {
       uVar6 = *(undefined4 *)(ptVar4->steering + 4);
@@ -728,7 +864,7 @@ void Replay_SaveInput__Fi(int car)
       puVar5[3] = uVar8;
       ptVar4 = (tControllerData *)(ptVar4->steering + 0x10);
       puVar5 = puVar5 + 4;
-    } while (ptVar4 != &tControllerData_801170ec + car);
+    } while (ptVar4 != controlData + car + 1);
     Replay_StoringControllerData__FG15tControllerData
               ((tControllerData)
                CONCAT8120(uStackX0,CONCAT4116(local_4,CONCAT4112(local_8,in_stack_ffffff88))));
@@ -749,6 +885,21 @@ void Replay_SaveInput__Fi(int car)
 	// End offset: 0x800B4F84
 	// End Line: 442
 
+	/* begin block 2 */
+		// Start line: 828
+	/* end block 2 */
+	// End Line: 829
+
+	/* begin block 3 */
+		// Start line: 835
+	/* end block 3 */
+	// End Line: 836
+
+	/* begin block 4 */
+		// Start line: 835
+	/* end block 4 */
+	// End Line: 836
+
 /* WARNING: Removing unreachable block (ram,0x800b4bbc) */
 /* WARNING: Removing unreachable block (ram,0x800b4bc0) */
 /* WARNING: Removing unreachable block (ram,0x800b4c0c) */
@@ -767,11 +918,11 @@ void Replay_GetInput__Fi(int car)
   
   Input_Fetch__Fi(car);
   if ((&Replay_ReplayCounter)[car] == 0) {
-    if (Replay_ReplayBuffer.buffer[DAT_00000eb0] == '\0') {
-      DAT_00000ea8 = 3;
+    if (Replay_ReplayBuffer.buffer[Replay_ReplayGetPtr] == '\0') {
+      Replay_ReplayMode = 3;
     }
     else {
-      ptVar7 = &controlData + car;
+      ptVar7 = controlData + car;
       Replay_RetreivingControllerData__Fv(&local_90);
       ptVar2 = &local_90;
       do {
@@ -787,48 +938,47 @@ void Replay_GetInput__Fi(int car)
       } while (ptVar2 != (tControllerData *)&stack0xfffffff0);
     }
   }
-  if (DAT_00000ea8 == 2) {
-    if (((int)(&controlData)[car].steering[(&Replay_ReplayCounter)[car]] & 0x80U) == 0) {
-      (&__Cars_gHumanRaceCarList_9__)[car]->carInfo->RampSteering = 0;
+  if (Replay_ReplayMode == 2) {
+    if (((int)controlData[car].steering[(&Replay_ReplayCounter)[car]] & 0x80U) == 0) {
+      (&Cars_gHumanRaceCarList9)[car]->carInfo->RampSteering = 0;
     }
     else {
-      (&__Cars_gHumanRaceCarList_9__)[car]->carInfo->RampSteering = 1;
+      (&Cars_gHumanRaceCarList9)[car]->carInfo->RampSteering = 1;
     }
-    if (((&controlData)[car].gas[(&Replay_ReplayCounter)[car]] & 0x80) == 0) {
-      (&__Cars_gHumanRaceCarList_9__)[car]->carInfo->RampGas = 0;
-    }
-    else {
-      (&__Cars_gHumanRaceCarList_9__)[car]->carInfo->RampGas = 1;
-    }
-    if (((&controlData)[car].brake[(&Replay_ReplayCounter)[car]] & 0x80) == 0) {
-      (&__Cars_gHumanRaceCarList_9__)[car]->carInfo->RampBrake = 0;
+    if ((controlData[car].gas[(&Replay_ReplayCounter)[car]] & 0x80) == 0) {
+      (&Cars_gHumanRaceCarList9)[car]->carInfo->RampGas = 0;
     }
     else {
-      (&__Cars_gHumanRaceCarList_9__)[car]->carInfo->RampBrake = 1;
+      (&Cars_gHumanRaceCarList9)[car]->carInfo->RampGas = 1;
+    }
+    if ((controlData[car].brake[(&Replay_ReplayCounter)[car]] & 0x80) == 0) {
+      (&Cars_gHumanRaceCarList9)[car]->carInfo->RampBrake = 0;
+    }
+    else {
+      (&Cars_gHumanRaceCarList9)[car]->carInfo->RampBrake = 1;
     }
     piVar3 = &Replay_ReplayCounter + car;
-    (&controlData)[car].steering[*piVar3] = (&controlData)[car].steering[*piVar3] & 0x7f;
-    (&controlData)[car].gas[*piVar3] = (&controlData)[car].gas[*piVar3] & 0x7f;
-    (&controlData)[car].brake[*piVar3] = (&controlData)[car].brake[*piVar3] & 0x7f;
-    Input_gSim.steering = (&controlData)[car].steering[*piVar3] * '\x04';
-    Input_gSim.gas = (&controlData)[car].gas[*piVar3] << 3;
-    Input_gSim.brake = (&controlData)[car].brake[*piVar3] << 3;
-    Input_gSim.flags = (&controlData)[car].states[*piVar3];
+    controlData[car].steering[*piVar3] = controlData[car].steering[*piVar3] & 0x7f;
+    controlData[car].gas[*piVar3] = controlData[car].gas[*piVar3] & 0x7f;
+    controlData[car].brake[*piVar3] = controlData[car].brake[*piVar3] & 0x7f;
+    Input_gSim.steering = controlData[car].steering[*piVar3] * '\x04';
+    Input_gSim.gas = controlData[car].gas[*piVar3] << 3;
+    Input_gSim.brake = controlData[car].brake[*piVar3] << 3;
+    Input_gSim.flags = controlData[car].states[*piVar3];
   }
   else {
-    if (DAT_00000ea8 == 3) {
+    if (Replay_ReplayMode == 3) {
       Input_gSim.steering = '\0';
       Input_gSim.gas = '\0';
       Input_gSim.brake = '\0';
       Input_gSim.flags = '\0';
     }
   }
-  bVar1 = DAT_00000ea4 != 0;
+  bVar1 = numValidCams != 0;
   (&Replay_ReplayCounter)[car] = (&Replay_ReplayCounter)[car] + 1;
   if (((bVar1) && ((&Replay_ReplayCamera)[car].cameraMode == 0x13)) && (simGlobal.gameStarted != 0))
   {
-    Replay_ReplayChooseCamera__Fii
-              (car,(int)((&__Cars_gHumanRaceCarList_9__)[car]->N).simRoadInfo.slice);
+    Replay_ReplayChooseCamera__Fii(car,(int)((&Cars_gHumanRaceCarList9)[car]->N).simRoadInfo.slice);
   }
   if ((&Replay_ReplayCounter)[car] == 0x20) {
     (&Replay_ReplayCounter)[car] = 0;
@@ -849,6 +999,31 @@ void Replay_GetInput__Fi(int car)
 	// End offset: 0x800B4FF8
 	// End Line: 452
 
+	/* begin block 2 */
+		// Start line: 984
+	/* end block 2 */
+	// End Line: 985
+
+	/* begin block 3 */
+		// Start line: 990
+	/* end block 3 */
+	// End Line: 991
+
+	/* begin block 4 */
+		// Start line: 990
+	/* end block 4 */
+	// End Line: 991
+
+	/* begin block 5 */
+		// Start line: 991
+	/* end block 5 */
+	// End Line: 992
+
+	/* begin block 6 */
+		// Start line: 991
+	/* end block 6 */
+	// End Line: 992
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Replay_SaveReplay__Fv(void)
@@ -862,8 +1037,8 @@ void Replay_SaveReplay__Fv(void)
   int iVar6;
   int iVar7;
   
-  if (DAT_00000ea8 == 0) {
-    DAT_00000ea0 = simGlobal.gameTicks;
+  if (Replay_ReplayMode == 0) {
+    Replay_Size = simGlobal.gameTicks;
   }
   pGVar1 = &GameSetup_gData;
   ptVar4 = &Replay_ReplayBuffer;
@@ -885,7 +1060,7 @@ void Replay_SaveReplay__Fv(void)
   (ptVar4->gameSetup).raceType = GameSetup_gData.carInfo[8].Camera[2];
   (ptVar3->gameSetup).cops = iVar5;
   Replay_ReplayBuffer.gameSetup.replayMode = 2;
-  Replay_ReplayBuffer.size = DAT_00000ea0;
+  Replay_ReplayBuffer.size = Replay_Size;
   return;
 }
 
@@ -901,6 +1076,26 @@ void Replay_SaveReplay__Fv(void)
 	/* end block 1 */
 	// End offset: 0x800B5024
 	// End Line: 470
+
+	/* begin block 2 */
+		// Start line: 1019
+	/* end block 2 */
+	// End Line: 1020
+
+	/* begin block 3 */
+		// Start line: 1035
+	/* end block 3 */
+	// End Line: 1036
+
+	/* begin block 4 */
+		// Start line: 1035
+	/* end block 4 */
+	// End Line: 1036
+
+	/* begin block 5 */
+		// Start line: 1058
+	/* end block 5 */
+	// End Line: 1059
 
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
@@ -923,10 +1118,30 @@ void Replay_LoadReplay__Fv(void)
 	// End offset: 0x800B5060
 	// End Line: 507
 
+	/* begin block 2 */
+		// Start line: 1087
+	/* end block 2 */
+	// End Line: 1088
+
+	/* begin block 3 */
+		// Start line: 1093
+	/* end block 3 */
+	// End Line: 1094
+
+	/* begin block 4 */
+		// Start line: 1093
+	/* end block 4 */
+	// End Line: 1094
+
+	/* begin block 5 */
+		// Start line: 1098
+	/* end block 5 */
+	// End Line: 1099
+
 void Replay_DoReplay__FP8Car_tObj(Car_tObj *carObj)
 
 {
-  if (DAT_00000ea8 < 2) {
+  if ((uint)Replay_ReplayMode < 2) {
     Replay_SaveInput__Fi(carObj->humanIndex);
   }
   else {
@@ -950,6 +1165,26 @@ void Replay_DoReplay__FP8Car_tObj(Car_tObj *carObj)
 	/* end block 1 */
 	// End offset: 0x800B54D8
 	// End Line: 648
+
+	/* begin block 2 */
+		// Start line: 1124
+	/* end block 2 */
+	// End Line: 1125
+
+	/* begin block 3 */
+		// Start line: 1134
+	/* end block 3 */
+	// End Line: 1135
+
+	/* begin block 4 */
+		// Start line: 1134
+	/* end block 4 */
+	// End Line: 1135
+
+	/* begin block 5 */
+		// Start line: 1139
+	/* end block 5 */
+	// End Line: 1140
 
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
@@ -1022,14 +1257,14 @@ void Replay_GetInterfaceKey__Fv(void)
             case 4:
               Replay_ReplayInterface.changeCamera = 1;
               Replay_ReplayInterface.camera = (Replay_ReplayInterface.camera + 1) % 9;
-              if ((&ReplayCameraList)[Replay_ReplayInterface.camera] == 0x13) {
+              if (ReplayCameraList[Replay_ReplayInterface.camera] == 0x13) {
                 cviewP = 0;
                 if (iVar6 != 0) {
                   ptVar5 = &Replay_ReplayCamera;
-                  ppCVar3 = &__Cars_gHumanRaceCarList_9__;
+                  ppCVar3 = &Cars_gHumanRaceCarList9;
                   pcVar4 = &Camera_gInfo;
                   do {
-                    if (DAT_00000ea4 == 0) {
+                    if (numValidCams == 0) {
                       Camera_SetMode__Fii(cviewP,10);
                     }
                     else {
@@ -1042,13 +1277,13 @@ void Replay_GetInterfaceKey__Fv(void)
                     ptVar5 = ptVar5 + 1;
                     ppCVar3 = ppCVar3 + 1;
                     cviewP = cviewP + 1;
-                    pcVar4 = pcVar4 + 1;
+                    pcVar4 = (camera_info *)&(pcVar4->slicePos).simQuad;
                   } while (cviewP < iVar6);
                 }
               }
               else {
                 if (iVar6 != 0) {
-                  ppCVar3 = &__Cars_gHumanRaceCarList_9__;
+                  ppCVar3 = &Cars_gHumanRaceCarList9;
                   pcVar4 = &Camera_gInfo;
                   ptVar5 = &Replay_ReplayCamera;
                   cviewP = 0;
@@ -1058,10 +1293,10 @@ void Replay_GetInterfaceKey__Fv(void)
                     *(Car_tObj **)&pcVar4->anchor = *ppCVar3;
                     *(Car_tObj **)&pcVar4->target = *ppCVar3;
                     iVar2 = cviewP + 1;
-                    Camera_SetMode__Fii(cviewP,(&ReplayCameraList)[Replay_ReplayInterface.camera]);
+                    Camera_SetMode__Fii(cviewP,ReplayCameraList[Replay_ReplayInterface.camera]);
                     ppCVar3 = ppCVar3 + 1;
-                    pcVar4 = pcVar4 + 1;
-                    ptVar5->cameraMode = (&ReplayCameraList)[Replay_ReplayInterface.camera];
+                    pcVar4 = (camera_info *)&(pcVar4->slicePos).simQuad;
+                    ptVar5->cameraMode = ReplayCameraList[Replay_ReplayInterface.camera];
                     ptVar5 = ptVar5 + 1;
                     cviewP = iVar2;
                   } while (iVar2 < iVar6);
@@ -1229,6 +1464,26 @@ void Replay_GetInterfaceKey__Fv(void)
 	// End offset: 0x800B585C
 	// End Line: 786
 
+	/* begin block 2 */
+		// Start line: 1321
+	/* end block 2 */
+	// End Line: 1322
+
+	/* begin block 3 */
+		// Start line: 1442
+	/* end block 3 */
+	// End Line: 1443
+
+	/* begin block 4 */
+		// Start line: 1442
+	/* end block 4 */
+	// End Line: 1443
+
+	/* begin block 5 */
+		// Start line: 1445
+	/* end block 5 */
+	// End Line: 1446
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Replay_LoadCameraFile__Fv(void)
@@ -1237,31 +1492,30 @@ void Replay_LoadCameraFile__Fv(void)
   short sVar1;
   short sVar2;
   undefined4 *puVar3;
-  Camera_tCamSlot *pCVar4;
-  undefined4 *puVar5;
-  int iVar6;
+  uint uVar4;
+  Camera_tCamSlot *pCVar5;
+  undefined4 *puVar6;
   char *__format;
-  undefined4 uVar7;
+  int iVar7;
   int iVar8;
   int iVar9;
-  int iVar10;
-  int iVar11;
+  undefined4 uVar10;
+  undefined4 uVar11;
   int iVar12;
-  int iVar13;
-  undefined4 uVar14;
+  undefined4 uVar13;
+  int iVar14;
   int iVar15;
-  undefined4 uVar16;
+  int iVar16;
   int iVar17;
   int iVar18;
   undefined4 uVar19;
   int iVar20;
-  undefined4 uVar21;
   char acStack128 [112];
   uint local_10 [2];
   
-  if (DAT_00000ea4 == 0) {
+  if (numValidCams == 0) {
     local_10[0] = 0;
-    sprintf(acStack128,s__scamera_viv_8005654c,PTR_80116488);
+    sprintf(acStack128,s__scamera_viv_8005654c,PTR_ARRAY_80116488[0]);
     FILE_addbigsync(acStack128,0x10,100,local_10);
     if (GameSetup_gData.reverseTrack == 0) {
       __format = s_tr_02d_rho_80056568;
@@ -1271,116 +1525,118 @@ void Replay_LoadCameraFile__Fv(void)
     }
     sprintf(acStack128,__format,GameSetup_gData.track);
     puVar3 = (undefined4 *)loadfileadrz(acStack128,0);
-    DAT_00000ea4 = 0;
+    numValidCams = 0;
     FILE_delbigsync(local_10[0],100);
-    iVar6 = 0;
-    pCVar4 = &gReplayCameraSlots;
+    iVar7 = 0;
+    pCVar5 = &gReplayCameraSlots;
     do {
-      pCVar4->mode = '\x02';
-      iVar6 = iVar6 + 1;
-      pCVar4->slice = -1;
-      *(uint *)pCVar4 = *(uint *)pCVar4 & 0xfffff9ff;
-      pCVar4 = pCVar4 + 1;
-    } while (iVar6 < 0x20);
+      pCVar5->mode = '\x02';
+      uVar4 = *(uint *)pCVar5;
+      iVar7 = iVar7 + 1;
+      (pCVar5->euler).y = -1;
+      *(uint *)pCVar5 = uVar4 & 0xfffff9ff;
+      pCVar5 = (Camera_tCamSlot *)&(pCVar5->euler).z;
+    } while (iVar7 < 0x20);
     if (puVar3 != (undefined4 *)0x0) {
-      pCVar4 = &gReplayCameraSlots;
-      puVar5 = puVar3;
+      pCVar5 = &gReplayCameraSlots;
+      puVar6 = puVar3;
       do {
-        iVar6 = puVar5[1];
-        iVar12 = puVar5[2];
-        iVar17 = puVar5[3];
-        *(undefined4 *)pCVar4 = *puVar5;
-        (pCVar4->pos).x = iVar6;
-        (pCVar4->pos).y = iVar12;
-        (pCVar4->pos).z = iVar17;
-        puVar5 = puVar5 + 4;
-        pCVar4 = (Camera_tCamSlot *)&pCVar4->height;
-      } while (puVar5 != puVar3 + 0x100);
-      iVar6 = 0;
-      pCVar4 = &gReplayCameraSlots;
+        uVar10 = puVar6[1];
+        iVar7 = puVar6[2];
+        iVar17 = puVar6[3];
+        *(undefined4 *)pCVar5 = *puVar6;
+        *(undefined4 *)&pCVar5->fov = uVar10;
+        (pCVar5->pos).x = iVar7;
+        (pCVar5->pos).y = iVar17;
+        puVar6 = puVar6 + 4;
+        pCVar5 = (Camera_tCamSlot *)&(pCVar5->pos).z;
+      } while (puVar6 != puVar3 + 0x100);
+      iVar7 = 0;
+      pCVar5 = &gReplayCameraSlots;
       do {
-        if (pCVar4->fov == 0) {
-          pCVar4->slice = -1;
+        if (*(short *)&pCVar5->zoom == 0) {
+          (pCVar5->euler).y = -1;
         }
         else {
-          DAT_00000ea4 = DAT_00000ea4 + 1;
+          numValidCams = numValidCams + 1;
         }
-        pCVar4 = pCVar4 + 1;
-        iVar6 = iVar6 + 1;
-      } while (iVar6 < 0x20);
+        pCVar5 = (Camera_tCamSlot *)&(pCVar5->euler).z;
+        iVar7 = iVar7 + 1;
+      } while (iVar7 < 0x20);
       purgememadr((int)puVar3);
-      iVar6 = 0;
-      while (iVar12 = 0, iVar6 < 0x1f) {
-        iVar17 = 0x20;
-        pCVar4 = &gReplayCameraSlots;
-        while (iVar12 < 0x1f) {
-          sVar1 = *(short *)((int)&gReplayCameraSlots.slice + iVar17);
-          if (((sVar1 < pCVar4->slice) || (pCVar4->slice < 0)) && (-1 < sVar1)) {
-            uVar7 = *(undefined4 *)pCVar4;
-            iVar9 = (pCVar4->pos).x;
-            iVar13 = (pCVar4->pos).y;
-            iVar18 = (pCVar4->pos).z;
-            iVar8 = pCVar4->height;
-            iVar10 = pCVar4->splineOffset;
-            uVar14 = *(undefined4 *)&(pCVar4->euler).x;
-            uVar19 = *(undefined4 *)&(pCVar4->euler).z;
-            iVar11 = *(int *)((int)&gReplayCameraSlots.pos.x + iVar17);
-            iVar15 = *(int *)((int)&gReplayCameraSlots.pos.y + iVar17);
-            iVar20 = *(int *)((int)&gReplayCameraSlots.pos.z + iVar17);
-            *(undefined4 *)pCVar4 = *(undefined4 *)(&gReplayCameraSlots.mode + iVar17);
-            (pCVar4->pos).x = iVar11;
-            (pCVar4->pos).y = iVar15;
-            (pCVar4->pos).z = iVar20;
-            iVar11 = *(int *)((int)&gReplayCameraSlots.splineOffset + iVar17);
-            uVar16 = *(undefined4 *)((int)&gReplayCameraSlots.euler.x + iVar17);
-            uVar21 = *(undefined4 *)((int)&gReplayCameraSlots.euler.z + iVar17);
-            pCVar4->height = *(int *)((int)&gReplayCameraSlots.height + iVar17);
-            pCVar4->splineOffset = iVar11;
-            *(undefined4 *)&(pCVar4->euler).x = uVar16;
-            *(undefined4 *)&(pCVar4->euler).z = uVar21;
-            *(undefined4 *)(&gReplayCameraSlots.mode + iVar17) = uVar7;
-            *(int *)((int)&gReplayCameraSlots.pos.x + iVar17) = iVar9;
-            *(int *)((int)&gReplayCameraSlots.pos.y + iVar17) = iVar13;
-            *(int *)((int)&gReplayCameraSlots.pos.z + iVar17) = iVar18;
-            *(int *)((int)&gReplayCameraSlots.height + iVar17) = iVar8;
-            *(int *)((int)&gReplayCameraSlots.splineOffset + iVar17) = iVar10;
-            *(undefined4 *)((int)&gReplayCameraSlots.euler.x + iVar17) = uVar14;
-            *(undefined4 *)((int)&gReplayCameraSlots.euler.z + iVar17) = uVar19;
+      iVar7 = 0;
+      while (iVar17 = 0, iVar7 < 0x1f) {
+        iVar8 = 0x20;
+        pCVar5 = &gReplayCameraSlots;
+        while (iVar17 < 0x1f) {
+          sVar1 = (pCVar5->euler).y;
+          sVar2 = *(short *)((int)&gReplayCameraSlots.euler.y + iVar8);
+          if (((sVar2 < sVar1) || (sVar1 < 0)) && (-1 < sVar2)) {
+            uVar10 = *(undefined4 *)pCVar5;
+            uVar11 = *(undefined4 *)&pCVar5->fov;
+            iVar14 = (pCVar5->pos).x;
+            iVar18 = (pCVar5->pos).y;
+            iVar9 = (pCVar5->pos).z;
+            iVar12 = pCVar5->height;
+            iVar15 = pCVar5->splineOffset;
+            uVar19 = *(undefined4 *)&pCVar5->euler;
+            uVar13 = *(undefined4 *)((int)&gReplayCameraSlots.fov + iVar8);
+            iVar16 = *(int *)((int)&gReplayCameraSlots.pos.x + iVar8);
+            iVar20 = *(int *)((int)&gReplayCameraSlots.pos.y + iVar8);
+            *(undefined4 *)pCVar5 = *(undefined4 *)(&gReplayCameraSlots.mode + iVar8);
+            *(undefined4 *)&pCVar5->fov = uVar13;
+            (pCVar5->pos).x = iVar16;
+            (pCVar5->pos).y = iVar20;
+            iVar16 = *(int *)((int)&gReplayCameraSlots.height + iVar8);
+            iVar20 = *(int *)((int)&gReplayCameraSlots.splineOffset + iVar8);
+            uVar13 = *(undefined4 *)((int)&gReplayCameraSlots.euler.x + iVar8);
+            (pCVar5->pos).z = *(int *)((int)&gReplayCameraSlots.pos.z + iVar8);
+            pCVar5->height = iVar16;
+            pCVar5->splineOffset = iVar20;
+            *(undefined4 *)&pCVar5->euler = uVar13;
+            *(undefined4 *)(&gReplayCameraSlots.mode + iVar8) = uVar10;
+            *(undefined4 *)((int)&gReplayCameraSlots.fov + iVar8) = uVar11;
+            *(int *)((int)&gReplayCameraSlots.pos.x + iVar8) = iVar14;
+            *(int *)((int)&gReplayCameraSlots.pos.y + iVar8) = iVar18;
+            *(int *)((int)&gReplayCameraSlots.pos.z + iVar8) = iVar9;
+            *(int *)((int)&gReplayCameraSlots.height + iVar8) = iVar12;
+            *(int *)((int)&gReplayCameraSlots.splineOffset + iVar8) = iVar15;
+            *(undefined4 *)((int)&gReplayCameraSlots.euler.x + iVar8) = uVar19;
           }
-          pCVar4 = pCVar4 + 1;
-          iVar17 = iVar17 + 0x20;
-          iVar12 = iVar12 + 1;
+          pCVar5 = (Camera_tCamSlot *)&(pCVar5->euler).z;
+          iVar8 = iVar8 + 0x20;
+          iVar17 = iVar17 + 1;
         }
-        iVar6 = iVar6 + 1;
+        iVar7 = iVar7 + 1;
       }
       if (GameSetup_gData.reverseTrack != 0) {
-        iVar6 = DAT_00000ea4 + -1;
-        pCVar4 = &gReplayCameraSlots + iVar6;
-        sVar1 = (&gReplayCameraSlots)[iVar6].slice;
-        iVar12 = iVar6 * 0x20;
-        while (-1 < iVar6) {
+        iVar7 = numValidCams + -1;
+        iVar17 = iVar7 * 0x20;
+        __format = &gReplayCameraSlots.mode + iVar17;
+        sVar1 = *(short *)((int)&gReplayCameraSlots.euler + iVar17 + 2);
+        while (-1 < iVar7) {
           sVar2 = sVar1;
-          if (iVar6 != 0) {
-            pCVar4->slice = *(short *)(&CHAR_00h_8011dbda + iVar12);
-            sVar2 = gReplayCameraSlots.slice;
+          if (iVar7 != 0) {
+            *(undefined2 *)(__format + 0x1e) = *(undefined2 *)(s__8011dbda + iVar17);
+            sVar2 = gReplayCameraSlots.euler.y;
           }
-          gReplayCameraSlots.slice = sVar2;
-          iVar6 = iVar6 + -1;
-          pCVar4 = pCVar4 + -1;
-          iVar12 = iVar12 + -0x20;
+          gReplayCameraSlots.euler.y = sVar2;
+          iVar7 = iVar7 + -1;
+          __format = __format + -0x20;
+          iVar17 = iVar17 + -0x20;
         }
       }
-      iVar6 = DAT_00000ea4;
-      iVar12 = 0;
-      if (0 < DAT_00000ea4) {
-        pCVar4 = &gReplayCameraSlots;
+      iVar7 = numValidCams;
+      iVar17 = 0;
+      if (0 < numValidCams) {
+        pCVar5 = &gReplayCameraSlots;
         do {
-          iVar12 = iVar12 + 1;
-          (pCVar4->pos).x = (pCVar4->pos).x << 6;
-          (pCVar4->pos).z = (pCVar4->pos).z << 6;
-          (pCVar4->pos).y = (pCVar4->pos).y << 6;
-          pCVar4 = pCVar4 + 1;
-        } while (iVar12 < iVar6);
+          iVar17 = iVar17 + 1;
+          *(int *)&pCVar5->fov = *(int *)&pCVar5->fov << 6;
+          (pCVar5->pos).y = (pCVar5->pos).y << 6;
+          (pCVar5->pos).x = (pCVar5->pos).x << 6;
+          pCVar5 = (Camera_tCamSlot *)&(pCVar5->euler).z;
+        } while (iVar17 < iVar7);
       }
     }
   }
@@ -1406,6 +1662,21 @@ void Replay_LoadCameraFile__Fv(void)
 	// End offset: 0x800B5B04
 	// End Line: 834
 
+	/* begin block 2 */
+		// Start line: 1708
+	/* end block 2 */
+	// End Line: 1709
+
+	/* begin block 3 */
+		// Start line: 1720
+	/* end block 3 */
+	// End Line: 1721
+
+	/* begin block 4 */
+		// Start line: 1720
+	/* end block 4 */
+	// End Line: 1721
+
 void Replay_ReplayChooseCamera__Fii(int player,int slice)
 
 {
@@ -1419,14 +1690,14 @@ void Replay_ReplayChooseCamera__Fii(int player,int slice)
   iVar6 = (&Replay_ReplayCamera)[player].cutToNextCamera;
   iVar4 = iVar6 + -1;
   if (iVar4 < 0) {
-    iVar4 = DAT_00000ea4 + -1;
+    iVar4 = numValidCams + -1;
   }
   iVar5 = 0;
-  if (iVar6 + 1 < DAT_00000ea4) {
+  if (iVar6 + 1 < numValidCams) {
     iVar5 = iVar6 + 1;
   }
-  iVar3 = (int)(&gReplayCameraSlots)[iVar6].slice;
-  iVar2 = (int)(&gReplayCameraSlots)[iVar5].slice;
+  iVar3 = (int)*(short *)((int)&gReplayCameraSlots.euler + iVar6 * 0x20 + 2);
+  iVar2 = (int)*(short *)((int)&gReplayCameraSlots.euler + iVar5 * 0x20 + 2);
   iVar1 = slice - iVar3;
   if (slice < iVar3) {
     if (iVar1 < 1) {
@@ -1449,24 +1720,27 @@ void Replay_ReplayChooseCamera__Fii(int player,int slice)
 LAB_800b5978:
   if ((&Replay_ReplayCamera)[player].cutToNextCamera != iVar6) {
     if (((((GameSetup_gData.raceType == 1) || (GameSetup_gData.raceType == 5)) &&
-         (((__Cars_gHumanRaceCarList_9__->carFlags & 0x200U) != 0 ||
-          ((Cars_gNumHumanRaceCars == 2 && ((PTR_8010fa4c->carFlags & 0x200U) != 0)))))) ||
-        ((&__Cars_gHumanRaceCarList_9__)[player]->wrongway != 0)) &&
-       ((&gReplayCameraSlots)[(&Replay_ReplayCamera)[player].cutToNextCamera].mode == '\v')) {
-      iVar4 = (&Replay_ReplayCamera)[player].cutToNextCamera;
+         (((Cars_gHumanRaceCarList9->carFlags & 0x200U) != 0 ||
+          ((Cars_gNumHumanRaceCars == 2 && ((PTR_ARRAY_8010fa4c[0]->carFlags & 0x200U) != 0)))))) ||
+        ((&Cars_gHumanRaceCarList9)[player]->wrongway != 0)) &&
+       ((&gReplayCameraSlots.mode)[(&Replay_ReplayCamera)[player].cutToNextCamera * 0x20] == '\v'))
+    {
+      iVar4 = player * 0x110;
+      iVar6 = (&Replay_ReplayCamera)[player].cutToNextCamera;
       (&Replay_ReplayCamera)[player].defaultCamera = 0;
-      *(uint *)&(&Camera_gInfo)[player].field_0x74 =
-           *(uint *)&(&Camera_gInfo)[player].field_0x74 & 0xf9ffffff |
-           (*(uint *)(&gReplayCameraSlots + iVar4) >> 9 & 3) << 0x19;
-      (&Camera_gInfo)[player].splineMode =
-           (byte)(*(uint *)(&gReplayCameraSlots + (&Replay_ReplayCamera)[player].cutToNextCamera) >>
-                 0xb) & 7;
+      *(uint *)(&Camera_gInfo.modechange + iVar4) =
+           *(uint *)(&Camera_gInfo.modechange + iVar4) & 0xf9ffffff |
+           (*(uint *)(&gReplayCameraSlots.mode + iVar6 * 0x20) >> 9 & 3) << 0x19;
+      (&Camera_gInfo.direction)[iVar4] =
+           (byte)(*(uint *)(&gReplayCameraSlots.mode +
+                           (&Replay_ReplayCamera)[player].cutToNextCamera * 0x20) >> 0xb) & 7;
       Camera_SetMode__Fii(player,0xb);
     }
     else {
       iVar4 = (&Replay_ReplayCamera)[player].cutToNextCamera;
       (&Replay_ReplayCamera)[player].defaultCamera = 1;
-      Camera_ReplayUpdate__FiP15Camera_tCamSlot(player,&gReplayCameraSlots + iVar4);
+      Camera_ReplayUpdate__FiP15Camera_tCamSlot
+                (player,(Camera_tCamSlot *)(&gReplayCameraSlots.mode + iVar4 * 0x20));
     }
   }
   return;
@@ -1507,6 +1781,21 @@ LAB_800b5978:
 	// End offset: 0x800B5F6C
 	// End Line: 872
 
+	/* begin block 2 */
+		// Start line: 1806
+	/* end block 2 */
+	// End Line: 1807
+
+	/* begin block 3 */
+		// Start line: 1814
+	/* end block 3 */
+	// End Line: 1815
+
+	/* begin block 4 */
+		// Start line: 1814
+	/* end block 4 */
+	// End Line: 1815
+
 void Replay_ReplayFindClosestCamera__Fii(int player,int slice)
 
 {
@@ -1525,56 +1814,57 @@ void Replay_ReplayFindClosestCamera__Fii(int player,int slice)
   pCVar8 = &gReplayCameraSlots;
   iVar6 = 1;
   iVar7 = (int)(gNumSlices + ((uint)gNumSlices >> 0x1f)) >> 1;
-  while (iVar4 = 0, iVar10 < DAT_00000ea4) {
-    iVar4 = slice - (int)pCVar8->slice;
+  while (iVar4 = 0, iVar10 < numValidCams) {
+    iVar4 = slice - (int)(pCVar8->euler).y;
     if (iVar7 < iVar4) {
       if (0 < gNumSlices - iVar4) goto LAB_800b5b8c;
 LAB_800b5bb0:
-      iVar4 = slice - (int)pCVar8->slice;
+      iVar9 = (int)(pCVar8->euler).y;
+      iVar4 = slice - iVar9;
       iVar2 = iVar4 - gNumSlices;
       if (iVar4 <= iVar7) {
-        iVar2 = (int)pCVar8->slice - slice;
+        iVar2 = iVar9 - slice;
       }
     }
     else {
       if (iVar4 < 1) goto LAB_800b5bb0;
 LAB_800b5b8c:
-      iVar2 = slice - (int)pCVar8->slice;
+      iVar2 = slice - (int)(pCVar8->euler).y;
       if (iVar7 < iVar2) {
         iVar2 = gNumSlices - iVar2;
       }
     }
-    bVar1 = iVar6 < DAT_00000ea4;
+    bVar1 = iVar6 < numValidCams;
     iVar4 = 0;
     if (bVar1) {
       iVar4 = iVar6 << 5;
     }
-    if (iVar7 < slice - (int)*(short *)((int)&gReplayCameraSlots.slice + iVar4)) {
+    if (iVar7 < slice - (int)*(short *)((int)&gReplayCameraSlots.euler.y + iVar4)) {
       iVar4 = 0;
       if (bVar1) {
         iVar4 = iVar6 << 5;
       }
-      if (0 < gNumSlices - (slice - (int)*(short *)((int)&gReplayCameraSlots.slice + iVar4)))
+      if (0 < gNumSlices - (slice - (int)*(short *)((int)&gReplayCameraSlots.euler.y + iVar4)))
       goto LAB_800b5c4c;
 LAB_800b5cb8:
-      bVar1 = iVar6 < DAT_00000ea4;
+      bVar1 = iVar6 < numValidCams;
       iVar4 = 0;
       if (bVar1) {
         iVar4 = iVar6 * 0x20;
       }
-      if (iVar7 < slice - (int)*(short *)((int)&gReplayCameraSlots.slice + iVar4)) {
+      if (iVar7 < slice - (int)*(short *)((int)&gReplayCameraSlots.euler.y + iVar4)) {
         iVar4 = 0;
         if (bVar1) {
           iVar4 = iVar6 << 5;
         }
-        iVar9 = (slice - (int)*(short *)((int)&gReplayCameraSlots.slice + iVar4)) - gNumSlices;
+        iVar9 = (slice - (int)*(short *)((int)&gReplayCameraSlots.euler.y + iVar4)) - gNumSlices;
       }
       else {
         iVar4 = 0;
         if (bVar1) {
           iVar4 = iVar6 << 5;
         }
-        iVar9 = (int)*(short *)((int)&gReplayCameraSlots.slice + iVar4) - slice;
+        iVar9 = (int)*(short *)((int)&gReplayCameraSlots.euler.y + iVar4) - slice;
       }
     }
     else {
@@ -1582,61 +1872,61 @@ LAB_800b5cb8:
       if (bVar1) {
         iVar4 = iVar6 << 5;
       }
-      if (slice - (int)*(short *)((int)&gReplayCameraSlots.slice + iVar4) < 1) goto LAB_800b5cb8;
+      if (slice - (int)*(short *)((int)&gReplayCameraSlots.euler.y + iVar4) < 1) goto LAB_800b5cb8;
 LAB_800b5c4c:
-      bVar1 = iVar6 < DAT_00000ea4;
+      bVar1 = iVar6 < numValidCams;
       iVar4 = 0;
       if (bVar1) {
         iVar4 = iVar6 << 5;
       }
-      if (iVar7 < slice - (int)*(short *)((int)&gReplayCameraSlots.slice + iVar4)) {
+      if (iVar7 < slice - (int)*(short *)((int)&gReplayCameraSlots.euler.y + iVar4)) {
         iVar4 = 0;
         if (bVar1) {
           iVar4 = iVar6 << 5;
         }
-        iVar9 = gNumSlices - (slice - (int)*(short *)((int)&gReplayCameraSlots.slice + iVar4));
+        iVar9 = gNumSlices - (slice - (int)*(short *)((int)&gReplayCameraSlots.euler.y + iVar4));
       }
       else {
         iVar4 = 0;
         if (bVar1) {
           iVar4 = iVar6 << 5;
         }
-        iVar9 = slice - (int)*(short *)((int)&gReplayCameraSlots.slice + iVar4);
+        iVar9 = slice - (int)*(short *)((int)&gReplayCameraSlots.euler.y + iVar4);
       }
     }
-    iVar5 = (int)pCVar8->slice;
-    bVar1 = iVar6 < DAT_00000ea4;
+    iVar5 = (int)(pCVar8->euler).y;
+    bVar1 = iVar6 < numValidCams;
     iVar4 = 0;
     if (bVar1) {
       iVar4 = iVar6 << 5;
     }
-    if (iVar7 < iVar5 - (int)*(short *)((int)&gReplayCameraSlots.slice + iVar4)) {
+    if (iVar7 < iVar5 - (int)*(short *)((int)&gReplayCameraSlots.euler.y + iVar4)) {
       iVar4 = 0;
       if (bVar1) {
         iVar4 = iVar6 << 5;
       }
-      if (0 < gNumSlices - (iVar5 - (int)*(short *)((int)&gReplayCameraSlots.slice + iVar4)))
+      if (0 < gNumSlices - (iVar5 - (int)*(short *)((int)&gReplayCameraSlots.euler.y + iVar4)))
       goto LAB_800b5da4;
 LAB_800b5e14:
-      iVar5 = (int)pCVar8->slice;
-      bVar1 = iVar6 < DAT_00000ea4;
+      iVar5 = (int)(pCVar8->euler).y;
+      bVar1 = iVar6 < numValidCams;
       pCVar3 = &gReplayCameraSlots;
       if (bVar1) {
-        pCVar3 = &gReplayCameraSlots + iVar6;
+        pCVar3 = (Camera_tCamSlot *)(&gReplayCameraSlots.mode + iVar6 * 0x20);
       }
-      if (iVar7 < iVar5 - (int)pCVar3->slice) {
+      if (iVar7 < iVar5 - (int)(pCVar3->euler).y) {
         iVar4 = 0;
         if (bVar1) {
           iVar4 = iVar6 << 5;
         }
-        iVar5 = (iVar5 - (int)*(short *)((int)&gReplayCameraSlots.slice + iVar4)) - gNumSlices;
+        iVar5 = (iVar5 - (int)*(short *)((int)&gReplayCameraSlots.euler.y + iVar4)) - gNumSlices;
       }
       else {
         iVar4 = 0;
         if (bVar1) {
           iVar4 = iVar6 << 5;
         }
-        iVar5 = (int)*(short *)((int)&gReplayCameraSlots.slice + iVar4) - iVar5;
+        iVar5 = (int)*(short *)((int)&gReplayCameraSlots.euler.y + iVar4) - iVar5;
       }
     }
     else {
@@ -1644,53 +1934,56 @@ LAB_800b5e14:
       if (bVar1) {
         iVar4 = iVar6 << 5;
       }
-      if (iVar5 - (int)*(short *)((int)&gReplayCameraSlots.slice + iVar4) < 1) goto LAB_800b5e14;
+      if (iVar5 - (int)*(short *)((int)&gReplayCameraSlots.euler.y + iVar4) < 1) goto LAB_800b5e14;
 LAB_800b5da4:
-      iVar5 = (int)pCVar8->slice;
-      bVar1 = iVar6 < DAT_00000ea4;
+      iVar5 = (int)(pCVar8->euler).y;
+      bVar1 = iVar6 < numValidCams;
       iVar4 = 0;
       if (bVar1) {
         iVar4 = iVar6 << 5;
       }
-      if (iVar7 < iVar5 - (int)*(short *)((int)&gReplayCameraSlots.slice + iVar4)) {
+      if (iVar7 < iVar5 - (int)*(short *)((int)&gReplayCameraSlots.euler.y + iVar4)) {
         iVar4 = 0;
         if (bVar1) {
           iVar4 = iVar6 << 5;
         }
-        iVar5 = gNumSlices - (iVar5 - (int)*(short *)((int)&gReplayCameraSlots.slice + iVar4));
+        iVar5 = gNumSlices - (iVar5 - (int)*(short *)((int)&gReplayCameraSlots.euler.y + iVar4));
       }
       else {
         iVar4 = 0;
         if (bVar1) {
           iVar4 = iVar6 << 5;
         }
-        iVar5 = iVar5 - (int)*(short *)((int)&gReplayCameraSlots.slice + iVar4);
+        iVar5 = iVar5 - (int)*(short *)((int)&gReplayCameraSlots.euler.y + iVar4);
       }
     }
-    pCVar8 = pCVar8 + 1;
+    pCVar8 = (Camera_tCamSlot *)&(pCVar8->euler).z;
     iVar4 = iVar10;
     if (iVar2 + iVar9 <= iVar5) break;
     iVar6 = iVar6 + 1;
     iVar10 = iVar10 + 1;
   }
   (&Replay_ReplayCamera)[player].cutToNextCamera = iVar4;
-  if ((&gReplayCameraSlots)[iVar4].mode == '\v') {
+  if ((&gReplayCameraSlots.mode)[iVar4 * 0x20] == '\v') {
+    iVar6 = player * 0x110;
     (&Replay_ReplayCamera)[player].defaultCamera = 0;
-    *(uint *)&(&Camera_gInfo)[player].field_0x74 =
-         *(uint *)&(&Camera_gInfo)[player].field_0x74 & 0xf9ffffff |
-         (*(uint *)(&gReplayCameraSlots + iVar4) >> 9 & 3) << 0x19;
-    (&Camera_gInfo)[player].splineMode =
-         (byte)(*(uint *)(&gReplayCameraSlots + (&Replay_ReplayCamera)[player].cutToNextCamera) >>
-               0xb) & 7;
+    *(uint *)(&Camera_gInfo.modechange + iVar6) =
+         *(uint *)(&Camera_gInfo.modechange + iVar6) & 0xf9ffffff |
+         (*(uint *)(&gReplayCameraSlots.mode + iVar4 * 0x20) >> 9 & 3) << 0x19;
+    (&Camera_gInfo.direction)[iVar6] =
+         (byte)(*(uint *)(&gReplayCameraSlots.mode +
+                         (&Replay_ReplayCamera)[player].cutToNextCamera * 0x20) >> 0xb) & 7;
     Camera_SetMode__Fii(player,0xb);
   }
   else {
     iVar6 = (&Replay_ReplayCamera)[player].cutToNextCamera;
     (&Replay_ReplayCamera)[player].defaultCamera = 1;
-    Camera_ReplayUpdate__FiP15Camera_tCamSlot(player,&gReplayCameraSlots + iVar6);
+    Camera_ReplayUpdate__FiP15Camera_tCamSlot
+              (player,(Camera_tCamSlot *)(&gReplayCameraSlots.mode + iVar6 * 0x20));
   }
   return;
 }
+
 
 
 

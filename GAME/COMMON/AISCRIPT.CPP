@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "AISCRIPT.H"
+
 
 // decompiled code
 // original method signature: 
@@ -11,6 +12,26 @@
 	/* end block 1 */
 	// End offset: 0x8006F6F8
 	// End Line: 8
+
+	/* begin block 2 */
+		// Start line: 12
+	/* end block 2 */
+	// End Line: 13
+
+	/* begin block 3 */
+		// Start line: 12
+	/* end block 3 */
+	// End Line: 13
+
+	/* begin block 4 */
+		// Start line: 13
+	/* end block 4 */
+	// End Line: 14
+
+	/* begin block 5 */
+		// Start line: 13
+	/* end block 5 */
+	// End Line: 14
 
 void AIScript_Assign__FP10AIScript_tPA7_25AIScript_tReactionDetails
                (AIScript_t *script,AIScript_tReactionDetails (*data) [7])
@@ -42,6 +63,31 @@ void AIScript_Assign__FP10AIScript_tPA7_25AIScript_tReactionDetails
 	// End offset: 0x8006F71C
 	// End Line: 16
 
+	/* begin block 2 */
+		// Start line: 18
+	/* end block 2 */
+	// End Line: 19
+
+	/* begin block 3 */
+		// Start line: 22
+	/* end block 3 */
+	// End Line: 23
+
+	/* begin block 4 */
+		// Start line: 22
+	/* end block 4 */
+	// End Line: 23
+
+	/* begin block 5 */
+		// Start line: 23
+	/* end block 5 */
+	// End Line: 24
+
+	/* begin block 6 */
+		// Start line: 23
+	/* end block 6 */
+	// End Line: 24
+
 void AIScript_ClearLastReactionIndex__FP10AIScript_t(AIScript_t *script)
 
 {
@@ -71,6 +117,21 @@ void AIScript_ClearLastReactionIndex__FP10AIScript_t(AIScript_t *script)
 	// End offset: 0x8006F724
 	// End Line: 19
 
+	/* begin block 2 */
+		// Start line: 33
+	/* end block 2 */
+	// End Line: 34
+
+	/* begin block 3 */
+		// Start line: 36
+	/* end block 3 */
+	// End Line: 37
+
+	/* begin block 4 */
+		// Start line: 36
+	/* end block 4 */
+	// End Line: 37
+
 void AIScript_Startup__FP10AIScript_t(AIScript_t *script)
 
 {
@@ -95,6 +156,31 @@ void AIScript_Startup__FP10AIScript_t(AIScript_t *script)
 	// End offset: 0x8006F760
 	// End Line: 28
 
+	/* begin block 2 */
+		// Start line: 51
+	/* end block 2 */
+	// End Line: 52
+
+	/* begin block 3 */
+		// Start line: 55
+	/* end block 3 */
+	// End Line: 56
+
+	/* begin block 4 */
+		// Start line: 55
+	/* end block 4 */
+	// End Line: 56
+
+	/* begin block 5 */
+		// Start line: 56
+	/* end block 5 */
+	// End Line: 57
+
+	/* begin block 6 */
+		// Start line: 56
+	/* end block 6 */
+	// End Line: 57
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void AIScript_Cleanup__Fv(void)
@@ -115,6 +201,21 @@ void AIScript_Cleanup__Fv(void)
 	/* end block 1 */
 	// End offset: 0x8006F7D4
 	// End Line: 51
+
+	/* begin block 2 */
+		// Start line: 60
+	/* end block 2 */
+	// End Line: 61
+
+	/* begin block 3 */
+		// Start line: 63
+	/* end block 3 */
+	// End Line: 64
+
+	/* begin block 4 */
+		// Start line: 63
+	/* end block 4 */
+	// End Line: 64
 
 void AIScript_SubmitPlayerAction__FP10AIScript_ti20AIScript_tPlayActioni
                (AIScript_t *script,int humCarIndex,AIScript_tPlayAction playerAction,
@@ -176,6 +277,31 @@ void AIScript_SubmitPlayerAction__FP10AIScript_ti20AIScript_tPlayActioni
 	/* end block 1 */
 	// End offset: 0x8006F950
 	// End Line: 144
+
+	/* begin block 2 */
+		// Start line: 106
+	/* end block 2 */
+	// End Line: 107
+
+	/* begin block 3 */
+		// Start line: 111
+	/* end block 3 */
+	// End Line: 112
+
+	/* begin block 4 */
+		// Start line: 111
+	/* end block 4 */
+	// End Line: 112
+
+	/* begin block 5 */
+		// Start line: 114
+	/* end block 5 */
+	// End Line: 115
+
+	/* begin block 6 */
+		// Start line: 117
+	/* end block 6 */
+	// End Line: 118
 
 void AIScript_ProcessActionsAndReactions__FP10AIScript_ti(AIScript_t *script,int elapsedTicks)
 
@@ -247,6 +373,26 @@ void AIScript_ProcessActionsAndReactions__FP10AIScript_ti(AIScript_t *script,int
 	// End offset: 0x8006F980
 	// End Line: 154
 
+	/* begin block 2 */
+		// Start line: 333
+	/* end block 2 */
+	// End Line: 334
+
+	/* begin block 3 */
+		// Start line: 339
+	/* end block 3 */
+	// End Line: 340
+
+	/* begin block 4 */
+		// Start line: 339
+	/* end block 4 */
+	// End Line: 340
+
+	/* begin block 5 */
+		// Start line: 341
+	/* end block 5 */
+	// End Line: 342
+
 int AIScript_DoReAction__FP10AIScript_t20AIScript_tAIReaction
               (AIScript_t *script,AIScript_tAIReaction testReaction)
 
@@ -274,6 +420,31 @@ int AIScript_DoReAction__FP10AIScript_t20AIScript_tAIReaction
 	// End offset: 0x8006F99C
 	// End Line: 160
 
+	/* begin block 2 */
+		// Start line: 351
+	/* end block 2 */
+	// End Line: 352
+
+	/* begin block 3 */
+		// Start line: 355
+	/* end block 3 */
+	// End Line: 356
+
+	/* begin block 4 */
+		// Start line: 355
+	/* end block 4 */
+	// End Line: 356
+
+	/* begin block 5 */
+		// Start line: 356
+	/* end block 5 */
+	// End Line: 357
+
+	/* begin block 6 */
+		// Start line: 356
+	/* end block 6 */
+	// End Line: 357
+
 int AIScript_GetReactionTicksLeft__FP10AIScript_t(AIScript_t *script)
 
 {
@@ -285,6 +456,7 @@ int AIScript_GetReactionTicksLeft__FP10AIScript_t(AIScript_t *script)
   }
   return iVar1;
 }
+
 
 
 

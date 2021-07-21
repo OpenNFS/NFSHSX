@@ -1,6 +1,7 @@
 #ifndef FECHEATS_H
 #define FECHEATS_H
 
+
 extern void FECheat_HandleActivation__F10tCheatCode(enum tCheatCode cheat); // 0x80023240
 
 extern void FECheat_EncodeString__FPcT0(char *input, char *output); // 0x80023410
@@ -20,5 +21,6 @@ extern void FECheat_LoadBonus__FRUl(unsigned long *cheat); // 0x80023758
 extern void * FECheat_IsTheUserACryBabyCheater__Fv(); // 0x800237D0
 
 extern void * FECheat_ActivateBonusByCode__FPc(char *code); // 0x800237E0
+
 
 #endif

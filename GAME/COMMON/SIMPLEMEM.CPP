@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "SIMPLEMEM.H"
+
 
 // decompiled code
 // original method signature: 
@@ -13,6 +14,21 @@
 	/* end block 1 */
 	// End offset: 0x800B728C
 	// End Line: 41
+
+	/* begin block 2 */
+		// Start line: 20
+	/* end block 2 */
+	// End Line: 21
+
+	/* begin block 3 */
+		// Start line: 20
+	/* end block 3 */
+	// End Line: 21
+
+	/* begin block 4 */
+		// Start line: 25
+	/* end block 4 */
+	// End Line: 26
 
 void * Alloc__9SimpleMemii(SimpleMem *this,int len,int feign)
 
@@ -45,6 +61,21 @@ void * Alloc__9SimpleMemii(SimpleMem *this,int len,int feign)
 	// End offset: 0x800B729C
 	// End Line: 46
 
+	/* begin block 2 */
+		// Start line: 86
+	/* end block 2 */
+	// End Line: 87
+
+	/* begin block 3 */
+		// Start line: 91
+	/* end block 3 */
+	// End Line: 92
+
+	/* begin block 4 */
+		// Start line: 91
+	/* end block 4 */
+	// End Line: 92
+
 void * FeignAlloc__9SimpleMemi(SimpleMem *this,int len)
 
 {
@@ -69,6 +100,21 @@ void * FeignAlloc__9SimpleMemi(SimpleMem *this,int len)
 	// End offset: 0x800B72BC
 	// End Line: 58
 
+	/* begin block 2 */
+		// Start line: 104
+	/* end block 2 */
+	// End Line: 105
+
+	/* begin block 3 */
+		// Start line: 115
+	/* end block 3 */
+	// End Line: 116
+
+	/* begin block 4 */
+		// Start line: 115
+	/* end block 4 */
+	// End Line: 116
+
 void ResizeToFit__9SimpleMem(SimpleMem *this)
 
 {
@@ -79,6 +125,7 @@ void ResizeToFit__9SimpleMem(SimpleMem *this)
   resizememadr((int)this->heap,(int)((int)pvVar1 - (int)this->heap));
   return;
 }
+
 
 
 

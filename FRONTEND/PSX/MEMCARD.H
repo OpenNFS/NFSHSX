@@ -1,6 +1,7 @@
 #ifndef MEMCARD_H
 #define MEMCARD_H
 
+
 extern void MCRD_init(int fMultitap); // 0x8004F3E0
 
 extern int iMCRD_InitCard(int card); // 0x8004F480
@@ -42,5 +43,6 @@ extern int iMCRD_DefaultCBProc1(); // 0x800506E8
 extern short ascii2sjis(unsigned char ascii_code); // 0x800506F0
 
 extern unsigned char sjis2ascii(short sjis_code); // 0x80050810
+
 
 #endif

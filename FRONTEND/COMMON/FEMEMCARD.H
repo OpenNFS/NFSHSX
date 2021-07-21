@@ -1,6 +1,7 @@
 #ifndef FEMEMCARD_H
 #define FEMEMCARD_H
 
+
 extern void ChecksumData__FP12tMemCardData(struct tMemCardData *memCardData); // 0x800342A0
 
 extern void * VerifySuccessfulRead__FP12tMemCardData(struct tMemCardData *memCardData); // 0x80034318
@@ -36,5 +37,6 @@ extern short LoadGame__FsbT1(short player, void * PinkSlips, void * WithDialogs)
 extern enum PinkSlipsErrorCode SavePinkSlipsCars__Fss(short player, short withoutCarInGarageNumber); // 0x800353F0
 
 extern enum PinkSlipsErrorCode SavePinkSlipsCarsWithErrorDialogs__Fsss(short player, short WillLoseCar, short withoutCarInGarageNumber); // 0x80035778
+
 
 #endif

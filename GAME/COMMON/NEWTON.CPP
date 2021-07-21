@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "NEWTON.H"
+
 
 // decompiled code
 // original method signature: 
@@ -155,6 +156,16 @@
 	/* end block 1 */
 	// End offset: 0x8009F6D8
 	// End Line: 217
+
+	/* begin block 2 */
+		// Start line: 100
+	/* end block 2 */
+	// End Line: 101
+
+	/* begin block 3 */
+		// Start line: 100
+	/* end block 3 */
+	// End Line: 101
 
 void Newton_AddDamageZone__FP13BO_tNewtonObjiii
                (BO_tNewtonObj *newtonObj,int impulse,int zone,int type)
@@ -429,6 +440,21 @@ LAB_8009f22c:
 	// End offset: 0x8009F704
 	// End Line: 222
 
+	/* begin block 2 */
+		// Start line: 465
+	/* end block 2 */
+	// End Line: 466
+
+	/* begin block 3 */
+		// Start line: 470
+	/* end block 3 */
+	// End Line: 471
+
+	/* begin block 4 */
+		// Start line: 470
+	/* end block 4 */
+	// End Line: 471
+
 void Newton_FindClosestQuad__FP13BO_tNewtonObj(BO_tNewtonObj *n)
 
 {
@@ -454,6 +480,21 @@ void Newton_FindClosestQuad__FP13BO_tNewtonObj(BO_tNewtonObj *n)
 	/* end block 1 */
 	// End offset: 0x8009F75C
 	// End Line: 238
+
+	/* begin block 2 */
+		// Start line: 496
+	/* end block 2 */
+	// End Line: 497
+
+	/* begin block 3 */
+		// Start line: 504
+	/* end block 3 */
+	// End Line: 505
+
+	/* begin block 4 */
+		// Start line: 504
+	/* end block 4 */
+	// End Line: 505
 
 int Newton_CalculateSliceYaw__Fi(int slice)
 
@@ -583,6 +624,21 @@ int Newton_CalculateSliceYaw__Fi(int slice)
 	/* end block 1 */
 	// End offset: 0x8009FB00
 	// End Line: 353
+
+	/* begin block 2 */
+		// Start line: 526
+	/* end block 2 */
+	// End Line: 527
+
+	/* begin block 3 */
+		// Start line: 530
+	/* end block 3 */
+	// End Line: 531
+
+	/* begin block 4 */
+		// Start line: 530
+	/* end block 4 */
+	// End Line: 531
 
 void Newton_UpdateRoadGeometry__FP13BO_tNewtonObj(BO_tNewtonObj *n)
 
@@ -757,6 +813,21 @@ void Newton_UpdateRoadGeometry__FP13BO_tNewtonObj(BO_tNewtonObj *n)
 	// End offset: 0x8009FC7C
 	// End Line: 464
 
+	/* begin block 2 */
+		// Start line: 825
+	/* end block 2 */
+	// End Line: 826
+
+	/* begin block 3 */
+		// Start line: 929
+	/* end block 3 */
+	// End Line: 930
+
+	/* begin block 4 */
+		// Start line: 929
+	/* end block 4 */
+	// End Line: 930
+
 int Newton_FindGroundElevationGeneral__FP8coorddefN20
               (coorddef *point,coorddef *normal,coorddef *pointOnQuad)
 
@@ -805,7 +876,7 @@ int Newton_FindGroundElevationGeneral__FP8coorddefN20
       iVar2 = iVar2 + 0xff;
     }
     uVar5 = fixedmult(-((iVar3 >> 8) * (iVar2 >> 8)) - (iVar4 >> 8) * (iVar1 >> 8),
-                      (&divTable)[(int)(0x10000 - uVar5) >> 9]);
+                      divTable[(int)(0x10000 - uVar5) >> 9]);
   }
   return uVar5 + pointOnQuad->y;
 }
@@ -853,6 +924,21 @@ int Newton_FindGroundElevationGeneral__FP8coorddefN20
 	/* end block 1 */
 	// End offset: 0x8009FE4C
 	// End Line: 507
+
+	/* begin block 2 */
+		// Start line: 981
+	/* end block 2 */
+	// End Line: 982
+
+	/* begin block 3 */
+		// Start line: 993
+	/* end block 3 */
+	// End Line: 994
+
+	/* begin block 4 */
+		// Start line: 993
+	/* end block 4 */
+	// End Line: 994
 
 int Newton_FindGroundElevationRough__FP8coorddefN20
               (coorddef *point,coorddef *normal,coorddef *pointOnQuad)
@@ -922,14 +1008,14 @@ LAB_8009fd94:
       iVar4 = iVar1 + 0x1f;
     }
     iVar6 = iVar6 + 1;
-    iVar8 = iVar8 + (int)(&fudgeTable)[iVar1 + (iVar4 >> 5) * -0x20] * 0x80;
+    iVar8 = iVar8 + (int)fudgeTable[iVar1 + (iVar4 >> 5) * -0x20] * 0x80;
     if (1 < iVar6) {
       uVar3 = normal->y;
       if ((int)uVar3 < 0x9eb9) {
         uVar7 = fixeddiv(uVar7,uVar3);
       }
       else {
-        uVar7 = fixedmult(uVar7,(&divTable)[(int)(0x10000 - uVar3) >> 9]);
+        uVar7 = fixedmult(uVar7,divTable[(int)(0x10000 - uVar3) >> 9]);
       }
       return uVar7 + pointOnQuad->y + iVar8;
     }
@@ -988,6 +1074,21 @@ LAB_8009fd94:
 	/* end block 1 */
 	// End offset: 0x8009FF68
 	// End Line: 600
+
+	/* begin block 2 */
+		// Start line: 1070
+	/* end block 2 */
+	// End Line: 1071
+
+	/* begin block 3 */
+		// Start line: 1079
+	/* end block 3 */
+	// End Line: 1080
+
+	/* begin block 4 */
+		// Start line: 1079
+	/* end block 4 */
+	// End Line: 1080
 
 int Newton_FindGroundElevationAndNormalFast__FP13BO_tNewtonObjP8coorddef
               (BO_tNewtonObj *newtonObj,coorddef *normal)
@@ -1448,6 +1549,21 @@ int Newton_FindGroundElevationAndNormalFast__FP13BO_tNewtonObjP8coorddef
 	// End offset: 0x800A0D70
 	// End Line: 1058
 
+	/* begin block 2 */
+		// Start line: 1332
+	/* end block 2 */
+	// End Line: 1333
+
+	/* begin block 3 */
+		// Start line: 1343
+	/* end block 3 */
+	// End Line: 1344
+
+	/* begin block 4 */
+		// Start line: 1343
+	/* end block 4 */
+	// End Line: 1344
+
 int Newton_FindGroundElevationAndNormal__FP13BO_tNewtonObjP8coorddef
               (BO_tNewtonObj *newtonObj,coorddef *normal)
 
@@ -1750,7 +1866,7 @@ LAB_800a0708:
     pBVar8 = (BO_tNewtonObj *)&(pBVar8->simRoadInfo).quadPts[2].z;
   }
   iVar16 = 0;
-  piVar11 = &swap;
+  piVar11 = swap;
   iVar13 = 0;
   do {
     if (3 < iVar16) {
@@ -1938,6 +2054,21 @@ LAB_800a07a0:
 	// End offset: 0x800A0DD8
 	// End Line: 1069
 
+	/* begin block 2 */
+		// Start line: 2701
+	/* end block 2 */
+	// End Line: 2702
+
+	/* begin block 3 */
+		// Start line: 2706
+	/* end block 3 */
+	// End Line: 2707
+
+	/* begin block 4 */
+		// Start line: 2706
+	/* end block 4 */
+	// End Line: 2707
+
 void Newton_LimitCarsToDrivableDist__FP13BO_tNewtonObj(BO_tNewtonObj *newtonObj)
 
 {
@@ -1972,6 +2103,26 @@ void Newton_LimitCarsToDrivableDist__FP13BO_tNewtonObj(BO_tNewtonObj *newtonObj)
 	/* end block 1 */
 	// End offset: 0x800A1118
 	// End Line: 1101
+
+	/* begin block 2 */
+		// Start line: 2731
+	/* end block 2 */
+	// End Line: 2732
+
+	/* begin block 3 */
+		// Start line: 2742
+	/* end block 3 */
+	// End Line: 2743
+
+	/* begin block 4 */
+		// Start line: 2742
+	/* end block 4 */
+	// End Line: 2743
+
+	/* begin block 5 */
+		// Start line: 2749
+	/* end block 5 */
+	// End Line: 2750
 
 int Newton_CalcPerpenHeightOfLowestPointFromGround__FP13BO_tNewtonObjP8coorddefT1
               (BO_tNewtonObj *newtonObj,coorddef *normal,coorddef *samplePoint)
@@ -2145,6 +2296,21 @@ int Newton_CalcPerpenHeightOfLowestPointFromGround__FP13BO_tNewtonObjP8coorddefT
 	// End offset: 0x800A1230
 	// End Line: 1119
 
+	/* begin block 2 */
+		// Start line: 2801
+	/* end block 2 */
+	// End Line: 2802
+
+	/* begin block 3 */
+		// Start line: 2809
+	/* end block 3 */
+	// End Line: 2810
+
+	/* begin block 4 */
+		// Start line: 2809
+	/* end block 4 */
+	// End Line: 2810
+
 int Newton_CalcPerpenHeightOfCenterPointFromGround__FP13BO_tNewtonObjP8coorddefT1
               (BO_tNewtonObj *newtonObj,coorddef *normal,coorddef *samplePoint)
 
@@ -2228,6 +2394,21 @@ int Newton_CalcPerpenHeightOfCenterPointFromGround__FP13BO_tNewtonObjP8coorddefT
 	// End offset: 0x800A1550
 	// End Line: 1216
 
+	/* begin block 2 */
+		// Start line: 2832
+	/* end block 2 */
+	// End Line: 2833
+
+	/* begin block 3 */
+		// Start line: 2837
+	/* end block 3 */
+	// End Line: 2838
+
+	/* begin block 4 */
+		// Start line: 2837
+	/* end block 4 */
+	// End Line: 2838
+
 void Newton_CalcDistToClosestPlayerCar__FP13BO_tNewtonObj(BO_tNewtonObj *n)
 
 {
@@ -2240,13 +2421,13 @@ void Newton_CalcDistToClosestPlayerCar__FP13BO_tNewtonObj(BO_tNewtonObj *n)
   
   iVar6 = 0;
   iVar4 = (n->position).x;
-  iVar2 = ((&__Cars_gHumanRaceCarList_9__)[GameSetup_gData.localCar]->N).position.x;
+  iVar2 = ((&Cars_gHumanRaceCarList9)[GameSetup_gData.localCar]->N).position.x;
   iVar3 = iVar4 - iVar2;
   if (iVar3 < 1) {
     iVar3 = iVar2 - iVar4;
   }
   iVar5 = (n->position).z;
-  iVar2 = ((&__Cars_gHumanRaceCarList_9__)[GameSetup_gData.localCar]->N).position.z;
+  iVar2 = ((&Cars_gHumanRaceCarList9)[GameSetup_gData.localCar]->N).position.z;
   iVar4 = iVar5 - iVar2;
   if (iVar4 < 1) {
     iVar4 = iVar2 - iVar5;
@@ -2260,13 +2441,13 @@ void Newton_CalcDistToClosestPlayerCar__FP13BO_tNewtonObj(BO_tNewtonObj *n)
   n->distToPlayer = iVar3;
   if (Cars_gNumHumanRaceCars == 2) {
     iVar4 = (n->position).x;
-    iVar3 = ((&__Cars_gHumanRaceCarList_9__)[1 - GameSetup_gData.localCar]->N).position.x;
+    iVar3 = ((&Cars_gHumanRaceCarList9)[1 - GameSetup_gData.localCar]->N).position.x;
     iVar2 = iVar4 - iVar3;
     if (iVar2 < 1) {
       iVar2 = iVar3 - iVar4;
     }
     iVar5 = (n->position).z;
-    iVar3 = ((&__Cars_gHumanRaceCarList_9__)[1 - GameSetup_gData.localCar]->N).position.z;
+    iVar3 = ((&Cars_gHumanRaceCarList9)[1 - GameSetup_gData.localCar]->N).position.z;
     iVar4 = iVar5 - iVar3;
     if (iVar4 < 1) {
       iVar4 = iVar3 - iVar5;
@@ -2284,7 +2465,7 @@ void Newton_CalcDistToClosestPlayerCar__FP13BO_tNewtonObj(BO_tNewtonObj *n)
   }
   if (n->distToPlayer < 0x600001) {
     iVar3 = BWorld_CheckChunkVisible__FP12BWorldSm_PosT0
-                      (&((&__Cars_gHumanRaceCarList_9__)[iVar6]->N).simRoadInfo,&n->simRoadInfo);
+                      (&((&Cars_gHumanRaceCarList9)[iVar6]->N).simRoadInfo,&n->simRoadInfo);
     if ((n->distToPlayer < 0x600001) && (iVar3 != 0)) goto LAB_800a1420;
   }
   if ((n[3].lastUpdated == 0) || (simGlobal.gameTicks < 3)) {
@@ -2351,6 +2532,21 @@ LAB_800a1420:
 	// End offset: 0x800A15E4
 	// End Line: 1248
 
+	/* begin block 2 */
+		// Start line: 3048
+	/* end block 2 */
+	// End Line: 3049
+
+	/* begin block 3 */
+		// Start line: 3060
+	/* end block 3 */
+	// End Line: 3061
+
+	/* begin block 4 */
+		// Start line: 3060
+	/* end block 4 */
+	// End Line: 3061
+
 void Newton_UpdateRoadInfo__FP13BO_tNewtonObj(BO_tNewtonObj *n)
 
 {
@@ -2405,6 +2601,31 @@ void Newton_UpdateRoadInfo__FP13BO_tNewtonObj(BO_tNewtonObj *n)
 	/* end block 1 */
 	// End offset: 0x800A16C0
 	// End Line: 1282
+
+	/* begin block 2 */
+		// Start line: 3131
+	/* end block 2 */
+	// End Line: 3132
+
+	/* begin block 3 */
+		// Start line: 3134
+	/* end block 3 */
+	// End Line: 3135
+
+	/* begin block 4 */
+		// Start line: 3134
+	/* end block 4 */
+	// End Line: 3135
+
+	/* begin block 5 */
+		// Start line: 3135
+	/* end block 5 */
+	// End Line: 3136
+
+	/* begin block 6 */
+		// Start line: 3135
+	/* end block 6 */
+	// End Line: 3136
 
 void Newton_CopyRoadMatrixToOrientMat__FP13BO_tNewtonObji(BO_tNewtonObj *n,int backwards)
 
@@ -2473,6 +2694,31 @@ void Newton_CopyRoadMatrixToOrientMat__FP13BO_tNewtonObji(BO_tNewtonObj *n,int b
 	/* end block 1 */
 	// End offset: 0x800A1794
 	// End Line: 1303
+
+	/* begin block 2 */
+		// Start line: 3176
+	/* end block 2 */
+	// End Line: 3177
+
+	/* begin block 3 */
+		// Start line: 3180
+	/* end block 3 */
+	// End Line: 3181
+
+	/* begin block 4 */
+		// Start line: 3180
+	/* end block 4 */
+	// End Line: 3181
+
+	/* begin block 5 */
+		// Start line: 3181
+	/* end block 5 */
+	// End Line: 3182
+
+	/* begin block 6 */
+		// Start line: 3181
+	/* end block 6 */
+	// End Line: 3182
 
 void Newton_CopyRoadMatrixToShadowMat__FP13BO_tNewtonObji(BO_tNewtonObj *n,int backwards)
 
@@ -2584,6 +2830,21 @@ void Newton_CopyRoadMatrixToShadowMat__FP13BO_tNewtonObji(BO_tNewtonObj *n,int b
 	/* end block 1 */
 	// End offset: 0x800A1BB0
 	// End Line: 1416
+
+	/* begin block 2 */
+		// Start line: 3223
+	/* end block 2 */
+	// End Line: 3224
+
+	/* begin block 3 */
+		// Start line: 3228
+	/* end block 3 */
+	// End Line: 3229
+
+	/* begin block 4 */
+		// Start line: 3228
+	/* end block 4 */
+	// End Line: 3229
 
 void Newton_SetInitialSlicePositionOrientationEtc__FP13BO_tNewtonObjiP8coorddefi
                (BO_tNewtonObj *n,int slice,coorddef *offset,int direction)
@@ -2756,6 +3017,21 @@ LAB_800a1bb0:
 	// End offset: 0x800A1E34
 	// End Line: 1510
 
+	/* begin block 2 */
+		// Start line: 3487
+	/* end block 2 */
+	// End Line: 3488
+
+	/* begin block 3 */
+		// Start line: 3492
+	/* end block 3 */
+	// End Line: 3493
+
+	/* begin block 4 */
+		// Start line: 3492
+	/* end block 4 */
+	// End Line: 3493
+
 void Newton_InitBaseNewtonObj__FP13BO_tNewtonObjiiiiii
                (BO_tNewtonObj *newtonObj,int index,int mass,int moInertia,int dimX,int dimY,int dimZ
                )
@@ -2781,8 +3057,8 @@ void Newton_InitBaseNewtonObj__FP13BO_tNewtonObjiiiiii
   }
   if ((newtonObj[1].simRoadInfo.quadPts[1].y & 0x20U) != 0) {
     if ((GameSetup_gData.commMode == 1) &&
-       ((__Cars_gHumanRaceCarList_9__->carInfo->carType < 0x16 ||
-        (PTR_8010fa4c->carInfo->carType < 0x16)))) {
+       ((Cars_gHumanRaceCarList9->carInfo->carType < 0x16 ||
+        (PTR_ARRAY_8010fa4c[0]->carInfo->carType < 0x16)))) {
       newtonObj->mass = newtonObj->mass << 1;
     }
     else {
@@ -2882,6 +3158,21 @@ void Newton_InitBaseNewtonObj__FP13BO_tNewtonObjiiiiii
 	// End offset: 0x800A1F34
 	// End Line: 1553
 
+	/* begin block 2 */
+		// Start line: 3745
+	/* end block 2 */
+	// End Line: 3746
+
+	/* begin block 3 */
+		// Start line: 3749
+	/* end block 3 */
+	// End Line: 3750
+
+	/* begin block 4 */
+		// Start line: 3749
+	/* end block 4 */
+	// End Line: 3750
+
 void Newton_QDUpdateVel__FP13BO_tNewtonObj(BO_tNewtonObj *newtonObj)
 
 {
@@ -2932,6 +3223,21 @@ void Newton_QDUpdateVel__FP13BO_tNewtonObj(BO_tNewtonObj *newtonObj)
 	/* end block 1 */
 	// End offset: 0x800A20BC
 	// End Line: 1618
+
+	/* begin block 2 */
+		// Start line: 3852
+	/* end block 2 */
+	// End Line: 3853
+
+	/* begin block 3 */
+		// Start line: 3863
+	/* end block 3 */
+	// End Line: 3864
+
+	/* begin block 4 */
+		// Start line: 3863
+	/* end block 4 */
+	// End Line: 3864
 
 int Newton_OptzRotxform__FP10matrixtdefiiiPiiT4
               (matrixtdef *m,int ax,int ay,int az,int *reOrthoNeeded,int reOrthoLimit,
@@ -3028,6 +3334,21 @@ int Newton_OptzRotxform__FP10matrixtdefiiiPiiT4
 	// End offset: 0x800A21E4
 	// End Line: 1662
 
+	/* begin block 2 */
+		// Start line: 4044
+	/* end block 2 */
+	// End Line: 4045
+
+	/* begin block 3 */
+		// Start line: 4048
+	/* end block 3 */
+	// End Line: 4049
+
+	/* begin block 4 */
+		// Start line: 4048
+	/* end block 4 */
+	// End Line: 4049
+
 void Newton_QDUpdateRot64Hz__FP13BO_tNewtonObj(BO_tNewtonObj *newtonObj)
 
 {
@@ -3090,6 +3411,21 @@ void Newton_QDUpdateRot64Hz__FP13BO_tNewtonObj(BO_tNewtonObj *newtonObj)
 	/* end block 1 */
 	// End offset: 0x800A2304
 	// End Line: 1718
+
+	/* begin block 2 */
+		// Start line: 4143
+	/* end block 2 */
+	// End Line: 4144
+
+	/* begin block 3 */
+		// Start line: 4146
+	/* end block 3 */
+	// End Line: 4147
+
+	/* begin block 4 */
+		// Start line: 4146
+	/* end block 4 */
+	// End Line: 4147
 
 void Newton_QDUpdateRot32Hz__FP13BO_tNewtonObj(BO_tNewtonObj *newtonObj)
 
@@ -3190,6 +3526,21 @@ void Newton_QDUpdateRot32Hz__FP13BO_tNewtonObj(BO_tNewtonObj *newtonObj)
 	/* end block 1 */
 	// End offset: 0x800A2678
 	// End Line: 1806
+
+	/* begin block 2 */
+		// Start line: 4258
+	/* end block 2 */
+	// End Line: 4259
+
+	/* begin block 3 */
+		// Start line: 4266
+	/* end block 3 */
+	// End Line: 4267
+
+	/* begin block 4 */
+		// Start line: 4266
+	/* end block 4 */
+	// End Line: 4267
 
 void Newton_CalculateGroundShadowMatrix__FP13BO_tNewtonObjP8coorddefi
                (BO_tNewtonObj *newtonObj,coorddef *normal,int orientToGround)
@@ -3377,6 +3728,21 @@ LAB_800a2670:
 	// End offset: 0x800A2A14
 	// End Line: 1881
 
+	/* begin block 2 */
+		// Start line: 4455
+	/* end block 2 */
+	// End Line: 4456
+
+	/* begin block 3 */
+		// Start line: 4478
+	/* end block 3 */
+	// End Line: 4479
+
+	/* begin block 4 */
+		// Start line: 4478
+	/* end block 4 */
+	// End Line: 4479
+
 void Newton_CalcRealShadowCoordinates__FP8Car_tObji(Car_tObj *carObj,int currentTick)
 
 {
@@ -3511,6 +3877,21 @@ void Newton_CalcRealShadowCoordinates__FP8Car_tObji(Car_tObj *carObj,int current
 	// End offset: 0x800A2AE8
 	// End Line: 1909
 
+	/* begin block 2 */
+		// Start line: 4602
+	/* end block 2 */
+	// End Line: 4603
+
+	/* begin block 3 */
+		// Start line: 4607
+	/* end block 3 */
+	// End Line: 4608
+
+	/* begin block 4 */
+		// Start line: 4607
+	/* end block 4 */
+	// End Line: 4608
+
 void Newton_CheckForSpikeBelts__FP13BO_tNewtonObj(BO_tNewtonObj *newtonObj)
 
 {
@@ -3562,6 +3943,21 @@ void Newton_CheckForSpikeBelts__FP13BO_tNewtonObj(BO_tNewtonObj *newtonObj)
 	/* end block 1 */
 	// End offset: 0x800A2C18
 	// End Line: 1955
+
+	/* begin block 2 */
+		// Start line: 4679
+	/* end block 2 */
+	// End Line: 4680
+
+	/* begin block 3 */
+		// Start line: 4685
+	/* end block 3 */
+	// End Line: 4686
+
+	/* begin block 4 */
+		// Start line: 4685
+	/* end block 4 */
+	// End Line: 4686
 
 void Newton_DoPostBarrierCollisionHandling__FP13BO_tNewtonObjG8coorddef
                (BO_tNewtonObj *newtonObj,coorddef normal)
@@ -3649,6 +4045,21 @@ void Newton_DoPostBarrierCollisionHandling__FP13BO_tNewtonObjG8coorddef
 	// End offset: 0x800A2D78
 	// End Line: 2137
 
+	/* begin block 2 */
+		// Start line: 4946
+	/* end block 2 */
+	// End Line: 4947
+
+	/* begin block 3 */
+		// Start line: 5097
+	/* end block 3 */
+	// End Line: 5098
+
+	/* begin block 4 */
+		// Start line: 5097
+	/* end block 4 */
+	// End Line: 5098
+
 void Newton_GenerateVector__FiP8coorddefP12BWorldSm_Pos
                (int type,coorddef *vector,BWorldSm_Pos *testSimRoadInfo)
 
@@ -3733,6 +4144,26 @@ void Newton_GenerateVector__FiP8coorddefP12BWorldSm_Pos
 	/* end block 1 */
 	// End offset: 0x800A2E7C
 	// End Line: 2158
+
+	/* begin block 2 */
+		// Start line: 5177
+	/* end block 2 */
+	// End Line: 5178
+
+	/* begin block 3 */
+		// Start line: 5181
+	/* end block 3 */
+	// End Line: 5182
+
+	/* begin block 4 */
+		// Start line: 5181
+	/* end block 4 */
+	// End Line: 5182
+
+	/* begin block 5 */
+		// Start line: 5185
+	/* end block 5 */
+	// End Line: 5186
 
 int Netwon_CheckForBadQuad__FP13BO_tNewtonObjP12BWorldSm_Posi
               (BO_tNewtonObj *newtonObj,BWorldSm_Pos *testSimRoadInfo,int wheel)
@@ -3961,6 +4392,21 @@ int Netwon_CheckForBadQuad__FP13BO_tNewtonObjP12BWorldSm_Posi
 	/* end block 1 */
 	// End offset: 0x800A35AC
 	// End Line: 2362
+
+	/* begin block 2 */
+		// Start line: 5211
+	/* end block 2 */
+	// End Line: 5212
+
+	/* begin block 3 */
+		// Start line: 5215
+	/* end block 3 */
+	// End Line: 5216
+
+	/* begin block 4 */
+		// Start line: 5215
+	/* end block 4 */
+	// End Line: 5216
 
 void Newton_TestForUndrivableSurfaces__FP13BO_tNewtonObj(BO_tNewtonObj *newtonObj)
 
@@ -4256,6 +4702,26 @@ LAB_800a3124:
 	// End offset: 0x800A366C
 	// End Line: 2457
 
+	/* begin block 2 */
+		// Start line: 4871
+	/* end block 2 */
+	// End Line: 4872
+
+	/* begin block 3 */
+		// Start line: 5766
+	/* end block 3 */
+	// End Line: 5767
+
+	/* begin block 4 */
+		// Start line: 5766
+	/* end block 4 */
+	// End Line: 5767
+
+	/* begin block 5 */
+		// Start line: 5769
+	/* end block 5 */
+	// End Line: 5770
+
 void Newton_LimitAngularVelocity__FP13BO_tNewtonObj(BO_tNewtonObj *newtonObj)
 
 {
@@ -4409,6 +4875,21 @@ void Newton_LimitAngularVelocity__FP13BO_tNewtonObj(BO_tNewtonObj *newtonObj)
 	/* end block 1 */
 	// End offset: 0x800A3B3C
 	// End Line: 2717
+
+	/* begin block 2 */
+		// Start line: 5808
+	/* end block 2 */
+	// End Line: 5809
+
+	/* begin block 3 */
+		// Start line: 5818
+	/* end block 3 */
+	// End Line: 5819
+
+	/* begin block 4 */
+		// Start line: 5818
+	/* end block 4 */
+	// End Line: 5819
 
 /* WARNING: Could not reconcile some variable overlaps */
 
@@ -4619,6 +5100,21 @@ void Newton_ApplyTheLawOfGravity__FP13BO_tNewtonObj(BO_tNewtonObj *newtonObj)
 	// End offset: 0x800A3C3C
 	// End Line: 2745
 
+	/* begin block 2 */
+		// Start line: 6506
+	/* end block 2 */
+	// End Line: 6507
+
+	/* begin block 3 */
+		// Start line: 6509
+	/* end block 3 */
+	// End Line: 6510
+
+	/* begin block 4 */
+		// Start line: 6509
+	/* end block 4 */
+	// End Line: 6510
+
 int Newton_CalculateRoadPositionFromSliceAndPosition__FiP8coorddefP10matrixtdef
               (int slice,coorddef *position,matrixtdef *matrix)
 
@@ -4676,6 +5172,21 @@ int Newton_CalculateRoadPositionFromSliceAndPosition__FiP8coorddefP10matrixtdef
 	// End offset: 0x800A3D44
 	// End Line: 2772
 
+	/* begin block 2 */
+		// Start line: 6544
+	/* end block 2 */
+	// End Line: 6545
+
+	/* begin block 3 */
+		// Start line: 6561
+	/* end block 3 */
+	// End Line: 6562
+
+	/* begin block 4 */
+		// Start line: 6561
+	/* end block 4 */
+	// End Line: 6562
+
 int Newton_CalculateRoadPosition__FP13BO_tNewtonObj(BO_tNewtonObj *newtonObj)
 
 {
@@ -4714,6 +5225,7 @@ int Newton_CalculateRoadPosition__FP13BO_tNewtonObj(BO_tNewtonObj *newtonObj)
   }
   return (iVar6 >> 8) * (iVar7 >> 8) + (iVar2 >> 8) * (iVar3 >> 8) + (iVar4 >> 8) * (iVar5 >> 8);
 }
+
 
 
 

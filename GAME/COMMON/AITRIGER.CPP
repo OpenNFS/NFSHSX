@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "AITRIGER.H"
+
 
 // decompiled code
 // original method signature: 
@@ -15,6 +16,16 @@
 	/* end block 1 */
 	// End offset: 0x8007292C
 	// End Line: 65
+
+	/* begin block 2 */
+		// Start line: 42
+	/* end block 2 */
+	// End Line: 43
+
+	/* begin block 3 */
+		// Start line: 42
+	/* end block 3 */
+	// End Line: 43
 
 void Init__24AITrigger_TriggerManagerPc(AITrigger_TriggerManager *this,char *rawTriggers)
 
@@ -73,6 +84,21 @@ void Init__24AITrigger_TriggerManagerPc(AITrigger_TriggerManager *this,char *raw
 	/* end block 1 */
 	// End offset: 0x80072A14
 	// End Line: 122
+
+	/* begin block 2 */
+		// Start line: 177
+	/* end block 2 */
+	// End Line: 178
+
+	/* begin block 3 */
+		// Start line: 180
+	/* end block 3 */
+	// End Line: 181
+
+	/* begin block 4 */
+		// Start line: 180
+	/* end block 4 */
+	// End Line: 181
 
 int InsertTrigger__24AITrigger_TriggerManagerP9trigger_tb
               (AITrigger_TriggerManager *this,trigger_t *trigger,void *fromFile)
@@ -142,6 +168,26 @@ LAB_80072a14:
 	// End offset: 0x80072AAC
 	// End Line: 136
 
+	/* begin block 2 */
+		// Start line: 285
+	/* end block 2 */
+	// End Line: 286
+
+	/* begin block 3 */
+		// Start line: 290
+	/* end block 3 */
+	// End Line: 291
+
+	/* begin block 4 */
+		// Start line: 290
+	/* end block 4 */
+	// End Line: 291
+
+	/* begin block 5 */
+		// Start line: 292
+	/* end block 5 */
+	// End Line: 293
+
 trigger_t * GetNextTrigger__24AITrigger_TriggerManageri(AITrigger_TriggerManager *this,int car)
 
 {
@@ -193,6 +239,26 @@ trigger_t * GetNextTrigger__24AITrigger_TriggerManageri(AITrigger_TriggerManager
 	// End offset: 0x80072B1C
 	// End Line: 146
 
+	/* begin block 2 */
+		// Start line: 307
+	/* end block 2 */
+	// End Line: 308
+
+	/* begin block 3 */
+		// Start line: 310
+	/* end block 3 */
+	// End Line: 311
+
+	/* begin block 4 */
+		// Start line: 310
+	/* end block 4 */
+	// End Line: 311
+
+	/* begin block 5 */
+		// Start line: 312
+	/* end block 5 */
+	// End Line: 313
+
 trigger_t * GetPrevTrigger__24AITrigger_TriggerManageri(AITrigger_TriggerManager *this,int car)
 
 {
@@ -228,6 +294,21 @@ trigger_t * GetPrevTrigger__24AITrigger_TriggerManageri(AITrigger_TriggerManager
 	/* end block 1 */
 	// End offset: 0x80072CBC
 	// End Line: 188
+
+	/* begin block 2 */
+		// Start line: 329
+	/* end block 2 */
+	// End Line: 330
+
+	/* begin block 3 */
+		// Start line: 333
+	/* end block 3 */
+	// End Line: 334
+
+	/* begin block 4 */
+		// Start line: 333
+	/* end block 4 */
+	// End Line: 334
 
 int CheckForTriggerAtSlice__24AITrigger_TriggerManagerii
               (AITrigger_TriggerManager *this,int car,int slice)
@@ -296,6 +377,31 @@ int CheckForTriggerAtSlice__24AITrigger_TriggerManagerii
 	// End offset: 0x80072D38
 	// End Line: 203
 
+	/* begin block 2 */
+		// Start line: 417
+	/* end block 2 */
+	// End Line: 418
+
+	/* begin block 3 */
+		// Start line: 422
+	/* end block 3 */
+	// End Line: 423
+
+	/* begin block 4 */
+		// Start line: 422
+	/* end block 4 */
+	// End Line: 423
+
+	/* begin block 5 */
+		// Start line: 423
+	/* end block 5 */
+	// End Line: 424
+
+	/* begin block 6 */
+		// Start line: 423
+	/* end block 6 */
+	// End Line: 424
+
 trigger_t *
 GetTrigger__24AITrigger_TriggerManageriPi(AITrigger_TriggerManager *this,int trigger,int *used)
 
@@ -350,6 +456,26 @@ GetTrigger__24AITrigger_TriggerManageriPi(AITrigger_TriggerManager *this,int tri
 	/* end block 1 */
 	// End offset: 0x80072E08
 	// End Line: 274
+
+	/* begin block 2 */
+		// Start line: 446
+	/* end block 2 */
+	// End Line: 447
+
+	/* begin block 3 */
+		// Start line: 450
+	/* end block 3 */
+	// End Line: 451
+
+	/* begin block 4 */
+		// Start line: 450
+	/* end block 4 */
+	// End Line: 451
+
+	/* begin block 5 */
+		// Start line: 452
+	/* end block 5 */
+	// End Line: 453
 
 int CheckForClosestTriggerOfType__24AITrigger_TriggerManageri11triggerTypei
               (AITrigger_TriggerManager *this,int slice,triggerType type,int direction)
@@ -425,6 +551,31 @@ int CheckForClosestTriggerOfType__24AITrigger_TriggerManageri11triggerTypei
 	// End offset: 0x80072E10
 	// End Line: 285
 
+	/* begin block 2 */
+		// Start line: 617
+	/* end block 2 */
+	// End Line: 618
+
+	/* begin block 3 */
+		// Start line: 622
+	/* end block 3 */
+	// End Line: 623
+
+	/* begin block 4 */
+		// Start line: 622
+	/* end block 4 */
+	// End Line: 623
+
+	/* begin block 5 */
+		// Start line: 628
+	/* end block 5 */
+	// End Line: 629
+
+	/* begin block 6 */
+		// Start line: 630
+	/* end block 6 */
+	// End Line: 631
+
 void DescribeTrigger__24AITrigger_TriggerManagerP9trigger_t
                (AITrigger_TriggerManager *this,trigger_t *trigger)
 
@@ -448,6 +599,26 @@ void DescribeTrigger__24AITrigger_TriggerManagerP9trigger_t
 	// End offset: 0x80072E18
 	// End Line: 293
 
+	/* begin block 2 */
+		// Start line: 641
+	/* end block 2 */
+	// End Line: 642
+
+	/* begin block 3 */
+		// Start line: 644
+	/* end block 3 */
+	// End Line: 645
+
+	/* begin block 4 */
+		// Start line: 644
+	/* end block 4 */
+	// End Line: 645
+
+	/* begin block 5 */
+		// Start line: 647
+	/* end block 5 */
+	// End Line: 648
+
 int AITrigger_Compare__FPCvT0(void *op1,void *op2)
 
 {
@@ -467,6 +638,21 @@ int AITrigger_Compare__FPCvT0(void *op1,void *op2)
 	// End offset: 0x80072E58
 	// End Line: 304
 
+	/* begin block 2 */
+		// Start line: 658
+	/* end block 2 */
+	// End Line: 659
+
+	/* begin block 3 */
+		// Start line: 662
+	/* end block 3 */
+	// End Line: 663
+
+	/* begin block 4 */
+		// Start line: 662
+	/* end block 4 */
+	// End Line: 663
+
 void Sort__24AITrigger_TriggerManager(AITrigger_TriggerManager *this)
 
 {
@@ -475,6 +661,7 @@ void Sort__24AITrigger_TriggerManager(AITrigger_TriggerManager *this)
   }
   return;
 }
+
 
 
 

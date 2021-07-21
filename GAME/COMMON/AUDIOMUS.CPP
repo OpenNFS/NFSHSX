@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "AUDIOMUS.H"
+
 
 // decompiled code
 // original method signature: 
@@ -12,18 +13,40 @@
 	// End offset: 0x80079F48
 	// End Line: 93
 
+	/* begin block 2 */
+		// Start line: 166
+	/* end block 2 */
+	// End Line: 167
+
+	/* begin block 3 */
+		// Start line: 166
+	/* end block 3 */
+	// End Line: 167
+
+	/* begin block 4 */
+		// Start line: 167
+	/* end block 4 */
+	// End Line: 168
+
+	/* begin block 5 */
+		// Start line: 167
+	/* end block 5 */
+	// End Line: 168
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void AudioMus_RefreshStatus__Fv(void)
 
 {
-  if (*(int *)(DAT_000001d4 + 0x74) < 0) {
-    *(undefined4 *)(DAT_000001d4 + 0x90) = 0;
+  if (AudioMus_g->streamhandle < 0) {
+    (AudioMus_g->streamstatus).outstandingrequests = 0;
   }
   else {
-    SNDSTRM_status(*(int *)(DAT_000001d4 + 0x74),(int *)(DAT_000001d4 + 0x90));
-    if (0 < *(int *)(DAT_000001d4 + 0x90)) {
-      SNDSTRM_requeststatus(*(uint *)(DAT_000001d4 + 0x94),(undefined4 *)(DAT_000001d4 + 0x9c));
+    SNDSTRM_status(AudioMus_g->streamhandle,(int *)&AudioMus_g->streamstatus);
+    if (0 < (AudioMus_g->streamstatus).outstandingrequests) {
+      SNDSTRM_requeststatus
+                ((AudioMus_g->streamstatus).currentrequest,(undefined4 *)&AudioMus_g->requeststatus)
+      ;
     }
   }
   return;
@@ -42,24 +65,44 @@ void AudioMus_RefreshStatus__Fv(void)
 	// End offset: 0x80079FD4
 	// End Line: 160
 
+	/* begin block 2 */
+		// Start line: 239
+	/* end block 2 */
+	// End Line: 240
+
+	/* begin block 3 */
+		// Start line: 293
+	/* end block 3 */
+	// End Line: 294
+
+	/* begin block 4 */
+		// Start line: 293
+	/* end block 4 */
+	// End Line: 294
+
+	/* begin block 5 */
+		// Start line: 295
+	/* end block 5 */
+	// End Line: 296
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 int AudioMus_Threshold__Fv(void)
 
 {
-  if (((DAT_000001d4 == 0) || (*(int *)(DAT_000001d4 + 0x8c) == 0)) ||
-     (*(int *)(DAT_000001d4 + 0x20) != 0)) {
+  if (((AudioMus_g == (AudioMus_tMusicGlobals *)0x0) || (AudioMus_g->bigfileheader == (char *)0x0))
+     || (AudioMus_g->errorcode != 0)) {
     return 0;
   }
-  if (*(int *)(DAT_000001d4 + 0x14) != 2) {
-    if (*(int *)(DAT_000001d4 + 0x90) == 0) {
+  if (AudioMus_g->switchsong != 2) {
+    if ((AudioMus_g->streamstatus).outstandingrequests == 0) {
       return 0;
     }
-    if (*(int *)(DAT_000001d4 + 0xa4) <= *(int *)(DAT_000001d4 + 0xa8)) {
+    if ((AudioMus_g->requeststatus).timetoend <= (AudioMus_g->requeststatus).timebuffered) {
       return 0;
     }
   }
-  return *(int *)(DAT_000001d4 + 0x88);
+  return AudioMus_g->threshold;
 }
 
 
@@ -75,14 +118,34 @@ int AudioMus_Threshold__Fv(void)
 	// End offset: 0x8007A020
 	// End Line: 177
 
+	/* begin block 2 */
+		// Start line: 327
+	/* end block 2 */
+	// End Line: 328
+
+	/* begin block 3 */
+		// Start line: 335
+	/* end block 3 */
+	// End Line: 336
+
+	/* begin block 4 */
+		// Start line: 335
+	/* end block 4 */
+	// End Line: 336
+
+	/* begin block 5 */
+		// Start line: 337
+	/* end block 5 */
+	// End Line: 338
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 int AudioMus_Buffered__Fv(void)
 
 {
-  if ((DAT_000001d4 != 0) && (*(int *)(DAT_000001d4 + 0x8c) != 0)) {
-    if (*(int *)(DAT_000001d4 + 0x90) != 0) {
-      return *(int *)(DAT_000001d4 + 0xa8);
+  if ((AudioMus_g != (AudioMus_tMusicGlobals *)0x0) && (AudioMus_g->bigfileheader != (char *)0x0)) {
+    if ((AudioMus_g->streamstatus).outstandingrequests != 0) {
+      return (AudioMus_g->requeststatus).timebuffered;
     }
     return 0;
   }
@@ -105,43 +168,68 @@ int AudioMus_Buffered__Fv(void)
 	// End offset: 0x8007A0DC
 	// End Line: 230
 
+	/* begin block 2 */
+		// Start line: 386
+	/* end block 2 */
+	// End Line: 387
+
+	/* begin block 3 */
+		// Start line: 379
+	/* end block 3 */
+	// End Line: 380
+
+	/* begin block 4 */
+		// Start line: 379
+	/* end block 4 */
+	// End Line: 380
+
+	/* begin block 5 */
+		// Start line: 380
+	/* end block 5 */
+	// End Line: 381
+
+	/* begin block 6 */
+		// Start line: 380
+	/* end block 6 */
+	// End Line: 381
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 AudioMus_tCurrentSong * AudioMus_GetCurrentSong__Fv(void)
 
 {
-  int iVar1;
+  AudioMus_tMusicGlobals *pAVar1;
   int iVar2;
   char *pcVar3;
   
-  iVar1 = DAT_000001d4;
-  if (DAT_000001d4 == 0) {
+  pAVar1 = AudioMus_g;
+  if (AudioMus_g == (AudioMus_tMusicGlobals *)0x0) {
     return (AudioMus_tCurrentSong *)0x0;
   }
-  *(undefined4 *)(DAT_000001d4 + 0x114) = *(undefined4 *)(DAT_000001d4 + 0xa4);
-  iVar2 = *(int *)(iVar1 + 0x20);
+  (AudioMus_g->current).remaining = (AudioMus_g->requeststatus).timetoend;
+  iVar2 = pAVar1->errorcode;
   if (iVar2 == 0) {
-    iVar2 = *(int *)(iVar1 + 0xc) + 1;
+    iVar2 = pAVar1->requestsong + 1;
   }
-  *(int *)(iVar1 + 0x110) = iVar2;
-  if (*(int *)(DAT_000001d4 + 0x20) == -4) {
+  (pAVar1->current).index = iVar2;
+  if (AudioMus_g->errorcode == -4) {
     pcVar3 = s_BUFFER_NOT_ALLOCATED_80055778;
   }
   else {
-    if (*(int *)(DAT_000001d4 + 0x20) != -3) goto LAB_8007a0ac;
+    if (AudioMus_g->errorcode != -3) goto LAB_8007a0ac;
     pcVar3 = s_STREAM_NOT_CREATED_80055790;
   }
-  *(char **)(iVar1 + 0x11c) = pcVar3;
+  (pAVar1->current).info.title = pcVar3;
 LAB_8007a0ac:
-  iVar1 = DAT_000001d4;
-  if (*(int *)(DAT_000001d4 + 0x18) == 0) {
-    *(undefined4 *)(DAT_000001d4 + 0x10c) = 0;
+  pAVar1 = AudioMus_g;
+  if (AudioMus_g->newswitch == 0) {
+    (AudioMus_g->current).newsong = 0;
   }
   else {
-    *(undefined4 *)(DAT_000001d4 + 0x18) = 0;
-    *(undefined4 *)(iVar1 + 0x10c) = 1;
+    AudioMus_g->newswitch = 0;
+    (pAVar1->current).newsong = 1;
   }
-  return (AudioMus_tCurrentSong *)(DAT_000001d4 + 0x10c);
+  return &AudioMus_g->current;
 }
 
 
@@ -173,40 +261,69 @@ LAB_8007a0ac:
 	// End offset: 0x8007A1CC
 	// End Line: 279
 
+	/* begin block 2 */
+		// Start line: 478
+	/* end block 2 */
+	// End Line: 479
+
+	/* begin block 3 */
+		// Start line: 465
+	/* end block 3 */
+	// End Line: 466
+
+	/* begin block 4 */
+		// Start line: 465
+	/* end block 4 */
+	// End Line: 466
+
+	/* begin block 5 */
+		// Start line: 466
+	/* end block 5 */
+	// End Line: 467
+
+	/* begin block 6 */
+		// Start line: 466
+	/* end block 6 */
+	// End Line: 467
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void AudioMus_SwitchSong__Fv(void)
 
 {
   bool bVar1;
-  int iVar2;
+  AudioMus_tMusicGlobals *pAVar2;
+  int iVar3;
   
-  if (((piGp000001d4 != (int *)0x0) && (piGp000001d4[2] != 0)) && (0 < *piGp000001d4)) {
-    piGp000001d4[6] = 1;
-    piGp000001d4[0xb] = 0;
-    piGp000001d4[8] = 0;
-    piGp000001d4[0x45] = 0;
-    piGp000001d4[0x4c] = 0;
-    piGp000001d4[0x46] = 0;
-    piGp000001d4[0x47] = 0;
-    piGp000001d4[0x48] = 0;
-    piGp000001d4[0x49] = 0;
-    piGp000001d4[0x4b] = 0;
-    if ((piGp000001d4[5] == 0) && (-1 < piGp000001d4[3])) {
-      SNDSTRM_autovol(piGp000001d4[0x1d],2000,0);
-      piGp000001d4[9] = 1000;
+  pAVar2 = AudioMus_g;
+  if (((AudioMus_g != (AudioMus_tMusicGlobals *)0x0) && (AudioMus_g->availablesongs != 0)) &&
+     (0 < AudioMus_g->volume)) {
+    AudioMus_g->newswitch = 1;
+    pAVar2->songname = (char *)0x0;
+    pAVar2->errorcode = 0;
+    (pAVar2->current).remaining = 0;
+    (pAVar2->current).info.length = 0;
+    (pAVar2->current).info.filename = (char *)0x0;
+    (pAVar2->current).info.title = (char *)0x0;
+    (pAVar2->current).info.artist = (char *)0x0;
+    (pAVar2->current).info.label = (char *)0x0;
+    (pAVar2->current).info.notes = (char *)0x0;
+    if ((pAVar2->switchsong == 0) && (-1 < pAVar2->requestsong)) {
+      SNDSTRM_autovol(pAVar2->streamhandle,2000,0);
+      AudioMus_g->fadetime = 1000;
     }
-    iVar2 = piGp000001d4[3];
+    pAVar2 = AudioMus_g;
+    iVar3 = AudioMus_g->requestsong + 1;
     bVar1 = Hud_kTurnSongOffNext == (void *)0x0;
-    piGp000001d4[3] = iVar2 + 1;
-    if ((bVar1) && (iVar2 + 1 < piGp000001d4[2])) {
-      piGp000001d4[5] = 1;
+    AudioMus_g->requestsong = iVar3;
+    if ((bVar1) && (iVar3 < pAVar2->availablesongs)) {
+      pAVar2->switchsong = 1;
     }
     else {
       Hud_kTurnSongOffNext = (void *)0x0;
-      piGp000001d4[4] = 0;
-      piGp000001d4[5] = -1;
-      piGp000001d4[3] = -1;
+      pAVar2->firstswitch = 0;
+      pAVar2->switchsong = -1;
+      pAVar2->requestsong = -1;
     }
   }
   return;
@@ -225,23 +342,51 @@ void AudioMus_SwitchSong__Fv(void)
 	// End offset: 0x8007A228
 	// End Line: 306
 
+	/* begin block 2 */
+		// Start line: 557
+	/* end block 2 */
+	// End Line: 558
+
+	/* begin block 3 */
+		// Start line: 564
+	/* end block 3 */
+	// End Line: 565
+
+	/* begin block 4 */
+		// Start line: 564
+	/* end block 4 */
+	// End Line: 565
+
+	/* begin block 5 */
+		// Start line: 565
+	/* end block 5 */
+	// End Line: 566
+
+	/* begin block 6 */
+		// Start line: 565
+	/* end block 6 */
+	// End Line: 566
+
 void AudioMus_Fail__Fi(int errorcode)
 
 {
-  int iVar1;
+  AudioMus_tMusicGlobals *pAVar1;
+  int iVar2;
   
-  *(int *)(iGp000001d4 + 0x20) = errorcode;
-  if (*(int *)(iGp000001d4 + 0x90) != 0) {
-    iVar1 = AudioMus_Buffered__Fv();
-    SNDSTRM_autovol(*(int *)(iGp000001d4 + 0x74),iVar1,0);
-    iVar1 = AudioMus_Buffered__Fv();
-    *(int *)(iGp000001d4 + 0x24) = iVar1;
+  iVar2 = (AudioMus_g->streamstatus).outstandingrequests;
+  AudioMus_g->errorcode = errorcode;
+  if (iVar2 != 0) {
+    iVar2 = AudioMus_Buffered__Fv();
+    SNDSTRM_autovol(AudioMus_g->streamhandle,iVar2,0);
+    iVar2 = AudioMus_Buffered__Fv();
+    AudioMus_g->fadetime = iVar2;
   }
-  *(undefined4 *)(iGp000001d4 + 0x18) = 1;
-  *(undefined4 *)(iGp000001d4 + 0x10) = 0;
-  *(undefined4 *)(iGp000001d4 + 0x2c) = 0;
-  *(undefined4 *)(iGp000001d4 + 0x14) = 0xffffffff;
-  *(undefined4 *)(iGp000001d4 + 0xc) = 0xffffffff;
+  pAVar1 = AudioMus_g;
+  AudioMus_g->newswitch = 1;
+  pAVar1->firstswitch = 0;
+  pAVar1->songname = (char *)0x0;
+  pAVar1->switchsong = -1;
+  pAVar1->requestsong = -1;
   return;
 }
 
@@ -261,34 +406,59 @@ void AudioMus_Fail__Fi(int errorcode)
 	// End offset: 0x8007A2BC
 	// End Line: 326
 
+	/* begin block 2 */
+		// Start line: 622
+	/* end block 2 */
+	// End Line: 623
+
+	/* begin block 3 */
+		// Start line: 629
+	/* end block 3 */
+	// End Line: 630
+
+	/* begin block 4 */
+		// Start line: 629
+	/* end block 4 */
+	// End Line: 630
+
+	/* begin block 5 */
+		// Start line: 632
+	/* end block 5 */
+	// End Line: 633
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void AudioMus_QueueRequestedSong__Fv(void)
 
 {
-  undefined4 uVar1;
-  uchar *puVar2;
+  uint *puVar1;
+  AudioMus_tMusicGlobals *pAVar2;
+  char *pcVar3;
+  int iVar4;
+  uchar *puVar5;
   uint local_10 [2];
   
-  uVar1 = locatebigentry(*(byte **)(iGp000001d4 + 0x8c),(byte *)0x0,
-                         (uint)*(byte *)(iGp000001d4 + *(int *)(iGp000001d4 + 0xc) + 0xec),local_10,
-                         (uint *)0x0);
-  *(undefined4 *)(iGp000001d4 + 0x2c) = uVar1;
-  if (-1 < (int)*(uint *)(iGp000001d4 + 0x74)) {
-    uVar1 = SNDSTRM_queuefile(*(uint *)(iGp000001d4 + 0x74),1000,(uint *)(iGp000001d4 + 0xac),
-                              local_10[0]);
-    *(undefined4 *)(iGp000001d4 + 0x78) = uVar1;
+  pcVar3 = (char *)locatebigentry((byte *)AudioMus_g->bigfileheader,(byte *)0x0,
+                                  (uint)(byte)AudioMus_g->playlist[AudioMus_g->requestsong],local_10
+                                  ,(uint *)0x0);
+  pAVar2 = AudioMus_g;
+  puVar1 = (uint *)&AudioMus_g->streamhandle;
+  AudioMus_g->songname = pcVar3;
+  if (-1 < (int)*puVar1) {
+    iVar4 = SNDSTRM_queuefile(*puVar1,1000,(uint *)pAVar2->bigfilename,local_10[0]);
+    AudioMus_g->requesthandle = iVar4;
   }
-  *(undefined4 *)(iGp000001d4 + 0x14) = 2;
-  puVar2 = gettick();
-  *(uchar **)(iGp000001d4 + 0x1c) = puVar2 + 0x280;
-  *(undefined4 *)(iGp000001d4 + 0x114) = 0;
-  *(undefined4 *)(iGp000001d4 + 0x130) = 0;
-  *(undefined4 *)(iGp000001d4 + 0x118) = 0;
-  *(undefined4 *)(iGp000001d4 + 0x11c) = 0;
-  *(undefined4 *)(iGp000001d4 + 0x120) = 0;
-  *(undefined4 *)(iGp000001d4 + 0x124) = 0;
-  *(undefined4 *)(iGp000001d4 + 300) = 0;
+  AudioMus_g->switchsong = 2;
+  puVar5 = gettick();
+  pAVar2 = AudioMus_g;
+  *(uchar **)&AudioMus_g->failby = puVar5 + 0x280;
+  (pAVar2->current).remaining = 0;
+  (pAVar2->current).info.length = 0;
+  (pAVar2->current).info.filename = (char *)0x0;
+  (pAVar2->current).info.title = (char *)0x0;
+  (pAVar2->current).info.artist = (char *)0x0;
+  (pAVar2->current).info.label = (char *)0x0;
+  (pAVar2->current).info.notes = (char *)0x0;
   return;
 }
 
@@ -316,6 +486,36 @@ void AudioMus_QueueRequestedSong__Fv(void)
 	/* end block 1 */
 	// End offset: 0x8007A37C
 	// End Line: 373
+
+	/* begin block 2 */
+		// Start line: 686
+	/* end block 2 */
+	// End Line: 687
+
+	/* begin block 3 */
+		// Start line: 692
+	/* end block 3 */
+	// End Line: 693
+
+	/* begin block 4 */
+		// Start line: 692
+	/* end block 4 */
+	// End Line: 693
+
+	/* begin block 5 */
+		// Start line: 693
+	/* end block 5 */
+	// End Line: 694
+
+	/* begin block 6 */
+		// Start line: 693
+	/* end block 6 */
+	// End Line: 694
+
+	/* begin block 7 */
+		// Start line: 701
+	/* end block 7 */
+	// End Line: 702
 
 void AudioMus_SetEntry__FP19AudioMus_tSongEntry(AudioMus_tSongEntry *info)
 
@@ -374,15 +574,49 @@ LAB_8007a37c:
 	// End offset: 0x8007A390
 	// End Line: 380
 
+	/* begin block 2 */
+		// Start line: 762
+	/* end block 2 */
+	// End Line: 763
+
+	/* begin block 3 */
+		// Start line: 768
+	/* end block 3 */
+	// End Line: 769
+
+	/* begin block 4 */
+		// Start line: 768
+	/* end block 4 */
+	// End Line: 769
+
+	/* begin block 5 */
+		// Start line: 769
+	/* end block 5 */
+	// End Line: 770
+
+	/* begin block 6 */
+		// Start line: 769
+	/* end block 6 */
+	// End Line: 770
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void AudioMus_SetCurrentSongInfo__Fv(void)
 
 {
-  *(int *)(iGp000001d4 + 0x114) = *(int *)(iGp000001d4 + 0xa4);
-  *(int *)(iGp000001d4 + 0x130) = *(int *)(iGp000001d4 + 0xa4) + *(int *)(iGp000001d4 + 0xa0);
-  *(undefined4 *)(iGp000001d4 + 0x118) = *(undefined4 *)(iGp000001d4 + 0x2c);
-  AudioMus_SetEntry__FP19AudioMus_tSongEntry((AudioMus_tSongEntry *)(iGp000001d4 + 0x118));
+  AudioMus_tCurrentSong *pAVar1;
+  AudioMus_tMusicGlobals *pAVar2;
+  int iVar3;
+  int iVar4;
+  
+  pAVar2 = AudioMus_g;
+  iVar3 = (AudioMus_g->requeststatus).timetoend;
+  iVar4 = (AudioMus_g->requeststatus).currenttime;
+  pAVar1 = &AudioMus_g->current;
+  (AudioMus_g->current).remaining = iVar3;
+  (pAVar2->current).info.length = iVar3 + iVar4;
+  (pAVar2->current).info.filename = pAVar2->songname;
+  AudioMus_SetEntry__FP19AudioMus_tSongEntry(&pAVar1->info);
   return;
 }
 
@@ -399,161 +633,195 @@ void AudioMus_SetCurrentSongInfo__Fv(void)
 	// End offset: 0x8007A864
 	// End Line: 543
 
+	/* begin block 2 */
+		// Start line: 811
+	/* end block 2 */
+	// End Line: 812
+
+	/* begin block 3 */
+		// Start line: 829
+	/* end block 3 */
+	// End Line: 830
+
+	/* begin block 4 */
+		// Start line: 829
+	/* end block 4 */
+	// End Line: 830
+
+	/* begin block 5 */
+		// Start line: 830
+	/* end block 5 */
+	// End Line: 831
+
+	/* begin block 6 */
+		// Start line: 830
+	/* end block 6 */
+	// End Line: 831
+
 int AudioMus_Server__Fii(int mode,int ticks)
 
 {
   int *piVar1;
-  int iVar2;
-  uchar *puVar3;
-  uint uVar4;
-  int iVar5;
+  AudioMus_tMusicGlobals *pAVar2;
+  int iVar3;
+  uchar *puVar4;
+  uint uVar5;
   int iVar6;
+  int iVar7;
   
-  if (piGp000001d4[0x23] != 0) {
-    if ((*(char *)(piGp000001d4 + 0x2b) == '.') || (iVar2 = CdDiskReady(1), iVar2 != 0x10)) {
-      if (piGp000001d4[8] == -2) {
-        iVar2 = CdDiskReady(1);
-        if (iVar2 != 2) {
+  if (AudioMus_g->bigfileheader != (char *)0x0) {
+    if ((AudioMus_g->bigfilename[0] == '.') ||
+       (iVar3 = CdDiskReady(1), pAVar2 = AudioMus_g, iVar3 != 0x10)) {
+      if (AudioMus_g->errorcode == -2) {
+        iVar3 = CdDiskReady(1);
+        pAVar2 = AudioMus_g;
+        if (iVar3 != 2) {
           return 0;
         }
-        piGp000001d4[8] = -5;
-        if (piGp000001d4[3] < 0) {
+        piVar1 = &AudioMus_g->requestsong;
+        AudioMus_g->errorcode = -5;
+        if (*piVar1 < 0) {
           return 0;
         }
-        piGp000001d4[6] = 1;
-        piGp000001d4[5] = 2;
+        pAVar2->newswitch = 1;
+        pAVar2->switchsong = 2;
       }
       else {
         AudioMus_RefreshStatus__Fv();
-        iVar2 = AudioMus_Threshold__Fv();
-        if ((iVar2 != 0) && (piGp000001d4[5] != 2)) {
-          iVar2 = AudioMus_Buffered__Fv();
-          if (iVar2 < 0x226) {
+        iVar3 = AudioMus_Threshold__Fv();
+        if ((iVar3 != 0) && (AudioMus_g->switchsong != 2)) {
+          iVar3 = AudioMus_Buffered__Fv();
+          if (iVar3 < 0x226) {
             AudioMus_Fail__Fi(-5);
           }
           else {
-            iVar2 = AudioMus_Buffered__Fv();
-            if (iVar2 < 0x5dc) {
-              if (piGp000001d4[0x21] == 0) {
-                SNDSTRM_setgreedystate(piGp000001d4[0x1d],1);
-                piGp000001d4[0x21] = 1;
+            iVar3 = AudioMus_Buffered__Fv();
+            if (iVar3 < 0x5dc) {
+              if (AudioMus_g->greedy == 0) {
+                SNDSTRM_setgreedystate(AudioMus_g->streamhandle,1);
+                AudioMus_g->greedy = 1;
               }
             }
             else {
-              iVar2 = AudioMus_Buffered__Fv();
-              if ((piGp000001d4[0x22] <= iVar2) && (piGp000001d4[0x21] != 0)) {
-                SNDSTRM_setgreedystate(piGp000001d4[0x1d],0);
-                piGp000001d4[0x21] = 0;
+              iVar3 = AudioMus_Buffered__Fv();
+              if ((AudioMus_g->threshold <= iVar3) && (AudioMus_g->greedy != 0)) {
+                SNDSTRM_setgreedystate(AudioMus_g->streamhandle,0);
+                AudioMus_g->greedy = 0;
               }
             }
           }
         }
-        piVar1 = piGp000001d4;
-        if (piGp000001d4[5] == 0) {
-          if (piGp000001d4[0x24] != 0) {
+        pAVar2 = AudioMus_g;
+        if (AudioMus_g->switchsong == 0) {
+          if ((AudioMus_g->streamstatus).outstandingrequests != 0) {
             return 0;
           }
-          iVar2 = piGp000001d4[3];
-          if (iVar2 < 0) {
+          iVar3 = AudioMus_g->requestsong;
+          if (iVar3 < 0) {
             return 0;
           }
-          iVar5 = piGp000001d4[2];
-          if (1 < iVar5) {
-            if (piGp000001d4[10] == 0) {
-              if (iVar5 == 0) {
-                trap(0x1c00);
-              }
-              if ((iVar5 == -1) && (iVar2 + 1 == -0x80000000)) {
-                trap(0x1800);
-              }
-              piGp000001d4[3] = (iVar2 + 1) % iVar5;
-            }
-            else {
-              iVar6 = iVar5 + -1;
-              uVar4 = GetRCnt(0);
-              if ((int)uVar4 < 1) {
-                uVar4 = GetRCnt(0);
-                uVar4 = -uVar4;
-              }
-              else {
-                uVar4 = GetRCnt(0);
-              }
+          iVar6 = AudioMus_g->availablesongs;
+          if (1 < iVar6) {
+            if (AudioMus_g->randomize == 0) {
               if (iVar6 == 0) {
                 trap(0x1c00);
               }
-              if ((iVar6 == -1) && (uVar4 == 0x80000000)) {
+              if ((iVar6 == -1) && (iVar3 + 1 == -0x80000000)) {
                 trap(0x1800);
               }
-              iVar2 = iVar2 + 1 + (int)uVar4 % iVar6;
-              if (iVar5 == 0) {
+              AudioMus_g->requestsong = (iVar3 + 1) % iVar6;
+            }
+            else {
+              iVar7 = iVar6 + -1;
+              uVar5 = GetRCnt(0);
+              if ((int)uVar5 < 1) {
+                uVar5 = GetRCnt(0);
+                uVar5 = -uVar5;
+              }
+              else {
+                uVar5 = GetRCnt(0);
+              }
+              if (iVar7 == 0) {
                 trap(0x1c00);
               }
-              if ((iVar5 == -1) && (iVar2 == -0x80000000)) {
+              if ((iVar7 == -1) && (uVar5 == 0x80000000)) {
                 trap(0x1800);
               }
-              piVar1[3] = iVar2 % iVar5;
+              iVar3 = iVar3 + 1 + (int)uVar5 % iVar7;
+              if (iVar6 == 0) {
+                trap(0x1c00);
+              }
+              if ((iVar6 == -1) && (iVar3 == -0x80000000)) {
+                trap(0x1800);
+              }
+              pAVar2->requestsong = iVar3 % iVar6;
             }
           }
-          SNDSTRM_vol(piGp000001d4[0x1d],0);
+          SNDSTRM_vol(AudioMus_g->streamhandle,0);
           AudioMus_QueueRequestedSong__Fv();
-          piGp000001d4[6] = 1;
-          piGp000001d4[4] = 1;
+          pAVar2 = AudioMus_g;
+          AudioMus_g->newswitch = 1;
+          pAVar2->firstswitch = 1;
           return 0;
         }
-        if (piGp000001d4[5] == 2) {
-          if (piGp000001d4[0x1c] == 0) {
+        if (AudioMus_g->switchsong == 2) {
+          if (AudioMus_g->streambuffer == (char *)0x0) {
             AudioMus_Fail__Fi(-4);
             return 0;
           }
-          if (piGp000001d4[0x1d] < 0) {
+          if (AudioMus_g->streamhandle < 0) {
             AudioMus_Fail__Fi(-3);
             return 0;
           }
-          if (piGp000001d4[0x24] == 0) {
+          if ((AudioMus_g->streamstatus).outstandingrequests == 0) {
             return 0;
           }
-          if (piGp000001d4[0x2a] <= piGp000001d4[0x22]) {
+          if ((AudioMus_g->requeststatus).timebuffered <= AudioMus_g->threshold) {
             return 0;
           }
-          if (piGp000001d4[8] == -5) {
-            iVar2 = piGp000001d4[0x1d];
-            iVar5 = *piGp000001d4;
-            piGp000001d4[8] = 0;
+          if (AudioMus_g->errorcode == -5) {
+            iVar3 = AudioMus_g->streamhandle;
+            iVar6 = AudioMus_g->volume;
+            AudioMus_g->errorcode = 0;
           }
           else {
             AudioMus_SetCurrentSongInfo__Fv();
-            iVar2 = piGp000001d4[0x1d];
-            iVar5 = *piGp000001d4;
+            iVar3 = AudioMus_g->streamhandle;
+            iVar6 = AudioMus_g->volume;
           }
-          SNDSTRM_autovol(iVar2,2000,iVar5);
-          piGp000001d4[5] = 0;
+          SNDSTRM_autovol(iVar3,2000,iVar6);
+          AudioMus_g->switchsong = 0;
           return 0;
         }
-        if ((piGp000001d4[0x24] != 0) && (iVar2 = SNDSTRM_getvol(piGp000001d4[0x1d]), iVar2 != 0)) {
+        if (((AudioMus_g->streamstatus).outstandingrequests != 0) &&
+           (iVar3 = SNDSTRM_getvol(AudioMus_g->streamhandle), iVar3 != 0)) {
           return 0;
         }
-        if (-1 < piGp000001d4[0x1d]) {
-          SNDSTRM_purge(piGp000001d4[0x1d]);
+        if (-1 < AudioMus_g->streamhandle) {
+          SNDSTRM_purge(AudioMus_g->streamhandle);
         }
-        piGp000001d4[0xb] = 0;
-        if (piGp000001d4[5] != 1) {
-          piGp000001d4[5] = 0;
+        pAVar2 = AudioMus_g;
+        piVar1 = &AudioMus_g->switchsong;
+        AudioMus_g->songname = (char *)0x0;
+        if (*piVar1 != 1) {
+          pAVar2->switchsong = 0;
           return 0;
         }
-        piGp000001d4[9] = 0;
+        pAVar2->fadetime = 0;
         AudioMus_QueueRequestedSong__Fv();
-        piGp000001d4[5] = 2;
+        AudioMus_g->switchsong = 2;
       }
-      puVar3 = gettick();
-      *(uchar **)(piGp000001d4 + 7) = puVar3 + 0x280;
+      puVar4 = gettick();
+      *(uchar **)&AudioMus_g->failby = puVar4 + 0x280;
     }
     else {
-      if (piGp000001d4[8] == 0) {
-        piGp000001d4[8] = -2;
-        piGp000001d4[6] = 1;
-        if (-1 < piGp000001d4[3]) {
-          iVar2 = AudioMus_Buffered__Fv();
-          SNDSTRM_autovol(piGp000001d4[0x1d],iVar2,0);
+      if (AudioMus_g->errorcode == 0) {
+        iVar3 = AudioMus_g->requestsong;
+        AudioMus_g->errorcode = -2;
+        pAVar2->newswitch = 1;
+        if (-1 < iVar3) {
+          iVar3 = AudioMus_Buffered__Fv();
+          SNDSTRM_autovol(AudioMus_g->streamhandle,iVar3,0);
         }
       }
     }
@@ -620,64 +888,85 @@ int AudioMus_Server__Fii(int mode,int ticks)
 	// End offset: 0x8007AA2C
 	// End Line: 594
 
+	/* begin block 2 */
+		// Start line: 1111
+	/* end block 2 */
+	// End Line: 1112
+
+	/* begin block 3 */
+		// Start line: 1117
+	/* end block 3 */
+	// End Line: 1118
+
+	/* begin block 4 */
+		// Start line: 1117
+	/* end block 4 */
+	// End Line: 1118
+
+	/* begin block 5 */
+		// Start line: 1122
+	/* end block 5 */
+	// End Line: 1123
+
 AudioMus_tSongList * AudioMus_GetSongList__FPci(char *pattern,int memtype)
 
 {
-  byte *pbVar1;
-  uint uVar2;
-  int iVar3;
+  AudioMus_tMusicGlobals *pAVar1;
+  byte *pbVar2;
+  uint uVar3;
   int iVar4;
-  AudioMus_tSongList *pAVar5;
-  int *piVar6;
+  int iVar5;
+  AudioMus_tSongList *pAVar6;
+  int *piVar7;
   AudioMus_tSongEntry *info;
   uint local_28 [2];
   
-  iVar4 = 0;
-  if (DAT_000001d4 == 0) {
-    pAVar5 = (AudioMus_tSongList *)reservememadr(s_Song_List_800557a4,8,memtype);
-    pAVar5->numsongs = 0;
-    pAVar5->currentsong = -1;
+  iVar5 = 0;
+  if (AudioMus_g == (AudioMus_tMusicGlobals *)0x0) {
+    pAVar6 = (AudioMus_tSongList *)reservememadr(s_Song_List_800557a4,8,memtype);
+    pAVar6->numsongs = 0;
+    pAVar6->currentsong = -1;
   }
   else {
-    iVar3 = 0;
-    if (0 < *(int *)(DAT_000001d4 + 4)) {
-      do {
-        pbVar1 = (byte *)locatebigentry(*(byte **)(DAT_000001d4 + 0x8c),(byte *)0x0,iVar3,
-                                        (uint *)0x0,(uint *)0x0);
-        uVar2 = wildcard(pbVar1,(byte *)pattern);
-        if (uVar2 != 0) {
-          iVar4 = iVar4 + 1;
-        }
-        iVar3 = iVar3 + 1;
-      } while (iVar3 < *(int *)(DAT_000001d4 + 4));
-    }
-    pAVar5 = (AudioMus_tSongList *)reservememadr(s_Song_List_800557a4,iVar4 << 6 | 8,memtype);
-    info = (AudioMus_tSongEntry *)(pAVar5 + 1);
     iVar4 = 0;
-    piVar6 = &pAVar5[4].currentsong;
-    pAVar5->numsongs = 0;
-    pAVar5->currentsong = -1;
-    while (iVar4 < *(int *)(DAT_000001d4 + 4)) {
-      pbVar1 = (byte *)locatebigentry(*(byte **)(DAT_000001d4 + 0x8c),(byte *)0x0,iVar4,(uint *)0x0,
-                                      local_28);
-      uVar2 = wildcard(pbVar1,(byte *)pattern);
-      if (uVar2 != 0) {
-        *(byte **)&info->filename = pbVar1;
-        AudioMus_SetEntry__FP19AudioMus_tSongEntry(info);
-        *piVar6 = iVar4;
-        iVar3 = DAT_000001d4;
-        piVar6[-1] = (int)(local_28[0] * 10) / 0xfc;
-        if (pbVar1 == *(byte **)(iVar3 + 0x2c)) {
-          pAVar5->currentsong = iVar4;
+    if (0 < AudioMus_g->totalsongs) {
+      do {
+        pbVar2 = (byte *)locatebigentry((byte *)AudioMus_g->bigfileheader,(byte *)0x0,iVar4,
+                                        (uint *)0x0,(uint *)0x0);
+        uVar3 = wildcard(pbVar2,(byte *)pattern);
+        if (uVar3 != 0) {
+          iVar5 = iVar5 + 1;
         }
-        piVar6 = piVar6 + 0x10;
+        iVar4 = iVar4 + 1;
+      } while (iVar4 < AudioMus_g->totalsongs);
+    }
+    pAVar6 = (AudioMus_tSongList *)reservememadr(s_Song_List_800557a4,iVar5 << 6 | 8,memtype);
+    info = (AudioMus_tSongEntry *)(pAVar6 + 1);
+    iVar5 = 0;
+    piVar7 = &pAVar6[4].currentsong;
+    pAVar6->numsongs = 0;
+    pAVar6->currentsong = -1;
+    while (iVar5 < AudioMus_g->totalsongs) {
+      pbVar2 = (byte *)locatebigentry((byte *)AudioMus_g->bigfileheader,(byte *)0x0,iVar5,
+                                      (uint *)0x0,local_28);
+      uVar3 = wildcard(pbVar2,(byte *)pattern);
+      if (uVar3 != 0) {
+        *(byte **)&info->filename = pbVar2;
+        AudioMus_SetEntry__FP19AudioMus_tSongEntry(info);
+        *piVar7 = iVar5;
+        pAVar1 = AudioMus_g;
+        piVar7[-1] = (int)(local_28[0] * 10) / 0xfc;
+        if (pbVar2 == (byte *)pAVar1->songname) {
+          pAVar6->currentsong = iVar5;
+        }
+        piVar7 = piVar7 + 0x10;
         info = info + 1;
-        pAVar5->numsongs = pAVar5->numsongs + 1;
+        pAVar6->numsongs = pAVar6->numsongs + 1;
       }
-      iVar4 = iVar4 + 1;
+      iVar5 = iVar5 + 1;
     }
   }
-  return pAVar5;
+  return pAVar6;
 }
 
 
@@ -693,20 +982,45 @@ AudioMus_tSongList * AudioMus_GetSongList__FPci(char *pattern,int memtype)
 	// End offset: 0x8007AA54
 	// End Line: 601
 
+	/* begin block 2 */
+		// Start line: 1230
+	/* end block 2 */
+	// End Line: 1231
+
+	/* begin block 3 */
+		// Start line: 1236
+	/* end block 3 */
+	// End Line: 1237
+
+	/* begin block 4 */
+		// Start line: 1236
+	/* end block 4 */
+	// End Line: 1237
+
+	/* begin block 5 */
+		// Start line: 1237
+	/* end block 5 */
+	// End Line: 1238
+
+	/* begin block 6 */
+		// Start line: 1237
+	/* end block 6 */
+	// End Line: 1238
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void AudioMus_InitGlobals__Fv(void)
 
 {
-  int iVar1;
+  AudioMus_tMusicGlobals *pAVar1;
   
-  iVar1 = DAT_000001d4;
-  *(undefined4 *)(DAT_000001d4 + 0x8c) = 0;
-  *(undefined4 *)(iVar1 + 0x70) = 0;
-  *(undefined4 *)(iVar1 + 0x74) = 0xffffffff;
-  *(undefined4 *)(iVar1 + 0x7c) = 0;
-  *(undefined4 *)(iVar1 + 0x80) = 0;
-  *(undefined4 *)(iVar1 + 4) = 0;
+  pAVar1 = AudioMus_g;
+  AudioMus_g->bigfileheader = (char *)0x0;
+  pAVar1->streambuffer = (char *)0x0;
+  pAVar1->streamhandle = -1;
+  pAVar1->serveractive = 0;
+  pAVar1->driveractive = 0;
+  pAVar1->totalsongs = 0;
   return;
 }
 
@@ -725,32 +1039,57 @@ void AudioMus_InitGlobals__Fv(void)
 	// End offset: 0x8007AA78
 	// End Line: 613
 
+	/* begin block 2 */
+		// Start line: 1256
+	/* end block 2 */
+	// End Line: 1257
+
+	/* begin block 3 */
+		// Start line: 1262
+	/* end block 3 */
+	// End Line: 1263
+
+	/* begin block 4 */
+		// Start line: 1262
+	/* end block 4 */
+	// End Line: 1263
+
+	/* begin block 5 */
+		// Start line: 1263
+	/* end block 5 */
+	// End Line: 1264
+
+	/* begin block 6 */
+		// Start line: 1263
+	/* end block 6 */
+	// End Line: 1264
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void AudioMus_InitDriverGlobals__Fv(void)
 
 {
-  undefined4 *puVar1;
+  AudioMus_tMusicGlobals *pAVar1;
   
-  puVar1 = DAT_000001d4;
-  DAT_000001d4[3] = 0xffffffff;
-  *puVar1 = 0;
-  puVar1[9] = 0;
-  puVar1[2] = 0;
-  puVar1[4] = 0;
-  puVar1[6] = 0;
-  puVar1[0xb] = 0;
-  puVar1[5] = 0;
-  puVar1[8] = 0;
-  puVar1[0x21] = 0;
-  puVar1[0x45] = 0;
-  puVar1[0x4c] = 0;
-  puVar1[0x46] = 0;
-  puVar1[0x47] = 0;
-  puVar1[0x48] = 0;
-  puVar1[0x49] = 0;
-  puVar1[0x4b] = 0;
-  puVar1[0x20] = 1;
+  pAVar1 = AudioMus_g;
+  AudioMus_g->requestsong = -1;
+  pAVar1->volume = 0;
+  pAVar1->fadetime = 0;
+  pAVar1->availablesongs = 0;
+  pAVar1->firstswitch = 0;
+  pAVar1->newswitch = 0;
+  pAVar1->songname = (char *)0x0;
+  pAVar1->switchsong = 0;
+  pAVar1->errorcode = 0;
+  pAVar1->greedy = 0;
+  (pAVar1->current).remaining = 0;
+  (pAVar1->current).info.length = 0;
+  (pAVar1->current).info.filename = (char *)0x0;
+  (pAVar1->current).info.title = (char *)0x0;
+  (pAVar1->current).info.artist = (char *)0x0;
+  (pAVar1->current).info.label = (char *)0x0;
+  (pAVar1->current).info.notes = (char *)0x0;
+  pAVar1->driveractive = 1;
   return;
 }
 
@@ -814,47 +1153,73 @@ void AudioMus_InitDriverGlobals__Fv(void)
 	// End offset: 0x8007AC00
 	// End Line: 694
 
+	/* begin block 2 */
+		// Start line: 1333
+	/* end block 2 */
+	// End Line: 1334
+
+	/* begin block 3 */
+		// Start line: 1339
+	/* end block 3 */
+	// End Line: 1340
+
+	/* begin block 4 */
+		// Start line: 1339
+	/* end block 4 */
+	// End Line: 1340
+
+	/* begin block 5 */
+		// Start line: 1340
+	/* end block 5 */
+	// End Line: 1341
+
+	/* begin block 6 */
+		// Start line: 1340
+	/* end block 6 */
+	// End Line: 1341
+
 void AudioMus_DriverStartUp__Fii(int buffersize,int spusize)
 
 {
   int *piVar1;
-  int iVar2;
+  AudioMus_tMusicGlobals *pAVar2;
   int iVar3;
+  int iVar4;
   undefined4 auStack64 [4];
   int local_30;
   int aiStack40 [2];
   undefined local_20;
   
-  if (DAT_000001d4 != 0) {
-    if (*(int *)(DAT_000001d4 + 0x80) == 0) {
+  if (AudioMus_g != (AudioMus_tMusicGlobals *)0x0) {
+    if (AudioMus_g->driveractive == 0) {
       AudioMus_InitDriverGlobals__Fv();
     }
-    iVar3 = DAT_000001d4;
-    piVar1 = (int *)(DAT_000001d4 + 0x74);
-    *(int *)(DAT_000001d4 + 0x88) = buffersize + spusize >> 5;
-    if ((*piVar1 < 0) && (*(int *)(iVar3 + 0x70) != 0)) {
-      iVar3 = buffersize;
+    pAVar2 = AudioMus_g;
+    piVar1 = &AudioMus_g->streamhandle;
+    AudioMus_g->threshold = buffersize + spusize >> 5;
+    if ((*piVar1 < 0) && (pAVar2->streambuffer != (char *)0x0)) {
+      iVar4 = buffersize;
       if (buffersize < 0) {
-        iVar3 = buffersize + 0x3ff;
+        iVar4 = buffersize + 0x3ff;
       }
-      iVar2 = SNDSTRM_overhead(1,iVar3 >> 10);
+      iVar3 = SNDSTRM_overhead(1,iVar4 >> 10);
       SNDgetlimits(auStack64);
       local_30 = spusize;
       SNDsetlimits(auStack64);
       SNDplaysetdef(aiStack40);
       local_20 = 0;
-      iVar3 = SNDSTRM_create(aiStack40,1,iVar3 >> 10,*(int **)(DAT_000001d4 + 0x70),
-                             buffersize + iVar2);
-      *(int *)(DAT_000001d4 + 0x74) = iVar3;
-      if (-1 < iVar3) {
-        SNDSTRM_setgreedylevel(iVar3,0);
-        SNDSTRM_setpriority(*(int *)(DAT_000001d4 + 0x74),0xff,5);
+      iVar4 = SNDSTRM_create(aiStack40,1,iVar4 >> 10,(int *)AudioMus_g->streambuffer,
+                             buffersize + iVar3);
+      AudioMus_g->streamhandle = iVar4;
+      if (-1 < iVar4) {
+        SNDSTRM_setgreedylevel(iVar4,0);
+        SNDSTRM_setpriority(AudioMus_g->streamhandle,0xff,5);
       }
     }
-    gMusicHandle = *(int *)(DAT_000001d4 + 0x74);
-    if (*(int *)(DAT_000001d4 + 0x7c) == 0) {
+    gMusicHandle = AudioMus_g->streamhandle;
+    if (AudioMus_g->serveractive == 0) {
       addsystemtask((int)AudioMus_Server__Fii,0x19,0);
-      *(undefined4 *)(DAT_000001d4 + 0x7c) = 1;
+      AudioMus_g->serveractive = 1;
     }
   }
   return;
@@ -873,6 +1238,26 @@ void AudioMus_DriverStartUp__Fii(int buffersize,int spusize)
 	// End offset: 0x8007ACF8
 	// End Line: 750
 
+	/* begin block 2 */
+		// Start line: 1457
+	/* end block 2 */
+	// End Line: 1458
+
+	/* begin block 3 */
+		// Start line: 1465
+	/* end block 3 */
+	// End Line: 1466
+
+	/* begin block 4 */
+		// Start line: 1465
+	/* end block 4 */
+	// End Line: 1466
+
+	/* begin block 5 */
+		// Start line: 1467
+	/* end block 5 */
+	// End Line: 1468
+
 void AudioMus_SysStartUp__FiiPc(int buffersize,int spusize,char *songs)
 
 {
@@ -881,9 +1266,9 @@ void AudioMus_SysStartUp__FiiPc(int buffersize,int spusize,char *songs)
   uint uVar3;
   int iVar4;
   
-  if (DAT_000001d4 == (short *)0x0) {
-    DAT_000001d4 = reservememadr(s_Music_Globals_800557b0,0x158,0);
-    if (DAT_000001d4 != (short *)0x0) {
+  if (AudioMus_g == (AudioMus_tMusicGlobals *)0x0) {
+    AudioMus_g = (AudioMus_tMusicGlobals *)reservememadr(s_Music_Globals_800557b0,0x158,0);
+    if (AudioMus_g != (AudioMus_tMusicGlobals *)0x0) {
       AudioMus_InitGlobals__Fv();
       iVar4 = buffersize;
       if (buffersize < 0) {
@@ -891,14 +1276,14 @@ void AudioMus_SysStartUp__FiiPc(int buffersize,int spusize,char *songs)
       }
       iVar4 = SNDSTRM_overhead(1,iVar4 >> 10);
       psVar1 = reservememadr(s_Music_Buffer_800557c0,buffersize + iVar4,0);
-      *(short **)(DAT_000001d4 + 0x38) = psVar1;
+      *(short **)&AudioMus_g->streambuffer = psVar1;
       AudioMus_DriverStartUp__Fii(buffersize,spusize);
-      sprintf((char *)(DAT_000001d4 + 0x56),s__szzz_s_viv_800557d0,PTR_801164d4,songs);
-      pbVar2 = (byte *)loadbigfileheader(DAT_000001d4 + 0x56,0);
-      *(byte **)(DAT_000001d4 + 0x46) = pbVar2;
+      sprintf(AudioMus_g->bigfilename,s__szzz_s_viv_800557d0,PTR_801164d4,songs);
+      pbVar2 = (byte *)loadbigfileheader(AudioMus_g->bigfilename,0);
+      *(byte **)&AudioMus_g->bigfileheader = pbVar2;
       if (pbVar2 != (byte *)0x0) {
         uVar3 = bigcount(pbVar2);
-        *(uint *)(DAT_000001d4 + 2) = uVar3;
+        AudioMus_g->totalsongs = uVar3;
       }
     }
   }
@@ -918,21 +1303,46 @@ void AudioMus_SysStartUp__FiiPc(int buffersize,int spusize,char *songs)
 	// End offset: 0x8007AD7C
 	// End Line: 771
 
+	/* begin block 2 */
+		// Start line: 1579
+	/* end block 2 */
+	// End Line: 1580
+
+	/* begin block 3 */
+		// Start line: 1584
+	/* end block 3 */
+	// End Line: 1585
+
+	/* begin block 4 */
+		// Start line: 1584
+	/* end block 4 */
+	// End Line: 1585
+
+	/* begin block 5 */
+		// Start line: 1585
+	/* end block 5 */
+	// End Line: 1586
+
+	/* begin block 6 */
+		// Start line: 1585
+	/* end block 6 */
+	// End Line: 1586
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void AudioMus_DriverCleanUp__Fv(void)
 
 {
-  if (DAT_000001d4 != 0) {
-    if (*(int *)(DAT_000001d4 + 0x7c) != 0) {
+  if (AudioMus_g != (AudioMus_tMusicGlobals *)0x0) {
+    if (AudioMus_g->serveractive != 0) {
       delsystemtask((int)AudioMus_Server__Fii);
-      *(undefined4 *)(DAT_000001d4 + 0x7c) = 0;
+      AudioMus_g->serveractive = 0;
     }
-    if (-1 < *(int *)(DAT_000001d4 + 0x74)) {
-      SNDSTRM_destroy(*(int *)(DAT_000001d4 + 0x74));
-      *(undefined4 *)(DAT_000001d4 + 0x74) = 0xffffffff;
+    if (-1 < AudioMus_g->streamhandle) {
+      SNDSTRM_destroy(AudioMus_g->streamhandle);
+      AudioMus_g->streamhandle = -1;
     }
-    *(undefined4 *)(DAT_000001d4 + 0x80) = 0;
+    AudioMus_g->driveractive = 0;
   }
   return;
 }
@@ -950,21 +1360,46 @@ void AudioMus_DriverCleanUp__Fv(void)
 	// End offset: 0x8007ADF4
 	// End Line: 790
 
+	/* begin block 2 */
+		// Start line: 1618
+	/* end block 2 */
+	// End Line: 1619
+
+	/* begin block 3 */
+		// Start line: 1625
+	/* end block 3 */
+	// End Line: 1626
+
+	/* begin block 4 */
+		// Start line: 1625
+	/* end block 4 */
+	// End Line: 1626
+
+	/* begin block 5 */
+		// Start line: 1626
+	/* end block 5 */
+	// End Line: 1627
+
+	/* begin block 6 */
+		// Start line: 1626
+	/* end block 6 */
+	// End Line: 1627
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void AudioMus_SysCleanUp__Fv(void)
 
 {
-  if (DAT_000001d4 != 0) {
+  if (AudioMus_g != (AudioMus_tMusicGlobals *)0x0) {
     AudioMus_DriverCleanUp__Fv();
-    if (*(int *)(DAT_000001d4 + 0x70) != 0) {
-      purgememadr(*(int *)(DAT_000001d4 + 0x70));
+    if (AudioMus_g->streambuffer != (char *)0x0) {
+      purgememadr((int)AudioMus_g->streambuffer);
     }
-    if (*(int *)(DAT_000001d4 + 0x8c) != 0) {
-      purgememadr(*(int *)(DAT_000001d4 + 0x8c));
+    if (AudioMus_g->bigfileheader != (char *)0x0) {
+      purgememadr((int)AudioMus_g->bigfileheader);
     }
-    purgememadr(DAT_000001d4);
-    DAT_000001d4 = 0;
+    purgememadr((int)AudioMus_g);
+    AudioMus_g = (AudioMus_tMusicGlobals *)0x0;
   }
   return;
 }
@@ -982,35 +1417,50 @@ void AudioMus_SysCleanUp__Fv(void)
 	// End offset: 0x8007AEC8
 	// End Line: 829
 
+	/* begin block 2 */
+		// Start line: 1657
+	/* end block 2 */
+	// End Line: 1658
+
+	/* begin block 3 */
+		// Start line: 1664
+	/* end block 3 */
+	// End Line: 1665
+
+	/* begin block 4 */
+		// Start line: 1664
+	/* end block 4 */
+	// End Line: 1665
+
 void AudioMus_StopSong__Fi(int fadeticks)
 
 {
-  int iVar1;
+  AudioMus_tMusicGlobals *pAVar1;
   
-  if ((DAT_000001d4 != 0) && (-1 < *(int *)(DAT_000001d4 + 0xc))) {
+  if ((AudioMus_g != (AudioMus_tMusicGlobals *)0x0) && (-1 < AudioMus_g->requestsong)) {
     if (fadeticks == 0) {
-      if (-1 < *(int *)(DAT_000001d4 + 0x74)) {
-        SNDSTRM_purge(*(int *)(DAT_000001d4 + 0x74));
+      if (-1 < AudioMus_g->streamhandle) {
+        SNDSTRM_purge(AudioMus_g->streamhandle);
       }
-      iVar1 = DAT_000001d4;
-      *(undefined4 *)(DAT_000001d4 + 0x24) = 0;
-      *(undefined4 *)(iVar1 + 0x2c) = 0;
-      *(undefined4 *)(iVar1 + 0x14) = 0;
+      pAVar1 = AudioMus_g;
+      AudioMus_g->fadetime = 0;
+      pAVar1->songname = (char *)0x0;
+      pAVar1->switchsong = 0;
     }
     else {
-      if (*(int *)(DAT_000001d4 + 0x14) == 0) {
-        if (*(int *)(DAT_000001d4 + 0x74) < 0) {
-          *(undefined4 *)(DAT_000001d4 + 0x24) = 0;
+      if (AudioMus_g->switchsong == 0) {
+        if (AudioMus_g->streamhandle < 0) {
+          AudioMus_g->fadetime = 0;
         }
         else {
-          SNDSTRM_autovol(*(int *)(DAT_000001d4 + 0x74),fadeticks,0);
-          *(int *)(DAT_000001d4 + 0x24) = fadeticks;
+          SNDSTRM_autovol(AudioMus_g->streamhandle,fadeticks,0);
+          AudioMus_g->fadetime = fadeticks;
         }
-        *(undefined4 *)(DAT_000001d4 + 0x2c) = 0;
+        AudioMus_g->songname = (char *)0x0;
       }
-      *(undefined4 *)(DAT_000001d4 + 0x14) = 0xffffffff;
+      AudioMus_g->switchsong = -1;
     }
-    *(undefined4 *)(DAT_000001d4 + 0xc) = 0xffffffff;
+    AudioMus_g->requestsong = -1;
   }
   return;
 }
@@ -1051,19 +1501,44 @@ void AudioMus_StopSong__Fi(int fadeticks)
 	// End offset: 0x8007AF58
 	// End Line: 850
 
+	/* begin block 2 */
+		// Start line: 1736
+	/* end block 2 */
+	// End Line: 1737
+
+	/* begin block 3 */
+		// Start line: 1744
+	/* end block 3 */
+	// End Line: 1745
+
+	/* begin block 4 */
+		// Start line: 1744
+	/* end block 4 */
+	// End Line: 1745
+
+	/* begin block 5 */
+		// Start line: 1745
+	/* end block 5 */
+	// End Line: 1746
+
+	/* begin block 6 */
+		// Start line: 1745
+	/* end block 6 */
+	// End Line: 1746
+
 void AudioMus_BuildPlayList__FiPi(int numplaylistsongs,int *playlist)
 
 {
   int iVar1;
   
-  if (DAT_000001d4 != 0) {
-    *(undefined4 *)(DAT_000001d4 + 8) = 0;
+  if (AudioMus_g != (AudioMus_tMusicGlobals *)0x0) {
+    AudioMus_g->availablesongs = 0;
     iVar1 = 0;
     if (0 < numplaylistsongs) {
       do {
-        if ((-1 < *playlist) && (*playlist < *(int *)(DAT_000001d4 + 4))) {
-          *(undefined *)(DAT_000001d4 + *(int *)(DAT_000001d4 + 8) + 0xec) = *(undefined *)playlist;
-          *(int *)(DAT_000001d4 + 8) = *(int *)(DAT_000001d4 + 8) + 1;
+        if ((-1 < *playlist) && (*playlist < AudioMus_g->totalsongs)) {
+          AudioMus_g->playlist[AudioMus_g->availablesongs] = *(char *)playlist;
+          AudioMus_g->availablesongs = AudioMus_g->availablesongs + 1;
         }
         iVar1 = iVar1 + 1;
         playlist = playlist + 1;
@@ -1109,6 +1584,31 @@ void AudioMus_BuildPlayList__FiPi(int numplaylistsongs,int *playlist)
 	// End offset: 0x8007B01C
 	// End Line: 869
 
+	/* begin block 2 */
+		// Start line: 1777
+	/* end block 2 */
+	// End Line: 1778
+
+	/* begin block 3 */
+		// Start line: 1784
+	/* end block 3 */
+	// End Line: 1785
+
+	/* begin block 4 */
+		// Start line: 1784
+	/* end block 4 */
+	// End Line: 1785
+
+	/* begin block 5 */
+		// Start line: 1785
+	/* end block 5 */
+	// End Line: 1786
+
+	/* begin block 6 */
+		// Start line: 1785
+	/* end block 6 */
+	// End Line: 1786
+
 void AudioMus_BuildPattern__FPc(char *pattern)
 
 {
@@ -1117,24 +1617,24 @@ void AudioMus_BuildPattern__FPc(char *pattern)
   uint uVar3;
   int iVar4;
   
-  if (DAT_000001d4 != 0) {
-    piVar1 = (int *)(DAT_000001d4 + 4);
+  if (AudioMus_g != (AudioMus_tMusicGlobals *)0x0) {
+    piVar1 = &AudioMus_g->totalsongs;
     iVar4 = 0;
-    *(undefined4 *)(DAT_000001d4 + 8) = 0;
+    AudioMus_g->availablesongs = 0;
     if (0 < *piVar1) {
       do {
-        if (0x1f < *(int *)(DAT_000001d4 + 8)) {
+        if (0x1f < AudioMus_g->availablesongs) {
           return;
         }
-        pbVar2 = (byte *)locatebigentry(*(byte **)(DAT_000001d4 + 0x8c),(byte *)0x0,iVar4,
+        pbVar2 = (byte *)locatebigentry((byte *)AudioMus_g->bigfileheader,(byte *)0x0,iVar4,
                                         (uint *)0x0,(uint *)0x0);
         uVar3 = wildcard(pbVar2,(byte *)pattern);
         if (uVar3 != 0) {
-          *(undefined *)(DAT_000001d4 + *(int *)(DAT_000001d4 + 8) + 0xec) = (char)iVar4;
-          *(int *)(DAT_000001d4 + 8) = *(int *)(DAT_000001d4 + 8) + 1;
+          AudioMus_g->playlist[AudioMus_g->availablesongs] = (char)iVar4;
+          AudioMus_g->availablesongs = AudioMus_g->availablesongs + 1;
         }
         iVar4 = iVar4 + 1;
-      } while (iVar4 < *(int *)(DAT_000001d4 + 4));
+      } while (iVar4 < AudioMus_g->totalsongs);
     }
   }
   return;
@@ -1213,113 +1713,135 @@ void AudioMus_BuildPattern__FPc(char *pattern)
 	// End offset: 0x8007B294
 	// End Line: 956
 
+	/* begin block 2 */
+		// Start line: 1816
+	/* end block 2 */
+	// End Line: 1817
+
+	/* begin block 3 */
+		// Start line: 1823
+	/* end block 3 */
+	// End Line: 1824
+
+	/* begin block 4 */
+		// Start line: 1823
+	/* end block 4 */
+	// End Line: 1824
+
+	/* begin block 5 */
+		// Start line: 1829
+	/* end block 5 */
+	// End Line: 1830
+
 int AudioMus_PlaySong__FPc(char *pattern)
 
 {
   int *piVar1;
-  size_t sVar2;
-  int iVar3;
-  uint uVar4;
-  int iVar5;
+  AudioMus_tMusicGlobals *pAVar2;
+  size_t sVar3;
+  int iVar4;
+  uint uVar5;
   int iVar6;
+  int iVar7;
   char acStack152 [128];
   
-  if (DAT_000001d4 == (int *)0x0) {
-    iVar3 = 0;
+  if (AudioMus_g == (AudioMus_tMusicGlobals *)0x0) {
+    iVar4 = 0;
   }
   else {
-    if (((pattern != (char *)0x0) && (AudioMus_BuildPattern__FPc(pattern), DAT_000001d4[2] == 0)) &&
-       (sVar2 = strlen(pattern), sVar2 < 0x3d)) {
+    if (((pattern != (char *)0x0) &&
+        (AudioMus_BuildPattern__FPc(pattern), AudioMus_g->availablesongs == 0)) &&
+       (sVar3 = strlen(pattern), sVar3 < 0x3d)) {
       sprintf(acStack152,&DAT_8013c724,pattern);
       AudioMus_BuildPattern__FPc(acStack152);
     }
-    piVar1 = DAT_000001d4;
-    iVar3 = 0;
-    if (*DAT_000001d4 != 0) {
-      iVar3 = DAT_000001d4[2];
-      if (iVar3 != 0) {
-        DAT_000001d4[10] = 1;
-        if (iVar3 == 1) {
-          iVar6 = 0;
+    pAVar2 = AudioMus_g;
+    iVar4 = 0;
+    if (AudioMus_g->volume != 0) {
+      iVar4 = AudioMus_g->availablesongs;
+      if (iVar4 != 0) {
+        AudioMus_g->randomize = 1;
+        if (iVar4 == 1) {
+          iVar7 = 0;
         }
         else {
           if (pattern == (char *)0x0) {
-            iVar5 = piVar1[3];
-            iVar6 = iVar3 + -1;
-            uVar4 = GetRCnt(0);
-            if ((int)uVar4 < 1) {
-              uVar4 = GetRCnt(0);
-              uVar4 = -uVar4;
+            iVar6 = pAVar2->requestsong;
+            iVar7 = iVar4 + -1;
+            uVar5 = GetRCnt(0);
+            if ((int)uVar5 < 1) {
+              uVar5 = GetRCnt(0);
+              uVar5 = -uVar5;
             }
             else {
-              uVar4 = GetRCnt(0);
+              uVar5 = GetRCnt(0);
             }
-            if (iVar6 == 0) {
+            if (iVar7 == 0) {
               trap(0x1c00);
             }
-            if ((iVar6 == -1) && (uVar4 == 0x80000000)) {
+            if ((iVar7 == -1) && (uVar5 == 0x80000000)) {
               trap(0x1800);
             }
-            iVar5 = iVar5 + 1 + (int)uVar4 % iVar6;
-            iVar6 = iVar5 % iVar3;
-            if (iVar3 == 0) {
+            iVar6 = iVar6 + 1 + (int)uVar5 % iVar7;
+            iVar7 = iVar6 % iVar4;
+            if (iVar4 == 0) {
               trap(0x1c00);
             }
-            if ((iVar3 == -1) && (iVar5 == -0x80000000)) {
+            if ((iVar4 == -1) && (iVar6 == -0x80000000)) {
               trap(0x1800);
             }
           }
           else {
-            uVar4 = GetRCnt(0);
-            if ((int)uVar4 < 1) {
-              uVar4 = GetRCnt(0);
-              uVar4 = -uVar4;
+            uVar5 = GetRCnt(0);
+            if ((int)uVar5 < 1) {
+              uVar5 = GetRCnt(0);
+              uVar5 = -uVar5;
             }
             else {
-              uVar4 = GetRCnt(0);
+              uVar5 = GetRCnt(0);
             }
-            iVar6 = (int)uVar4 % iVar3;
-            if (iVar3 == 0) {
+            iVar7 = (int)uVar5 % iVar4;
+            if (iVar4 == 0) {
               trap(0x1c00);
             }
-            if ((iVar3 == -1) && (uVar4 == 0x80000000)) {
+            if ((iVar4 == -1) && (uVar5 == 0x80000000)) {
               trap(0x1800);
             }
           }
         }
-        piVar1 = DAT_000001d4;
-        if (DAT_000001d4[5] == 0) {
-          if (DAT_000001d4[3] < 0) {
-            piVar1 = DAT_000001d4 + 0x1d;
-            DAT_000001d4[9] = 0;
+        pAVar2 = AudioMus_g;
+        if (AudioMus_g->switchsong == 0) {
+          if (AudioMus_g->requestsong < 0) {
+            piVar1 = &AudioMus_g->streamhandle;
+            AudioMus_g->fadetime = 0;
             SNDSTRM_vol(*piVar1,0);
-            DAT_000001d4[3] = iVar6;
+            AudioMus_g->requestsong = iVar7;
             AudioMus_QueueRequestedSong__Fv();
           }
           else {
-            SNDSTRM_autovol(DAT_000001d4[0x1d],2000,0);
-            piVar1 = DAT_000001d4;
-            DAT_000001d4[9] = 2000;
-            piVar1[5] = 1;
-            piVar1[3] = iVar6;
-            piVar1[0xb] = 0;
+            SNDSTRM_autovol(AudioMus_g->streamhandle,2000,0);
+            pAVar2 = AudioMus_g;
+            AudioMus_g->fadetime = 2000;
+            pAVar2->switchsong = 1;
+            pAVar2->requestsong = iVar7;
+            pAVar2->songname = (char *)0x0;
           }
         }
         else {
-          DAT_000001d4[5] = 1;
-          piVar1[3] = iVar6;
+          AudioMus_g->switchsong = 1;
+          pAVar2->requestsong = iVar7;
         }
-        piVar1 = DAT_000001d4;
-        DAT_000001d4[4] = 1;
-        piVar1[8] = 0;
+        pAVar2 = AudioMus_g;
+        AudioMus_g->firstswitch = 1;
+        pAVar2->errorcode = 0;
         if (pattern != (char *)0x0) {
-          piVar1[6] = 1;
+          pAVar2->newswitch = 1;
         }
       }
-      iVar3 = DAT_000001d4[2];
+      iVar4 = AudioMus_g->availablesongs;
     }
   }
-  return iVar3;
+  return iVar4;
 }
 
 
@@ -1395,6 +1917,21 @@ int AudioMus_PlaySong__FPc(char *pattern)
 	// End offset: 0x8007B458
 	// End Line: 1001
 
+	/* begin block 2 */
+		// Start line: 1995
+	/* end block 2 */
+	// End Line: 1996
+
+	/* begin block 3 */
+		// Start line: 2001
+	/* end block 3 */
+	// End Line: 2002
+
+	/* begin block 4 */
+		// Start line: 2001
+	/* end block 4 */
+	// End Line: 2002
+
 void AudioMus_Volume__Fi(int volume)
 
 {
@@ -1402,46 +1939,47 @@ void AudioMus_Volume__Fi(int volume)
   int iVar2;
   int iVar3;
   
-  if ((DAT_000001d4 != (int *)0x0) && (*DAT_000001d4 != volume)) {
+  if ((AudioMus_g != (AudioMus_tMusicGlobals *)0x0) && (AudioMus_g->volume != volume)) {
     iVar3 = 0;
     if (volume == 0) {
-      *DAT_000001d4 = 0;
+      AudioMus_g->volume = 0;
       AudioMus_StopSong__Fi(0);
     }
     else {
-      if ((((DAT_000001d4[9] != 0) && (-1 < DAT_000001d4[0x1d])) &&
-          (iVar1 = SNDSTRM_getvol(DAT_000001d4[0x1d]), 0 < iVar1)) &&
-         (iVar2 = *DAT_000001d4, 0 < iVar2)) {
-        iVar3 = (DAT_000001d4[9] * iVar1) / iVar2;
+      if ((((AudioMus_g->fadetime != 0) && (-1 < AudioMus_g->streamhandle)) &&
+          (iVar1 = SNDSTRM_getvol(AudioMus_g->streamhandle), 0 < iVar1)) &&
+         (iVar2 = AudioMus_g->volume, 0 < iVar2)) {
+        iVar1 = AudioMus_g->fadetime * iVar1;
+        iVar3 = iVar1 / iVar2;
         if (iVar2 == 0) {
           trap(0x1c00);
         }
-        if ((iVar2 == -1) && (DAT_000001d4[9] * iVar1 == -0x80000000)) {
+        if ((iVar2 == -1) && (iVar1 == -0x80000000)) {
           trap(0x1800);
         }
       }
       if (iVar3 == 0) {
-        if ((-1 < DAT_000001d4[0x1d]) && (DAT_000001d4[5] != 2)) {
-          SNDSTRM_vol(DAT_000001d4[0x1d],volume);
+        if ((-1 < AudioMus_g->streamhandle) && (AudioMus_g->switchsong != 2)) {
+          SNDSTRM_vol(AudioMus_g->streamhandle,volume);
         }
       }
       else {
-        iVar1 = DAT_000001d4[9];
+        iVar1 = AudioMus_g->fadetime;
         if (iVar1 == 0) {
           trap(0x1c00);
         }
         if ((iVar1 == -1) && (volume * iVar3 == -0x80000000)) {
           trap(0x1800);
         }
-        SNDSTRM_vol(DAT_000001d4[0x1d],(volume * iVar3) / iVar1);
-        SNDSTRM_autovol(DAT_000001d4[0x1d],iVar3,0);
+        SNDSTRM_vol(AudioMus_g->streamhandle,(volume * iVar3) / iVar1);
+        SNDSTRM_autovol(AudioMus_g->streamhandle,iVar3,0);
       }
-      if (*DAT_000001d4 == 0) {
-        *DAT_000001d4 = volume;
+      if (AudioMus_g->volume == 0) {
+        AudioMus_g->volume = volume;
         AudioMus_PlaySong__FPc((char *)0x0);
       }
       else {
-        *DAT_000001d4 = volume;
+        AudioMus_g->volume = volume;
       }
     }
   }
@@ -1461,29 +1999,56 @@ void AudioMus_Volume__Fi(int volume)
 	// End offset: 0x8007B518
 	// End Line: 1033
 
+	/* begin block 2 */
+		// Start line: 2089
+	/* end block 2 */
+	// End Line: 2090
+
+	/* begin block 3 */
+		// Start line: 2098
+	/* end block 3 */
+	// End Line: 2099
+
+	/* begin block 4 */
+		// Start line: 2098
+	/* end block 4 */
+	// End Line: 2099
+
+	/* begin block 5 */
+		// Start line: 2099
+	/* end block 5 */
+	// End Line: 2100
+
+	/* begin block 6 */
+		// Start line: 2099
+	/* end block 6 */
+	// End Line: 2100
+
 void AudioMus_AutoVolume__Fii(int fadeticks,int volume)
 
 {
-  if ((DAT_000001d4 != (int *)0x0) && (*DAT_000001d4 != volume)) {
+  if ((AudioMus_g != (AudioMus_tMusicGlobals *)0x0) && (AudioMus_g->volume != volume)) {
     if (volume == 0) {
-      *DAT_000001d4 = 0;
+      AudioMus_g->volume = 0;
       AudioMus_StopSong__Fi(0);
     }
     else {
-      if (*DAT_000001d4 == 0) {
-        *DAT_000001d4 = volume;
+      if (AudioMus_g->volume == 0) {
+        AudioMus_g->volume = volume;
         AudioMus_PlaySong__FPc((char *)0x0);
       }
       else {
-        *DAT_000001d4 = volume;
+        AudioMus_g->volume = volume;
       }
-      if (((DAT_000001d4[5] != 2) && (DAT_000001d4[9] == 0)) && (-1 < DAT_000001d4[0x1d])) {
-        SNDSTRM_autovol(DAT_000001d4[0x1d],fadeticks,volume);
+      if (((AudioMus_g->switchsong != 2) && (AudioMus_g->fadetime == 0)) &&
+         (-1 < AudioMus_g->streamhandle)) {
+        SNDSTRM_autovol(AudioMus_g->streamhandle,fadeticks,volume);
       }
     }
   }
   return;
 }
+
 
 
 

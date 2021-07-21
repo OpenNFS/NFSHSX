@@ -1,6 +1,7 @@
 #ifndef FETOURN_H
 #define FETOURN_H
 
+
 extern void Initialize__18tTournamentManager(struct tTournamentManager *this); // 0x80032228
 
 extern void LoadDescription__18tTournamentManager(struct tTournamentManager *this); // 0x800322FC
@@ -70,5 +71,6 @@ extern void Increment__23tListIteratorTournament7tPlayer(struct tListIteratorTou
 extern void Decrement__23tListIteratorTournament7tPlayer(struct tListIteratorTournament *this); // 0x80033F20
 
 extern void * ValidTournament__23tListIteratorTournamentc(struct tListIteratorTournament *this, char tourn); // 0x80033FB0
+
 
 #endif

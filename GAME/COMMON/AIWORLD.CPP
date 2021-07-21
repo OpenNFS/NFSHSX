@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "AIWORLD.H"
+
 
 // decompiled code
 // original method signature: 
@@ -14,6 +15,16 @@
 	/* end block 1 */
 	// End offset: 0x80072F90
 	// End Line: 30
+
+	/* begin block 2 */
+		// Start line: 58
+	/* end block 2 */
+	// End Line: 59
+
+	/* begin block 3 */
+		// Start line: 58
+	/* end block 3 */
+	// End Line: 59
 
 int AIWorld_ZSplineDistance__FP8Car_tObjT0(Car_tObj *carObj,Car_tObj *otherCarObj)
 
@@ -48,6 +59,21 @@ int AIWorld_ZSplineDistance__FP8Car_tObjT0(Car_tObj *carObj,Car_tObj *otherCarOb
 	/* end block 1 */
 	// End offset: 0x80073024
 	// End Line: 39
+
+	/* begin block 2 */
+		// Start line: 72
+	/* end block 2 */
+	// End Line: 73
+
+	/* begin block 3 */
+		// Start line: 76
+	/* end block 3 */
+	// End Line: 77
+
+	/* begin block 4 */
+		// Start line: 76
+	/* end block 4 */
+	// End Line: 77
 
 int AIWorld_ZSplineDistance__FP8coorddefT0P10matrixtdef
               (coorddef *pos1,coorddef *pos2,matrixtdef *roadMatrix)
@@ -84,6 +110,26 @@ int AIWorld_ZSplineDistance__FP8coorddefT0P10matrixtdef
 	/* end block 1 */
 	// End offset: 0x80073118
 	// End Line: 64
+
+	/* begin block 2 */
+		// Start line: 94
+	/* end block 2 */
+	// End Line: 95
+
+	/* begin block 3 */
+		// Start line: 104
+	/* end block 3 */
+	// End Line: 105
+
+	/* begin block 4 */
+		// Start line: 104
+	/* end block 4 */
+	// End Line: 105
+
+	/* begin block 5 */
+		// Start line: 106
+	/* end block 5 */
+	// End Line: 107
 
 int AIWorld_ApxSplineDistance__FP8Car_tObjT0(Car_tObj *carObj,Car_tObj *otherCarObj)
 
@@ -126,6 +172,26 @@ LAB_8007311c:
 	// End offset: 0x80073184
 	// End Line: 79
 
+	/* begin block 2 */
+		// Start line: 131
+	/* end block 2 */
+	// End Line: 132
+
+	/* begin block 3 */
+		// Start line: 135
+	/* end block 3 */
+	// End Line: 136
+
+	/* begin block 4 */
+		// Start line: 135
+	/* end block 4 */
+	// End Line: 136
+
+	/* begin block 5 */
+		// Start line: 137
+	/* end block 5 */
+	// End Line: 138
+
 int AIWorld_ApxSplineDistance__FP8Car_tObji(Car_tObj *carObj,int location)
 
 {
@@ -162,6 +228,21 @@ LAB_80073188:
 	// End offset: 0x80073194
 	// End Line: 83
 
+	/* begin block 2 */
+		// Start line: 162
+	/* end block 2 */
+	// End Line: 163
+
+	/* begin block 3 */
+		// Start line: 166
+	/* end block 3 */
+	// End Line: 167
+
+	/* begin block 4 */
+		// Start line: 166
+	/* end block 4 */
+	// End Line: 167
+
 int AIWorld_ApxSplineDistance__FiP8Car_tObj(int location,Car_tObj *carObj)
 
 {
@@ -186,6 +267,26 @@ int AIWorld_ApxSplineDistance__FiP8Car_tObj(int location,Car_tObj *carObj)
 	/* end block 1 */
 	// End offset: 0x80073214
 	// End Line: 97
+
+	/* begin block 2 */
+		// Start line: 173
+	/* end block 2 */
+	// End Line: 174
+
+	/* begin block 3 */
+		// Start line: 177
+	/* end block 3 */
+	// End Line: 178
+
+	/* begin block 4 */
+		// Start line: 177
+	/* end block 4 */
+	// End Line: 178
+
+	/* begin block 5 */
+		// Start line: 180
+	/* end block 5 */
+	// End Line: 181
 
 int AIWorld_ApxSplineDistance__Fii(int locationA,int locationB)
 
@@ -225,6 +326,21 @@ LAB_80073218:
 	// End offset: 0x80073268
 	// End Line: 116
 
+	/* begin block 2 */
+		// Start line: 207
+	/* end block 2 */
+	// End Line: 208
+
+	/* begin block 3 */
+		// Start line: 218
+	/* end block 3 */
+	// End Line: 219
+
+	/* begin block 4 */
+		// Start line: 218
+	/* end block 4 */
+	// End Line: 219
+
 int AIWorld_SplineDistance__FP8Car_tObjT0(Car_tObj *carObj,Car_tObj *otherCarObj)
 
 {
@@ -252,6 +368,21 @@ int AIWorld_SplineDistance__FP8Car_tObjT0(Car_tObj *carObj,Car_tObj *otherCarObj
 	// End offset: 0x800732C4
 	// End Line: 127
 
+	/* begin block 2 */
+		// Start line: 240
+	/* end block 2 */
+	// End Line: 241
+
+	/* begin block 3 */
+		// Start line: 244
+	/* end block 3 */
+	// End Line: 245
+
+	/* begin block 4 */
+		// Start line: 244
+	/* end block 4 */
+	// End Line: 245
+
 int AIWorld_SplineDistance__FP8Car_tObjiP8coorddef(Car_tObj *carObj,int location,coorddef *position)
 
 {
@@ -277,6 +408,31 @@ int AIWorld_SplineDistance__FP8Car_tObjiP8coorddef(Car_tObj *carObj,int location
 	/* end block 1 */
 	// End offset: 0x800732D8
 	// End Line: 145
+
+	/* begin block 2 */
+		// Start line: 278
+	/* end block 2 */
+	// End Line: 279
+
+	/* begin block 3 */
+		// Start line: 283
+	/* end block 3 */
+	// End Line: 284
+
+	/* begin block 4 */
+		// Start line: 283
+	/* end block 4 */
+	// End Line: 284
+
+	/* begin block 5 */
+		// Start line: 284
+	/* end block 5 */
+	// End Line: 285
+
+	/* begin block 6 */
+		// Start line: 284
+	/* end block 6 */
+	// End Line: 285
 
 int AIWorld_GameOdometer__FP8Car_tObj(Car_tObj *carObj)
 
@@ -318,6 +474,26 @@ int AIWorld_GameOdometer__FP8Car_tObj(Car_tObj *carObj)
 	/* end block 1 */
 	// End offset: 0x800733A0
 	// End Line: 196
+
+	/* begin block 2 */
+		// Start line: 313
+	/* end block 2 */
+	// End Line: 314
+
+	/* begin block 3 */
+		// Start line: 341
+	/* end block 3 */
+	// End Line: 342
+
+	/* begin block 4 */
+		// Start line: 341
+	/* end block 4 */
+	// End Line: 342
+
+	/* begin block 5 */
+		// Start line: 346
+	/* end block 5 */
+	// End Line: 347
 
 int AIWorld_IsDriveableLaneInSliceRange__Fiiii
               (int startSlice,int numSlicesToCheck,int direction,int laneIndex)
@@ -384,6 +560,26 @@ LAB_80073374:
 	// End offset: 0x800733D4
 	// End Line: 218
 
+	/* begin block 2 */
+		// Start line: 395
+	/* end block 2 */
+	// End Line: 396
+
+	/* begin block 3 */
+		// Start line: 403
+	/* end block 3 */
+	// End Line: 404
+
+	/* begin block 4 */
+		// Start line: 403
+	/* end block 4 */
+	// End Line: 404
+
+	/* begin block 5 */
+		// Start line: 408
+	/* end block 5 */
+	// End Line: 409
+
 int AIWorld_IsDriveableLane__Fii(int slice,int laneIndex)
 
 {
@@ -415,6 +611,26 @@ int AIWorld_IsDriveableLane__Fii(int slice,int laneIndex)
 	// End offset: 0x80073428
 	// End Line: 241
 
+	/* begin block 2 */
+		// Start line: 444
+	/* end block 2 */
+	// End Line: 445
+
+	/* begin block 3 */
+		// Start line: 454
+	/* end block 3 */
+	// End Line: 455
+
+	/* begin block 4 */
+		// Start line: 454
+	/* end block 4 */
+	// End Line: 455
+
+	/* begin block 5 */
+		// Start line: 458
+	/* end block 5 */
+	// End Line: 459
+
 int AIWorld_GetProfileMask__Fi(int laneIndex)
 
 {
@@ -445,6 +661,31 @@ int AIWorld_GetProfileMask__Fi(int laneIndex)
 	// End offset: 0x8007343C
 	// End Line: 252
 
+	/* begin block 2 */
+		// Start line: 488
+	/* end block 2 */
+	// End Line: 489
+
+	/* begin block 3 */
+		// Start line: 498
+	/* end block 3 */
+	// End Line: 499
+
+	/* begin block 4 */
+		// Start line: 498
+	/* end block 4 */
+	// End Line: 499
+
+	/* begin block 5 */
+		// Start line: 499
+	/* end block 5 */
+	// End Line: 500
+
+	/* begin block 6 */
+		// Start line: 499
+	/* end block 6 */
+	// End Line: 500
+
 int AIWorld_IsDriveableLane_UsingMask__Fii(int slice,int mask)
 
 {
@@ -467,6 +708,26 @@ int AIWorld_IsDriveableLane_UsingMask__Fii(int slice,int mask)
 	/* end block 1 */
 	// End offset: 0x800734C4
 	// End Line: 281
+
+	/* begin block 2 */
+		// Start line: 513
+	/* end block 2 */
+	// End Line: 514
+
+	/* begin block 3 */
+		// Start line: 526
+	/* end block 3 */
+	// End Line: 527
+
+	/* begin block 4 */
+		// Start line: 526
+	/* end block 4 */
+	// End Line: 527
+
+	/* begin block 5 */
+		// Start line: 528
+	/* end block 5 */
+	// End Line: 529
 
 int AIWorld_CheckForBarrierBetweenLanes__Fiii(int slice,int lane0,int lane1)
 
@@ -499,6 +760,21 @@ int AIWorld_CheckForBarrierBetweenLanes__Fiii(int slice,int lane0,int lane1)
 	/* end block 1 */
 	// End offset: 0x80073580
 	// End Line: 316
+
+	/* begin block 2 */
+		// Start line: 581
+	/* end block 2 */
+	// End Line: 582
+
+	/* begin block 3 */
+		// Start line: 591
+	/* end block 3 */
+	// End Line: 592
+
+	/* begin block 4 */
+		// Start line: 591
+	/* end block 4 */
+	// End Line: 592
 
 /* WARNING: Removing unreachable block (ram,0x80073528) */
 
@@ -549,6 +825,21 @@ int AIWorld_LaneIndex__Fii(int slice,int position)
 	/* end block 1 */
 	// End offset: 0x80073644
 	// End Line: 352
+
+	/* begin block 2 */
+		// Start line: 653
+	/* end block 2 */
+	// End Line: 654
+
+	/* begin block 3 */
+		// Start line: 664
+	/* end block 3 */
+	// End Line: 665
+
+	/* begin block 4 */
+		// Start line: 664
+	/* end block 4 */
+	// End Line: 665
 
 void AIWorld_CalculateLaneInfo__FP8Car_tObj(Car_tObj *carObj)
 
@@ -617,6 +908,21 @@ void AIWorld_CalculateLaneInfo__FP8Car_tObj(Car_tObj *carObj)
 	// End offset: 0x800736CC
 	// End Line: 510
 
+	/* begin block 2 */
+		// Start line: 980
+	/* end block 2 */
+	// End Line: 981
+
+	/* begin block 3 */
+		// Start line: 988
+	/* end block 3 */
+	// End Line: 989
+
+	/* begin block 4 */
+		// Start line: 988
+	/* end block 4 */
+	// End Line: 989
+
 int AIWorld_CalculateDeltaRoadYaw__FP8Car_tObj(Car_tObj *carObj)
 
 {
@@ -659,6 +965,26 @@ int AIWorld_CalculateDeltaRoadYaw__FP8Car_tObj(Car_tObj *carObj)
 	/* end block 1 */
 	// End offset: 0x800737A8
 	// End Line: 529
+
+	/* begin block 2 */
+		// Start line: 1046
+	/* end block 2 */
+	// End Line: 1047
+
+	/* begin block 3 */
+		// Start line: 1055
+	/* end block 3 */
+	// End Line: 1056
+
+	/* begin block 4 */
+		// Start line: 1055
+	/* end block 4 */
+	// End Line: 1056
+
+	/* begin block 5 */
+		// Start line: 1061
+	/* end block 5 */
+	// End Line: 1062
 
 int AIWorld_CalcRoadBend__FP8Car_tObji(Car_tObj *carObj,int lookAhead)
 
@@ -717,6 +1043,21 @@ int AIWorld_CalcRoadBend__FP8Car_tObji(Car_tObj *carObj,int lookAhead)
 	// End offset: 0x8007384C
 	// End Line: 549
 
+	/* begin block 2 */
+		// Start line: 1085
+	/* end block 2 */
+	// End Line: 1086
+
+	/* begin block 3 */
+		// Start line: 1093
+	/* end block 3 */
+	// End Line: 1094
+
+	/* begin block 4 */
+		// Start line: 1093
+	/* end block 4 */
+	// End Line: 1094
+
 int AIWorld_CalcFutureLateralVel__FP8Car_tObji(Car_tObj *carObj,int slicesAhead)
 
 {
@@ -773,6 +1114,26 @@ int AIWorld_CalcFutureLateralVel__FP8Car_tObji(Car_tObj *carObj,int slicesAhead)
 	// End offset: 0x80073914
 	// End Line: 564
 
+	/* begin block 2 */
+		// Start line: 1129
+	/* end block 2 */
+	// End Line: 1130
+
+	/* begin block 3 */
+		// Start line: 1133
+	/* end block 3 */
+	// End Line: 1134
+
+	/* begin block 4 */
+		// Start line: 1133
+	/* end block 4 */
+	// End Line: 1134
+
+	/* begin block 5 */
+		// Start line: 1135
+	/* end block 5 */
+	// End Line: 1136
+
 void AIWorld_CalcSpeed__FP8Car_tObj(Car_tObj *carObj)
 
 {
@@ -810,6 +1171,21 @@ void AIWorld_CalcSpeed__FP8Car_tObj(Car_tObj *carObj)
 	// End offset: 0x8007391C
 	// End Line: 568
 
+	/* begin block 2 */
+		// Start line: 1149
+	/* end block 2 */
+	// End Line: 1150
+
+	/* begin block 3 */
+		// Start line: 1153
+	/* end block 3 */
+	// End Line: 1154
+
+	/* begin block 4 */
+		// Start line: 1153
+	/* end block 4 */
+	// End Line: 1154
+
 int AIWorld_CalcLateralVelocity__FP8Car_tObj(Car_tObj *carObj)
 
 {
@@ -840,6 +1216,21 @@ int AIWorld_CalcLateralVelocity__FP8Car_tObj(Car_tObj *carObj)
 	// End offset: 0x80073A58
 	// End Line: 604
 
+	/* begin block 2 */
+		// Start line: 1171
+	/* end block 2 */
+	// End Line: 1172
+
+	/* begin block 3 */
+		// Start line: 1175
+	/* end block 3 */
+	// End Line: 1176
+
+	/* begin block 4 */
+		// Start line: 1175
+	/* end block 4 */
+	// End Line: 1176
+
 void AIWorld_FindBarrierLessLaneAndPosition__FP8Car_tObjPiT1
                (Car_tObj *carObj,int *goodLane,int *goodPosition)
 
@@ -868,6 +1259,7 @@ void AIWorld_FindBarrierLessLaneAndPosition__FP8Car_tObjPiT1
   *goodPosition = iVar4 * ((uint)bVar1 * 0x8000 * iVar3 + ((uint)bVar1 * 0x8000 >> 1));
   return;
 }
+
 
 
 

@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "AIDELAYCAR.H"
+
 
 // decompiled code
 // original method signature: 
@@ -11,6 +12,16 @@
 	/* end block 1 */
 	// End offset: 0x8005AA28
 	// End Line: 21
+
+	/* begin block 2 */
+		// Start line: 40
+	/* end block 2 */
+	// End Line: 41
+
+	/* begin block 3 */
+		// Start line: 40
+	/* end block 3 */
+	// End Line: 41
 
 AIDelayCar *
 __10AIDelayCarP8Car_tObjT1i(AIDelayCar *this,Car_tObj *basisCar,Car_tObj *targetCar,int delayFactor)
@@ -34,6 +45,21 @@ __10AIDelayCarP8Car_tObjT1i(AIDelayCar *this,Car_tObj *basisCar,Car_tObj *target
 	/* end block 1 */
 	// End offset: 0x8005AA5C
 	// End Line: 30
+
+	/* begin block 2 */
+		// Start line: 56
+	/* end block 2 */
+	// End Line: 57
+
+	/* begin block 3 */
+		// Start line: 60
+	/* end block 3 */
+	// End Line: 61
+
+	/* begin block 4 */
+		// Start line: 60
+	/* end block 4 */
+	// End Line: 61
 
 void SetNewTargetCar__10AIDelayCarP8Car_tObj(AIDelayCar *this,Car_tObj *targetCar)
 
@@ -80,6 +106,21 @@ void SetNewTargetCar__10AIDelayCarP8Car_tObj(AIDelayCar *this,Car_tObj *targetCa
 	/* end block 1 */
 	// End offset: 0x8005ABFC
 	// End Line: 53
+
+	/* begin block 2 */
+		// Start line: 94
+	/* end block 2 */
+	// End Line: 95
+
+	/* begin block 3 */
+		// Start line: 98
+	/* end block 3 */
+	// End Line: 99
+
+	/* begin block 4 */
+		// Start line: 98
+	/* end block 4 */
+	// End Line: 99
 
 void Update__10AIDelayCar(AIDelayCar *this)
 
@@ -143,6 +184,7 @@ void Update__10AIDelayCar(AIDelayCar *this)
   this->currentSpeed_ = this->currentSpeed_ + uVar1;
   return;
 }
+
 
 
 

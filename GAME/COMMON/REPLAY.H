@@ -1,6 +1,7 @@
 #ifndef REPLAY_H
 #define REPLAY_H
 
+
 extern char * Replay_Compress__FPc(char *uncompressed_data); // 0x800B3C4C
 
 extern char * Replay_Decompress__FPc(char *compressed_data); // 0x800B3D10
@@ -32,5 +33,6 @@ extern void Replay_LoadCameraFile__Fv(); // 0x800B5500
 extern void Replay_ReplayChooseCamera__Fii(int player, int slice); // 0x800B586C
 
 extern void Replay_ReplayFindClosestCamera__Fii(int player, int slice); // 0x800B5B14
+
 
 #endif

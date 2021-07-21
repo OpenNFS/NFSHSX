@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "AUDEDIT.H"
+
 
 // decompiled code
 // original method signature: 
@@ -12,13 +13,33 @@
 	// End offset: 0x8007B544
 	// End Line: 1145
 
+	/* begin block 2 */
+		// Start line: 2284
+	/* end block 2 */
+	// End Line: 2285
+
+	/* begin block 3 */
+		// Start line: 2284
+	/* end block 3 */
+	// End Line: 2285
+
+	/* begin block 4 */
+		// Start line: 2285
+	/* end block 4 */
+	// End Line: 2286
+
+	/* begin block 5 */
+		// Start line: 2285
+	/* end block 5 */
+	// End Line: 2286
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void AudList_PurgeAudio__Fv(void)
 
 {
-  if (DAT_000001e4 != 0) {
-    purgememadr(DAT_000001e4);
+  if (gGameAudioList != (CAudioList *)0x0) {
+    purgememadr((int)gGameAudioList);
   }
   return;
 }
@@ -38,6 +59,21 @@ void AudList_PurgeAudio__Fv(void)
 	// End offset: 0x8007B554
 	// End Line: 1149
 
+	/* begin block 2 */
+		// Start line: 2293
+	/* end block 2 */
+	// End Line: 2294
+
+	/* begin block 3 */
+		// Start line: 2297
+	/* end block 3 */
+	// End Line: 2298
+
+	/* begin block 4 */
+		// Start line: 2297
+	/* end block 4 */
+	// End Line: 2298
+
 void AudList_LoadAudioFile__Fi(int AudioFileIndex)
 
 {
@@ -46,9 +82,10 @@ void AudList_LoadAudioFile__Fi(int AudioFileIndex)
   
   pcVar1 = Track_MakeTrackPathName__FPc(&DAT_8013c72c);
   sprintf(acStack136,s__s_02d_aud_800557e8,pcVar1,AudioFileIndex);
-  DAT_000001e4 = loadfileadrz(acStack136,0);
+  gGameAudioList = (CAudioList *)loadfileadrz(acStack136,0);
   return;
 }
+
 
 
 

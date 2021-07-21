@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "SCHEDULE.H"
+
 
 // decompiled code
 // original method signature: 
@@ -31,6 +32,21 @@
 	// End offset: 0x800B62E8
 	// End Line: 84
 
+	/* begin block 2 */
+		// Start line: 110
+	/* end block 2 */
+	// End Line: 111
+
+	/* begin block 3 */
+		// Start line: 110
+	/* end block 3 */
+	// End Line: 111
+
+	/* begin block 4 */
+		// Start line: 114
+	/* end block 4 */
+	// End Line: 115
+
 int Sched_ExecuteCheck__FiiiiPiN24i
               (int staggered,int module,int distance,int carId,int *time,int *elapsedTime,int *iTime
               ,int forceNoSimOptz)
@@ -53,13 +69,12 @@ int Sched_ExecuteCheck__FiiiiPiN24i
     if (forceNoSimOptz != 0) {
       distance = 0;
     }
-    uVar1 = (uint)(byte)(&Sched_gExecuteInfo)[distance + module * 0x14];
-    *time = (&Sched_ExecuteTimes)[uVar1];
-    *iTime = (&Sched_ExecuteiTimes)[uVar1];
-    *elapsedTime = (&Sched_ExecuteElapsedTimes)[uVar1];
+    uVar1 = (uint)(byte)Sched_gExecuteInfo[distance + module * 0x14];
+    *time = Sched_ExecuteTimes[uVar1];
+    *iTime = Sched_ExecuteiTimes[uVar1];
+    *elapsedTime = Sched_ExecuteElapsedTimes[uVar1];
     return (uint)((((int)(simGlobal.gameTicks + ((uint)simGlobal.gameTicks >> 0x1f)) >> 1) +
-                   carId * staggered & (&Sched_ExecuteMasks)[uVar1]) == (&Sched_ExecuteMasks)[uVar1]
-                 );
+                   carId * staggered & Sched_ExecuteMasks[uVar1]) == Sched_ExecuteMasks[uVar1]);
   }
   *time = INT_8011dff4;
   *iTime = INT_8011e02c;
@@ -82,6 +97,21 @@ int Sched_ExecuteCheck__FiiiiPiN24i
 	/* end block 1 */
 	// End offset: 0x800B634C
 	// End Line: 110
+
+	/* begin block 2 */
+		// Start line: 186
+	/* end block 2 */
+	// End Line: 187
+
+	/* begin block 3 */
+		// Start line: 192
+	/* end block 3 */
+	// End Line: 193
+
+	/* begin block 4 */
+		// Start line: 192
+	/* end block 4 */
+	// End Line: 193
 
 Sched_tSchedule * Sched_CreateNewSchedule__FPci(char *scheduleName,int maxFunctions)
 
@@ -119,6 +149,21 @@ Sched_tSchedule * Sched_CreateNewSchedule__FPci(char *scheduleName,int maxFuncti
 	// End offset: 0x800B6360
 	// End Line: 114
 
+	/* begin block 2 */
+		// Start line: 246
+	/* end block 2 */
+	// End Line: 247
+
+	/* begin block 3 */
+		// Start line: 250
+	/* end block 3 */
+	// End Line: 251
+
+	/* begin block 4 */
+		// Start line: 250
+	/* end block 4 */
+	// End Line: 251
+
 void Sched_CleanUpSchedule__FP15Sched_tSchedule(Sched_tSchedule *schedule)
 
 {
@@ -130,7 +175,7 @@ void Sched_CleanUpSchedule__FP15Sched_tSchedule(Sched_tSchedule *schedule)
 
 // decompiled code
 // original method signature: 
-// void /*$ra*/ Sched_AddFunction__FP15Sched_tSchedulePFPv_vPvi(struct Sched_tSchedule *schedule /*$a0*/, void (*function)() /*$a1*/, void *var1 /*$a2*/, int priority /*$a3*/)
+// void /*$ra*/ Sched_AddFunction__FP15Sched_tSchedulePFPv_vPvi(struct Sched_tSchedule *schedule /*$a0*/, TDRFuncPtr_Sched_AddFunction__FP15Sched_tSchedulePFPv_vPvi1function function /*$a1*/, void *var1 /*$a2*/, int priority /*$a3*/)
  // line 123, offset 0x800b6380
 	/* begin block 1 */
 		// Start line: 124
@@ -142,6 +187,26 @@ void Sched_CleanUpSchedule__FP15Sched_tSchedule(Sched_tSchedule *schedule)
 	/* end block 1 */
 	// End offset: 0x800B641C
 	// End Line: 154
+
+	/* begin block 2 */
+		// Start line: 265
+	/* end block 2 */
+	// End Line: 266
+
+	/* begin block 3 */
+		// Start line: 270
+	/* end block 3 */
+	// End Line: 271
+
+	/* begin block 4 */
+		// Start line: 270
+	/* end block 4 */
+	// End Line: 271
+
+	/* begin block 5 */
+		// Start line: 288
+	/* end block 5 */
+	// End Line: 289
 
 void Sched_AddFunction__FP15Sched_tSchedulePFPv_vPvi
                (Sched_tSchedule *schedule,
@@ -193,7 +258,7 @@ void Sched_AddFunction__FP15Sched_tSchedulePFPv_vPvi
 
 // decompiled code
 // original method signature: 
-// void /*$ra*/ Sched_DeleteFunction__FP15Sched_tSchedulePFPv_vPv(struct Sched_tSchedule *schedule /*$a0*/, void (*function)() /*$a1*/, void *var1 /*$a2*/)
+// void /*$ra*/ Sched_DeleteFunction__FP15Sched_tSchedulePFPv_vPv(struct Sched_tSchedule *schedule /*$a0*/, TDRFuncPtr_Sched_DeleteFunction__FP15Sched_tSchedulePFPv_vPv1function function /*$a1*/, void *var1 /*$a2*/)
  // line 160, offset 0x800b6434
 	/* begin block 1 */
 		// Start line: 161
@@ -204,6 +269,26 @@ void Sched_AddFunction__FP15Sched_tSchedulePFPv_vPvi
 	/* end block 1 */
 	// End offset: 0x800B64F8
 	// End Line: 184
+
+	/* begin block 2 */
+		// Start line: 341
+	/* end block 2 */
+	// End Line: 342
+
+	/* begin block 3 */
+		// Start line: 346
+	/* end block 3 */
+	// End Line: 347
+
+	/* begin block 4 */
+		// Start line: 346
+	/* end block 4 */
+	// End Line: 347
+
+	/* begin block 5 */
+		// Start line: 353
+	/* end block 5 */
+	// End Line: 354
 
 void Sched_DeleteFunction__FP15Sched_tSchedulePFPv_vPv
                (Sched_tSchedule *schedule,
@@ -262,6 +347,21 @@ void Sched_DeleteFunction__FP15Sched_tSchedulePFPv_vPv
 	// End offset: 0x800B655C
 	// End Line: 207
 
+	/* begin block 2 */
+		// Start line: 404
+	/* end block 2 */
+	// End Line: 405
+
+	/* begin block 3 */
+		// Start line: 416
+	/* end block 3 */
+	// End Line: 417
+
+	/* begin block 4 */
+		// Start line: 416
+	/* end block 4 */
+	// End Line: 417
+
 void Sched_Execute__FP15Sched_tSchedule(Sched_tSchedule *schedule)
 
 {
@@ -283,6 +383,7 @@ void Sched_Execute__FP15Sched_tSchedule(Sched_tSchedule *schedule)
   }
   return;
 }
+
 
 
 

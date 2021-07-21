@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "ANIM.H"
+
 
 // decompiled code
 // original method signature: 
@@ -54,6 +55,16 @@
 	// End offset: 0x80073AFC
 	// End Line: 95
 
+	/* begin block 2 */
+		// Start line: 166
+	/* end block 2 */
+	// End Line: 167
+
+	/* begin block 3 */
+		// Start line: 166
+	/* end block 3 */
+	// End Line: 167
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Anim_Restart__Fv(void)
@@ -62,7 +73,7 @@ void Anim_Restart__Fv(void)
   AnimScript *deleteMe;
   AnimScript **ppAVar1;
   
-  ppAVar1 = &__animSlots_32__;
+  ppAVar1 = &animSlots32;
   while ((int)ppAVar1 < -0x7fef1e34) {
     deleteMe = *ppAVar1;
     if (deleteMe != (AnimScript *)0x0) {
@@ -129,6 +140,21 @@ void Anim_Restart__Fv(void)
 	// End offset: 0x80073C90
 	// End Line: 201
 
+	/* begin block 2 */
+		// Start line: 210
+	/* end block 2 */
+	// End Line: 211
+
+	/* begin block 3 */
+		// Start line: 223
+	/* end block 3 */
+	// End Line: 224
+
+	/* begin block 4 */
+		// Start line: 223
+	/* end block 4 */
+	// End Line: 224
+
 int Anim_InitSystem__FPc(char *trackName)
 
 {
@@ -159,7 +185,7 @@ int Anim_InitSystem__FPc(char *trackName)
     purgememadr((int)puVar2);
     strstr(trackName,(char *)&PTR_DAT_8013c604);
     size = 0;
-    ppTVar5 = &__animScripts_10__;
+    ppTVar5 = animScripts10;
     do {
       sprintf((char *)abStack104,s_tr00a_02d_can_800556a8,size);
       pTVar4 = (Trk_AnimateInst *)locatebig((byte *)puVar3,abStack104);
@@ -174,7 +200,7 @@ int Anim_InitSystem__FPc(char *trackName)
     while (size = size + -1, size != -1) {
       if (((*(char *)(&pTVar4->size + 1) == '\x03') || (*(char *)(&pTVar4->size + 1) == '\a')) &&
          (bVar1 = *(byte *)((int)&pTVar4->size + 3), bVar1 != 0)) {
-        (&__Anim_gInstanceFromIndex_32__)[(uint)bVar1] = pTVar4;
+        (&Anim_gInstanceFromIndex32)[(uint)bVar1] = pTVar4;
       }
       pTVar4 = (Trk_AnimateInst *)((int)&pTVar4->size + (int)pTVar4->size);
     }
@@ -196,6 +222,26 @@ int Anim_InitSystem__FPc(char *trackName)
 	/* end block 1 */
 	// End offset: 0x80073CE0
 	// End Line: 222
+
+	/* begin block 2 */
+		// Start line: 421
+	/* end block 2 */
+	// End Line: 422
+
+	/* begin block 3 */
+		// Start line: 432
+	/* end block 3 */
+	// End Line: 433
+
+	/* begin block 4 */
+		// Start line: 432
+	/* end block 4 */
+	// End Line: 433
+
+	/* begin block 5 */
+		// Start line: 435
+	/* end block 5 */
+	// End Line: 436
 
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
@@ -236,6 +282,21 @@ void Anim_DeInitSystem__Fv(void)
 	// End offset: 0x80073D30
 	// End Line: 239
 
+	/* begin block 2 */
+		// Start line: 462
+	/* end block 2 */
+	// End Line: 463
+
+	/* begin block 3 */
+		// Start line: 472
+	/* end block 3 */
+	// End Line: 473
+
+	/* begin block 4 */
+		// Start line: 472
+	/* end block 4 */
+	// End Line: 473
+
 int Anim_Handle__Fi(int num)
 
 {
@@ -244,7 +305,7 @@ int Anim_Handle__Fi(int num)
   int iVar2;
   
   iVar2 = 0;
-  ppAVar1 = &__animSlots_32__;
+  ppAVar1 = &animSlots32;
   do {
     if (*ppAVar1 == (AnimScript *)0x0) break;
     iVar2 = iVar2 + 1;
@@ -252,7 +313,7 @@ int Anim_Handle__Fi(int num)
   } while (iVar2 < 0x20);
   this = (AnimScript *)__builtin_new(0x14);
   this = __10AnimScripti(this,num);
-  (&__animSlots_32__)[iVar2] = this;
+  (&animSlots32)[iVar2] = this;
   return iVar2;
 }
 
@@ -283,19 +344,34 @@ int Anim_Handle__Fi(int num)
 	// End offset: 0x80073DC0
 	// End Line: 247
 
+	/* begin block 2 */
+		// Start line: 500
+	/* end block 2 */
+	// End Line: 501
+
+	/* begin block 3 */
+		// Start line: 504
+	/* end block 3 */
+	// End Line: 505
+
+	/* begin block 4 */
+		// Start line: 504
+	/* end block 4 */
+	// End Line: 505
+
 int Anim_FreeHandle__Fi(int handle)
 
 {
   AnimScript *deleteMe;
   
-  deleteMe = (&__animSlots_32__)[handle];
+  deleteMe = (&animSlots32)[handle];
   if (deleteMe != (AnimScript *)0x0) {
     if (deleteMe->inst != (Trk_AnimateInst **)0x0) {
       __builtin_vec_delete(deleteMe->inst);
     }
     __builtin_delete(deleteMe);
   }
-  (&__animSlots_32__)[handle] = (AnimScript *)0x0;
+  (&animSlots32)[handle] = (AnimScript *)0x0;
   return 0;
 }
 
@@ -312,10 +388,35 @@ int Anim_FreeHandle__Fi(int handle)
 	// End offset: 0x80073DEC
 	// End Line: 253
 
+	/* begin block 2 */
+		// Start line: 515
+	/* end block 2 */
+	// End Line: 516
+
+	/* begin block 3 */
+		// Start line: 519
+	/* end block 3 */
+	// End Line: 520
+
+	/* begin block 4 */
+		// Start line: 519
+	/* end block 4 */
+	// End Line: 520
+
+	/* begin block 5 */
+		// Start line: 520
+	/* end block 5 */
+	// End Line: 521
+
+	/* begin block 6 */
+		// Start line: 520
+	/* end block 6 */
+	// End Line: 521
+
 AnimScript * Anim_GetAnim__Fi(int handle)
 
 {
-  return (&__animSlots_32__)[handle];
+  return (&animSlots32)[handle];
 }
 
 
@@ -334,6 +435,21 @@ AnimScript * Anim_GetAnim__Fi(int handle)
 	/* end block 1 */
 	// End offset: 0x80073E08
 	// End Line: 262
+
+	/* begin block 2 */
+		// Start line: 530
+	/* end block 2 */
+	// End Line: 531
+
+	/* begin block 3 */
+		// Start line: 539
+	/* end block 3 */
+	// End Line: 540
+
+	/* begin block 4 */
+		// Start line: 539
+	/* end block 4 */
+	// End Line: 540
 
 void Anim_GetLastRotPos__FP15Trk_AnimateInstP8coorddefP10matrixtdef
                (Trk_AnimateInst *animInst,coorddef *pt,matrixtdef *mat)
@@ -386,6 +502,21 @@ void Anim_GetLastRotPos__FP15Trk_AnimateInstP8coorddefP10matrixtdef
 	// End offset: 0x80073F00
 	// End Line: 296
 
+	/* begin block 2 */
+		// Start line: 580
+	/* end block 2 */
+	// End Line: 581
+
+	/* begin block 3 */
+		// Start line: 590
+	/* end block 3 */
+	// End Line: 591
+
+	/* begin block 4 */
+		// Start line: 590
+	/* end block 4 */
+	// End Line: 591
+
 int Anim_GetLastAnimPosRot__FiiP8coorddefP10matrixtdef
               (int animNum,int flags,coorddef *pt,matrixtdef *mat)
 
@@ -394,8 +525,7 @@ int Anim_GetLastAnimPosRot__FiiP8coorddefP10matrixtdef
   int iVar2;
   int iVar3;
   
-  Anim_GetLastRotPos__FP15Trk_AnimateInstP8coorddefP10matrixtdef
-            ((&__animScripts_10__)[animNum],pt,mat);
+  Anim_GetLastRotPos__FP15Trk_AnimateInstP8coorddefP10matrixtdef(animScripts10[animNum],pt,mat);
   if ((flags & 4U) != 0) {
     iVar1 = mat->m[3];
     iVar2 = mat->m[4];
@@ -432,6 +562,21 @@ int Anim_GetLastAnimPosRot__FiiP8coorddefP10matrixtdef
 	/* end block 1 */
 	// End offset: 0x8007411C
 	// End Line: 360
+
+	/* begin block 2 */
+		// Start line: 626
+	/* end block 2 */
+	// End Line: 627
+
+	/* begin block 3 */
+		// Start line: 635
+	/* end block 3 */
+	// End Line: 636
+
+	/* begin block 4 */
+		// Start line: 635
+	/* end block 4 */
+	// End Line: 636
 
 int Anim_GetRotPos__FP15Trk_AnimateInstiiP8coorddefP10matrixtdef
               (Trk_AnimateInst *animInst,int flags,int ticks,coorddef *pt,matrixtdef *mat)
@@ -530,6 +675,21 @@ int Anim_GetRotPos__FP15Trk_AnimateInstiiP8coorddefP10matrixtdef
 	// End offset: 0x80074340
 	// End Line: 409
 
+	/* begin block 2 */
+		// Start line: 792
+	/* end block 2 */
+	// End Line: 793
+
+	/* begin block 3 */
+		// Start line: 801
+	/* end block 3 */
+	// End Line: 802
+
+	/* begin block 4 */
+		// Start line: 801
+	/* end block 4 */
+	// End Line: 802
+
 int Anim_GetPos__FP15Trk_AnimateInstiiP8coorddefPiT4
               (Trk_AnimateInst *animInst,int flags,int ticks,coorddef *pt,int *animTicks,
               int *animLength)
@@ -618,6 +778,21 @@ int Anim_GetPos__FP15Trk_AnimateInstiiP8coorddefPiT4
 	// End offset: 0x80074360
 	// End Line: 461
 
+	/* begin block 2 */
+		// Start line: 954
+	/* end block 2 */
+	// End Line: 955
+
+	/* begin block 3 */
+		// Start line: 1006
+	/* end block 3 */
+	// End Line: 1007
+
+	/* begin block 4 */
+		// Start line: 1006
+	/* end block 4 */
+	// End Line: 1007
+
 AnimScript * __10AnimScripti(AnimScript *this,int num)
 
 {
@@ -626,7 +801,7 @@ AnimScript * __10AnimScripti(AnimScript *this,int num)
   
   pTVar2 = (Trk_AnimateInst *)__builtin_vec_new(4);
   *(Trk_AnimateInst **)&this->inst = pTVar2;
-  *(Trk_AnimateInst **)pTVar2 = (&__animScripts_10__)[num];
+  *(Trk_AnimateInst **)pTVar2 = animScripts10[num];
   iVar1 = simGlobal.gameTicks;
   this->flags = 6;
   this->baseTicks = iVar1;
@@ -655,6 +830,21 @@ AnimScript * __10AnimScripti(AnimScript *this,int num)
 	// End offset: 0x80074438
 	// End Line: 479
 
+	/* begin block 2 */
+		// Start line: 1033
+	/* end block 2 */
+	// End Line: 1034
+
+	/* begin block 3 */
+		// Start line: 1037
+	/* end block 3 */
+	// End Line: 1038
+
+	/* begin block 4 */
+		// Start line: 1037
+	/* end block 4 */
+	// End Line: 1038
+
 AnimScript * __10AnimScriptii(AnimScript *this,int num,int numParts)
 
 {
@@ -671,7 +861,7 @@ AnimScript * __10AnimScriptii(AnimScript *this,int num,int numParts)
     do {
       iVar2 = num + iVar4;
       iVar4 = iVar4 + 1;
-      *(Trk_AnimateInst **)(iVar3 + (int)this->inst) = (&__animScripts_10__)[iVar2];
+      *(Trk_AnimateInst **)(iVar3 + (int)this->inst) = animScripts10[iVar2];
       iVar3 = iVar4 * 4;
     } while (iVar4 < numParts);
   }
@@ -697,6 +887,21 @@ AnimScript * __10AnimScriptii(AnimScript *this,int num,int numParts)
 	/* end block 1 */
 	// End offset: 0x800744FC
 	// End Line: 501
+
+	/* begin block 2 */
+		// Start line: 1063
+	/* end block 2 */
+	// End Line: 1064
+
+	/* begin block 3 */
+		// Start line: 1067
+	/* end block 3 */
+	// End Line: 1068
+
+	/* begin block 4 */
+		// Start line: 1067
+	/* end block 4 */
+	// End Line: 1068
 
 AnimScript *
 __10AnimScriptP5Groupiii(AnimScript *this,Group *instanceGroup,int type,int boomIndex,int numParts)
@@ -748,6 +953,31 @@ __10AnimScriptP5Groupiii(AnimScript *this,Group *instanceGroup,int type,int boom
 	// End offset: 0x80074534
 	// End Line: 515
 
+	/* begin block 2 */
+		// Start line: 1122
+	/* end block 2 */
+	// End Line: 1123
+
+	/* begin block 3 */
+		// Start line: 1132
+	/* end block 3 */
+	// End Line: 1133
+
+	/* begin block 4 */
+		// Start line: 1132
+	/* end block 4 */
+	// End Line: 1133
+
+	/* begin block 5 */
+		// Start line: 1133
+	/* end block 5 */
+	// End Line: 1134
+
+	/* begin block 6 */
+		// Start line: 1133
+	/* end block 6 */
+	// End Line: 1134
+
 void SetAnimAttrib__10AnimScripti(AnimScript *this,int flags)
 
 {
@@ -771,6 +1001,21 @@ void SetAnimAttrib__10AnimScripti(AnimScript *this,int flags)
 	/* end block 1 */
 	// End offset: 0x80074578
 	// End Line: 539
+
+	/* begin block 2 */
+		// Start line: 1143
+	/* end block 2 */
+	// End Line: 1144
+
+	/* begin block 3 */
+		// Start line: 1152
+	/* end block 3 */
+	// End Line: 1153
+
+	/* begin block 4 */
+		// Start line: 1152
+	/* end block 4 */
+	// End Line: 1153
 
 void GetAnimFrameInfo__10AnimScriptPiT1(AnimScript *this,int *frame,int *numFrames)
 
@@ -820,6 +1065,21 @@ void GetAnimFrameInfo__10AnimScriptPiT1(AnimScript *this,int *frame,int *numFram
 	// End offset: 0x800745F8
 	// End Line: 554
 
+	/* begin block 2 */
+		// Start line: 1210
+	/* end block 2 */
+	// End Line: 1211
+
+	/* begin block 3 */
+		// Start line: 1221
+	/* end block 3 */
+	// End Line: 1222
+
+	/* begin block 4 */
+		// Start line: 1221
+	/* end block 4 */
+	// End Line: 1222
+
 int GetTimedAnimPosRot__10AnimScriptP8coorddefP10matrixtdef
               (AnimScript *this,coorddef *pt,matrixtdef *mat)
 
@@ -858,6 +1118,21 @@ int GetTimedAnimPosRot__10AnimScriptP8coorddefP10matrixtdef
 	/* end block 1 */
 	// End offset: 0x80074700
 	// End Line: 589
+
+	/* begin block 2 */
+		// Start line: 1234
+	/* end block 2 */
+	// End Line: 1235
+
+	/* begin block 3 */
+		// Start line: 1244
+	/* end block 3 */
+	// End Line: 1245
+
+	/* begin block 4 */
+		// Start line: 1244
+	/* end block 4 */
+	// End Line: 1245
 
 int GetTimedAnimPosRot__10AnimScriptiP8coorddefP10matrixtdef
               (AnimScript *this,int index,coorddef *pt,matrixtdef *mat)
@@ -909,11 +1184,37 @@ int GetTimedAnimPosRot__10AnimScriptiP8coorddefP10matrixtdef
 	// End offset: 0x8007471C
 	// End Line: 601
 
+	/* begin block 2 */
+		// Start line: 1310
+	/* end block 2 */
+	// End Line: 1311
+
+	/* begin block 3 */
+		// Start line: 1321
+	/* end block 3 */
+	// End Line: 1322
+
+	/* begin block 4 */
+		// Start line: 1321
+	/* end block 4 */
+	// End Line: 1322
+
+	/* begin block 5 */
+		// Start line: 1322
+	/* end block 5 */
+	// End Line: 1323
+
+	/* begin block 6 */
+		// Start line: 1322
+	/* end block 6 */
+	// End Line: 1323
+
 int GetStatus__10AnimScript(AnimScript *this)
 
 {
   return (uint)(*this->inst != (Trk_AnimateInst *)0x0);
 }
+
 
 
 

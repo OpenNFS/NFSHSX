@@ -1,6 +1,7 @@
 #ifndef DRAWW_H
 #define DRAWW_H
 
+
 extern void DrawW_AddSubdividPrimGT4__FP8POLY_GT4P12Draw_SVertexN31P25Draw_tGiveShelbyMoreCache(struct POLY_GT4 *prim, struct Draw_SVertex *v0, struct Draw_SVertex *v1, struct Draw_SVertex *v2, struct Draw_SVertex *v3, struct Draw_tGiveShelbyMoreCache *sd); // 0x800C5028
 
 extern void DrawW_AddSubdividPrimGT3__FP8POLY_GT3P12Draw_SVertexN21P25Draw_tGiveShelbyMoreCache(struct POLY_GT3 *prim, struct Draw_SVertex *v0, struct Draw_SVertex *v1, struct Draw_SVertex *v2, struct Draw_tGiveShelbyMoreCache *sd); // 0x800C50B4
@@ -70,5 +71,6 @@ extern void DrawW_DoLines__FP13DRender_tViewP11tBuildEntryP11Draw_DCache(struct 
 extern void DrawW_BuildSpikeBelt__FP13DRender_tViewiP11Draw_DCache(struct DRender_tView *Vi, int scale, struct Draw_DCache *sd); // 0x800CA520
 
 extern void DepthCue_Init__Fv(); // 0x800CA950
+
 
 #endif

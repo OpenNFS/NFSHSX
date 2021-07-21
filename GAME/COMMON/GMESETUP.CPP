@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "GMESETUP.H"
+
 
 // decompiled code
 // original method signature: 
@@ -17,6 +18,16 @@
 	/* end block 1 */
 	// End offset: 0x8009C0B4
 	// End Line: 338
+
+	/* begin block 2 */
+		// Start line: 310
+	/* end block 2 */
+	// End Line: 311
+
+	/* begin block 3 */
+		// Start line: 310
+	/* end block 3 */
+	// End Line: 311
 
 void GameSetup_StartUp__FPi(int *FrontEndDataStream)
 
@@ -113,8 +124,8 @@ void GameSetup_StartUp__FPi(int *FrontEndDataStream)
       }
       else {
         (&GameSetup_gData.carInfo[7].BrakeAssist)[iVar3] = piVar7[1];
-        if ((&Device_gDeviceList)[piVar7[1] & 0xff].startupfunc != (_func_41 *)0x0) {
-          (*(&Device_gDeviceList)[piVar7[1] & 0xff].startupfunc)(piVar7[1] >> 8);
+        if (Device_gDeviceList[piVar7[1] & 0xff].startupfunc != (_func_41 *)0x0) {
+          (*Device_gDeviceList[piVar7[1] & 0xff].startupfunc)(piVar7[1] >> 8);
           piVar7 = piVar7 + 2;
           goto LAB_8009bf88;
         }
@@ -155,6 +166,31 @@ LAB_8009bf88:
 	// End offset: 0x8009C120
 	// End Line: 370
 
+	/* begin block 2 */
+		// Start line: 729
+	/* end block 2 */
+	// End Line: 730
+
+	/* begin block 3 */
+		// Start line: 744
+	/* end block 3 */
+	// End Line: 745
+
+	/* begin block 4 */
+		// Start line: 744
+	/* end block 4 */
+	// End Line: 745
+
+	/* begin block 5 */
+		// Start line: 745
+	/* end block 5 */
+	// End Line: 746
+
+	/* begin block 6 */
+		// Start line: 745
+	/* end block 6 */
+	// End Line: 746
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void GameSetup_CleanUp__Fv(void)
@@ -162,6 +198,7 @@ void GameSetup_CleanUp__Fv(void)
 {
   return;
 }
+
 
 
 

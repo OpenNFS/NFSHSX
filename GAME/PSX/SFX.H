@@ -1,6 +1,7 @@
 #ifndef SFX_H
 #define SFX_H
 
+
 extern void Sfx_Transform__FP8coorddefP7SVECTORT0(struct coorddef *worldpt, struct SVECTOR *campt, struct coorddef *t); // 0x800DD050
 
 extern void Sfx_BuildSmokeFacet__FP17Souffle_tISouffleP10sfxsouffleP12Draw_tPixMap(struct Souffle_tISouffle *is, struct sfxsouffle *dSouffle, struct Draw_tPixMap *cpixmap); // 0x800DD1A4
@@ -14,5 +15,6 @@ extern void Sfx_AdditivePrim__FP12Draw_tPixMapP7SVECTORiiP10Sfx_tCache(struct Dr
 extern void Sfx_BuildSouffleFacet__FP13DRender_tViewP17Souffle_tISouffle(struct DRender_tView *Vi, struct Souffle_tISouffle *is); // 0x800DD790
 
 extern void Sfx_Add__FP17Souffle_tISouffle(struct Souffle_tISouffle *is); // 0x800DE638
+
 
 #endif

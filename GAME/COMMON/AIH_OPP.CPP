@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "AIH_OPP.H"
+
 
 // decompiled code
 // original method signature: 
@@ -151,6 +152,16 @@
 	// End offset: 0x800634E0
 	// End Line: 94
 
+	/* begin block 2 */
+		// Start line: 76
+	/* end block 2 */
+	// End Line: 77
+
+	/* begin block 3 */
+		// Start line: 76
+	/* end block 3 */
+	// End Line: 77
+
 /* WARNING: Type propagation algorithm not settling */
 
 void CheckForWipeOut__15AIHigh_Opponent(AIHigh_Opponent *this)
@@ -167,14 +178,14 @@ void CheckForWipeOut__15AIHigh_Opponent(AIHigh_Opponent *this)
   int iVar9;
   int iVar10;
   
-  iVar10 = (this->AIHigh_Player).perpChaseInfo_.engagementTime_;
+  iVar10 = (this->AIHigh_Player).perpChaseInfo_.chaseLevelIndex_;
   pCVar4 = (this->AIHigh_Player).AIHigh_BasicPerp.AIHigh_Base.carObj_;
   iVar9 = (pCVar4->stats).numFines;
   if ((Cars_gNumCopCars != 0) && (pCVar4->targetLatPos <= simGlobal.gameTicks)) {
     bVar1 = false;
-    if (((this->AIHigh_Player).AIHigh_BasicPerp.basicPerpInfo_.copsAssigned_[0] == 0) ||
-       ((int)&(((this->AIHigh_Player).AIHigh_BasicPerp.lastArrestingCop_)->N).objID +
-        (this->AIHigh_Player).AIHigh_BasicPerp.lastPullOverTime_ == 0)) {
+    if (((this->AIHigh_Player).AIHigh_BasicPerp.basicPerpInfo_.crime_ == CRIME_NONE) ||
+       ((this->AIHigh_Player).AIHigh_BasicPerp.basicPerpInfo_.copsAssigned_[0] +
+        (this->AIHigh_Player).AIHigh_BasicPerp.basicPerpInfo_.copsAssigned_[1] == 0)) {
       bVar1 = true;
     }
     if ((!bVar1) &&
@@ -190,9 +201,9 @@ void CheckForWipeOut__15AIHigh_Opponent(AIHigh_Opponent *this)
       iVar3 = Cars_gNumHumanRaceCars;
       iVar2 = AI_elapsedTime;
       iVar7 = 0;
-      if ((this->AIHigh_Player).perpChaseInfo_.copGameInfo_ !=
-          (copGame_t *)(*(int *)(this->AIHigh_Player).lastTriggerCheckSlice_ + -1)) {
-        ppCVar6 = &__Cars_gHumanRaceCarList_9__;
+      if ((this->AIHigh_Player).perpChaseInfo_.bestChaseLevelIndex_ !=
+          ((this->AIHigh_Player).perpChaseInfo_.copGameInfo_)->numLevels + -1) {
+        ppCVar6 = &Cars_gHumanRaceCarList9;
         while (iVar7 < iVar3) {
           pCVar4 = *ppCVar6;
           iVar5 = (pCVar4->script).lastActionTime;
@@ -200,8 +211,8 @@ void CheckForWipeOut__15AIHigh_Opponent(AIHigh_Opponent *this)
             iVar5 = -iVar5;
           }
           if (((0xd5554 < iVar5) &&
-              ((((int)(&__highLevelAIObjs_9__)[pCVar4->carIndex][4]._vf[0].value < 2 && (2 < iVar10)
-                ) || (1 < (pCVar4->stats).numFines - iVar9)))) && ((int)uVar8 < iVar2 * 0x74)) {
+              ((((int)(&highLevelAIObjs9)[pCVar4->carIndex][6].state_ < 2 && (2 < iVar10)) ||
+               (1 < (pCVar4->stats).numFines - iVar9)))) && ((int)uVar8 < iVar2 * 0x74)) {
             ((this->AIHigh_Player).AIHigh_BasicPerp.AIHigh_Base.carObj_)->targetLatPos =
                  simGlobal.gameTicks + 0xc0;
           }
@@ -281,6 +292,21 @@ void CheckForWipeOut__15AIHigh_Opponent(AIHigh_Opponent *this)
 	// End offset: 0x8006379C
 	// End Line: 147
 
+	/* begin block 2 */
+		// Start line: 209
+	/* end block 2 */
+	// End Line: 210
+
+	/* begin block 3 */
+		// Start line: 212
+	/* end block 3 */
+	// End Line: 213
+
+	/* begin block 4 */
+		// Start line: 212
+	/* end block 4 */
+	// End Line: 213
+
 /* WARNING: Type propagation algorithm not settling */
 
 int DoRearEnder__15AIHigh_Opponent(AIHigh_Opponent *this)
@@ -299,7 +325,7 @@ int DoRearEnder__15AIHigh_Opponent(AIHigh_Opponent *this)
                     (&((this->AIHigh_Player).AIHigh_BasicPerp.AIHigh_Base.carObj_)->script,
                      AISCRIPT_AIREACTION_REAR_END);
   if (iVar1 != -1) {
-    carObj_00 = (&__Cars_gList_9__)[iVar1];
+    carObj_00 = (&Cars_gList9)[iVar1];
     iVar2 = AIWorld_SplineDistance__FP8Car_tObjT0
                       (carObj_00,(this->AIHigh_Player).AIHigh_BasicPerp.AIHigh_Base.carObj_);
     carObj = (this->AIHigh_Player).AIHigh_BasicPerp.AIHigh_Base.carObj_;
@@ -326,7 +352,7 @@ int DoRearEnder__15AIHigh_Opponent(AIHigh_Opponent *this)
     }
     iVar5 = 0;
     if (0x140000 < iVar1) {
-      ppCVar6 = &__Cars_gHumanRaceCarList_9__;
+      ppCVar6 = &Cars_gHumanRaceCarList9;
       while (iVar5 < Cars_gNumHumanRaceCars) {
         carObj = *ppCVar6;
         pTVar3 = BWorldSm_slices + (int)(carObj->N).simRoadInfo.slice;
@@ -488,74 +514,88 @@ int DoRearEnder__15AIHigh_Opponent(AIHigh_Opponent *this)
 	// End offset: 0x80063ACC
 	// End Line: 247
 
+	/* begin block 2 */
+		// Start line: 374
+	/* end block 2 */
+	// End Line: 375
+
+	/* begin block 3 */
+		// Start line: 378
+	/* end block 3 */
+	// End Line: 379
+
+	/* begin block 4 */
+		// Start line: 378
+	/* end block 4 */
+	// End Line: 379
+
 /* WARNING: Type propagation algorithm not settling */
 
 void HighExecute__15AIHigh_Opponent(AIHigh_Opponent *this)
 
 {
-  int aggressionLevel;
   AIState_Chase *this_00;
-  Car_tObj *pCVar1;
+  int iVar1;
   AIState_Normal *this_01;
-  uint uVar2;
-  AIState_Base *pAVar3;
-  int iVar4;
-  AIState_Base *pAVar5;
-  undefined4 uVar6;
-  int iVar7;
+  int aggressionLevel;
+  AIState_Base *pAVar2;
+  AIHigh_tAttackMode AVar3;
+  AIState_Base *pAVar4;
+  undefined4 uVar5;
+  int iVar6;
   coorddef cStack40;
   
   switch((this->AIHigh_Player).AIHigh_BasicPerp.AIHigh_Base.stateType_) {
   case STATE_NONE:
     this_01 = (AIState_Normal *)__builtin_new(8);
-    pAVar3 = (AIState_Base *)
+    pAVar2 = (AIState_Base *)
              __14AIState_NormalP8Car_tObj
                        (this_01,(this->AIHigh_Player).AIHigh_BasicPerp.AIHigh_Base.carObj_);
-    pAVar5 = (this->AIHigh_Player).AIHigh_BasicPerp.AIHigh_Base.state_;
-    if (pAVar5 != (AIState_Base *)0x0) {
-      uVar2 = pAVar5->_vf[0].value;
-      (**(code **)(uVar2 + 0x14))((int)&pAVar5->carObj_ + (int)*(short *)(uVar2 + 0x10),3);
+    pAVar4 = (this->AIHigh_Player).AIHigh_BasicPerp.AIHigh_Base.state_;
+    if (pAVar4 != (AIState_Base *)0x0) {
+      (**(code **)(*(int *)pAVar4->_vf + 0x14))
+                ((int)&pAVar4->carObj_ + (int)*(short *)(*(int *)pAVar4->_vf + 0x10),3);
     }
-    (this->AIHigh_Player).AIHigh_BasicPerp.AIHigh_Base.state_ = pAVar3;
+    (this->AIHigh_Player).AIHigh_BasicPerp.AIHigh_Base.state_ = pAVar2;
     (this->AIHigh_Player).AIHigh_BasicPerp.AIHigh_Base.stateType_ = STATE_NORMAL;
     return;
   case STATE_NORMAL:
     HandleCops__13AIHigh_Player((AIHigh_Player *)this);
     CheckForWipeOut__15AIHigh_Opponent(this);
-    iVar4 = AIScript_DoReAction__FP10AIScript_t20AIScript_tAIReaction
+    iVar1 = AIScript_DoReAction__FP10AIScript_t20AIScript_tAIReaction
                       (&((this->AIHigh_Player).AIHigh_BasicPerp.AIHigh_Base.carObj_)->script,
                        AISCRIPT_AIREACTION_ATTACK);
-    if (iVar4 == -1) {
-      iVar4 = DoRearEnder__15AIHigh_Opponent(this);
-      if (iVar4 != -1) {
-        aggressionLevel = 1;
+    if (iVar1 == -1) {
+      iVar1 = DoRearEnder__15AIHigh_Opponent(this);
+      if (iVar1 != -1) {
+        AVar3 = REAR_END;
         goto LAB_800638c0;
       }
-      iVar4 = DoProvokedAttack__15AIHigh_Opponent(this);
-      aggressionLevel = 3;
-      if (iVar4 != -1) goto LAB_800638c0;
+      iVar1 = DoProvokedAttack__15AIHigh_Opponent(this);
+      AVar3 = PROVOKED_ATTACK;
+      if (iVar1 != -1) goto LAB_800638c0;
     }
     else {
-      aggressionLevel = 2;
+      AVar3 = SCRIPT_ATTACK;
 LAB_800638c0:
-      (this->AIHigh_Player).perpChaseInfo_.engagementPercentIncreasePerTick_ = aggressionLevel;
+      this->attackMode_ = AVar3;
     }
-    if ((this->AIHigh_Player).perpChaseInfo_.engagementPercentIncreasePerTick_ != 0) {
+    if (this->attackMode_ != NO_ATTACK) {
       memset(&cStack40,0,0xc);
-      iVar7 = (this->AIHigh_Player).perpChaseInfo_.engagementPercentIncreasePerTick_ + -1;
+      iVar6 = this->attackMode_ + ~NO_ATTACK;
       aggressionLevel = 2;
-      if (1 < iVar7) {
-        aggressionLevel = iVar7;
+      if (1 < iVar6) {
+        aggressionLevel = iVar6;
       }
       this_00 = (AIState_Chase *)__builtin_new(0x94);
       this_00 = __13AIState_ChaseP8Car_tObjT1P8coorddefiiiii
                           (this_00,(this->AIHigh_Player).AIHigh_BasicPerp.AIHigh_Base.carObj_,
-                           (&__Cars_gList_9__)[iVar4],&cStack40,0x20,0x960000,0x960000,
-                           aggressionLevel,0x10000);
-      pAVar3 = (this->AIHigh_Player).AIHigh_BasicPerp.AIHigh_Base.state_;
-      if (pAVar3 != (AIState_Base *)0x0) {
-        uVar2 = pAVar3->_vf[0].value;
-        (**(code **)(uVar2 + 0x14))((int)&pAVar3->carObj_ + (int)*(short *)(uVar2 + 0x10),3);
+                           (&Cars_gList9)[iVar1],&cStack40,0x20,0x960000,0x960000,aggressionLevel,
+                           0x10000);
+      pAVar2 = (this->AIHigh_Player).AIHigh_BasicPerp.AIHigh_Base.state_;
+      if (pAVar2 != (AIState_Base *)0x0) {
+        (**(code **)(*(int *)pAVar2->_vf + 0x14))
+                  ((int)&pAVar2->carObj_ + (int)*(short *)(*(int *)pAVar2->_vf + 0x10),3);
       }
       *(AIState_Chase **)&(this->AIHigh_Player).AIHigh_BasicPerp.AIHigh_Base.state_ = this_00;
       (this->AIHigh_Player).AIHigh_BasicPerp.AIHigh_Base.stateType_ = STATE_CHASE;
@@ -566,48 +606,48 @@ LAB_800638c0:
     HandleCops__13AIHigh_Player((AIHigh_Player *)this);
     CheckForWipeOut__15AIHigh_Opponent(this);
     SetMurderMode__13AIState_Chaseii(this_00,1,0xf);
-    iVar4 = (this->AIHigh_Player).perpChaseInfo_.engagementPercentIncreasePerTick_;
-    if (iVar4 == 2) {
-      iVar4 = AIScript_DoReAction__FP10AIScript_t20AIScript_tAIReaction
+    AVar3 = this->attackMode_;
+    if (AVar3 == SCRIPT_ATTACK) {
+      iVar1 = AIScript_DoReAction__FP10AIScript_t20AIScript_tAIReaction
                         (&((this->AIHigh_Player).AIHigh_BasicPerp.AIHigh_Base.carObj_)->script,
                          AISCRIPT_AIREACTION_ATTACK);
-      if (iVar4 == -1) {
-        (this->AIHigh_Player).perpChaseInfo_.engagementPercentIncreasePerTick_ = 0;
+      if (iVar1 == -1) {
+        this->attackMode_ = NO_ATTACK;
       }
     }
     else {
-      if (iVar4 < 3) {
-        if ((iVar4 == 1) && (iVar4 = DoRearEnder__15AIHigh_Opponent(this), iVar4 == -1)) {
-          (this->AIHigh_Player).perpChaseInfo_.engagementPercentIncreasePerTick_ = 0;
+      if ((int)AVar3 < 3) {
+        if ((AVar3 == REAR_END) && (iVar1 = DoRearEnder__15AIHigh_Opponent(this), iVar1 == -1)) {
+          this->attackMode_ = NO_ATTACK;
         }
       }
       else {
-        if ((iVar4 == 3) &&
-           (pCVar1 = (Car_tObj *)((int)this->lastHumanHitter_ - AI_elapsedTime),
-           this->lastHumanHitter_ = pCVar1, (int)pCVar1 < 1)) {
-          (this->AIHigh_Player).perpChaseInfo_.engagementPercentIncreasePerTick_ = 0;
+        if ((AVar3 == PROVOKED_ATTACK) &&
+           (iVar1 = this->attackTicksLeft_ - AI_elapsedTime, this->attackTicksLeft_ = iVar1,
+           iVar1 < 1)) {
+          this->attackMode_ = NO_ATTACK;
         }
       }
     }
-    if ((this->AIHigh_Player).perpChaseInfo_.engagementPercentIncreasePerTick_ == 0) {
-      uVar6 = 0xffffffff;
+    if (this->attackMode_ == NO_ATTACK) {
+      uVar5 = 0xffffffff;
       if (GameSetup_gData.reverseTrack == 0) {
-        uVar6 = 1;
+        uVar5 = 1;
       }
       (((this->AIHigh_Player).AIHigh_BasicPerp.AIHigh_Base.carObj_)->script).lastReactionIndex[2] =
-           uVar6;
+           uVar5;
       this_01 = (AIState_Normal *)__builtin_new(8);
-      pAVar3 = (AIState_Base *)
+      pAVar2 = (AIState_Base *)
                __14AIState_NormalP8Car_tObj
                          (this_01,(this->AIHigh_Player).AIHigh_BasicPerp.AIHigh_Base.carObj_);
-      pAVar5 = (this->AIHigh_Player).AIHigh_BasicPerp.AIHigh_Base.state_;
-      if (pAVar5 != (AIState_Base *)0x0) {
-        uVar2 = pAVar5->_vf[0].value;
-        (**(code **)(uVar2 + 0x14))((int)&pAVar5->carObj_ + (int)*(short *)(uVar2 + 0x10),3);
+      pAVar4 = (this->AIHigh_Player).AIHigh_BasicPerp.AIHigh_Base.state_;
+      if (pAVar4 != (AIState_Base *)0x0) {
+        (**(code **)(*(int *)pAVar4->_vf + 0x14))
+                  ((int)&pAVar4->carObj_ + (int)*(short *)(*(int *)pAVar4->_vf + 0x10),3);
       }
-      (this->AIHigh_Player).AIHigh_BasicPerp.AIHigh_Base.state_ = pAVar3;
+      (this->AIHigh_Player).AIHigh_BasicPerp.AIHigh_Base.state_ = pAVar2;
       (this->AIHigh_Player).AIHigh_BasicPerp.AIHigh_Base.stateType_ = STATE_NORMAL;
-      (this->AIHigh_Player).perpChaseInfo_.engagementPercentIncreasePerTick_ = 0;
+      this->attackMode_ = NO_ATTACK;
     }
   }
   StateExecute__12AIState_Base((this->AIHigh_Player).AIHigh_BasicPerp.AIHigh_Base.state_);
@@ -627,15 +667,30 @@ LAB_800638c0:
 	// End offset: 0x80063AE8
 	// End Line: 251
 
+	/* begin block 2 */
+		// Start line: 576
+	/* end block 2 */
+	// End Line: 577
+
+	/* begin block 3 */
+		// Start line: 579
+	/* end block 3 */
+	// End Line: 580
+
+	/* begin block 4 */
+		// Start line: 579
+	/* end block 4 */
+	// End Line: 580
+
 AIHigh_Opponent * __15AIHigh_OpponentP8Car_tObj(AIHigh_Opponent *this,Car_tObj *carObj)
 
 {
   __13AIHigh_PlayerP8Car_tObj((AIHigh_Player *)this,carObj);
-  (this->AIHigh_Player).AIHigh_BasicPerp.AIHigh_Base._vf[0].value = 0x800550f8;
-  (this->AIHigh_Player).perpChaseInfo_.engagementPercentIncreasePerTick_ = 0;
-  (this->AIHigh_Player).perpChaseInfo_.copFreeTicks_ = 0;
+  *(undefined4 *)(this->AIHigh_Player).AIHigh_BasicPerp.AIHigh_Base._vf = 0x800550f8;
   this->attackMode_ = NO_ATTACK;
   this->lastHumanHitter_ = (Car_tObj *)0x0;
+  this->hitCount_ = 0;
+  this->attackTicksLeft_ = 0;
   return this;
 }
 
@@ -666,37 +721,58 @@ AIHigh_Opponent * __15AIHigh_OpponentP8Car_tObj(AIHigh_Opponent *this,Car_tObj *
 	// End offset: 0x80063BD0
 	// End Line: 281
 
+	/* begin block 2 */
+		// Start line: 599
+	/* end block 2 */
+	// End Line: 600
+
+	/* begin block 3 */
+		// Start line: 604
+	/* end block 3 */
+	// End Line: 605
+
+	/* begin block 4 */
+		// Start line: 604
+	/* end block 4 */
+	// End Line: 605
+
+	/* begin block 5 */
+		// Start line: 607
+	/* end block 5 */
+	// End Line: 608
+
 /* WARNING: Type propagation algorithm not settling */
 
 int DoProvokedAttack__15AIHigh_Opponent(AIHigh_Opponent *this)
 
 {
-  AIHigh_tAttackMode AVar1;
+  int iVar1;
   Car_tObj *pCVar2;
-  AIPerson_t *pAVar3;
-  int iVar4;
+  Car_tObj *pCVar3;
+  AIPerson_t *pAVar4;
   
-  pCVar2 = (this->AIHigh_Player).AIHigh_BasicPerp.AIHigh_Base.carObj_;
-  if (((simGlobal.gameTicks - (pCVar2->N).collision.lastTime < 0xf) &&
-      (iVar4 = (int)(pCVar2->N).collision.lastOtherObj, iVar4 != 0)) &&
-     ((*(uint *)(iVar4 + 0x260) & 4) != 0)) {
-    if ((this->AIHigh_Player).perpChaseInfo_.copFreeTicks_ != iVar4) {
-      (this->AIHigh_Player).perpChaseInfo_.copFreeTicks_ = iVar4;
-      this->attackMode_ = NO_ATTACK;
+  pCVar3 = (this->AIHigh_Player).AIHigh_BasicPerp.AIHigh_Base.carObj_;
+  if (((simGlobal.gameTicks - (pCVar3->N).collision.lastTime < 0xf) &&
+      (pCVar3 = (Car_tObj *)(pCVar3->N).collision.lastOtherObj, pCVar3 != (Car_tObj *)0x0)) &&
+     ((pCVar3->carFlags & 4U) != 0)) {
+    if (this->lastHumanHitter_ != pCVar3) {
+      this->lastHumanHitter_ = pCVar3;
+      this->hitCount_ = 0;
     }
     pCVar2 = (this->AIHigh_Player).AIHigh_BasicPerp.AIHigh_Base.carObj_;
-    AVar1 = this->attackMode_ + REAR_END;
-    this->attackMode_ = AVar1;
-    pAVar3 = pCVar2->personality;
-    if (pAVar3->attackActivationHits < (int)AVar1) {
-      pCVar2 = (Car_tObj *)pAVar3->attackTime;
-      this->attackMode_ = NO_ATTACK;
-      this->lastHumanHitter_ = pCVar2;
-      return *(int *)(iVar4 + 0x254);
+    iVar1 = this->hitCount_ + 1;
+    this->hitCount_ = iVar1;
+    pAVar4 = pCVar2->personality;
+    if (pAVar4->attackActivationHits < iVar1) {
+      iVar1 = pAVar4->attackTime;
+      this->hitCount_ = 0;
+      this->attackTicksLeft_ = iVar1;
+      return pCVar3->carIndex;
     }
   }
   return -1;
 }
+
 
 
 

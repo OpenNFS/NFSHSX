@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "AIH_TRAF.H"
+
 
 // decompiled code
 // original method signature: 
@@ -32,6 +33,16 @@
 	// End offset: 0x80065D3C
 	// End Line: 57
 
+	/* begin block 2 */
+		// Start line: 64
+	/* end block 2 */
+	// End Line: 65
+
+	/* begin block 3 */
+		// Start line: 64
+	/* end block 3 */
+	// End Line: 65
+
 Car_tObj * CheckForCops__14AIHigh_TrafficPi(AIHigh_Traffic *this,int *closestDistance)
 
 {
@@ -44,7 +55,7 @@ Car_tObj * CheckForCops__14AIHigh_TrafficPi(AIHigh_Traffic *this,int *closestDis
   pCVar4 = (Car_tObj *)0x0;
   iVar3 = 0;
   *closestDistance = 0x4e200000;
-  ppCVar2 = &__Cars_gCopCarList_9__;
+  ppCVar2 = &Cars_gCopCarList9;
   while (iVar3 < Cars_gNumCopCars) {
     otherCarObj = *ppCVar2;
     if (((otherCarObj->speechInfo).speechSource & 4) == 0) {
@@ -118,6 +129,21 @@ Car_tObj * CheckForCops__14AIHigh_TrafficPi(AIHigh_Traffic *this,int *closestDis
 	// End offset: 0x80065E58
 	// End Line: 122
 
+	/* begin block 2 */
+		// Start line: 130
+	/* end block 2 */
+	// End Line: 131
+
+	/* begin block 3 */
+		// Start line: 135
+	/* end block 3 */
+	// End Line: 136
+
+	/* begin block 4 */
+		// Start line: 135
+	/* end block 4 */
+	// End Line: 136
+
 AIHigh_Cop * CopCheck__14AIHigh_TrafficPi(AIHigh_Traffic *this,int *blockade)
 
 {
@@ -138,16 +164,16 @@ AIHigh_Cop * CopCheck__14AIHigh_TrafficPi(AIHigh_Traffic *this,int *blockade)
       }
       if ((iVar3 < 0x20000) && (local_18[0] < 0x4b0000)) {
         *blockade = 1;
-        pAVar2 = (AIHigh_Cop *)(&__highLevelAIObjs_9__)[pCVar1->carIndex];
-        if (*(int *)&(((AIHigh_Cop *)(&__highLevelAIObjs_9__)[pCVar1->carIndex])->AIHigh_BasicCop).
-                     blockade_.blockadeSpeechFlags == 0) {
+        pAVar2 = (AIHigh_Cop *)(&highLevelAIObjs9)[pCVar1->carIndex];
+        if (((AIHigh_Cop *)(&highLevelAIObjs9)[pCVar1->carIndex])->perpTarget_ ==
+            (AIHigh_Player *)0x0) {
           pAVar2 = (AIHigh_Cop *)0x0;
         }
       }
       else {
         pAVar2 = (AIHigh_Cop *)0x0;
         if ((0x20000 < iVar3) && (pAVar2 = (AIHigh_Cop *)0x0, local_18[0] < 0x4b0000)) {
-          pAVar2 = (AIHigh_Cop *)(&__highLevelAIObjs_9__)[pCVar1->carIndex];
+          pAVar2 = (AIHigh_Cop *)(&highLevelAIObjs9)[pCVar1->carIndex];
         }
       }
     }
@@ -927,6 +953,21 @@ AIHigh_Cop * CopCheck__14AIHigh_TrafficPi(AIHigh_Traffic *this,int *blockade)
 	// End offset: 0x800666DC
 	// End Line: 340
 
+	/* begin block 2 */
+		// Start line: 278
+	/* end block 2 */
+	// End Line: 279
+
+	/* begin block 3 */
+		// Start line: 286
+	/* end block 3 */
+	// End Line: 287
+
+	/* begin block 4 */
+		// Start line: 286
+	/* end block 4 */
+	// End Line: 287
+
 /* WARNING: Type propagation algorithm not settling */
 
 void HighExecute__14AIHigh_Traffic(AIHigh_Traffic *this)
@@ -937,9 +978,9 @@ void HighExecute__14AIHigh_Traffic(AIHigh_Traffic *this)
   AIState_RovingTraffic *this_00;
   AIHigh_Cop *pAVar2;
   int iVar3;
-  uint uVar4;
-  stateType_t sVar5;
+  stateType_t sVar4;
   AIState_Purgatory *this_01;
+  uint uVar5;
   AIState_Normal *this_02;
   Car_tObj *pCVar6;
   AIState_Base *pAVar7;
@@ -964,36 +1005,36 @@ void HighExecute__14AIHigh_Traffic(AIHigh_Traffic *this)
       ;
       pAVar7 = (this->AIHigh_Base).state_;
       if (pAVar7 != (AIState_Base *)0x0) {
-        uVar4 = pAVar7->_vf[0].value;
-        (**(code **)(uVar4 + 0x14))((int)&pAVar7->carObj_ + (int)*(short *)(uVar4 + 0x10),3);
+        (**(code **)(*(int *)pAVar7->_vf + 0x14))
+                  ((int)&pAVar7->carObj_ + (int)*(short *)(*(int *)pAVar7->_vf + 0x10),3);
       }
-      sVar5 = STATE_PURGATORY;
+      sVar4 = STATE_PURGATORY;
     }
     else {
       this_03 = (AIState_Base *)__builtin_new(0x10);
       __12AIState_BaseP8Car_tObj(this_03,(this->AIHigh_Base).carObj_);
-      this_03->_vf[0].value = 0x80055600;
-      this_03->_vf[2].value = 1;
+      *(undefined4 *)this_03->_vf = 0x80055600;
+      *(undefined4 *)this_03[1]._vf = 1;
       pAVar7 = (this->AIHigh_Base).state_;
       if (pAVar7 != (AIState_Base *)0x0) {
-        uVar4 = pAVar7->_vf[0].value;
-        (**(code **)(uVar4 + 0x14))((int)&pAVar7->carObj_ + (int)*(short *)(uVar4 + 0x10),3);
+        (**(code **)(*(int *)pAVar7->_vf + 0x14))
+                  ((int)&pAVar7->carObj_ + (int)*(short *)(*(int *)pAVar7->_vf + 0x10),3);
       }
-      sVar5 = STATE_IDLE;
+      sVar4 = STATE_IDLE;
     }
     (this->AIHigh_Base).state_ = this_03;
-    (this->AIHigh_Base).stateType_ = sVar5;
+    (this->AIHigh_Base).stateType_ = sVar4;
     Newton_SetInitialSlicePositionOrientationEtc__FP13BO_tNewtonObjiP8coorddefi
               ((BO_tNewtonObj *)(this->AIHigh_Base).carObj_,0,&local_c0,1);
     return;
   case STATE_PURGATORY:
     bVar1 = false;
-    if (this->ignoreCops_ == 0) {
+    if (this->accidentData_ == (SceneElem *)0x0) {
       this_03 = (this->AIHigh_Base).state_;
-      uVar4 = this_03->_vf[0].value;
-      iVar3 = (**(code **)(uVar4 + 0x1c))((int)&this_03->carObj_ + (int)*(short *)(uVar4 + 0x18));
+      iVar3 = *(int *)this_03->_vf;
+      iVar3 = (**(code **)(iVar3 + 0x1c))((int)&this_03->carObj_ + (int)*(short *)(iVar3 + 0x18));
       if (iVar3 != 0) {
-        bVar1 = (this->AIHigh_Base)._vf[2].value == 0;
+        bVar1 = this->forcePurgatory_ == 0;
       }
       if (bVar1) {
         trigger = CheckForNewTriggers__14AIHigh_Traffic(this);
@@ -1003,8 +1044,8 @@ void HighExecute__14AIHigh_Traffic(AIHigh_Traffic *this)
                     __14AIState_NormalP8Car_tObj(this_02,(this->AIHigh_Base).carObj_);
           pAVar7 = (this->AIHigh_Base).state_;
           if (pAVar7 != (AIState_Base *)0x0) {
-            uVar4 = pAVar7->_vf[0].value;
-            (**(code **)(uVar4 + 0x14))((int)&pAVar7->carObj_ + (int)*(short *)(uVar4 + 0x10),3);
+            (**(code **)(*(int *)pAVar7->_vf + 0x14))
+                      ((int)&pAVar7->carObj_ + (int)*(short *)(*(int *)pAVar7->_vf + 0x10),3);
           }
           (this->AIHigh_Base).state_ = this_03;
           (this->AIHigh_Base).stateType_ = STATE_NORMAL;
@@ -1018,8 +1059,8 @@ void HighExecute__14AIHigh_Traffic(AIHigh_Traffic *this)
                                 (this_00,(this->AIHigh_Base).carObj_,trigger);
             this_03 = (this->AIHigh_Base).state_;
             if (this_03 != (AIState_Base *)0x0) {
-              uVar4 = this_03->_vf[0].value;
-              (**(code **)(uVar4 + 0x14))((int)&this_03->carObj_ + (int)*(short *)(uVar4 + 0x10),3);
+              (**(code **)(*(int *)this_03->_vf + 0x14))
+                        ((int)&this_03->carObj_ + (int)*(short *)(*(int *)this_03->_vf + 0x10),3);
             }
             (this->AIHigh_Base).stateType_ = STATE_ROVING_TRAFFIC;
             *(AIState_RovingTraffic **)&(this->AIHigh_Base).state_ = this_00;
@@ -1033,97 +1074,96 @@ void HighExecute__14AIHigh_Traffic(AIHigh_Traffic *this)
     else {
       this_03 = (AIState_Base *)__builtin_new(0x10);
       __12AIState_BaseP8Car_tObj(this_03,(this->AIHigh_Base).carObj_);
-      this_03->_vf[0].value = 0x80055600;
-      this_03->_vf[2].value = 1;
+      *(undefined4 *)this_03->_vf = 0x80055600;
+      *(undefined4 *)this_03[1]._vf = 1;
       pAVar7 = (this->AIHigh_Base).state_;
       if (pAVar7 != (AIState_Base *)0x0) {
-        uVar4 = pAVar7->_vf[0].value;
-        (**(code **)(uVar4 + 0x14))((int)&pAVar7->carObj_ + (int)*(short *)(uVar4 + 0x10),3);
+        (**(code **)(*(int *)pAVar7->_vf + 0x14))
+                  ((int)&pAVar7->carObj_ + (int)*(short *)(*(int *)pAVar7->_vf + 0x10),3);
       }
       (this->AIHigh_Base).state_ = this_03;
       (this->AIHigh_Base).stateType_ = STATE_IDLE;
       local_b0.slice = 0;
-      BWorldSm_FindClosestSlice__FP8coorddefP12BWorldSm_Pos
-                ((coorddef *)(this->ignoreCops_ + 0x10),&local_b0);
+      BWorldSm_FindClosestSlice__FP8coorddefP12BWorldSm_Pos(&this->accidentData_->cp,&local_b0);
       AILife_ReencarnateTrafficByPosition__FP8Car_tObjiiP8coorddefP10matrixtdef
-                ((this->AIHigh_Base).carObj_,(int)local_b0.slice,1,
-                 (coorddef *)(this->ignoreCops_ + 0x10),(matrixtdef *)(this->ignoreCops_ + 0x20));
+                ((this->AIHigh_Base).carObj_,(int)local_b0.slice,1,&this->accidentData_->cp,
+                 &this->accidentData_->orient);
       pCVar6 = (this->AIHigh_Base).carObj_;
       pCVar6->carFlags = pCVar6->carFlags | 0x400;
-      this->ignoreCops_ = 0;
+      this->accidentData_ = (SceneElem *)0x0;
     }
     goto switchD_80065ec8_caseD_4;
   case STATE_NORMAL:
     iVar3 = AILife_EvaluateLife__FP8Car_tObj((this->AIHigh_Base).carObj_);
     if (iVar3 == 0) {
-      if ((this->AIHigh_Base)._vf[2].value == 0) {
+      if (this->forcePurgatory_ == 0) {
         pAVar2 = CopCheck__14AIHigh_TrafficPi(this,&local_28);
         if (pAVar2 == (AIHigh_Cop *)0x0) {
-          (this->AIHigh_Base)._vf[1].value = 0;
+          this->ignoreCops_ = 0;
           goto switchD_80065ec8_caseD_4;
         }
-        if ((this->AIHigh_Base)._vf[1].value != 0) goto switchD_80065ec8_caseD_4;
+        if (this->ignoreCops_ != 0) goto switchD_80065ec8_caseD_4;
         randtemp = fastRandom * randSeed;
         fastRandom = randtemp & 0xffff;
-        uVar4 = (randtemp >> 8 & 0xffff) * 5 >> 0xf;
+        uVar5 = (randtemp >> 8 & 0xffff) * 5 >> 0xf;
         if (local_28 == 0) {
-          if (uVar4 == 0) {
+          if (uVar5 == 0) {
             this_03 = (AIState_Base *)__builtin_new(0x10);
             __12AIState_BaseP8Car_tObj(this_03,(this->AIHigh_Base).carObj_);
-            this_03->_vf[0].value = 0x80055600;
-            this_03->_vf[2].value = 1;
+            *(undefined4 *)this_03->_vf = 0x80055600;
+            *(undefined4 *)this_03[1]._vf = 1;
             pAVar7 = (this->AIHigh_Base).state_;
             if (pAVar7 != (AIState_Base *)0x0) {
-              uVar4 = pAVar7->_vf[0].value;
-              (**(code **)(uVar4 + 0x14))((int)&pAVar7->carObj_ + (int)*(short *)(uVar4 + 0x10),3);
+              (**(code **)(*(int *)pAVar7->_vf + 0x14))
+                        ((int)&pAVar7->carObj_ + (int)*(short *)(*(int *)pAVar7->_vf + 0x10),3);
             }
-            sVar5 = STATE_IDLE;
+            sVar4 = STATE_IDLE;
             break;
           }
-          if (7 < uVar4) {
-            (this->AIHigh_Base)._vf[1].value = 1;
+          if (7 < uVar5) {
+            this->ignoreCops_ = 1;
             goto switchD_80065ec8_caseD_4;
           }
           iVar3 = (int)(((this->AIHigh_Base).carObj_)->N).simRoadInfo.slice;
           this_04 = (AIState_Idle *)__builtin_new(0x10);
           __12AIState_BaseP8Car_tObj((AIState_Base *)this_04,(this->AIHigh_Base).carObj_);
-          (this_04->AIState_Base)._vf[0].value = 0x80055600;
-          (this_04->AIState_Base)._vf[2].value = 1;
+          *(undefined4 *)(this_04->AIState_Base)._vf = 0x80055600;
+          this_04->idleInPlaceFlag_ = 1;
           this_03 = (this->AIHigh_Base).state_;
           if (this_03 != (AIState_Base *)0x0) {
-            uVar4 = this_03->_vf[0].value;
-            (**(code **)(uVar4 + 0x14))((int)&this_03->carObj_ + (int)*(short *)(uVar4 + 0x10),3);
+            (**(code **)(*(int *)this_03->_vf + 0x14))
+                      ((int)&this_03->carObj_ + (int)*(short *)(*(int *)this_03->_vf + 0x10),3);
           }
           *(AIState_Idle **)&(this->AIHigh_Base).state_ = this_04;
           (this->AIHigh_Base).stateType_ = STATE_IDLE;
           if ((((this->AIHigh_Base).carObj_)->script).lastReactionIndex[3] != 1) goto LAB_800664c4;
           local_20 = (uint)BWorldSm_slices[iVar3].avgPavedWidthRt << 0xf;
-          uVar4 = (uint)BWorldSm_slices[iVar3].laneCount & 0xf;
+          uVar5 = (uint)BWorldSm_slices[iVar3].laneCount & 0xf;
         }
         else {
           iVar3 = (int)(((this->AIHigh_Base).carObj_)->N).simRoadInfo.slice;
           this_04 = (AIState_Idle *)__builtin_new(0x10);
           __12AIState_BaseP8Car_tObj((AIState_Base *)this_04,(this->AIHigh_Base).carObj_);
-          (this_04->AIState_Base)._vf[0].value = 0x80055600;
-          (this_04->AIState_Base)._vf[2].value = 1;
+          *(undefined4 *)(this_04->AIState_Base)._vf = 0x80055600;
+          this_04->idleInPlaceFlag_ = 1;
           this_03 = (this->AIHigh_Base).state_;
           if (this_03 != (AIState_Base *)0x0) {
-            uVar4 = this_03->_vf[0].value;
-            (**(code **)(uVar4 + 0x14))((int)&this_03->carObj_ + (int)*(short *)(uVar4 + 0x10),3);
+            (**(code **)(*(int *)this_03->_vf + 0x14))
+                      ((int)&this_03->carObj_ + (int)*(short *)(*(int *)this_03->_vf + 0x10),3);
           }
           *(AIState_Idle **)&(this->AIHigh_Base).state_ = this_04;
           (this->AIHigh_Base).stateType_ = STATE_IDLE;
           if ((((this->AIHigh_Base).carObj_)->script).lastReactionIndex[3] == 1) {
             local_20 = (uint)BWorldSm_slices[iVar3].avgPavedWidthRt << 0xf;
-            uVar4 = (uint)BWorldSm_slices[iVar3].laneCount & 0xf;
+            uVar5 = (uint)BWorldSm_slices[iVar3].laneCount & 0xf;
           }
           else {
 LAB_800664c4:
             local_20 = (uint)BWorldSm_slices[iVar3].avgPavedWidthLf << 0xf;
-            uVar4 = (uint)(BWorldSm_slices[iVar3].laneCount >> 4);
+            uVar5 = (uint)(BWorldSm_slices[iVar3].laneCount >> 4);
           }
         }
-        local_20 = local_20 * uVar4;
+        local_20 = local_20 * uVar5;
         SetIdlePosition__12AIState_Idlei(this_04,local_20);
         goto switchD_80065ec8_caseD_4;
       }
@@ -1132,10 +1172,10 @@ LAB_800664c4:
       ;
       pAVar7 = (this->AIHigh_Base).state_;
       if (pAVar7 != (AIState_Base *)0x0) {
-        uVar4 = pAVar7->_vf[0].value;
-        (**(code **)(uVar4 + 0x14))((int)&pAVar7->carObj_ + (int)*(short *)(uVar4 + 0x10),3);
+        (**(code **)(*(int *)pAVar7->_vf + 0x14))
+                  ((int)&pAVar7->carObj_ + (int)*(short *)(*(int *)pAVar7->_vf + 0x10),3);
       }
-      sVar5 = STATE_PURGATORY;
+      sVar4 = STATE_PURGATORY;
     }
     else {
       this_01 = (AIState_Purgatory *)__builtin_new(8);
@@ -1143,10 +1183,10 @@ LAB_800664c4:
       ;
       pAVar7 = (this->AIHigh_Base).state_;
       if (pAVar7 != (AIState_Base *)0x0) {
-        uVar4 = pAVar7->_vf[0].value;
-        (**(code **)(uVar4 + 0x14))((int)&pAVar7->carObj_ + (int)*(short *)(uVar4 + 0x10),3);
+        (**(code **)(*(int *)pAVar7->_vf + 0x14))
+                  ((int)&pAVar7->carObj_ + (int)*(short *)(*(int *)pAVar7->_vf + 0x10),3);
       }
-      sVar5 = STATE_PURGATORY;
+      sVar4 = STATE_PURGATORY;
     }
     break;
   case STATE_IDLE:
@@ -1154,17 +1194,17 @@ LAB_800664c4:
     if (iVar3 == 0) {
       pAVar2 = CopCheck__14AIHigh_TrafficPi(this,&iStack36);
       if (pAVar2 != (AIHigh_Cop *)0x0) goto switchD_80065ec8_caseD_4;
-      uVar4 = ((this->AIHigh_Base).carObj_)->carFlags & 0x400;
+      uVar5 = ((this->AIHigh_Base).carObj_)->carFlags & 0x400;
 joined_r0x8006667c:
-      if (uVar4 == 0) goto switchD_80065ec8_caseD_4;
+      if (uVar5 == 0) goto switchD_80065ec8_caseD_4;
       this_02 = (AIState_Normal *)__builtin_new(8);
       this_03 = (AIState_Base *)__14AIState_NormalP8Car_tObj(this_02,(this->AIHigh_Base).carObj_);
       pAVar7 = (this->AIHigh_Base).state_;
       if (pAVar7 != (AIState_Base *)0x0) {
-        uVar4 = pAVar7->_vf[0].value;
-        (**(code **)(uVar4 + 0x14))((int)&pAVar7->carObj_ + (int)*(short *)(uVar4 + 0x10),3);
+        (**(code **)(*(int *)pAVar7->_vf + 0x14))
+                  ((int)&pAVar7->carObj_ + (int)*(short *)(*(int *)pAVar7->_vf + 0x10),3);
       }
-      sVar5 = STATE_NORMAL;
+      sVar4 = STATE_NORMAL;
     }
     else {
       this_01 = (AIState_Purgatory *)__builtin_new(8);
@@ -1172,10 +1212,10 @@ joined_r0x8006667c:
       ;
       pAVar7 = (this->AIHigh_Base).state_;
       if (pAVar7 != (AIState_Base *)0x0) {
-        uVar4 = pAVar7->_vf[0].value;
-        (**(code **)(uVar4 + 0x14))((int)&pAVar7->carObj_ + (int)*(short *)(uVar4 + 0x10),3);
+        (**(code **)(*(int *)pAVar7->_vf + 0x14))
+                  ((int)&pAVar7->carObj_ + (int)*(short *)(*(int *)pAVar7->_vf + 0x10),3);
       }
-      sVar5 = STATE_PURGATORY;
+      sVar4 = STATE_PURGATORY;
     }
     break;
   default:
@@ -1183,10 +1223,10 @@ joined_r0x8006667c:
   case STATE_ROVING_TRAFFIC:
     iVar3 = AILife_EvaluateLife__FP8Car_tObj((this->AIHigh_Base).carObj_);
     if (iVar3 == 0) {
-      if ((this->AIHigh_Base)._vf[2].value == 0) {
+      if (this->forcePurgatory_ == 0) {
         this_03 = (this->AIHigh_Base).state_;
-        uVar4 = this_03->_vf[0].value;
-        uVar4 = (**(code **)(uVar4 + 0x1c))((int)&this_03->carObj_ + (int)*(short *)(uVar4 + 0x18));
+        iVar3 = *(int *)this_03->_vf;
+        uVar5 = (**(code **)(iVar3 + 0x1c))((int)&this_03->carObj_ + (int)*(short *)(iVar3 + 0x18));
         goto joined_r0x8006667c;
       }
       this_01 = (AIState_Purgatory *)__builtin_new(8);
@@ -1194,10 +1234,10 @@ joined_r0x8006667c:
       ;
       pAVar7 = (this->AIHigh_Base).state_;
       if (pAVar7 != (AIState_Base *)0x0) {
-        uVar4 = pAVar7->_vf[0].value;
-        (**(code **)(uVar4 + 0x14))((int)&pAVar7->carObj_ + (int)*(short *)(uVar4 + 0x10),3);
+        (**(code **)(*(int *)pAVar7->_vf + 0x14))
+                  ((int)&pAVar7->carObj_ + (int)*(short *)(*(int *)pAVar7->_vf + 0x10),3);
       }
-      sVar5 = STATE_PURGATORY;
+      sVar4 = STATE_PURGATORY;
     }
     else {
       this_01 = (AIState_Purgatory *)__builtin_new(8);
@@ -1205,14 +1245,14 @@ joined_r0x8006667c:
       ;
       pAVar7 = (this->AIHigh_Base).state_;
       if (pAVar7 != (AIState_Base *)0x0) {
-        uVar4 = pAVar7->_vf[0].value;
-        (**(code **)(uVar4 + 0x14))((int)&pAVar7->carObj_ + (int)*(short *)(uVar4 + 0x10),3);
+        (**(code **)(*(int *)pAVar7->_vf + 0x14))
+                  ((int)&pAVar7->carObj_ + (int)*(short *)(*(int *)pAVar7->_vf + 0x10),3);
       }
-      sVar5 = STATE_PURGATORY;
+      sVar4 = STATE_PURGATORY;
     }
   }
   (this->AIHigh_Base).state_ = this_03;
-  (this->AIHigh_Base).stateType_ = sVar5;
+  (this->AIHigh_Base).stateType_ = sVar4;
 switchD_80065ec8_caseD_4:
   StateExecute__12AIState_Base((this->AIHigh_Base).state_);
   return;
@@ -1231,14 +1271,29 @@ switchD_80065ec8_caseD_4:
 	// End offset: 0x800666F8
 	// End Line: 344
 
+	/* begin block 2 */
+		// Start line: 719
+	/* end block 2 */
+	// End Line: 720
+
+	/* begin block 3 */
+		// Start line: 722
+	/* end block 3 */
+	// End Line: 723
+
+	/* begin block 4 */
+		// Start line: 722
+	/* end block 4 */
+	// End Line: 723
+
 AIHigh_Traffic * __14AIHigh_TrafficP8Car_tObj(AIHigh_Traffic *this,Car_tObj *carObj)
 
 {
   __11AIHigh_BaseP8Car_tObj((AIHigh_Base *)this,carObj);
-  (this->AIHigh_Base)._vf[0].value = 0x800551b0;
-  (this->AIHigh_Base)._vf[1].value = 0;
-  (this->AIHigh_Base)._vf[2].value = 0;
+  *(undefined4 *)(this->AIHigh_Base)._vf = 0x800551b0;
   this->ignoreCops_ = 0;
+  this->forcePurgatory_ = 0;
+  this->accidentData_ = (SceneElem *)0x0;
   return this;
 }
 
@@ -1364,6 +1419,21 @@ AIHigh_Traffic * __14AIHigh_TrafficP8Car_tObj(AIHigh_Traffic *this,Car_tObj *car
 	// End offset: 0x8006695C
 	// End Line: 434
 
+	/* begin block 2 */
+		// Start line: 740
+	/* end block 2 */
+	// End Line: 741
+
+	/* begin block 3 */
+		// Start line: 746
+	/* end block 3 */
+	// End Line: 747
+
+	/* begin block 4 */
+		// Start line: 746
+	/* end block 4 */
+	// End Line: 747
+
 /* WARNING: Removing unreachable block (ram,0x800668bc) */
 
 trigger_t * CheckForNewTriggers__14AIHigh_Traffic(AIHigh_Traffic *this)
@@ -1382,7 +1452,7 @@ trigger_t * CheckForNewTriggers__14AIHigh_Traffic(AIHigh_Traffic *this)
   Car_tObj **local_2c;
   
   iVar7 = Cars_gNumCars + -1;
-  local_2c = &__Cars_gTotalSortedList_9__ + iVar7;
+  local_2c = &Cars_gTotalSortedList9 + iVar7;
   do {
     if (iVar7 < 0) {
       return (trigger_t *)0x0;
@@ -1406,8 +1476,8 @@ trigger_t * CheckForNewTriggers__14AIHigh_Traffic(AIHigh_Traffic *this)
           iVar4 = iVar4 - gNumSlices;
         }
       }
-      iVar5 = (&__highLevelAIObjs_9__)[pCVar6->carIndex]->lastTrafficTriggerCheckSlice_;
-      (&__highLevelAIObjs_9__)[pCVar6->carIndex]->lastTrafficTriggerCheckSlice_ = iVar4;
+      iVar5 = (&highLevelAIObjs9)[pCVar6->carIndex]->lastTrafficTriggerCheckSlice_;
+      (&highLevelAIObjs9)[pCVar6->carIndex]->lastTrafficTriggerCheckSlice_ = iVar4;
       slice = iVar4;
       if (iVar5 < iVar4) {
         slice = iVar5;
@@ -1435,6 +1505,7 @@ trigger_t * CheckForNewTriggers__14AIHigh_Traffic(AIHigh_Traffic *this)
     local_2c = local_2c + -1;
   } while( true );
 }
+
 
 
 

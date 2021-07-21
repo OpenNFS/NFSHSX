@@ -1,6 +1,7 @@
 #ifndef AIPHYSIC_H
 #define AIPHYSIC_H
 
+
 extern void AIPhysic_StopCar__FP8Car_tObjii(struct Car_tObj *carObj, int velScale, int rotScale); // 0x80069238
 
 extern void AIPhysic_RevEngine__FP8Car_tObj(struct Car_tObj *carObj); // 0x800692FC
@@ -84,5 +85,6 @@ extern void AIPhysic_ResetCar__FP8Car_tObj(struct Car_tObj *carObj); // 0x8006CC
 extern void AIPhysic_InitCar__FP8Car_tObj(struct Car_tObj *carObj); // 0x8006CC60
 
 extern void AIPhysic_DeInitCar__FP8Car_tObj(struct Car_tObj *carObj); // 0x8006CDD4
+
 
 #endif

@@ -1,6 +1,7 @@
 #ifndef AIH_BTCPERP_H
 #define AIH_BTCPERP_H
 
+
 extern void ReleaseCops__15AIHigh_BTC_Perp(struct AIHigh_BTC_Perp *this); // 0x8005F6B4
 
 extern void HandleCops__15AIHigh_BTC_Perp(struct AIHigh_BTC_Perp *this); // 0x8005F778
@@ -40,5 +41,6 @@ extern void FindClosestCop__17AIHigh_BTC_AIPerp(struct AIHigh_BTC_AIPerp *this);
 extern void HighExecute__17AIHigh_BTC_AIPerp(struct AIHigh_BTC_AIPerp *this); // 0x800608B4
 
 extern void NewStage__17AIHigh_BTC_AIPerpP19AIHigh_BTC_HumanCop(struct AIHigh_BTC_AIPerp *this, struct AIHigh_BTC_HumanCop *chaserCop); // 0x80060D74
+
 
 #endif

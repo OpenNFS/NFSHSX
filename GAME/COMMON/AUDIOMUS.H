@@ -1,6 +1,7 @@
 #ifndef AUDIOMUS_H
 #define AUDIOMUS_H
 
+
 extern void AudioMus_RefreshStatus__Fv(); // 0x80079EF4
 
 extern int AudioMus_Threshold__Fv(); // 0x80079F58
@@ -46,5 +47,6 @@ extern int AudioMus_PlaySong__FPc(char *pattern); // 0x8007B030
 extern void AudioMus_Volume__Fi(int volume); // 0x8007B2B0
 
 extern void AudioMus_AutoVolume__Fii(int fadeticks, int volume); // 0x8007B46C
+
 
 #endif

@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "BWORLDSM.H"
+
 
 // decompiled code
 // original method signature: 
@@ -28,12 +29,22 @@
 	// End offset: 0x8007E910
 	// End Line: 85
 
+	/* begin block 2 */
+		// Start line: 168
+	/* end block 2 */
+	// End Line: 169
+
+	/* begin block 3 */
+		// Start line: 168
+	/* end block 3 */
+	// End Line: 169
+
 int BWorldSm_Init__FP5Group(Group *simGroup)
 
 {
-  DAT_0000027c = simGroup->m_num_elements;
-  DAT_00000274 = simGroup + 1;
-  DAT_00000288 = 5;
+  gNumSlices = simGroup->m_num_elements;
+  BWorldSm_slices = (Trk_NewSlice *)(simGroup + 1);
+  gMaxFindQuadSliceIterations = 5;
   BWorldSm_Restart__Fv();
   return 1;
 }
@@ -50,6 +61,21 @@ int BWorldSm_Init__FP5Group(Group *simGroup)
 	/* end block 1 */
 	// End offset: 0x8007E948
 	// End Line: 102
+
+	/* begin block 2 */
+		// Start line: 200
+	/* end block 2 */
+	// End Line: 201
+
+	/* begin block 3 */
+		// Start line: 207
+	/* end block 3 */
+	// End Line: 208
+
+	/* begin block 4 */
+		// Start line: 207
+	/* end block 4 */
+	// End Line: 208
 
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
@@ -72,6 +98,31 @@ void BWorldSm_Restart__Fv(void)
 	/* end block 1 */
 	// End offset: 0x8007E968
 	// End Line: 114
+
+	/* begin block 2 */
+		// Start line: 220
+	/* end block 2 */
+	// End Line: 221
+
+	/* begin block 3 */
+		// Start line: 231
+	/* end block 3 */
+	// End Line: 232
+
+	/* begin block 4 */
+		// Start line: 231
+	/* end block 4 */
+	// End Line: 232
+
+	/* begin block 5 */
+		// Start line: 232
+	/* end block 5 */
+	// End Line: 233
+
+	/* begin block 6 */
+		// Start line: 232
+	/* end block 6 */
+	// End Line: 233
 
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
@@ -100,6 +151,21 @@ void BWorldSm_DeInit__Fv(void)
 	// End offset: 0x8007E9EC
 	// End Line: 143
 
+	/* begin block 2 */
+		// Start line: 242
+	/* end block 2 */
+	// End Line: 243
+
+	/* begin block 3 */
+		// Start line: 251
+	/* end block 3 */
+	// End Line: 252
+
+	/* begin block 4 */
+		// Start line: 251
+	/* end block 4 */
+	// End Line: 252
+
 void FindAbsClosestSliceCrude__FP8coorddefP12BWorldSm_Pos(coorddef *pt,BWorldSm_Pos *slicePos)
 
 {
@@ -109,14 +175,14 @@ void FindAbsClosestSliceCrude__FP8coorddefP12BWorldSm_Pos(coorddef *pt,BWorldSm_
   int iVar4;
   short sVar5;
   
-  iVar1 = DAT_0000027c;
+  iVar1 = gNumSlices;
   iVar4 = 0x7fffffff;
   _sVar5 = -1;
   sVar5 = -1;
   iVar3 = 0;
-  if (0 < DAT_0000027c) {
+  if (0 < gNumSlices) {
     do {
-      iVar2 = xzsquaredist32__FP8coorddefT0((coorddef *)(DAT_00000274 + iVar3 * 0x20),pt);
+      iVar2 = xzsquaredist32__FP8coorddefT0((coorddef *)(BWorldSm_slices + iVar3),pt);
       if (iVar2 < iVar4) {
         iVar4 = iVar2;
         _sVar5 = iVar3;
@@ -144,6 +210,21 @@ void FindAbsClosestSliceCrude__FP8coorddefP12BWorldSm_Pos(coorddef *pt,BWorldSm_
 	// End offset: 0x8007EA60
 	// End Line: 164
 
+	/* begin block 2 */
+		// Start line: 319
+	/* end block 2 */
+	// End Line: 320
+
+	/* begin block 3 */
+		// Start line: 329
+	/* end block 3 */
+	// End Line: 330
+
+	/* begin block 4 */
+		// Start line: 329
+	/* end block 4 */
+	// End Line: 330
+
 int BWorldSm_FindClosestSlice__FP8coorddefP12BWorldSm_Pos(coorddef *pt,BWorldSm_Pos *slicePos)
 
 {
@@ -153,12 +234,12 @@ int BWorldSm_FindClosestSlice__FP8coorddefP12BWorldSm_Pos(coorddef *pt,BWorldSm_
   int iVar4;
   
   sVar2 = slicePos->slice;
-  iVar4 = Math_DistXZ__FP8coorddefT0((coorddef *)(DAT_00000274 + (int)sVar2 * 0x20),pt);
+  iVar4 = Math_DistXZ__FP8coorddefT0((coorddef *)(BWorldSm_slices + (int)sVar2),pt);
   if (0x800000 < iVar4) {
     FindAbsClosestSliceCrude__FP8coorddefP12BWorldSm_Pos(pt,slicePos);
   }
   RawFindClosestSlice__FP8coorddefP12BWorldSm_Pos(pt,slicePos);
-  uVar1 = *(uchar *)((int)slicePos->slice * 0x20 + DAT_00000274 + 0x1c);
+  uVar1 = BWorldSm_slices[(int)slicePos->slice].chunkIndex;
   bVar3 = slicePos->slice != sVar2;
   *(bool *)&slicePos->quadChanged = bVar3;
   *(bool *)&slicePos->sliceChanged = bVar3;
@@ -187,6 +268,21 @@ int BWorldSm_FindClosestSlice__FP8coorddefP12BWorldSm_Pos(coorddef *pt,BWorldSm_
 	// End offset: 0x8007ED5C
 	// End Line: 250
 
+	/* begin block 2 */
+		// Start line: 379
+	/* end block 2 */
+	// End Line: 380
+
+	/* begin block 3 */
+		// Start line: 390
+	/* end block 3 */
+	// End Line: 391
+
+	/* begin block 4 */
+		// Start line: 390
+	/* end block 4 */
+	// End Line: 391
+
 void RawFindClosestSlice__FP8coorddefP12BWorldSm_Pos(coorddef *pt,BWorldSm_Pos *slicePos)
 
 {
@@ -195,98 +291,92 @@ void RawFindClosestSlice__FP8coorddefP12BWorldSm_Pos(coorddef *pt,BWorldSm_Pos *
   int iVar3;
   int iVar4;
   int iVar5;
-  int *piVar6;
-  int iVar7;
-  short sVar8;
+  int iVar6;
+  short sVar7;
+  int iVar8;
   int iVar9;
-  int iVar10;
   
-  sVar8 = slicePos->slice;
-  iVar9 = (int)sVar8;
-  iVar10 = DAT_0000027c + -1;
-  if (iVar9 != -1) {
+  sVar7 = slicePos->slice;
+  iVar8 = (int)sVar7;
+  iVar9 = gNumSlices + -1;
+  if (iVar8 != -1) {
     do {
-      if (iVar9 < iVar10) {
+      if (iVar8 < iVar9) {
         iVar2 = pt->x;
-        iVar3 = iVar9;
+        iVar3 = iVar8;
       }
       else {
-        iVar3 = iVar9 % DAT_0000027c;
-        if (DAT_0000027c == 0) {
+        iVar3 = iVar8 % gNumSlices;
+        if (gNumSlices == 0) {
           trap(0x1c00);
         }
-        if ((DAT_0000027c == -1) && (iVar9 == -0x80000000)) {
+        if ((gNumSlices == -1) && (iVar8 == -0x80000000)) {
           trap(0x1800);
         }
         iVar2 = pt->x;
       }
-      piVar6 = (int *)(iVar3 * 0x20 + DAT_00000274);
-      iVar3 = iVar2 - *piVar6 >> 9;
-      iVar2 = pt->z - piVar6[2] >> 9;
-      iVar3 = iVar3 * iVar3 + iVar2 * iVar2;
-      if (iVar9 < DAT_0000027c + -2) {
-        iVar7 = iVar9 * 0x20 + DAT_00000274;
-        iVar2 = pt->x - *(int *)(iVar7 + 0x20) >> 9;
-        iVar7 = pt->z - *(int *)(iVar7 + 0x28) >> 9;
-        if (iVar2 * iVar2 + iVar7 * iVar7 < iVar3) {
-          iVar2 = iVar9 + 1;
+      iVar2 = iVar2 - BWorldSm_slices[iVar3].center[0] >> 9;
+      iVar3 = pt->z - BWorldSm_slices[iVar3].center[2] >> 9;
+      iVar3 = iVar2 * iVar2 + iVar3 * iVar3;
+      if (iVar8 < gNumSlices + -2) {
+        iVar2 = pt->x - (BWorldSm_slices + iVar8)[1].center[0] >> 9;
+        iVar4 = pt->z - (BWorldSm_slices + iVar8)[1].center[2] >> 9;
+        if (iVar2 * iVar2 + iVar4 * iVar4 < iVar3) {
+          iVar2 = iVar8 + 1;
         }
         else {
 LAB_8007ec3c:
-          if (iVar9 < 1) {
-            iVar2 = iVar9 + 1 + iVar10;
-            iVar7 = iVar2 + -1;
-            if (DAT_0000027c == 0) {
+          if (iVar8 < 1) {
+            iVar2 = iVar8 + 1 + iVar9;
+            iVar4 = iVar2 + -1;
+            if (gNumSlices == 0) {
               trap(0x1c00);
             }
-            if ((DAT_0000027c == -1) && (iVar7 == -0x80000000)) {
+            if ((gNumSlices == -1) && (iVar4 == -0x80000000)) {
               trap(0x1800);
             }
-            piVar6 = (int *)((iVar7 % DAT_0000027c) * 0x20 + DAT_00000274);
-            iVar4 = pt->x - *piVar6 >> 9;
-            iVar5 = pt->z - piVar6[2] >> 9;
-            if (iVar4 * iVar4 + iVar5 * iVar5 < iVar3) {
-              iVar2 = iVar7;
+            iVar5 = pt->x - BWorldSm_slices[iVar4 % gNumSlices].center[0] >> 9;
+            iVar6 = pt->z - BWorldSm_slices[iVar4 % gNumSlices].center[2] >> 9;
+            if (iVar5 * iVar5 + iVar6 * iVar6 < iVar3) {
+              iVar2 = iVar4;
             }
-            iVar3 = iVar2 + 1 + iVar10;
-            iVar2 = iVar3 % DAT_0000027c;
-            if (DAT_0000027c == 0) {
+            iVar3 = iVar2 + 1 + iVar9;
+            iVar2 = iVar3 % gNumSlices;
+            if (gNumSlices == 0) {
               trap(0x1c00);
             }
-            if ((DAT_0000027c == -1) && (iVar3 == -0x80000000)) {
+            if ((gNumSlices == -1) && (iVar3 == -0x80000000)) {
               trap(0x1800);
             }
           }
           else {
-            iVar2 = iVar9 * 0x20 + DAT_00000274;
-            iVar7 = pt->x - *(int *)(iVar2 + -0x20) >> 9;
-            iVar4 = pt->z - *(int *)(iVar2 + -0x18) >> 9;
-            iVar2 = iVar9;
-            if (iVar7 * iVar7 + iVar4 * iVar4 < iVar3) {
-              iVar2 = iVar9 + -1;
+            iVar4 = pt->x - (BWorldSm_slices + iVar8)[-1].center[0] >> 9;
+            iVar5 = pt->z - (BWorldSm_slices + iVar8)[-1].center[2] >> 9;
+            iVar2 = iVar8;
+            if (iVar4 * iVar4 + iVar5 * iVar5 < iVar3) {
+              iVar2 = iVar8 + -1;
             }
           }
         }
       }
       else {
-        iVar2 = (iVar9 + 1) % DAT_0000027c;
-        if (DAT_0000027c == 0) {
+        iVar2 = (iVar8 + 1) % gNumSlices;
+        if (gNumSlices == 0) {
           trap(0x1c00);
         }
-        if ((DAT_0000027c == -1) && (iVar9 + 1 == -0x80000000)) {
+        if ((gNumSlices == -1) && (iVar8 + 1 == -0x80000000)) {
           trap(0x1800);
         }
-        piVar6 = (int *)(iVar2 * 0x20 + DAT_00000274);
-        iVar7 = pt->x - *piVar6 >> 9;
-        iVar4 = pt->z - piVar6[2] >> 9;
-        if (iVar3 <= iVar7 * iVar7 + iVar4 * iVar4) goto LAB_8007ec3c;
+        iVar4 = pt->x - BWorldSm_slices[iVar2].center[0] >> 9;
+        iVar5 = pt->z - BWorldSm_slices[iVar2].center[2] >> 9;
+        if (iVar3 <= iVar4 * iVar4 + iVar5 * iVar5) goto LAB_8007ec3c;
       }
-      sVar8 = (short)iVar2;
-      bVar1 = iVar9 != iVar2;
-      iVar9 = iVar2;
+      sVar7 = (short)iVar2;
+      bVar1 = iVar8 != iVar2;
+      iVar8 = iVar2;
     } while (bVar1);
   }
-  slicePos->slice = sVar8;
+  slicePos->slice = sVar7;
   return;
 }
 
@@ -303,21 +393,41 @@ LAB_8007ec3c:
 	// End offset: 0x8007ED64
 	// End Line: 264
 
+	/* begin block 2 */
+		// Start line: 547
+	/* end block 2 */
+	// End Line: 548
+
+	/* begin block 3 */
+		// Start line: 557
+	/* end block 3 */
+	// End Line: 558
+
+	/* begin block 4 */
+		// Start line: 557
+	/* end block 4 */
+	// End Line: 558
+
+	/* begin block 5 */
+		// Start line: 559
+	/* end block 5 */
+	// End Line: 560
+
 void BWorldSm_SetSlice__FiP12BWorldSm_Pos(int slice,BWorldSm_Pos *slicePos)
 
 {
   uchar uVar1;
-  int iVar2;
+  Trk_NewSlice *pTVar2;
   
   slicePos->slice = (short)slice;
   slicePos->sliceChanged = '\0';
   slicePos->quadChanged = '\0';
   slicePos->offEdge = '\0';
-  iVar2 = DAT_00000274;
+  pTVar2 = BWorldSm_slices;
   slicePos->simSlice = (Trk_NewSimSlice *)0x0;
   slicePos->simQuad = (Trk_NewSimQuad *)0x0;
   slicePos->simRotFlag = 0;
-  uVar1 = *(uchar *)((int)slicePos->slice * 0x20 + iVar2 + 0x1c);
+  uVar1 = pTVar2[(int)slicePos->slice].chunkIndex;
   slicePos->lastRezRequested = -2;
   slicePos->rez = '\x01';
   slicePos->triangleFlag = '\0';
@@ -365,6 +475,31 @@ void BWorldSm_SetSlice__FiP12BWorldSm_Pos(int slice,BWorldSm_Pos *slicePos)
 	/* end block 1 */
 	// End offset: 0x8007EDB8
 	// End Line: 331
+
+	/* begin block 2 */
+		// Start line: 653
+	/* end block 2 */
+	// End Line: 654
+
+	/* begin block 3 */
+		// Start line: 698
+	/* end block 3 */
+	// End Line: 699
+
+	/* begin block 4 */
+		// Start line: 698
+	/* end block 4 */
+	// End Line: 699
+
+	/* begin block 5 */
+		// Start line: 705
+	/* end block 5 */
+	// End Line: 706
+
+	/* begin block 6 */
+		// Start line: 710
+	/* end block 6 */
+	// End Line: 711
 
 void GetStmQuadPts__FP12BWorldSm_PosP8coorddef(BWorldSm_Pos *slicePos,coorddef *cp)
 
@@ -440,6 +575,31 @@ void GetStmQuadPts__FP12BWorldSm_PosP8coorddef(BWorldSm_Pos *slicePos,coorddef *
 	// End offset: 0x8007EF90
 	// End Line: 404
 
+	/* begin block 2 */
+		// Start line: 871
+	/* end block 2 */
+	// End Line: 872
+
+	/* begin block 3 */
+		// Start line: 877
+	/* end block 3 */
+	// End Line: 878
+
+	/* begin block 4 */
+		// Start line: 877
+	/* end block 4 */
+	// End Line: 878
+
+	/* begin block 5 */
+		// Start line: 879
+	/* end block 5 */
+	// End Line: 880
+
+	/* begin block 6 */
+		// Start line: 882
+	/* end block 6 */
+	// End Line: 883
+
 void SetStrip__FP12BWorldSm_Pos(BWorldSm_Pos *slicePos)
 
 {
@@ -501,6 +661,21 @@ void SetStrip__FP12BWorldSm_Pos(BWorldSm_Pos *slicePos)
 	// End offset: 0x8007EF98
 	// End Line: 416
 
+	/* begin block 2 */
+		// Start line: 944
+	/* end block 2 */
+	// End Line: 945
+
+	/* begin block 3 */
+		// Start line: 956
+	/* end block 3 */
+	// End Line: 957
+
+	/* begin block 4 */
+		// Start line: 956
+	/* end block 4 */
+	// End Line: 957
+
 void GetFirstStmQuadPts__FP12BWorldSm_PosP8CCOORD16(BWorldSm_Pos *slicePos,CCOORD16 *vertices)
 
 {
@@ -545,12 +720,32 @@ void GetFirstStmQuadPts__FP12BWorldSm_PosP8CCOORD16(BWorldSm_Pos *slicePos,CCOOR
 	// End offset: 0x8007F034
 	// End Line: 478
 
+	/* begin block 2 */
+		// Start line: 1082
+	/* end block 2 */
+	// End Line: 1083
+
+	/* begin block 3 */
+		// Start line: 1093
+	/* end block 3 */
+	// End Line: 1094
+
+	/* begin block 4 */
+		// Start line: 1093
+	/* end block 4 */
+	// End Line: 1094
+
+	/* begin block 5 */
+		// Start line: 1100
+	/* end block 5 */
+	// End Line: 1101
+
 void BWorld_SetSimSlice__FP12BWorldSm_Pos(BWorldSm_Pos *slicePos)
 
 {
   byte bVar1;
   
-  bVar1 = *(byte *)((int)slicePos->slice * 0x20 + DAT_00000274 + 0x1c);
+  bVar1 = BWorldSm_slices[(int)slicePos->slice].chunkIndex;
   slicePos->chunk = bVar1;
   slicePos->simSlice =
        (Trk_NewSimSlice *)
@@ -590,6 +785,26 @@ void BWorld_SetSimSlice__FP12BWorldSm_Pos(BWorldSm_Pos *slicePos)
 	// End offset: 0x8007F114
 	// End Line: 507
 
+	/* begin block 2 */
+		// Start line: 1130
+	/* end block 2 */
+	// End Line: 1131
+
+	/* begin block 3 */
+		// Start line: 1144
+	/* end block 3 */
+	// End Line: 1145
+
+	/* begin block 4 */
+		// Start line: 1144
+	/* end block 4 */
+	// End Line: 1145
+
+	/* begin block 5 */
+		// Start line: 1146
+	/* end block 5 */
+	// End Line: 1147
+
 void BworldSm_UpdateSimQuad__FP12BWorldSm_Pos(BWorldSm_Pos *slicePos)
 
 {
@@ -621,6 +836,31 @@ void BworldSm_UpdateSimQuad__FP12BWorldSm_Pos(BWorldSm_Pos *slicePos)
 	/* end block 1 */
 	// End offset: 0x8007F144
 	// End Line: 520
+
+	/* begin block 2 */
+		// Start line: 1178
+	/* end block 2 */
+	// End Line: 1179
+
+	/* begin block 3 */
+		// Start line: 1188
+	/* end block 3 */
+	// End Line: 1189
+
+	/* begin block 4 */
+		// Start line: 1188
+	/* end block 4 */
+	// End Line: 1189
+
+	/* begin block 5 */
+		// Start line: 1189
+	/* end block 5 */
+	// End Line: 1190
+
+	/* begin block 6 */
+		// Start line: 1189
+	/* end block 6 */
+	// End Line: 1190
 
 int BworldSm_IsSimQuadValid__FP12BWorldSm_Pos(BWorldSm_Pos *slicePos)
 
@@ -698,6 +938,26 @@ int BworldSm_IsSimQuadValid__FP12BWorldSm_Pos(BWorldSm_Pos *slicePos)
 	// End offset: 0x8007F8C8
 	// End Line: 742
 
+	/* begin block 2 */
+		// Start line: 1213
+	/* end block 2 */
+	// End Line: 1214
+
+	/* begin block 3 */
+		// Start line: 1213
+	/* end block 3 */
+	// End Line: 1214
+
+	/* begin block 4 */
+		// Start line: 1231
+	/* end block 4 */
+	// End Line: 1232
+
+	/* begin block 5 */
+		// Start line: 1231
+	/* end block 5 */
+	// End Line: 1232
+
 int RawFindClosestQuad__FP8coorddefP12BWorldSm_Pos(coorddef *pt,BWorldSm_Pos *slicePos)
 
 {
@@ -744,14 +1004,14 @@ int RawFindClosestQuad__FP8coorddefP12BWorldSm_Pos(coorddef *pt,BWorldSm_Pos *sl
   uVar21 = (uchar)iVar7;
   slicePos->quad = uVar21;
   do {
-    if (DAT_00000288 <= iVar20) {
+    if (gMaxFindQuadSliceIterations <= iVar20) {
       iVar22 = (int)slicePos->slice - iVar22;
-      if (DAT_0000027c <= iVar22) {
-        iVar22 = iVar22 - DAT_0000027c;
+      if (gNumSlices <= iVar22) {
+        iVar22 = iVar22 - gNumSlices;
       }
       sVar10 = (short)iVar22;
       if (iVar22 < 0) {
-        sVar10 = sVar10 + (short)DAT_0000027c;
+        sVar10 = sVar10 + (short)gNumSlices;
       }
       slicePos->slice = sVar10;
       BWorld_SetSimSlice__FP12BWorldSm_Pos(slicePos);
@@ -952,12 +1212,12 @@ LAB_8007f1dc:
     }
     piVar9 = &DAT_8010f07c + iVar20;
     iVar12 = (int)slicePos->slice + *piVar9;
-    if (DAT_0000027c <= iVar12) {
-      iVar12 = iVar12 - DAT_0000027c;
+    if (gNumSlices <= iVar12) {
+      iVar12 = iVar12 - gNumSlices;
     }
     sVar10 = (short)iVar12;
     if (iVar12 < 0) {
-      sVar10 = sVar10 + (short)DAT_0000027c;
+      sVar10 = sVar10 + (short)gNumSlices;
     }
     slicePos->slice = sVar10;
     iVar20 = iVar20 + 1;
@@ -993,6 +1253,21 @@ LAB_8007f1dc:
 	/* end block 1 */
 	// End offset: 0x8007FA98
 	// End Line: 1129
+
+	/* begin block 2 */
+		// Start line: 2186
+	/* end block 2 */
+	// End Line: 2187
+
+	/* begin block 3 */
+		// Start line: 2503
+	/* end block 3 */
+	// End Line: 2504
+
+	/* begin block 4 */
+		// Start line: 2503
+	/* end block 4 */
+	// End Line: 2504
 
 int FindClosestQuad__FP8coorddefP12BWorldSm_Pos(coorddef *pt,BWorldSm_Pos *slicePos)
 
@@ -1033,10 +1308,9 @@ int FindClosestQuad__FP8coorddefP12BWorldSm_Pos(coorddef *pt,BWorldSm_Pos *slice
     pTVar7 = slicePos->simQuad;
     iVar6 = 0;
     while ((pTVar7 == (Trk_NewSimQuad *)0x0 && (iVar6 < 10))) {
-      corrPt_47 = corrPt_47 +
-                  (*(int *)((int)slicePos->slice * 0x20 + DAT_00000274) - corrPt_47 >> 5);
+      corrPt_47 = corrPt_47 + (BWorldSm_slices[(int)slicePos->slice].center[0] - corrPt_47 >> 5);
       DAT_8013dfcc = DAT_8013dfcc +
-                     (*(int *)((int)slicePos->slice * 0x20 + DAT_00000274 + 8) - DAT_8013dfcc >> 5);
+                     (BWorldSm_slices[(int)slicePos->slice].center[2] - DAT_8013dfcc >> 5);
       RawFindClosestQuad__FP8coorddefP12BWorldSm_Pos((coorddef *)&corrPt_47,slicePos);
       pTVar7 = slicePos->simQuad;
       iVar6 = iVar6 + 1;
@@ -1085,6 +1359,21 @@ int FindClosestQuad__FP8coorddefP12BWorldSm_Pos(coorddef *pt,BWorldSm_Pos *slice
 	/* end block 1 */
 	// End offset: 0x8007FC74
 	// End Line: 1188
+
+	/* begin block 2 */
+		// Start line: 2671
+	/* end block 2 */
+	// End Line: 2672
+
+	/* begin block 3 */
+		// Start line: 2682
+	/* end block 3 */
+	// End Line: 2683
+
+	/* begin block 4 */
+		// Start line: 2682
+	/* end block 4 */
+	// End Line: 2683
 
 int BWorldSm_FindClosestQuadRez__FP8coorddefP12BWorldSm_Posi
               (coorddef *pt,BWorldSm_Pos *slicePos,int hiRezFlag)
@@ -1156,6 +1445,21 @@ int BWorldSm_FindClosestQuadRez__FP8coorddefP12BWorldSm_Posi
 	// End offset: 0x8007FC90
 	// End Line: 1200
 
+	/* begin block 2 */
+		// Start line: 2811
+	/* end block 2 */
+	// End Line: 2812
+
+	/* begin block 3 */
+		// Start line: 2823
+	/* end block 3 */
+	// End Line: 2824
+
+	/* begin block 4 */
+		// Start line: 2823
+	/* end block 4 */
+	// End Line: 2824
+
 int BWorldSm_FindClosestQuadMaxIterations__FP8coorddefP12BWorldSm_Posi
               (coorddef *pt,BWorldSm_Pos *slicePos,int maxIterations)
 
@@ -1178,6 +1482,21 @@ int BWorldSm_FindClosestQuadMaxIterations__FP8coorddefP12BWorldSm_Posi
 	/* end block 1 */
 	// End offset: 0x8007FCB0
 	// End Line: 1213
+
+	/* begin block 2 */
+		// Start line: 2837
+	/* end block 2 */
+	// End Line: 2838
+
+	/* begin block 3 */
+		// Start line: 2849
+	/* end block 3 */
+	// End Line: 2850
+
+	/* begin block 4 */
+		// Start line: 2849
+	/* end block 4 */
+	// End Line: 2850
 
 int PointDirection__FP8coorddefN20(coorddef *p1,coorddef *p2,coorddef *p3)
 
@@ -1214,6 +1533,21 @@ int PointDirection__FP8coorddefN20(coorddef *p1,coorddef *p2,coorddef *p3)
 	/* end block 1 */
 	// End offset: 0x8007FDE4
 	// End Line: 1248
+
+	/* begin block 2 */
+		// Start line: 2855
+	/* end block 2 */
+	// End Line: 2856
+
+	/* begin block 3 */
+		// Start line: 2859
+	/* end block 3 */
+	// End Line: 2860
+
+	/* begin block 4 */
+		// Start line: 2859
+	/* end block 4 */
+	// End Line: 2860
 
 int BWorldSm_FindEdgeOff__FP8coorddefP12BWorldSm_PosT1Pi
               (coorddef *pt,BWorldSm_Pos *slicePos1,BWorldSm_Pos *slicePos2,int *heightDiff)
@@ -1295,6 +1629,31 @@ int BWorldSm_FindEdgeOff__FP8coorddefP12BWorldSm_PosT1Pi
 	// End offset: 0x8007FFCC
 	// End Line: 1290
 
+	/* begin block 2 */
+		// Start line: 2991
+	/* end block 2 */
+	// End Line: 2992
+
+	/* begin block 3 */
+		// Start line: 2997
+	/* end block 3 */
+	// End Line: 2998
+
+	/* begin block 4 */
+		// Start line: 2997
+	/* end block 4 */
+	// End Line: 2998
+
+	/* begin block 5 */
+		// Start line: 2998
+	/* end block 5 */
+	// End Line: 2999
+
+	/* begin block 6 */
+		// Start line: 2998
+	/* end block 6 */
+	// End Line: 2999
+
 int BWorldSm_QuadLight__FP12BWorldSm_Pos(BWorldSm_Pos *slicePos)
 
 {
@@ -1357,12 +1716,37 @@ int BWorldSm_QuadLight__FP12BWorldSm_Pos(BWorldSm_Pos *slicePos)
 	// End offset: 0x8008001C
 	// End Line: 1311
 
+	/* begin block 2 */
+		// Start line: 3114
+	/* end block 2 */
+	// End Line: 3115
+
+	/* begin block 3 */
+		// Start line: 3126
+	/* end block 3 */
+	// End Line: 3127
+
+	/* begin block 4 */
+		// Start line: 3126
+	/* end block 4 */
+	// End Line: 3127
+
+	/* begin block 5 */
+		// Start line: 3127
+	/* end block 5 */
+	// End Line: 3128
+
+	/* begin block 6 */
+		// Start line: 3127
+	/* end block 6 */
+	// End Line: 3128
+
 void * BWorldSm_TunnelFlagSm__FP12BWorldSm_Pos(BWorldSm_Pos *slicePos)
 
 {
   byte bVar1;
   
-  if ((*(byte *)((int)slicePos->slice * 0x20 + DAT_00000274 + 0x15) & 0x44) == 0) {
+  if ((BWorldSm_slices[(int)slicePos->slice].acousticType & 0x44) == 0) {
     if (slicePos->simQuad == (Trk_NewSimQuad *)0x0) {
       bVar1 = 0xe;
     }
@@ -1400,6 +1784,21 @@ void * BWorldSm_TunnelFlagSm__FP12BWorldSm_Pos(BWorldSm_Pos *slicePos)
 	// End offset: 0x8008007C
 	// End Line: 1358
 
+	/* begin block 2 */
+		// Start line: 3175
+	/* end block 2 */
+	// End Line: 3176
+
+	/* begin block 3 */
+		// Start line: 3206
+	/* end block 3 */
+	// End Line: 3207
+
+	/* begin block 4 */
+		// Start line: 3206
+	/* end block 4 */
+	// End Line: 3207
+
 void NormalCache_AddEntry__FP12BWorldSm_Pos(BWorldSm_Pos *slicePos)
 
 {
@@ -1413,7 +1812,7 @@ void NormalCache_AddEntry__FP12BWorldSm_Pos(BWorldSm_Pos *slicePos)
   iVar4 = -1;
   ptVar1 = &BWSM_NormalCache;
   iVar2 = 0;
-  DAT_0000028c = DAT_0000028c + 1;
+  BWSM_NormalCacheSysTime = BWSM_NormalCacheSysTime + 1;
   do {
     if (ptVar1->accessTime < uVar3) {
       uVar3 = ptVar1->accessTime;
@@ -1422,7 +1821,7 @@ void NormalCache_AddEntry__FP12BWorldSm_Pos(BWorldSm_Pos *slicePos)
     iVar2 = iVar2 + 1;
     ptVar1 = ptVar1 + 1;
   } while (iVar2 < 0x10);
-  (&BWSM_NormalCache)[iVar4].accessTime = DAT_0000028c;
+  (&BWSM_NormalCache)[iVar4].accessTime = BWSM_NormalCacheSysTime;
   iVar2 = (slicePos->forward).y;
   iVar5 = (slicePos->forward).z;
   (&BWSM_NormalCache)[iVar4].forward.x = (slicePos->forward).x;
@@ -1457,6 +1856,26 @@ void NormalCache_AddEntry__FP12BWorldSm_Pos(BWorldSm_Pos *slicePos)
 	// End offset: 0x800801A4
 	// End Line: 1406
 
+	/* begin block 2 */
+		// Start line: 3266
+	/* end block 2 */
+	// End Line: 3267
+
+	/* begin block 3 */
+		// Start line: 3272
+	/* end block 3 */
+	// End Line: 3273
+
+	/* begin block 4 */
+		// Start line: 3272
+	/* end block 4 */
+	// End Line: 3273
+
+	/* begin block 5 */
+		// Start line: 3274
+	/* end block 5 */
+	// End Line: 3275
+
 void * NormalCache_FindEntry__FP12BWorldSm_Pos(BWorldSm_Pos *slicePos)
 
 {
@@ -1468,7 +1887,7 @@ void * NormalCache_FindEntry__FP12BWorldSm_Pos(BWorldSm_Pos *slicePos)
   ptVar2 = &BWSM_NormalCache;
   iVar3 = 0;
   pbVar1 = &BWSM_NormalCache.triangleFlag;
-  uGp0000028c = uGp0000028c + 1;
+  BWSM_NormalCacheSysTime = BWSM_NormalCacheSysTime + 1;
   while (((ptVar2->sliceInd != slicePos->slice || (pbVar1[1] != slicePos->quad)) ||
          ((uint)*pbVar1 != (int)slicePos->triangleFlag))) {
     pbVar1 = pbVar1 + 0x20;
@@ -1492,7 +1911,7 @@ LAB_80080154:
       return &DAT_00000001;
     }
   }
-  ptVar2->accessTime = uGp0000028c;
+  ptVar2->accessTime = BWSM_NormalCacheSysTime;
   goto LAB_80080154;
 }
 
@@ -1518,6 +1937,31 @@ LAB_80080154:
 	// End offset: 0x800801E0
 	// End Line: 1421
 
+	/* begin block 2 */
+		// Start line: 3371
+	/* end block 2 */
+	// End Line: 3372
+
+	/* begin block 3 */
+		// Start line: 3377
+	/* end block 3 */
+	// End Line: 3378
+
+	/* begin block 4 */
+		// Start line: 3377
+	/* end block 4 */
+	// End Line: 3378
+
+	/* begin block 5 */
+		// Start line: 3378
+	/* end block 5 */
+	// End Line: 3379
+
+	/* begin block 6 */
+		// Start line: 3378
+	/* end block 6 */
+	// End Line: 3379
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void NormalCache_Init__Fv(void)
@@ -1526,6 +1970,7 @@ void NormalCache_Init__Fv(void)
   tNormalCacheEntry *ptVar1;
   int iVar2;
   
+  BWSM_NormalCacheSysTime = 0;
   iVar2 = 0;
   ptVar1 = &BWSM_NormalCache;
   do {
@@ -1536,7 +1981,6 @@ void NormalCache_Init__Fv(void)
     iVar2 = iVar2 + 1;
     ptVar1 = ptVar1 + 1;
   } while (iVar2 < 0x10);
-  uGp0000028c = 0;
   return;
 }
 
@@ -1593,6 +2037,21 @@ void NormalCache_Init__Fv(void)
 	/* end block 1 */
 	// End offset: 0x800804F4
 	// End Line: 1496
+
+	/* begin block 2 */
+		// Start line: 3402
+	/* end block 2 */
+	// End Line: 3403
+
+	/* begin block 3 */
+		// Start line: 3409
+	/* end block 3 */
+	// End Line: 3410
+
+	/* begin block 4 */
+		// Start line: 3409
+	/* end block 4 */
+	// End Line: 3410
 
 void Check_Rot__FP12BWorldSm_Pos(BWorldSm_Pos *slicePos)
 
@@ -1687,6 +2146,21 @@ void Check_Rot__FP12BWorldSm_Pos(BWorldSm_Pos *slicePos)
 	// End offset: 0x80080520
 	// End Line: 1500
 
+	/* begin block 2 */
+		// Start line: 3553
+	/* end block 2 */
+	// End Line: 3554
+
+	/* begin block 3 */
+		// Start line: 3557
+	/* end block 3 */
+	// End Line: 3558
+
+	/* begin block 4 */
+		// Start line: 3557
+	/* end block 4 */
+	// End Line: 3558
+
 coorddef * BWorldSm_UNormal__FP12BWorldSm_Pos(BWorldSm_Pos *slicePos)
 
 {
@@ -1706,6 +2180,21 @@ coorddef * BWorldSm_UNormal__FP12BWorldSm_Pos(BWorldSm_Pos *slicePos)
 	/* end block 1 */
 	// End offset: 0x80080548
 	// End Line: 1507
+
+	/* begin block 2 */
+		// Start line: 3567
+	/* end block 2 */
+	// End Line: 3568
+
+	/* begin block 3 */
+		// Start line: 3571
+	/* end block 3 */
+	// End Line: 3572
+
+	/* begin block 4 */
+		// Start line: 3571
+	/* end block 4 */
+	// End Line: 3572
 
 coorddef * BWorldSm_UForward__FP12BWorldSm_Pos(BWorldSm_Pos *slicePos)
 
@@ -1728,6 +2217,21 @@ coorddef * BWorldSm_UForward__FP12BWorldSm_Pos(BWorldSm_Pos *slicePos)
 	/* end block 1 */
 	// End offset: 0x800805F0
 	// End Line: 1537
+
+	/* begin block 2 */
+		// Start line: 3587
+	/* end block 2 */
+	// End Line: 3588
+
+	/* begin block 3 */
+		// Start line: 3593
+	/* end block 3 */
+	// End Line: 3594
+
+	/* begin block 4 */
+		// Start line: 3593
+	/* end block 4 */
+	// End Line: 3594
 
 int BWorldSm_FindClosestTriangleRez__FP8coorddefP12BWorldSm_Posi
               (coorddef *pt,BWorldSm_Pos *slicePos,int hiRezFlag)
@@ -1752,6 +2256,7 @@ int BWorldSm_FindClosestTriangleRez__FP8coorddefP12BWorldSm_Posi
   }
   return iVar2;
 }
+
 
 
 

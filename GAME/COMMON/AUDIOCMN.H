@@ -1,6 +1,7 @@
 #ifndef AUDIOCMN_H
 #define AUDIOCMN_H
 
+
 extern int AudioCmn_MusicLevel__Fi(int level); // 0x80076420
 
 extern int AudioCmn_GetTrackRecordLapTime__Fv(); // 0x80076480
@@ -96,5 +97,6 @@ extern void AudioCmn_UnPauseAndRestart__Fv(); // 0x80079D8C
 extern void AudioCmn_InitReverb__Fv(); // 0x80079E88
 
 extern void AudioCmn_ReverbOff__Fv(); // 0x80079ECC
+
 
 #endif

@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "CONTROL.H"
+
 
 // decompiled code
 // original method signature: 
@@ -11,6 +12,26 @@
 	/* end block 1 */
 	// End offset: 0x80091FDC
 	// End Line: 46
+
+	/* begin block 2 */
+		// Start line: 80
+	/* end block 2 */
+	// End Line: 81
+
+	/* begin block 3 */
+		// Start line: 80
+	/* end block 3 */
+	// End Line: 81
+
+	/* begin block 4 */
+		// Start line: 85
+	/* end block 4 */
+	// End Line: 86
+
+	/* begin block 5 */
+		// Start line: 112
+	/* end block 5 */
+	// End Line: 113
 
 void Control_AI__FP8Car_tObj(Car_tObj *carObj)
 
@@ -81,6 +102,26 @@ void Control_AI__FP8Car_tObj(Car_tObj *carObj)
 	/* end block 1 */
 	// End offset: 0x80092454
 	// End Line: 263
+
+	/* begin block 2 */
+		// Start line: 152
+	/* end block 2 */
+	// End Line: 153
+
+	/* begin block 3 */
+		// Start line: 160
+	/* end block 3 */
+	// End Line: 161
+
+	/* begin block 4 */
+		// Start line: 160
+	/* end block 4 */
+	// End Line: 161
+
+	/* begin block 5 */
+		// Start line: 166
+	/* end block 5 */
+	// End Line: 167
 
 void Control_Human__FP8Car_tObj(Car_tObj *carObj)
 
@@ -241,6 +282,7 @@ switchD_800921a0_caseD_9:
   }
   return;
 }
+
 
 
 

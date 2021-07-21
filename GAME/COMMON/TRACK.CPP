@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "TRACK.H"
+
 
 // decompiled code
 // original method signature: 
@@ -12,10 +13,30 @@
 	// End offset: 0x800B92F8
 	// End Line: 97
 
+	/* begin block 2 */
+		// Start line: 190
+	/* end block 2 */
+	// End Line: 191
+
+	/* begin block 3 */
+		// Start line: 190
+	/* end block 3 */
+	// End Line: 191
+
+	/* begin block 4 */
+		// Start line: 191
+	/* end block 4 */
+	// End Line: 192
+
+	/* begin block 5 */
+		// Start line: 191
+	/* end block 5 */
+	// End Line: 192
+
 void Track_SetTrackNumber__Fi(int tracknum)
 
 {
-  DAT_00000f90 = tracknum & 0xf;
+  gtrackNumber = tracknum & 0xf;
   return;
 }
 
@@ -34,10 +55,25 @@ void Track_SetTrackNumber__Fi(int tracknum)
 	// End offset: 0x800B9308
 	// End Line: 104
 
+	/* begin block 2 */
+		// Start line: 199
+	/* end block 2 */
+	// End Line: 200
+
+	/* begin block 3 */
+		// Start line: 206
+	/* end block 3 */
+	// End Line: 207
+
+	/* begin block 4 */
+		// Start line: 206
+	/* end block 4 */
+	// End Line: 207
+
 char * Track_MakeTrackPathName__FPc(char *ext)
 
 {
-  sprintf(&strspc_42,s__sTr_02d_s_80056644,PTR_80116480,DAT_00000f90,ext);
+  sprintf(&strspc_42,s__sTr_02d_s_80056644,PTR_ARRAY_80116480[0],gtrackNumber,ext);
   return &strspc_42;
 }
 
@@ -56,10 +92,25 @@ char * Track_MakeTrackPathName__FPc(char *ext)
 	// End offset: 0x800B9350
 	// End Line: 115
 
+	/* begin block 2 */
+		// Start line: 229
+	/* end block 2 */
+	// End Line: 230
+
+	/* begin block 3 */
+		// Start line: 233
+	/* end block 3 */
+	// End Line: 234
+
+	/* begin block 4 */
+		// Start line: 233
+	/* end block 4 */
+	// End Line: 234
+
 char * Track_MakeTrackDataPathName__FPc(char *ext)
 
 {
-  sprintf(&strspc_45,s__sTr_02d_s_80056644,PTR_80116488,DAT_00000f90,ext);
+  sprintf(&strspc_45,s__sTr_02d_s_80056644,PTR_ARRAY_80116488[0],gtrackNumber,ext);
   return &strspc_45;
 }
 
@@ -75,6 +126,21 @@ char * Track_MakeTrackDataPathName__FPc(char *ext)
 	/* end block 1 */
 	// End offset: 0x800B9398
 	// End Line: 143
+
+	/* begin block 2 */
+		// Start line: 273
+	/* end block 2 */
+	// End Line: 274
+
+	/* begin block 3 */
+		// Start line: 294
+	/* end block 3 */
+	// End Line: 295
+
+	/* begin block 4 */
+		// Start line: 294
+	/* end block 4 */
+	// End Line: 295
 
 void AllocArtResource__FP18Track_tArtresourcei(Track_tArtresource *artRes,int numPmx)
 
@@ -103,13 +169,28 @@ void AllocArtResource__FP18Track_tArtresourcei(Track_tArtresource *artRes,int nu
 	// End offset: 0x800B93D8
 	// End Line: 156
 
+	/* begin block 2 */
+		// Start line: 322
+	/* end block 2 */
+	// End Line: 323
+
+	/* begin block 3 */
+		// Start line: 326
+	/* end block 3 */
+	// End Line: 327
+
+	/* begin block 4 */
+		// Start line: 326
+	/* end block 4 */
+	// End Line: 327
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void InitArtResources__Fv(void)
 
 {
   AllocArtResource__FP18Track_tArtresourcei(&gInitialArt,0x352);
-  DAT_00000f84 = BWAllocMem__Fl(0xd48);
+  Track_materials = (Track_tMaterial *)BWAllocMem__Fl(0xd48);
   return;
 }
 
@@ -125,6 +206,21 @@ void InitArtResources__Fv(void)
 	/* end block 1 */
 	// End offset: 0x800B9408
 	// End Line: 177
+
+	/* begin block 2 */
+		// Start line: 358
+	/* end block 2 */
+	// End Line: 359
+
+	/* begin block 3 */
+		// Start line: 369
+	/* end block 3 */
+	// End Line: 370
+
+	/* begin block 4 */
+		// Start line: 369
+	/* end block 4 */
+	// End Line: 370
 
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
@@ -297,52 +393,72 @@ void DeInitArtResources__Fv(void)
 	// End offset: 0x800B9748
 	// End Line: 360
 
+	/* begin block 2 */
+		// Start line: 438
+	/* end block 2 */
+	// End Line: 439
+
+	/* begin block 3 */
+		// Start line: 471
+	/* end block 3 */
+	// End Line: 472
+
+	/* begin block 4 */
+		// Start line: 471
+	/* end block 4 */
+	// End Line: 472
+
+	/* begin block 5 */
+		// Start line: 484
+	/* end block 5 */
+	// End Line: 485
+
 void LoadShapesAndMakePmx__FPcP12Draw_tPixMapiii
                (char *shapefile,Draw_tPixMap *pmxList,int loadFlags,int x,int y)
 
 {
-  short *psVar1;
+  uchar *puVar1;
+  short *psVar2;
   int cx;
   byte *n;
-  int iVar2;
   int iVar3;
-  ushort *puVar4;
-  int iVar5;
-  short *psVar6;
+  uchar *puVar4;
+  ushort *puVar5;
+  int iVar6;
   uint uVar7;
   int iVar8;
   char local_38;
-  char local_37;
+  uchar local_37;
   byte local_36;
   byte local_35 [5];
   ushort local_30;
   ushort local_2e;
   
   iVar8 = -1;
-  DAT_00001888 = (ushort *)0x0;
+  gTempMipMapInfo = (uchar *)0x0;
   if (TrackSpec_gSpec.fogstate != 0) {
     iVar8 = -3;
-    DAT_00001888 = (ushort *)reservememadr(s_mipmapinf_80056650,0x180,0x10);
-    iVar5 = 0;
-    iVar2 = 0;
+    gTempMipMapInfo = (uchar *)reservememadr(s_mipmapinf_80056650,0x180,0x10);
+    iVar6 = 0;
+    iVar3 = 0;
     do {
-      iVar5 = iVar5 + 1;
-      *(undefined4 *)(iVar2 + (int)DAT_00001888) = 0xffffffff;
-      iVar2 = iVar2 + 0xc;
-    } while (iVar5 < 0x20);
+      iVar6 = iVar6 + 1;
+      *(undefined4 *)(gTempMipMapInfo + iVar3) = 0xffffffff;
+      iVar3 = iVar3 + 0xc;
+    } while (iVar6 < 0x20);
   }
-  DAT_0000188c = reservememadr(s_mpalinfo_8005665c,0x400,0x10);
-  iVar2 = 0x7f;
-  psVar1 = DAT_0000188c + 0x1fc;
+  gTempMultiPalInfo = (uchar *)reservememadr(s_mpalinfo_8005665c,0x400,0x10);
+  iVar3 = 0x7f;
+  psVar2 = (short *)gTempMultiPalInfo + 0x1fc;
   do {
-    psVar1[1] = -1;
-    iVar2 = iVar2 + -1;
-    psVar1 = psVar1 + -4;
-  } while (-1 < iVar2);
+    psVar2[1] = -1;
+    iVar3 = iVar3 + -1;
+    psVar2 = psVar2 + -4;
+  } while (-1 < iVar3);
   DrawSync(0);
-  iVar5 = 0;
+  iVar6 = 0;
   uVar7 = 0;
-  iVar2 = 0;
+  iVar3 = 0;
   do {
     cx = shapecount((int)shapefile);
     if (cx <= (int)uVar7) {
@@ -357,53 +473,53 @@ void LoadShapesAndMakePmx__FPcP12Draw_tPixMapiii
       Texture_LoadPmx__FPcT0iiiiiP12Draw_tPixMap
                 ((char *)0x0,(char *)n,loadFlags | 2,x,y,cx,cx,pmxList);
       if (local_38 == '!') {
-        *(char *)(iVar2 + (int)DAT_0000188c) = local_37;
-        *(byte *)((int)DAT_0000188c + iVar2 + 1) = local_36;
+        gTempMultiPalInfo[iVar3] = local_37;
+        gTempMultiPalInfo[iVar3 + 1] = local_36;
         cx = atoi((char *)local_35);
-        psVar1 = DAT_0000188c;
-        iVar3 = iVar2 + (int)DAT_0000188c;
-        *(undefined2 *)(iVar3 + 2) = (short)cx;
-        *(undefined2 *)(iVar3 + 6) = (short)uVar7;
+        puVar1 = gTempMultiPalInfo;
+        puVar4 = gTempMultiPalInfo + iVar3;
+        *(short *)(puVar4 + 2) = (short)cx;
+        *(short *)(puVar4 + 6) = (short)uVar7;
         if (cx == 0) {
-          *(undefined2 *)(iVar3 + 4) = (short)uVar7;
+          *(short *)(puVar4 + 4) = (short)uVar7;
         }
         else {
           cx = 0;
-          psVar6 = psVar1;
+          puVar4 = puVar1;
           do {
-            if (((*(char *)psVar6 == local_37) && (*(byte *)((int)psVar6 + 1) == local_36)) &&
-               (psVar6[1] == 0)) {
-              *(short *)((int)psVar1 + iVar2 + 4) = psVar6[2];
+            if (((*puVar4 == local_37) && (puVar4[1] == local_36)) && (*(short *)(puVar4 + 2) == 0))
+            {
+              *(undefined2 *)(puVar1 + iVar3 + 4) = *(undefined2 *)(puVar4 + 4);
               break;
             }
             cx = cx + 1;
-            psVar6 = psVar6 + 4;
+            puVar4 = puVar4 + 8;
           } while (cx < 0x80);
         }
-        iVar2 = iVar2 + 8;
+        iVar3 = iVar3 + 8;
       }
       if ((TrackSpec_gSpec.fogstate != 0) && (local_38 == 'Z')) {
         local_2e = (ushort)local_35[0];
         local_30 = (ushort)local_36;
         if ((local_37 == 'R') && ((*n & 3) == 1)) {
-          puVar4 = DAT_00001888 + iVar5 * 6;
-          *puVar4 = local_30;
-          iVar5 = iVar5 + 1;
-          *(uint *)(puVar4 + 2) = uVar7;
-          *(uint *)(puVar4 + 4) = uVar7;
-          puVar4[1] = (ushort)local_35[0];
+          puVar5 = (ushort *)(gTempMipMapInfo + iVar6 * 0xc);
+          *puVar5 = local_30;
+          iVar6 = iVar6 + 1;
+          *(uint *)(puVar5 + 2) = uVar7;
+          *(uint *)(puVar5 + 4) = uVar7;
+          puVar5[1] = (ushort)local_35[0];
         }
         else {
           cx = 0;
-          puVar4 = DAT_00001888;
+          puVar5 = (ushort *)gTempMipMapInfo;
           if (local_37 == 'Z') {
             do {
-              if ((local_30 == *puVar4) && (local_2e == puVar4[1])) {
-                *(uint *)(puVar4 + 4) = uVar7;
+              if ((local_30 == *puVar5) && (local_2e == puVar5[1])) {
+                *(uint *)(puVar5 + 4) = uVar7;
                 break;
               }
               cx = cx + 1;
-              puVar4 = puVar4 + 6;
+              puVar5 = puVar5 + 6;
             } while (cx < 0x20);
           }
         }
@@ -431,6 +547,21 @@ void LoadShapesAndMakePmx__FPcP12Draw_tPixMapiii
 	/* end block 1 */
 	// End offset: 0x800B9808
 	// End Line: 395
+
+	/* begin block 2 */
+		// Start line: 826
+	/* end block 2 */
+	// End Line: 827
+
+	/* begin block 3 */
+		// Start line: 842
+	/* end block 3 */
+	// End Line: 843
+
+	/* begin block 4 */
+		// Start line: 842
+	/* end block 4 */
+	// End Line: 843
 
 void LoadShapesAndMakePmx_EnvMap__FPcP12Draw_tPixMapii
                (char *shapefile,Draw_tPixMap *pmxList,int x,int y)
@@ -497,6 +628,21 @@ void LoadShapesAndMakePmx_EnvMap__FPcP12Draw_tPixMapii
 	// End offset: 0x800B99CC
 	// End Line: 466
 
+	/* begin block 2 */
+		// Start line: 924
+	/* end block 2 */
+	// End Line: 925
+
+	/* begin block 3 */
+		// Start line: 935
+	/* end block 3 */
+	// End Line: 936
+
+	/* begin block 4 */
+		// Start line: 935
+	/* end block 4 */
+	// End Line: 936
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void TexturesLoadInitial__Fv(void)
@@ -548,7 +694,7 @@ void TexturesLoadInitial__Fv(void)
     ext = (char *)loadshapeadr(ext,0);
     if (ext != (char *)0x0) {
       Texture_ResetPaletteSharing__Fv();
-      LoadShapesAndMakePmx_EnvMap__FPcP12Draw_tPixMapii(ext,&Track_gReflectionMaps,0x3e0,0);
+      LoadShapesAndMakePmx_EnvMap__FPcP12Draw_tPixMapii(ext,Track_gReflectionMaps,0x3e0,0);
       purgememadr((int)ext);
     }
     return;
@@ -618,6 +764,26 @@ void TexturesLoadInitial__Fv(void)
 	// End offset: 0x800B9B6C
 	// End Line: 518
 
+	/* begin block 2 */
+		// Start line: 1094
+	/* end block 2 */
+	// End Line: 1095
+
+	/* begin block 3 */
+		// Start line: 1120
+	/* end block 3 */
+	// End Line: 1121
+
+	/* begin block 4 */
+		// Start line: 1120
+	/* end block 4 */
+	// End Line: 1121
+
+	/* begin block 5 */
+		// Start line: 1124
+	/* end block 5 */
+	// End Line: 1125
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Track_AnimateTextures__Fv(void)
@@ -627,15 +793,15 @@ void Track_AnimateTextures__Fv(void)
   char cVar2;
   Draw_tPixMap *pDVar3;
   short *psVar4;
-  short *psVar5;
+  Track_tMaterialController *pTVar5;
   int iVar6;
   int iVar7;
   
-  psVar4 = DAT_00000f9c + 5;
-  psVar5 = DAT_00000f9c;
-  iVar6 = DAT_00000f98;
+  psVar4 = &Track_gMatController->pmxIndex;
+  pTVar5 = Track_gMatController;
+  iVar6 = Track_gControllerCount;
   while (iVar6 = iVar6 + -1, iVar6 != -1) {
-    if (*psVar5 == 0x80) {
+    if (pTVar5->type == 0x80) {
       bVar1 = *(byte *)((int)psVar4 + -1);
       iVar7 = simGlobal.gameTicks / (int)(uint)bVar1;
       if (bVar1 == 0) {
@@ -659,7 +825,7 @@ void Track_AnimateTextures__Fv(void)
       pDVar3->v3 = *(char *)((int)psVar4 + -3) + cVar2;
     }
     else {
-      if (*psVar5 == 4) {
+      if (pTVar5->type == 4) {
         bVar1 = *(byte *)((int)psVar4 + -1);
         iVar7 = simGlobal.gameTicks / (int)(uint)bVar1;
         if (bVar1 == 0) {
@@ -679,7 +845,7 @@ void Track_AnimateTextures__Fv(void)
       }
     }
     psVar4 = psVar4 + 8;
-    psVar5 = psVar5 + 8;
+    pTVar5 = pTVar5 + 1;
   }
   return;
 }
@@ -706,23 +872,43 @@ void Track_AnimateTextures__Fv(void)
 	// End offset: 0x800B9BBC
 	// End Line: 533
 
+	/* begin block 2 */
+		// Start line: 1185
+	/* end block 2 */
+	// End Line: 1186
+
+	/* begin block 3 */
+		// Start line: 1193
+	/* end block 3 */
+	// End Line: 1194
+
+	/* begin block 4 */
+		// Start line: 1193
+	/* end block 4 */
+	// End Line: 1194
+
+	/* begin block 5 */
+		// Start line: 1195
+	/* end block 5 */
+	// End Line: 1196
+
 int Track_GetProperMultiPalShapeIndex__Fii(int shapeindex,int paletteindex)
 
 {
-  int iVar1;
+  uchar *puVar1;
   int iVar2;
   
   iVar2 = 0;
-  iVar1 = DAT_0000188c;
-  while (((int)*(short *)(iVar1 + 4) != shapeindex || ((int)*(short *)(iVar1 + 2) != paletteindex)))
-  {
+  puVar1 = gTempMultiPalInfo;
+  while (((int)*(short *)(puVar1 + 4) != shapeindex || ((int)*(short *)(puVar1 + 2) != paletteindex)
+         )) {
     iVar2 = iVar2 + 1;
-    iVar1 = iVar1 + 8;
+    puVar1 = puVar1 + 8;
     if (0x7f < iVar2) {
       return shapeindex;
     }
   }
-  return (int)*(short *)(iVar1 + 6);
+  return (int)*(short *)(puVar1 + 6);
 }
 
 
@@ -740,6 +926,21 @@ int Track_GetProperMultiPalShapeIndex__Fii(int shapeindex,int paletteindex)
 	/* end block 1 */
 	// End offset: 0x800B9CC4
 	// End Line: 572
+
+	/* begin block 2 */
+		// Start line: 1213
+	/* end block 2 */
+	// End Line: 1214
+
+	/* begin block 3 */
+		// Start line: 1219
+	/* end block 3 */
+	// End Line: 1220
+
+	/* begin block 4 */
+		// Start line: 1219
+	/* end block 4 */
+	// End Line: 1220
 
 void Track_ProcessFlipAndUVFlags__FiP12Draw_tPixMapT1
                (int uvFlag,Draw_tPixMap *inputPmx,Draw_tPixMap *outputPmx)
@@ -852,6 +1053,21 @@ LAB_800b9cc4:
 	/* end block 1 */
 	// End offset: 0x800B9E7C
 	// End Line: 627
+
+	/* begin block 2 */
+		// Start line: 1301
+	/* end block 2 */
+	// End Line: 1302
+
+	/* begin block 3 */
+		// Start line: 1307
+	/* end block 3 */
+	// End Line: 1308
+
+	/* begin block 4 */
+		// Start line: 1307
+	/* end block 4 */
+	// End Line: 1308
 
 void Track_AssociateSingleMaterial__FP12Trk_MaterialP15Track_tMaterialP18Track_tArtresource
                (Trk_Material *inputMat,Track_tMaterial *outputMat,Track_tArtresource *art)
@@ -1074,23 +1290,36 @@ void Track_AssociateSingleMaterial__FP12Trk_MaterialP15Track_tMaterialP18Track_t
 	// End offset: 0x800BA22C
 	// End Line: 849
 
+	/* begin block 2 */
+		// Start line: 1365
+	/* end block 2 */
+	// End Line: 1366
+
+	/* begin block 3 */
+		// Start line: 1488
+	/* end block 3 */
+	// End Line: 1489
+
+	/* begin block 4 */
+		// Start line: 1488
+	/* end block 4 */
+	// End Line: 1489
+
 void Track_LinkMaterials__FP15SerializedGroupiP15Track_tMaterial
                (SerializedGroup *group,int length,Track_tMaterial *matList)
 
 {
   byte bVar1;
   char cVar2;
-  ushort *puVar3;
+  Track_tMaterialController *pTVar3;
   SerializedGroup *pSVar4;
   Draw_tPixMap *pDVar5;
   int iVar6;
-  int iVar7;
-  char *pcVar8;
-  int *piVar9;
+  int *piVar7;
+  int iVar8;
+  int iVar9;
   int iVar10;
   int iVar11;
-  int iVar12;
-  int iVar13;
   undefined4 local_40;
   undefined4 local_3c;
   undefined4 local_38;
@@ -1098,76 +1327,76 @@ void Track_LinkMaterials__FP15SerializedGroupiP15Track_tMaterial
   uint local_30;
   
   if (group != (SerializedGroup *)0x0) {
-    iVar12 = 0;
+    iVar10 = 0;
     group = group + 1;
-    DAT_00000f98 = 0;
+    Track_gControllerCount = 0;
     gInitialArt.pmxCount = gInitialArt.basePmxCount;
     local_30 = (uint)length / 10;
     pSVar4 = group;
     if (local_30 != 0) {
       do {
         if ((*(ushort *)((int)&pSVar4->m_type + 2) & 0x84) != 0) {
-          DAT_00000f98 = DAT_00000f98 + 1;
+          Track_gControllerCount = Track_gControllerCount + 1;
         }
-        iVar12 = iVar12 + 1;
+        iVar10 = iVar10 + 1;
         pSVar4 = (SerializedGroup *)((int)&pSVar4->dummy + 2);
-      } while (iVar12 < (int)local_30);
+      } while (iVar10 < (int)local_30);
     }
-    if (DAT_00000f98 != 0) {
-      DAT_00000f9c = BWAllocMem__Fl(DAT_00000f98 << 4);
+    if (Track_gControllerCount != 0) {
+      Track_gMatController =
+           (Track_tMaterialController *)BWAllocMem__Fl(Track_gControllerCount << 4);
     }
-    iVar13 = 0;
-    iVar12 = iVar13;
-    while (iVar13 < (int)local_30) {
+    iVar11 = 0;
+    iVar10 = iVar11;
+    while (iVar11 < (int)local_30) {
       Track_AssociateSingleMaterial__FP12Trk_MaterialP15Track_tMaterialP18Track_tArtresource
                 ((Trk_Material *)group,matList,&gInitialArt);
       bVar1 = *(byte *)((int)&group->m_type + 2);
-      iVar7 = iVar12 * 0x10;
       if ((bVar1 & 4) == 0) {
-        iVar7 = iVar12 * 0x10;
+        _cVar2 = iVar10;
         if ((bVar1 & 0x80) != 0) {
-          *(ushort *)(DAT_00000f9c + iVar7) = (ushort)*(byte *)((int)&group->m_type + 2);
+          Track_gMatController[iVar10].type = (ushort)*(byte *)((int)&group->m_type + 2);
           if (*(char *)&group->dummy == '\0') {
             *(undefined *)&group->dummy = 1;
           }
-          DAT_00000f9c[iVar7 + 9] = *(char *)&group->dummy;
-          DAT_00000f9c[iVar7 + 8] = *(char *)((int)&group->m_length + 3);
-          pcVar8 = DAT_00000f9c + iVar7;
-          *(short *)(pcVar8 + 10) = matList->pmxIndex;
-          *(Track_tMaterial **)(pcVar8 + 0xc) = matList;
+          Track_gMatController[iVar10].interval = *(uchar *)&group->dummy;
+          Track_gMatController[iVar10].textureCount = *(char *)((int)&group->m_length + 3);
+          pTVar3 = Track_gMatController + iVar10;
+          pTVar3->pmxIndex = matList->pmxIndex;
+          pTVar3->matPtr = matList;
           pDVar5 = gInitialArt.pPmx + (int)matList->pmxIndex;
-          pcVar8[4] = pDVar5->v0;
-          DAT_00000f9c[iVar7 + 5] = pDVar5->v1;
-          DAT_00000f9c[iVar7 + 6] = pDVar5->v2;
-          DAT_00000f9c[iVar7 + 7] = pDVar5->v3;
-          iVar11 = (uint)pDVar5->v3 - (uint)pDVar5->v0;
-          cVar2 = (char)iVar11;
-          if (iVar11 < 0) {
+          pTVar3->uv0 = pDVar5->v0;
+          Track_gMatController[iVar10].uv1 = pDVar5->v1;
+          Track_gMatController[iVar10].uv2 = pDVar5->v2;
+          Track_gMatController[iVar10].uv3 = pDVar5->v3;
+          _cVar2 = (uint)pDVar5->v3 - (uint)pDVar5->v0;
+          cVar2 = (char)_cVar2;
+          if (_cVar2 < 0) {
             cVar2 = -cVar2;
           }
-          iVar12 = iVar12 + 1;
-          DAT_00000f9c[iVar7 + 2] = cVar2 + '\x01';
+          _cVar2 = iVar10 + 1;
+          Track_gMatController[iVar10].textureMax = cVar2 + '\x01';
         }
       }
       else {
-        puVar3 = (ushort *)(DAT_00000f9c + iVar7);
-        *puVar3 = (ushort)bVar1;
-        iVar12 = iVar12 + 1;
-        *(char *)((int)puVar3 + 9) = *(char *)&group->dummy;
-        DAT_00000f9c[iVar7 + 8] = *(char *)((int)&group->m_length + 3);
-        pcVar8 = DAT_00000f9c + iVar7;
-        *(short *)(pcVar8 + 10) = matList->pmxIndex;
-        *(Track_tMaterial **)(pcVar8 + 0xc) = matList;
+        pTVar3 = Track_gMatController + iVar10;
+        pTVar3->type = (ushort)bVar1;
+        pTVar3->interval = *(uchar *)&group->dummy;
+        Track_gMatController[iVar10].textureCount = *(char *)((int)&group->m_length + 3);
+        pTVar3 = Track_gMatController + iVar10;
+        pTVar3->pmxIndex = matList->pmxIndex;
+        pTVar3->matPtr = matList;
+        _cVar2 = iVar10 + 1;
       }
-      iVar7 = 0;
+      iVar10 = 0;
       if (TrackSpec_gSpec.fogstate != 0) {
-        iVar11 = 0;
-        while (iVar7 < 0x20) {
-          piVar9 = (int *)(iVar11 + DAT_00001888);
-          if ((*piVar9 != -1) && (iVar10 = piVar9[1], iVar10 == (int)*(short *)&group->m_type)) {
-            iVar6 = piVar9[2];
+        iVar9 = 0;
+        while (iVar10 < 0x20) {
+          piVar7 = (int *)(gTempMipMapInfo + iVar9);
+          if ((*piVar7 != -1) && (iVar8 = piVar7[1], iVar8 == (int)*(short *)&group->m_type)) {
+            iVar6 = piVar7[2];
             matList->flag = matList->flag | 8;
-            iVar6 = iVar6 - iVar10;
+            iVar6 = iVar6 - iVar8;
             if ((int)*(short *)&group->m_type == (int)matList->pmxIndex) {
               matList->mipmap_offset = (char)iVar6;
             }
@@ -1184,18 +1413,19 @@ void Track_LinkMaterials__FP15SerializedGroupiP15Track_tMaterial
               matList->mipmap_offset = '\x01';
             }
           }
-          iVar11 = iVar11 + 0xc;
-          iVar7 = iVar7 + 1;
+          iVar9 = iVar9 + 0xc;
+          iVar10 = iVar10 + 1;
         }
       }
       matList = matList + 1;
       group = (SerializedGroup *)((int)&group->dummy + 2);
-      iVar13 = iVar13 + 1;
+      iVar11 = iVar11 + 1;
+      iVar10 = _cVar2;
     }
-    if (DAT_00001888 != 0) {
-      purgememadr(DAT_00001888);
+    if (gTempMipMapInfo != (uchar *)0x0) {
+      purgememadr((int)gTempMipMapInfo);
     }
-    purgememadr(DAT_0000188c);
+    purgememadr((int)gTempMultiPalInfo);
     gInitialArt.shapeFile = (char *)0x0;
     gInitialArt.pmxCount = gInitialArt.shapeCount;
   }
@@ -1274,40 +1504,67 @@ void Track_LinkMaterials__FP15SerializedGroupiP15Track_tMaterial
 	// End offset: 0x800BA2F4
 	// End Line: 1003
 
+	/* begin block 2 */
+		// Start line: 1964
+	/* end block 2 */
+	// End Line: 1965
+
+	/* begin block 3 */
+		// Start line: 1964
+	/* end block 3 */
+	// End Line: 1965
+
+	/* begin block 4 */
+		// Start line: 2079
+	/* end block 4 */
+	// End Line: 2080
+
+	/* begin block 5 */
+		// Start line: 2079
+	/* end block 5 */
+	// End Line: 2080
+
+	/* begin block 6 */
+		// Start line: 2081
+	/* end block 6 */
+	// End Line: 2082
+
 void ReduceObjectPrecision__FP5GroupT0i(Group *instGroup,Group *defGroup,int bits)
 
 {
   short sVar1;
   short sVar2;
-  short *psVar3;
-  short *psVar4;
-  short *psVar5;
-  uint uVar6;
-  Group *pGVar7;
-  int iVar8;
+  Trk_ObjectDef **ppTVar3;
+  Trk_ObjectDef *pTVar4;
+  Trk_ObjectDef *pTVar5;
+  Trk_ObjectDef *pTVar6;
+  uint uVar7;
+  Group *pGVar8;
+  int iVar9;
   
-  pGVar7 = instGroup + 1;
+  ppTVar3 = Track_gObjDefs;
+  pGVar8 = instGroup + 1;
   if (instGroup != (Group *)0x0) {
-    iVar8 = instGroup->m_num_elements;
-    while (iVar8 = iVar8 + -1, iVar8 != -1) {
+    iVar9 = instGroup->m_num_elements;
+    while (iVar9 = iVar9 + -1, iVar9 != -1) {
       if (defGroup != (Group *)0x0) {
-        psVar3 = *(short **)((int)*(short *)((int)&pGVar7[1].m_num_elements + 2) * 4 + iGp00000f88);
-        psVar5 = psVar3 + 2;
-        uVar6 = (uint)*(byte *)(psVar3 + 1);
+        pTVar4 = ppTVar3[(int)*(short *)((int)&pGVar8[1].m_num_elements + 2)];
+        pTVar6 = pTVar4 + 1;
+        uVar7 = (uint)pTVar4->vertexCount;
         while( true ) {
-          psVar4 = psVar3 + 4;
-          uVar6 = uVar6 - 1;
-          if (uVar6 == 0xffffffff) break;
-          sVar1 = psVar3[3];
-          sVar2 = *psVar4;
-          *psVar5 = (short)((int)*psVar5 >> (bits & 0x1fU));
-          psVar3[3] = (short)((int)sVar1 >> (bits & 0x1fU));
-          *psVar4 = (short)((int)sVar2 >> (bits & 0x1fU));
-          psVar5 = psVar5 + 4;
-          psVar3 = psVar4;
+          pTVar5 = pTVar4 + 2;
+          uVar7 = uVar7 - 1;
+          if (uVar7 == 0xffffffff) break;
+          sVar1 = *(short *)&pTVar4[1].vertexCount;
+          sVar2 = pTVar5->id;
+          pTVar6->id = (short)((int)pTVar6->id >> (bits & 0x1fU));
+          *(short *)&pTVar4[1].vertexCount = (short)((int)sVar1 >> (bits & 0x1fU));
+          pTVar5->id = (short)((int)sVar2 >> (bits & 0x1fU));
+          pTVar6 = pTVar6 + 2;
+          pTVar4 = pTVar5;
         }
       }
-      pGVar7 = (Group *)((int)&pGVar7->m_num_elements + (int)*(short *)&pGVar7->m_num_elements);
+      pGVar8 = (Group *)((int)&pGVar8->m_num_elements + (int)*(short *)&pGVar8->m_num_elements);
     }
   }
   return;
@@ -1345,6 +1602,26 @@ void ReduceObjectPrecision__FP5GroupT0i(Group *instGroup,Group *defGroup,int bit
 	// End offset: 0x800BA360
 	// End Line: 1025
 
+	/* begin block 2 */
+		// Start line: 2176
+	/* end block 2 */
+	// End Line: 2177
+
+	/* begin block 3 */
+		// Start line: 2184
+	/* end block 3 */
+	// End Line: 2185
+
+	/* begin block 4 */
+		// Start line: 2184
+	/* end block 4 */
+	// End Line: 2185
+
+	/* begin block 5 */
+		// Start line: 2186
+	/* end block 5 */
+	// End Line: 2187
+
 void InvalidatePersistentCollideBoomObjects__FP5GroupT0(Group *instGroup,Group *defGroup)
 
 {
@@ -1354,8 +1631,7 @@ void InvalidatePersistentCollideBoomObjects__FP5GroupT0(Group *instGroup,Group *
     iVar1 = instGroup->m_num_elements;
     instGroup = instGroup + 1;
     while (iVar1 = iVar1 + -1, iVar1 != -1) {
-      if (**(short **)((int)*(short *)((int)&instGroup[1].m_num_elements + 2) * 4 + iGp00000f88) !=
-          -1) {
+      if (Track_gObjDefs[(int)*(short *)((int)&instGroup[1].m_num_elements + 2)]->id != -1) {
         *(undefined *)((int)&instGroup->m_num_elements + 2) = 0;
       }
       instGroup = (Group *)((int)&instGroup->m_num_elements +
@@ -1449,20 +1725,35 @@ void InvalidatePersistentCollideBoomObjects__FP5GroupT0(Group *instGroup,Group *
 	// End offset: 0x800BA5A4
 	// End Line: 1126
 
+	/* begin block 2 */
+		// Start line: 2250
+	/* end block 2 */
+	// End Line: 2251
+
+	/* begin block 3 */
+		// Start line: 2288
+	/* end block 3 */
+	// End Line: 2289
+
+	/* begin block 4 */
+		// Start line: 2288
+	/* end block 4 */
+	// End Line: 2289
+
 /* WARNING: Could not reconcile some variable overlaps */
 
 void CalcObjectBoundingSphere__FP5GroupT0(Group *defGroup,Group *boundingSphereGroup)
 
 {
   byte bVar1;
-  short sVar2;
+  short *psVar2;
   int iVar3;
   int iVar4;
   int iVar5;
-  short *psVar6;
+  Trk_ObjectDef *pTVar6;
   uint uVar7;
-  short *psVar8;
-  short *psVar9;
+  Trk_ObjectDef *pTVar8;
+  Trk_ObjectDef *pTVar9;
   int iVar10;
   undefined2 *puVar11;
   int iVar12;
@@ -1480,22 +1771,22 @@ void CalcObjectBoundingSphere__FP5GroupT0(Group *defGroup,Group *boundingSphereG
   puVar11 = (undefined2 *)((int)&boundingSphereGroup[2].m_num_elements + 2);
   iVar14 = defGroup->m_num_elements;
   while (iVar12 < iVar14) {
-    psVar6 = *(short **)(iVar12 * 4 + iGp00000f88);
-    uVar7 = (uint)*(byte *)(psVar6 + 1);
-    psVar8 = psVar6 + 2;
+    pTVar6 = Track_gObjDefs[iVar12];
+    uVar7 = (uint)pTVar6->vertexCount;
+    pTVar8 = pTVar6 + 1;
     local_28 = 0;
     local_2c = 0;
     local_30 = 0;
-    psVar9 = psVar6;
+    pTVar9 = pTVar6;
     while (uVar7 = uVar7 - 1, uVar7 != 0xffffffff) {
-      sVar2 = *psVar8;
-      psVar8 = psVar8 + 4;
-      local_30 = local_30 + (int)sVar2;
-      local_2c = local_2c + (int)psVar9[3];
-      local_28 = local_28 + (int)psVar9[4];
-      psVar9 = psVar9 + 4;
+      psVar2 = &pTVar8->id;
+      pTVar8 = pTVar8 + 2;
+      local_30 = local_30 + (int)*psVar2;
+      local_2c = local_2c + (int)*(short *)&pTVar9[1].vertexCount;
+      local_28 = local_28 + (int)pTVar9[2].id;
+      pTVar9 = pTVar9 + 2;
     }
-    bVar1 = *(byte *)(psVar6 + 1);
+    bVar1 = pTVar6->vertexCount;
     iVar15 = local_30 / (int)(uint)bVar1;
     if (bVar1 == 0) {
       trap(0x1c00);
@@ -1503,7 +1794,7 @@ void CalcObjectBoundingSphere__FP5GroupT0(Group *defGroup,Group *boundingSphereG
     if (((uint)bVar1 == 0xffffffff) && (local_30 == -0x80000000)) {
       trap(0x1800);
     }
-    bVar1 = *(byte *)(psVar6 + 1);
+    bVar1 = pTVar6->vertexCount;
     iVar16 = local_2c / (int)(uint)bVar1;
     if (bVar1 == 0) {
       trap(0x1c00);
@@ -1511,7 +1802,7 @@ void CalcObjectBoundingSphere__FP5GroupT0(Group *defGroup,Group *boundingSphereG
     if (((uint)bVar1 == 0xffffffff) && (local_2c == -0x80000000)) {
       trap(0x1800);
     }
-    bVar1 = *(byte *)(psVar6 + 1);
+    bVar1 = pTVar6->vertexCount;
     iVar17 = local_28 / (int)(uint)bVar1;
     if (bVar1 == 0) {
       trap(0x1c00);
@@ -1519,21 +1810,21 @@ void CalcObjectBoundingSphere__FP5GroupT0(Group *defGroup,Group *boundingSphereG
     if (((uint)bVar1 == 0xffffffff) && (local_28 == -0x80000000)) {
       trap(0x1800);
     }
-    psVar9 = psVar6 + 2;
+    pTVar9 = pTVar6 + 1;
     iVar10 = 0;
-    uVar7 = (uint)*(byte *)(psVar6 + 1);
+    uVar7 = (uint)pTVar6->vertexCount;
     while( true ) {
       uVar7 = uVar7 - 1;
       if (uVar7 == 0xffffffff) break;
-      iVar3 = iVar15 - (int)*psVar9 >> 6;
-      iVar4 = iVar16 - (int)psVar6[3] >> 6;
-      iVar5 = iVar17 - (int)psVar6[4] >> 6;
+      iVar3 = iVar15 - (int)pTVar9->id >> 6;
+      iVar4 = iVar16 - (int)*(short *)&pTVar6[1].vertexCount >> 6;
+      iVar5 = iVar17 - (int)pTVar6[2].id >> 6;
       iVar3 = iVar3 * iVar3 + iVar4 * iVar4 + iVar5 * iVar5;
       if (iVar10 < iVar3) {
         iVar10 = iVar3;
       }
-      psVar9 = psVar9 + 4;
-      psVar6 = psVar6 + 4;
+      pTVar9 = pTVar9 + 2;
+      pTVar6 = pTVar6 + 2;
     }
     local_30._0_2_ = (undefined2)iVar15;
     iVar12 = iVar12 + 1;
@@ -1644,23 +1935,45 @@ void CalcObjectBoundingSphere__FP5GroupT0(Group *defGroup,Group *boundingSphereG
 	// End offset: 0x800BA614
 	// End Line: 1187
 
+	/* begin block 2 */
+		// Start line: 2525
+	/* end block 2 */
+	// End Line: 2526
+
+	/* begin block 3 */
+		// Start line: 2579
+	/* end block 3 */
+	// End Line: 2580
+
+	/* begin block 4 */
+		// Start line: 2579
+	/* end block 4 */
+	// End Line: 2580
+
+	/* begin block 5 */
+		// Start line: 2585
+	/* end block 5 */
+	// End Line: 2586
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void CalcObjDefPtrs__Fv(void)
 
 {
   bool bVar1;
-  int *piVar2;
-  int iVar3;
+  Group *pGVar2;
+  Group *pGVar3;
+  int iVar4;
   
-  iVar3 = 1;
-  piVar2 = (int *)(iGp00000f94 + 8);
-  *(int **)(iGp00000f94 + 4) = piGp00000f70 + 1;
-  while (bVar1 = iVar3 < *piGp00000f70, iVar3 = iVar3 + 1, bVar1) {
-    *piVar2 = piVar2[-1] + *piVar2;
-    piVar2 = piVar2 + 1;
+  pGVar2 = gPersistObjDef;
+  iVar4 = 1;
+  pGVar3 = gObjDefOffsetsGroup + 2;
+  *(Group **)&gObjDefOffsetsGroup[1].m_num_elements = gPersistObjDef + 1;
+  while (bVar1 = iVar4 < pGVar2->m_num_elements, iVar4 = iVar4 + 1, bVar1) {
+    pGVar3->m_num_elements = pGVar3[-1].m_num_elements + pGVar3->m_num_elements;
+    pGVar3 = pGVar3 + 1;
   }
-  iGp00000f88 = iGp00000f94 + 4;
+  Track_gObjDefs = (Trk_ObjectDef **)(gObjDefOffsetsGroup + 1);
   return;
 }
 
@@ -1833,6 +2146,21 @@ void CalcObjDefPtrs__Fv(void)
 	// End offset: 0x800BA7E0
 	// End Line: 1293
 
+	/* begin block 2 */
+		// Start line: 2622
+	/* end block 2 */
+	// End Line: 2623
+
+	/* begin block 3 */
+		// Start line: 2646
+	/* end block 3 */
+	// End Line: 2647
+
+	/* begin block 4 */
+		// Start line: 2646
+	/* end block 4 */
+	// End Line: 2647
+
 void Track_InitPersistentData__FP15SerializedGroup(SerializedGroup *perGroup)
 
 {
@@ -1846,7 +2174,7 @@ void Track_InitPersistentData__FP15SerializedGroup(SerializedGroup *perGroup)
   undefined auStack48 [16];
   
   index = 0;
-  pGGp00000f94 = (Group *)0x0;
+  gObjDefOffsetsGroup = (Group *)0x0;
   iVar1 = -(((uint)(perGroup->m_num_elements << 5) >> 3) + 7 & 0xfffffff8);
   ppSVar3 = (SerializedGroup **)(&stack0xffffffe0 + iVar1);
   ppSVar4 = ppSVar3;
@@ -1865,33 +2193,37 @@ void Track_InitPersistentData__FP15SerializedGroup(SerializedGroup *perGroup)
     switch((*ppSVar3)->m_type) {
     case 2:
       Track_LinkMaterials__FP15SerializedGroupiP15Track_tMaterial
-                (*ppSVar3,(*ppSVar3)->m_length + -0x10,uGp00000f84,auStack48[iVar1]);
+                (*ppSVar3,(*ppSVar3)->m_length + -0x10,Track_materials,auStack48[iVar1]);
       break;
     case 7:
-      pGGp00000f74 = CreateLiteGroup__15SerializedGroupP15SerializedGroupP9SimpleMem
-                               (*ppSVar3,*ppSVar3,uGp00000f8c,auStack48[iVar1]);
+      gPersistObjInst =
+           CreateLiteGroup__15SerializedGroupP15SerializedGroupP9SimpleMem
+                     (*ppSVar3,*ppSVar3,Track_mem,auStack48[iVar1]);
       break;
     case 8:
-      pGGp00000f70 = CreateLiteGroup__15SerializedGroupP15SerializedGroupP9SimpleMem
-                               (*ppSVar3,*ppSVar3,uGp00000f8c,auStack48[iVar1]);
+      gPersistObjDef =
+           CreateLiteGroup__15SerializedGroupP15SerializedGroupP9SimpleMem
+                     (*ppSVar3,*ppSVar3,Track_mem,auStack48[iVar1]);
       break;
     case 0xf:
       simGroup = CreateLiteGroup__15SerializedGroupP15SerializedGroupP9SimpleMem
-                           (*ppSVar3,*ppSVar3,uGp00000f8c,auStack48[iVar1]);
+                           (*ppSVar3,*ppSVar3,Track_mem,auStack48[iVar1]);
       BWorldSm_Init__FP5Group(simGroup,auStack48[iVar1]);
       break;
     case 0x24:
-      pGGp00000f78 = CreateLiteGroup__15SerializedGroupP15SerializedGroupP9SimpleMem
-                               (*ppSVar3,*ppSVar3,uGp00000f8c,auStack48[iVar1]);
+      gPersistMidgroundObjInst =
+           CreateLiteGroup__15SerializedGroupP15SerializedGroupP9SimpleMem
+                     (*ppSVar3,*ppSVar3,Track_mem,auStack48[iVar1]);
       break;
     case 0x26:
-      pGGp00000f94 = CreateLiteGroup__15SerializedGroupP15SerializedGroupP9SimpleMem
-                               (*ppSVar3,*ppSVar3,uGp00000f8c,auStack48[iVar1]);
+      gObjDefOffsetsGroup =
+           CreateLiteGroup__15SerializedGroupP15SerializedGroupP9SimpleMem
+                     (*ppSVar3,*ppSVar3,Track_mem,auStack48[iVar1]);
     }
     ppSVar3 = ppSVar3 + 1;
     index = index + 1;
   }
-  if (pGGp00000f94 != (Group *)0x0) {
+  if (gObjDefOffsetsGroup != (Group *)0x0) {
     CalcObjDefPtrs__Fv(auStack48[iVar1]);
   }
   return;
@@ -2052,147 +2384,165 @@ void Track_InitPersistentData__FP15SerializedGroup(SerializedGroup *perGroup)
 	// End offset: 0x800BABB4
 	// End Line: 1458
 
+	/* begin block 2 */
+		// Start line: 2842
+	/* end block 2 */
+	// End Line: 2843
+
+	/* begin block 3 */
+		// Start line: 2862
+	/* end block 3 */
+	// End Line: 2863
+
+	/* begin block 4 */
+		// Start line: 2862
+	/* end block 4 */
+	// End Line: 2863
+
 void Track_Init__FPc(char *tempName)
 
 {
+  RelCoord16 *pRVar1;
+  TrackHeader *pTVar2;
   int len;
   SimpleMem *this;
-  short *psVar1;
-  void *pvVar2;
-  Group *pGVar3;
+  short *psVar3;
+  void *pvVar4;
+  Group *pGVar5;
   SerializedGroup *perGroup;
   SerializedGroup *this_00;
   SaveSurface *this_01;
-  undefined2 *puVar4;
-  CVECTOR *pCVar5;
-  int iVar6;
-  ushort *puVar7;
+  undefined2 *puVar6;
+  CVECTOR *pCVar7;
   int iVar8;
-  int iVar9;
-  CVECTOR CVar10;
-  CVECTOR CVar11;
+  ushort *puVar9;
+  int iVar10;
+  int iVar11;
   CVECTOR CVar12;
-  int iVar13;
-  Chunk *this_02;
-  SerializedGroup *pSVar14;
+  CVECTOR CVar13;
+  CVECTOR CVar14;
   int iVar15;
+  SerializedGroup *pSVar16;
+  int iVar17;
   char acStack168 [128];
   
-  DAT_00000f80 = (SaveSurface *)0x0;
-  DAT_00000f88 = 0;
+  Track_gSaveSurface = (SaveSurface *)0x0;
+  Track_gObjDefs = (Trk_ObjectDef **)0x0;
   sprintf(acStack168,(char *)&PTR_DAT_8013d490,tempName);
   len = filesize(tempName);
   Chunk_lightTable = (CVECTOR *)reservememadr(s_lighttbl_80056668,0x404,0);
   TextureProcess_Init__Fv();
-  iVar13 = len + 0x9080;
+  iVar15 = len + 0x9080;
   InitArtResources__Fv();
   TexturesLoadInitial__Fv();
   this = (SimpleMem *)__builtin_new(0xc);
-  psVar1 = reservememadr(s_Track_mem_80056674,iVar13,0);
-  *(short **)&this->heap = psVar1;
-  *(short **)&this->freeMem = psVar1;
-  if (psVar1 == (short *)0x0) {
-    iVar13 = 0;
+  psVar3 = reservememadr(s_Track_mem_80056674,iVar15,0);
+  *(short **)&this->heap = psVar3;
+  *(short **)&this->freeMem = psVar3;
+  if (psVar3 == (short *)0x0) {
+    iVar15 = 0;
   }
-  this->freeMemSize = iVar13;
-  DAT_00000f8c = this;
-  pvVar2 = FeignAlloc__9SimpleMemi(this,len);
-  this_00 = (SerializedGroup *)loadfileatadr(acStack168,(int)pvVar2 + 0x9080);
-  DAT_00000f68 = LocateCreateGroupType__15SerializedGroupiP9SimpleMemi(this_00,0x1f,DAT_00000f8c,0);
-  DAT_00000f68 = DAT_00000f68 + 1;
-  pGVar3 = LocateCreateGroupType__15SerializedGroupiP9SimpleMemi(this_00,0x20,DAT_00000f8c,0);
-  Chunk_chunkCenters = (coorddef *)(pGVar3 + 1);
+  this->freeMemSize = iVar15;
+  Track_mem = this;
+  pvVar4 = FeignAlloc__9SimpleMemi(this,len);
+  this_00 = (SerializedGroup *)loadfileatadr(acStack168,(int)pvVar4 + 0x9080);
+  pGVar5 = LocateCreateGroupType__15SerializedGroupiP9SimpleMemi(this_00,0x1f,Track_mem,0);
+  Track_header = (TrackHeader *)(pGVar5 + 1);
+  pGVar5 = LocateCreateGroupType__15SerializedGroupiP9SimpleMemi(this_00,0x20,Track_mem,0);
+  Chunk_chunkCenters = (coorddef *)(pGVar5 + 1);
   perGroup = LocateGroupType__15SerializedGroupii(this_00,0x23,0);
-  pSVar14 = perGroup + 1;
-  pCVar5 = Chunk_lightTable;
-  if ((((uint)pSVar14 | (uint)Chunk_lightTable) & 3) == 0) {
+  pSVar16 = perGroup + 1;
+  pCVar7 = Chunk_lightTable;
+  if ((((uint)pSVar16 | (uint)Chunk_lightTable) & 3) == 0) {
     do {
-      CVar10 = *(CVECTOR *)&pSVar14->m_length;
-      CVar11 = *(CVECTOR *)&pSVar14->dummy;
-      CVar12 = *(CVECTOR *)&pSVar14->m_num_elements;
-      *pCVar5 = *(CVECTOR *)&pSVar14->m_type;
-      pCVar5[1] = CVar10;
-      pCVar5[2] = CVar11;
-      pCVar5[3] = CVar12;
-      pSVar14 = pSVar14 + 1;
-      pCVar5 = pCVar5 + 4;
-    } while (pSVar14 != perGroup + 0x41);
+      CVar12 = *(CVECTOR *)&pSVar16->m_length;
+      CVar13 = *(CVECTOR *)&pSVar16->dummy;
+      CVar14 = *(CVECTOR *)&pSVar16->m_num_elements;
+      *pCVar7 = *(CVECTOR *)&pSVar16->m_type;
+      pCVar7[1] = CVar12;
+      pCVar7[2] = CVar13;
+      pCVar7[3] = CVar14;
+      pSVar16 = pSVar16 + 1;
+      pCVar7 = pCVar7 + 4;
+    } while (pSVar16 != perGroup + 0x41);
   }
   else {
     do {
-      CVar10 = *(CVECTOR *)&pSVar14->m_length;
-      CVar11 = *(CVECTOR *)&pSVar14->dummy;
-      CVar12 = *(CVECTOR *)&pSVar14->m_num_elements;
-      *pCVar5 = *(CVECTOR *)&pSVar14->m_type;
-      pCVar5[1] = CVar10;
-      pCVar5[2] = CVar11;
-      pCVar5[3] = CVar12;
-      pSVar14 = pSVar14 + 1;
-      pCVar5 = pCVar5 + 4;
-    } while (pSVar14 != perGroup + 0x41);
+      CVar12 = *(CVECTOR *)&pSVar16->m_length;
+      CVar13 = *(CVECTOR *)&pSVar16->dummy;
+      CVar14 = *(CVECTOR *)&pSVar16->m_num_elements;
+      *pCVar7 = *(CVECTOR *)&pSVar16->m_type;
+      pCVar7[1] = CVar12;
+      pCVar7[2] = CVar13;
+      pCVar7[3] = CVar14;
+      pSVar16 = pSVar16 + 1;
+      pCVar7 = pCVar7 + 4;
+    } while (pSVar16 != perGroup + 0x41);
   }
   perGroup = LocateGroupType__15SerializedGroupii(this_00,0x23,0);
   len = 0;
-  iVar13 = 0;
   iVar15 = 0;
-  DAT_00000fa0 = perGroup->m_length - 0x10U >> 2;
-  DAT_00000f60 = Alloc__9SimpleMemii(DAT_00000f8c,DAT_00000f68[7].m_num_elements * 0x48,0);
-  DAT_00000f64 = Alloc__9SimpleMemii(DAT_00000f8c,DAT_00000f68[7].m_num_elements,0);
-  DAT_00000f6c = Alloc__9SimpleMemii(DAT_00000f8c,DAT_00000f68[7].m_num_elements * 0x70,0);
+  iVar17 = 0;
+  Chunk_numLight = perGroup->m_length - 0x10U >> 2;
+  Track_gInViewList = (short *)Alloc__9SimpleMemii(Track_mem,Track_header->chunkCount * 0x48,0);
+  Track_gInViewCount = (uchar *)Alloc__9SimpleMemii(Track_mem,Track_header->chunkCount,0);
+  Track_chunkList = (Chunk *)Alloc__9SimpleMemii(Track_mem,Track_header->chunkCount * 0x70,0);
   Chunk_Init__Fv();
   perGroup = LocateGroupType__15SerializedGroupii(this_00,0x21,0);
   this_00 = LocateGroupType__15SerializedGroupii(this_00,0x1d,0);
-  while (len < DAT_00000f68[7].m_num_elements) {
-    this_02 = (Chunk *)((int)DAT_00000f6c + iVar15);
-    pSVar14 = (SerializedGroup *)0x0;
-    if (len < DAT_00000f68[7].m_num_elements + -1) {
-      pSVar14 = LocateNextGroupType__15SerializedGroupi(this_00,0x1d);
+  while (len < Track_header->chunkCount) {
+    pRVar1 = Track_chunkList->boundPts;
+    pSVar16 = (SerializedGroup *)0x0;
+    if (len < Track_header->chunkCount + -1) {
+      pSVar16 = LocateNextGroupType__15SerializedGroupi(this_00,0x1d);
     }
-    InstanceGroup__5ChunkP15SerializedGroupP9SimpleMem(this_02,this_00,DAT_00000f8c);
+    InstanceGroup__5ChunkP15SerializedGroupP9SimpleMem
+              ((Chunk *)((int)&pRVar1->x + iVar17),this_00,Track_mem);
     this_00 = LocateGroupType__15SerializedGroupii(this_00,4,0);
-    pGVar3 = DAT_00000f68;
-    iVar9 = this_00->m_num_elements;
+    pTVar2 = Track_header;
+    iVar11 = this_00->m_num_elements;
     this_00 = this_00 + 1;
+    iVar10 = 0;
+    if (0x24 < iVar11) {
+      iVar11 = 0x24;
+    }
     iVar8 = 0;
-    if (0x24 < iVar9) {
-      iVar9 = 0x24;
-    }
-    iVar6 = 0;
-    if (0 < iVar9) {
-      puVar7 = (ushort *)(iVar13 + (int)DAT_00000f60);
+    if (0 < iVar11) {
+      puVar9 = (ushort *)(iVar15 + (int)Track_gInViewList);
       do {
-        if ((int)((uint)*(ushort *)&this_00->m_type & 0x3ff) < pGVar3[7].m_num_elements) {
-          *puVar7 = *(ushort *)&this_00->m_type;
-          puVar7 = puVar7 + 1;
-          iVar6 = iVar6 + 1;
+        if ((int)((uint)*(ushort *)&this_00->m_type & 0x3ff) < pTVar2->chunkCount) {
+          *puVar9 = *(ushort *)&this_00->m_type;
+          puVar9 = puVar9 + 1;
+          iVar8 = iVar8 + 1;
         }
-        iVar8 = iVar8 + 1;
+        iVar10 = iVar10 + 1;
         this_00 = (SerializedGroup *)((int)&this_00->m_type + 2);
-      } while (iVar8 < iVar9);
+      } while (iVar10 < iVar11);
     }
-    *(undefined *)((int)DAT_00000f64 + len) = (char)iVar6;
-    if (iVar6 < 0x24) {
-      puVar4 = (undefined2 *)((int)DAT_00000f60 + iVar6 * 2 + iVar13);
+    Track_gInViewCount[len] = (uchar)iVar8;
+    if (iVar8 < 0x24) {
+      puVar6 = (undefined2 *)((int)Track_gInViewList + iVar8 * 2 + iVar15);
       do {
-        *puVar4 = 0x3ff;
-        iVar6 = iVar6 + 1;
-        puVar4 = puVar4 + 1;
-      } while (iVar6 < 0x24);
+        *puVar6 = 0x3ff;
+        iVar8 = iVar8 + 1;
+        puVar6 = puVar6 + 1;
+      } while (iVar8 < 0x24);
     }
-    iVar13 = iVar13 + 0x40;
-    iVar15 = iVar15 + 0x70;
+    iVar15 = iVar15 + 0x40;
+    iVar17 = iVar17 + 0x70;
     len = len + 1;
-    this_00 = pSVar14;
+    this_00 = pSVar16;
   }
   Track_InitPersistentData__FP15SerializedGroup(perGroup);
-  ResizeToFit__9SimpleMem(DAT_00000f8c);
+  ResizeToFit__9SimpleMem(Track_mem);
   Track_MakeTrackPathName__FPc(&DAT_8013d494);
-  DAT_00000f7c = (Group *)reservememadr(s_bsphere_8013d49c,DAT_00000f70->m_num_elements << 3 | 4,0);
-  CalcObjectBoundingSphere__FP5GroupT0(DAT_00000f70,DAT_00000f7c);
-  ReduceObjectPrecision__FP5GroupT0i(DAT_00000f78,DAT_00000f70,2);
-  InvalidatePersistentCollideBoomObjects__FP5GroupT0(DAT_00000f74,DAT_00000f70);
+  gPersistObjDefBoundingSpheres =
+       (Group *)reservememadr(s_bsphere_8013d49c,gPersistObjDef->m_num_elements << 3 | 4,0);
+  CalcObjectBoundingSphere__FP5GroupT0(gPersistObjDef,gPersistObjDefBoundingSpheres);
+  ReduceObjectPrecision__FP5GroupT0i(gPersistMidgroundObjInst,gPersistObjDef,2);
+  InvalidatePersistentCollideBoomObjects__FP5GroupT0(gPersistObjInst,gPersistObjDef);
   this_01 = (SaveSurface *)__builtin_new(8);
-  DAT_00000f80 = __11SaveSurfacei(this_01,0x30);
+  Track_gSaveSurface = __11SaveSurfacei(this_01,0x30);
   Track_LoadObjectKillData__Fv();
   return;
 }
@@ -2224,22 +2574,37 @@ void Track_Init__FPc(char *tempName)
 	// End offset: 0x800BAD28
 	// End Line: 1530
 
+	/* begin block 2 */
+		// Start line: 3262
+	/* end block 2 */
+	// End Line: 3263
+
+	/* begin block 3 */
+		// Start line: 3279
+	/* end block 3 */
+	// End Line: 3280
+
+	/* begin block 4 */
+		// Start line: 3279
+	/* end block 4 */
+	// End Line: 3280
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Track_DeInit__Fv(void)
 
 {
-  int *deleteMe;
+  SimpleMem *deleteMe;
   
-  deleteMe = DAT_00000f8c;
-  if (DAT_00000f8c != (int *)0x0) {
-    purgememadr(*DAT_00000f8c);
-    deleteMe[1] = 0;
+  deleteMe = Track_mem;
+  if (Track_mem != (SimpleMem *)0x0) {
+    purgememadr((int)Track_mem->heap);
+    deleteMe->freeMem = (void *)0x0;
     __builtin_delete(deleteMe);
   }
-  if (DAT_00000f80 != (SaveSurface *)0x0) {
-    ___11SaveSurface(DAT_00000f80,3);
-    DAT_00000f80 = (SaveSurface *)0x0;
+  if (Track_gSaveSurface != (SaveSurface *)0x0) {
+    ___11SaveSurface(Track_gSaveSurface,3);
+    Track_gSaveSurface = (SaveSurface *)0x0;
   }
   if (gInitialArt.shapeFile != (char *)0x0) {
     gInitialArt.shapeFile = (char *)0x0;
@@ -2250,13 +2615,13 @@ void Track_DeInit__Fv(void)
     purgememadr((int)Chunk_lightTable);
     Chunk_lightTable = (CVECTOR *)0x0;
   }
-  if (DAT_00000f7c != 0) {
-    purgememadr(DAT_00000f7c);
+  if (gPersistObjDefBoundingSpheres != (Group *)0x0) {
+    purgememadr((int)gPersistObjDefBoundingSpheres);
   }
-  DAT_00000f70 = 0;
-  DAT_00000f74 = 0;
-  DAT_00000f78 = 0;
-  DAT_00000f7c = 0;
+  gPersistObjDef = (Group *)0x0;
+  gPersistObjInst = (Group *)0x0;
+  gPersistMidgroundObjInst = (Group *)0x0;
+  gPersistObjDefBoundingSpheres = (Group *)0x0;
   return;
 }
 
@@ -2272,6 +2637,26 @@ void Track_DeInit__Fv(void)
 	/* end block 1 */
 	// End offset: 0x800BAD48
 	// End Line: 1538
+
+	/* begin block 2 */
+		// Start line: 3369
+	/* end block 2 */
+	// End Line: 3370
+
+	/* begin block 3 */
+		// Start line: 3373
+	/* end block 3 */
+	// End Line: 3374
+
+	/* begin block 4 */
+		// Start line: 3373
+	/* end block 4 */
+	// End Line: 3374
+
+	/* begin block 5 */
+		// Start line: 3380
+	/* end block 5 */
+	// End Line: 3381
 
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
@@ -2295,6 +2680,21 @@ void Track_AnimateTrackLighting__Fv(void)
 	/* end block 1 */
 	// End offset: 0x800BAD50
 	// End Line: 1721
+
+	/* begin block 2 */
+		// Start line: 3317
+	/* end block 2 */
+	// End Line: 3318
+
+	/* begin block 3 */
+		// Start line: 3686
+	/* end block 3 */
+	// End Line: 3687
+
+	/* begin block 4 */
+		// Start line: 3686
+	/* end block 4 */
+	// End Line: 3687
 
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
@@ -2322,6 +2722,31 @@ char * KillFile_OpenRead__Fv(void)
 	/* end block 1 */
 	// End offset: 0x800BAD94
 	// End Line: 1734
+
+	/* begin block 2 */
+		// Start line: 3707
+	/* end block 2 */
+	// End Line: 3708
+
+	/* begin block 3 */
+		// Start line: 3713
+	/* end block 3 */
+	// End Line: 3714
+
+	/* begin block 4 */
+		// Start line: 3713
+	/* end block 4 */
+	// End Line: 3714
+
+	/* begin block 5 */
+		// Start line: 3714
+	/* end block 5 */
+	// End Line: 3715
+
+	/* begin block 6 */
+		// Start line: 3714
+	/* end block 6 */
+	// End Line: 3715
 
 void KillFile_ReadEntry__FPciRiT2(char *filePtr,int entryInd,int *chunkInd,int *objectInd)
 
@@ -2498,6 +2923,21 @@ void KillFile_ReadEntry__FPciRiT2(char *filePtr,int entryInd,int *chunkInd,int *
 	// End offset: 0x800BAEE4
 	// End Line: 1821
 
+	/* begin block 2 */
+		// Start line: 3727
+	/* end block 2 */
+	// End Line: 3728
+
+	/* begin block 3 */
+		// Start line: 3733
+	/* end block 3 */
+	// End Line: 3734
+
+	/* begin block 4 */
+		// Start line: 3733
+	/* end block 4 */
+	// End Line: 3734
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Track_LoadObjectKillData__Fv(void)
@@ -2506,10 +2946,10 @@ void Track_LoadObjectKillData__Fv(void)
   int *filePtr;
   int iVar1;
   int iVar2;
-  int *piVar3;
-  int iVar4;
+  Group *pGVar3;
   coorddef *a;
-  int *piVar5;
+  Group *pGVar4;
+  int iVar5;
   int entryInd;
   int local_28;
   int local_24;
@@ -2519,33 +2959,34 @@ void Track_LoadObjectKillData__Fv(void)
   if (filePtr != (int *)0x0) {
     while (entryInd < *filePtr) {
       KillFile_ReadEntry__FPciRiT2((char *)filePtr,entryInd,&local_28,&local_24);
-      iVar4 = DAT_00000f6c + local_28 * 0x70;
-      piVar3 = *(int **)(iVar4 + 0x40);
-      if ((piVar3 != (int *)0x0) && (piVar5 = piVar3 + 1, local_24 < *piVar3)) {
+      pGVar3 = Track_chunkList[local_28].objInstanceBuf;
+      if ((pGVar3 != (Group *)0x0) && (pGVar4 = pGVar3 + 1, local_24 < pGVar3->m_num_elements)) {
         iVar2 = 0;
         if (0 < local_24) {
           do {
             iVar2 = iVar2 + 1;
-            piVar5 = (int *)((int)piVar5 + (int)*(short *)piVar5);
+            pGVar4 = (Group *)((int)&pGVar4->m_num_elements + (int)*(short *)&pGVar4->m_num_elements
+                              );
           } while (iVar2 < local_24);
         }
-        piVar3 = *(int **)(iVar4 + 0x50);
-        iVar4 = 0;
-        if (piVar3 != (int *)0x0) {
-          iVar2 = *piVar3;
-          a = (coorddef *)(piVar3 + 1);
-          if (0 < iVar2) {
+        pGVar3 = Track_chunkList[local_28].simObjBuf;
+        iVar2 = 0;
+        if (pGVar3 != (Group *)0x0) {
+          iVar5 = pGVar3->m_num_elements;
+          a = (coorddef *)(pGVar3 + 1);
+          if (0 < iVar5) {
             do {
-              iVar1 = Math_DistXZ__FP8coorddefT0(a,(coorddef *)(piVar5 + 2));
+              iVar1 = Math_DistXZ__FP8coorddefT0(a,(coorddef *)(pGVar4 + 2));
               if (iVar1 < 0x1999) {
                 *(undefined *)((int)&a[1].y + 3) = 0x10;
               }
-              iVar4 = iVar4 + 1;
+              iVar2 = iVar2 + 1;
               a = (coorddef *)&a[1].z;
-            } while (iVar4 < iVar2);
+            } while (iVar2 < iVar5);
           }
         }
-        *(byte *)((int)piVar5 + 2) = *(byte *)((int)piVar5 + 2) | 0x80;
+        *(byte *)((int)&pGVar4->m_num_elements + 2) =
+             *(byte *)((int)&pGVar4->m_num_elements + 2) | 0x80;
       }
       entryInd = entryInd + 1;
     }
@@ -2566,6 +3007,21 @@ void Track_LoadObjectKillData__Fv(void)
 	/* end block 1 */
 	// End offset: 0x800BAF68
 	// End Line: 1845
+
+	/* begin block 2 */
+		// Start line: 3902
+	/* end block 2 */
+	// End Line: 3903
+
+	/* begin block 3 */
+		// Start line: 3912
+	/* end block 3 */
+	// End Line: 3913
+
+	/* begin block 4 */
+		// Start line: 3912
+	/* end block 4 */
+	// End Line: 3913
 
 void Save__11SaveSurfaceP14Trk_NewSimQuad(SaveSurface *this,Trk_NewSimQuad *simQuad)
 
@@ -2591,6 +3047,21 @@ void Save__11SaveSurfaceP14Trk_NewSimQuad(SaveSurface *this,Trk_NewSimQuad *simQ
 	// End offset: 0x800BAF70
 	// End Line: 1856
 
+	/* begin block 2 */
+		// Start line: 3955
+	/* end block 2 */
+	// End Line: 3956
+
+	/* begin block 3 */
+		// Start line: 3960
+	/* end block 3 */
+	// End Line: 3961
+
+	/* begin block 4 */
+		// Start line: 3960
+	/* end block 4 */
+	// End Line: 3961
+
 SaveSurface * __11SaveSurfacei(SaveSurface *this,int numEntries)
 
 {
@@ -2615,6 +3086,21 @@ SaveSurface * __11SaveSurfacei(SaveSurface *this,int numEntries)
 	/* end block 1 */
 	// End offset: 0x800BAFB4
 	// End Line: 1865
+
+	/* begin block 2 */
+		// Start line: 3975
+	/* end block 2 */
+	// End Line: 3976
+
+	/* begin block 3 */
+		// Start line: 3981
+	/* end block 3 */
+	// End Line: 3982
+
+	/* begin block 4 */
+		// Start line: 3981
+	/* end block 4 */
+	// End Line: 3982
 
 void ___11SaveSurface(SaveSurface *this,int __in_chrg)
 
@@ -2648,6 +3134,21 @@ void ___11SaveSurface(SaveSurface *this,int __in_chrg)
 	// End offset: 0x800BB060
 	// End Line: 1880
 
+	/* begin block 2 */
+		// Start line: 3989
+	/* end block 2 */
+	// End Line: 3990
+
+	/* begin block 3 */
+		// Start line: 3995
+	/* end block 3 */
+	// End Line: 3996
+
+	/* begin block 4 */
+		// Start line: 3995
+	/* end block 4 */
+	// End Line: 3996
+
 void RestoreAll__11SaveSurface(SaveSurface *this)
 
 {
@@ -2665,6 +3166,7 @@ void RestoreAll__11SaveSurface(SaveSurface *this)
   this->fCount = 0;
   return;
 }
+
 
 
 

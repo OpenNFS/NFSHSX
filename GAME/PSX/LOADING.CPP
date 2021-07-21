@@ -1,5 +1,6 @@
-#include "NFS4.H"
+#include "THISDUST.H"
 #include "LOADING.H"
+
 
 // decompiled code
 // original method signature: 
@@ -17,6 +18,16 @@
 	/* end block 1 */
 	// End offset: 0x800DB0B8
 	// End Line: 16
+
+	/* begin block 2 */
+		// Start line: 30
+	/* end block 2 */
+	// End Line: 31
+
+	/* begin block 3 */
+		// Start line: 30
+	/* end block 3 */
+	// End Line: 31
 
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
@@ -38,7 +49,7 @@ void Loading_DrawLoadingScreen__Fv(void)
   Draw_SetEnvironment__Fiiiiiiii(0x200,0xf0,1,0,1,0,0,0);
   tile = (shapetbl *)shapepointer(iVar2,0);
   Draw_DrawDirectScreen__FP8shapetblii(tile,0,0);
-  tile = (shapetbl *)locateshapez(iVar3,(int *)(&__loading_languageNames_6__)[iVar1]);
+  tile = (shapetbl *)locateshapez(iVar3,(int *)loading_languageNames6[iVar1]);
   Draw_DrawDirectScreen__FP8shapetblii
             (tile,(*(int *)&tile->centerx << 0x14) >> 0x14,(*(int *)&tile->centerx << 4) >> 0x14);
   purgememadr(iVar2);
@@ -64,6 +75,21 @@ void Loading_DrawLoadingScreen__Fv(void)
 	// End offset: 0x800DB2D8
 	// End Line: 93
 
+	/* begin block 2 */
+		// Start line: 159
+	/* end block 2 */
+	// End Line: 160
+
+	/* begin block 3 */
+		// Start line: 168
+	/* end block 3 */
+	// End Line: 169
+
+	/* begin block 4 */
+		// Start line: 168
+	/* end block 4 */
+	// End Line: 169
+
 void Loading_UpdateLoadingScreen__Fi(int checkpoint)
 
 {
@@ -71,19 +97,19 @@ void Loading_UpdateLoadingScreen__Fi(int checkpoint)
   int iVar1;
   char acStack280 [256];
   
-  if ((checkpoint == 1) && (DAT_00001484 == 0)) {
+  if ((checkpoint == 1) && (smallShapeFile == (char *)0x0)) {
     sprintf(acStack280,s__sLoadb_psh_80056954,PTR_801164cc);
-    DAT_00001484 = loadshapeadr(acStack280,0x10);
+    smallShapeFile = (char *)loadshapeadr(acStack280,0x10);
   }
   iVar1 = 0;
   do {
-    tile = (shapetbl *)locateshapez(DAT_00001484,(int *)&DAT_8013d9d4);
+    tile = (shapetbl *)locateshapez((int)smallShapeFile,(int *)&DAT_8013d9d4);
     Draw_DrawDirectScreen__FP8shapetblii(tile,(checkpoint + -1) * 0x17 + iVar1 + 0x8e,0xc0);
     iVar1 = iVar1 + 1;
   } while (iVar1 < 0x17);
-  if ((checkpoint == 10) && (DAT_00001484 != 0)) {
-    purgememadr(DAT_00001484);
-    DAT_00001484 = 0;
+  if ((checkpoint == 10) && (smallShapeFile != (char *)0x0)) {
+    purgememadr((int)smallShapeFile);
+    smallShapeFile = (char *)0x0;
   }
   return;
 }
@@ -101,14 +127,30 @@ void Loading_UpdateLoadingScreen__Fi(int checkpoint)
 	// End offset: 0x800DB2F8
 	// End Line: 106
 
+	/* begin block 2 */
+		// Start line: 257
+	/* end block 2 */
+	// End Line: 258
+
+	/* begin block 3 */
+		// Start line: 270
+	/* end block 3 */
+	// End Line: 271
+
+	/* begin block 4 */
+		// Start line: 270
+	/* end block 4 */
+	// End Line: 271
+
 /* WARNING: Unknown calling convention yet parameter storage is locked */
 
 void Loading_GetInitialMemory__Fv(void)
 
 {
-  DAT_00001490 = largestunused();
+  totalAvailMem = largestunused();
   return;
 }
+
 
 
 
